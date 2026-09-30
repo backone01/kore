@@ -49,9 +49,24 @@ tiktok_downloads/
 file listening*/
 tools/
 
-# Scripts
+# Scripts & Local Tools
 BUKA_*.bat
 open_firewall.ps1
+*.py
+app/*.py
+app/*.ps1
+*.cjs
+app/*.cjs
+app/*.png
+
+# Raw Source PDFs & Extraction Artifacts
+*.pdf
+piktogram_dan_peralatan_resmi/
+piktogram_kisi_kisi/
+*_transcriptions.json
+transcriptions_*.json
+verified_*.json
+kisi_kisi_*.json
 
 # Editor
 .vscode/
