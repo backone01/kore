@@ -1,0 +1,18 @@
+{
+  "01_오른쪽으로_가세요_(Jalan_ke_kanan).mp3": "오른쪽으로 가세요",
+  "02_왼쪽으로_가세요_(Jalan_ke_kiri).mp3": "왼쪽으로 가세요",
+  "03_앞으로_가세요_(Maju_ke_depan).mp3": "앞으로 가세요",
+  "04_뒤로_가세요_(Mundur_ke_belakang).mp3": "뒤로 가세요",
+  "05_돌아서세요_(Putar_balik_badan).mp3": "",
+  "06_오른쪽으로_보세요_(Lihat_ke_kanan).mp3": "오른쪽으로 보세요.",
+  "07_왼쪽으로_보세요_(Lihat_ke_kiri).mp3": "왼쪽으로 보세요.",
+  "08_위로_보세요_(Lihat_ke_atas).mp3": "위로 보세요.",
+  "09_아래로_보세요_(Lihat_ke_bawah).mp3": "아래로 보셔요",
+  "10_앞으로_보세요_(Lihat_ke_depan).mp3": "앞으로 보세요",
+  "11_오른손_올리세요_(Angkat_tangan_kanan).mp3": "오린수 놀리세요",
+  "12_오른손_내리세요_(Turunkan_tangan_kanan).mp3": "오른손 내리세요",
+  "13_왼손_올리세요_(Angkat_tangan_kiri).mp3": "오린수 놀리세요",
+  "14_왼손_내리세요_(Turunkan_tangan_kiri).mp3": "왼손 내리세요",
+  "15_양손_올리세요_(Angkat_kedua_tangan).mp3": "양수 놀리세요",
+  "16_양손_내리세요_(Turunkan_kedua_tangan).mp3": "양손 내리세요"
+}

@@ -1,0 +1,3167 @@
+{
+  "metadata": {
+    "title": "Modul Hafalan & Kisi-Kisi Manufaktur EPS-TOPIK 2026",
+    "sources": [
+      "REVISI - KISI KISI SKILL TES MANUFAKTUR - 2025.pdf",
+      "외국인력 선발포인트제 기능시험 가이드북_내지_외부용_인도네시아 (2).pdf",
+      "20260306023013893.pdf (HRD Korea 2026)",
+      "JAGISOGE & SKIL ALAT KUMPLIT.pdf"
+    ]
+  },
+  "numbers": {
+    "sino": [
+      {
+        "ko": "일",
+        "ro": "Il",
+        "val": "1",
+        "audio": "/audio/materi/sino_1.mp3"
+      },
+      {
+        "ko": "이",
+        "ro": "I",
+        "val": "2",
+        "audio": "/audio/materi/sino_2.mp3"
+      },
+      {
+        "ko": "삼",
+        "ro": "Sam",
+        "val": "3",
+        "audio": "/audio/materi/sino_3.mp3"
+      },
+      {
+        "ko": "사",
+        "ro": "Sa",
+        "val": "4",
+        "audio": "/audio/materi/sino_4.mp3"
+      },
+      {
+        "ko": "오",
+        "ro": "O",
+        "val": "5",
+        "audio": "/audio/materi/sino_5.mp3"
+      },
+      {
+        "ko": "육",
+        "ro": "Yuk",
+        "val": "6",
+        "audio": "/audio/materi/sino_6.mp3"
+      },
+      {
+        "ko": "칠",
+        "ro": "Chil",
+        "val": "7",
+        "audio": "/audio/materi/sino_7.mp3"
+      },
+      {
+        "ko": "팔",
+        "ro": "Pal",
+        "val": "8",
+        "audio": "/audio/materi/sino_8.mp3"
+      },
+      {
+        "ko": "구",
+        "ro": "Gu",
+        "val": "9",
+        "audio": "/audio/materi/sino_9.mp3"
+      },
+      {
+        "ko": "십",
+        "ro": "Sip",
+        "val": "10",
+        "audio": "/audio/materi/sino_10.mp3"
+      },
+      {
+        "ko": "십오",
+        "ro": "Sibo",
+        "val": "15",
+        "audio": "/audio/materi/sino_15.mp3"
+      },
+      {
+        "ko": "이십",
+        "ro": "Isip",
+        "val": "20",
+        "audio": "/audio/materi/sino_20.mp3"
+      },
+      {
+        "ko": "삼십",
+        "ro": "Samsip",
+        "val": "30",
+        "audio": "/audio/materi/sino_30.mp3"
+      },
+      {
+        "ko": "오십",
+        "ro": "Osip",
+        "val": "50",
+        "audio": "/audio/materi/sino_50.mp3"
+      },
+      {
+        "ko": "백",
+        "ro": "Baek",
+        "val": "100",
+        "audio": "/audio/materi/sino_100.mp3"
+      },
+      {
+        "ko": "천",
+        "ro": "Cheon",
+        "val": "1.000",
+        "audio": "/audio/materi/sino_1000.mp3"
+      },
+      {
+        "ko": "만",
+        "ro": "Man",
+        "val": "10.000",
+        "audio": "/audio/materi/sino_10000.mp3"
+      },
+      {
+        "ko": "십만",
+        "ro": "Simman",
+        "val": "100.000",
+        "audio": "/audio/materi/sino_100000.mp3"
+      },
+      {
+        "ko": "백만",
+        "ro": "Baengman",
+        "val": "1.000.000",
+        "audio": "/audio/materi/sino_1000000.mp3"
+      }
+    ],
+    "native": [
+      {
+        "ko": "하나 (한)",
+        "ro": "Hana (Han)",
+        "val": "1",
+        "audio": "/audio/materi/nat_1.mp3"
+      },
+      {
+        "ko": "둘 (두)",
+        "ro": "Dul (Du)",
+        "val": "2",
+        "audio": "/audio/materi/nat_2.mp3"
+      },
+      {
+        "ko": "셋 (세)",
+        "ro": "Set (Se)",
+        "val": "3",
+        "audio": "/audio/materi/nat_3.mp3"
+      },
+      {
+        "ko": "넷 (네)",
+        "ro": "Net (Ne)",
+        "val": "4",
+        "audio": "/audio/materi/nat_4.mp3"
+      },
+      {
+        "ko": "다섯",
+        "ro": "Daseot",
+        "val": "5",
+        "audio": "/audio/materi/nat_5.mp3"
+      },
+      {
+        "ko": "여섯",
+        "ro": "Yeoseot",
+        "val": "6",
+        "audio": "/audio/materi/nat_6.mp3"
+      },
+      {
+        "ko": "일곱",
+        "ro": "Ilgop",
+        "val": "7",
+        "audio": "/audio/materi/nat_7.mp3"
+      },
+      {
+        "ko": "여덟",
+        "ro": "Yeodeol",
+        "val": "8",
+        "audio": "/audio/materi/nat_8.mp3"
+      },
+      {
+        "ko": "아홉",
+        "ro": "Ahop",
+        "val": "9",
+        "audio": "/audio/materi/nat_9.mp3"
+      },
+      {
+        "ko": "열",
+        "ro": "Yeol",
+        "val": "10",
+        "audio": "/audio/materi/nat_10.mp3"
+      },
+      {
+        "ko": "열한",
+        "ro": "Yeolhan",
+        "val": "11",
+        "audio": "/audio/materi/nat_11.mp3"
+      },
+      {
+        "ko": "스물 (스무)",
+        "ro": "Seumul (Seumu)",
+        "val": "20",
+        "audio": "/audio/materi/nat_20.mp3"
+      },
+      {
+        "ko": "서른",
+        "ro": "Seoreun",
+        "val": "30",
+        "audio": "/audio/materi/nat_30.mp3"
+      },
+      {
+        "ko": "마흔",
+        "ro": "Maheun",
+        "val": "40",
+        "audio": "/audio/materi/nat_40.mp3"
+      },
+      {
+        "ko": "쉰",
+        "ro": "Swin",
+        "val": "50",
+        "audio": "/audio/materi/nat_50.mp3"
+      },
+      {
+        "ko": "예순",
+        "ro": "Yesun",
+        "val": "60",
+        "audio": "/audio/materi/nat_60.mp3"
+      },
+      {
+        "ko": "일흔",
+        "ro": "Ilheun",
+        "val": "70",
+        "audio": "/audio/materi/nat_70.mp3"
+      },
+      {
+        "ko": "여든",
+        "ro": "Yeodeun",
+        "val": "80",
+        "audio": "/audio/materi/nat_80.mp3"
+      },
+      {
+        "ko": "아흔",
+        "ro": "Aheun",
+        "val": "90",
+        "audio": "/audio/materi/nat_90.mp3"
+      }
+    ],
+    "units": [
+      {
+        "unit": "원",
+        "ro": "Won",
+        "id": "Mata uang Korea",
+        "type": "Sino-Korea",
+        "example": "만원 (10.000 Won)",
+        "audio": "/audio/materi/unit_won.mp3"
+      },
+      {
+        "unit": "분",
+        "ro": "Bun",
+        "id": "Menit",
+        "type": "Sino-Korea",
+        "example": "삼십 분 (30 Menit)",
+        "audio": "/audio/materi/unit_bun.mp3"
+      },
+      {
+        "unit": "초",
+        "ro": "Cho",
+        "id": "Detik",
+        "type": "Sino-Korea",
+        "example": "이십오 초 (25 Detik)",
+        "audio": "/audio/materi/unit_cho.mp3"
+      },
+      {
+        "unit": "일",
+        "ro": "Il",
+        "id": "Hari / Tanggal",
+        "type": "Sino-Korea",
+        "example": "십오 일 (Tanggal 15)",
+        "audio": "/audio/materi/unit_il.mp3"
+      },
+      {
+        "unit": "월",
+        "ro": "Wol",
+        "id": "Bulan kalender",
+        "type": "Sino-Korea",
+        "example": "오 월 (Bulan Mei)",
+        "audio": "/audio/materi/unit_wol.mp3"
+      },
+      {
+        "unit": "년",
+        "ro": "Nyeon",
+        "id": "Tahun",
+        "type": "Sino-Korea",
+        "example": "이천이십육 년 (Tahun 2026)",
+        "audio": "/audio/materi/unit_nyeon.mp3"
+      },
+      {
+        "unit": "층",
+        "ro": "Cheung",
+        "id": "Lantai gedung",
+        "type": "Sino-Korea",
+        "example": "삼 층 (Lantai 3)",
+        "audio": "/audio/materi/unit_cheung.mp3"
+      },
+      {
+        "unit": "번",
+        "ro": "Beon",
+        "id": "Nomor urut / nomor telepon",
+        "type": "Sino-Korea",
+        "example": "일 번 (Nomor 1)",
+        "audio": "/audio/materi/unit_beon.mp3"
+      },
+      {
+        "unit": "시",
+        "ro": "Si",
+        "id": "Jam (waktu)",
+        "type": "Asli Korea",
+        "example": "세 시 (Pukul 3)",
+        "audio": "/audio/materi/unit_si.mp3"
+      },
+      {
+        "unit": "살",
+        "ro": "Sal",
+        "id": "Tahun usia / umur",
+        "type": "Asli Korea",
+        "example": "스물다섯 살 (25 Tahun)",
+        "audio": "/audio/materi/unit_sal.mp3"
+      },
+      {
+        "unit": "명",
+        "ro": "Myeong",
+        "id": "Orang (anggota keluarga/rekan)",
+        "type": "Asli Korea",
+        "example": "네 명 (4 Orang)",
+        "audio": "/audio/materi/unit_myeong.mp3"
+      },
+      {
+        "unit": "개",
+        "ro": "Gae",
+        "id": "Buah / Benda umum",
+        "type": "Asli Korea",
+        "example": "다섯 개 (5 Buah)",
+        "audio": "/audio/materi/unit_gae.mp3"
+      },
+      {
+        "unit": "병",
+        "ro": "Byeong",
+        "id": "Botol",
+        "type": "Asli Korea",
+        "example": "두 병 (2 Botol)",
+        "audio": "/audio/materi/unit_byeong.mp3"
+      },
+      {
+        "unit": "장",
+        "ro": "Jang",
+        "id": "Lembar (kertas/tiket)",
+        "type": "Asli Korea",
+        "example": "세 장 (3 Lembar)",
+        "audio": "/audio/materi/unit_jang.mp3"
+      },
+      {
+        "unit": "켤레",
+        "ro": "Kyeolle",
+        "id": "Pasang (sepatu/sarung tangan)",
+        "type": "Asli Korea",
+        "example": "한 켤레 (1 Pasang)",
+        "audio": "/audio/materi/unit_kyeolle.mp3"
+      },
+      {
+        "unit": "대",
+        "ro": "Dae",
+        "id": "Unit (mesin / kendaraan)",
+        "type": "Asli Korea",
+        "example": "두 대 (2 Unit)",
+        "audio": "/audio/materi/unit_dae.mp3"
+      },
+      {
+        "unit": "벌",
+        "ro": "Beol",
+        "id": "Setel pakaian",
+        "type": "Asli Korea",
+        "example": "한 벌 (1 Setel)",
+        "audio": "/audio/materi/unit_beol.mp3"
+      }
+    ],
+    "rules": [
+      "Angka Sino-Korea (일, 이, 삼, 사...) digunakan untuk: Uang (원), Menit (분), Detik (초), Tanggal (일), Bulan (월), Tahun (년), Nomor Lantai (층), Nomor Telepon (번), dan Porsi Makanan (인분).",
+      "Angka Asli Korea (하나, 둘, 셋, 넷...) digunakan untuk: Jam (시), Umur (살), Jumlah Orang (명), Jumlah Benda/Barang (개), Botol (병), Lembar (장), Pasang Sepatu (켤레), Unit Kendaraan (대).",
+      "Bentuk Perubahan: 하나 -> 한, 둘 -> 두, 셋 -> 세, 넷 -> 네, 스물 -> 스무 jika langsung diikuti kata satuan. Contoh: 한 개 (1 buah), 두 명 (2 orang), 세 시 (jam 3), 스무 살 (umur 20 tahun)."
+    ]
+  },
+  "time": {
+    "terms": [
+      {
+        "ko": "지금",
+        "ro": "Jigeum",
+        "id": "Sekarang",
+        "audio": "/audio/materi/time_jigeum.mp3"
+      },
+      {
+        "ko": "오전",
+        "ro": "Ojeon",
+        "id": "Pagi (AM / sebelum jam 12 siang)",
+        "audio": "/audio/materi/time_ojeon.mp3"
+      },
+      {
+        "ko": "오후",
+        "ro": "Ohu",
+        "id": "Siang/Sore (PM / setelah jam 12 siang)",
+        "audio": "/audio/materi/time_ohu.mp3"
+      },
+      {
+        "ko": "낮",
+        "ro": "Nat",
+        "id": "Siang hari",
+        "audio": "/audio/materi/time_nat.mp3"
+      },
+      {
+        "ko": "밤",
+        "ro": "Bam",
+        "id": "Malam hari",
+        "audio": "/audio/materi/time_bam.mp3"
+      },
+      {
+        "ko": "새벽",
+        "ro": "Saebyeok",
+        "id": "Subuh / Dini hari",
+        "audio": "/audio/materi/time_saebyeok.mp3"
+      },
+      {
+        "ko": "정오",
+        "ro": "Jeong-o",
+        "id": "Tengah hari (12:00 tepat)",
+        "audio": "/audio/materi/time_jeongo.mp3"
+      },
+      {
+        "ko": "자정",
+        "ro": "Jajeong",
+        "id": "Tengah malam (00:00 tepat)",
+        "audio": "/audio/materi/time_jajeong.mp3"
+      },
+      {
+        "ko": "반",
+        "ro": "Ban",
+        "id": "Setengah / 30 Menit",
+        "audio": "/audio/materi/time_ban.mp3"
+      },
+      {
+        "ko": "시간",
+        "ro": "Sigan",
+        "id": "Jam (durasi lama waktu)",
+        "audio": "/audio/materi/time_sigan.mp3"
+      },
+      {
+        "ko": "분",
+        "ro": "Bun",
+        "id": "Menit",
+        "audio": "/audio/materi/time_bun2.mp3"
+      },
+      {
+        "ko": "초",
+        "ro": "Cho",
+        "id": "Detik",
+        "audio": "/audio/materi/time_cho2.mp3"
+      },
+      {
+        "ko": "출근 시간",
+        "ro": "Chulgeun sigan",
+        "id": "Jam masuk kerja",
+        "audio": "/audio/materi/time_chulgeun.mp3"
+      },
+      {
+        "ko": "퇴근 시간",
+        "ro": "Toegeun sigan",
+        "id": "Jam pulang kerja",
+        "audio": "/audio/materi/time_toegeun.mp3"
+      },
+      {
+        "ko": "점심시간",
+        "ro": "Jeomsim sigan",
+        "id": "Jam istirahat makan siang",
+        "audio": "/audio/materi/time_jeomsim.mp3"
+      }
+    ],
+    "formula": "Rumus Jam & Menit: [Angka Asli Korea]시 (Jam) + [Angka Sino-Korea]분 (Menit)",
+    "examples": [
+      {
+        "time": "08:00",
+        "ko": "오전 여덟 시",
+        "ro": "Ojeon yeodeol si",
+        "id": "Pukul 8 pagi tepat"
+      },
+      {
+        "time": "08:30",
+        "ko": "오전 여덟 시 삼십 분 (또는 여덟 시 반)",
+        "ro": "Ojeon yeodeol si samsip bun (yeodeol si ban)",
+        "id": "Pukul 8 lewat 30 menit (setengah sembilan) pagi"
+      },
+      {
+        "time": "12:00",
+        "ko": "낮 열두 시 (정오)",
+        "ro": "Nat yeoldu si (jeong-o)",
+        "id": "Pukul 12 siang (tengah hari)"
+      },
+      {
+        "time": "14:15",
+        "ko": "오후 두 시 십오 분",
+        "ro": "Ohu du si sibo bun",
+        "id": "Pukul 2 lewat 15 menit siang"
+      },
+      {
+        "time": "18:45",
+        "ko": "오후 여섯 시 사십오 분",
+        "ro": "Ohu yeoseot si sasibo bun",
+        "id": "Pukul 6 lewat 45 menit sore"
+      },
+      {
+        "time": "21:00",
+        "ko": "밤 아홉 시",
+        "ro": "Bam ahop si",
+        "id": "Pukul 9 malam"
+      }
+    ],
+    "interview_qa": [
+      {
+        "q_ko": "지금 몇 시예요?",
+        "q_ro": "Jigeum myeot siyeyo?",
+        "q_id": "Sekarang jam berapa?",
+        "a_ko": "지금은 [오전/오후] [시]시 [분]분입니다.",
+        "a_id": "Sekarang pukul [Jam Asli] lewat [Menit Sino] menit.",
+        "audio": "/audio/01_wawancara_data_diri/32_지금_몇_시예요_(Sekarang_jam_berapa).mp3"
+      },
+      {
+        "q_ko": "여기까지 얼마나 걸렸어요?",
+        "q_ro": "Yeogikkaji eolmana geollyeosseoyo?",
+        "q_id": "Berapa lama waktu yang dibutuhkan sampai ke sini?",
+        "a_ko": "집에서 여기까지 [한/두] 시간 정도 걸렸습니다.",
+        "a_id": "Dari rumah sampai ke sini memakan waktu sekitar [1 / 2] jam.",
+        "audio": "/audio/hrdk_50/Soal_32_HRDK_Wawancara.mp3"
+      }
+    ]
+  },
+  "calendar": {
+    "days": [
+      {
+        "ko": "월요일",
+        "ro": "Woryoil",
+        "id": "Senin",
+        "audio": "/audio/materi/day_mon.mp3"
+      },
+      {
+        "ko": "화요일",
+        "ro": "Hwayoil",
+        "id": "Selasa",
+        "audio": "/audio/materi/day_tue.mp3"
+      },
+      {
+        "ko": "수요일",
+        "ro": "Suyoil",
+        "id": "Rabu",
+        "audio": "/audio/materi/day_wed.mp3"
+      },
+      {
+        "ko": "목요일",
+        "ro": "Mogyoil",
+        "id": "Kamis",
+        "audio": "/audio/materi/day_thu.mp3"
+      },
+      {
+        "ko": "금요일",
+        "ro": "Geumyoil",
+        "id": "Jumat",
+        "audio": "/audio/materi/day_fri.mp3"
+      },
+      {
+        "ko": "토요일",
+        "ro": "Toyoil",
+        "id": "Sabtu",
+        "audio": "/audio/materi/day_sat.mp3"
+      },
+      {
+        "ko": "일요일",
+        "ro": "Iryoil",
+        "id": "Minggu",
+        "audio": "/audio/materi/day_sun.mp3"
+      },
+      {
+        "ko": "주말",
+        "ro": "Jumal",
+        "id": "Akhir pekan (Sabtu & Minggu)",
+        "audio": "/audio/materi/day_weekend.mp3"
+      },
+      {
+        "ko": "평일",
+        "ro": "Pyeong-il",
+        "id": "Hari kerja (Senin - Jumat)",
+        "audio": "/audio/materi/day_weekday.mp3"
+      }
+    ],
+    "rel_days": [
+      {
+        "ko": "그저께",
+        "ro": "Geujeokke",
+        "id": "Kemarin lusa (2 hari lalu)",
+        "audio": "/audio/materi/relday_2ago.mp3"
+      },
+      {
+        "ko": "어제",
+        "ro": "Eoje",
+        "id": "Kemarin",
+        "audio": "/audio/materi/relday_yesterday.mp3"
+      },
+      {
+        "ko": "오늘",
+        "ro": "Oneul",
+        "id": "Hari ini",
+        "audio": "/audio/materi/relday_today.mp3"
+      },
+      {
+        "ko": "내일",
+        "ro": "Naeil",
+        "id": "Besok",
+        "audio": "/audio/materi/relday_tomorrow.mp3"
+      },
+      {
+        "ko": "모레",
+        "ro": "More",
+        "id": "Lusa (2 hari ke depan)",
+        "audio": "/audio/materi/relday_2after.mp3"
+      },
+      {
+        "ko": "지난주",
+        "ro": "Jinanju",
+        "id": "Minggu lalu",
+        "audio": "/audio/materi/relday_lastweek.mp3"
+      },
+      {
+        "ko": "이번 주",
+        "ro": "Ibeon ju",
+        "id": "Minggu ini",
+        "audio": "/audio/materi/relday_thisweek.mp3"
+      },
+      {
+        "ko": "다음 주",
+        "ro": "Daeum ju",
+        "id": "Minggu depan",
+        "audio": "/audio/materi/relday_nextweek.mp3"
+      },
+      {
+        "ko": "지난달",
+        "ro": "Jinandal",
+        "id": "Bulan lalu",
+        "audio": "/audio/materi/relday_lastmonth.mp3"
+      },
+      {
+        "ko": "이번 달",
+        "ro": "Ibeon dal",
+        "id": "Bulan ini",
+        "audio": "/audio/materi/relday_thismonth.mp3"
+      },
+      {
+        "ko": "다음 달",
+        "ro": "Daeum dal",
+        "id": "Bulan depan",
+        "audio": "/audio/materi/relday_nextmonth.mp3"
+      },
+      {
+        "ko": "작년",
+        "ro": "Jangnyeon",
+        "id": "Tahun lalu",
+        "audio": "/audio/materi/relday_lastyear.mp3"
+      },
+      {
+        "ko": "올해",
+        "ro": "Olhae",
+        "id": "Tahun ini",
+        "audio": "/audio/materi/relday_thisyear.mp3"
+      },
+      {
+        "ko": "내년",
+        "ro": "Naenyeon",
+        "id": "Tahun depan",
+        "audio": "/audio/materi/relday_nextyear.mp3"
+      }
+    ],
+    "months": [
+      {
+        "ko": "1월 (일월)",
+        "ro": "Irwol",
+        "id": "Januari",
+        "audio": "/audio/materi/mo_1.mp3",
+        "note": "Normal"
+      },
+      {
+        "ko": "2월 (이월)",
+        "ro": "Iwol",
+        "id": "Februari",
+        "audio": "/audio/materi/mo_2.mp3",
+        "note": "Normal"
+      },
+      {
+        "ko": "3월 (삼월)",
+        "ro": "Samwol",
+        "id": "Maret",
+        "audio": "/audio/materi/mo_3.mp3",
+        "note": "Normal"
+      },
+      {
+        "ko": "4월 (사월)",
+        "ro": "Sawol",
+        "id": "April",
+        "audio": "/audio/materi/mo_4.mp3",
+        "note": "Normal"
+      },
+      {
+        "ko": "5월 (오월)",
+        "ro": "Owol",
+        "id": "Mei",
+        "audio": "/audio/materi/mo_5.mp3",
+        "note": "Normal"
+      },
+      {
+        "ko": "6월 (유월)",
+        "ro": "Yuwol",
+        "id": "Juni",
+        "audio": "/audio/materi/mo_6.mp3",
+        "note": "⚠️ KHUSUS: 육월 bukan! Huruf ㄱ hilang jadi 유월"
+      },
+      {
+        "ko": "7월 (칠월)",
+        "ro": "Chirwol",
+        "id": "Juli",
+        "audio": "/audio/materi/mo_7.mp3",
+        "note": "Normal"
+      },
+      {
+        "ko": "8월 (팔월)",
+        "ro": "Parwol",
+        "id": "Agustus",
+        "audio": "/audio/materi/mo_8.mp3",
+        "note": "Normal"
+      },
+      {
+        "ko": "9월 (구월)",
+        "ro": "Guwol",
+        "id": "September",
+        "audio": "/audio/materi/mo_9.mp3",
+        "note": "Normal"
+      },
+      {
+        "ko": "10월 (시월)",
+        "ro": "Siwol",
+        "id": "Oktober",
+        "audio": "/audio/materi/mo_10.mp3",
+        "note": "⚠️ KHUSUS: 십월 bukan! Huruf ㅂ hilang jadi 시월"
+      },
+      {
+        "ko": "11월 (십일월)",
+        "ro": "Sibirwol",
+        "id": "November",
+        "audio": "/audio/materi/mo_11.mp3",
+        "note": "Normal"
+      },
+      {
+        "ko": "12월 (십이월)",
+        "ro": "Sibiwol",
+        "id": "Desember",
+        "audio": "/audio/materi/mo_12.mp3",
+        "note": "Normal"
+      }
+    ],
+    "interview_qa": [
+      {
+        "q_ko": "오늘은 무슨 요일이에요?",
+        "q_ro": "Oneureun museun yoil-ieyo?",
+        "q_id": "Hari ini hari apa?",
+        "a_ko": "오늘은 [월/화/수/목/금/토/일]요일입니다.",
+        "a_id": "Hari ini adalah hari [Hari].",
+        "audio": "/audio/01_wawancara_data_diri/26_오늘은_무슨_요일이에요_(Hari_ini_hari_apa).mp3"
+      },
+      {
+        "q_ko": "내일은 무슨 요일이에요?",
+        "q_ro": "Naeireun museun yoil-ieyo?",
+        "q_id": "Besok hari apa?",
+        "a_ko": "내일은 [요일]요일입니다.",
+        "a_id": "Besok adalah hari [Hari esok].",
+        "audio": "/audio/01_wawancara_data_diri/28_내일은_무슨_요일이에요_(Besok_hari_apa).mp3"
+      },
+      {
+        "q_ko": "오늘은 몇 월 며칠이에요?",
+        "q_ro": "Oneureun myeot wol myeochil-ieyo?",
+        "q_id": "Hari ini tanggal berapa?",
+        "a_ko": "오늘은 [월]월 [일]일입니다.",
+        "a_id": "Hari ini tanggal [Tanggal] bulan [Bulan].",
+        "audio": "/audio/01_wawancara_data_diri/30_오늘은_몇_월_며칠이에요_(Hari_ini_tanggal_berapa).mp3"
+      },
+      {
+        "q_ko": "생일이 언제예요?",
+        "q_ro": "Saeng-iri eonjeyeyo?",
+        "q_id": "Kapan tanggal lahir Anda?",
+        "a_ko": "제 생일은 [천구백구십팔]년 [오]월 [십오]일입니다.",
+        "a_id": "Ulang tahun saya adalah tanggal 15 Mei 1998.",
+        "audio": "/audio/01_wawancara_data_diri/08_생일이_언제예요_(Ulang_tahun_kapan).mp3"
+      }
+    ]
+  },
+  "colors": {
+    "items": [
+      {
+        "ko": "빨간색",
+        "ro": "Ppalgansaek",
+        "id": "Merah",
+        "hex": "#EF4444",
+        "audio": "/audio/materi/col_red.mp3",
+        "reason": "열정과 에너지를 느낄 수 있어서 좋아합니다. (Memberi kesan semangat & energi)"
+      },
+      {
+        "ko": "파란색",
+        "ro": "Paransaek",
+        "id": "Biru",
+        "hex": "#3B82F6",
+        "audio": "/audio/materi/col_blue.mp3",
+        "reason": "파란색을 보면 마음이 편안해지고 시원해서 좋아합니다. (Menyejukkan & menenangkan pikiran)"
+      },
+      {
+        "ko": "노란색",
+        "ro": "Noransaek",
+        "id": "Kuning",
+        "hex": "#EAB308",
+        "audio": "/audio/materi/col_yellow.mp3",
+        "reason": "밝고 따뜻한 느낌을 주어서 좋아합니다. (Memberikan kesan cerah & hangat)"
+      },
+      {
+        "ko": "초록색 / 녹색",
+        "ro": "Choroksaek / Noksaek",
+        "id": "Hijau",
+        "hex": "#22C55E",
+        "audio": "/audio/materi/col_green.mp3",
+        "reason": "자연과 평화를 상징하고 눈이 편안해서 좋아합니다. (Menyejukkan mata & lambang damai)"
+      },
+      {
+        "ko": "검은색 / 까만색",
+        "ro": "Geomeunsaek / Kkamansaek",
+        "id": "Hitam",
+        "hex": "#1F2937",
+        "audio": "/audio/materi/col_black.mp3",
+        "reason": "깔끔하고 저랑 잘 어울린다고 생각합니다. (Terlihat rapi, elegan, & cocok untuk saya)"
+      },
+      {
+        "ko": "하얀색 / 흰색",
+        "ro": "Hayansaek / Huinsaek",
+        "id": "Putih",
+        "hex": "#F9FAFB",
+        "audio": "/audio/materi/col_white.mp3",
+        "reason": "깨끗하고 순수한 느낌을 주기 때문입니다. (Memberikan kesan bersih & murni)"
+      },
+      {
+        "ko": "주황색",
+        "ro": "Juhwangsaek",
+        "id": "Oranye",
+        "hex": "#F97316",
+        "audio": "/audio/materi/col_orange.mp3",
+        "reason": "활기차고 상큼한 느낌이 들기 때문입니다. (Memberikan kesan ceria & segar)"
+      },
+      {
+        "ko": "보라색",
+        "ro": "Borasaek",
+        "id": "Ungu",
+        "hex": "#A855F7",
+        "audio": "/audio/materi/col_purple.mp3",
+        "reason": "신비롭고 매력적인 색상이기 때문입니다. (Memberikan kesan menarik & unik)"
+      },
+      {
+        "ko": "분홍색 / 핑크색",
+        "ro": "Bunhongsaek / Pingkeusaek",
+        "id": "Merah muda / Pink",
+        "hex": "#EC4899",
+        "audio": "/audio/materi/col_pink.mp3",
+        "reason": "부드럽고 사랑스러운 색상이라 좋아합니다. (Kesan lembut & ramah)"
+      },
+      {
+        "ko": "회색",
+        "ro": "Hoesaek",
+        "id": "Abu-abu",
+        "hex": "#9CA3AF",
+        "audio": "/audio/materi/col_gray.mp3",
+        "reason": "단정하고 어떤 옷과도 잘 어울립니다. (Warna netral & mudah dipadukan)"
+      },
+      {
+        "ko": "밤색 / 갈색",
+        "ro": "Bamsaek / Galsaek",
+        "id": "Cokelat",
+        "hex": "#78350F",
+        "audio": "/audio/materi/col_brown.mp3",
+        "reason": "차분하고 포근한 느낌을 줍니다. (Memberikan kesan tenang & hangat)"
+      }
+    ],
+    "interview_qa": [
+      {
+        "q_ko": "무슨 색깔을 좋아해요?",
+        "q_ro": "Museun saekkkareul joahaeyo?",
+        "q_id": "Warna apa yang paling Anda sukai?",
+        "a_ko": "파란색을 제일 좋아합니다. (atau warna lain yang Anda kuasai)",
+        "a_id": "Saya paling suka warna biru.",
+        "audio": "/audio/01_wawancara_data_diri/25_무슨_색깔이_좋아요_(Suka_warna_apa).mp3"
+      },
+      {
+        "q_ko": "왜 그 색깔을 좋아해요?",
+        "q_ro": "Wae geu saekkkareul joahaeyo?",
+        "q_id": "Mengapa Anda menyukai warna tersebut?",
+        "a_ko": "파란색을 보면 마음이 편안해지고 시원한 느낌이 들기 때문입니다.",
+        "a_id": "Karena saat melihat warna biru pikiran terasa damai dan sejuk.",
+        "audio": null
+      }
+    ]
+  },
+  "family": {
+    "items": [
+      {
+        "ko": "할아버지",
+        "ro": "Harabeoji",
+        "id": "Kakek",
+        "audio": "/audio/materi/fam_kakek.mp3"
+      },
+      {
+        "ko": "할머니",
+        "ro": "Halmeoni",
+        "id": "Nenek",
+        "audio": "/audio/materi/fam_nenek.mp3"
+      },
+      {
+        "ko": "아버지",
+        "ro": "Abeoji",
+        "id": "Ayah",
+        "audio": "/audio/materi/fam_ayah.mp3"
+      },
+      {
+        "ko": "어머니",
+        "ro": "Eomeoni",
+        "id": "Ibu",
+        "audio": "/audio/materi/fam_ibu.mp3"
+      },
+      {
+        "ko": "부모님",
+        "ro": "Bumonim",
+        "id": "Kedua Orang Tua (Bapak & Ibu)",
+        "audio": "/audio/materi/fam_ortu.mp3"
+      },
+      {
+        "ko": "형",
+        "ro": "Hyeong",
+        "id": "Kakak laki-laki (diucapkan oleh laki-laki)",
+        "audio": "/audio/materi/fam_hyeong.mp3"
+      },
+      {
+        "ko": "오빠",
+        "ro": "Oppa",
+        "id": "Kakak laki-laki (diucapkan oleh perempuan)",
+        "audio": "/audio/materi/fam_oppa.mp3"
+      },
+      {
+        "ko": "누나",
+        "ro": "Nuna",
+        "id": "Kakak perempuan (diucapkan oleh laki-laki)",
+        "audio": "/audio/materi/fam_nuna.mp3"
+      },
+      {
+        "ko": "언니",
+        "ro": "Eonni",
+        "id": "Kakak perempuan (diucapkan oleh perempuan)",
+        "audio": "/audio/materi/fam_eonni.mp3"
+      },
+      {
+        "ko": "남동생",
+        "ro": "Namdongsaeng",
+        "id": "Adik laki-laki",
+        "audio": "/audio/materi/fam_namdongsaeng.mp3"
+      },
+      {
+        "ko": "여동생",
+        "ro": "Yeodongsaeng",
+        "id": "Adik perempuan",
+        "audio": "/audio/materi/fam_yeodongsaeng.mp3"
+      },
+      {
+        "ko": "형제",
+        "ro": "Hyeongje",
+        "id": "Saudara kandung",
+        "audio": "/audio/materi/fam_hyeongje.mp3"
+      },
+      {
+        "ko": "남편",
+        "ro": "Nampyeon",
+        "id": "Suami",
+        "audio": "/audio/materi/fam_nampyeon.mp3"
+      },
+      {
+        "ko": "아내 / 부인",
+        "ro": "Anae / Buin",
+        "id": "Istri",
+        "audio": "/audio/materi/fam_anae.mp3"
+      },
+      {
+        "ko": "아들",
+        "ro": "Adeul",
+        "id": "Anak laki-laki",
+        "audio": "/audio/materi/fam_adeul.mp3"
+      },
+      {
+        "ko": "딸",
+        "ro": "Ttal",
+        "id": "Anak perempuan",
+        "audio": "/audio/materi/fam_ttal.mp3"
+      },
+      {
+        "ko": "아이 / 자녀",
+        "ro": "Ai / Janyeo",
+        "id": "Anak",
+        "audio": "/audio/materi/fam_ai.mp3"
+      }
+    ],
+    "rules": [
+      "Untuk menyatakan jumlah anggota keluarga, WAJIB menggunakan Angka Asli Korea + 명 (myeong). Contoh: 3 orang = 세 명 (se myeong), 4 orang = 네 명 (ne myeong), 5 orang = 다섯 명 (daseot myeong).",
+      "Jika menyebutkan anggota keluarga, gunakan partikel 하고 (hago = dan) dan diakhiri dengan '그리고 저' (geurigo jeo = dan saya).",
+      "Contoh: '우리 가족은 모두 네 명입니다. 아버지, 어머니, 여동생, 그리고 저입니다.' (Keluarga kami ada 4 orang: ayah, ibu, adik perempuan, dan saya)."
+    ],
+    "interview_qa": [
+      {
+        "q_ko": "가족이 몇 명이에요?",
+        "q_ro": "Gajogi myeot myeong-ieyo?",
+        "q_id": "Berapa jumlah anggota keluarga Anda?",
+        "a_ko": "우리 가족은 모두 [세/네/다섯] 명입니다. [아버지, 어머니], 그리고 저입니다.",
+        "a_id": "Keluarga saya semuanya ada [Jumlah] orang: [Ayah, Ibu], dan saya.",
+        "audio": "/audio/01_wawancara_data_diri/17_가족은_몇_명이에요_(Keluarganya_berapa_orang).mp3"
+      },
+      {
+        "q_ko": "부모님이 계세요?",
+        "q_ro": "Bumonimi gyeseyo?",
+        "q_id": "Apakah kedua orang tua Anda masih ada dan sehat?",
+        "a_ko": "네, 두 분 다 건강하게 계십니다.",
+        "a_id": "Ya, kedua orang tua saya masih sehat dan ada.",
+        "audio": "/audio/01_wawancara_data_diri/15_부모님이_계세요_(Orang_tua_masih_ada).mp3"
+      },
+      {
+        "q_ko": "결혼했어요?",
+        "q_ro": "Gyeolhonhaesseoyo?",
+        "q_id": "Apakah Anda sudah menikah?",
+        "a_ko": "아니요, 아직 안 했습니다. 미혼입니다. (atau: 네, 결혼했습니다.)",
+        "a_id": "Belum, saya belum menikah (lajang). (atau: Ya, sudah menikah.)",
+        "audio": "/audio/01_wawancara_data_diri/12_결혼했어요_(Sudah_menikah_belum).mp3"
+      }
+    ]
+  },
+  "jagisoge": {
+    "title": "Format Baku Perkenalan Diri (자기소개) - Standar Resmi HRD Korea 2026",
+    "duration": "20 - 25 Detik",
+    "points": "2 Poin (Tahap 1 Berdiri di depan kamera)",
+    "audio_examiner": "/audio/examiner_jagisoge.mp3",
+    "sentences": [
+      {
+        "step": "1. Salam Hormat",
+        "ko": "안녕하십니까!",
+        "ro": "Annyeonghasimnikka!",
+        "id": "Selamat pagi / siang / salam sejahtera!",
+        "tips": "Badan tegap tegak, pandangan lurus menatap kamera penguji, ucapkan dengan lantang dan percaya diri."
+      },
+      {
+        "step": "2. Izin Memperkenalkan Diri & Nama",
+        "ko": "지금부터 자기소개를 하겠습니다. 제 이름은 [이름]입니다.",
+        "ro": "Jigeumbuteo jagi-sogaereul hagessseumnida. Je ireumeun [Nama Anda]imnikka.",
+        "id": "Mulai sekarang saya akan memperkenalkan diri. Nama saya adalah [Nama Anda].",
+        "tips": "Sebutkan nama lengkap Anda sesuai paspor dengan jelas."
+      },
+      {
+        "step": "3. Asal Negara & Usia",
+        "ko": "인도네시아에서 왔고, 나이는 [스물다섯] 살입니다.",
+        "ro": "Indonesia-eseo watgo, naineun [Usia Asli Korea] sarimnikka.",
+        "id": "Saya berasal dari Indonesia, dan usia saya [Usia] tahun.",
+        "tips": "Wajib gunakan Angka Asli Korea untuk usia! Misal 25 = 스물다섯 (seumuldaseot)."
+      },
+      {
+        "step": "4. Keluarga & Hobi/Kebugaran",
+        "ko": "우리 가족은 [네] 명이고, 제 취미는 운동입니다.",
+        "ro": "Uri gajogeun [Jumlah Asli Korea] myeong-igo, je chwimineun undong-imnikka.",
+        "id": "Keluarga kami berjumlah [Jumlah] orang, dan hobi saya adalah berolahraga.",
+        "tips": "Sebutkan hobi olahraga (운동) atau sepak bola (축구) untuk menunjukkan stamina fisik kuat."
+      },
+      {
+        "step": "5. Komitmen Kerja & Salam Penutup",
+        "ko": "한국에 가면 성실하게 일하겠습니다. 잘 부탁드립니다. 감사합니다!",
+        "ro": "Hanguge gamyeon seongsilhage ilhagessseumnida. Jal butakdeurimnida. Gamsahamnida!",
+        "id": "Jika pergi ke Korea saya akan bekerja dengan rajin dan jujur. Mohon bimbingannya. Terima kasih!",
+        "tips": "Bungkukkan badan 30-45 derajat tanda hormat (*insa*) saat mengucapkan gamsahamnida."
+      }
+    ],
+    "examiner_checklist": [
+      "✅ Wajah ramah & percaya diri (senyum sopan, tidak tegang).",
+      "✅ Kontak mata langsung ke kamera / mata penguji.",
+      "✅ Intonasi suara jelas, lantang, dan tidak terbata-bata.",
+      "✅ Durasi tidak melebihi 25 detik (penguji akan memotong jika bertele-tele).",
+      "✅ Postur tubuh berdiri tegak (tangan di samping paha, kaki rapat)."
+    ]
+  },
+  "manufacturing": {
+    "title": "Kisi-Kisi & SOP Situasi Kerja Pabrik Manufaktur (NCS 2025/2026)",
+    "scenarios": [
+      {
+        "situation": "Kerjaan Banyak & Tanggung Jawab Lembur (야근 / 잔업)",
+        "q_ko": "회사에 일이 많으면 어떻게 할 거예요?",
+        "q_id": "Jika di perusahaan banyak pekerjaan menumpuk (lembur), apa yang akan Anda lakukan?",
+        "a_ko": "기꺼이 잔업(야근)이나 특근을 열심히 하겠습니다. 회사의 일정에 맞춰 최선을 다하겠습니다.",
+        "a_id": "Saya bersedia lembur malam (야근/잔업) maupun masuk akhir pekan (특근). Saya akan berusaha sebaik mungkin mengikuti target perusahaan.",
+        "audio": "/audio/hrdk_50/Soal_24_HRDK_Wawancara.mp3",
+        "key_attitude": "Dedikasi & Loyalitas Kerja"
+      },
+      {
+        "situation": "Rekan Kerja Sedang Sangat Sibuk (동료 지원)",
+        "q_ko": "직장 동료가 바쁘면 어떻게 할 거예요?",
+        "q_id": "Jika rekan kerja sedang sangat sibuk, apa yang akan Anda lakukan?",
+        "a_ko": "제 일을 먼저 빠르고 정확하게 끝마친 후에 동료의 일을 적극적으로 돕겠습니다.",
+        "a_id": "Setelah tugas utama saya selesai dengan cepat dan teliti, saya akan segera membantu menyelesaikan pekerjaan rekan saya.",
+        "audio": "/audio/01_wawancara_data_diri/42_직장_동료가_바쁘면_어떻게_할_거예요_(Rekan_kerja_sibuk_bagaimana).mp3",
+        "key_attitude": "Kerjasama Tim & Solidaritas"
+      },
+      {
+        "situation": "Banyak Barang Cacat / Produk Gagal (불량품 발견)",
+        "q_ko": "불량품이 많으면 어떻게 할 거예요?",
+        "q_id": "Jika menemukan banyak barang cacat (produk gagal), apa yang akan Anda lakukan?",
+        "a_ko": "작업과 기계를 즉시 멈추고 반장님(상사)께 바로 보고하겠습니다.",
+        "a_id": "Segera hentikan pengoperasian mesin dan langsung melapor kepada mandor/atasan.",
+        "audio": "/audio/01_wawancara_data_diri/38_불량품이_많으면_어떻게_할_거예요_(Barang_rusak_banyak_bagaimana).mp3",
+        "key_attitude": "Pengendalian Kualitas & Kepatuhan SOP"
+      },
+      {
+        "situation": "Membuat Kesalahan Saat Bekerja (실수 대처)",
+        "q_ko": "일을 하다가 실수하면 어떻게 할 거예요?",
+        "q_id": "Jika Anda melakukan kesalahan saat bekerja, apa yang akan Anda lakukan?",
+        "a_ko": "솔직하게 잘못을 인정하고 사과드린 후, 상사에게 즉시 보고하여 지시에 따라 바로잡겠습니다.",
+        "a_id": "Saya akan jujur mengakui kesalahan, meminta maaf, melapor ke atasan, dan memperbaikinya sesuai arahan.",
+        "audio": "/audio/01_wawancara_data_diri/39_일을_하다가_실수하면_어떻게_할_거예요_(Salah_kerja_bagaimana).mp3",
+        "key_attitude": "Kejujuran & Tanggung Jawab"
+      },
+      {
+        "situation": "Terjadi Kecelakaan di Tempat Kerja (비상 사고 대응)",
+        "q_ko": "작업하다가 사고가 나면 어떻게 할 거예요?",
+        "q_id": "Jika terjadi kecelakaan saat bekerja di pabrik, apa yang akan Anda lakukan?",
+        "a_ko": "큰 소리로 '사고다!' 외쳐 동료들에게 알리고 비상 정지 버튼을 누른 후 상사에게 보고하고 119에 신고합니다.",
+        "a_id": "Berteriak 'Kecelakaan!' memberi tahu rekan kerja, menekan tombol darurat (Emergency Stop), lalu melapor ke atasan dan telepon darurat.",
+        "audio": "/audio/01_wawancara_data_diri/40_작업하다가_사고가_나면_어떻게_할_거예요_(Kecelakaan_kerja_bagaimana).mp3",
+        "key_attitude": "K3 & Tanggap Darurat Cepat"
+      },
+      {
+        "situation": "Atasan Berbeda Pendapat / Marah (상사와의 갈등)",
+        "q_ko": "상사가 내 의견에 반대하면 어떻게 할 거예요?",
+        "q_id": "Jika atasan menentang atau tidak setuju dengan pendapat Anda, apa yang akan Anda lakukan?",
+        "a_ko": "상사님의 오랜 경험과 의견을 존중하고, 회사의 지침과 지시에 따르겠습니다.",
+        "a_id": "Saya menghormati pengalaman atasan dan mematuhi instruksi kerja serta kebijakan perusahaan.",
+        "audio": "/audio/01_wawancara_data_diri/43_상사가_내_의견에_반대하면_어떻게_할_거예요_(Atasan_tidak_setuju_bagaimana).mp3",
+        "key_attitude": "Etika Hirarki & Sikap Sopan"
+      }
+    ],
+    "practical_tasks": [
+      {
+        "task_num": "Pos 1",
+        "task_name": "Memasukkan Pin (핀 꽂기)",
+        "desc": "Peserta mencocokkan pin logam berbagai warna, bentuk, dan ukuran ke lubang papan kerja (380 x 380 mm) sesuai lembar instruksi.",
+        "evaluation": "Ketelitian, kecepatan motorik tangan, dan ketepatan koordinasi warna/posisi."
+      },
+      {
+        "task_num": "Pos 2",
+        "task_name": "Ukur & Potong (계측 및 절단)",
+        "desc": "Mengukur panjang kawat/kayu dengan mistar/jangka sorong (vernier caliper), menimbang bahan dengan timbangan digital/manual, lalu memotong sesuai ukuran.",
+        "evaluation": "Presisi pengukuran milimeter, cara memegang alat ukur yang benar, dan kepatuhan batas toleransi."
+      },
+      {
+        "task_num": "Pos 3",
+        "task_name": "Perakitan & Penggunaan Gerinda (그라인더 및 조립)",
+        "desc": "SOP keselamatan sebelum memegang mesin gerinda (wajib APD: helm, kacamata pengaman, sarung tangan), memeriksa penutup pelindung (방호덮개), dan mengencangkan baut/mur.",
+        "evaluation": "SOP K3 paling diutamakan! Jangan menyalakan alat sebelum memakai kacamata pelindung (보안경)."
+      }
+    ],
+    "hrdk_tool_tiers": [
+      {
+        "tier": "Tingkat Atas (상 - Upper Level)",
+        "desc": "Peralatan mesin berat / bertenaga tinggi yang wajib diketahui prosedur pengamanannya:",
+        "tools": [
+          "그라인더 (Grinder / Mesin Gerinda)",
+          "방호덮개 (Safety Cover / Pelindung Mesin)",
+          "에어건 (Air Blow Gun / Semprotan Angin)",
+          "유압펌프 (Hydraulic Pump / Pompa Hidrolik)",
+          "인두기 (Soldering Iron / Solder Listrik)",
+          "혼합기 (Mixer / Mesin Pengaduk)"
+        ]
+      },
+      {
+        "tier": "Tingkat Menengah (중 - Middle Level)",
+        "desc": "Komponen mekanikal, pengukur, dan pencekam material kerja:",
+        "tools": [
+          "가스켓 (Gasket / Paking Mesin)",
+          "바이스 (Vise / Ragum Penjepit Meja)",
+          "수평기 (Spirit Level / Waterpass)",
+          "적외선 온도계 (Infrared Thermometer)",
+          "클램프 (Clamp / Klem Penjepit)",
+          "스위치 (Switch / Saklar Listrik)"
+        ]
+      },
+      {
+        "tier": "Tingkat Bawah (하 - Lower Level)",
+        "desc": "Perkakas tangan dasar & perlengkapan instalasi manufaktur harian:",
+        "tools": [
+          "니퍼 (Diagonal Cutting Plier / Tang Pemotong)",
+          "롱노즈 플라이어 (Long-nose Pliers / Tang Lancip)",
+          "절연테이프 (Electrical Insulation Tape / Solasi Listrik)",
+          "케이블타이 (Cable Tie / Pengikat Kabel)",
+          "테프론 테이프 (Teflon Tape / Sealtape Pipa)",
+          "플라이어 (Pliers / Tang Biasa)"
+        ]
+      }
+    ],
+    "tool_functions": [
+      {
+        "id": "tool_func_01",
+        "category": "fungsi_alat",
+        "category_title": "작업도구 용도 (Fungsi Perkakas Manufaktur)",
+        "question_ko": "드라이버는 무엇에 사용합니까?",
+        "question_romaja": "Deuraibeoneun mueose sayonghamnikka?",
+        "question_id": "Obeng digunakan untuk apa?",
+        "answer_short_ko": "나사를 조이거나 풀 때 사용합니다.",
+        "answer_short_id": "Digunakan saat mengencangkan atau mengendurkan sekrup.",
+        "answer_full_ko": "나사를 조이거나 풀 때 사용합니다.",
+        "answer_full_id": "Digunakan saat mengencangkan atau mengendurkan sekrup.",
+        "title_ko": "드라이버의 용도",
+        "title_id": "Fungsi Obeng",
+        "level": "Dasar",
+        "source": "Buku Panduan Ujian Sistem Poin HRDK Halaman 150-151",
+        "audio_q": "/audio/examiner_tool_q.mp3",
+        "audio_a": null,
+        "image_url": null
+      },
+      {
+        "id": "tool_func_02",
+        "category": "fungsi_alat",
+        "category_title": "작업도구 용도 (Fungsi Perkakas Manufaktur)",
+        "question_ko": "버니어캘리퍼스는 무엇에 사용합니까?",
+        "question_romaja": "Beonieokaellipeoseuneun mueose sayonghamnikka?",
+        "question_id": "Jangka sorong (vernier caliper) digunakan untuk apa?",
+        "answer_short_ko": "볼트나 파이프의 길이나 두께를 측정할 때 사용합니다.",
+        "answer_short_id": "Digunakan saat mengukur panjang atau ketebalan baut/pipa.",
+        "answer_full_ko": "볼트나 파이프의 길이나 두께를 측정할 때 사용합니다.",
+        "answer_full_id": "Digunakan saat mengukur panjang atau ketebalan baut/pipa.",
+        "title_ko": "버니어캘리퍼스의 용도",
+        "title_id": "Fungsi Jangka Sorong",
+        "level": "Dasar",
+        "source": "Buku Panduan Ujian Sistem Poin HRDK Halaman 150-151",
+        "audio_q": "/audio/examiner_tool_q.mp3",
+        "audio_a": null,
+        "image_url": null
+      },
+      {
+        "id": "tool_func_03",
+        "category": "fungsi_alat",
+        "category_title": "작업도구 용도 (Fungsi Perkakas Manufaktur)",
+        "question_ko": "스패너는 어디에 쓰는 도구입니까?",
+        "question_romaja": "Seupaeneoneun eodie sseuneun doguimnikka?",
+        "question_id": "Kunci pas (spanner/wrench) digunakan untuk apa?",
+        "answer_short_ko": "볼트와 너트를 조이거나 풀 때 사용합니다.",
+        "answer_short_id": "Digunakan saat mengencangkan atau mengendurkan baut dan mur.",
+        "answer_full_ko": "볼트와 너트를 조이거나 풀 때 사용합니다.",
+        "answer_full_id": "Digunakan saat mengencangkan atau mengendurkan baut dan mur.",
+        "title_ko": "스패너(렌치)의 용도",
+        "title_id": "Fungsi Kunci Pas",
+        "level": "Dasar",
+        "source": "Buku Panduan Ujian Sistem Poin HRDK Halaman 150-151",
+        "audio_q": "/audio/examiner_tool_q.mp3",
+        "audio_a": null,
+        "image_url": null
+      },
+      {
+        "id": "tool_func_04",
+        "category": "fungsi_alat",
+        "category_title": "작업도구 용도 (Fungsi Perkakas Manufaktur)",
+        "question_ko": "줄자는 무엇에 사용합니까?",
+        "question_romaja": "Juljaneun mueose sayonghamnikka?",
+        "question_id": "Meteran pita digunakan untuk apa?",
+        "answer_short_ko": "상자나 물건의 길이를 잴 때 사용합니다.",
+        "answer_short_id": "Digunakan saat mengukur panjang kardus atau benda kerja.",
+        "answer_full_ko": "상자나 물건의 길이를 잴 때 사용합니다.",
+        "answer_full_id": "Digunakan saat mengukur panjang kardus atau benda kerja.",
+        "title_ko": "줄자의 용도",
+        "title_id": "Fungsi Meteran Pita",
+        "level": "Dasar",
+        "source": "Buku Panduan Ujian Sistem Poin HRDK Halaman 150-151",
+        "audio_q": "/audio/examiner_tool_q.mp3",
+        "audio_a": null,
+        "image_url": null
+      },
+      {
+        "id": "tool_func_05",
+        "category": "fungsi_alat",
+        "category_title": "작업도구 용도 (Fungsi Perkakas Manufaktur)",
+        "question_ko": "그라인더는 무엇에 사용합니까?",
+        "question_romaja": "Geuraindeoneun mueose sayonghamnikka?",
+        "question_id": "Mesin gerinda digunakan untuk apa?",
+        "answer_short_ko": "쇠를 자르거나 거친 표면을 연마할(갈) 때 사용합니다.",
+        "answer_short_id": "Digunakan saat memotong besi atau menghaluskan permukaan logam.",
+        "answer_full_ko": "쇠를 자르거나 거친 표면을 연마할(갈) 때 사용합니다.",
+        "answer_full_id": "Digunakan saat memotong besi atau menghaluskan permukaan logam.",
+        "title_ko": "그라인더의 용도",
+        "title_id": "Fungsi Mesin Gerinda",
+        "level": "Dasar",
+        "source": "Buku Panduan Ujian Sistem Poin HRDK Halaman 150-151",
+        "audio_q": "/audio/examiner_tool_q.mp3",
+        "audio_a": null,
+        "image_url": null
+      },
+      {
+        "id": "tool_func_06",
+        "category": "fungsi_alat",
+        "category_title": "작업도구 용도 (Fungsi Perkakas Manufaktur)",
+        "question_ko": "니퍼는 무엇에 사용합니까?",
+        "question_romaja": "Nipeoneun mueose sayonghamnikka?",
+        "question_id": "Tang potong (nipper) digunakan untuk apa?",
+        "answer_short_ko": "전선이나 철사를 자를 때 사용합니다.",
+        "answer_short_id": "Digunakan saat memotong kabel listrik atau kawat tipis.",
+        "answer_full_ko": "전선이나 철사를 자를 때 사용합니다.",
+        "answer_full_id": "Digunakan saat memotong kabel listrik atau kawat tipis.",
+        "title_ko": "니퍼의 용도",
+        "title_id": "Fungsi Tang Potong",
+        "level": "Dasar",
+        "source": "Buku Panduan Ujian Sistem Poin HRDK Halaman 150-151",
+        "audio_q": "/audio/examiner_tool_q.mp3",
+        "audio_a": null,
+        "image_url": null
+      },
+      {
+        "id": "tool_func_07",
+        "category": "fungsi_alat",
+        "category_title": "작업도구 용도 (Fungsi Perkakas Manufaktur)",
+        "question_ko": "펜치는 무엇에 사용합니까?",
+        "question_romaja": "Penchineun mueose sayonghamnikka?",
+        "question_id": "Tang kombinasi digunakan untuk apa?",
+        "answer_short_ko": "철사를 잡거나 구부리고 자를 때 사용합니다.",
+        "answer_short_id": "Digunakan saat memegang, membengkokkan, dan memotong kawat.",
+        "answer_full_ko": "철사를 잡거나 구부리고 자를 때 사용합니다.",
+        "answer_full_id": "Digunakan saat memegang, membengkokkan, dan memotong kawat.",
+        "title_ko": "펜치의 용도",
+        "title_id": "Fungsi Tang Kombinasi",
+        "level": "Dasar",
+        "source": "Buku Panduan Ujian Sistem Poin HRDK Halaman 150-151",
+        "audio_q": "/audio/examiner_tool_q.mp3",
+        "audio_a": null,
+        "image_url": null
+      },
+      {
+        "id": "tool_func_08",
+        "category": "fungsi_alat",
+        "category_title": "작업도구 용도 (Fungsi Perkakas Manufaktur)",
+        "question_ko": "쇠망치는 무엇에 사용합니까?",
+        "question_romaja": "Soemangchineun mueose sayonghamnikka?",
+        "question_id": "Palu besi digunakan untuk apa?",
+        "answer_short_ko": "못을 박거나 단단한 물건을 두드릴 때 사용합니다.",
+        "answer_short_id": "Digunakan saat menancapkan paku atau memukul benda kerja.",
+        "answer_full_ko": "못을 박거나 단단한 물건을 두드릴 때 사용합니다.",
+        "answer_full_id": "Digunakan saat menancapkan paku atau memukul benda kerja.",
+        "title_ko": "쇠망치의 용도",
+        "title_id": "Fungsi Palu Besi",
+        "level": "Dasar",
+        "source": "Buku Panduan Ujian Sistem Poin HRDK Halaman 150-151",
+        "audio_q": "/audio/examiner_tool_q.mp3",
+        "audio_a": null,
+        "image_url": null
+      },
+      {
+        "id": "tool_func_09",
+        "category": "fungsi_alat",
+        "category_title": "작업도구 용도 (Fungsi Perkakas Manufaktur)",
+        "question_ko": "쇠톱은 무엇에 사용합니까?",
+        "question_romaja": "Soetobeun mueose sayonghamnikka?",
+        "question_id": "Gergaji besi digunakan untuk apa?",
+        "answer_short_ko": "쇠파이프나 단단한 금속을 자를 때 사용합니다.",
+        "answer_short_id": "Digunakan saat memotong pipa besi atau logam.",
+        "answer_full_ko": "쇠파이프나 단단한 금속을 자를 때 사용합니다.",
+        "answer_full_id": "Digunakan saat memotong pipa besi atau logam.",
+        "title_ko": "쇠톱의 용도",
+        "title_id": "Fungsi Gergaji Besi",
+        "level": "Dasar",
+        "source": "Buku Panduan Ujian Sistem Poin HRDK Halaman 150-151",
+        "audio_q": "/audio/examiner_tool_q.mp3",
+        "audio_a": null,
+        "image_url": null
+      },
+      {
+        "id": "tool_func_10",
+        "category": "fungsi_alat",
+        "category_title": "작업도구 용도 (Fungsi Perkakas Manufaktur)",
+        "question_ko": "전기드릴은 무엇에 사용합니까?",
+        "question_romaja": "Jeongideurireun mueose sayonghamnikka?",
+        "question_id": "Bor listrik digunakan untuk apa?",
+        "answer_short_ko": "철판이나 목재에 구멍을 뚫을 때 사용합니다.",
+        "answer_short_id": "Digunakan saat membuat lubang pada plat besi atau kayu.",
+        "answer_full_ko": "철판이나 목재에 구멍을 뚫을 때 사용합니다.",
+        "answer_full_id": "Digunakan saat membuat lubang pada plat besi atau kayu.",
+        "title_ko": "전기드릴의 용도",
+        "title_id": "Fungsi Bor Listrik",
+        "level": "Dasar",
+        "source": "Buku Panduan Ujian Sistem Poin HRDK Halaman 150-151",
+        "audio_q": "/audio/examiner_tool_q.mp3",
+        "audio_a": null,
+        "image_url": null
+      },
+      {
+        "id": "tool_func_11",
+        "category": "fungsi_alat",
+        "category_title": "작업도구 용도 (Fungsi Perkakas Manufaktur)",
+        "question_ko": "에어건은 무엇에 사용합니까?",
+        "question_romaja": "Eeogeoneun mueose sayonghamnikka?",
+        "question_id": "Air blow gun (semprotan angin) digunakan untuk apa?",
+        "answer_short_ko": "작업대의 먼지나 쇠부스러기를 강한 바람으로 털어낼 때 사용합니다.",
+        "answer_short_id": "Digunakan saat membersihkan debu atau serbuk besi dengan angin bertekanan.",
+        "answer_full_ko": "작업대의 먼지나 쇠부스러기를 강한 바람으로 털어낼 때 사용합니다.",
+        "answer_full_id": "Digunakan saat membersihkan debu atau serbuk besi dengan angin bertekanan.",
+        "title_ko": "에어건의 용도",
+        "title_id": "Fungsi Semprotan Angin",
+        "level": "Dasar",
+        "source": "Buku Panduan Ujian Sistem Poin HRDK Halaman 150-151",
+        "audio_q": "/audio/examiner_tool_q.mp3",
+        "audio_a": null,
+        "image_url": null
+      },
+      {
+        "id": "tool_func_12",
+        "category": "fungsi_alat",
+        "category_title": "작업도구 용도 (Fungsi Perkakas Manufaktur)",
+        "question_ko": "결속핸들은 무엇에 사용합니까?",
+        "question_romaja": "Gyeolsokhaendeureun mueose sayonghamnikka?",
+        "question_id": "Alat pengikat kawat (결속핸들) digunakan untuk apa?",
+        "answer_short_ko": "철근을 결속선(철사)으로 묶을 때 사용합니다.",
+        "answer_short_id": "Digunakan saat mengikat besi beton menggunakan kawat bendrat.",
+        "answer_full_ko": "철근을 결속선(철사)으로 묶을 때 사용합니다.",
+        "answer_full_id": "Digunakan saat mengikat besi beton menggunakan kawat bendrat.",
+        "title_ko": "결속핸들의 용도",
+        "title_id": "Fungsi Alat Pengikat Kawat",
+        "level": "Dasar",
+        "source": "Buku Panduan Ujian Sistem Poin HRDK Halaman 150-151",
+        "audio_q": "/audio/examiner_tool_q.mp3",
+        "audio_a": null,
+        "image_url": null
+      }
+    ],
+    "tool_action_commands": [
+      {
+        "id": "tool_act_01",
+        "category": "perintah_alat",
+        "category_title": "작업도구 지시이행 (Perintah Aksi Perkakas Manufaktur)",
+        "question_ko": "나사를 조이는 도구를 공구함에 넣으세요.",
+        "question_romaja": "Nasareul joineun dogureul gongguhame neoeuseyo.",
+        "question_id": "Perintah Penguji: Ambil alat pengencang sekrup (obeng) dan masukkan ke dalam kotak perkakas.",
+        "answer_short_ko": "네, 알겠습니다. 드라이버를 공구함에 넣겠습니다.",
+        "answer_short_id": "Baik, saya mengerti. Saya akan mengambil obeng dan memasukkannya ke dalam kotak perkakas.",
+        "answer_full_ko": "네, 알겠습니다. 드라이버를 공구함에 넣겠습니다.",
+        "answer_full_id": "Baik, saya mengerti. Saya akan mengambil obeng dan memasukkannya ke dalam kotak perkakas.",
+        "title_ko": "공구함에 넣기 (드라이버)",
+        "title_id": "Instruksi Masukkan Obeng ke Kotak Perkakas",
+        "level": "Dasar",
+        "source": "Buku Panduan Ujian Sistem Poin HRDK Halaman 150-151",
+        "audio_q": "/audio/examiner_tool_q.mp3",
+        "audio_a": null,
+        "image_url": null
+      },
+      {
+        "id": "tool_act_02",
+        "category": "perintah_alat",
+        "category_title": "작업도구 지시이행 (Perintah Aksi Perkakas Manufaktur)",
+        "question_ko": "버니어캘리퍼스를 가져와서 볼트의 길이를 측정하세요.",
+        "question_romaja": "Beonieokaellipeoseureul gajyeowaseo bolteuui girireul cheukjeonghaseyo.",
+        "question_id": "Perintah Penguji: Ambil jangka sorong (vernier caliper) dan lakukan tindakan mengukur panjang baut.",
+        "answer_short_ko": "네, 알겠습니다. 버니어캘리퍼스로 볼트의 길이를 측정하겠습니다.",
+        "answer_short_id": "Baik, saya mengerti. Saya akan mengukur panjang baut dengan jangka sorong.",
+        "answer_full_ko": "네, 알겠습니다. 버니어캘리퍼스로 볼트의 길이를 측정하겠습니다.",
+        "answer_full_id": "Baik, saya mengerti. Saya akan mengukur panjang baut dengan jangka sorong.",
+        "title_ko": "볼트 길이 측정하기 (버니어캘리퍼스)",
+        "title_id": "Instruksi Pengukuran Baut",
+        "level": "Dasar",
+        "source": "Buku Panduan Ujian Sistem Poin HRDK Halaman 150-151",
+        "audio_q": "/audio/examiner_tool_q.mp3",
+        "audio_a": null,
+        "image_url": null
+      },
+      {
+        "id": "tool_act_03",
+        "category": "perintah_alat",
+        "category_title": "작업도구 지시이행 (Perintah Aksi Perkakas Manufaktur)",
+        "question_ko": "스패너를 가져와서 볼트를 조이세요.",
+        "question_romaja": "Seupaeneoreul gajyeowaseo bolteureul joiseyo.",
+        "question_id": "Perintah Penguji: Ambil kunci pas (spanner) dan lakukan peragaan mengencangkan baut.",
+        "answer_short_ko": "네, 알겠습니다. 스패너로 볼트를 단단히 조이겠습니다.",
+        "answer_short_id": "Baik, saya mengerti. Saya akan mengencangkan baut dengan kunci pas.",
+        "answer_full_ko": "네, 알겠습니다. 스패너로 볼트를 단단히 조이겠습니다.",
+        "answer_full_id": "Baik, saya mengerti. Saya akan mengencangkan baut dengan kunci pas.",
+        "title_ko": "볼트 조이기 (스패너)",
+        "title_id": "Instruksi Kencangkan Baut",
+        "level": "Dasar",
+        "source": "Buku Panduan Ujian Sistem Poin HRDK Halaman 150-151",
+        "audio_q": "/audio/examiner_tool_q.mp3",
+        "audio_a": null,
+        "image_url": null
+      },
+      {
+        "id": "tool_act_04",
+        "category": "perintah_alat",
+        "category_title": "작업도구 지시이행 (Perintah Aksi Perkakas Manufaktur)",
+        "question_ko": "줄자를 가져와서 상자의 길이를 재세요.",
+        "question_romaja": "Juljareul gajyeowaseo sangjaui girireul jaeseyo.",
+        "question_id": "Perintah Penguji: Ambil meteran pita dan lakukan tindakan mengukur panjang kotak.",
+        "answer_short_ko": "네, 알겠습니다. 줄자로 상자의 길이를 정확히 재겠습니다.",
+        "answer_short_id": "Baik, saya mengerti. Saya akan mengukur panjang kotak dengan meteran pita.",
+        "answer_full_ko": "네, 알겠습니다. 줄자로 상자의 길이를 정확히 재겠습니다.",
+        "answer_full_id": "Baik, saya mengerti. Saya akan mengukur panjang kotak dengan meteran pita.",
+        "title_ko": "상자 길이 재기 (줄자)",
+        "title_id": "Instruksi Ukur Panjang Kotak",
+        "level": "Dasar",
+        "source": "Buku Panduan Ujian Sistem Poin HRDK Halaman 150-151",
+        "audio_q": "/audio/examiner_tool_q.mp3",
+        "audio_a": null,
+        "image_url": null
+      },
+      {
+        "id": "tool_act_05",
+        "category": "perintah_alat",
+        "category_title": "작업도구 지시이행 (Perintah Aksi Perkakas Manufaktur)",
+        "question_ko": "니퍼를 가져와서 전선을 자르세요.",
+        "question_romaja": "Nipeoreul gajyeowaseo jeonseoneul jareuseyo.",
+        "question_id": "Perintah Penguji: Ambil tang potong (nipper) dan lakukan tindakan memotong kabel.",
+        "answer_short_ko": "네, 알겠습니다. 니퍼로 전선을 안전하게 자르겠습니다.",
+        "answer_short_id": "Baik, saya mengerti. Saya akan memotong kabel dengan tang potong secara aman.",
+        "answer_full_ko": "네, 알겠습니다. 니퍼로 전선을 안전하게 자르겠습니다.",
+        "answer_full_id": "Baik, saya mengerti. Saya akan memotong kabel dengan tang potong secara aman.",
+        "title_ko": "전선 자르기 (니퍼)",
+        "title_id": "Instruksi Potong Kabel",
+        "level": "Dasar",
+        "source": "Buku Panduan Ujian Sistem Poin HRDK Halaman 150-151",
+        "audio_q": "/audio/examiner_tool_q.mp3",
+        "audio_a": null,
+        "image_url": null
+      },
+      {
+        "id": "tool_act_06",
+        "category": "perintah_alat",
+        "category_title": "작업도구 지시이행 (Perintah Aksi Perkakas Manufaktur)",
+        "question_ko": "망치를 공구함 오른쪽 선반에 정리하세요.",
+        "question_romaja": "Mangchireul gongguham oreunjjok seonbane jeongrihaseyo.",
+        "question_id": "Perintah Penguji: Ambil palu dan rapikan ke rak sebelah kanan kotak perkakas.",
+        "answer_short_ko": "네, 알겠습니다. 망치를 오른쪽 선반에 바르게 놓겠습니다.",
+        "answer_short_id": "Baik, saya mengerti. Saya akan merapikan palu di rak sebelah kanan.",
+        "answer_full_ko": "네, 알겠습니다. 망치를 오른쪽 선반에 바르게 놓겠습니다.",
+        "answer_full_id": "Baik, saya mengerti. Saya akan merapikan palu di rak sebelah kanan.",
+        "title_ko": "공구 정리하기 (망치)",
+        "title_id": "Instruksi Rapikan Palu",
+        "level": "Dasar",
+        "source": "Buku Panduan Ujian Sistem Poin HRDK Halaman 150-151",
+        "audio_q": "/audio/examiner_tool_q.mp3",
+        "audio_a": null,
+        "image_url": null
+      }
+    ]
+  },
+  "k3_safety": [
+    {
+      "id": "safety_01",
+      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "question_ko": "보호구가 무엇인가요?",
+      "question_ro": "Bohoguga mueosingayo?",
+      "question_id": "Apakah yang dimaksud dengan Alat Pelindung Diri (APD)?",
+      "answer_ko": "작업 중 발생할 수 있는 위험으로부터 작업자의 신체를 보호하기 위해 착용하거나 사용하는 장비나 용품입니다.",
+      "answer_id": "Peralatan atau perlengkapan yang digunakan untuk melindungi tubuh pekerja dari bahaya yang dapat terjadi saat bekerja.",
+      "audio_q": "/audio/03_k3_keselamatan_pabrik/01_Tanya_보호구가_무엇인가요.mp3",
+      "audio_a": "/audio/03_k3_keselamatan_pabrik/01_Jawab_작업자의_신체를_보호하기_위한_장비나_용품입니다.mp3"
+    },
+    {
+      "id": "safety_02",
+      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "question_ko": "보호구에는 어떤 종류가 있나요?",
+      "question_ro": "Bohogueneun eotteon jongnyuga innayo?",
+      "question_id": "Apa saja jenis-jenis Alat Pelindung Diri (APD)?",
+      "answer_ko": "안전모, 안전화, 안전대, 보안면, 귀마개, 방진마스크, 방독마스크, 방열복, 방한복 등이 있습니다.",
+      "answer_id": "Helm keselamatan, sepatu keselamatan, tali pengaman, pelindung wajah, penyumbat telinga, masker debu, masker gas, pakaian tahan panas, dan pakaian dingin.",
+      "audio_q": "/audio/03_k3_keselamatan_pabrik/02_Tanya_보호구에는_어떤_종류가_있나요.mp3",
+      "audio_a": "/audio/03_k3_keselamatan_pabrik/02_Jawab_안전모_안전화_안전대_보안면_귀마개_방진마스크_방독마스크_방열복_방한복_등이_있습니다.mp3"
+    },
+    {
+      "id": "safety_03",
+      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "question_ko": "안전모는 무엇입니까?",
+      "question_ro": "Anjeonmoneun mueosimnikka?",
+      "question_id": "Apakah itu helm keselamatan (safety helmet)?",
+      "answer_ko": "작업자가 물체와 부딪치거나 바닥으로 떨어졌을 때 머리를 보호하는 모자입니다.",
+      "answer_id": "Topi pelindung kepala saat pekerja terbentur benda keras atau terjatuh ke lantai.",
+      "audio_q": "/audio/03_k3_keselamatan_pabrik/03_Tanya_안전모는_무엇입니까.mp3",
+      "audio_a": "/audio/03_k3_keselamatan_pabrik/03_Jawab_부딪치거나_떨어졌을_때_머리를_보호하는_모자입니다.mp3"
+    },
+    {
+      "id": "safety_04",
+      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "question_ko": "안전화는 무엇입니까?",
+      "question_ro": "Anjeonhwaneun mueosimnikka?",
+      "question_id": "Apakah itu sepatu keselamatan (safety shoes)?",
+      "answer_ko": "떨어지는 공구 또는 뾰족한 물건으로부터 발을 보호하기 위한 신발입니다.",
+      "answer_id": "Sepatu pelindung kaki dari benda/perkakas yang terjatuh atau benda tajam menusuk.",
+      "audio_q": "/audio/03_k3_keselamatan_pabrik/04_Tanya_안전화는_무엇입니까.mp3",
+      "audio_a": "/audio/03_k3_keselamatan_pabrik/04_Jawab_떨어지는_공구나_뾰족한_물건으로부터_발을_보호하는_신발입니다.mp3"
+    },
+    {
+      "id": "safety_05",
+      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "question_ko": "안전대는 무엇입니까?",
+      "question_ro": "Anjeondaeneun mueosimnikka?",
+      "question_id": "Apakah itu tali pengaman keselamatan (safety harness)?",
+      "answer_ko": "작업자가 높은 곳에서 바닥으로 떨어지는 것을 막는 장비입니다.",
+      "answer_id": "Peralatan keselamatan untuk mencegah pekerja terjatuh ke lantai saat bekerja di tempat tinggi.",
+      "audio_q": "/audio/03_k3_keselamatan_pabrik/05_Tanya_안전대는_무엇입니까.mp3",
+      "audio_a": "/audio/03_k3_keselamatan_pabrik/05_Jawab_높은_곳에서_바닥으로_떨어지는_것을_막는_장비입니다.mp3"
+    },
+    {
+      "id": "safety_06",
+      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "question_ko": "보안면은 무엇입니까?",
+      "question_ro": "Boanmyeoneun mueosimnikka?",
+      "question_id": "Apakah itu pelindung muka/wajah (face shield)?",
+      "answer_ko": "불꽃이나 날아오는 물체로부터 얼굴과 눈을 보호하기 위한 장비입니다.",
+      "answer_id": "Alat pelindung wajah dan mata dari percikan api atau serpihan benda yang melayang.",
+      "audio_q": "/audio/03_k3_keselamatan_pabrik/06_Tanya_보안면은_무엇입니까.mp3",
+      "audio_a": "/audio/03_k3_keselamatan_pabrik/06_Jawab_불꽃이나_날아오는_물체로부터_얼굴과_눈을_보호하는_장비입니다.mp3"
+    },
+    {
+      "id": "safety_07",
+      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "question_ko": "귀마개는 무엇입니까?",
+      "question_ro": "Gwimagaeneun mueosimnikka?",
+      "question_id": "Apakah itu penyumbat telinga (earplugs)?",
+      "answer_ko": "시끄럽고 큰 소리가 나는 장소에서 귀를 보호하기 위한 용품입니다.",
+      "answer_id": "Alat pelindung pendengaran dari kebisingan suara keras di tempat kerja.",
+      "audio_q": "/audio/03_k3_keselamatan_pabrik/07_Tanya_귀마개는_무엇입니까.mp3",
+      "audio_a": "/audio/03_k3_keselamatan_pabrik/07_Jawab_시끄럽고_큰_소리가_나는_장소에서_귀를_보호하는_용품입니다.mp3"
+    },
+    {
+      "id": "safety_08",
+      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "question_ko": "방진마스크는 무엇입니까?",
+      "question_ro": "Bangjinmaseukeuneun mueosimnikka?",
+      "question_id": "Apakah itu masker debu (dust mask)?",
+      "answer_ko": "공기 중에 있는 먼지로부터 입과 코를 보호하기 위한 용품입니다.",
+      "answer_id": "Alat pelindung mulut dan hidung dari partikel debu di udara.",
+      "audio_q": "/audio/03_k3_keselamatan_pabrik/08_Tanya_방진마스크는_무엇입니까.mp3",
+      "audio_a": "/audio/03_k3_keselamatan_pabrik/08_Jawab_공기_중에_있는_먼지로부터_입과_코를_보호하는_용품입니다.mp3"
+    },
+    {
+      "id": "safety_09",
+      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "question_ko": "방독마스크는 무엇입니까?",
+      "question_ro": "Bangdongmaseukeuneun mueosimnikka?",
+      "question_id": "Apakah itu masker respirator gas (gas mask)?",
+      "answer_ko": "공기 중에 있는 화학물질 등으로부터 입과 코를 보호하기 위한 용품입니다.",
+      "answer_id": "Alat pelindung mulut dan hidung dari uap atau gas bahan kimia berbahaya di udara.",
+      "audio_q": "/audio/03_k3_keselamatan_pabrik/09_Tanya_방독마스크는_무엇입니까.mp3",
+      "audio_a": "/audio/03_k3_keselamatan_pabrik/09_Jawab_공기_중에_있는_화학물질로부터_입과_코를_보호하는_용품입니다.mp3"
+    },
+    {
+      "id": "safety_10",
+      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "question_ko": "방열복은 무엇입니까?",
+      "question_ro": "Bang-yeolbogeun mueosimnikka?",
+      "question_id": "Apakah itu pakaian tahan panas (heat-resistant suit)?",
+      "answer_ko": "매우 뜨거운 장소에서 열과 불로부터 몸을 보호하기 위한 작업복입니다.",
+      "answer_id": "Pakaian kerja pelindung tubuh dari panas ekstrem dan kobaran api.",
+      "audio_q": "/audio/03_k3_keselamatan_pabrik/10_Tanya_방열복은_무엇입니까.mp3",
+      "audio_a": "/audio/03_k3_keselamatan_pabrik/10_Jawab_매우_뜨거운_장소에서_열과_불로부터_몸을_보호하는_작업복입니다.mp3"
+    },
+    {
+      "id": "safety_11",
+      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "question_ko": "방한복은 무엇입니까?",
+      "question_ro": "Banghanbogeun mueosimnikka?",
+      "question_id": "Apakah itu pakaian dingin (cold storage workwear)?",
+      "answer_ko": "매우 추운 장소에서 몸 온도를 유지하기 위한 보온용 작업복입니다.",
+      "answer_id": "Pakaian kerja hangat untuk menjaga suhu tubuh di area yang sangat dingin.",
+      "audio_q": "/audio/03_k3_keselamatan_pabrik/11_Tanya_방한복은_무엇입니까.mp3",
+      "audio_a": "/audio/03_k3_keselamatan_pabrik/11_Jawab_매우_추운_장소에서_몸_온도를_유지하기_위한_보온용_작업복입니다.mp3"
+    },
+    {
+      "id": "safety_12",
+      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "question_ko": "보호구를 왜 착용하여야 할까요?",
+      "question_ro": "Bohogureul wae chak-yonghayeoya halkkayo?",
+      "question_id": "Mengapa pekerja wajib memakai Alat Pelindung Diri (APD)?",
+      "answer_ko": "작업자의 생명과 건강을 지키기 위한 가장 기본적이고 필수적인 조치이기 때문입니다.",
+      "answer_id": "Karena APD adalah langkah paling mendasar dan wajib demi melindungi nyawa serta kesehatan pekerja.",
+      "audio_q": "/audio/03_k3_keselamatan_pabrik/12_Tanya_보호구를_왜_착용하여야_할까요.mp3",
+      "audio_a": "/audio/03_k3_keselamatan_pabrik/12_Jawab_작업자의_생명과_건강을_지키기_위한_가장_기본적이고_필수적인_조치이기_때문입니다.mp3"
+    },
+    {
+      "id": "safety_13",
+      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "question_ko": "머리를 보호하기 위해 착용하는 보호구는 무엇인가요?",
+      "question_ro": "Meorireul bohohagi wihae chak-yonghaneun bohoguneun mueosingayo?",
+      "question_id": "APD apa yang dikenakan untuk melindungi kepala?",
+      "answer_ko": "머리를 보호하기 위해서는 안전모를 착용해야 합니다. 안전모 착용 시에는 턱끈을 조여야 합니다.",
+      "answer_id": "Wajib mengenakan helm keselamatan (안전모), dan tali dagu harus dikencangkan saat mengenakannya.",
+      "audio_q": "/audio/03_k3_keselamatan_pabrik/13_Tanya_머리를_보호하기_위해_착용하는_보호구는_무엇인가요.mp3",
+      "audio_a": "/audio/03_k3_keselamatan_pabrik/13_Jawab_안전모를_착용해야_하며_턱끈을_조여야_합니다.mp3"
+    },
+    {
+      "id": "safety_14",
+      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "question_ko": "높은 장소에서 작업 시 안전모 외에 착용해야 하는 보호구는 무엇인가요?",
+      "question_ro": "Nop-eun jangsodeseo jageop si anjeonmo oe-e chak-yonghaeya haneun bohoguneun mueosingayo?",
+      "question_id": "Saat bekerja di ketinggian, selain helm keselamatan, APD apa yang wajib dipakai?",
+      "answer_ko": "높은 장소에서 작업하는 경우에는 안전대를 착용하고 안전대 부착설비에 고리를 체결해야 합니다.",
+      "answer_id": "Saat bekerja di tempat tinggi, kenakan safety harness (안전대) dan kaitkan pengaitnya ke fasilitas penahan jatuh.",
+      "audio_q": "/audio/03_k3_keselamatan_pabrik/14_Tanya_높은_장소에서_작업_시_안전모_외에_착용해야_하는_보호구는_무엇인가요.mp3",
+      "audio_a": "/audio/03_k3_keselamatan_pabrik/14_Jawab_안전대를_착용하고_안전대_부착설비에_고리를_체결해야_합니다.mp3"
+    },
+    {
+      "id": "safety_15",
+      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "question_ko": "비상구가 무엇인가요?",
+      "question_ro": "Bisangguga mueosingayo?",
+      "question_id": "Apakah yang dimaksud dengan pintu darurat (emergency exit)?",
+      "answer_ko": "화재, 지진 등 갑작스러운 사고가 일어났을 때 신속하게 대피할 수 있도록 마련된 출입구입니다.",
+      "answer_id": "Pintu keluar yang disediakan agar orang dapat segera menyelamatkan diri saat terjadi kebakaran atau gempa bumi mendadak.",
+      "audio_q": "/audio/03_k3_keselamatan_pabrik/15_Tanya_비상구가_무엇인가요.mp3",
+      "audio_a": "/audio/03_k3_keselamatan_pabrik/15_Jawab_갑작스러운_사고가_일어났을_때_신속하게_대피할_수_있도록_마련된_출입구입니다.mp3"
+    },
+    {
+      "id": "safety_16",
+      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "question_ko": "대피로는 무엇인가요?",
+      "question_ro": "Daepironeun mueosingayo?",
+      "question_id": "Apakah yang dimaksud dengan jalur evakuasi (evacuation route)?",
+      "answer_ko": "화재 등 위급 상황이 발생했을 때 작업자가 신속하고 안전하게 빠져나갈 수 있도록 사전에 확보된 이동 경로입니다.",
+      "answer_id": "Jalur lintasan yang telah disiapkan sebelumnya agar pekerja dapat keluar dengan cepat dan selamat saat keadaan darurat.",
+      "audio_q": "/audio/03_k3_keselamatan_pabrik/16_Tanya_대피로는_무엇인가요.mp3",
+      "audio_a": "/audio/03_k3_keselamatan_pabrik/16_Jawab_위급_상황_시_작업자가_신속하고_안전하게_빠져나갈_수_있도록_확보된_이동_경로입니다.mp3"
+    },
+    {
+      "id": "safety_17",
+      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "question_ko": "비상구 등 대피로는 왜 확인해야 할까요?",
+      "question_ro": "Bisanggu deung daepironeun wae hwaginhaeya halkkayo?",
+      "question_id": "Mengapa kita harus mengetahui letak pintu darurat dan jalur evakuasi?",
+      "answer_ko": "사고가 발생하였을 때 생명을 지키기 위한 가장 기본적인 재난 대응 수칙으로 신속한 이동이 가능하기 때문입니다.",
+      "answer_id": "Karena saat terjadi musibah, ini adalah aturan tanggap darurat paling mendasar agar kita dapat menyelamatkan nyawa dengan evakuasi cepat.",
+      "audio_q": "/audio/03_k3_keselamatan_pabrik/17_Tanya_비상구_등_대피로는_왜_확인해야_할까요.mp3",
+      "audio_a": "/audio/03_k3_keselamatan_pabrik/17_Jawab_사고_발생_시_생명을_지키기_위한_기본_수칙으로_신속한_이동이_가능하기_때문입니다.mp3"
+    },
+    {
+      "id": "safety_18",
+      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "question_ko": "소화기란 무엇이며 소화기의 색상은 어떻게 되나요?",
+      "question_ro": "Sohwagiran mueosimyeo sohwagieui saeksang-eun eotteoke doenayo?",
+      "question_id": "Apakah itu APAR (alat pemadam api ringan) dan apa warnanya?",
+      "answer_ko": "소화기란 불을 끄기 위한 도구로 보통은 붉은색입니다. 평소에 소화기의 위치를 확인해 두는 것이 중요합니다.",
+      "answer_id": "APAR adalah alat pemadam kebakaran dan biasanya berwarna merah. Sangat penting mengetahui letak APAR dalam keseharian.",
+      "audio_q": "/audio/03_k3_keselamatan_pabrik/18_Tanya_소화기란_무엇이며_소화기의_색상은_어떻게_되나요.mp3",
+      "audio_a": "/audio/03_k3_keselamatan_pabrik/18_Jawab_불을_끄기_위한_도구로_보통은_붉은색입니다.mp3"
+    },
+    {
+      "id": "safety_19",
+      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "question_ko": "안전보건표지는 무엇인가요?",
+      "question_ro": "Anjeonbogeon pyojineun mueosingayo?",
+      "question_id": "Apakah yang dimaksud dengan rambu K3 (keselamatan & kesehatan kerja)?",
+      "answer_ko": "작업장 내 위험 요인을 알리고 안전한 행동을 유도하기 위해 사용하는 시각적 표지입니다.",
+      "answer_id": "Rambu visual yang digunakan untuk memberitahukan bahaya di tempat kerja dan mengarahkan perilaku aman.",
+      "audio_q": "/audio/03_k3_keselamatan_pabrik/19_Tanya_안전보건표지는_무엇인가요.mp3",
+      "audio_a": "/audio/03_k3_keselamatan_pabrik/19_Jawab_위험_요인을_알리고_안전한_행동을_유도하기_위해_사용하는_시각적_표지입니다.mp3"
+    },
+    {
+      "id": "safety_20",
+      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "question_ko": "안전보건표지에는 어떤 종류가 있을까요?",
+      "question_ro": "Anjeonbogeon pyojieneun eotteon jongnyuga isseulkkayo?",
+      "question_id": "Apa saja jenis-jenis rambu keselamatan dan kesehatan kerja (K3)?",
+      "answer_ko": "위험 행동을 막기 위한 금지 표지, 위험에 대한 주의를 위한 경고 표지, 안전 행동 유도를 위한 지시 표시, 대피 경로 등을 알려주기 위한 안내 표지가 있습니다.",
+      "answer_id": "Ada rambu Larangan (금지), rambu Peringatan Bahaya (경고), rambu Tindakan Wajib (지시), dan rambu Panduan Arah (안내).",
+      "audio_q": "/audio/03_k3_keselamatan_pabrik/20_Tanya_안전보건표지에는_어떤_종류가_있을까요.mp3",
+      "audio_a": "/audio/03_k3_keselamatan_pabrik/20_Jawab_금지_표지_경고_표지_지시_표시_안내_표지가_있습니다.mp3"
+    },
+    {
+      "id": "safety_21",
+      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "question_ko": "안전보건표지를 왜 확인해야 할까요?",
+      "question_ro": "Anjeonbogeon pyojireul wae hwaginhaeya halkkayo?",
+      "question_id": "Mengapa kita harus memeriksa rambu keselamatan dan kesehatan kerja (K3)?",
+      "answer_ko": "표지를 통하여 눈에 보이지 않는 위험을 시각적으로 가장 빠르고 명확하게 파악할 수 있기 때문입니다.",
+      "answer_id": "Karena melalui rambu kita dapat mengetahui dan mewaspadai bahaya yang tak terlihat secara cepat dan jelas.",
+      "audio_q": "/audio/03_k3_keselamatan_pabrik/21_Tanya_안전보건표지를_왜_확인해야_할까요.mp3",
+      "audio_a": "/audio/03_k3_keselamatan_pabrik/21_Jawab_표지를_통하여_위험을_파악하기_위해서입니다.mp3"
+    },
+    {
+      "id": "safety_22",
+      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "question_ko": "위험장소 출입금지 등 금지표지는 무슨 색인가요?",
+      "question_ro": "Wiheomjangso churipgeumji deung geumjipyojineun museun saekingayo?",
+      "question_id": "Rambu larangan seperti dilarang masuk ke tempat berbahaya itu berwarna apa?",
+      "answer_ko": "출입금지 등 위험 행동을 막기 위한 금지 표지는 붉은색 원 모양에 붉은색 사선이 그려져 있습니다.",
+      "answer_id": "Rambu larangan untuk mencegah tindakan berbahaya seperti dilarang masuk digambarkan dengan lingkaran merah dan garis miring merah.",
+      "audio_q": "/audio/03_k3_keselamatan_pabrik/22_Tanya_위험장소_출입금지_등_금지표지는_무슨_색인가요.mp3",
+      "audio_a": "/audio/03_k3_keselamatan_pabrik/22_Jawab_빨간색입니다.mp3"
+    },
+    {
+      "id": "safety_23",
+      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "question_ko": "방호장치가 무엇인가요?",
+      "question_ro": "Banghojangchiga mueosingayo?",
+      "question_id": "Apakah yang dimaksud dengan alat pengaman mesin (safety guard)?",
+      "answer_ko": "기계 등에서 발생하는 위험 요인으로부터 작업자의 신체를 보호하거나 위험을 차단하는 설비입니다.",
+      "answer_id": "Perlengkapan yang melindungi tubuh pekerja atau mengisolasi bahaya dari faktor bahaya yang muncul dari mesin.",
+      "audio_q": "/audio/03_k3_keselamatan_pabrik/23_Tanya_방호장치가_무엇인가요.mp3",
+      "audio_a": "/audio/03_k3_keselamatan_pabrik/23_Jawab_사고를_예방하는_안전장치입니다.mp3"
+    },
+    {
+      "id": "safety_24",
+      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "question_ko": "정상 작동이 무슨 뜻인가요?",
+      "question_ro": "Jeongsang jakdong-i museun tteusingayo?",
+      "question_id": "Apakah arti dari operasi normal (bekerja dengan normal)?",
+      "answer_ko": "장치, 설비 등이 정해진 목적과 기준에 맞게 안전하고 정확하게 작동하는 상태입니다.",
+      "answer_id": "Kondisi di mana alat atau perlengkapan bekerja secara aman dan akurat sesuai tujuan serta standar yang ditetapkan.",
+      "audio_q": "/audio/03_k3_keselamatan_pabrik/24_Tanya_정상_작동이_무슨_뜻인가요.mp3",
+      "audio_a": "/audio/03_k3_keselamatan_pabrik/24_Jawab_기계가_문제없이_잘_돌아가는_것입니다.mp3"
+    },
+    {
+      "id": "safety_25",
+      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "question_ko": "방호장치 정상 작동 여부를 왜 확인하여야 하나요?",
+      "question_ro": "Banghojangchi jeongsang jakdong yeobureul wae hwaginhayeoya hanayo?",
+      "question_id": "Mengapa kita harus memeriksa apakah alat pengaman mesin berfungsi normal?",
+      "answer_ko": "사람이 실수를 하더라도 방호장치가 정상적으로 작동해야만 실질적인 보호 효과가 있기 때문입니다.",
+      "answer_id": "Karena meskipun manusia melakukan kesalahan, alat pengaman harus berfungsi normal agar memberikan perlindungan yang nyata.",
+      "audio_q": "/audio/03_k3_keselamatan_pabrik/25_Tanya_방호장치_정상_작동_여부를_왜_확인하여야_하나요.mp3",
+      "audio_a": "/audio/03_k3_keselamatan_pabrik/25_Jawab_안전사고를_방지하기_위해서입니다.mp3"
+    },
+    {
+      "id": "safety_26",
+      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "question_ko": "작업 전 안전점검이 무엇인가요?",
+      "question_ro": "Jageop jeon anjeonjeomgeom-i mueosingayo?",
+      "question_id": "Apakah yang dimaksud dengan inspeksi keselamatan sebelum bekerja?",
+      "answer_ko": "기계에 이상한 소리가 나거나 흔들리거나 하면 사용하지 말고 반장님 등 관리자에게 보고해야 합니다.",
+      "answer_id": "Jika mesin mengeluarkan suara aneh atau bergetar ganjil, jangan digunakan dan segera laporkan kepada mandor/pengawas.",
+      "audio_q": "/audio/03_k3_keselamatan_pabrik/26_Tanya_작업_전_안전점검이_무엇인가요.mp3",
+      "audio_a": "/audio/03_k3_keselamatan_pabrik/26_Jawab_일하기_전에_위험_요소를_확인하는_것입니다.mp3"
+    },
+    {
+      "id": "safety_27",
+      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "question_ko": "화학물질이 무엇인가요?",
+      "question_ro": "Hwahangmuljiri mueosingayo?",
+      "question_id": "Apakah yang dimaksud dengan bahan kimia berbahaya di pabrik?",
+      "answer_ko": "사업장에서 제품을 만드는 데 사용하는 고체, 액체, 기체로 사람에게 유해하거나 폭발 등의 위험성을 가진 물질입니다.",
+      "answer_id": "Bahan berwujud padat, cair, atau gas yang digunakan di pabrik untuk membuat produk, yang berpotensi bahaya atau ledakan bagi manusia.",
+      "audio_q": "/audio/03_k3_keselamatan_pabrik/27_Tanya_화학물질이_무엇인가요.mp3",
+      "audio_a": "/audio/03_k3_keselamatan_pabrik/27_Jawab_신나_페인트_기름_같은_물질입니다.mp3"
+    },
+    {
+      "id": "safety_28",
+      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "question_ko": "MSDS(물질안전보건자료)가 무엇인가요?",
+      "question_ro": "MSDS(muljil-anjeon-bogeon-jaryo)ga mueosingayo?",
+      "question_id": "Apakah yang dimaksud dengan MSDS (Lembar Data Keselamatan Bahan)?",
+      "answer_ko": "화학물질에 대한 정보, 이름, 성분, 유해성, 위험성, 보관 방법, 다룰 때 주의할 점, 필요한 보호구, 응급 조치 등이 담긴 설명서입니다.",
+      "answer_id": "Buku panduan yang memuat informasi bahan kimia: nama, komposisi, bahaya, metode penyimpanan, tindakan pencegahan saat penanganan, APD yang dibutuhkan, dan pertolongan pertama.",
+      "audio_q": "/audio/03_k3_keselamatan_pabrik/28_Tanya_MSDS_물질안전보건자료가_무엇인가요.mp3",
+      "audio_a": "/audio/03_k3_keselamatan_pabrik/28_Jawab_화학물질의_안전_설명서입니다.mp3"
+    },
+    {
+      "id": "safety_29",
+      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "question_ko": "화학물질 MSDS(물질안전보건자료)를 왜 확인해야 할까요?",
+      "question_ro": "Hwahangmuljil MSDSreul wae hwaginhaeya halkkayo?",
+      "question_id": "Mengapa kita harus memeriksa lembar MSDS bahan kimia?",
+      "answer_ko": "화학물질을 안전하게 취급하고 사고를 예방하기 위해 반드시 확인해야 하는 가장 기본적인 안전 정보이기 때문입니다.",
+      "answer_id": "Karena itu adalah informasi keselamatan paling mendasar yang wajib diperiksa untuk menangani bahan kimia secara aman dan mencegah kecelakaan.",
+      "audio_q": "/audio/03_k3_keselamatan_pabrik/29_Tanya_화학물질_MSDS를_왜_확인해야_할까요.mp3",
+      "audio_a": "/audio/03_k3_keselamatan_pabrik/29_Jawab_안전하게_작업하기_위해서입니다.mp3"
+    },
+    {
+      "id": "safety_30",
+      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "question_ko": "화학물질을 다룰 때 어떤 보호구를 착용해야 하나요?",
+      "question_ro": "Hwahangmuljireul darul ttae eotteon bohogureul chak-yonghaeya hanayo?",
+      "question_id": "APD apa yang harus dipakai saat menangani bahan kimia di pabrik?",
+      "answer_ko": "화학물질을 사용하는 작업 전에는 방독마스크, 화학물질용 보호장갑 등을 준비하고 작업 시 착용합니다.",
+      "answer_id": "Sebelum pekerjaan yang menggunakan bahan kimia, siapkan masker respirator anti-gas kimia, sarung tangan khusus bahan kimia, dan kenakan saat bekerja.",
+      "audio_q": "/audio/03_k3_keselamatan_pabrik/30_Tanya_화학물질을_다룰_때_어떤_보호구를_착용해야_하나요.mp3",
+      "audio_a": "/audio/03_k3_keselamatan_pabrik/30_Jawab_보안경과_방독마스크_내화학_장갑입니다.mp3"
+    }
+  ],
+  "interview": [
+    {
+      "id": "wwc_01",
+      "category": "wawancara",
+      "category_title": "면접 - 인적사항 및 직장생활 (Wawancara & Situasi Kerja)",
+      "question_ko": "이름이 무엇입니까?",
+      "question_ro": "Ireumi mueosipnikka?",
+      "question_id": "Siapa nama Anda?",
+      "answer_ko": "제 이름은 [이름]입니다.",
+      "answer_id": "Nama saya adalah [Nama].",
+      "audio_q": "/audio/01_wawancara_data_diri/01_이름이_무엇입니까_(Siapa_nama_Anda).mp3",
+      "audio_a": null
+    },
+    {
+      "id": "wwc_02",
+      "category": "wawancara",
+      "category_title": "면접 - 인적사항 및 직장생활 (Wawancara & Situasi Kerja)",
+      "question_ko": "이름이 뭐예요?",
+      "question_ro": "Ireumi mwoyeyo?",
+      "question_id": "Siapa nama Anda santai?",
+      "answer_ko": "제 이름은 [이름]이에요.",
+      "answer_id": "Nama saya adalah [Nama].",
+      "audio_q": "/audio/01_wawancara_data_diri/02_이름이_뭐예요_(Siapa_nama_Anda_santai).mp3",
+      "audio_a": null
+    },
+    {
+      "id": "wwc_03",
+      "category": "wawancara",
+      "category_title": "면접 - 인적사항 및 직장생활 (Wawancara & Situasi Kerja)",
+      "question_ko": "성함이 어떻게 되세요?",
+      "question_ro": "Seonghami eotteoke doeseyo?",
+      "question_id": "Siapa nama Anda hormat?",
+      "answer_ko": "제 이름은 [이름]입니다.",
+      "answer_id": "Nama saya adalah [Nama].",
+      "audio_q": "/audio/01_wawancara_data_diri/03_성함이_어떻게_되세요_(Siapa_nama_Anda_hormat).mp3",
+      "audio_a": null
+    },
+    {
+      "id": "wwc_04",
+      "category": "wawancara",
+      "category_title": "면접 - 인적사항 및 직장생활 (Wawancara & Situasi Kerja)",
+      "question_ko": "나이가 몇 살이에요?",
+      "question_ro": "Naiga myeot sarieyo?",
+      "question_id": "Berapa usia Anda?",
+      "answer_ko": "저는 [나이]살이에요.",
+      "answer_id": "Saya berusia [Umur] tahun.",
+      "audio_q": "/audio/01_wawancara_data_diri/04_나이가_몇_살이에요_(Berapa_usia_Anda).mp3",
+      "audio_a": null
+    },
+    {
+      "id": "wwc_05",
+      "category": "wawancara",
+      "category_title": "면접 - 인적사항 및 직장생활 (Wawancara & Situasi Kerja)",
+      "question_ko": "몇 살입니까?",
+      "question_ro": "Myeot saripnikka?",
+      "question_id": "Berapa usia Anda formal?",
+      "answer_ko": "저는 [나이]살입니다.",
+      "answer_id": "Saya berusia [Umur] tahun.",
+      "audio_q": "/audio/01_wawancara_data_diri/05_몇_살입니까_(Berapa_usia_Anda_formal).mp3",
+      "audio_a": null
+    },
+    {
+      "id": "wwc_06",
+      "category": "wawancara",
+      "category_title": "면접 - 인적사항 및 직장생활 (Wawancara & Situasi Kerja)",
+      "question_ko": "연세가 어떻게 되세요?",
+      "question_ro": "Yeonsega eotteoke doeseyo?",
+      "question_id": "Berapa usia Anda sangat hormat?",
+      "answer_ko": "저는 [나이]살입니다.",
+      "answer_id": "Saya berusia [Umur] tahun.",
+      "audio_q": "/audio/01_wawancara_data_diri/06_연세가_어떻게_되세요_(Berapa_usia_Anda_sangat_hormat).mp3",
+      "audio_a": null
+    },
+    {
+      "id": "wwc_07",
+      "category": "wawancara",
+      "category_title": "면접 - 인적사항 및 직장생활 (Wawancara & Situasi Kerja)",
+      "question_ko": "생일이 언제입니까?",
+      "question_ro": "Saeng-iri eonje-imnikka?",
+      "question_id": "Kapan tanggal lahir Anda?",
+      "answer_ko": "제 생일은 [년]년 [월]월 [일]일입니다.",
+      "answer_id": "Tanggal lahir saya tahun [Tahun], bulan [Bulan], tanggal [Hari].",
+      "audio_q": "/audio/01_wawancara_data_diri/07_생일이_언제입니까_(Kapan_tanggal_lahir_Anda).mp3",
+      "audio_a": null
+    },
+    {
+      "id": "wwc_08",
+      "category": "wawancara",
+      "category_title": "면접 - 인적사항 및 직장생활 (Wawancara & Situasi Kerja)",
+      "question_ko": "생일이 언제예요?",
+      "question_ro": "Saeng-iri eonjeyeyo?",
+      "question_id": "Kapan tanggal lahir Anda akrab?",
+      "answer_ko": "제 생일은 [년]년 [월]월 [일]일이에요.",
+      "answer_id": "Tanggal lahir saya tahun [Tahun], bulan [Bulan], tanggal [Hari].",
+      "audio_q": "/audio/01_wawancara_data_diri/08_생일이_언제예요_(Kapan_tanggal_lahir_Anda_akrab).mp3",
+      "audio_a": null
+    },
+    {
+      "id": "wwc_09",
+      "category": "wawancara",
+      "category_title": "면접 - 인적사항 및 직장생활 (Wawancara & Situasi Kerja)",
+      "question_ko": "고향이 어디입니까?",
+      "question_ro": "Gohyangi eodi-imnikka?",
+      "question_id": "Di mana kampung halaman?",
+      "answer_ko": "제 고향은 인도네시아 [지역]입니다.",
+      "answer_id": "Kampung halaman saya di [Kota], Indonesia.",
+      "audio_q": "/audio/01_wawancara_data_diri/09_고향이_어디입니까_(Di_mana_kampung_halaman).mp3",
+      "audio_a": null
+    },
+    {
+      "id": "wwc_10",
+      "category": "wawancara",
+      "category_title": "면접 - 인적사항 및 직장생활 (Wawancara & Situasi Kerja)",
+      "question_ko": "고향이 어디예요?",
+      "question_ro": "Gohyangi eodiyeyo?",
+      "question_id": "Di mana kampung halaman akrab?",
+      "answer_ko": "제 고향은 인도네시아 [지역]이에요.",
+      "answer_id": "Kampung halaman saya di [Kota], Indonesia.",
+      "audio_q": "/audio/01_wawancara_data_diri/10_고향이_어디예요_(Di_mana_kampung_halaman_akrab).mp3",
+      "audio_a": null
+    },
+    {
+      "id": "wwc_11",
+      "category": "wawancara",
+      "category_title": "면접 - 인적사항 및 직장생활 (Wawancara & Situasi Kerja)",
+      "question_ko": "결혼하셨습니까?",
+      "question_ro": "Gyeolhonhasyeossseumnikka?",
+      "question_id": "Apakah sudah menikah?",
+      "answer_ko": "네, 결혼했습니다. / 아니요, 아직 안 했습니다.",
+      "answer_id": "Ya, sudah menikah. / Belum, belum menikah.",
+      "audio_q": "/audio/01_wawancara_data_diri/11_결혼하셨습니까_(Apakah_sudah_menikah).mp3",
+      "audio_a": null
+    },
+    {
+      "id": "wwc_12",
+      "category": "wawancara",
+      "category_title": "면접 - 인적사항 및 직장생활 (Wawancara & Situasi Kerja)",
+      "question_ko": "결혼했어요?",
+      "question_ro": "Gyeolhonhaesseoyo?",
+      "question_id": "Apakah sudah menikah akrab?",
+      "answer_ko": "네, 결혼했어요. / 아니요, 아직 안 했어요.",
+      "answer_id": "Ya, sudah menikah. / Belum, belum menikah.",
+      "audio_q": "/audio/01_wawancara_data_diri/12_결혼했어요_(Apakah_sudah_menikah_akrab).mp3",
+      "audio_a": null
+    },
+    {
+      "id": "wwc_13",
+      "category": "wawancara",
+      "category_title": "면접 - 인적사항 및 직장생활 (Wawancara & Situasi Kerja)",
+      "question_ko": "아이가 있습니까?",
+      "question_ro": "Aiga isseumnikka?",
+      "question_id": "Apakah punya anak?",
+      "answer_ko": "네, [명]명 있습니다. / 아니요, 없습니다.",
+      "answer_id": "Ya, punya [Jumlah] anak. / Tidak punya.",
+      "audio_q": "/audio/01_wawancara_data_diri/13_아이가_있습니까_(Apakah_punya_anak).mp3",
+      "audio_a": null
+    },
+    {
+      "id": "wwc_14",
+      "category": "wawancara",
+      "category_title": "면접 - 인적사항 및 직장생활 (Wawancara & Situasi Kerja)",
+      "question_ko": "부모님이 계십니까?",
+      "question_ro": "Bumonimi gyesimnikka?",
+      "question_id": "Apakah orang tua masih ada?",
+      "answer_ko": "네, 두 분 다 계십니다.",
+      "answer_id": "Ya, kedua orang tua masih sehat ada.",
+      "audio_q": "/audio/01_wawancara_data_diri/14_부모님이_계십니까_(Apakah_orang_tua_masih_ada).mp3",
+      "audio_a": null
+    },
+    {
+      "id": "wwc_15",
+      "category": "wawancara",
+      "category_title": "면접 - 인적사항 및 직장생활 (Wawancara & Situasi Kerja)",
+      "question_ko": "부모님이 계세요?",
+      "question_ro": "Bumonimi gyeseyo?",
+      "question_id": "Apakah orang tua masih ada akrab?",
+      "answer_ko": "네, 두 분 다 계세요.",
+      "answer_id": "Ya, kedua orang tua masih sehat ada.",
+      "audio_q": "/audio/01_wawancara_data_diri/15_부모님이_계세요_(Apakah_orang_tua_masih_ada_akrab).mp3",
+      "audio_a": null
+    },
+    {
+      "id": "wwc_16",
+      "category": "wawancara",
+      "category_title": "면접 - 인적사항 및 직장생활 (Wawancara & Situasi Kerja)",
+      "question_ko": "가족은 몇 명입니까?",
+      "question_ro": "Gajogeun myeot myeong-imnikka?",
+      "question_id": "Berapa anggota keluarga?",
+      "answer_ko": "우리 가족은 모두 [명]명입니다.",
+      "answer_id": "Keluarga saya semuanya ada [Jumlah] orang.",
+      "audio_q": "/audio/01_wawancara_data_diri/16_가족은_몇_명입니까_(Berapa_anggota_keluarga).mp3",
+      "audio_a": null
+    },
+    {
+      "id": "wwc_17",
+      "category": "wawancara",
+      "category_title": "면접 - 인적사항 및 직장생활 (Wawancara & Situasi Kerja)",
+      "question_ko": "가족은 몇 명이에요?",
+      "question_ro": "Gajogeun myeot myeong-ieyo?",
+      "question_id": "Berapa anggota keluarga akrab?",
+      "answer_ko": "우리 가족은 모두 [명]명이에요.",
+      "answer_id": "Keluarga saya semuanya ada [Jumlah] orang.",
+      "audio_q": "/audio/01_wawancara_data_diri/17_가족은_몇_명이에요_(Berapa_anggota_keluarga_akrab).mp3",
+      "audio_a": null
+    },
+    {
+      "id": "wwc_18",
+      "category": "wawancara",
+      "category_title": "면접 - 인적사항 및 직장생활 (Wawancara & Situasi Kerja)",
+      "question_ko": "형제가 몇 명 있습니까?",
+      "question_ro": "Hyeongjega myeot myeong isseumnikka?",
+      "question_id": "Berapa saudara kandung?",
+      "answer_ko": "형제는 모두 [명]명 있습니다.",
+      "answer_id": "Saudara kandung saya ada [Jumlah] orang.",
+      "audio_q": "/audio/01_wawancara_data_diri/18_형제가_몇_명_있습니까_(Berapa_saudara_kandung).mp3",
+      "audio_a": null
+    },
+    {
+      "id": "wwc_19",
+      "category": "wawancara",
+      "category_title": "면접 - 인적사항 및 직장생활 (Wawancara & Situasi Kerja)",
+      "question_ko": "형제가 몇 명이에요?",
+      "question_ro": "Hyeongjega myeot myeong-ieyo?",
+      "question_id": "Berapa saudara kandung akrab?",
+      "answer_ko": "형제는 모두 [명]명이에요.",
+      "answer_id": "Saudara kandung saya ada [Jumlah] orang.",
+      "audio_q": "/audio/01_wawancara_data_diri/19_형제가_몇_명이에요_(Berapa_saudara_kandung_akrab).mp3",
+      "audio_a": null
+    },
+    {
+      "id": "wwc_20",
+      "category": "wawancara",
+      "category_title": "면접 - 인적사항 및 직장생활 (Wawancara & Situasi Kerja)",
+      "question_ko": "키가 얼마예요?",
+      "question_ro": "Kiga eolmayeyo?",
+      "question_id": "Berapa tinggi badan?",
+      "answer_ko": "제 키는 [키]센티미터예요.",
+      "answer_id": "Tinggi badan saya [Tinggi] cm.",
+      "audio_q": "/audio/01_wawancara_data_diri/20_키가_얼마예요_(Berapa_tinggi_badan).mp3",
+      "audio_a": null
+    },
+    {
+      "id": "wwc_21",
+      "category": "wawancara",
+      "category_title": "면접 - 인적사항 및 직장생활 (Wawancara & Situasi Kerja)",
+      "question_ko": "키가 몇 센티미터입니까?",
+      "question_ro": "Kiga myeot sentimiteo-imnikka?",
+      "question_id": "Berapa tinggi badan cm?",
+      "answer_ko": "제 키는 [키]센티미터입니다.",
+      "answer_id": "Tinggi badan saya [Tinggi] cm.",
+      "audio_q": "/audio/01_wawancara_data_diri/21_키가_몇_센티미터입니까_(Berapa_tinggi_badan_cm).mp3",
+      "audio_a": null
+    },
+    {
+      "id": "wwc_22",
+      "category": "wawancara",
+      "category_title": "면접 - 인적사항 및 직장생활 (Wawancara & Situasi Kerja)",
+      "question_ko": "몸무게는 얼마나 나가요?",
+      "question_ro": "Mommugeneun eolmana nagayo?",
+      "question_id": "Berapa berat badan?",
+      "answer_ko": "제 몸무게는 [몸무게]킬로그램이에요.",
+      "answer_id": "Berat badan saya [Berat] kg.",
+      "audio_q": "/audio/01_wawancara_data_diri/22_몸무게는_얼마나_나가요_(Berapa_berat_badan).mp3",
+      "audio_a": null
+    },
+    {
+      "id": "wwc_23",
+      "category": "wawancara",
+      "category_title": "면접 - 인적사항 및 직장생활 (Wawancara & Situasi Kerja)",
+      "question_ko": "취미는 뭐예요?",
+      "question_ro": "Chwimineun mwoyeyo?",
+      "question_id": "Apa hobi Anda?",
+      "answer_ko": "제 취미는 [취미/운동]이에요.",
+      "answer_id": "Hobi saya adalah [Olahraga/Membaca].",
+      "audio_q": "/audio/01_wawancara_data_diri/23_취미는_뭐예요_(Apa_hobi_Anda).mp3",
+      "audio_a": null
+    },
+    {
+      "id": "wwc_24",
+      "category": "wawancara",
+      "category_title": "면접 - 인적사항 및 직장생활 (Wawancara & Situasi Kerja)",
+      "question_ko": "무슨 운동을 좋아해요?",
+      "question_ro": "Museun undong-eul joahaeyo?",
+      "question_id": "Olahraga apa yang disukai?",
+      "answer_ko": "축구를 제일 좋아합니다.",
+      "answer_id": "Saya paling suka sepak bola.",
+      "audio_q": "/audio/01_wawancara_data_diri/24_무슨_운동을_좋아해요_(Olahraga_apa_yang_disukai).mp3",
+      "audio_a": null
+    },
+    {
+      "id": "wwc_25",
+      "category": "wawancara",
+      "category_title": "면접 - 인적사항 및 직장생활 (Wawancara & Situasi Kerja)",
+      "question_ko": "무슨 색깔이 좋아요?",
+      "question_ro": "Museun saekkkari joayo?",
+      "question_id": "Warna apa yang disukai?",
+      "answer_ko": "파란색을 좋아합니다.",
+      "answer_id": "Saya suka warna biru.",
+      "audio_q": "/audio/01_wawancara_data_diri/25_무슨_색깔이_좋아요_(Warna_apa_yang_disukai).mp3",
+      "audio_a": null
+    },
+    {
+      "id": "wwc_26",
+      "category": "wawancara",
+      "category_title": "면접 - 인적사항 및 직장생활 (Wawancara & Situasi Kerja)",
+      "question_ko": "오늘은 무슨 요일이에요?",
+      "question_ro": "Oneureun museun yoil-ieyo?",
+      "question_id": "Hari ini hari apa?",
+      "answer_ko": "오늘은 [요일]요일입니다.",
+      "answer_id": "Hari ini adalah hari [Hari].",
+      "audio_q": "/audio/01_wawancara_data_diri/26_오늘은_무슨_요일이에요_(Hari_ini_hari_apa).mp3",
+      "audio_a": null
+    },
+    {
+      "id": "wwc_27",
+      "category": "wawancara",
+      "category_title": "면접 - 인적사항 및 직장생활 (Wawancara & Situasi Kerja)",
+      "question_ko": "어제는 무슨 요일이에요?",
+      "question_ro": "Eojeneun museun yoil-ieyo?",
+      "question_id": "Kemarin hari apa?",
+      "answer_ko": "어제는 [요일]요일이었습니다.",
+      "answer_id": "Kemarin adalah hari [Hari].",
+      "audio_q": "/audio/01_wawancara_data_diri/27_어제는_무슨_요일이에요_(Kemarin_hari_apa).mp3",
+      "audio_a": null
+    },
+    {
+      "id": "wwc_28",
+      "category": "wawancara",
+      "category_title": "면접 - 인적사항 및 직장생활 (Wawancara & Situasi Kerja)",
+      "question_ko": "내일은 무슨 요일이에요?",
+      "question_ro": "Nae-ireun museun yoil-ieyo?",
+      "question_id": "Besok hari apa?",
+      "answer_ko": "내일은 [요일]요일입니다.",
+      "answer_id": "Besok adalah hari [Hari].",
+      "audio_q": "/audio/01_wawancara_data_diri/28_내일은_무슨_요일이에요_(Besok_hari_apa).mp3",
+      "audio_a": null
+    },
+    {
+      "id": "wwc_29",
+      "category": "wawancara",
+      "category_title": "면접 - 인적사항 및 직장생활 (Wawancara & Situasi Kerja)",
+      "question_ko": "모레는 무슨 요일이에요?",
+      "question_ro": "Moreneun museun yoil-ieyo?",
+      "question_id": "Lusa hari apa?",
+      "answer_ko": "모레는 [요일]요일입니다.",
+      "answer_id": "Lusa adalah hari [Hari].",
+      "audio_q": "/audio/01_wawancara_data_diri/29_모레는_무슨_요일이에요_(Lusa_hari_apa).mp3",
+      "audio_a": null
+    },
+    {
+      "id": "wwc_30",
+      "category": "wawancara",
+      "category_title": "면접 - 인적사항 및 직장생활 (Wawancara & Situasi Kerja)",
+      "question_ko": "오늘은 몇 월 며칠이에요?",
+      "question_ro": "Oneureun myeot wol myeochil-ieyo?",
+      "question_id": "Hari ini tanggal berapa?",
+      "answer_ko": "오늘은 [월]월 [일]일입니다.",
+      "answer_id": "Hari ini tanggal [Tanggal] bulan [Bulan].",
+      "audio_q": "/audio/01_wawancara_data_diri/30_오늘은_몇_월_며칠이에요_(Hari_ini_tanggal_berapa).mp3",
+      "audio_a": null
+    },
+    {
+      "id": "wwc_31",
+      "category": "wawancara",
+      "category_title": "면접 - 인적사항 및 직장생활 (Wawancara & Situasi Kerja)",
+      "question_ko": "내일은 며칠이에요?",
+      "question_ro": "Nae-ireun myeochil-ieyo?",
+      "question_id": "Besok tanggal berapa?",
+      "answer_ko": "내일은 [일]일입니다.",
+      "answer_id": "Besok tanggal [Tanggal].",
+      "audio_q": "/audio/01_wawancara_data_diri/31_내일은_며칠이에요_(Besok_tanggal_berapa).mp3",
+      "audio_a": null
+    },
+    {
+      "id": "wwc_32",
+      "category": "wawancara",
+      "category_title": "면접 - 인적사항 및 직장생활 (Wawancara & Situasi Kerja)",
+      "question_ko": "지금 몇 시예요?",
+      "question_ro": "Jigeum myeot siyeyo?",
+      "question_id": "Sekarang jam berapa?",
+      "answer_ko": "지금은 [시]시 [분]분입니다.",
+      "answer_id": "Sekarang pukul [Jam] lewat [Menit].",
+      "audio_q": "/audio/01_wawancara_data_diri/32_지금_몇_시예요_(Sekarang_jam_berapa).mp3",
+      "audio_a": null
+    },
+    {
+      "id": "wwc_33",
+      "category": "wawancara",
+      "category_title": "면접 - 인적사항 및 직장생활 (Wawancara & Situasi Kerja)",
+      "question_ko": "요즘은 무슨 일을 하세요?",
+      "question_ro": "Yojeumeun museun ireul haseyo?",
+      "question_id": "Akhir-akhir ini bekerja apa?",
+      "answer_ko": "한국어 공부와 체력 관리를 하고 있습니다.",
+      "answer_id": "Saya sedang belajar bahasa Korea dan melatih fisik.",
+      "audio_q": "/audio/01_wawancara_data_diri/33_요즘은_무슨_일을_하세요_(Akhir-akhir_ini_bekerja_apa).mp3",
+      "audio_a": null
+    },
+    {
+      "id": "wwc_34",
+      "category": "wawancara",
+      "category_title": "면접 - 인적사항 및 직장생활 (Wawancara & Situasi Kerja)",
+      "question_ko": "한국에 왜 가고 싶어요?",
+      "question_ro": "Hanguge wae gago sipeoyo?",
+      "question_id": "Mengapa ingin ke Korea?",
+      "answer_ko": "돈을 벌어 부모님을 돕고 기술을 배우고 싶습니다.",
+      "answer_id": "Ingin bekerja mencari nafkah untuk orang tua dan belajar teknologi.",
+      "audio_q": "/audio/01_wawancara_data_diri/34_한국에_왜_가고_싶어요_(Mengapa_ingin_ke_Korea).mp3",
+      "audio_a": null
+    },
+    {
+      "id": "wwc_35",
+      "category": "wawancara",
+      "category_title": "면접 - 인적사항 및 직장생활 (Wawancara & Situasi Kerja)",
+      "question_ko": "한국에 가면 어떤 일을 하고 싶어요?",
+      "question_ro": "Hanguge gamyeon eotteon ireul hago sipeoyo?",
+      "question_id": "Ingin kerja apa di Korea?",
+      "answer_ko": "제조업 공장에서 열심히 일하고 싶습니다.",
+      "answer_id": "Saya ingin bekerja keras di pabrik manufaktur.",
+      "audio_q": "/audio/01_wawancara_data_diri/35_한국에_가면_어떤_일을_하고_싶어요_(Ingin_kerja_apa_di_Korea).mp3",
+      "audio_a": null
+    },
+    {
+      "id": "wwc_36",
+      "category": "wawancara",
+      "category_title": "면접 - 인적사항 및 직장생활 (Wawancara & Situasi Kerja)",
+      "question_ko": "한국말을 잘하는데 어디에서 배웠어요? 얼마 동안 배웠어요?",
+      "question_ro": "Hangungmareul jalhaneunde eodieseo baewosseoyo? Eolma dongan baewosseoyo?",
+      "question_id": "Bahasa Korea Anda bagus, belajar di mana? Sudah berapa lama belajar?",
+      "answer_ko": "인도네시아 LPK 학원에서 [기간] 동안 열심히 배웠습니다.",
+      "answer_id": "Saya belajar dengan tekun selama [Durasi] di LPK Indonesia.",
+      "audio_q": "/audio/01_wawancara_data_diri/36_한국말을_어디에서_배웠어요_(Di_mana_belajar_bahasa_Korea).mp3",
+      "audio_a": null
+    },
+    {
+      "id": "wwc_37",
+      "category": "wawancara",
+      "category_title": "면접 - 인적사항 및 직장생활 (Wawancara & Situasi Kerja)",
+      "question_ko": "한국에 대해 아는 게 있어요?",
+      "question_ro": "Hanguge daehae aneun ge isseoyo?",
+      "question_id": "Ada yang diketahui tentang Korea?",
+      "answer_ko": "한국은 사계절이 있고 예절과 안전을 중요시합니다.",
+      "answer_id": "Korea memiliki 4 musim dan sangat menjunjung tinggi etika serta keselamatan.",
+      "audio_q": "/audio/01_wawancara_data_diri/37_한국에_대해_아는_게_있어요_(Ada_yang_diketahui_tentang_Korea).mp3",
+      "audio_a": null
+    },
+    {
+      "id": "wwc_38",
+      "category": "wawancara",
+      "category_title": "면접 - 인적사항 및 직장생활 (Wawancara & Situasi Kerja)",
+      "question_ko": "불량품이 많으면 어떻게 할 거예요?",
+      "question_ro": "Bullyangpumi maneumyeon eotteoke hal geoyeyo?",
+      "question_id": "Jika banyak barang cacat?",
+      "answer_ko": "작업을 즉시 멈추고 반장님께 바로 보고하겠습니다.",
+      "answer_id": "Segera menghentikan mesin dan melapor kepada mandor/atasan.",
+      "audio_q": "/audio/01_wawancara_data_diri/38_불량품이_많으면_어떻게_할_거예요_(Jika_banyak_barang_cacat).mp3",
+      "audio_a": null
+    },
+    {
+      "id": "wwc_39",
+      "category": "wawancara",
+      "category_title": "면접 - 인적사항 및 직장생활 (Wawancara & Situasi Kerja)",
+      "question_ko": "일을 하다가 실수하면 어떻게 할 거예요?",
+      "question_ro": "Ireul hadaga silsuhamyeon eotteoke hal geoyeyo?",
+      "question_id": "Jika membuat kesalahan kerja?",
+      "answer_ko": "상사에게 즉시 보고하고 지시에 따라 바로잡겠습니다.",
+      "answer_id": "Segera melapor ke atasan dan memperbaikinya sesuai arahan.",
+      "audio_q": "/audio/01_wawancara_data_diri/39_일을_하다가_실수하면_어떻게_할_거예요_(Jika_membuat_kesalahan_kerja).mp3",
+      "audio_a": null
+    },
+    {
+      "id": "wwc_40",
+      "category": "wawancara",
+      "category_title": "면접 - 인적사항 및 직장생활 (Wawancara & Situasi Kerja)",
+      "question_ko": "작업하다가 사고가 나면 어떻게 할 거예요?",
+      "question_ro": "Jageop-hadaga sagoga namyeon eotteoke hal geoyeyo?",
+      "question_id": "Jika terjadi kecelakaan kerja?",
+      "answer_ko": "큰 소리로 \"사고다!\" 외치고 안전 버튼을 누른 후 상사에게 보고합니다.",
+      "answer_id": "Berteriak memberi tahu rekan kerja, menekan tombol darurat, lalu melapor ke atasan.",
+      "audio_q": "/audio/01_wawancara_data_diri/40_작업하다가_사고가_나면_어떻게_할_거예요_(Jika_terjadi_kecelakaan_kerja).mp3",
+      "audio_a": null
+    },
+    {
+      "id": "wwc_41",
+      "category": "wawancara",
+      "category_title": "면접 - 인적사항 및 직장생활 (Wawancara & Situasi Kerja)",
+      "question_ko": "직장 동료하고 어떻게 지낼 거예요?",
+      "question_ro": "Jikjang dongnyohago eotteoke jinael geoyeyo?",
+      "question_id": "Bagaimana bergaul dengan teman kerja?",
+      "answer_ko": "항상 웃으며 인사하고 서로 도우며 배려하며 지내겠습니다.",
+      "answer_id": "Selalu menyapa dengan senyum, saling membantu, dan menjaga toleransi.",
+      "audio_q": "/audio/01_wawancara_data_diri/41_직장_동료하고_어떻게_지낼_거예요_(Bagaimana_bergaul_dengan_teman_kerja).mp3",
+      "audio_a": null
+    },
+    {
+      "id": "wwc_42",
+      "category": "wawancara",
+      "category_title": "면접 - 인적사항 및 직장생활 (Wawancara & Situasi Kerja)",
+      "question_ko": "직장 동료가 바쁘면 어떻게 할 거예요?",
+      "question_ro": "Jikjang dongnyoga bappeumyeon eotteoke hal geoyeyo?",
+      "question_id": "Jika rekan kerja sibuk?",
+      "answer_ko": "제 일을 빨리 끝내고 동료의 일을 돕겠습니다.",
+      "answer_id": "Menyelesaikan pekerjaan sendiri dengan cepat, lalu membantu rekan kerja.",
+      "audio_q": "/audio/01_wawancara_data_diri/42_직장_동료가_바쁘면_어떻게_할_거예요_(Jika_rekan_kerja_sibuk).mp3",
+      "audio_a": null
+    },
+    {
+      "id": "wwc_43",
+      "category": "wawancara",
+      "category_title": "면접 - 인적사항 및 직장생활 (Wawancara & Situasi Kerja)",
+      "question_ko": "상사가 내 의견에 반대하면 어떻게 할 거예요?",
+      "question_ro": "Sangsaga nae uigyeone bandaehamyeon eotteoke hal geoyeyo?",
+      "question_id": "Jika atasan tidak setuju?",
+      "answer_ko": "상사님의 의견을 존중하고 회사의 지침에 따르겠습니다.",
+      "answer_id": "Menghormati keputusan atasan dan mengikuti arahan perusahaan.",
+      "audio_q": "/audio/01_wawancara_data_diri/43_상사가_내_의견에_반대하면_어떻게_할_거예요_(Jika_atasan_tidak_setuju).mp3",
+      "audio_a": null
+    },
+    {
+      "id": "hrdk_01",
+      "category": "simulasi_hrdk",
+      "category_title": "🏛️ Simulasi Resmi 50 Soal Wawancara HRD Korea",
+      "question_ko": "이름이 뭐예요?",
+      "question_ro": "Ireumi mwoyeyo?",
+      "question_id": "Siapa nama Anda?",
+      "answer_ko": "제 이름은 [이름]입니다.",
+      "answer_id": "Nama saya [Nama].",
+      "audio_q": "/audio/hrdk_50/Soal_01_HRDK_Wawancara.mp3",
+      "audio_a": null
+    },
+    {
+      "id": "hrdk_02",
+      "category": "simulasi_hrdk",
+      "category_title": "🏛️ Simulasi Resmi 50 Soal Wawancara HRD Korea",
+      "question_ko": "나이가 어떻게 되세요?",
+      "question_ro": "Naiga eotteoke doeseyo?",
+      "question_id": "Berapa usia Anda?",
+      "answer_ko": "저는 [나이]살입니다.",
+      "answer_id": "Saya berusia [Umur] tahun.",
+      "audio_q": "/audio/hrdk_50/Soal_02_HRDK_Wawancara.mp3",
+      "audio_a": null
+    },
+    {
+      "id": "hrdk_03",
+      "category": "simulasi_hrdk",
+      "category_title": "🏛️ Simulasi Resmi 50 Soal Wawancara HRD Korea",
+      "question_ko": "생일이 언제예요?",
+      "question_ro": "Saeng-iri eonjeyeyo?",
+      "question_id": "Kapan tanggal lahir Anda?",
+      "answer_ko": "제 생일은 [년]년 [월]월 [일]일입니다.",
+      "answer_id": "Ulang tahun saya tanggal [Tanggal] bulan [Bulan] tahun [Tahun].",
+      "audio_q": "/audio/hrdk_50/Soal_03_HRDK_Wawancara.mp3",
+      "audio_a": null
+    },
+    {
+      "id": "hrdk_04",
+      "category": "simulasi_hrdk",
+      "category_title": "🏛️ Simulasi Resmi 50 Soal Wawancara HRD Korea",
+      "question_ko": "고향이 어디예요?",
+      "question_ro": "Gohyangi eodiyeyo?",
+      "question_id": "Di mana kampung halaman Anda?",
+      "answer_ko": "제 고향은 인도네시아 [지역]입니다.",
+      "answer_id": "Kampung halaman saya di [Kota], Indonesia.",
+      "audio_q": "/audio/hrdk_50/Soal_04_HRDK_Wawancara.mp3",
+      "audio_a": null
+    },
+    {
+      "id": "hrdk_05",
+      "category": "simulasi_hrdk",
+      "category_title": "🏛️ Simulasi Resmi 50 Soal Wawancara HRD Korea",
+      "question_ko": "가족은 몇 명이에요?",
+      "question_ro": "Gajogeun myeot myeong-ieyo?",
+      "question_id": "Berapa jumlah anggota keluarga Anda?",
+      "answer_ko": "우리 가족은 모두 [명]명입니다.",
+      "answer_id": "Keluarga saya semuanya ada [Jumlah] orang.",
+      "audio_q": "/audio/hrdk_50/Soal_05_HRDK_Wawancara.mp3",
+      "audio_a": null
+    },
+    {
+      "id": "hrdk_06",
+      "category": "simulasi_hrdk",
+      "category_title": "🏛️ Simulasi Resmi 50 Soal Wawancara HRD Korea",
+      "question_ko": "누구 누구입니까? (누구 누구예요?)",
+      "question_ro": "Nugu nuguimnikka?",
+      "question_id": "Siapa saja anggota keluarga Anda?",
+      "answer_ko": "아버지, 어머니, 그리고 저 모두 세 명입니다.",
+      "answer_id": "Ayah, ibu, dan saya, total 3 orang.",
+      "audio_q": "/audio/hrdk_50/Soal_06_HRDK_Wawancara.mp3",
+      "audio_a": null
+    },
+    {
+      "id": "hrdk_07",
+      "category": "simulasi_hrdk",
+      "category_title": "🏛️ Simulasi Resmi 50 Soal Wawancara HRD Korea",
+      "question_ko": "부모님이 계세요?",
+      "question_ro": "Bumonimi gyeseyo?",
+      "question_id": "Apakah kedua orang tua masih ada / sehat?",
+      "answer_ko": "네, 두 분 다 계십니다.",
+      "answer_id": "Ya, kedua orang tua saya masih ada dan sehat.",
+      "audio_q": "/audio/hrdk_50/Soal_07_HRDK_Wawancara.mp3",
+      "audio_a": null
+    },
+    {
+      "id": "hrdk_08",
+      "category": "simulasi_hrdk",
+      "category_title": "🏛️ Simulasi Resmi 50 Soal Wawancara HRD Korea",
+      "question_ko": "형제가 몇 명이 있습니까?",
+      "question_ro": "Hyeongjega myeot myeong-i isseumnikka?",
+      "question_id": "Berapa jumlah saudara kandung Anda?",
+      "answer_ko": "형제는 모두 [명]명 있습니다.",
+      "answer_id": "Saudara kandung saya ada [Jumlah] orang.",
+      "audio_q": "/audio/hrdk_50/Soal_08_HRDK_Wawancara.mp3",
+      "audio_a": null
+    },
+    {
+      "id": "hrdk_09",
+      "category": "simulasi_hrdk",
+      "category_title": "🏛️ Simulasi Resmi 50 Soal Wawancara HRD Korea",
+      "question_ko": "결혼했어요?",
+      "question_ro": "Gyeolhonhaesseoyo?",
+      "question_id": "Apakah Anda sudah menikah?",
+      "answer_ko": "아니요, 아직 안 했습니다. 미혼입니다. / 네, 결혼했습니다.",
+      "answer_id": "Belum, saya belum menikah (lajang). / Ya, sudah menikah.",
+      "audio_q": "/audio/hrdk_50/Soal_09_HRDK_Wawancara.mp3",
+      "audio_a": null
+    },
+    {
+      "id": "hrdk_10",
+      "category": "simulasi_hrdk",
+      "category_title": "🏛️ Simulasi Resmi 50 Soal Wawancara HRD Korea",
+      "question_ko": "아이가 있어요?",
+      "question_ro": "Aiga isseoyo?",
+      "question_id": "Apakah Anda sudah memiliki anak?",
+      "answer_ko": "아니요, 아직 없습니다. / 네, [명]명 있습니다.",
+      "answer_id": "Belum punya anak. / Ya, punya [Jumlah] orang anak.",
+      "audio_q": "/audio/hrdk_50/Soal_10_HRDK_Wawancara.mp3",
+      "audio_a": null
+    },
+    {
+      "id": "hrdk_11",
+      "category": "simulasi_hrdk",
+      "category_title": "🏛️ Simulasi Resmi 50 Soal Wawancara HRD Korea",
+      "question_ko": "키가 얼마예요?",
+      "question_ro": "Kiga eolmayeyo?",
+      "question_id": "Berapa tinggi badan Anda?",
+      "answer_ko": "제 키는 [키]센티미터입니다.",
+      "answer_id": "Tinggi badan saya [Tinggi] cm.",
+      "audio_q": "/audio/hrdk_50/Soal_11_HRDK_Wawancara.mp3",
+      "audio_a": null
+    },
+    {
+      "id": "hrdk_12",
+      "category": "simulasi_hrdk",
+      "category_title": "🏛️ Simulasi Resmi 50 Soal Wawancara HRD Korea",
+      "question_ko": "몸무게는 얼마나 되세요?",
+      "question_ro": "Mommugeneun eolmana doeseyo?",
+      "question_id": "Berapa berat badan Anda?",
+      "answer_ko": "제 몸무게는 [몸무게]킬로그램입니다.",
+      "answer_id": "Berat badan saya [Berat] kg.",
+      "audio_q": "/audio/hrdk_50/Soal_12_HRDK_Wawancara.mp3",
+      "audio_a": null
+    },
+    {
+      "id": "hrdk_13",
+      "category": "simulasi_hrdk",
+      "category_title": "🏛️ Simulasi Resmi 50 Soal Wawancara HRD Korea",
+      "question_ko": "지금 몇 시예요?",
+      "question_ro": "Jigeum myeot siyeyo?",
+      "question_id": "Sekarang pukul berapa?",
+      "answer_ko": "지금은 [시]시 [분]분입니다.",
+      "answer_id": "Sekarang pukul [Jam] lewat [Menit] menit.",
+      "audio_q": "/audio/hrdk_50/Soal_13_HRDK_Wawancara.mp3",
+      "audio_a": null
+    },
+    {
+      "id": "hrdk_14",
+      "category": "simulasi_hrdk",
+      "category_title": "🏛️ Simulasi Resmi 50 Soal Wawancara HRD Korea",
+      "question_ko": "오늘 무슨 요일이에요?",
+      "question_ro": "Oneul museun yoil-ieyo?",
+      "question_id": "Hari ini hari apa?",
+      "answer_ko": "오늘은 [요일]요일입니다.",
+      "answer_id": "Hari ini adalah hari [Hari].",
+      "audio_q": "/audio/hrdk_50/Soal_14_HRDK_Wawancara.mp3",
+      "audio_a": null
+    },
+    {
+      "id": "hrdk_15",
+      "category": "simulasi_hrdk",
+      "category_title": "🏛️ Simulasi Resmi 50 Soal Wawancara HRD Korea",
+      "question_ko": "어제 무슨 요일이에요?",
+      "question_ro": "Eoje museun yoil-ieyo?",
+      "question_id": "Kemarin hari apa?",
+      "answer_ko": "어제는 [요일]요일이었습니다.",
+      "answer_id": "Kemarin adalah hari [Hari].",
+      "audio_q": "/audio/hrdk_50/Soal_15_HRDK_Wawancara.mp3",
+      "audio_a": null
+    },
+    {
+      "id": "hrdk_16",
+      "category": "simulasi_hrdk",
+      "category_title": "🏛️ Simulasi Resmi 50 Soal Wawancara HRD Korea",
+      "question_ko": "내일 무슨 요일이에요?",
+      "question_ro": "Naeil museun yoil-ieyo?",
+      "question_id": "Besok hari apa?",
+      "answer_ko": "내일은 [요일]요일입니다.",
+      "answer_id": "Besok adalah hari [Hari].",
+      "audio_q": "/audio/hrdk_50/Soal_16_HRDK_Wawancara.mp3",
+      "audio_a": null
+    },
+    {
+      "id": "hrdk_17",
+      "category": "simulasi_hrdk",
+      "category_title": "🏛️ Simulasi Resmi 50 Soal Wawancara HRD Korea",
+      "question_ko": "오늘 몇 월 며칠이에요?",
+      "question_ro": "Oneul myeot wol myeochil-ieyo?",
+      "question_id": "Hari ini tanggal dan bulan berapa?",
+      "answer_ko": "오늘은 [월]월 [일]일입니다.",
+      "answer_id": "Hari ini tanggal [Tanggal] bulan [Bulan].",
+      "audio_q": "/audio/hrdk_50/Soal_17_HRDK_Wawancara.mp3",
+      "audio_a": null
+    },
+    {
+      "id": "hrdk_18",
+      "category": "simulasi_hrdk",
+      "category_title": "🏛️ Simulasi Resmi 50 Soal Wawancara HRD Korea",
+      "question_ko": "내일 몇 월 며칠이에요?",
+      "question_ro": "Naeil myeot wol myeochil-ieyo?",
+      "question_id": "Besok tanggal dan bulan berapa?",
+      "answer_ko": "내일은 [월]월 [일]일입니다.",
+      "answer_id": "Besok tanggal [Tanggal] bulan [Bulan].",
+      "audio_q": "/audio/hrdk_50/Soal_18_HRDK_Wawancara.mp3",
+      "audio_a": null
+    },
+    {
+      "id": "hrdk_19",
+      "category": "simulasi_hrdk",
+      "category_title": "🏛️ Simulasi Resmi 50 Soal Wawancara HRD Korea",
+      "question_ko": "어제 몇 월 며칠이에요?",
+      "question_ro": "Eoje myeot wol myeochil-ieyo?",
+      "question_id": "Kemarin tanggal dan bulan berapa?",
+      "answer_ko": "어제는 [월]월 [일]일이었습니다.",
+      "answer_id": "Kemarin tanggal [Tanggal] bulan [Bulan].",
+      "audio_q": "/audio/hrdk_50/Soal_19_HRDK_Wawancara.mp3",
+      "audio_a": null
+    },
+    {
+      "id": "hrdk_20",
+      "category": "simulasi_hrdk",
+      "category_title": "🏛️ Simulasi Resmi 50 Soal Wawancara HRD Korea",
+      "question_ko": "한국에 왜 가고 싶어요?",
+      "question_ro": "Hanguge wae gago sipeoyo?",
+      "question_id": "Mengapa Anda ingin pergi bekerja ke Korea?",
+      "answer_ko": "돈을 벌어 가족을 돕고 기술을 배우고 싶어서입니다.",
+      "answer_id": "Untuk mencari nafkah membantu keluarga dan mempelajari teknologi.",
+      "audio_q": "/audio/hrdk_50/Soal_20_HRDK_Wawancara.mp3",
+      "audio_a": null
+    },
+    {
+      "id": "hrdk_21",
+      "category": "simulasi_hrdk",
+      "category_title": "🏛️ Simulasi Resmi 50 Soal Wawancara HRD Korea",
+      "question_ko": "한국에 가면 어떤 일을 하고 싶어요?",
+      "question_ro": "Hanguge gamyeon eotteon ireul hago sipeoyo?",
+      "question_id": "Di Korea jenis pekerjaan apa yang ingin Anda lakukan?",
+      "answer_ko": "제조업 공장에서 성실하게 일하고 싶습니다.",
+      "answer_id": "Saya ingin bekerja dengan tekun di pabrik manufaktur.",
+      "audio_q": "/audio/hrdk_50/Soal_21_HRDK_Wawancara.mp3",
+      "audio_a": null
+    },
+    {
+      "id": "hrdk_22",
+      "category": "simulasi_hrdk",
+      "category_title": "🏛️ Simulasi Resmi 50 Soal Wawancara HRD Korea",
+      "question_ko": "직장 동료하고 어떻게 지낼 거예요?",
+      "question_ro": "Jikjang dongnyohago eotteoke jinael geoyeyo?",
+      "question_id": "Bagaimana Anda bergaul dengan rekan kerja di pabrik?",
+      "answer_ko": "항상 웃으며 인사하고 서로 도우며 배려하며 지내겠습니다.",
+      "answer_id": "Selalu tersenyum, menyapa, saling membantu, dan menjaga toleransi.",
+      "audio_q": "/audio/hrdk_50/Soal_22_HRDK_Wawancara.mp3",
+      "audio_a": null
+    },
+    {
+      "id": "hrdk_23",
+      "category": "simulasi_hrdk",
+      "category_title": "🏛️ Simulasi Resmi 50 Soal Wawancara HRD Korea",
+      "question_ko": "직장 동료가 바쁘면 어떻게 할 거예요?",
+      "question_ro": "Jikjang dongnyoga bappeumyeon eotteoke hal geoyeyo?",
+      "question_id": "Jika rekan kerja sedang sangat sibuk, apa yang akan Anda lakukan?",
+      "answer_ko": "제 일을 먼저 끝내고 동료의 일을 적극적으로 돕겠습니다.",
+      "answer_id": "Menyelesaikan pekerjaan sendiri dengan cepat, lalu sigap membantu rekan.",
+      "audio_q": "/audio/hrdk_50/Soal_23_HRDK_Wawancara.mp3",
+      "audio_a": null
+    },
+    {
+      "id": "hrdk_24",
+      "category": "simulasi_hrdk",
+      "category_title": "🏛️ Simulasi Resmi 50 Soal Wawancara HRD Korea",
+      "question_ko": "회사에 일이 많으면 어떻게 할 거예요?",
+      "question_ro": "Hoesae iri maneumyeon eotteoke hal geoyeyo?",
+      "question_id": "Jika di perusahaan banyak pekerjaan (lembur), apa yang akan Anda lakukan?",
+      "answer_ko": "기꺼이 야근이나 특근을 열심히 하겠습니다.",
+      "answer_id": "Saya siap dan bersedia lembur (야근/잔업) maupun masuk akhir pekan.",
+      "audio_q": "/audio/hrdk_50/Soal_24_HRDK_Wawancara.mp3",
+      "audio_a": null
+    },
+    {
+      "id": "hrdk_25",
+      "category": "simulasi_hrdk",
+      "category_title": "🏛️ Simulasi Resmi 50 Soal Wawancara HRD Korea",
+      "question_ko": "한국에 대해 아는 게 있어요?",
+      "question_ro": "Hanguge daehae aneun ge isseoyo?",
+      "question_id": "Apa yang Anda ketahui tentang negara Korea Selatan?",
+      "answer_ko": "한국은 사계절이 뚜렷하고 예절과 안전을 중요하게 생각하는 나라입니다.",
+      "answer_id": "Korea memiliki 4 musim yang jelas, serta sangat menjunjung tinggi etika dan keselamatan.",
+      "audio_q": "/audio/hrdk_50/Soal_25_HRDK_Wawancara.mp3",
+      "audio_a": null
+    },
+    {
+      "id": "hrdk_26",
+      "category": "simulasi_hrdk",
+      "category_title": "🏛️ Simulasi Resmi 50 Soal Wawancara HRD Korea",
+      "question_ko": "상사가 당신의 의견에 반대하면 어떻게 할 거예요?",
+      "question_ro": "Sangsaga dangsinui uigyeone bandaehamyeon eotteoke hal geoyeyo?",
+      "question_id": "Jika atasan tidak setuju dengan pendapat Anda, apa yang akan Anda lakukan?",
+      "answer_ko": "상사님의 의견을 존중하고 회사의 지침에 따르겠습니다.",
+      "answer_id": "Menghormati keputusan atasan dan mematuhi arahan kerja perusahaan.",
+      "audio_q": "/audio/hrdk_50/Soal_26_HRDK_Wawancara.mp3",
+      "audio_a": null
+    },
+    {
+      "id": "hrdk_27",
+      "category": "simulasi_hrdk",
+      "category_title": "🏛️ Simulasi Resmi 50 Soal Wawancara HRD Korea",
+      "question_ko": "작업하다가 실수하면 어떻게 할 거예요?",
+      "question_ro": "Jageophadaga silsuhamyeon eotteoke hal geoyeyo?",
+      "question_id": "Jika Anda berbuat kesalahan saat bekerja, apa yang akan Anda lakukan?",
+      "answer_ko": "즉시 상사에게 보고하고 솔직하게 잘못을 바로잡겠습니다.",
+      "answer_id": "Segera melapor kepada atasan secara jujur dan memperbaikinya sesuai arahan.",
+      "audio_q": "/audio/hrdk_50/Soal_27_HRDK_Wawancara.mp3",
+      "audio_a": null
+    },
+    {
+      "id": "hrdk_28",
+      "category": "simulasi_hrdk",
+      "category_title": "🏛️ Simulasi Resmi 50 Soal Wawancara HRD Korea",
+      "question_ko": "작업하다가 사고가 나면 어떻게 할 거예요?",
+      "question_ro": "Jageophadaga sagoga namyeon eotteoke hal geoyeyo?",
+      "question_id": "Jika terjadi kecelakaan saat bekerja, apa yang akan Anda lakukan?",
+      "answer_ko": "큰 소리로 \"사고다!\" 외치고 비상 정지 버튼을 누른 후 상사에게 보고합니다.",
+      "answer_id": "Berteriak memberi tahu rekan kerja, mematikan saklar darurat, lalu melapor ke atasan.",
+      "audio_q": "/audio/hrdk_50/Soal_28_HRDK_Wawancara.mp3",
+      "audio_a": null
+    },
+    {
+      "id": "hrdk_29",
+      "category": "simulasi_hrdk",
+      "category_title": "🏛️ Simulasi Resmi 50 Soal Wawancara HRD Korea",
+      "question_ko": "요즘 무슨 일을 하세요?",
+      "question_ro": "Yojeum museun ireul haseyo?",
+      "question_id": "Akhir-akhir ini kesibukan atau pekerjaan apa yang Anda lakukan?",
+      "answer_ko": "한국어 공부와 체력 관리를 매일 열심히 하고 있습니다.",
+      "answer_id": "Setiap hari saya fokus belajar bahasa Korea dan melatih kebugaran fisik.",
+      "audio_q": "/audio/hrdk_50/Soal_29_HRDK_Wawancara.mp3",
+      "audio_a": null
+    },
+    {
+      "id": "hrdk_30",
+      "category": "simulasi_hrdk",
+      "category_title": "🏛️ Simulasi Resmi 50 Soal Wawancara HRD Korea",
+      "question_ko": "한국말을 잘 할 수 있어요?",
+      "question_ro": "Hangungmareul jal hal su isseoyo?",
+      "question_id": "Apakah Anda bisa berbahasa Korea dengan lancar?",
+      "answer_ko": "아직 부족하지만 한국에 가서도 계속 열심히 배울 것입니다.",
+      "answer_id": "Masih terus belajar, dan saya akan semakin giat belajar saat tiba di Korea.",
+      "audio_q": "/audio/hrdk_50/Soal_30_HRDK_Wawancara.mp3",
+      "audio_a": null
+    },
+    {
+      "id": "hrdk_31",
+      "category": "simulasi_hrdk",
+      "category_title": "🏛️ Simulasi Resmi 50 Soal Wawancara HRD Korea",
+      "question_ko": "무엇을 타고 왔어요?",
+      "question_ro": "Mueoseul tago wasseoyo?",
+      "question_id": "Naik kendaraan apa Anda datang ke tempat ujian ini?",
+      "answer_ko": "오토바이(또는 버스)를 타고 왔습니다.",
+      "answer_id": "Saya datang naik sepeda motor (atau bus umum).",
+      "audio_q": "/audio/hrdk_50/Soal_31_HRDK_Wawancara.mp3",
+      "audio_a": null
+    },
+    {
+      "id": "hrdk_32",
+      "category": "simulasi_hrdk",
+      "category_title": "🏛️ Simulasi Resmi 50 Soal Wawancara HRD Korea",
+      "question_ko": "여기까지 얼마나 걸렸어요?",
+      "question_ro": "Yeogikkaji eolmana geollyeosseoyo?",
+      "question_id": "Berapa lama waktu yang dibutuhkan untuk sampai ke sini?",
+      "answer_ko": "집에서 여기까지 한 시간 정도 걸렸습니다.",
+      "answer_id": "Dari rumah ke sini memakan waktu sekitar 1 jam.",
+      "audio_q": "/audio/hrdk_50/Soal_32_HRDK_Wawancara.mp3",
+      "audio_a": null
+    },
+    {
+      "id": "hrdk_33",
+      "category": "simulasi_hrdk",
+      "category_title": "🏛️ Simulasi Resmi 50 Soal Wawancara HRD Korea",
+      "question_ko": "전에 무슨 일을 했어요?",
+      "question_ro": "Jeone museun ireul haesseoyo?",
+      "question_id": "Sebelumnya Anda pernah bekerja di bidang apa?",
+      "answer_ko": "인도네시아 공장에서 생산직으로 일했습니다.",
+      "answer_id": "Saya pernah bekerja di bagian produksi pabrik di Indonesia.",
+      "audio_q": "/audio/hrdk_50/Soal_33_HRDK_Wawancara.mp3",
+      "audio_a": null
+    },
+    {
+      "id": "hrdk_34",
+      "category": "simulasi_hrdk",
+      "category_title": "🏛️ Simulasi Resmi 50 Soal Wawancara HRD Korea",
+      "question_ko": "왜 우리가 당신을 고용해야 합니까?",
+      "question_ro": "Wae uriga dangsineul goyonghaeya hamnikka?",
+      "question_id": "Mengapa perusahaan di Korea harus menerima dan mempekerjakan Anda?",
+      "answer_ko": "저는 건강하고 성실하며 맡은 일은 끝까지 책임지는 사람입니다.",
+      "answer_id": "Karena saya berbadan sehat, jujur, rajin, dan sangat bertanggung jawab atas tugas.",
+      "audio_q": "/audio/hrdk_50/Soal_34_HRDK_Wawancara.mp3",
+      "audio_a": null
+    },
+    {
+      "id": "hrdk_35",
+      "category": "simulasi_hrdk",
+      "category_title": "🏛️ Simulasi Resmi 50 Soal Wawancara HRD Korea",
+      "question_ko": "외국에 가 본 적이 있어요?",
+      "question_ro": "Oeguge ga bon jeogi isseoyo?",
+      "question_id": "Pernahkah Anda bepergian ke luar negeri sebelumnya?",
+      "answer_ko": "아니요, 외국에 가 본 적이 없습니다.",
+      "answer_id": "Belum, saya belum pernah pergi ke luar negeri.",
+      "audio_q": "/audio/hrdk_50/Soal_35_HRDK_Wawancara.mp3",
+      "audio_a": null
+    },
+    {
+      "id": "hrdk_36",
+      "category": "simulasi_hrdk",
+      "category_title": "🏛️ Simulasi Resmi 50 Soal Wawancara HRD Korea",
+      "question_ko": "무슨 운동을 좋아합니까?",
+      "question_ro": "Museun undong-eul joahamnikka?",
+      "question_id": "Olahraga apa yang paling Anda sukai?",
+      "answer_ko": "축구를 제일 좋아합니다.",
+      "answer_id": "Saya paling suka bermain sepak bola.",
+      "audio_q": "/audio/hrdk_50/Soal_36_HRDK_Wawancara.mp3",
+      "audio_a": null
+    },
+    {
+      "id": "hrdk_37",
+      "category": "simulasi_hrdk",
+      "category_title": "🏛️ Simulasi Resmi 50 Soal Wawancara HRD Korea",
+      "question_ko": "취미가 뭐예요?",
+      "question_ro": "Chwimiga mwoyeyo?",
+      "question_id": "Apa kegemaran atau hobi Anda?",
+      "answer_ko": "제 취미는 운동과 음악 감상입니다.",
+      "answer_id": "Hobi saya adalah berolahraga dan mendengarkan musik.",
+      "audio_q": "/audio/hrdk_50/Soal_37_HRDK_Wawancara.mp3",
+      "audio_a": null
+    },
+    {
+      "id": "hrdk_38",
+      "category": "simulasi_hrdk",
+      "category_title": "🏛️ Simulasi Resmi 50 Soal Wawancara HRD Korea",
+      "question_ko": "불량품이 많으면 어떻게 할 거예요?",
+      "question_ro": "Bullyangpumi maneumyeon eotteoke hal geoyeyo?",
+      "question_id": "Jika menemukan banyak produk cacat/rusak, apa tindakan Anda?",
+      "answer_ko": "작업을 즉시 멈추고 반장님께 바로 보고하겠습니다.",
+      "answer_id": "Segera hentikan mesin pekerjaan dan langsung melapor kepada mandor.",
+      "audio_q": "/audio/hrdk_50/Soal_38_HRDK_Wawancara.mp3",
+      "audio_a": null
+    },
+    {
+      "id": "hrdk_39",
+      "category": "simulasi_hrdk",
+      "category_title": "🏛️ Simulasi Resmi 50 Soal Wawancara HRD Korea",
+      "question_ko": "한국에서 사용할 수 있는 기술이 있어요?",
+      "question_ro": "Hangugeeseo sayonghal su inneun gisuri isseoyo?",
+      "question_id": "Keterampilan apa yang Anda miliki yang berguna untuk pekerjaan di Korea?",
+      "answer_ko": "기계 조작과 물건 포장 및 조립 기술이 있습니다.",
+      "answer_id": "Saya terbiasa mengoperasikan mesin ringan, pengemasan, dan perakitan barang.",
+      "audio_q": "/audio/hrdk_50/Soal_39_HRDK_Wawancara.mp3",
+      "audio_a": null
+    },
+    {
+      "id": "hrdk_40",
+      "category": "simulasi_hrdk",
+      "category_title": "🏛️ Simulasi Resmi 50 Soal Wawancara HRD Korea",
+      "question_ko": "다른 사람보다 잘할 수 있는 기술이 있어요?",
+      "question_ro": "Dareun saramboda jalhal su inneun gisuri isseoyo?",
+      "question_id": "Kelebihan apa yang bisa Anda lakukan lebih baik daripada orang lain?",
+      "answer_ko": "손이 빠르고 꼼꼼하며 체력이 아주 좋습니다.",
+      "answer_id": "Tangan saya cekatan, teliti dalam bekerja, dan stamina fisik sangat kuat.",
+      "audio_q": "/audio/hrdk_50/Soal_40_HRDK_Wawancara.mp3",
+      "audio_a": null
+    },
+    {
+      "id": "hrdk_41",
+      "category": "simulasi_hrdk",
+      "category_title": "🏛️ Simulasi Resmi 50 Soal Wawancara HRD Korea",
+      "question_ko": "오늘 날씨가 어때요?",
+      "question_ro": "Oneul nalssiga eottaeyo?",
+      "question_id": "Bagaimana kondisi cuaca hari ini?",
+      "answer_ko": "날씨가 아주 맑고 좋습니다.",
+      "answer_id": "Cuaca hari ini sangat cerah dan bagus.",
+      "audio_q": "/audio/hrdk_50/Soal_41_HRDK_Wawancara.mp3",
+      "audio_a": null
+    },
+    {
+      "id": "hrdk_42",
+      "category": "simulasi_hrdk",
+      "category_title": "🏛️ Simulasi Resmi 50 Soal Wawancara HRD Korea",
+      "question_ko": "한국말을 얼마 동안 배웠어요?",
+      "question_ro": "Hangungmareul eolma dongan baewosseoyo?",
+      "question_id": "Berapa lama Anda sudah belajar bahasa Korea?",
+      "answer_ko": "약 6개월 동안 열심히 배웠습니다.",
+      "answer_id": "Saya telah belajar dengan tekun selama sekitar 6 bulan.",
+      "audio_q": "/audio/hrdk_50/Soal_42_HRDK_Wawancara.mp3",
+      "audio_a": null
+    },
+    {
+      "id": "hrdk_43",
+      "category": "simulasi_hrdk",
+      "category_title": "🏛️ Simulasi Resmi 50 Soal Wawancara HRD Korea",
+      "question_ko": "한국어를 공부한 지 얼마나 되었습니까?",
+      "question_ro": "Hangugeo-reul gongbuhan ji eolmana doe-eosseumnikka?",
+      "question_id": "Sudah berapa lama sejak Anda pertama kali belajar bahasa Korea?",
+      "answer_ko": "한국어를 공부한 지 6개월 되었습니다.",
+      "answer_id": "Sudah 6 bulan sejak saya mulai belajar bahasa Korea.",
+      "audio_q": "/audio/hrdk_50/Soal_43_HRDK_Wawancara.mp3",
+      "audio_a": null
+    },
+    {
+      "id": "hrdk_44",
+      "category": "simulasi_hrdk",
+      "category_title": "🏛️ Simulasi Resmi 50 Soal Wawancara HRD Korea",
+      "question_ko": "한국어 공부가 어떻습니까?",
+      "question_ro": "Hangugeo gongbuga eotteoseumnikka?",
+      "question_id": "Bagaimana pengalaman Anda belajar bahasa Korea?",
+      "answer_ko": "어려운 점도 있지만 배울수록 보람차고 재미있습니다.",
+      "answer_id": "Ada bagian yang sulit, tetapi semakin dipelajari semakin menyenangkan.",
+      "audio_q": "/audio/hrdk_50/Soal_44_HRDK_Wawancara.mp3",
+      "audio_a": null
+    },
+    {
+      "id": "hrdk_45",
+      "category": "simulasi_hrdk",
+      "category_title": "🏛️ Simulasi Resmi 50 Soal Wawancara HRD Korea",
+      "question_ko": "어디에서 한국어를 공부했어요?",
+      "question_ro": "Eodieseo hangugeo-reul gongbuhaesseoyo?",
+      "question_id": "Di mana tempat Anda belajar bahasa Korea?",
+      "answer_ko": "인도네시아 한국어 LPK 학원에서 공부했습니다.",
+      "answer_id": "Saya belajar di lembaga kursus LPK bahasa Korea di Indonesia.",
+      "audio_q": "/audio/hrdk_50/Soal_45_HRDK_Wawancara.mp3",
+      "audio_a": null
+    },
+    {
+      "id": "hrdk_46",
+      "category": "simulasi_hrdk",
+      "category_title": "🏛️ Simulasi Resmi 50 Soal Wawancara HRD Korea",
+      "question_ko": "무슨 색깔을 좋아합니까?",
+      "question_ro": "Museun saekkkareul joahamnikka?",
+      "question_id": "Warna apa yang paling Anda sukai?",
+      "answer_ko": "파란색을 제일 좋아합니다.",
+      "answer_id": "Saya paling menyukai warna biru.",
+      "audio_q": "/audio/hrdk_50/Soal_46_HRDK_Wawancara.mp3",
+      "audio_a": null
+    },
+    {
+      "id": "hrdk_47",
+      "category": "simulasi_hrdk",
+      "category_title": "🏛️ Simulasi Resmi 50 Soal Wawancara HRD Korea",
+      "question_ko": "어떤 계절을 좋아합니까?",
+      "question_ro": "Eotteon gyejeoreul joahamnikka?",
+      "question_id": "Musim apa yang paling Anda sukai?",
+      "answer_ko": "선선하고 시원한 가을을 좋아합니다.",
+      "answer_id": "Saya menyukai musim gugur yang sejuk dan nyaman.",
+      "audio_q": "/audio/hrdk_50/Soal_47_HRDK_Wawancara.mp3",
+      "audio_a": null
+    },
+    {
+      "id": "hrdk_48",
+      "category": "simulasi_hrdk",
+      "category_title": "🏛️ Simulasi Resmi 50 Soal Wawancara HRD Korea",
+      "question_ko": "한국 친구가 있어요?",
+      "question_ro": "Hanguk chin-guga isseoyo?",
+      "question_id": "Apakah Anda mempunyai kenalan/teman orang Korea?",
+      "answer_ko": "아직 없지만, 한국에 가면 꼭 사귀고 싶습니다.",
+      "answer_id": "Belum punya, tapi saya sangat ingin berteman saat sudah bekerja di Korea.",
+      "audio_q": "/audio/hrdk_50/Soal_48_HRDK_Wawancara.mp3",
+      "audio_a": null
+    },
+    {
+      "id": "hrdk_49",
+      "category": "simulasi_hrdk",
+      "category_title": "🏛️ Simulasi Resmi 50 Soal Wawancara HRD Korea",
+      "question_ko": "아버지는 연세가 어떻게 되세요?",
+      "question_ro": "Abeojineun yeonsega eotteoke doeseyo?",
+      "question_id": "Berapa usia ayah Anda?",
+      "answer_ko": "아버지 연세는 [나이]세이십니다.",
+      "answer_id": "Usia ayah saya adalah [Umur] tahun.",
+      "audio_q": "/audio/hrdk_50/Soal_49_HRDK_Wawancara.mp3",
+      "audio_a": null
+    },
+    {
+      "id": "hrdk_50",
+      "category": "simulasi_hrdk",
+      "category_title": "🏛️ Simulasi Resmi 50 Soal Wawancara HRD Korea",
+      "question_ko": "어머니는 연세가 어떻게 되세요?",
+      "question_ro": "Eomeonineun yeonsega eotteoke doeseyo?",
+      "question_id": "Berapa usia ibu Anda?",
+      "answer_ko": "어머니 연세는 [나이]세이십니다.",
+      "answer_id": "Usia ibu saya adalah [Umur] tahun.",
+      "audio_q": "/audio/hrdk_50/Soal_50_HRDK_Wawancara.mp3",
+      "audio_a": null
+    },
+    {
+      "id": "hrdk_51",
+      "category": "simulasi_hrdk",
+      "category_title": "🏛️ Simulasi Resmi 50 Soal Wawancara HRD Korea",
+      "question_ko": "컴퓨터를 할 수 있어요?",
+      "question_ro": "Keompyuteoreul hal su isseoyo?",
+      "question_id": "Apakah Anda bisa mengoperasikan komputer?",
+      "answer_ko": "네, 인터넷 검색과 기본적인 문서 작성을 할 수 있습니다.",
+      "answer_id": "Ya, saya bisa mengoperasikan komputer untuk pencarian internet dan ketik dokumen.",
+      "audio_q": "/audio/hrdk_50/Soal_51_HRDK_Wawancara.mp3",
+      "audio_a": null
+    },
+    {
+      "id": "hrdk_52",
+      "category": "simulasi_hrdk",
+      "category_title": "🏛️ Simulasi Resmi 50 Soal Wawancara HRD Korea",
+      "question_ko": "어떤 한국 음식을 좋아하시나요?",
+      "question_ro": "Eotteon hanguk eumsigeul joahasinayo?",
+      "question_id": "Makanan khas Korea apa yang Anda sukai?",
+      "answer_ko": "김치찌개와 불고기를 아주 좋아합니다.",
+      "answer_id": "Saya sangat menyukai kimchi-jjigae dan bulgogi.",
+      "audio_q": "/audio/hrdk_50/Soal_52_HRDK_Wawancara.mp3",
+      "audio_a": null
+    }
+  ],
+  "physical_commands": [
+    {
+      "id": "cmd_01",
+      "command_ko": "오른쪽으로 가세요.",
+      "command_ro": "Oreunjjogeuro gaseyo.",
+      "command_id": "Jalan ke kanan",
+      "action_desc": "Langsung lakukan gerakan: Langkahkan kaki ke arah kanan.",
+      "audio_q": "/audio/02_perintah_gerak_fisik/01_오른쪽으로_가세요_(Jalan_ke_kanan).mp3"
+    },
+    {
+      "id": "cmd_02",
+      "command_ko": "왼쪽으로 가세요.",
+      "command_ro": "Oenjjogeuro gaseyo.",
+      "command_id": "Jalan ke kiri",
+      "action_desc": "Langsung lakukan gerakan: Langkahkan kaki ke arah kiri.",
+      "audio_q": "/audio/02_perintah_gerak_fisik/02_왼쪽으로_가세요_(Jalan_ke_kiri).mp3"
+    },
+    {
+      "id": "cmd_03",
+      "command_ko": "앞으로 가세요.",
+      "command_ro": "Apeuro gaseyo.",
+      "command_id": "Maju ke depan",
+      "action_desc": "Langsung lakukan gerakan: Melangkah maju ke depan.",
+      "audio_q": "/audio/02_perintah_gerak_fisik/03_앞으로_가세요_(Maju_ke_depan).mp3"
+    },
+    {
+      "id": "cmd_04",
+      "command_ko": "뒤로 가세요.",
+      "command_ro": "Dwiro gaseyo.",
+      "command_id": "Mundur ke belakang",
+      "action_desc": "Langsung lakukan gerakan: Melangkah mundur ke belakang.",
+      "audio_q": "/audio/02_perintah_gerak_fisik/04_뒤로_가세요_(Mundur_ke_belakang).mp3"
+    },
+    {
+      "id": "cmd_05",
+      "command_ko": "돌아서세요.",
+      "command_ro": "Doraseoseyo.",
+      "command_id": "Putar balik badan",
+      "action_desc": "Langsung lakukan gerakan: Putar balik badan menghadap ke belakang.",
+      "audio_q": "/audio/02_perintah_gerak_fisik/05_돌아서세요_(Putar_balik_badan).mp3"
+    },
+    {
+      "id": "cmd_06",
+      "command_ko": "오른쪽으로 보세요.",
+      "command_ro": "Oreunjjogeuro boseyo.",
+      "command_id": "Lihat ke kanan",
+      "action_desc": "Langsung lakukan gerakan: Palingkan pandangan / kepala ke arah kanan.",
+      "audio_q": "/audio/02_perintah_gerak_fisik/06_오른쪽으로_보세요_(Lihat_ke_kanan).mp3"
+    },
+    {
+      "id": "cmd_07",
+      "command_ko": "왼쪽으로 보세요.",
+      "command_ro": "Oenjjogeuro boseyo.",
+      "command_id": "Lihat ke kiri",
+      "action_desc": "Langsung lakukan gerakan: Palingkan pandangan / kepala ke arah kiri.",
+      "audio_q": "/audio/02_perintah_gerak_fisik/07_왼쪽으로_보세요_(Lihat_ke_kiri).mp3"
+    },
+    {
+      "id": "cmd_08",
+      "command_ko": "위로 보세요.",
+      "command_ro": "Wiro boseyo.",
+      "command_id": "Lihat ke atas",
+      "action_desc": "Langsung lakukan gerakan: Arahkan pandangan / kepala melihat ke atas.",
+      "audio_q": "/audio/02_perintah_gerak_fisik/08_위로_보세요_(Lihat_ke_atas).mp3"
+    },
+    {
+      "id": "cmd_09",
+      "command_ko": "아래로 보세요.",
+      "command_ro": "Araero boseyo.",
+      "command_id": "Lihat ke bawah",
+      "action_desc": "Langsung lakukan gerakan: Arahkan pandangan / kepala melihat ke bawah.",
+      "audio_q": "/audio/02_perintah_gerak_fisik/09_아래로_보세요_(Lihat_ke_bawah).mp3"
+    },
+    {
+      "id": "cmd_10",
+      "command_ko": "앞으로 보세요.",
+      "command_ro": "Apeuro boseyo.",
+      "command_id": "Lihat ke depan",
+      "action_desc": "Langsung lakukan gerakan: Arahkan pandangan tegak lurus ke depan.",
+      "audio_q": "/audio/02_perintah_gerak_fisik/10_앞으로_보세요_(Lihat_ke_depan).mp3"
+    },
+    {
+      "id": "cmd_11",
+      "command_ko": "오른손 올리세요.",
+      "command_ro": "Oreunson olliseyo.",
+      "command_id": "Angkat tangan kanan",
+      "action_desc": "Langsung lakukan gerakan: Angkat tangan kanan lurus ke atas.",
+      "audio_q": "/audio/02_perintah_gerak_fisik/11_오른손_올리세요_(Angkat_tangan_kanan).mp3"
+    },
+    {
+      "id": "cmd_12",
+      "command_ko": "오른손 내리세요.",
+      "command_ro": "Oreunson naeriseyo.",
+      "command_id": "Turunkan tangan kanan",
+      "action_desc": "Langsung lakukan gerakan: Turunkan tangan kanan kembali ke posisi siap.",
+      "audio_q": "/audio/02_perintah_gerak_fisik/12_오른손_내리세요_(Turunkan_tangan_kanan).mp3"
+    },
+    {
+      "id": "cmd_13",
+      "command_ko": "왼손 올리세요.",
+      "command_ro": "Oenson olliseyo.",
+      "command_id": "Angkat tangan kiri",
+      "action_desc": "Langsung lakukan gerakan: Angkat tangan kiri lurus ke atas.",
+      "audio_q": "/audio/02_perintah_gerak_fisik/13_왼손_올리세요_(Angkat_tangan_kiri).mp3"
+    },
+    {
+      "id": "cmd_14",
+      "command_ko": "왼손 내리세요.",
+      "command_ro": "Oenson naeriseyo.",
+      "command_id": "Turunkan tangan kiri",
+      "action_desc": "Langsung lakukan gerakan: Turunkan tangan kiri kembali ke posisi siap.",
+      "audio_q": "/audio/02_perintah_gerak_fisik/14_왼손_내리세요_(Turunkan_tangan_kiri).mp3"
+    },
+    {
+      "id": "cmd_15",
+      "command_ko": "양손 올리세요.",
+      "command_ro": "Yangson olliseyo.",
+      "command_id": "Angkat kedua tangan",
+      "action_desc": "Langsung lakukan gerakan: Angkat kedua tangan bersamaan ke atas.",
+      "audio_q": "/audio/02_perintah_gerak_fisik/15_양손_올리세요_(Angkat_kedua_tangan).mp3"
+    },
+    {
+      "id": "cmd_16",
+      "command_ko": "양손 내리세요.",
+      "command_ro": "Yangson naeriseyo.",
+      "command_id": "Turunkan kedua tangan",
+      "action_desc": "Langsung lakukan gerakan: Turunkan kedua tangan bersamaan ke posisi siap.",
+      "audio_q": "/audio/02_perintah_gerak_fisik/16_양손_내리세요_(Turunkan_kedua_tangan).mp3"
+    }
+  ]
+}
