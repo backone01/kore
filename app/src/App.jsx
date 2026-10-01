@@ -517,7 +517,7 @@ export default function App() {
 
     // Play Question Audio ONLY from real MP3 file!
     const audioSrc = q.audio_q || (q.category === 'piktogram' ? '/audio/examiner_sign_q.mp3' : '/audio/examiner_tool_q.mp3');
-    examAudioPlayerRef.current.src = audioSrc;
+    examAudioPlayerRef.current.src = getAssetUrl(audioSrc);
     examAudioPlayerRef.current.onended = advanceToAnswerPhase;
     examAudioPlayerRef.current.onerror = () => {
       // In worst-case fallback, wait 2 seconds and advance (ZERO looping TTS!)
@@ -1019,21 +1019,52 @@ export default function App() {
                       </div>
                     </div>
                   ) : examQuestions[examIndex]?.image_url ? (
-                    <div className="w-full max-w-sm bg-white rounded-2xl border border-[#E9E9E7] p-4 shadow-xs">
+                    <div className="w-full max-w-sm bg-white rounded-2xl border border-[#E9E9E7] p-4 shadow-xs flex flex-col items-center">
                       <img
                         src={getAssetUrl(examQuestions[examIndex].image_url)}
                         alt="Soal Ujian Bergambar"
-                        className="max-h-60 w-auto mx-auto object-contain"
+                        className="max-h-56 w-auto mx-auto object-contain"
                       />
+                      <button 
+                        onClick={() => {
+                          if (examAudioPlayerRef.current) {
+                            examAudioPlayerRef.current.currentTime = 0;
+                            examAudioPlayerRef.current.play().catch(() => {});
+                          }
+                        }}
+                        className="mt-3 text-[11px] font-bold text-blue-700 bg-blue-50 border border-blue-200 px-3 py-1 rounded-xl inline-flex items-center gap-1 hover:bg-blue-100 cursor-pointer"
+                      >
+                        <Volume2 className="w-3.5 h-3.5" /> Dengar Ulang Suara Penguji
+                      </button>
                     </div>
                   ) : (
-                    <div className="space-y-3">
-                      <div className="w-16 h-16 rounded-2xl bg-[#EFEFED] flex items-center justify-center mx-auto text-blue-600">
+                    <div className="space-y-3 text-center">
+                      <button 
+                        onClick={() => {
+                          if (examAudioPlayerRef.current) {
+                            examAudioPlayerRef.current.currentTime = 0;
+                            examAudioPlayerRef.current.play().catch(() => {});
+                          }
+                        }}
+                        title="Putar Ulang Audio Pertanyaan"
+                        className="w-16 h-16 rounded-2xl bg-blue-50 hover:bg-blue-100 text-blue-600 flex items-center justify-center mx-auto border border-blue-200 cursor-pointer shadow-xs active:scale-95 transition-all"
+                      >
                         <Volume2 className="w-8 h-8" />
-                      </div>
-                      <p className="text-xs text-[#787774] font-medium max-w-xs">
+                      </button>
+                      <p className="text-xs text-[#787774] font-medium max-w-xs mx-auto">
                         Dengarkan pertanyaan penguji dengan cermat dan jawab langsung secara lisan.
                       </p>
+                      <button 
+                        onClick={() => {
+                          if (examAudioPlayerRef.current) {
+                            examAudioPlayerRef.current.currentTime = 0;
+                            examAudioPlayerRef.current.play().catch(() => {});
+                          }
+                        }}
+                        className="text-[11px] font-bold text-blue-700 bg-blue-50 border border-blue-200 px-3 py-1 rounded-xl inline-flex items-center gap-1 hover:bg-blue-100 cursor-pointer"
+                      >
+                        <Volume2 className="w-3 h-3" /> Putar Ulang Pertanyaan
+                      </button>
                     </div>
                   )}
 
