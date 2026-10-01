@@ -1,10 +1,11 @@
 import React, { useState, useRef, useMemo } from 'react';
 import studyData from '../data/studyMaterials.json';
+import allQuestions from '../data/questions.json';
 import { 
   Volume2, Eye, EyeOff, Search, Sparkles, BookOpen, 
   Calendar, Clock, Hash, Palette, Users, UserCheck, 
   Factory, Wrench, CheckCircle2, ArrowRight, RotateCcw, AlertTriangle,
-  Activity, ChevronRight, Check
+  Activity, ChevronRight, Check, ShieldAlert, Image
 } from 'lucide-react';
 import { getAssetUrl } from '../utils/assetHelper.js';
 
@@ -67,7 +68,9 @@ export function StudyGuide({ onStartPracticeCategory }) {
     { id: 'calendar', label: 'Hari & Kalender', icon: Calendar, count: 'Hari, Bulan, Tgl' },
     { id: 'colors', label: 'Warna Pabrik', icon: Palette, count: '11 Warna + Alasan' },
     { id: 'family', label: 'Keluarga & Relasi', icon: Users, count: 'Silsilah & Hitungan' },
-    { id: 'manufacturing', label: 'Pos Praktik & Alat', icon: Factory, count: 'SOP & 3 Tugas' },
+    { id: 'piktogram', label: 'Piktogram & Rambu', icon: ShieldAlert, count: '95 Rambu K3' },
+    { id: 'alat', label: 'Alat Manufaktur', icon: Image, count: '65 Foto Alat' },
+    { id: 'manufacturing', label: 'Pos Praktik & SOP', icon: Factory, count: 'SOP & 3 Tugas' },
   ];
 
   // Filter K3 Questions
@@ -954,51 +957,130 @@ export function StudyGuide({ onStartPracticeCategory }) {
       {/* ========================================================================= */}
       {activeTab === 'colors' && (
         <div className="space-y-4">
+          {/* Info box */}
+          <div className="bg-white border border-[#E5E5E3] rounded-2xl p-4 shadow-xs">
+            <h3 className="font-extrabold text-sm flex items-center gap-2 mb-1">
+              <Palette className="w-4 h-4 text-rose-500 shrink-0" />
+              11 Warna Pabrik & Alasan Korea (색깔 & 이유)
+            </h3>
+            <p className="text-xs text-[#787774]">
+              Pertanyaan wawancara: <em>"무슨 색깔을 좋아해요?"</em> — Hafal nama warna + alasan singkat Korea.
+              Aktifkan <strong>Mode Sembunyikan</strong> (tombol atas) untuk berlatih menebak.
+            </p>
+          </div>
+
+          {/* Colour grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
-            {studyData.colors.list.map((c, idx) => {
+            {(studyData.colors.items || []).map((c, idx) => {
               const cardId = `col_${idx}`;
               const hidden = isAnswerHidden(cardId);
 
               return (
-                <div key={idx} className="p-4 rounded-2xl border border-[#E5E5E3] bg-white flex items-center justify-between">
-                  <div className="flex items-center gap-3">
-                    <span className="w-8 h-8 rounded-full border border-black/10 shrink-0 shadow-2xs" style={{ backgroundColor: c.hex }} />
+                <div key={idx} className="rounded-2xl border border-[#E5E5E3] bg-white overflow-hidden shadow-xs hover:shadow-sm transition-shadow">
+                  {/* Colour swatch strip */}
+                  <div
+                    className="h-14 w-full"
+                    style={{ backgroundColor: c.hex }}
+                  />
+                  <div className="p-3.5 space-y-2">
+                    {/* Korean name + romaji + Indonesian */}
                     {hidden ? (
-                      <div onClick={() => toggleCardAnswer(cardId)} className="cursor-pointer text-xs font-bold text-amber-800 bg-amber-50 px-2 py-1 rounded">
-                        Tebak warna (?)
+                      <div
+                        onClick={() => toggleCardAnswer(cardId)}
+                        className="cursor-pointer py-2 px-3 rounded-xl bg-amber-50 border border-dashed border-amber-300 text-center"
+                      >
+                        <span className="text-xs font-bold text-amber-800 flex items-center justify-center gap-1">
+                          <EyeOff className="w-3.5 h-3.5 text-amber-700" />
+                          Tebak warna — ketuk untuk lihat
+                        </span>
                       </div>
                     ) : (
-                      <div>
-                        <div className="font-kr font-black text-base text-[#191919]">{c.ko}</div>
-                        <div className="text-xs text-[#787774] font-mono">{c.ro}</div>
-                        <div className="text-xs font-bold text-[#37352F]">{c.id}</div>
+                      <div className="animate-fade-in">
+                        <div className="font-kr font-black text-lg text-[#191919] leading-tight">{c.ko}</div>
+                        <div className="text-xs text-[#787774] font-mono mt-0.5">{c.ro}</div>
+                        <div className="text-sm font-bold text-[#37352F] mt-1">{c.id}</div>
                       </div>
                     )}
-                  </div>
-                  <div className="flex items-center gap-1">
-                    {c.audio && (
-                      <button onClick={() => playAudio(c.audio)} className="p-2 text-blue-600 hover:bg-blue-50 rounded-xl">
-                        <Volume2 className="w-4 h-4" />
-                      </button>
+
+                    {/* Reason (alasan) — always shown when not hidden */}
+                    {!hidden && c.reason && (
+                      <div className="text-[11px] text-[#555] bg-[#FBFBFA] border border-[#EAEAE8] rounded-xl px-2.5 py-2 leading-relaxed">
+                        💬 {c.reason}
+                      </div>
                     )}
-                    <button onClick={() => toggleCardAnswer(cardId)} className="p-1 text-slate-400 hover:text-slate-700">
-                      {hidden ? <EyeOff className="w-4 h-4 text-amber-600" /> : <Eye className="w-4 h-4" />}
-                    </button>
+
+                    {/* Actions */}
+                    <div className="flex items-center gap-1.5 pt-1">
+                      {c.audio && (
+                        <button
+                          onClick={() => playAudio(c.audio)}
+                          aria-label={`Putar audio ${c.id}`}
+                          className={`flex items-center gap-1 px-2.5 py-1.5 rounded-xl text-xs font-bold border transition-all min-h-[36px] ${
+                            playingAudio === c.audio
+                              ? 'bg-blue-600 text-white border-blue-600 animate-pulse'
+                              : 'bg-blue-50 text-blue-700 border-blue-200 hover:bg-blue-100'
+                          }`}
+                        >
+                          <Volume2 className="w-3.5 h-3.5" />
+                          <span>Dengar</span>
+                        </button>
+                      )}
+                      <button
+                        onClick={() => toggleCardAnswer(cardId)}
+                        aria-label={hidden ? 'Tampilkan jawaban' : 'Sembunyikan jawaban'}
+                        className={`ml-auto p-2 rounded-xl border transition-all min-h-[36px] min-w-[36px] flex items-center justify-center ${
+                          hidden
+                            ? 'bg-amber-100 text-amber-800 border-amber-300 hover:bg-amber-200'
+                            : 'bg-white text-slate-400 border-[#E5E5E3] hover:text-slate-700 hover:bg-slate-50'
+                        }`}
+                      >
+                        {hidden ? <EyeOff className="w-4 h-4 text-amber-700" /> : <Eye className="w-4 h-4" />}
+                      </button>
+                    </div>
                   </div>
                 </div>
               );
             })}
           </div>
+
+          {/* Interview QA bonus */}
+          {studyData.colors.interview_qa && (
+            <div className="bg-white border border-[#E5E5E3] rounded-2xl p-4 shadow-xs space-y-3">
+              <h4 className="font-extrabold text-xs uppercase tracking-wider text-rose-700">
+                Contoh Tanya Jawab Warna di Wawancara:
+              </h4>
+              {studyData.colors.interview_qa.map((qa, i) => (
+                <div key={i} className="border border-[#EAEAE8] rounded-xl p-3 space-y-1">
+                  <div className="text-xs font-bold text-[#787774]">❓ {qa.q_id}</div>
+                  <div className="font-kr font-black text-sm text-[#191919]">{qa.q_ko}</div>
+                  <div className="text-[11px] text-[#787774] font-mono">{qa.q_ro}</div>
+                  <div className="mt-2 pt-2 border-t border-[#EAEAE8] text-xs text-emerald-900 bg-emerald-50 rounded-lg p-2">
+                    ✅ {qa.a_id}<br />
+                    <span className="font-kr font-bold">{qa.a_ko}</span>
+                  </div>
+                  {qa.audio && (
+                    <button onClick={() => playAudio(qa.audio)} className="flex items-center gap-1 text-xs text-blue-700 hover:text-blue-900 mt-1">
+                      <Volume2 className="w-3 h-3" /> Putar Audio
+                    </button>
+                  )}
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       )}
 
+
+
+
       {/* ========================================================================= */}
       {/* 9. KELUARGA & RELASI */}
+
       {/* ========================================================================= */}
       {activeTab === 'family' && (
         <div className="space-y-4">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
-            {studyData.family.members.map((f, idx) => {
+            {(studyData.family.items || studyData.family.members || []).map((f, idx) => {
               const cardId = `fam_${idx}`;
               const hidden = isAnswerHidden(cardId);
 
@@ -1035,7 +1117,201 @@ export function StudyGuide({ onStartPracticeCategory }) {
       )}
 
       {/* ========================================================================= */}
-      {/* 10. POS PRAKTIK & ALAT MANUFAKTUR */}
+      {/* 10. PIKTOGRAM & RAMBU KESELAMATAN */}
+      {/* ========================================================================= */}
+      {activeTab === 'piktogram' && (() => {
+        const piktogramList = allQuestions.filter(q => q.category === 'piktogram');
+        const groups = piktogramList.reduce((acc, q) => {
+          const g = q.category_title || 'Lainnya';
+          if (!acc[g]) acc[g] = [];
+          acc[g].push(q);
+          return acc;
+        }, {});
+        return (
+          <div className="space-y-4">
+            <div className="bg-white border border-[#E5E5E3] rounded-2xl p-4 shadow-xs">
+              <h3 className="font-extrabold text-sm flex items-center gap-2 mb-1">
+                <ShieldAlert className="w-4 h-4 text-amber-600 shrink-0" />
+                {piktogramList.length} Piktogram & Rambu Keselamatan Kerja (안전 표지)
+              </h3>
+              <p className="text-xs text-[#787774]">
+                Pertanyaan penguji: <em>"이 안전 표지는 무슨 뜻입니까?"</em> — Hafal arti setiap rambu beserta nama Koreanya.
+              </p>
+            </div>
+            {Object.entries(groups).map(([groupName, items]) => (
+              <div key={groupName} className="bg-white border border-[#E5E5E3] rounded-2xl p-4 shadow-xs space-y-3">
+                <h4 className="font-extrabold text-xs uppercase tracking-wider text-amber-700">{groupName}</h4>
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+                  {items.map((p, idx) => {
+                    const cardId = `pik_${p.id || idx}`;
+                    const hidden = isAnswerHidden(cardId);
+                    return (
+                      <div key={cardId} className="rounded-xl border border-[#E5E5E3] bg-[#FBFBFA] overflow-hidden flex flex-col hover:shadow-sm transition-shadow">
+                        {/* Pictogram image */}
+                        <div className="bg-white p-2 flex items-center justify-center min-h-[80px]">
+                          <img
+                            src={getAssetUrl(p.image_url)}
+                            alt={p.title_id || p.title_ko}
+                            className="max-h-20 w-auto object-contain"
+                            loading="lazy"
+                          />
+                        </div>
+                        <div className="p-2.5 flex flex-col gap-1.5 flex-1">
+                          {hidden ? (
+                            <div
+                              onClick={() => toggleCardAnswer(cardId)}
+                              className="cursor-pointer text-center py-1.5 px-2 rounded-lg bg-amber-50 border border-dashed border-amber-300"
+                            >
+                              <EyeOff className="w-3.5 h-3.5 text-amber-700 mx-auto mb-0.5" />
+                              <span className="text-[10px] font-bold text-amber-800">Ketuk untuk lihat</span>
+                            </div>
+                          ) : (
+                            <div className="animate-fade-in">
+                              <div className="font-kr font-black text-xs text-[#191919] leading-tight">{p.title_ko}</div>
+                              <div className="text-[11px] text-blue-700 font-medium mt-0.5">{p.title_id}</div>
+                            </div>
+                          )}
+                          <div className="flex items-center gap-1 mt-auto">
+                            {p.audio_q && (
+                              <button
+                                onClick={() => playAudio(p.audio_q)}
+                                aria-label="Putar soal"
+                                className={`p-1.5 rounded-lg transition-all min-h-[32px] min-w-[32px] flex items-center justify-center ${
+                                  playingAudio === p.audio_q
+                                    ? 'bg-blue-600 text-white animate-pulse'
+                                    : 'bg-blue-50 text-blue-700 hover:bg-blue-100'
+                                }`}
+                              >
+                                <Volume2 className="w-3.5 h-3.5" />
+                              </button>
+                            )}
+                            <button
+                              onClick={() => toggleCardAnswer(cardId)}
+                              aria-label={hidden ? 'Tampilkan jawaban' : 'Sembunyikan jawaban'}
+                              className={`ml-auto p-1.5 rounded-lg border transition-all min-h-[32px] min-w-[32px] flex items-center justify-center ${
+                                hidden
+                                  ? 'bg-amber-100 text-amber-800 border-amber-300'
+                                  : 'bg-white text-slate-400 border-[#E5E5E3] hover:text-slate-700'
+                              }`}
+                            >
+                              {hidden ? <EyeOff className="w-3.5 h-3.5 text-amber-700" /> : <Eye className="w-3.5 h-3.5" />}
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            ))}
+          </div>
+        );
+      })()}
+
+      {/* ========================================================================= */}
+      {/* 11. ALAT MANUFAKTUR (Foto + Nama) */}
+      {/* ========================================================================= */}
+      {activeTab === 'alat' && (() => {
+        const alatList = allQuestions.filter(q => q.category === 'alat_manufaktur');
+        const groups = alatList.reduce((acc, q) => {
+          const g = q.category_title || 'Alat Manufaktur';
+          if (!acc[g]) acc[g] = [];
+          acc[g].push(q);
+          return acc;
+        }, {});
+        return (
+          <div className="space-y-4">
+            <div className="bg-white border border-[#E5E5E3] rounded-2xl p-4 shadow-xs">
+              <h3 className="font-extrabold text-sm flex items-center gap-2 mb-1">
+                <Wrench className="w-4 h-4 text-slate-600 shrink-0" />
+                {alatList.length} Alat & Perkakas Manufaktur (공구 & 기계)
+              </h3>
+              <p className="text-xs text-[#787774]">
+                Pertanyaan penguji: <em>"이 공구의 이름은 무엇입니까?"</em> — Hafal nama Korea setiap alat dari fotonya.
+              </p>
+            </div>
+            {Object.entries(groups).map(([groupName, items]) => (
+              <div key={groupName} className="bg-white border border-[#E5E5E3] rounded-2xl p-4 shadow-xs space-y-3">
+                <h4 className="font-extrabold text-xs uppercase tracking-wider text-slate-700">{groupName}</h4>
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+                  {items.map((a, idx) => {
+                    const cardId = `alat_${a.id || idx}`;
+                    const hidden = isAnswerHidden(cardId);
+                    return (
+                      <div key={cardId} className="rounded-xl border border-[#E5E5E3] bg-[#FBFBFA] overflow-hidden flex flex-col hover:shadow-sm transition-shadow">
+                        {/* Tool image */}
+                        <div className="bg-white p-2 flex items-center justify-center min-h-[90px]">
+                          <img
+                            src={getAssetUrl(a.image_url)}
+                            alt={a.title_id || a.title_ko}
+                            className="max-h-24 w-auto object-contain"
+                            loading="lazy"
+                          />
+                        </div>
+                        <div className="p-2.5 flex flex-col gap-1.5 flex-1">
+                          {/* Level badge */}
+                          {a.level && (
+                            <span className={`text-[9px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded-full w-fit ${
+                              a.level === 'Atas' ? 'bg-red-50 text-red-700'
+                              : a.level === 'Menengah' ? 'bg-amber-50 text-amber-700'
+                              : 'bg-blue-50 text-blue-700'
+                            }`}>
+                              Tingkat {a.level}
+                            </span>
+                          )}
+                          {hidden ? (
+                            <div
+                              onClick={() => toggleCardAnswer(cardId)}
+                              className="cursor-pointer text-center py-1.5 px-2 rounded-lg bg-amber-50 border border-dashed border-amber-300"
+                            >
+                              <EyeOff className="w-3.5 h-3.5 text-amber-700 mx-auto mb-0.5" />
+                              <span className="text-[10px] font-bold text-amber-800">Ketuk untuk lihat</span>
+                            </div>
+                          ) : (
+                            <div className="animate-fade-in">
+                              <div className="font-kr font-black text-xs text-[#191919] leading-tight">{a.title_ko}</div>
+                              <div className="text-[11px] text-blue-700 font-medium mt-0.5">{a.title_id}</div>
+                            </div>
+                          )}
+                          <div className="flex items-center gap-1 mt-auto">
+                            {a.audio_q && (
+                              <button
+                                onClick={() => playAudio(a.audio_q)}
+                                aria-label="Putar soal"
+                                className={`p-1.5 rounded-lg transition-all min-h-[32px] min-w-[32px] flex items-center justify-center ${
+                                  playingAudio === a.audio_q
+                                    ? 'bg-blue-600 text-white animate-pulse'
+                                    : 'bg-blue-50 text-blue-700 hover:bg-blue-100'
+                                }`}
+                              >
+                                <Volume2 className="w-3.5 h-3.5" />
+                              </button>
+                            )}
+                            <button
+                              onClick={() => toggleCardAnswer(cardId)}
+                              aria-label={hidden ? 'Tampilkan jawaban' : 'Sembunyikan jawaban'}
+                              className={`ml-auto p-1.5 rounded-lg border transition-all min-h-[32px] min-w-[32px] flex items-center justify-center ${
+                                hidden
+                                  ? 'bg-amber-100 text-amber-800 border-amber-300'
+                                  : 'bg-white text-slate-400 border-[#E5E5E3] hover:text-slate-700'
+                              }`}
+                            >
+                              {hidden ? <EyeOff className="w-3.5 h-3.5 text-amber-700" /> : <Eye className="w-3.5 h-3.5" />}
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            ))}
+          </div>
+        );
+      })()}
+
+      {/* ========================================================================= */}
+      {/* 12. POS PRAKTIK & ALAT MANUFAKTUR */}
       {/* ========================================================================= */}
       {activeTab === 'manufacturing' && (
         <div className="space-y-4">
