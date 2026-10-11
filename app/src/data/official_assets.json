@@ -132,28 +132,6 @@
     "title_id": "Saklar"
   },
   {
-    "id": "mfg2026_013",
-    "category": "제조업 - 하 (Manufaktur Tingkat Dasar)",
-    "group": "Peralatan Manufaktur",
-    "level": "Dasar",
-    "source": "Standar Ujian Keterampilan HRD Korea 2026",
-    "filename": "13_제조_니퍼_Tang_potong.png",
-    "image_url": "/assets_resmi/01_Peralatan_Manufaktur_2026/13_제조_니퍼_Tang_potong.png",
-    "title_ko": "니퍼",
-    "title_id": "Tang potong"
-  },
-  {
-    "id": "mfg2026_014",
-    "category": "제조업 - 하 (Manufaktur Tingkat Dasar)",
-    "group": "Peralatan Manufaktur",
-    "level": "Dasar",
-    "source": "Standar Ujian Keterampilan HRD Korea 2026",
-    "filename": "14_제조_롱노즈_플라이어_Tang_cucut_Tang_lancip.png",
-    "image_url": "/assets_resmi/01_Peralatan_Manufaktur_2026/14_제조_롱노즈_플라이어_Tang_cucut_Tang_lancip.png",
-    "title_ko": "롱노즈 플라이어",
-    "title_id": "Tang cucut / Tang lancip"
-  },
-  {
     "id": "mfg2026_015",
     "category": "제조업 - 하 (Manufaktur Tingkat Dasar)",
     "group": "Peralatan Manufaktur",
@@ -185,17 +163,6 @@
     "image_url": "/assets_resmi/01_Peralatan_Manufaktur_2026/17_제조_테프론_테이프_Isolasi_pipa_Selotip_keran.png",
     "title_ko": "테프론 테이프",
     "title_id": "Isolasi pipa / Selotip keran"
-  },
-  {
-    "id": "mfg2026_018",
-    "category": "제조업 - 하 (Manufaktur Tingkat Dasar)",
-    "group": "Peralatan Manufaktur",
-    "level": "Dasar",
-    "source": "Standar Ujian Keterampilan HRD Korea 2026",
-    "filename": "18_제조_플라이어_Tang_kombinasi.png",
-    "image_url": "/assets_resmi/01_Peralatan_Manufaktur_2026/18_제조_플라이어_Tang_kombinasi.png",
-    "title_ko": "플라이어",
-    "title_id": "Tang kombinasi"
   },
   {
     "id": "mfg_g_019",
@@ -1758,5 +1725,313 @@
     "image_url": "/assets_resmi/04_Piktogram_Keselamatan_Resmi/95_소방_화재비상전화_Telepon_darurat_kebakaran.png",
     "title_ko": "화재비상전화",
     "title_id": "Telepon darurat kebakaran"
+  },
+  {
+    "id": "jagi_01",
+    "category": "Alat Klasik (JAGISOSE)",
+    "group": "Alat Klasik (JAGISOSE)",
+    "level": "Dasar",
+    "source": "JAGISOGE & SKIL ALAT KUMPLIT",
+    "filename": "01_mokjangkap.png",
+    "image_url": "/assets_resmi/05_Peralatan_Klasik_JAGISOSE/01_mokjangkap.png",
+    "title_ko": "목장갑",
+    "title_id": "Sarung tangan kerja"
+  },
+  {
+    "id": "jagi_02",
+    "category": "Alat Klasik (JAGISOSE)",
+    "group": "Alat Klasik (JAGISOSE)",
+    "level": "Dasar",
+    "source": "JAGISOGE & SKIL ALAT KUMPLIT",
+    "filename": "02_driver.png",
+    "image_url": "/assets_resmi/05_Peralatan_Klasik_JAGISOSE/02_driver.png",
+    "title_ko": "드라이버",
+    "title_id": "Obeng"
+  },
+  {
+    "id": "jagi_03",
+    "category": "Alat Klasik (JAGISOSE)",
+    "group": "Alat Klasik (JAGISOSE)",
+    "level": "Dasar",
+    "source": "JAGISOGE & SKIL ALAT KUMPLIT",
+    "filename": "03_nipper.png",
+    "image_url": "/assets_resmi/05_Peralatan_Klasik_JAGISOSE/03_nipper.png",
+    "title_ko": "니퍼",
+    "title_id": "Tang potong"
+  },
+  {
+    "id": "jagi_04",
+    "category": "Alat Klasik (JAGISOSE)",
+    "group": "Alat Klasik (JAGISOSE)",
+    "level": "Dasar",
+    "source": "JAGISOGE & SKIL ALAT KUMPLIT",
+    "filename": "04_longnose.png",
+    "image_url": "/assets_resmi/05_Peralatan_Klasik_JAGISOSE/04_longnose.png",
+    "title_ko": "롱노즈 플라이어",
+    "title_id": "Tang lancip"
+  },
+  {
+    "id": "jagi_05",
+    "category": "Alat Klasik (JAGISOSE)",
+    "group": "Alat Klasik (JAGISOSE)",
+    "level": "Dasar",
+    "source": "JAGISOGE & SKIL ALAT KUMPLIT",
+    "filename": "05_pliers.png",
+    "image_url": "/assets_resmi/05_Peralatan_Klasik_JAGISOSE/05_pliers.png",
+    "title_ko": "펜치",
+    "title_id": "Tang kombinasi"
+  },
+  {
+    "id": "jagi_06",
+    "category": "Alat Klasik (JAGISOSE)",
+    "group": "Alat Klasik (JAGISOSE)",
+    "level": "Dasar",
+    "source": "JAGISOGE & SKIL ALAT KUMPLIT",
+    "filename": "06_saw.png",
+    "image_url": "/assets_resmi/05_Peralatan_Klasik_JAGISOSE/06_saw.png",
+    "title_ko": "톱",
+    "title_id": "Gergaji"
+  },
+  {
+    "id": "jagi_07",
+    "category": "Alat Klasik (JAGISOSE)",
+    "group": "Alat Klasik (JAGISOSE)",
+    "level": "Dasar",
+    "source": "JAGISOGE & SKIL ALAT KUMPLIT",
+    "filename": "07_hammer.png",
+    "image_url": "/assets_resmi/05_Peralatan_Klasik_JAGISOSE/07_hammer.png",
+    "title_ko": "망치",
+    "title_id": "Palu"
+  },
+  {
+    "id": "jagi_08",
+    "category": "Alat Klasik (JAGISOSE)",
+    "group": "Alat Klasik (JAGISOSE)",
+    "level": "Dasar",
+    "source": "JAGISOGE & SKIL ALAT KUMPLIT",
+    "filename": "08_knife.png",
+    "image_url": "/assets_resmi/05_Peralatan_Klasik_JAGISOSE/08_knife.png",
+    "title_ko": "칼",
+    "title_id": "Pisau utility"
+  },
+  {
+    "id": "jagi_09",
+    "category": "Alat Klasik (JAGISOSE)",
+    "group": "Alat Klasik (JAGISOSE)",
+    "level": "Dasar",
+    "source": "JAGISOGE & SKIL ALAT KUMPLIT",
+    "filename": "09_scissors.png",
+    "image_url": "/assets_resmi/05_Peralatan_Klasik_JAGISOSE/09_scissors.png",
+    "title_ko": "가위",
+    "title_id": "Gunting"
+  },
+  {
+    "id": "jagi_10",
+    "category": "Alat Klasik (JAGISOSE)",
+    "group": "Alat Klasik (JAGISOSE)",
+    "level": "Dasar",
+    "source": "JAGISOGE & SKIL ALAT KUMPLIT",
+    "filename": "10_handcart.png",
+    "image_url": "/assets_resmi/05_Peralatan_Klasik_JAGISOSE/10_handcart.png",
+    "title_ko": "핸드카",
+    "title_id": "Kereta dorong tangan"
+  },
+  {
+    "id": "jagi_11",
+    "category": "Alat Klasik (JAGISOSE)",
+    "group": "Alat Klasik (JAGISOSE)",
+    "level": "Dasar",
+    "source": "JAGISOGE & SKIL ALAT KUMPLIT",
+    "filename": "11_cart.png",
+    "image_url": "/assets_resmi/05_Peralatan_Klasik_JAGISOSE/11_cart.png",
+    "title_ko": "대차",
+    "title_id": "Gerobak"
+  },
+  {
+    "id": "jagi_12",
+    "category": "Alat Klasik (JAGISOSE)",
+    "group": "Alat Klasik (JAGISOSE)",
+    "level": "Dasar",
+    "source": "JAGISOGE & SKIL ALAT KUMPLIT",
+    "filename": "12_box.png",
+    "image_url": "/assets_resmi/05_Peralatan_Klasik_JAGISOSE/12_box.png",
+    "title_ko": "박스",
+    "title_id": "Kardus"
+  },
+  {
+    "id": "jagi_13",
+    "category": "Alat Klasik (JAGISOSE)",
+    "group": "Alat Klasik (JAGISOSE)",
+    "level": "Dasar",
+    "source": "JAGISOGE & SKIL ALAT KUMPLIT",
+    "filename": "13_toolcabinet.png",
+    "image_url": "/assets_resmi/05_Peralatan_Klasik_JAGISOSE/13_toolcabinet.png",
+    "title_ko": "공구 캐비닛",
+    "title_id": "Lemari alat"
+  },
+  {
+    "id": "jagi_14",
+    "category": "Alat Klasik (JAGISOSE)",
+    "group": "Alat Klasik (JAGISOSE)",
+    "level": "Dasar",
+    "source": "JAGISOGE & SKIL ALAT KUMPLIT",
+    "filename": "14_shovel.png",
+    "image_url": "/assets_resmi/05_Peralatan_Klasik_JAGISOSE/14_shovel.png",
+    "title_ko": "삽",
+    "title_id": "Sekop"
+  },
+  {
+    "id": "jagi_15",
+    "category": "Alat Klasik (JAGISOSE)",
+    "group": "Alat Klasik (JAGISOSE)",
+    "level": "Dasar",
+    "source": "JAGISOGE & SKIL ALAT KUMPLIT",
+    "filename": "15_broom.png",
+    "image_url": "/assets_resmi/05_Peralatan_Klasik_JAGISOSE/15_broom.png",
+    "title_ko": "빗자루",
+    "title_id": "Sapu"
+  },
+  {
+    "id": "jagi_16",
+    "category": "Alat Klasik (JAGISOSE)",
+    "group": "Alat Klasik (JAGISOSE)",
+    "level": "Dasar",
+    "source": "JAGISOGE & SKIL ALAT KUMPLIT",
+    "filename": "16_dustpan.png",
+    "image_url": "/assets_resmi/05_Peralatan_Klasik_JAGISOSE/16_dustpan.png",
+    "title_ko": "쓰레받기",
+    "title_id": "Pengki"
+  },
+  {
+    "id": "jagi_17",
+    "category": "Alat Klasik (JAGISOSE)",
+    "group": "Alat Klasik (JAGISOSE)",
+    "level": "Dasar",
+    "source": "JAGISOGE & SKIL ALAT KUMPLIT",
+    "filename": "17_extinguisher.png",
+    "image_url": "/assets_resmi/05_Peralatan_Klasik_JAGISOSE/17_extinguisher.png",
+    "title_ko": "소화기",
+    "title_id": "APAR"
+  },
+  {
+    "id": "jagi_18",
+    "category": "Alat Klasik (JAGISOSE)",
+    "group": "Alat Klasik (JAGISOSE)",
+    "level": "Dasar",
+    "source": "JAGISOGE & SKIL ALAT KUMPLIT",
+    "filename": "18_vinylstring.png",
+    "image_url": "/assets_resmi/05_Peralatan_Klasik_JAGISOSE/18_vinylstring.png",
+    "title_ko": "비닐 끈",
+    "title_id": "Tali plastik"
+  },
+  {
+    "id": "jagi_19",
+    "category": "Alat Klasik (JAGISOSE)",
+    "group": "Alat Klasik (JAGISOSE)",
+    "level": "Dasar",
+    "source": "JAGISOGE & SKIL ALAT KUMPLIT",
+    "filename": "19_tape.png",
+    "image_url": "/assets_resmi/05_Peralatan_Klasik_JAGISOSE/19_tape.png",
+    "title_ko": "테이프",
+    "title_id": "Selotip"
+  },
+  {
+    "id": "jagi_20",
+    "category": "Alat Klasik (JAGISOSE)",
+    "group": "Alat Klasik (JAGISOSE)",
+    "level": "Dasar",
+    "source": "JAGISOGE & SKIL ALAT KUMPLIT",
+    "filename": "20_multitap.png",
+    "image_url": "/assets_resmi/05_Peralatan_Klasik_JAGISOSE/20_multitap.png",
+    "title_ko": "멀티탭",
+    "title_id": "Multi-tap"
+  },
+  {
+    "id": "jagi_21",
+    "category": "Alat Klasik (JAGISOSE)",
+    "group": "Alat Klasik (JAGISOSE)",
+    "level": "Dasar",
+    "source": "JAGISOGE & SKIL ALAT KUMPLIT",
+    "filename": "21_flashlight.png",
+    "image_url": "/assets_resmi/05_Peralatan_Klasik_JAGISOSE/21_flashlight.png",
+    "title_ko": "손전등",
+    "title_id": "Senter"
+  },
+  {
+    "id": "jagi_22",
+    "category": "Alat Klasik (JAGISOSE)",
+    "group": "Alat Klasik (JAGISOSE)",
+    "level": "Dasar",
+    "source": "JAGISOGE & SKIL ALAT KUMPLIT",
+    "filename": "22_drum.png",
+    "image_url": "/assets_resmi/05_Peralatan_Klasik_JAGISOSE/22_drum.png",
+    "title_ko": "드럼",
+    "title_id": "Drum"
+  },
+  {
+    "id": "jagi_23",
+    "category": "Alat Klasik (JAGISOSE)",
+    "group": "Alat Klasik (JAGISOSE)",
+    "level": "Dasar",
+    "source": "JAGISOGE & SKIL ALAT KUMPLIT",
+    "filename": "23_electriccutter.png",
+    "image_url": "/assets_resmi/05_Peralatan_Klasik_JAGISOSE/23_electriccutter.png",
+    "title_ko": "전기 절단기",
+    "title_id": "Pemotong listrik"
+  },
+  {
+    "id": "jagi_24",
+    "category": "Alat Klasik (JAGISOSE)",
+    "group": "Alat Klasik (JAGISOSE)",
+    "level": "Dasar",
+    "source": "JAGISOGE & SKIL ALAT KUMPLIT",
+    "filename": "24_electricwelder.png",
+    "image_url": "/assets_resmi/05_Peralatan_Klasik_JAGISOSE/24_electricwelder.png",
+    "title_ko": "전기 용접기",
+    "title_id": "Mesin las listrik"
+  },
+  {
+    "id": "jagi_25",
+    "category": "Alat Klasik (JAGISOSE)",
+    "group": "Alat Klasik (JAGISOSE)",
+    "level": "Dasar",
+    "source": "JAGISOGE & SKIL ALAT KUMPLIT",
+    "filename": "25_gaswelder.png",
+    "image_url": "/assets_resmi/05_Peralatan_Klasik_JAGISOSE/25_gaswelder.png",
+    "title_ko": "가스 용접기",
+    "title_id": "Mesin las gas"
+  },
+  {
+    "id": "jagi_26",
+    "category": "Alat Klasik (JAGISOSE)",
+    "group": "Alat Klasik (JAGISOSE)",
+    "level": "Dasar",
+    "source": "JAGISOGE & SKIL ALAT KUMPLIT",
+    "filename": "26_weldingrod.png",
+    "image_url": "/assets_resmi/05_Peralatan_Klasik_JAGISOSE/26_weldingrod.png",
+    "title_ko": "용접봉",
+    "title_id": "Elektroda las"
+  },
+  {
+    "id": "jagi_27",
+    "category": "Alat Klasik (JAGISOSE)",
+    "group": "Alat Klasik (JAGISOSE)",
+    "level": "Dasar",
+    "source": "JAGISOGE & SKIL ALAT KUMPLIT",
+    "filename": "27_bindinghandle.png",
+    "image_url": "/assets_resmi/05_Peralatan_Klasik_JAGISOSE/27_bindinghandle.png",
+    "title_ko": "결속핸들",
+    "title_id": "Alat pengikat"
+  },
+  {
+    "id": "jagi_28",
+    "category": "Alat Klasik (JAGISOSE)",
+    "group": "Alat Klasik (JAGISOSE)",
+    "level": "Dasar",
+    "source": "JAGISOGE & SKIL ALAT KUMPLIT",
+    "filename": "28_crowbar.png",
+    "image_url": "/assets_resmi/05_Peralatan_Klasik_JAGISOSE/28_crowbar.png",
+    "title_ko": "쇠지레",
+    "title_id": "Linggis"
   }
 ]

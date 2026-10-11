@@ -12,11 +12,13 @@ import { Header } from './components/Header.jsx';
 import { CategoryModal } from './components/CategoryModal.jsx';
 import { RevisionModal } from './components/RevisionModal.jsx';
 import { StudyGuide } from './components/StudyGuide.jsx';
+import { CheckRekap } from './components/CheckRekap.jsx';
 import { PracticeFlashcard } from './components/PracticeFlashcard.jsx';
 import { PracticeQuiz } from './components/PracticeQuiz.jsx';
 import { PracticeListening } from './components/PracticeListening.jsx';
 import { PracticeOral } from './components/PracticeOral.jsx';
 import { getAssetUrl } from './utils/assetHelper.js';
+import { CATEGORY_GROUPS } from './utils/categoryGroups.js';
 
 export default function App() {
   // App Mode: 'study' (Materi & Hafalan) | 'practice' (Latihan Soal) | 'exam' (Simulasi Ujian Resmi)
@@ -42,7 +44,7 @@ export default function App() {
   // =========================================================================
   // 2. REAL EXAM SIMULATOR (STANDAR RESMI REVISI HRD KOREA)
   // =========================================================================
-  const [examPhase, setExamPhase] = useState('intro'); // 'intro' | 'running' | 'summary'
+  const [examPhase, setExamPhase] = useState('intro'); // 'intro' | 'running' | 'summary' | 'rekap'
   const [examQuestions, setExamQuestions] = useState([]);
   const [examIndex, setExamIndex] = useState(0);
   const [examStepStatus, setExamStepStatus] = useState('asking'); // 'asking' | 'answering'
@@ -604,15 +606,31 @@ export default function App() {
     setExamPhase('intro');
   };
 
+  // Kelompok kategori gaya modul Hub — definisi bersama di utils/categoryGroups.js
+  // (dipakai juga oleh mode Materi agar pengkategorian konsisten)
+
   const categoriesList = [
     { id: 'all', label: 'Semua Bank Soal', count: questionsData.length },
-    { id: 'matematika', label: 'Dasar Berhitung Pabrik', count: questionsData.filter(q=>q.category==='matematika').length },
-    { id: 'simulasi_hrdk', label: 'Simulasi Resmi HRDK (50 Q&A)', count: questionsData.filter(q=>q.category==='simulasi_hrdk').length },
-    { id: 'wawancara', label: 'Wawancara Data Diri & Situasi', count: questionsData.filter(q=>q.category==='wawancara').length },
-    { id: 'k3_safety', label: 'K3 & Keselamatan Pabrik', count: questionsData.filter(q=>q.category==='k3_safety').length },
-    { id: 'gerak_fisik', label: 'Perintah Gerak Fisik (따라하세요)', count: questionsData.filter(q=>q.category==='gerak_fisik').length },
-    { id: 'alat_manufaktur', label: 'Perkakas Manufaktur & APD', count: questionsData.filter(q=>q.category==='alat_manufaktur').length },
-    { id: 'piktogram', label: 'Piktogram Keselamatan K3', count: questionsData.filter(q=>q.category==='piktogram').length },
+    { id: 'simulasi_hrdk', group: 'g_wawancara', label: 'Simulasi Resmi HRDK', count: questionsData.filter(q=>q.category==='simulasi_hrdk').length },
+    { id: 'wawancara', group: 'g_wawancara', label: 'Wawancara Data Diri & Situasi', count: questionsData.filter(q=>q.category==='wawancara').length },
+    { id: 'wawancara_dasar', group: 'g_wawancara', label: 'Wawancara Dasar Q&A (Hub)', count: questionsData.filter(q=>q.category==='wawancara_dasar').length },
+    { id: 'wawancara_profesional', group: 'g_wawancara', label: 'Wawancara Profesional (Hub)', count: questionsData.filter(q=>q.category==='wawancara_profesional').length },
+    { id: 'gerak_fisik', group: 'g_fisik', label: 'Perintah Gerak Fisik (따라하세요)', count: questionsData.filter(q=>q.category==='gerak_fisik').length },
+    { id: 'perintah_gerak', group: 'g_fisik', label: 'Perintah Gerak & Aksi (Hub)', count: questionsData.filter(q=>q.category==='perintah_gerak').length },
+    { id: 'perintah_kerja', group: 'g_fisik', label: 'Perintah Kerja & Arah (Hub)', count: questionsData.filter(q=>q.category==='perintah_kerja').length },
+    { id: 'alat_manufaktur', group: 'g_skills', label: 'Perkakas Manufaktur & APD', count: questionsData.filter(q=>q.category==='alat_manufaktur').length },
+    { id: 'alat_klasik', group: 'g_klasik', label: 'Alat Klasik (JAGISOSE)', count: questionsData.filter(q=>q.category==='alat_klasik').length },
+    { id: 'penggunaan_alat', group: 'g_skills', label: 'Penggunaan Alat Manufaktur (Hub)', count: questionsData.filter(q=>q.category==='penggunaan_alat').length },
+    { id: 'penjelasan_alat', group: 'g_skills', label: 'Penjelasan Fungsi Alat (Hub)', count: questionsData.filter(q=>q.category==='penjelasan_alat').length },
+    { id: 'penyimpanan_alat', group: 'g_skills', label: 'Penyimpanan Alat (Hub)', count: questionsData.filter(q=>q.category==='penyimpanan_alat').length },
+    { id: 'fungsi_alat', group: 'g_skills', label: 'Fungsi Alat', count: questionsData.filter(q=>q.category==='fungsi_alat').length },
+    { id: 'perintah_alat', group: 'g_skills', label: 'Perintah Aksi Alat', count: questionsData.filter(q=>q.category==='perintah_alat').length },
+    { id: 'piktogram', group: 'g_skills', label: 'Piktogram Keselamatan K3', count: questionsData.filter(q=>q.category==='piktogram').length },
+    { id: 'rambu_lalulintas', group: 'g_skills', label: 'Rambu Keselamatan (Hub)', count: questionsData.filter(q=>q.category==='rambu_lalulintas').length },
+    { id: 'k3_safety', group: 'g_skills', label: 'K3 & Keselamatan Pabrik', count: questionsData.filter(q=>q.category==='k3_safety').length },
+    { id: 'matematika', group: 'g_angka', label: 'Dasar Berhitung Pabrik', count: questionsData.filter(q=>q.category==='matematika').length },
+    { id: 'konversi_satuan', group: 'g_angka', label: 'Konversi Satuan (Hub)', count: questionsData.filter(q=>q.category==='konversi_satuan').length },
+    { id: 'hitungan_lisan', group: 'g_angka', label: 'Hitungan Lisan (Hub)', count: questionsData.filter(q=>q.category==='hitungan_lisan').length },
   ];
 
   const practiceProgress = filteredQuestions.length ? ((currentIndex + 1) / filteredQuestions.length) * 100 : 0;
@@ -671,13 +689,13 @@ export default function App() {
                       }}
                       className={`px-3 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap transition-all flex items-center gap-1.5 shrink-0 border ${
                         isSelected
-                          ? 'bg-[#191919] text-white border-[#191919] shadow-2xs'
-                          : 'bg-white text-[#787774] border-[#E5E5E3] hover:text-[#191919] hover:bg-[#F9F9F8]'
+                          ? 'bg-slate-900 text-white border-slate-900 shadow-xs'
+                          : 'bg-white text-slate-600 border-slate-200 hover:text-slate-900 hover:bg-slate-50'
                       }`}
                     >
                       <span>{cat.label}</span>
-                      <span className={`text-[10px] font-mono px-1.5 py-0.2 rounded-full ${
-                        isSelected ? 'bg-white/20 text-white' : 'bg-[#EAEAE8] text-[#555]'
+                      <span className={`text-[10px] font-mono px-1.5 py-0.5 rounded-full ${
+                        isSelected ? 'bg-white/20 text-white' : 'bg-slate-100 text-slate-600'
                       }`}>
                         {cat.count}
                       </span>
@@ -689,7 +707,7 @@ export default function App() {
 
             {/* Sub-mode Navigation Selector */}
             <div className="w-full max-w-xl flex items-center justify-center">
-              <div className="inline-flex p-1 bg-[#F0F0EE] border border-[#E5E5E3] rounded-xl text-xs font-semibold">
+              <div className="inline-flex p-1 bg-slate-100 border border-slate-200/80 rounded-xl text-xs font-semibold gap-0.5">
                 <button
                   onClick={() => {
                     setPracticeSubMode('flashcard');
@@ -697,8 +715,8 @@ export default function App() {
                   }}
                   className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg transition-all ${
                     practiceSubMode === 'flashcard'
-                      ? 'bg-white text-[#191919] font-bold shadow-2xs border border-[#E0E0DC]'
-                      : 'text-[#787774] hover:text-[#191919]'
+                      ? 'bg-white text-slate-900 font-bold shadow-xs border border-slate-200/80'
+                      : 'text-slate-600 hover:text-slate-900'
                   }`}
                 >
                   <Layers className="w-3.5 h-3.5 text-blue-600" />
@@ -712,8 +730,8 @@ export default function App() {
                   }}
                   className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg transition-all ${
                     practiceSubMode === 'quiz'
-                      ? 'bg-white text-[#191919] font-bold shadow-2xs border border-[#E0E0DC]'
-                      : 'text-[#787774] hover:text-[#191919]'
+                      ? 'bg-white text-slate-900 font-bold shadow-xs border border-slate-200/80'
+                      : 'text-slate-600 hover:text-slate-900'
                   }`}
                 >
                   <CheckCircle className="w-3.5 h-3.5 text-emerald-600" />
@@ -727,8 +745,8 @@ export default function App() {
                   }}
                   className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg transition-all ${
                     practiceSubMode === 'listening'
-                      ? 'bg-white text-[#191919] font-bold shadow-2xs border border-[#E0E0DC]'
-                      : 'text-[#787774] hover:text-[#191919]'
+                      ? 'bg-white text-slate-900 font-bold shadow-xs border border-slate-200/80'
+                      : 'text-slate-600 hover:text-slate-900'
                   }`}
                 >
                   <Headphones className="w-3.5 h-3.5 text-amber-600" />
@@ -742,8 +760,8 @@ export default function App() {
                   }}
                   className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg transition-all ${
                     practiceSubMode === 'oral'
-                      ? 'bg-white text-[#191919] font-bold shadow-2xs border border-[#E0E0DC]'
-                      : 'text-[#787774] hover:text-[#191919]'
+                      ? 'bg-white text-slate-900 font-bold shadow-xs border border-slate-200/80'
+                      : 'text-slate-600 hover:text-slate-900'
                   }`}
                 >
                   <Mic className="w-3.5 h-3.5 text-purple-600" />
@@ -1283,20 +1301,47 @@ export default function App() {
                   })}
                 </div>
 
-                <div className="pt-3 border-t border-[#EFEFED] flex items-center justify-between">
+                <div className="pt-3 border-t border-[#EFEFED] flex items-center justify-between gap-2 flex-wrap">
                   <button
                     onClick={() => setMode('practice')}
                     className="text-xs font-semibold text-[#787774] hover:text-[#191919]"
                   >
                     Kembali ke Latihan
                   </button>
-                  <button
-                    onClick={startRealExam}
-                    className="px-5 py-2.5 rounded-2xl bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold flex items-center gap-2 shadow-xs"
-                  >
-                    <RotateCcw className="w-3.5 h-3.5" /> Ulangi Ujian (Paket Acak Baru)
-                  </button>
+                  <div className="flex items-center gap-2">
+                    <button
+                      onClick={() => setExamPhase('rekap')}
+                      disabled={!examScoreSummary.isComplete}
+                      title={examScoreSummary.isComplete ? 'Lanjut ke lembar skor resmi 2026' : 'Nilai semua butir dulu (Benar/Salah) agar rekap akurat'}
+                      className="px-5 py-2.5 rounded-2xl bg-emerald-600 hover:bg-emerald-500 disabled:opacity-30 disabled:cursor-not-allowed text-white text-xs font-bold flex items-center gap-2 shadow-xs"
+                    >
+                      Rekap Skor Resmi <ChevronRight className="w-3.5 h-3.5" />
+                    </button>
+                    <button
+                      onClick={startRealExam}
+                      className="px-5 py-2.5 rounded-2xl bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold flex items-center gap-2 shadow-xs"
+                    >
+                      <RotateCcw className="w-3.5 h-3.5" /> Ulangi Ujian (Paket Acak Baru)
+                    </button>
+                  </div>
                 </div>
+              </div>
+            )}
+
+            {examPhase === 'rekap' && (
+              <div className="w-full space-y-3">
+                <button
+                  onClick={() => setExamPhase('summary')}
+                  className="no-print text-xs font-bold text-[#787774] hover:text-[#191919] flex items-center gap-1"
+                >
+                  ← Kembali ke Hasil Ujian
+                </button>
+                <CheckRekap
+                  questionsData={questionsData}
+                  playAudioUrl={playAudioUrl}
+                  stopAllAudio={stopAllAudio}
+                  examWawancara={examScoreSummary.totalScore}
+                />
               </div>
             )}
 
@@ -1374,6 +1419,7 @@ export default function App() {
         open={categoryModalOpen}
         onClose={() => setCategoryModalOpen(false)}
         categoriesList={categoriesList}
+        categoryGroups={CATEGORY_GROUPS}
         selectedCategory={selectedCategory}
         setSelectedCategory={setSelectedCategory}
         setCurrentIndex={setCurrentIndex}

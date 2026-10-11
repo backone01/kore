@@ -19,11 +19,13 @@ export function PracticeFlashcard({
 
   // Arah kartu: 'ko_to_id' (Depan Korea, Belakang Indonesia) | 'id_to_ko' (Depan Indonesia, Belakang Korea)
   const [cardDirection, setCardDirection] = useState('ko_to_id');
+  const [selectedOptionIndex, setSelectedOptionIndex] = useState(0);
 
   useEffect(() => {
     setShuffledQuestions(questions);
     setCurrentIndex(0);
     setIsFlipped(false);
+    setSelectedOptionIndex(0);
   }, [questions]);
 
   const currentQ = shuffledQuestions[currentIndex] || questions[0] || {};
@@ -106,9 +108,9 @@ export function PracticeFlashcard({
     <div className="w-full max-w-xl mx-auto flex flex-col items-center select-none">
       
       {/* Top Header Bar */}
-      <div className="w-full flex items-center justify-between text-xs text-[#787774] mb-3 px-1">
+      <div className="w-full flex items-center justify-between text-xs text-slate-500 mb-3 px-1">
         <div className="flex items-center gap-2">
-          <span className="font-mono font-bold text-[#191919] bg-white border border-[#E5E5E3] px-2.5 py-1 rounded-lg">
+          <span className="font-mono font-bold text-slate-900 bg-white border border-slate-200 px-2.5 py-1 rounded-lg shadow-2xs">
             {currentIndex + 1} / {total}
           </span>
           <span className="text-[11px] font-medium hidden sm:inline text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-md border border-emerald-200">
@@ -124,7 +126,7 @@ export function PracticeFlashcard({
               setCardDirection(prev => prev === 'ko_to_id' ? 'id_to_ko' : 'ko_to_id');
               setIsFlipped(false);
             }}
-            className="px-2.5 py-1 rounded-lg border border-[#E5E5E3] bg-white hover:bg-[#F5F5F4] text-[#191919] text-[11px] font-bold flex items-center gap-1.5 shadow-2xs transition-all"
+            className="px-2.5 py-1 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 text-slate-800 text-[11px] font-bold flex items-center gap-1.5 shadow-2xs transition-all active:scale-95"
             title="Ganti arah sisi kartu (Korea ke Indo atau sebaliknya)"
           >
             <ArrowLeftRight className="w-3 h-3 text-blue-600" />
@@ -133,7 +135,7 @@ export function PracticeFlashcard({
 
           <button
             onClick={handleShuffle}
-            className="p-1.5 rounded-lg border border-[#E5E5E3] bg-white hover:bg-[#F5F5F4] text-[#787774] hover:text-[#191919] transition-all flex items-center gap-1 text-[11px] font-semibold"
+            className="p-1.5 px-2 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 text-slate-600 hover:text-slate-900 transition-all flex items-center gap-1 text-[11px] font-semibold active:scale-95"
             title="Acak urutan kartu"
           >
             <Shuffle className="w-3.5 h-3.5" />
@@ -145,7 +147,7 @@ export function PracticeFlashcard({
       {/* FLASHCARD INTERACTIVE CONTAINER */}
       <div 
         onClick={() => setIsFlipped(!isFlipped)}
-        className="w-full min-h-[350px] md:min-h-[390px] bg-white border-2 border-[#E5E5E3] hover:border-slate-400 rounded-2xl p-6 flex flex-col justify-between cursor-pointer transition-all duration-200 hover:shadow-xs relative"
+        className="w-full min-h-[350px] md:min-h-[390px] bg-white border border-slate-200 hover:border-slate-300 rounded-2xl p-6 flex flex-col justify-between cursor-pointer transition-all duration-200 shadow-xs hover:shadow-sm relative"
       >
         {/* Status Badge */}
         <div className="flex items-center justify-between w-full">
@@ -241,46 +243,106 @@ export function PracticeFlashcard({
               </div>
             </div>
           ) : (
-            /* SISI BELAKANG (BACK): Kunci Jawaban & Terjemahan Lengkap */
-            <div className="space-y-3 w-full animate-fade-in">
-              <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">
-                Kunci Jawaban Resmi:
-              </span>
+            (() => {
+              const hasOptions = currentQ?.answer_options && currentQ.answer_options.length > 1;
+              const activeOpt = hasOptions ? currentQ.answer_options[selectedOptionIndex] || currentQ.answer_options[0] : null;
+              const displayKo = activeOpt ? activeOpt.ko : answerKo;
+              const displayId = activeOpt ? activeOpt.id : answerId;
 
-              <h3 className="text-2xl md:text-3xl font-black text-[#191919] font-kr mt-2">
-                {answerKo}
-              </h3>
+              return (
+                <div className="space-y-3 w-full animate-fade-in">
+                  <div className="flex items-center justify-center gap-1.5 flex-wrap">
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200">
+                      {activeOpt?.label || 'Kunci Jawaban Resmi'}
+                    </span>
+                  </div>
 
-              <div className="p-3.5 rounded-xl bg-[#FBFBFA] border border-[#E5E5E3] text-xs md:text-sm text-[#191919] font-medium leading-relaxed max-w-md mx-auto">
-                <p className="font-bold text-emerald-800 text-base">
-                  {answerId}
-                </p>
-                {currentQ?.question_id && (
-                  <p className="text-[11px] text-[#787774] mt-1.5 pt-1.5 border-t border-[#E5E5E3]">
-                    Maksud Soal: "{currentQ.question_id}"
-                  </p>
-                )}
-              </div>
+                  {/* Selector Pill Versi Jawaban */}
+                  {hasOptions && (
+                    <div className="flex flex-wrap items-center justify-center gap-1 pt-1">
+                      {currentQ.answer_options.map((opt, oIdx) => (
+                        <button
+                          key={oIdx}
+                          type="button"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setSelectedOptionIndex(oIdx);
+                          }}
+                          className={`px-2.5 py-1 rounded-lg text-[11px] font-bold border transition-all ${
+                            selectedOptionIndex === oIdx
+                              ? 'bg-slate-900 text-white border-slate-900 shadow-2xs'
+                              : 'bg-white text-slate-600 border-slate-200 hover:bg-slate-100 hover:text-slate-900'
+                          }`}
+                        >
+                          {opt.label}
+                        </button>
+                      ))}
+                    </div>
+                  )}
 
-              {currentQ?.audio_a && (
-                <button
-                  type="button"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    onPlayAudio(currentQ.audio_a);
-                  }}
-                  className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-emerald-50 text-emerald-700 border border-emerald-200 text-xs font-bold hover:bg-emerald-100 transition-all active:scale-95"
-                >
-                  <Volume2 className="w-3.5 h-3.5" />
-                  <span>Dengar Audio Jawaban Resmi</span>
-                </button>
-              )}
-            </div>
+                  <h3 className="text-2xl md:text-3xl font-black text-[#191919] font-kr mt-1">
+                    {displayKo}
+                  </h3>
+
+                  <div className="p-3.5 rounded-xl bg-[#FBFBFA] border border-[#E5E5E3] text-xs md:text-sm text-[#191919] font-medium leading-relaxed max-w-md mx-auto">
+                    <p className="font-bold text-emerald-800 text-base">
+                      {displayId}
+                    </p>
+                    {currentQ?.question_id && (
+                      <p className="text-[11px] text-[#787774] mt-1.5 pt-1.5 border-t border-[#E5E5E3]">
+                        Maksud Soal: "{currentQ.question_id}"
+                      </p>
+                    )}
+                  </div>
+
+                  {/* Info Kegunaan Perkakas Manufaktur jika kartu berupa alat */}
+                  {(currentQ?.usage_short_ko || currentQ?.usage_full_ko) && (
+                    <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-200 max-w-md mx-auto text-left space-y-0.5">
+                      <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wider block">
+                        Kegunaan Alat (용도):
+                      </span>
+                      <p className="font-kr font-bold text-xs text-slate-900">
+                        {currentQ.usage_short_ko || currentQ.usage_full_ko}
+                      </p>
+                      <p className="text-[11px] text-slate-600">
+                        {currentQ.usage_short_id || currentQ.usage_full_id}
+                      </p>
+                    </div>
+                  )}
+
+                  {/* Tombol Audio */}
+                  <div className="pt-1">
+                    <button
+                      type="button"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        if (selectedOptionIndex === 0 && currentQ?.audio_a) {
+                          onPlayAudio(currentQ.audio_a);
+                        } else {
+                          // Fallback speak
+                          if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
+                            window.speechSynthesis.cancel();
+                            const u = new SpeechSynthesisUtterance(displayKo);
+                            u.lang = 'ko-KR';
+                            u.rate = 0.85;
+                            window.speechSynthesis.speak(u);
+                          }
+                        }
+                      }}
+                      className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-emerald-50 text-emerald-700 border border-emerald-200 text-xs font-bold hover:bg-emerald-100 transition-all active:scale-95"
+                    >
+                      <Volume2 className="w-3.5 h-3.5" />
+                      <span>Dengar Pelafalan ({activeOpt?.label || 'Jawaban'})</span>
+                    </button>
+                  </div>
+                </div>
+              );
+            })()
           )}
         </div>
 
         {/* BOTTOM FLIP INSTRUCTION */}
-        <div className="flex items-center justify-center text-[11px] text-[#787774] font-medium pt-2 border-t border-[#E5E5E3]">
+        <div className="flex items-center justify-center text-[11px] text-slate-500 font-medium pt-2 border-t border-slate-100">
           <RotateCcw className="w-3 h-3 mr-1 text-slate-400" />
           <span>{isFlipped ? 'Klik kartu untuk kembali ke depan' : 'Klik kartu atau tekan Spasi untuk melihat kunci jawaban'}</span>
         </div>
@@ -290,7 +352,7 @@ export function PracticeFlashcard({
       <div className="w-full grid grid-cols-2 gap-3 mt-4">
         <button
           onClick={() => markReviewLater(currentQ?.id)}
-          className="h-12 rounded-xl bg-white border border-amber-300 hover:bg-amber-50 text-amber-900 font-bold text-xs flex items-center justify-center gap-2 shadow-2xs transition-all active:scale-98"
+          className="h-11 rounded-xl bg-white border border-amber-300/80 hover:bg-amber-50 text-amber-900 font-bold text-xs flex items-center justify-center gap-2 shadow-2xs transition-all active:scale-95"
         >
           <X className="w-4 h-4 text-amber-600" />
           <span>Ulangi Nanti</span>
@@ -298,7 +360,7 @@ export function PracticeFlashcard({
 
         <button
           onClick={() => markMemorized(currentQ?.id)}
-          className="h-12 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs flex items-center justify-center gap-2 shadow-2xs transition-all active:scale-98"
+          className="h-11 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs flex items-center justify-center gap-2 shadow-xs transition-all active:scale-95"
         >
           <Check className="w-4 h-4" />
           <span>Sudah Hafal</span>
@@ -306,16 +368,16 @@ export function PracticeFlashcard({
       </div>
 
       {/* PREV / NEXT NAVIGATION ROW */}
-      <div className="w-full flex items-center justify-between mt-3 text-xs text-[#787774] px-1">
+      <div className="w-full flex items-center justify-between mt-3.5 text-xs text-slate-500 px-1">
         <button
           onClick={handlePrev}
-          className="flex items-center gap-1 hover:text-[#191919] font-semibold transition-colors"
+          className="flex items-center gap-1 hover:text-slate-900 font-semibold transition-colors"
         >
           <ChevronLeft className="w-4 h-4" />
           <span>Sebelumnya</span>
         </button>
 
-        <span className="font-mono text-[11px]">Gunakan panah ◀ ▶ keyboard</span>
+        <span className="font-mono text-[11px] text-slate-400">Gunakan panah ◀ ▶ keyboard</span>
 
         <button
           onClick={handleNext}
