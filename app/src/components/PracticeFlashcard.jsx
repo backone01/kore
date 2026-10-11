@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { 
   Volume2, RotateCcw, Shuffle, Check, X, 
   ChevronLeft, ChevronRight, Eye, Sparkles, BookOpen,
-  ArrowLeftRight
+  ArrowLeftRight, Headphones
 } from 'lucide-react';
 import { getAssetUrl } from '../utils/assetHelper.js';
 
@@ -206,21 +206,39 @@ export function PracticeFlashcard({
                 </>
               )}
 
-              {currentQ?.audio_q && (
-                <div className="pt-2">
+              <div className="pt-2 flex flex-wrap items-center justify-center gap-2">
+                {/* Jika sisi depan menampilkan bahasa Korea dan ada audio nama/kunci, putar audio nama */}
+                {cardDirection === 'ko_to_id' && currentQ?.audio_a && (
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      onPlayAudio(currentQ.audio_a);
+                    }}
+                    className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-emerald-50 text-emerald-800 hover:bg-emerald-100 border border-emerald-200 text-xs font-bold transition-all shadow-2xs active:scale-95"
+                    title="Dengar pelafalan nama item dalam bahasa Korea"
+                  >
+                    <Volume2 className="w-3.5 h-3.5 text-emerald-700" />
+                    <span>Dengar Nama Korea</span>
+                  </button>
+                )}
+
+                {/* Audio Soal Penguji (Misal: "이 공구의 이름은 무엇입니까?") */}
+                {currentQ?.audio_q && (
                   <button
                     type="button"
                     onClick={(e) => {
                       e.stopPropagation();
                       onPlayAudio(currentQ.audio_q);
                     }}
-                    className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-blue-50 text-blue-700 hover:bg-blue-100 border border-blue-200 text-xs font-bold transition-all shadow-2xs active:scale-95"
+                    className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-blue-50 text-blue-700 hover:bg-blue-100 border border-blue-200 text-xs font-bold transition-all shadow-2xs active:scale-95"
+                    title="Dengar pertanyaan penguji"
                   >
-                    <Volume2 className={`w-4 h-4 ${isPlayingAudio ? 'animate-pulse text-blue-600' : ''}`} />
-                    <span>Dengar Pelafalan Soal</span>
+                    <Headphones className="w-3.5 h-3.5 text-blue-600" />
+                    <span>Soal Penguji</span>
                   </button>
-                </div>
-              )}
+                )}
+              </div>
             </div>
           ) : (
             /* SISI BELAKANG (BACK): Kunci Jawaban & Terjemahan Lengkap */

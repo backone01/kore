@@ -5,9 +5,10 @@ import {
   Volume2, Eye, EyeOff, Search, Sparkles, BookOpen, 
   Calendar, Clock, Hash, Palette, Users, UserCheck, 
   Factory, Wrench, CheckCircle2, ArrowRight, RotateCcw, AlertTriangle,
-  Activity, ChevronRight, Check, ShieldAlert, Image
+  Activity, ChevronRight, Check, ShieldAlert, Image, Headphones
 } from 'lucide-react';
 import { getAssetUrl } from '../utils/assetHelper.js';
+import { CATEGORY_GROUPS } from '../utils/categoryGroups.js';
 
 export function StudyGuide({ onStartPracticeCategory }) {
   // Active Tab
@@ -21,22 +22,65 @@ export function StudyGuide({ onStartPracticeCategory }) {
 
   const [searchQuery, setSearchQuery] = useState('');
   const [playingAudio, setPlayingAudio] = useState(null);
-  
+
   // Sub-filter for K3 & Interview
   const [k3Filter, setK3Filter] = useState('all');
   const [interviewFilter, setInterviewFilter] = useState('all');
 
+  // Alat: gabung standar 2026 + klasik JAGISOSE agar konsisten dengan mode Latihan
+  const alatCount = allQuestions.filter(
+    q => q.category === 'alat_manufaktur' || q.category === 'alat_klasik'
+  ).length;
+
   const audioRef = useRef(new Audio());
 
-  const playAudio = (url) => {
-    if (!url) return;
-    audioRef.current.pause();
-    audioRef.current.currentTime = 0;
-    audioRef.current.src = getAssetUrl(url);
-    setPlayingAudio(url);
-    audioRef.current.onended = () => setPlayingAudio(null);
-    audioRef.current.onerror = () => setPlayingAudio(null);
-    audioRef.current.play().catch(() => setPlayingAudio(null));
+  const speakKorean = (text) => {
+    if (!text || typeof window === 'undefined' || !('speechSynthesis' in window)) return;
+    try {
+      window.speechSynthesis.cancel();
+      const u = new SpeechSynthesisUtterance(text);
+      u.lang = 'ko-KR';
+      u.rate = 0.85;
+      setPlayingAudio(text);
+      u.onend = () => setPlayingAudio(null);
+      u.onerror = () => setPlayingAudio(null);
+      window.speechSynthesis.speak(u);
+    } catch {
+      setPlayingAudio(null);
+    }
+  };
+
+  const playAudio = (url, fallbackText) => {
+    if (!url) {
+      if (fallbackText) speakKorean(fallbackText);
+      return;
+    }
+    try {
+      if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+      }
+      audioRef.current.pause();
+      audioRef.current.currentTime = 0;
+      audioRef.current.src = getAssetUrl(url);
+      setPlayingAudio(url);
+      audioRef.current.onended = () => setPlayingAudio(null);
+      audioRef.current.onerror = () => {
+        if (fallbackText) {
+          speakKorean(fallbackText);
+        } else {
+          setPlayingAudio(null);
+        }
+      };
+      audioRef.current.play().catch(() => {
+        if (fallbackText) {
+          speakKorean(fallbackText);
+        } else {
+          setPlayingAudio(null);
+        }
+      });
+    } catch {
+      if (fallbackText) speakKorean(fallbackText);
+    }
   };
 
   // Helper untuk mengecek apakah jawaban kartu tertentu disembunyikan
@@ -58,19 +102,20 @@ export function StudyGuide({ onStartPracticeCategory }) {
     }));
   };
 
+  // Kelompok sama dengan mode Latihan (CATEGORY_GROUPS) agar konsisten antar mode
   const tabs = [
-    { id: 'k3', label: 'K3 & Keselamatan Pabrik', icon: AlertTriangle, count: '30 Q&A & APD' },
-    { id: 'interview', label: 'Tanya Jawab Wawancara', icon: UserCheck, count: '95 Soal & Situasi' },
-    { id: 'commands', label: 'Gerak Fisik (따라하세요)', icon: Activity, count: '16 Gerakan' },
-    { id: 'jagisoge', label: 'Jagisoge 25 Detik', icon: Sparkles, count: 'Perkenalan Diri' },
-    { id: 'numbers', label: 'Nomor & Angka', icon: Hash, count: 'Sino & Asli' },
-    { id: 'time', label: 'Jam & Waktu', icon: Clock, count: 'Format & Soal' },
-    { id: 'calendar', label: 'Hari & Kalender', icon: Calendar, count: 'Hari, Bulan, Tgl' },
-    { id: 'colors', label: 'Warna Pabrik', icon: Palette, count: '11 Warna + Alasan' },
-    { id: 'family', label: 'Keluarga & Relasi', icon: Users, count: 'Silsilah & Hitungan' },
-    { id: 'piktogram', label: 'Piktogram & Rambu', icon: ShieldAlert, count: '95 Rambu K3' },
-    { id: 'alat', label: 'Alat Manufaktur', icon: Image, count: '65 Foto Alat' },
-    { id: 'manufacturing', label: 'Pos Praktik & SOP', icon: Factory, count: 'SOP & 3 Tugas' },
+    { id: 'interview', group: 'g_wawancara', label: 'Tanya Jawab Wawancara', icon: UserCheck, count: '95 Soal & Situasi' },
+    { id: 'jagisoge', group: 'g_wawancara', label: 'Jagisoge 25 Detik', icon: Sparkles, count: 'Perkenalan Diri' },
+    { id: 'family', group: 'g_wawancara', label: 'Keluarga & Relasi', icon: Users, count: 'Silsilah & Hitungan' },
+    { id: 'commands', group: 'g_fisik', label: 'Gerak Fisik (따라하세요)', icon: Activity, count: '16 Gerakan' },
+    { id: 'k3', group: 'g_skills', label: 'K3 & Keselamatan Pabrik', icon: AlertTriangle, count: '30 Q&A & APD' },
+    { id: 'piktogram', group: 'g_skills', label: 'Piktogram & Rambu', icon: ShieldAlert, count: '95 Rambu K3' },
+    { id: 'alat', group: 'g_skills', label: 'Alat Manufaktur', icon: Image, count: `${alatCount} Foto Alat` },
+    { id: 'manufacturing', group: 'g_skills', label: 'Pos Praktik & SOP', icon: Factory, count: 'SOP & 3 Tugas' },
+    { id: 'numbers', group: 'g_angka', label: 'Nomor & Angka', icon: Hash, count: 'Sino & Asli' },
+    { id: 'time', group: 'g_angka', label: 'Jam & Waktu', icon: Clock, count: 'Format & Soal' },
+    { id: 'calendar', group: 'g_angka', label: 'Hari & Kalender', icon: Calendar, count: 'Hari, Bulan, Tgl' },
+    { id: 'colors', group: 'g_angka', label: 'Warna Pabrik', icon: Palette, count: '11 Warna + Alasan' },
   ];
 
   // Filter K3 Questions
@@ -183,32 +228,43 @@ export function StudyGuide({ onStartPracticeCategory }) {
           </div>
         </div>
 
-        {/* Tab Selector Pills (10 Tabs) */}
-        <div className="flex items-center gap-2 mt-5 overflow-x-auto pb-1 scrollbar-none border-t border-[#EAEAE8] pt-4">
-          {tabs.map(tab => {
-            const Icon = tab.icon;
-            const isActive = activeTab === tab.id;
+        {/* Tab Selector — dikelompokkan seperti mode Latihan (Interview / Physical / Skills) */}
+        <div className="mt-5 border-t border-[#EAEAE8] pt-4 space-y-3">
+          {CATEGORY_GROUPS.map(g => {
+            const items = tabs.filter(t => t.group === g.id);
+            if (!items.length) return null;
             return (
-              <button
-                key={tab.id}
-                onClick={() => { 
-                  setActiveTab(tab.id); 
-                  setSearchQuery(''); 
-                }}
-                className={`flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-bold whitespace-nowrap transition-all shrink-0 ${
-                  isActive
-                    ? 'bg-[#191919] text-white shadow-2xs'
-                    : 'bg-[#FBFBFA] text-[#787774] hover:bg-[#F2F2F0] hover:text-[#191919] border border-[#E5E5E3]'
-                }`}
-              >
-                <Icon className={`w-3.5 h-3.5 ${isActive ? 'text-blue-400' : 'text-[#787774]'}`} />
-                <span>{tab.label}</span>
-                <span className={`text-[10px] px-1.5 py-0.2 rounded-full font-mono ${
-                  isActive ? 'bg-white/20 text-white' : 'bg-[#EAEAE8] text-[#555]'
-                }`}>
-                  {tab.count}
-                </span>
-              </button>
+              <div key={g.id}>
+                <p className="px-1 pb-1.5 text-[10px] font-black uppercase tracking-wider text-[#787774]">{g.label}</p>
+                <div className="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none">
+                  {items.map(tab => {
+                    const Icon = tab.icon;
+                    const isActive = activeTab === tab.id;
+                    return (
+                      <button
+                        key={tab.id}
+                        onClick={() => {
+                          setActiveTab(tab.id);
+                          setSearchQuery('');
+                        }}
+                        className={`flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-bold whitespace-nowrap transition-all shrink-0 ${
+                          isActive
+                            ? 'bg-[#191919] text-white shadow-2xs'
+                            : 'bg-[#FBFBFA] text-[#787774] hover:bg-[#F2F2F0] hover:text-[#191919] border border-[#E5E5E3]'
+                        }`}
+                      >
+                        <Icon className={`w-3.5 h-3.5 ${isActive ? 'text-blue-400' : 'text-[#787774]'}`} />
+                        <span>{tab.label}</span>
+                        <span className={`text-[10px] px-1.5 py-0.2 rounded-full font-mono ${
+                          isActive ? 'bg-white/20 text-white' : 'bg-[#EAEAE8] text-[#555]'
+                        }`}>
+                          {tab.count}
+                        </span>
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
             );
           })}
         </div>
@@ -687,12 +743,12 @@ export function StudyGuide({ onStartPracticeCategory }) {
             </div>
 
             <div className="p-4 rounded-2xl bg-[#FBFBFA] border border-[#E5E5E3] text-sm md:text-base font-kr font-bold text-[#191919] leading-relaxed">
-              {studyData.jagisoge.template_korean}
+              {(studyData.jagisoge.sentences || []).map(s => s.ko).join(' ')}
             </div>
 
             <div className="mt-4 p-4 rounded-2xl bg-amber-50/60 border border-amber-200/80 text-xs text-amber-900 leading-relaxed">
               <strong>Terjemahan Bahasa Indonesia:</strong><br />
-              {studyData.jagisoge.template_indonesia}
+              {(studyData.jagisoge.sentences || []).map(s => s.id).join(' ')}
             </div>
 
             <div className="mt-5 space-y-3">
@@ -700,10 +756,11 @@ export function StudyGuide({ onStartPracticeCategory }) {
                 Struktur Per Kalimat & Tips Skor Maksimal:
               </h4>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                {studyData.jagisoge.structure.map((st, idx) => (
+                {(studyData.jagisoge.sentences || []).map((st, idx) => (
                   <div key={idx} className="p-3.5 rounded-xl border border-[#E5E5E3] bg-white">
                     <span className="text-[10px] font-bold text-blue-700 uppercase">Langkah {idx + 1}: {st.step}</span>
                     <div className="font-kr font-extrabold text-sm text-[#191919] mt-1">{st.ko}</div>
+                    {st.ro && <div className="text-[11px] text-[#787774] font-mono">{st.ro}</div>}
                     <div className="text-xs text-[#787774] mt-0.5">{st.id}</div>
                     <div className="mt-2 text-[11px] text-amber-900 bg-amber-50/80 px-2.5 py-1 rounded-lg border border-amber-200/60">
                       💡 <strong>Tips Penguji:</strong> {st.tips}
@@ -830,13 +887,13 @@ export function StudyGuide({ onStartPracticeCategory }) {
           <div className="bg-white border border-[#E5E5E3] rounded-2xl p-4 md:p-5 shadow-xs">
             <h4 className="font-bold text-xs uppercase tracking-wider text-purple-700 mb-3">3. Satuan Hitung Manufaktur & Gudang Pabrik:</h4>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
-              {studyData.numbers.counters.map((c, idx) => (
+              {(studyData.numbers.counters || studyData.numbers.units || []).map((c, idx) => (
                 <div key={idx} className="p-3 rounded-xl border border-[#E5E5E3] bg-[#FBFBFA]">
                   <div className="flex items-center justify-between">
-                    <span className="font-kr font-black text-base text-[#191919]">{c.ko}</span>
-                    <span className="text-[10px] font-mono bg-purple-50 text-purple-700 px-2 py-0.5 rounded-full font-bold">{c.meaning}</span>
+                    <span className="font-kr font-black text-base text-[#191919]">{c.ko || c.unit}</span>
+                    <span className="text-[10px] font-mono bg-purple-50 text-purple-700 px-2 py-0.5 rounded-full font-bold">{c.meaning || c.type}</span>
                   </div>
-                  <div className="text-xs text-[#787774] mt-1.5 leading-relaxed">{c.desc}</div>
+                  <div className="text-xs text-[#787774] mt-1.5 leading-relaxed">{c.desc || (c.ro ? `${c.ro} — ${c.id}` : c.id)}</div>
                   <div className="text-xs font-semibold text-emerald-800 mt-1 font-mono">{c.example}</div>
                 </div>
               ))}
@@ -910,7 +967,7 @@ export function StudyGuide({ onStartPracticeCategory }) {
           <div className="bg-white border border-[#E5E5E3] rounded-2xl p-4 md:p-5 shadow-xs">
             <h4 className="font-bold text-xs uppercase tracking-wider text-blue-700 mb-3">Nama-Nama Hari (요일):</h4>
             <div className="grid grid-cols-2 sm:grid-cols-7 gap-2">
-              {studyData.calendar.days_of_week.map((d, idx) => {
+              {(studyData.calendar.days || []).map((d, idx) => {
                 const cardId = `cal_d_${idx}`;
                 const hidden = isAnswerHidden(cardId);
 
@@ -1172,19 +1229,39 @@ export function StudyGuide({ onStartPracticeCategory }) {
                             </div>
                           )}
                           <div className="flex items-center gap-1 mt-auto">
-                            {p.audio_q && (
+                            {/* Tombol Utama: Pelafalan Nama Rambu (Audio Resmi / TTS Teks Korea) */}
+                            {(p.audio_a || p.title_ko) && (
                               <button
-                                onClick={() => playAudio(p.audio_q)}
-                                aria-label="Putar soal"
-                                className={`p-1.5 rounded-lg transition-all min-h-[32px] min-w-[32px] flex items-center justify-center ${
-                                  playingAudio === p.audio_q
-                                    ? 'bg-blue-600 text-white animate-pulse'
-                                    : 'bg-blue-50 text-blue-700 hover:bg-blue-100'
+                                onClick={() => playAudio(p.audio_a, p.title_ko)}
+                                title={`Dengar pelafalan nama rambu: ${p.title_ko}`}
+                                aria-label="Dengar pelafalan nama rambu"
+                                className={`px-2 py-1.5 rounded-lg transition-all min-h-[32px] flex items-center gap-1 text-[11px] font-bold ${
+                                  playingAudio === p.audio_a || playingAudio === p.title_ko
+                                    ? 'bg-emerald-600 text-white animate-pulse'
+                                    : 'bg-emerald-50 text-emerald-800 hover:bg-emerald-100 border border-emerald-200'
                                 }`}
                               >
                                 <Volume2 className="w-3.5 h-3.5" />
+                                <span>Suara</span>
                               </button>
                             )}
+
+                            {/* Tombol Soal Penguji: "이 안전 표지는 무슨 뜻입니까?" */}
+                            {p.audio_q && (
+                              <button
+                                onClick={() => playAudio(p.audio_q)}
+                                title="Putar pertanyaan penguji: 이 안전 표지는 무슨 뜻입니까?"
+                                aria-label="Putar pertanyaan penguji"
+                                className={`p-1.5 rounded-lg transition-all min-h-[32px] min-w-[32px] flex items-center justify-center ${
+                                  playingAudio === p.audio_q
+                                    ? 'bg-blue-600 text-white animate-pulse'
+                                    : 'bg-blue-50 text-blue-700 hover:bg-blue-100 border border-blue-200'
+                                }`}
+                              >
+                                <Headphones className="w-3.5 h-3.5" />
+                              </button>
+                            )}
+
                             <button
                               onClick={() => toggleCardAnswer(cardId)}
                               aria-label={hidden ? 'Tampilkan jawaban' : 'Sembunyikan jawaban'}
@@ -1212,7 +1289,7 @@ export function StudyGuide({ onStartPracticeCategory }) {
       {/* 11. ALAT MANUFAKTUR (Foto + Nama) */}
       {/* ========================================================================= */}
       {activeTab === 'alat' && (() => {
-        const alatList = allQuestions.filter(q => q.category === 'alat_manufaktur');
+        const alatList = allQuestions.filter(q => q.category === 'alat_manufaktur' || q.category === 'alat_klasik');
         const groups = alatList.reduce((acc, q) => {
           const g = q.category_title || 'Alat Manufaktur';
           if (!acc[g]) acc[g] = [];
@@ -1274,19 +1351,39 @@ export function StudyGuide({ onStartPracticeCategory }) {
                             </div>
                           )}
                           <div className="flex items-center gap-1 mt-auto">
-                            {a.audio_q && (
+                            {/* Tombol Utama: Pelafalan Nama Alat (Audio Resmi / TTS Teks Korea) */}
+                            {(a.audio_a || a.title_ko) && (
                               <button
-                                onClick={() => playAudio(a.audio_q)}
-                                aria-label="Putar soal"
-                                className={`p-1.5 rounded-lg transition-all min-h-[32px] min-w-[32px] flex items-center justify-center ${
-                                  playingAudio === a.audio_q
-                                    ? 'bg-blue-600 text-white animate-pulse'
-                                    : 'bg-blue-50 text-blue-700 hover:bg-blue-100'
+                                onClick={() => playAudio(a.audio_a, a.title_ko)}
+                                title={`Dengar pelafalan nama alat: ${a.title_ko}`}
+                                aria-label="Dengar pelafalan nama alat"
+                                className={`px-2 py-1.5 rounded-lg transition-all min-h-[32px] flex items-center gap-1 text-[11px] font-bold ${
+                                  playingAudio === a.audio_a || playingAudio === a.title_ko
+                                    ? 'bg-emerald-600 text-white animate-pulse'
+                                    : 'bg-emerald-50 text-emerald-800 hover:bg-emerald-100 border border-emerald-200'
                                 }`}
                               >
                                 <Volume2 className="w-3.5 h-3.5" />
+                                <span>Suara</span>
                               </button>
                             )}
+
+                            {/* Tombol Soal Penguji: "이 공구의 이름은 무엇입니까?" */}
+                            {a.audio_q && (
+                              <button
+                                onClick={() => playAudio(a.audio_q)}
+                                title="Putar pertanyaan penguji: 이 공구의 이름은 무엇입니까?"
+                                aria-label="Putar pertanyaan penguji"
+                                className={`p-1.5 rounded-lg transition-all min-h-[32px] min-w-[32px] flex items-center justify-center ${
+                                  playingAudio === a.audio_q
+                                    ? 'bg-blue-600 text-white animate-pulse'
+                                    : 'bg-blue-50 text-blue-700 hover:bg-blue-100 border border-blue-200'
+                                }`}
+                              >
+                                <Headphones className="w-3.5 h-3.5" />
+                              </button>
+                            )}
+
                             <button
                               onClick={() => toggleCardAnswer(cardId)}
                               aria-label={hidden ? 'Tampilkan jawaban' : 'Sembunyikan jawaban'}
