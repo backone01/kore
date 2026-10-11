@@ -165,7 +165,7 @@ export function PracticeFlashcard({
                 Ulangi Nanti
               </span>
             )}
-            <span className="text-[11px] text-[#787774] font-medium hidden sm:inline">
+            <span className="text-[11px] text-slate-500 font-medium hidden sm:inline">
               Ketuk untuk membalik
             </span>
           </div>
@@ -181,28 +181,28 @@ export function PracticeFlashcard({
                   <img 
                     src={getAssetUrl(currentQ.image_url)} 
                     alt="Alat atau Rambu K3" 
-                    className="max-h-44 md:max-h-52 w-auto object-contain rounded-lg border border-[#EFEFED] p-1 bg-[#FAFAFA]"
+                    className="max-h-44 md:max-h-52 w-auto object-contain rounded-lg border border-slate-100 p-1 bg-slate-50"
                   />
                 </div>
               )}
 
               {cardDirection === 'ko_to_id' ? (
                 <>
-                  <h2 className="text-2xl md:text-3xl font-black text-[#191919] font-kr leading-snug tracking-tight">
+                  <h2 className="text-2xl md:text-3xl font-black text-slate-900 font-kr leading-snug tracking-tight">
                     {titleKo}
                   </h2>
                   {currentQ?.question_romaja && (
-                    <p className="text-xs md:text-sm text-[#787774] font-mono">
+                    <p className="text-xs md:text-sm text-slate-500 font-mono">
                       {currentQ.question_romaja}
                     </p>
                   )}
                 </>
               ) : (
                 <>
-                  <h2 className="text-xl md:text-2xl font-black text-[#191919] leading-snug tracking-tight">
+                  <h2 className="text-xl md:text-2xl font-black text-slate-900 leading-snug tracking-tight">
                     {titleId}
                   </h2>
-                  <p className="text-xs text-[#787774]">
+                  <p className="text-xs text-slate-500">
                     Tebak nama Korea atau jawaban Hangul alat/soal ini
                   </p>
                 </>
@@ -280,16 +280,16 @@ export function PracticeFlashcard({
                     </div>
                   )}
 
-                  <h3 className="text-2xl md:text-3xl font-black text-[#191919] font-kr mt-1">
+                  <h3 className="text-2xl md:text-3xl font-black text-slate-900 font-kr mt-1">
                     {displayKo}
                   </h3>
 
-                  <div className="p-3.5 rounded-xl bg-[#FBFBFA] border border-[#E5E5E3] text-xs md:text-sm text-[#191919] font-medium leading-relaxed max-w-md mx-auto">
+                  <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200 text-xs md:text-sm text-slate-900 font-medium leading-relaxed max-w-md mx-auto">
                     <p className="font-bold text-emerald-800 text-base">
                       {displayId}
                     </p>
                     {currentQ?.question_id && (
-                      <p className="text-[11px] text-[#787774] mt-1.5 pt-1.5 border-t border-[#E5E5E3]">
+                      <p className="text-[11px] text-slate-500 mt-1.5 pt-1.5 border-t border-slate-200">
                         Maksud Soal: "{currentQ.question_id}"
                       </p>
                     )}
@@ -316,7 +316,9 @@ export function PracticeFlashcard({
                       type="button"
                       onClick={(e) => {
                         e.stopPropagation();
-                        if (selectedOptionIndex === 0 && currentQ?.audio_a) {
+                        if (activeOpt?.audio) {
+                          onPlayAudio(activeOpt.audio);
+                        } else if (selectedOptionIndex === 0 && currentQ?.audio_a) {
                           onPlayAudio(currentQ.audio_a);
                         } else {
                           // Fallback speak
@@ -381,7 +383,7 @@ export function PracticeFlashcard({
 
         <button
           onClick={handleNext}
-          className="flex items-center gap-1 hover:text-[#191919] font-semibold transition-colors"
+          className="flex items-center gap-1 hover:text-slate-900 font-semibold transition-colors"
         >
           <span>Berikutnya</span>
           <ChevronRight className="w-4 h-4" />

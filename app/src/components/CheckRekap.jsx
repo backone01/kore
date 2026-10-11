@@ -170,14 +170,14 @@ export function CheckRekap({ questionsData, playAudioUrl, stopAllAudio, examWawa
         }
       `}</style>
 
-      <div className="bg-white border border-[#E9E9E7] rounded-3xl p-5 md:p-6 shadow-sm space-y-3">
+      <div className="bg-white border border-slate-200 rounded-3xl p-5 md:p-6 shadow-sm space-y-3">
         <div className="flex items-start justify-between gap-3">
           <div>
-            <h1 className="text-lg md:text-xl font-black text-[#191919] flex items-center gap-2">
+            <h1 className="text-lg md:text-xl font-black text-slate-900 flex items-center gap-2">
               <Activity className="w-5 h-5 text-emerald-600" />
               Cek & Rekap Skor Ujian Kemampuan
             </h1>
-            <p className="text-xs text-[#787774] mt-1">
+            <p className="text-xs text-slate-500 mt-1">
               Penilaian mandiri gaya EPS Skill Test Mock Assessment (epstopikhub.com/skill-test/check) —
               struktur penilaian resmi HRD Korea 2026.
             </p>
@@ -193,25 +193,25 @@ export function CheckRekap({ questionsData, playAudioUrl, stopAllAudio, examWawa
         </div>
       </div>
 
-      <div className="bg-white border border-[#E9E9E7] rounded-3xl p-5 md:p-6 shadow-sm space-y-4">
-        <h2 className="text-sm font-black uppercase tracking-wider text-[#787774]">1. Struktur Penilaian Resmi 2026</h2>
+      <div className="bg-white border border-slate-200 rounded-3xl p-5 md:p-6 shadow-sm space-y-4">
+        <h2 className="text-sm font-black uppercase tracking-wider text-slate-500">1. Struktur Penilaian Resmi 2026</h2>
 
         <div className="grid sm:grid-cols-3 gap-3">
-          <div className="p-4 rounded-2xl bg-[#FBFBFA] border border-[#E9E9E7] space-y-1">
+          <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-1">
             <div className="flex items-center justify-between">
-              <span className="text-xs font-bold text-[#787774] flex items-center gap-1.5"><Activity className="w-3.5 h-3.5" /> Fisik</span>
-              <span className="text-xl font-black text-[#191919]">30<span className="text-xs font-bold text-[#787774]"> / 40*</span></span>
+              <span className="text-xs font-bold text-slate-500 flex items-center gap-1.5"><Activity className="w-3.5 h-3.5" /> Fisik</span>
+              <span className="text-xl font-black text-slate-900">30<span className="text-xs font-bold text-slate-500"> / 40*</span></span>
             </div>
-            <p className="text-[11px] text-[#787774]">Kekuatan otot 20 + Daya jantung-paru 10 (umum); 20+20 (perikanan)</p>
-            <p className="text-[11px] text-[#787774]">Alat: ukur kekuatan punggung, tinggi & berat badan; beep test (spesialisasi)</p>
+            <p className="text-[11px] text-slate-500">Kekuatan otot 20 + Daya jantung-paru 10 (umum); 20+20 (perikanan)</p>
+            <p className="text-[11px] text-slate-500">Alat: ukur kekuatan punggung, tinggi & berat badan; beep test (spesialisasi)</p>
           </div>
-          <div className="p-4 rounded-2xl bg-[#FBFBFA] border border-[#E9E9E7] space-y-1">
+          <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-1">
             <div className="flex items-center justify-between">
-              <span className="text-xs font-bold text-[#787774] flex items-center gap-1.5"><Wrench className="w-3.5 h-3.5" /> Keahlian Dasar</span>
-              <span className="text-xl font-black text-[#191919]">20</span>
+              <span className="text-xs font-bold text-slate-500 flex items-center gap-1.5"><Wrench className="w-3.5 h-3.5" /> Keahlian Dasar</span>
+              <span className="text-xl font-black text-slate-900">20</span>
             </div>
-            <p className="text-[11px] text-[#787774]">Spesialisasi: 1 tugas per industri</p>
-            <p className="text-[11px] text-[#787774]">Umum: sementara belum dilaksanakan (한시적 미시행)</p>
+            <p className="text-[11px] text-slate-500">Spesialisasi: 1 tugas per industri</p>
+            <p className="text-[11px] text-slate-500">Umum: sementara belum dilaksanakan (한시적 미시행)</p>
           </div>
           <div className="p-4 rounded-2xl bg-emerald-50 border border-emerald-200 space-y-1">
             <div className="flex items-center justify-between">
@@ -224,20 +224,20 @@ export function CheckRekap({ questionsData, playAudioUrl, stopAllAudio, examWawa
         </div>
 
         <div className="flex flex-col sm:flex-row gap-4 items-start">
-          <div className="w-full sm:w-64 shrink-0 bg-white border border-[#E9E9E7] rounded-2xl p-2">
+          <div className="w-full sm:w-64 shrink-0 bg-white border border-slate-200 rounded-2xl p-2">
             <img
               src={getAssetUrl('/images/hub/scoring_for_the_skills_test.webp')}
               alt="Struktur penilaian ujian kemampuan EPS 2026: bagian fisik, keahlian dasar, dan wawancara"
               className="w-full rounded-xl"
               loading="lazy"
             />
-            <p className="text-[10px] text-[#787774] text-center mt-1.5">배점표 resmi (sumber: epstopikhub.com)</p>
+            <p className="text-[10px] text-slate-500 text-center mt-1.5">배점표 resmi (sumber: epstopikhub.com)</p>
           </div>
 
           <div className="flex-1 w-full overflow-x-auto">
             <table className="w-full text-xs border-collapse">
               <thead>
-                <tr className="text-left text-[#787774] border-b border-[#E9E9E7]">
+                <tr className="text-left text-slate-500 border-b border-slate-200">
                   <th className="py-2 pr-2 font-bold">Kelompok Wawancara</th>
                   <th className="py-2 px-2 font-bold text-right">Poin</th>
                   <th className="py-2 px-2 font-bold text-right">Butir</th>
@@ -246,16 +246,16 @@ export function CheckRekap({ questionsData, playAudioUrl, stopAllAudio, examWawa
               </thead>
               <tbody>
                 {groupedItems.map(g => (
-                  <tr key={g.id} className="border-b border-[#F2F2F0]">
-                    <td className="py-2 pr-2 text-[#191919] font-semibold">
-                      {g.label} <span className="font-kr text-[#787774] font-normal">({g.ko})</span>
+                  <tr key={g.id} className="border-b border-slate-100">
+                    <td className="py-2 pr-2 text-slate-900 font-semibold">
+                      {g.label} <span className="font-kr text-slate-500 font-normal">({g.ko})</span>
                     </td>
                     <td className="py-2 px-2 text-right font-mono font-bold">{g.points}</td>
                     <td className="py-2 px-2 text-right font-mono">{g.items}</td>
-                    <td className="py-2 pl-2 text-right font-mono text-[#787774]">{g.perItem}</td>
+                    <td className="py-2 pl-2 text-right font-mono text-slate-500">{g.perItem}</td>
                   </tr>
                 ))}
-                <tr className="border-t-2 border-[#191919]">
+                <tr className="border-t-2 border-slate-900">
                   <td className="py-2 pr-2 font-black">Total Wawancara</td>
                   <td className="py-2 px-2 text-right font-mono font-black">50</td>
                   <td className="py-2 px-2 text-right font-mono font-black">25</td>
@@ -267,14 +267,14 @@ export function CheckRekap({ questionsData, playAudioUrl, stopAllAudio, examWawa
         </div>
       </div>
 
-      <div className="bg-white border border-[#E9E9E7] rounded-3xl p-5 md:p-6 shadow-sm space-y-4">
+      <div className="bg-white border border-slate-200 rounded-3xl p-5 md:p-6 shadow-sm space-y-4">
         <div className="flex items-center justify-between gap-3 flex-wrap">
           <div>
-            <h2 className="text-sm font-black uppercase tracking-wider text-[#787774]">
+            <h2 className="text-sm font-black uppercase tracking-wider text-slate-500">
               {linked ? '2. Skor Wawancara (dari Hasil Ujian)' : '2. Penilaian Mandiri 25 Butir'}
             </h2>
             {!linked && (
-            <p className="text-[11px] text-[#787774] mt-1">
+            <p className="text-[11px] text-slate-500 mt-1">
               Rubrik: <span className="font-bold text-emerald-700">Lulus = 100%</span> ·{' '}
               <span className="font-bold text-amber-700">Tinjau = 50%</span> ·{' '}
               <span className="font-bold text-red-700">Tidak Lulus = 0%</span> — nilai diri terhadap kunci resmi.
@@ -284,7 +284,7 @@ export function CheckRekap({ questionsData, playAudioUrl, stopAllAudio, examWawa
           {!linked && (
           <button
             onClick={reshuffle}
-            className="no-print px-3.5 py-2 rounded-xl bg-white border border-[#E5E5E3] hover:border-slate-400 text-xs font-bold text-[#191919] flex items-center gap-1.5 shadow-2xs transition-all"
+            className="no-print px-3.5 py-2 rounded-xl bg-white border border-slate-200 hover:border-slate-400 text-xs font-bold text-slate-900 flex items-center gap-1.5 shadow-2xs transition-all"
           >
             <RotateCcw className="w-3.5 h-3.5" /> Paket Acak Baru
           </button>
@@ -306,9 +306,9 @@ export function CheckRekap({ questionsData, playAudioUrl, stopAllAudio, examWawa
         <>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-[11px]">
           {groupedItems.map(g => (
-            <div key={g.id} className="p-2.5 rounded-xl bg-[#FBFBFA] border border-[#E9E9E7]">
-              <span className="text-[#787774] block truncate">{g.label}</span>
-              <span className="font-bold text-[#191919] font-mono">
+            <div key={g.id} className="p-2.5 rounded-xl bg-slate-50 border border-slate-200">
+              <span className="text-slate-500 block truncate">{g.label}</span>
+              <span className="font-bold text-slate-900 font-mono">
                 {Number(groupScores[g.id].toFixed(1))} / {g.points}
               </span>
             </div>
@@ -328,8 +328,8 @@ export function CheckRekap({ questionsData, playAudioUrl, stopAllAudio, examWawa
               <div key={g.id} className="space-y-2">
                 <div className="flex items-center gap-2 sticky top-0 bg-white py-1 z-10">
                   <Icon className="w-4 h-4 text-blue-600" />
-                  <span className="text-xs font-black text-[#191919]">{g.label}</span>
-                  <span className="font-kr text-[11px] text-[#787774]">({g.ko})</span>
+                  <span className="text-xs font-black text-slate-900">{g.label}</span>
+                  <span className="font-kr text-[11px] text-slate-500">({g.ko})</span>
                   <span className="px-2 py-0.5 rounded-md bg-blue-50 text-blue-700 text-[10px] font-bold font-mono">
                     {g.points} Poin / {g.items} Butir
                   </span>
@@ -339,28 +339,28 @@ export function CheckRekap({ questionsData, playAudioUrl, stopAllAudio, examWawa
                   const key = `${g.id}#${q.id ?? i}`;
                   const rating = ratings[key];
                   return (
-                    <div key={key} className="p-3.5 rounded-2xl bg-[#FBFBFA] border border-[#E9E9E7] space-y-2.5 text-xs">
+                    <div key={key} className="p-3.5 rounded-2xl bg-slate-50 border border-slate-200 space-y-2.5 text-xs">
                       <div className="flex items-start justify-between gap-3">
                         <div className="min-w-0">
-                          <div className="flex items-center gap-2 text-[10px] font-bold text-[#787774] uppercase tracking-wider">
-                            <span className="px-1.5 py-0.5 rounded bg-white border border-[#E9E9E7] font-mono">
+                          <div className="flex items-center gap-2 text-[10px] font-bold text-slate-500 uppercase tracking-wider">
+                            <span className="px-1.5 py-0.5 rounded bg-white border border-slate-200 font-mono">
                               #{i + 1} · {g.perItem} Poin
                             </span>
                             {q.level && <span className="font-normal normal-case">{q.level}</span>}
                           </div>
-                          <p className="font-kr font-bold text-[#191919] text-sm mt-1 leading-snug">{q.question_ko}</p>
-                          <p className="text-[#787774] text-[11px] italic mt-0.5">"{q.question_id}"</p>
+                          <p className="font-kr font-bold text-slate-900 text-sm mt-1 leading-snug">{q.question_ko}</p>
+                          <p className="text-slate-500 text-[11px] italic mt-0.5">"{q.question_id}"</p>
                         </div>
                         <div className="flex flex-col items-end gap-1.5 shrink-0">
                           {q.image_url && (
-                            <div className="w-14 h-14 bg-white p-1 rounded-xl border border-[#E9E9E7]">
+                            <div className="w-14 h-14 bg-white p-1 rounded-xl border border-slate-200">
                               <img src={getAssetUrl(q.image_url)} alt="" className="w-full h-full object-contain" />
                             </div>
                           )}
                           {q.audio_q && (
                             <button
                               onClick={() => playAudioUrl(q.audio_q)}
-                              className="no-print p-1.5 rounded-lg bg-white border border-[#E5E5E3] hover:border-blue-400 text-blue-600 transition-all"
+                              className="no-print p-1.5 rounded-lg bg-white border border-slate-200 hover:border-blue-400 text-blue-600 transition-all"
                               title="Putar audio soal"
                             >
                               <Play className="w-3.5 h-3.5" />
@@ -370,20 +370,20 @@ export function CheckRekap({ questionsData, playAudioUrl, stopAllAudio, examWawa
                       </div>
 
                       {(q.answer_short_id || q.title_id) && (
-                        <div className="p-2.5 rounded-xl bg-white border border-[#E9E9E7] space-y-0.5">
+                        <div className="p-2.5 rounded-xl bg-white border border-slate-200 space-y-0.5">
                           <span className="text-[10px] uppercase font-bold text-emerald-700 tracking-wider">Kunci Resmi:</span>
-                          <p className="font-kr font-bold text-[#191919]">{q.answer_short_ko || q.title_ko}</p>
-                          <p className="text-[#787774]">{q.answer_short_id || q.title_id}</p>
+                          <p className="font-kr font-bold text-slate-900">{q.answer_short_ko || q.title_ko}</p>
+                          <p className="text-slate-500">{q.answer_short_id || q.title_id}</p>
                         </div>
                       )}
 
                       <div className="flex items-center justify-between gap-2 no-print">
-                        <span className="text-[10px] text-[#787774]">Penilaian Anda:</span>
+                        <span className="text-[10px] text-slate-500">Penilaian Anda:</span>
                         <div className="flex items-center gap-1.5">
                           <button
                             onClick={() => setRating(key, 'pass')}
                             className={`px-2.5 py-1 rounded-lg text-[11px] font-bold transition-all ${
-                              rating === 'pass' ? 'bg-emerald-600 text-white' : 'bg-white text-[#787774] border border-[#E9E9E7] hover:border-emerald-400'
+                              rating === 'pass' ? 'bg-emerald-600 text-white' : 'bg-white text-slate-500 border border-slate-200 hover:border-emerald-400'
                             }`}
                           >
                             <CheckCircle className="w-3 h-3 inline mr-0.5" />Lulus
@@ -391,7 +391,7 @@ export function CheckRekap({ questionsData, playAudioUrl, stopAllAudio, examWawa
                           <button
                             onClick={() => setRating(key, 'review')}
                             className={`px-2.5 py-1 rounded-lg text-[11px] font-bold transition-all ${
-                              rating === 'review' ? 'bg-amber-500 text-white' : 'bg-white text-[#787774] border border-[#E9E9E7] hover:border-amber-400'
+                              rating === 'review' ? 'bg-amber-500 text-white' : 'bg-white text-slate-500 border border-slate-200 hover:border-amber-400'
                             }`}
                           >
                             <AlertCircle className="w-3 h-3 inline mr-0.5" />Tinjau
@@ -399,7 +399,7 @@ export function CheckRekap({ questionsData, playAudioUrl, stopAllAudio, examWawa
                           <button
                             onClick={() => setRating(key, 'fail')}
                             className={`px-2.5 py-1 rounded-lg text-[11px] font-bold transition-all ${
-                              rating === 'fail' ? 'bg-red-600 text-white' : 'bg-white text-[#787774] border border-[#E9E9E7] hover:border-red-400'
+                              rating === 'fail' ? 'bg-red-600 text-white' : 'bg-white text-slate-500 border border-slate-200 hover:border-red-400'
                             }`}
                           >
                             <XCircle className="w-3 h-3 inline mr-0.5" />Gagal
@@ -417,10 +417,10 @@ export function CheckRekap({ questionsData, playAudioUrl, stopAllAudio, examWawa
         )}
       </div>
 
-      <div className="bg-white border border-[#E9E9E7] rounded-3xl p-5 md:p-6 shadow-sm space-y-4">
-        <h2 className="text-sm font-black uppercase tracking-wider text-[#787774]">3. Total Keseluruhan (100 / 110 Poin)</h2>
+      <div className="bg-white border border-slate-200 rounded-3xl p-5 md:p-6 shadow-sm space-y-4">
+        <h2 className="text-sm font-black uppercase tracking-wider text-slate-500">3. Total Keseluruhan (100 / 110 Poin)</h2>
 
-        <label className="flex items-center gap-2.5 text-xs font-bold text-[#191919] no-print cursor-pointer">
+        <label className="flex items-center gap-2.5 text-xs font-bold text-slate-900 no-print cursor-pointer">
           <input
             type="checkbox"
             checked={fishery}
@@ -431,24 +431,24 @@ export function CheckRekap({ questionsData, playAudioUrl, stopAllAudio, examWawa
         </label>
 
         <div className="grid sm:grid-cols-3 gap-3 no-print">
-          <div className="p-3 rounded-2xl bg-[#FBFBFA] border border-[#E9E9E7] space-y-1.5">
-            <span className="text-[11px] font-bold text-[#787774]">Fisik (input manual, 0–{fisikMax})</span>
+          <div className="p-3 rounded-2xl bg-slate-50 border border-slate-200 space-y-1.5">
+            <span className="text-[11px] font-bold text-slate-500">Fisik (input manual, 0–{fisikMax})</span>
             <input
               type="number" min="0" max={fisikMax} step="0.5" value={fisik}
               onChange={e => setFisik(Math.min(Math.max(Number(e.target.value) || 0, 0), fisikMax))}
-              className="w-full px-3 py-2 rounded-xl border border-[#E5E5E3] text-lg font-black font-mono focus:outline-none focus:border-blue-500"
+              className="w-full px-3 py-2 rounded-xl border border-slate-200 text-lg font-black font-mono focus:outline-none focus:border-blue-500"
             />
           </div>
-          <div className="p-3 rounded-2xl bg-[#FBFBFA] border border-[#E9E9E7] space-y-1.5">
-            <span className="text-[11px] font-bold text-[#787774]">Keahlian Dasar (0–20)</span>
+          <div className="p-3 rounded-2xl bg-slate-50 border border-slate-200 space-y-1.5">
+            <span className="text-[11px] font-bold text-slate-500">Keahlian Dasar (0–20)</span>
             <input
               type="number" min="0" max="20" step="0.5" value={keahlian}
               onChange={e => setKeahlian(Math.min(Math.max(Number(e.target.value) || 0, 0), 20))}
-              className="w-full px-3 py-2 rounded-xl border border-[#E5E5E3] text-lg font-black font-mono focus:outline-none focus:border-blue-500"
+              className="w-full px-3 py-2 rounded-xl border border-slate-200 text-lg font-black font-mono focus:outline-none focus:border-blue-500"
             />
-            <p className="text-[10px] text-[#787774]">Jalur umum: penilaian ini sementara belum dilaksanakan.</p>
+            <p className="text-[10px] text-slate-500">Jalur umum: penilaian ini sementara belum dilaksanakan.</p>
           </div>
-          <div className="p-3 rounded-2xl bg-[#191919] text-white space-y-1.5">
+          <div className="p-3 rounded-2xl bg-slate-900 text-white space-y-1.5">
             <span className="text-[11px] font-bold text-white/70">Total Anda</span>
             <div className="flex items-baseline gap-1.5">
               <span className="text-3xl font-black font-mono">{Number(grandTotal.toFixed(1))}</span>
@@ -472,7 +472,7 @@ export function CheckRekap({ questionsData, playAudioUrl, stopAllAudio, examWawa
               </span>
             )}
             {!allRated && (
-              <span className="ml-2 text-[11px] text-[#787774]">Sisa {flatItems.length - ratedCount} butir belum dinilai.</span>
+              <span className="ml-2 text-[11px] text-slate-500">Sisa {flatItems.length - ratedCount} butir belum dinilai.</span>
             )}
           </div>
           <div className="flex items-center gap-2">
@@ -485,7 +485,7 @@ export function CheckRekap({ questionsData, playAudioUrl, stopAllAudio, examWawa
             </button>
             <button
               onClick={() => window.print()}
-              className="px-4 py-2.5 rounded-2xl bg-white border border-[#E5E5E3] hover:border-slate-400 text-xs font-bold text-[#191919] flex items-center gap-2 shadow-2xs transition-all"
+              className="px-4 py-2.5 rounded-2xl bg-white border border-slate-200 hover:border-slate-400 text-xs font-bold text-slate-900 flex items-center gap-2 shadow-2xs transition-all"
             >
               <Printer className="w-3.5 h-3.5" /> Cetak / PDF
             </button>
@@ -493,9 +493,9 @@ export function CheckRekap({ questionsData, playAudioUrl, stopAllAudio, examWawa
         </div>
       </div>
 
-      <div className="bg-white border border-[#E9E9E7] rounded-3xl p-5 md:p-6 shadow-sm space-y-4">
+      <div className="bg-white border border-slate-200 rounded-3xl p-5 md:p-6 shadow-sm space-y-4">
         <div className="flex items-center justify-between">
-          <h2 className="text-sm font-black uppercase tracking-wider text-[#787774]">4. Riwayat Penilaian</h2>
+          <h2 className="text-sm font-black uppercase tracking-wider text-slate-500">4. Riwayat Penilaian</h2>
           {history.length > 0 && (
             <button
               onClick={clearHistory}
@@ -507,7 +507,7 @@ export function CheckRekap({ questionsData, playAudioUrl, stopAllAudio, examWawa
         </div>
 
         {history.length === 0 ? (
-          <p className="text-xs text-[#787774]">
+          <p className="text-xs text-slate-500">
             {linked
               ? 'Belum ada riwayat. Isi nilai Fisik & Keahlian lalu tekan "Simpan ke Riwayat".'
               : 'Belum ada riwayat. Selesaikan 25 butir lalu tekan "Simpan ke Riwayat".'}
@@ -516,7 +516,7 @@ export function CheckRekap({ questionsData, playAudioUrl, stopAllAudio, examWawa
           <div className="overflow-x-auto">
             <table className="w-full text-xs border-collapse">
               <thead>
-                <tr className="text-left text-[#787774] border-b border-[#E9E9E7]">
+                <tr className="text-left text-slate-500 border-b border-slate-200">
                   <th className="py-2 pr-2 font-bold">Tanggal</th>
                   <th className="py-2 px-2 font-bold text-right">Wawancara</th>
                   <th className="py-2 px-2 font-bold text-right">Fisik</th>
@@ -526,8 +526,8 @@ export function CheckRekap({ questionsData, playAudioUrl, stopAllAudio, examWawa
               </thead>
               <tbody>
                 {history.map(h => (
-                  <tr key={h.ts} className="border-b border-[#F2F2F0]">
-                    <td className="py-2 pr-2 text-[#191919]">{new Date(h.ts).toLocaleString('id-ID', { dateStyle: 'medium', timeStyle: 'short' })}</td>
+                  <tr key={h.ts} className="border-b border-slate-100">
+                    <td className="py-2 pr-2 text-slate-900">{new Date(h.ts).toLocaleString('id-ID', { dateStyle: 'medium', timeStyle: 'short' })}</td>
                     <td className="py-2 px-2 text-right font-mono">{h.wawancara}/50</td>
                     <td className="py-2 px-2 text-right font-mono">{h.fisik}</td>
                     <td className="py-2 px-2 text-right font-mono">{h.keahlian}</td>
@@ -540,17 +540,17 @@ export function CheckRekap({ questionsData, playAudioUrl, stopAllAudio, examWawa
         )}
       </div>
 
-      <div className="bg-white border border-[#E9E9E7] rounded-3xl p-5 md:p-6 shadow-sm space-y-3">
-        <h2 className="text-sm font-black uppercase tracking-wider text-[#787774]">5. Tips Persiapan</h2>
+      <div className="bg-white border border-slate-200 rounded-3xl p-5 md:p-6 shadow-sm space-y-3">
+        <h2 className="text-sm font-black uppercase tracking-wider text-slate-500">5. Tips Persiapan</h2>
         <ul className="space-y-2">
           {TIPS.map((t, i) => (
-            <li key={i} className="text-xs text-[#191919] flex items-start gap-2">
+            <li key={i} className="text-xs text-slate-900 flex items-start gap-2">
               <span className="mt-0.5 w-5 h-5 shrink-0 rounded-lg bg-blue-50 text-blue-700 font-bold text-[10px] flex items-center justify-center">{i + 1}</span>
               {t}
             </li>
           ))}
         </ul>
-        <p className="text-[11px] text-[#787774] border-t border-[#EFEFED] pt-3">
+        <p className="text-[11px] text-slate-500 border-t border-slate-100 pt-3">
           Struktur ini mengikuti tabel 배점표 resmi 2026.{' '}
           {linked
             ? 'Skor wawancara di atas diambil langsung dari hasil Simulasi Ujian Anda.'

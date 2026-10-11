@@ -1947,22 +1947,22 @@
       "audio_a": "/audio/03_k3_keselamatan_pabrik/01_Jawab_작업자의_신체를_보호하기_위한_장비나_용품입니다.mp3",
       "answer_options": [
         {
+          "label": "Jawaban Resmi Asli",
+          "ko": "작업 중 발생할 수 있는 위험으로부터 작업자의 신체를 보호하기 위해 착용하거나 사용하는 장비나 용품입니다.",
+          "id": "Peralatan atau perlengkapan yang digunakan untuk melindungi tubuh pekerja dari bahaya yang dapat terjadi saat bekerja.",
+          "audio": "/audio/03_k3_keselamatan_pabrik/01_Jawab_작업자의_신체를_보호하기_위한_장비나_용품입니다.mp3"
+        },
+        {
           "label": "Versi 1 (Super Ringkas)",
           "ko": "몸을 보호하는 장비입니다.",
-          "ro": "Momeul bohohaneun jangbi-imnida.",
-          "id": "Peralatan untuk melindungi tubuh."
+          "id": "Peralatan untuk melindungi tubuh.",
+          "audio": "/audio/tts/options/safety_01_opt_1.mp3"
         },
         {
           "label": "Versi 2 (Standar Ringkas)",
           "ko": "작업자를 지키는 안전용품입니다.",
-          "ro": "Jageopjareul jikineun anjeonyongpum-imnida.",
-          "id": "Perlengkapan keselamatan untuk menjaga pekerja."
-        },
-        {
-          "label": "Versi 3 (Buku Teks Lengkap)",
-          "ko": "작업 중 위험으로부터 신체를 보호하는 장비입니다.",
-          "ro": "Jageop jung wiheomeurobuteo sinchereul bohohaneun jangbi-imnida.",
-          "id": "Peralatan pelindung tubuh dari bahaya saat bekerja."
+          "id": "Perlengkapan keselamatan untuk menjaga pekerja.",
+          "audio": "/audio/tts/options/safety_01_opt_2.mp3"
         }
       ]
     },
@@ -1973,21 +1973,27 @@
       "question_ro": "Bohogueneun eotteon jongnyuga innayo?",
       "question_id": "Apa saja jenis-jenis Alat Pelindung Diri (APD)?",
       "answer_ko": "안전모, 안전화, 안전대, 보안면, 귀마개, 방진마스크, 방독마스크, 방열복, 방한복 등이 있습니다.",
-      "answer_id": "Helm keselamatan, sepatu keselamatan, tali pengaman, pelindung wajah, penyumbat telinga, masker debu, masker gas, pakaian tahan panas, dan pakaian dingin.",
+      "answer_id": "Ada helm pengaman, sepatu pengaman, tali pengaman, pelindung wajah, penutup telinga, masker debu, masker gas, pakaian tahan panas, pakaian dingin, dll.",
       "audio_q": "/audio/03_k3_keselamatan_pabrik/02_Tanya_보호구에는_어떤_종류가_있나요.mp3",
       "audio_a": "/audio/03_k3_keselamatan_pabrik/02_Jawab_안전모_안전화_안전대_보안면_귀마개_방진마스크_방독마스크_방열복_방한복_등이_있습니다.mp3",
       "answer_options": [
         {
-          "label": "Versi 1 (Super Ringkas)",
-          "ko": "머리를 보호하기 위해 씁니다.",
-          "ro": "Meorireul bohohagi wihae sseumnida.",
-          "id": "Dipakai untuk melindungi kepala."
+          "label": "Jawaban Resmi Asli",
+          "ko": "안전모, 안전화, 안전대, 보안면, 귀마개, 방진마스크, 방독마스크, 방열복, 방한복 등이 있습니다.",
+          "id": "Ada helm pengaman, sepatu pengaman, tali pengaman, pelindung wajah, penutup telinga, masker debu, masker gas, pakaian tahan panas, pakaian dingin, dll.",
+          "audio": "/audio/03_k3_keselamatan_pabrik/02_Jawab_안전모_안전화_안전대_보안면_귀마개_방진마스크_방독마스크_방열복_방한복_등이_있습니다.mp3"
         },
         {
-          "label": "Versi 2 (Lengkap)",
-          "ko": "낙하물과 충격으로부터 머리를 보호합니다.",
-          "ro": "Nakhamulgwa chunggyeogurobuteo meorireul bohohamnida.",
-          "id": "Melindungi kepala dari benda jatuh dan benturan."
+          "label": "Versi 1 (Super Ringkas)",
+          "ko": "안전모, 안전화, 안전대, 마스크 등이 있습니다.",
+          "id": "Ada helm, sepatu safety, tali pengaman, masker, dll.",
+          "audio": "/audio/tts/options/safety_02_opt_1.mp3"
+        },
+        {
+          "label": "Versi 2 (Standar Ringkas)",
+          "ko": "안전모와 안전화, 보안경, 귀마개가 있습니다.",
+          "id": "Ada helm pengaman, sepatu pengaman, kacamata pelindung, dan earplug.",
+          "audio": "/audio/tts/options/safety_02_opt_2.mp3"
         }
       ]
     },
@@ -1998,21 +2004,27 @@
       "question_ro": "Anjeonmoneun mueosimnikka?",
       "question_id": "Apakah itu helm keselamatan (safety helmet)?",
       "answer_ko": "작업자가 물체와 부딪치거나 바닥으로 떨어졌을 때 머리를 보호하는 모자입니다.",
-      "answer_id": "Topi pelindung kepala saat pekerja terbentur benda keras atau terjatuh ke lantai.",
+      "answer_id": "Topi pengaman yang melindungi kepala pekerja saat terbentur benda atau terjatuh ke lantai.",
       "audio_q": "/audio/03_k3_keselamatan_pabrik/03_Tanya_안전모는_무엇입니까.mp3",
       "audio_a": "/audio/03_k3_keselamatan_pabrik/03_Jawab_부딪치거나_떨어졌을_때_머리를_보호하는_모자입니다.mp3",
       "answer_options": [
         {
-          "label": "Versi 1 (Super Ringkas)",
-          "ko": "발을 다치지 않게 보호합니다.",
-          "ro": "Bareul dachiji anke bohohamnida.",
-          "id": "Melindungi kaki agar tidak terluka."
+          "label": "Jawaban Resmi Asli",
+          "ko": "작업자가 물체와 부딪치거나 바닥으로 떨어졌을 때 머리를 보호하는 모자입니다.",
+          "id": "Topi pengaman yang melindungi kepala pekerja saat terbentur benda atau terjatuh ke lantai.",
+          "audio": "/audio/03_k3_keselamatan_pabrik/03_Jawab_부딪치거나_떨어졌을_때_머리를_보호하는_모자입니다.mp3"
         },
         {
-          "label": "Versi 2 (Lengkap)",
-          "ko": "무거운 물체와 못으로부터 발을 지킵니다.",
-          "ro": "Mugeoun mulchewa moseurobuteo bareul jikimnida.",
-          "id": "Menjaga kaki dari benda berat dan paku."
+          "label": "Versi 1 (Super Ringkas)",
+          "ko": "머리를 보호하는 모자입니다.",
+          "id": "Topi untuk melindungi kepala.",
+          "audio": "/audio/tts/options/safety_03_opt_1.mp3"
+        },
+        {
+          "label": "Versi 2 (Standar Ringkas)",
+          "ko": "낙하물로부터 머리를 지키는 모자입니다.",
+          "id": "Topi untuk melindungi kepala dari benda jatuh.",
+          "audio": "/audio/tts/options/safety_03_opt_2.mp3"
         }
       ]
     },
@@ -2023,21 +2035,27 @@
       "question_ro": "Anjeonhwaneun mueosimnikka?",
       "question_id": "Apakah itu sepatu keselamatan (safety shoes)?",
       "answer_ko": "떨어지는 공구 또는 뾰족한 물건으로부터 발을 보호하기 위한 신발입니다.",
-      "answer_id": "Sepatu pelindung kaki dari benda/perkakas yang terjatuh atau benda tajam menusuk.",
+      "answer_id": "Sepatu untuk melindungi kaki dari perkakas yang jatuh atau benda runcing.",
       "audio_q": "/audio/03_k3_keselamatan_pabrik/04_Tanya_안전화는_무엇입니까.mp3",
       "audio_a": "/audio/03_k3_keselamatan_pabrik/04_Jawab_떨어지는_공구나_뾰족한_물건으로부터_발을_보호하는_신발입니다.mp3",
       "answer_options": [
         {
-          "label": "Versi 1 (Super Ringkas)",
-          "ko": "눈을 파편으로부터 보호합니다.",
-          "ro": "Nuneul papyeoneurobuteo bohohamnida.",
-          "id": "Melindungi mata dari serpihan."
+          "label": "Jawaban Resmi Asli",
+          "ko": "떨어지는 공구 또는 뾰족한 물건으로부터 발을 보호하기 위한 신발입니다.",
+          "id": "Sepatu untuk melindungi kaki dari perkakas yang jatuh atau benda runcing.",
+          "audio": "/audio/03_k3_keselamatan_pabrik/04_Jawab_떨어지는_공구나_뾰족한_물건으로부터_발을_보호하는_신발입니다.mp3"
         },
         {
-          "label": "Versi 2 (Lengkap)",
-          "ko": "불꽃이나 먼지가 눈에 들어가지 않게 막습니다.",
-          "ro": "Bulkkochina meonjiga nune deureogaji anke makseumnida.",
-          "id": "Mencegah percikan api atau debu masuk ke mata."
+          "label": "Versi 1 (Super Ringkas)",
+          "ko": "발을 보호하는 신발입니다.",
+          "id": "Sepatu untuk melindungi kaki.",
+          "audio": "/audio/tts/options/safety_04_opt_1.mp3"
+        },
+        {
+          "label": "Versi 2 (Standar Ringkas)",
+          "ko": "무거운 물체와 못으로부터 발을 지키는 신발입니다.",
+          "id": "Sepatu yang melindungi kaki dari beban berat dan paku.",
+          "audio": "/audio/tts/options/safety_04_opt_2.mp3"
         }
       ]
     },
@@ -2048,21 +2066,27 @@
       "question_ro": "Anjeondaeneun mueosimnikka?",
       "question_id": "Apakah itu tali pengaman keselamatan (safety harness)?",
       "answer_ko": "작업자가 높은 곳에서 바닥으로 떨어지는 것을 막는 장비입니다.",
-      "answer_id": "Peralatan keselamatan untuk mencegah pekerja terjatuh ke lantai saat bekerja di tempat tinggi.",
+      "answer_id": "Perlengkapan yang mencegah pekerja terjatuh dari tempat tinggi ke lantai.",
       "audio_q": "/audio/03_k3_keselamatan_pabrik/05_Tanya_안전대는_무엇입니까.mp3",
       "audio_a": "/audio/03_k3_keselamatan_pabrik/05_Jawab_높은_곳에서_바닥으로_떨어지는_것을_막는_장비입니다.mp3",
       "answer_options": [
         {
-          "label": "Versi 1 (Super Ringkas)",
-          "ko": "먼지를 마시지 않게 막아줍니다.",
-          "ro": "Meonjireul masiji anke magajumnida.",
-          "id": "Mencegah agar tidak menghirup debu."
+          "label": "Jawaban Resmi Asli",
+          "ko": "작업자가 높은 곳에서 바닥으로 떨어지는 것을 막는 장비입니다.",
+          "id": "Perlengkapan yang mencegah pekerja terjatuh dari tempat tinggi ke lantai.",
+          "audio": "/audio/03_k3_keselamatan_pabrik/05_Jawab_높은_곳에서_바닥으로_떨어지는_것을_막는_장비입니다.mp3"
         },
         {
-          "label": "Versi 2 (Lengkap)",
-          "ko": "공기 중의 분진과 유해 물질을 걸러줍니다.",
-          "ro": "Gonggi jungui bunjingwa yuhae muljireul geolleojumnida.",
-          "id": "Menyaring debu dan zat berbahaya di udara."
+          "label": "Versi 1 (Super Ringkas)",
+          "ko": "떨어짐을 막는 장비입니다.",
+          "id": "Perlengkapan pencegah jatuh.",
+          "audio": "/audio/tts/options/safety_05_opt_1.mp3"
+        },
+        {
+          "label": "Versi 2 (Standar Ringkas)",
+          "ko": "높은 곳에서 추락을 방지하는 안전줄입니다.",
+          "id": "Tali pengaman untuk mencegah jatuh di tempat tinggi.",
+          "audio": "/audio/tts/options/safety_05_opt_2.mp3"
         }
       ]
     },
@@ -2073,21 +2097,27 @@
       "question_ro": "Boanmyeoneun mueosimnikka?",
       "question_id": "Apakah itu pelindung muka/wajah (face shield)?",
       "answer_ko": "불꽃이나 날아오는 물체로부터 얼굴과 눈을 보호하기 위한 장비입니다.",
-      "answer_id": "Alat pelindung wajah dan mata dari percikan api atau serpihan benda yang melayang.",
+      "answer_id": "Perlengkapan untuk melindungi wajah dan mata dari percikan bunga api atau benda terbang.",
       "audio_q": "/audio/03_k3_keselamatan_pabrik/06_Tanya_보안면은_무엇입니까.mp3",
       "audio_a": "/audio/03_k3_keselamatan_pabrik/06_Jawab_불꽃이나_날아오는_물체로부터_얼굴과_눈을_보호하는_장비입니다.mp3",
       "answer_options": [
         {
-          "label": "Versi 1 (Super Ringkas)",
-          "ko": "높은 곳에서 떨어지지 않게 씁니다.",
-          "ro": "Nop-eun gos-eseo tteoreojiji anke sseumnida.",
-          "id": "Dipakai agar tidak jatuh dari tempat tinggi."
+          "label": "Jawaban Resmi Asli",
+          "ko": "불꽃이나 날아오는 물체로부터 얼굴과 눈을 보호하기 위한 장비입니다.",
+          "id": "Perlengkapan untuk melindungi wajah dan mata dari percikan bunga api atau benda terbang.",
+          "audio": "/audio/03_k3_keselamatan_pabrik/06_Jawab_불꽃이나_날아오는_물체로부터_얼굴과_눈을_보호하는_장비입니다.mp3"
         },
         {
-          "label": "Versi 2 (Lengkap)",
-          "ko": "추락 사고를 막기 위해 착용하는 안전줄입니다.",
-          "ro": "Churak sagoreul makgi wihae chagyonghaneun anjeonjul-imnida.",
-          "id": "Tali pengaman yang dipakai untuk mencegah jatuh."
+          "label": "Versi 1 (Super Ringkas)",
+          "ko": "얼굴과 눈을 보호하는 장비입니다.",
+          "id": "Perlengkapan pelindung wajah dan mata.",
+          "audio": "/audio/tts/options/safety_06_opt_1.mp3"
+        },
+        {
+          "label": "Versi 2 (Standar Ringkas)",
+          "ko": "튀는 불꽃으로부터 얼굴을 지킵니다.",
+          "id": "Melindungi wajah dari percikan bunga api.",
+          "audio": "/audio/tts/options/safety_06_opt_2.mp3"
         }
       ]
     },
@@ -2098,21 +2128,27 @@
       "question_ro": "Gwimagaeneun mueosimnikka?",
       "question_id": "Apakah itu penyumbat telinga (earplugs)?",
       "answer_ko": "시끄럽고 큰 소리가 나는 장소에서 귀를 보호하기 위한 용품입니다.",
-      "answer_id": "Alat pelindung pendengaran dari kebisingan suara keras di tempat kerja.",
+      "answer_id": "Perlengkapan untuk melindungi telinga di tempat yang bising dan bersuara keras.",
       "audio_q": "/audio/03_k3_keselamatan_pabrik/07_Tanya_귀마개는_무엇입니까.mp3",
       "audio_a": "/audio/03_k3_keselamatan_pabrik/07_Jawab_시끄럽고_큰_소리가_나는_장소에서_귀를_보호하는_용품입니다.mp3",
       "answer_options": [
         {
-          "label": "Versi 1 (Super Ringkas)",
-          "ko": "큰 소음으로부터 귀를 지킵니다.",
-          "ro": "Keun so-eumeurobuteo gwireul jikimnida.",
-          "id": "Menjaga telinga dari suara bising keras."
+          "label": "Jawaban Resmi Asli",
+          "ko": "시끄럽고 큰 소리가 나는 장소에서 귀를 보호하기 위한 용품입니다.",
+          "id": "Perlengkapan untuk melindungi telinga di tempat yang bising dan bersuara keras.",
+          "audio": "/audio/03_k3_keselamatan_pabrik/07_Jawab_시끄럽고_큰_소리가_나는_장소에서_귀를_보호하는_용품입니다.mp3"
         },
         {
-          "label": "Versi 2 (Lengkap)",
-          "ko": "공장 소음으로 인한 난청을 예방합니다.",
-          "ro": "Gongjang so-eumeuro inan nancheong-eul yebanghamnida.",
-          "id": "Mencegah kerusakan pendengaran akibat kebisingan."
+          "label": "Versi 1 (Super Ringkas)",
+          "ko": "귀를 보호하는 용품입니다.",
+          "id": "Perlengkapan untuk melindungi telinga.",
+          "audio": "/audio/tts/options/safety_07_opt_1.mp3"
+        },
+        {
+          "label": "Versi 2 (Standar Ringkas)",
+          "ko": "공장 소음으로부터 귀를 지킵니다.",
+          "id": "Melindungi telinga dari kebisingan suara pabrik.",
+          "audio": "/audio/tts/options/safety_07_opt_2.mp3"
         }
       ]
     },
@@ -2123,21 +2159,27 @@
       "question_ro": "Bangjinmaseukeuneun mueosimnikka?",
       "question_id": "Apakah itu masker debu (dust mask)?",
       "answer_ko": "공기 중에 있는 먼지로부터 입과 코를 보호하기 위한 용품입니다.",
-      "answer_id": "Alat pelindung mulut dan hidung dari partikel debu di udara.",
+      "answer_id": "Perlengkapan untuk melindungi mulut dan hidung dari debu di udara.",
       "audio_q": "/audio/03_k3_keselamatan_pabrik/08_Tanya_방진마스크는_무엇입니까.mp3",
       "audio_a": "/audio/03_k3_keselamatan_pabrik/08_Jawab_공기_중에_있는_먼지로부터_입과_코를_보호하는_용품입니다.mp3",
       "answer_options": [
         {
-          "label": "Versi 1 (Super Ringkas)",
-          "ko": "손을 베이지 않게 보호합니다.",
-          "ro": "Soneul be-iji anke bohohamnida.",
-          "id": "Melindungi tangan agar tidak tergores."
+          "label": "Jawaban Resmi Asli",
+          "ko": "공기 중에 있는 먼지로부터 입과 코를 보호하기 위한 용품입니다.",
+          "id": "Perlengkapan untuk melindungi mulut dan hidung dari debu di udara.",
+          "audio": "/audio/03_k3_keselamatan_pabrik/08_Jawab_공기_중에_있는_먼지로부터_입과_코를_보호하는_용품입니다.mp3"
         },
         {
-          "label": "Versi 2 (Lengkap)",
-          "ko": "날카로운 물건으로부터 손 부상을 방지합니다.",
-          "ro": "Nalkaroun mulgeoneurobuteo son busang-eul bangjihamnida.",
-          "id": "Mencegah luka tangan dari benda-benda tajam."
+          "label": "Versi 1 (Super Ringkas)",
+          "ko": "먼지를 막는 마스크입니다.",
+          "id": "Masker untuk menyaring debu.",
+          "audio": "/audio/tts/options/safety_08_opt_1.mp3"
+        },
+        {
+          "label": "Versi 2 (Standar Ringkas)",
+          "ko": "분진으로부터 호흡기를 보호합니다.",
+          "id": "Melindungi saluran pernapasan dari partikel debu.",
+          "audio": "/audio/tts/options/safety_08_opt_2.mp3"
         }
       ]
     },
@@ -2148,21 +2190,27 @@
       "question_ro": "Bangdongmaseukeuneun mueosimnikka?",
       "question_id": "Apakah itu masker respirator gas (gas mask)?",
       "answer_ko": "공기 중에 있는 화학물질 등으로부터 입과 코를 보호하기 위한 용품입니다.",
-      "answer_id": "Alat pelindung mulut dan hidung dari uap atau gas bahan kimia berbahaya di udara.",
+      "answer_id": "Perlengkapan untuk melindungi mulut dan hidung dari zat kimia di udara.",
       "audio_q": "/audio/03_k3_keselamatan_pabrik/09_Tanya_방독마스크는_무엇입니까.mp3",
       "audio_a": "/audio/03_k3_keselamatan_pabrik/09_Jawab_공기_중에_있는_화학물질로부터_입과_코를_보호하는_용품입니다.mp3",
       "answer_options": [
         {
-          "label": "Versi 1 (Super Ringkas)",
-          "ko": "초기 불을 끄는 기구입니다.",
-          "ro": "Chogi bureul kkeuneun gigu-imnida.",
-          "id": "Alat untuk memadamkan api di tahap awal."
+          "label": "Jawaban Resmi Asli",
+          "ko": "공기 중에 있는 화학물질 등으로부터 입과 코를 보호하기 위한 용품입니다.",
+          "id": "Perlengkapan untuk melindungi mulut dan hidung dari zat kimia di udara.",
+          "audio": "/audio/03_k3_keselamatan_pabrik/09_Jawab_공기_중에_있는_화학물질로부터_입과_코를_보호하는_용품입니다.mp3"
         },
         {
-          "label": "Versi 2 (Lengkap)",
-          "ko": "화재가 났을 때 신속히 불을 끕니다.",
-          "ro": "Hwajaega nasseul ttae sinsokhi bureul kkeumnida.",
-          "id": "Memadamkan api dengan cepat saat terjadi kebakaran."
+          "label": "Versi 1 (Super Ringkas)",
+          "ko": "유해가스를 막는 마스크입니다.",
+          "id": "Masker pencegah gas beracun.",
+          "audio": "/audio/tts/options/safety_09_opt_1.mp3"
+        },
+        {
+          "label": "Versi 2 (Standar Ringkas)",
+          "ko": "화학물질 냄새와 가스를 걸러줍니다.",
+          "id": "Menyaring bau dan gas kimia beracun.",
+          "audio": "/audio/tts/options/safety_09_opt_2.mp3"
         }
       ]
     },
@@ -2173,21 +2221,27 @@
       "question_ro": "Bang-yeolbogeun mueosimnikka?",
       "question_id": "Apakah itu pakaian tahan panas (heat-resistant suit)?",
       "answer_ko": "매우 뜨거운 장소에서 열과 불로부터 몸을 보호하기 위한 작업복입니다.",
-      "answer_id": "Pakaian kerja pelindung tubuh dari panas ekstrem dan kobaran api.",
+      "answer_id": "Pakaian kerja pelindung tubuh dari panas dan api di tempat bersuhu tinggi.",
       "audio_q": "/audio/03_k3_keselamatan_pabrik/10_Tanya_방열복은_무엇입니까.mp3",
       "audio_a": "/audio/03_k3_keselamatan_pabrik/10_Jawab_매우_뜨거운_장소에서_열과_불로부터_몸을_보호하는_작업복입니다.mp3",
       "answer_options": [
         {
-          "label": "Versi 1 (Super Ringkas)",
-          "ko": "화재 시 밖으로 나가는 문입니다.",
-          "ro": "Hwajae si bakkeuro naganeun mun-imnida.",
-          "id": "Pintu keluar saat terjadi kebakaran."
+          "label": "Jawaban Resmi Asli",
+          "ko": "매우 뜨거운 장소에서 열과 불로부터 몸을 보호하기 위한 작업복입니다.",
+          "id": "Pakaian kerja pelindung tubuh dari panas dan api di tempat bersuhu tinggi.",
+          "audio": "/audio/03_k3_keselamatan_pabrik/10_Jawab_매우_뜨거운_장소에서_열과_불로부터_몸을_보호하는_작업복입니다.mp3"
         },
         {
-          "label": "Versi 2 (Lengkap)",
-          "ko": "긴급 상황에 안전하게 대피하는 통로입니다.",
-          "ro": "Gingeup sanghwang-e anjeonhage daepihaneun tongro-imnida.",
-          "id": "Jalur evakuasi yang aman saat situasi darurat."
+          "label": "Versi 1 (Super Ringkas)",
+          "ko": "뜨거운 열을 막는 옷입니다.",
+          "id": "Pakaian penahan hawa panas.",
+          "audio": "/audio/tts/options/safety_10_opt_1.mp3"
+        },
+        {
+          "label": "Versi 2 (Standar Ringkas)",
+          "ko": "열과 불로부터 몸을 지키는 작업복입니다.",
+          "id": "Pakaian kerja yang melindungi badan dari panas dan api.",
+          "audio": "/audio/tts/options/safety_10_opt_2.mp3"
         }
       ]
     },
@@ -2203,14 +2257,22 @@
       "audio_a": "/audio/03_k3_keselamatan_pabrik/11_Jawab_매우_추운_장소에서_몸_온도를_유지하기_위한_보온용_작업복입니다.mp3",
       "answer_options": [
         {
-          "label": "Versi Ringkas",
-          "ko": "매우 추운 장소에서 몸 온도를입니다.",
-          "id": "Pakaian kerja hangat untuk menjaga suhu tubuh di area yang sangat dingin."
+          "label": "Jawaban Resmi Asli",
+          "ko": "매우 추운 장소에서 몸 온도를 유지하기 위한 보온용 작업복입니다.",
+          "id": "Pakaian kerja hangat untuk menjaga suhu tubuh di area yang sangat dingin.",
+          "audio": "/audio/03_k3_keselamatan_pabrik/11_Jawab_매우_추운_장소에서_몸_온도를_유지하기_위한_보온용_작업복입니다.mp3"
         },
         {
-          "label": "Versi Lengkap Resmi",
-          "ko": "매우 추운 장소에서 몸 온도를 유지하기 위한 보온용 작업복입니다.",
-          "id": "Pakaian kerja hangat untuk menjaga suhu tubuh di area yang sangat dingin."
+          "label": "Versi 1 (Super Ringkas)",
+          "ko": "추위를 막는 따뜻한 옷입니다.",
+          "id": "Pakaian hangat penahan hawa dingin.",
+          "audio": "/audio/tts/options/safety_11_opt_1.mp3"
+        },
+        {
+          "label": "Versi 2 (Standar Ringkas)",
+          "ko": "냉동창고 등 추운 곳에서 입는 작업복입니다.",
+          "id": "Pakaian kerja untuk area dingin seperti gudang beku.",
+          "audio": "/audio/tts/options/safety_11_opt_2.mp3"
         }
       ]
     },
@@ -2221,19 +2283,27 @@
       "question_ro": "Bohogureul wae chak-yonghayeoya halkkayo?",
       "question_id": "Mengapa pekerja wajib memakai Alat Pelindung Diri (APD)?",
       "answer_ko": "작업자의 생명과 건강을 지키기 위한 가장 기본적이고 필수적인 조치이기 때문입니다.",
-      "answer_id": "Karena APD adalah langkah paling mendasar dan wajib demi melindungi nyawa serta kesehatan pekerja.",
+      "answer_id": "Karena merupakan tindakan paling mendasar dan wajib untuk menjaga keselamatan dan kesehatan pekerja.",
       "audio_q": "/audio/03_k3_keselamatan_pabrik/12_Tanya_보호구를_왜_착용하여야_할까요.mp3",
       "audio_a": "/audio/03_k3_keselamatan_pabrik/12_Jawab_작업자의_생명과_건강을_지키기_위한_가장_기본적이고_필수적인_조치이기_때문입니다.mp3",
       "answer_options": [
         {
-          "label": "Versi Ringkas",
-          "ko": "작업자의 생명과 건강을 지키기 위한입니다.",
-          "id": "Karena APD adalah langkah paling mendasar dan wajib demi melindungi nyawa serta kesehatan pekerja."
+          "label": "Jawaban Resmi Asli",
+          "ko": "작업자의 생명과 건강을 지키기 위한 가장 기본적이고 필수적인 조치이기 때문입니다.",
+          "id": "Karena merupakan tindakan paling mendasar dan wajib untuk menjaga keselamatan dan kesehatan pekerja.",
+          "audio": "/audio/03_k3_keselamatan_pabrik/12_Jawab_작업자의_생명과_건강을_지키기_위한_가장_기본적이고_필수적인_조치이기_때문입니다.mp3"
         },
         {
-          "label": "Versi Lengkap Resmi",
-          "ko": "작업자의 생명과 건강을 지키기 위한 가장 기본적이고 필수적인 조치이기 때문입니다.",
-          "id": "Karena APD adalah langkah paling mendasar dan wajib demi melindungi nyawa serta kesehatan pekerja."
+          "label": "Versi 1 (Super Ringkas)",
+          "ko": "다치지 않고 생명을 지키기 위해서입니다.",
+          "id": "Agar tidak terluka dan melindungi nyawa.",
+          "audio": "/audio/tts/options/safety_12_opt_1.mp3"
+        },
+        {
+          "label": "Versi 2 (Standar Ringkas)",
+          "ko": "안전사고를 예방하기 위해서입니다.",
+          "id": "Untuk mencegah kecelakaan kerja.",
+          "audio": "/audio/tts/options/safety_12_opt_2.mp3"
         }
       ]
     },
@@ -2243,20 +2313,28 @@
       "question_ko": "머리를 보호하기 위해 착용하는 보호구는 무엇인가요?",
       "question_ro": "Meorireul bohohagi wihae chak-yonghaneun bohoguneun mueosingayo?",
       "question_id": "APD apa yang dikenakan untuk melindungi kepala?",
-      "answer_ko": "머리를 보호하기 위해서는 안전모를 착용해야 합니다. 안전모 착용 시에는 턱끈을 조여야 합니다.",
-      "answer_id": "Wajib mengenakan helm keselamatan (안전모), dan tali dagu harus dikencangkan saat mengenakannya.",
+      "answer_ko": "안전모를 착용해야 하며 턱끈을 조여야 합니다.",
+      "answer_id": "Harus memakai helm keselamatan dan mengencangkan tali dagu.",
       "audio_q": "/audio/03_k3_keselamatan_pabrik/13_Tanya_머리를_보호하기_위해_착용하는_보호구는_무엇인가요.mp3",
       "audio_a": "/audio/03_k3_keselamatan_pabrik/13_Jawab_안전모를_착용해야_하며_턱끈을_조여야_합니다.mp3",
       "answer_options": [
         {
-          "label": "Versi Ringkas",
-          "ko": "머리를 보호하기 위해서는 안전모를 착용해야입니다.",
-          "id": "Wajib mengenakan helm keselamatan (안전모)"
+          "label": "Jawaban Resmi Asli",
+          "ko": "안전모를 착용해야 하며 턱끈을 조여야 합니다.",
+          "id": "Harus memakai helm keselamatan dan mengencangkan tali dagu.",
+          "audio": "/audio/03_k3_keselamatan_pabrik/13_Jawab_안전모를_착용해야_하며_턱끈을_조여야_합니다.mp3"
         },
         {
-          "label": "Versi Lengkap Resmi",
-          "ko": "머리를 보호하기 위해서는 안전모를 착용해야 합니다. 안전모 착용 시에는 턱끈을 조여야 합니다.",
-          "id": "Wajib mengenakan helm keselamatan (안전모), dan tali dagu harus dikencangkan saat mengenakannya."
+          "label": "Versi 1 (Super Ringkas)",
+          "ko": "안전모입니다.",
+          "id": "Helm pengaman (safety helmet).",
+          "audio": "/audio/tts/options/safety_13_opt_1.mp3"
+        },
+        {
+          "label": "Versi 2 (Standar Ringkas)",
+          "ko": "안전모를 쓰고 턱끈을 매야 합니다.",
+          "id": "Memakai helm safety dan memasang tali dagunya.",
+          "audio": "/audio/tts/options/safety_13_opt_2.mp3"
         }
       ]
     },
@@ -2266,20 +2344,28 @@
       "question_ko": "높은 장소에서 작업 시 안전모 외에 착용해야 하는 보호구는 무엇인가요?",
       "question_ro": "Nop-eun jangsodeseo jageop si anjeonmo oe-e chak-yonghaeya haneun bohoguneun mueosingayo?",
       "question_id": "Saat bekerja di ketinggian, selain helm keselamatan, APD apa yang wajib dipakai?",
-      "answer_ko": "높은 장소에서 작업하는 경우에는 안전대를 착용하고 안전대 부착설비에 고리를 체결해야 합니다.",
-      "answer_id": "Saat bekerja di tempat tinggi, kenakan safety harness (안전대) dan kaitkan pengaitnya ke fasilitas penahan jatuh.",
+      "answer_ko": "안전대를 착용하고 안전대 부착설비에 고리를 체결해야 합니다.",
+      "answer_id": "Harus mengenakan tali pengaman (safety harness) dan mengaitkan kaitan pengait pada pengaman tali.",
       "audio_q": "/audio/03_k3_keselamatan_pabrik/14_Tanya_높은_장소에서_작업_시_안전모_외에_착용해야_하는_보호구는_무엇인가요.mp3",
       "audio_a": "/audio/03_k3_keselamatan_pabrik/14_Jawab_안전대를_착용하고_안전대_부착설비에_고리를_체결해야_합니다.mp3",
       "answer_options": [
         {
-          "label": "Versi Ringkas",
-          "ko": "높은 장소에서 작업하는 경우에는 안전대를입니다.",
-          "id": "Saat bekerja di tempat tinggi"
+          "label": "Jawaban Resmi Asli",
+          "ko": "안전대를 착용하고 안전대 부착설비에 고리를 체결해야 합니다.",
+          "id": "Harus mengenakan tali pengaman (safety harness) dan mengaitkan kaitan pengait pada pengaman tali.",
+          "audio": "/audio/03_k3_keselamatan_pabrik/14_Jawab_안전대를_착용하고_안전대_부착설비에_고리를_체결해야_합니다.mp3"
         },
         {
-          "label": "Versi Lengkap Resmi",
-          "ko": "높은 장소에서 작업하는 경우에는 안전대를 착용하고 안전대 부착설비에 고리를 체결해야 합니다.",
-          "id": "Saat bekerja di tempat tinggi, kenakan safety harness (안전대) dan kaitkan pengaitnya ke fasilitas penahan jatuh."
+          "label": "Versi 1 (Super Ringkas)",
+          "ko": "안전대입니다.",
+          "id": "Tali pengaman (safety harness).",
+          "audio": "/audio/tts/options/safety_14_opt_1.mp3"
+        },
+        {
+          "label": "Versi 2 (Standar Ringkas)",
+          "ko": "안전대를 착용하고 고리를 걸어야 합니다.",
+          "id": "Memakai tali pengaman dan memasang kaitannya.",
+          "audio": "/audio/tts/options/safety_14_opt_2.mp3"
         }
       ]
     },
@@ -2290,19 +2376,27 @@
       "question_ro": "Bisangguga mueosingayo?",
       "question_id": "Apakah yang dimaksud dengan pintu darurat (emergency exit)?",
       "answer_ko": "화재, 지진 등 갑작스러운 사고가 일어났을 때 신속하게 대피할 수 있도록 마련된 출입구입니다.",
-      "answer_id": "Pintu keluar yang disediakan agar orang dapat segera menyelamatkan diri saat terjadi kebakaran atau gempa bumi mendadak.",
+      "answer_id": "Pintu darurat yang disiapkan agar dapat dievakuasi dengan cepat saat terjadi kebakaran atau gempa bumi.",
       "audio_q": "/audio/03_k3_keselamatan_pabrik/15_Tanya_비상구가_무엇인가요.mp3",
       "audio_a": "/audio/03_k3_keselamatan_pabrik/15_Jawab_갑작스러운_사고가_일어났을_때_신속하게_대피할_수_있도록_마련된_출입구입니다.mp3",
       "answer_options": [
         {
-          "label": "Versi Ringkas",
-          "ko": "화재, 지진 등 갑작스러운 사고가입니다.",
-          "id": "Pintu keluar yang disediakan agar orang dapat segera menyelamatkan diri saat terjadi kebakaran atau gempa bumi mendadak."
+          "label": "Jawaban Resmi Asli",
+          "ko": "화재, 지진 등 갑작스러운 사고가 일어났을 때 신속하게 대피할 수 있도록 마련된 출입구입니다.",
+          "id": "Pintu darurat yang disiapkan agar dapat dievakuasi dengan cepat saat terjadi kebakaran atau gempa bumi.",
+          "audio": "/audio/03_k3_keselamatan_pabrik/15_Jawab_갑작스러운_사고가_일어났을_때_신속하게_대피할_수_있도록_마련된_출입구입니다.mp3"
         },
         {
-          "label": "Versi Lengkap Resmi",
-          "ko": "화재, 지진 등 갑작스러운 사고가 일어났을 때 신속하게 대피할 수 있도록 마련된 출입구입니다.",
-          "id": "Pintu keluar yang disediakan agar orang dapat segera menyelamatkan diri saat terjadi kebakaran atau gempa bumi mendadak."
+          "label": "Versi 1 (Super Ringkas)",
+          "ko": "위급할 때 탈출하는 문입니다.",
+          "id": "Pintu darurat saat keadaan genting.",
+          "audio": "/audio/tts/options/safety_15_opt_1.mp3"
+        },
+        {
+          "label": "Versi 2 (Standar Ringkas)",
+          "ko": "사고 발생 시 밖으로 나가는 출입구입니다.",
+          "id": "Pintu keluar saat terjadi kecelakaan atau kebakaran.",
+          "audio": "/audio/tts/options/safety_15_opt_2.mp3"
         }
       ]
     },
@@ -2318,14 +2412,22 @@
       "audio_a": "/audio/03_k3_keselamatan_pabrik/16_Jawab_위급_상황_시_작업자가_신속하고_안전하게_빠져나갈_수_있도록_확보된_이동_경로입니다.mp3",
       "answer_options": [
         {
-          "label": "Versi Ringkas",
-          "ko": "화재 등 위급 상황이 발생했을입니다.",
-          "id": "Jalur lintasan yang telah disiapkan sebelumnya agar pekerja dapat keluar dengan cepat dan selamat saat keadaan darurat."
+          "label": "Jawaban Resmi Asli",
+          "ko": "화재 등 위급 상황이 발생했을 때 작업자가 신속하고 안전하게 빠져나갈 수 있도록 사전에 확보된 이동 경로입니다.",
+          "id": "Jalur lintasan yang telah disiapkan sebelumnya agar pekerja dapat keluar dengan cepat dan selamat saat keadaan darurat.",
+          "audio": "/audio/03_k3_keselamatan_pabrik/16_Jawab_위급_상황_시_작업자가_신속하고_안전하게_빠져나갈_수_있도록_확보된_이동_경로입니다.mp3"
         },
         {
-          "label": "Versi Lengkap Resmi",
-          "ko": "화재 등 위급 상황이 발생했을 때 작업자가 신속하고 안전하게 빠져나갈 수 있도록 사전에 확보된 이동 경로입니다.",
-          "id": "Jalur lintasan yang telah disiapkan sebelumnya agar pekerja dapat keluar dengan cepat dan selamat saat keadaan darurat."
+          "label": "Versi 1 (Super Ringkas)",
+          "ko": "안전하게 빠져나가는 길입니다.",
+          "id": "Jalur untuk keluar dengan selamat.",
+          "audio": "/audio/tts/options/safety_16_opt_1.mp3"
+        },
+        {
+          "label": "Versi 2 (Standar Ringkas)",
+          "ko": "비상시 대피하는 통로입니다.",
+          "id": "Jalur evakuasi saat darurat.",
+          "audio": "/audio/tts/options/safety_16_opt_2.mp3"
         }
       ]
     },
@@ -2336,19 +2438,27 @@
       "question_ro": "Bisanggu deung daepironeun wae hwaginhaeya halkkayo?",
       "question_id": "Mengapa kita harus mengetahui letak pintu darurat dan jalur evakuasi?",
       "answer_ko": "사고가 발생하였을 때 생명을 지키기 위한 가장 기본적인 재난 대응 수칙으로 신속한 이동이 가능하기 때문입니다.",
-      "answer_id": "Karena saat terjadi musibah, ini adalah aturan tanggap darurat paling mendasar agar kita dapat menyelamatkan nyawa dengan evakuasi cepat.",
+      "answer_id": "Karena merupakan aturan tanggap darurat paling mendasar untuk menyelamatkan nyawa agar dapat segera keluar saat terjadi musibah.",
       "audio_q": "/audio/03_k3_keselamatan_pabrik/17_Tanya_비상구_등_대피로는_왜_확인해야_할까요.mp3",
       "audio_a": "/audio/03_k3_keselamatan_pabrik/17_Jawab_사고_발생_시_생명을_지키기_위한_기본_수칙으로_신속한_이동이_가능하기_때문입니다.mp3",
       "answer_options": [
         {
-          "label": "Versi Ringkas",
-          "ko": "사고가 발생하였을 때 생명을 지키기입니다.",
-          "id": "Karena saat terjadi musibah"
+          "label": "Jawaban Resmi Asli",
+          "ko": "사고가 발생하였을 때 생명을 지키기 위한 가장 기본적인 재난 대응 수칙으로 신속한 이동이 가능하기 때문입니다.",
+          "id": "Karena merupakan aturan tanggap darurat paling mendasar untuk menyelamatkan nyawa agar dapat segera keluar saat terjadi musibah.",
+          "audio": "/audio/03_k3_keselamatan_pabrik/17_Jawab_사고_발생_시_생명을_지키기_위한_기본_수칙으로_신속한_이동이_가능하기_때문입니다.mp3"
         },
         {
-          "label": "Versi Lengkap Resmi",
-          "ko": "사고가 발생하였을 때 생명을 지키기 위한 가장 기본적인 재난 대응 수칙으로 신속한 이동이 가능하기 때문입니다.",
-          "id": "Karena saat terjadi musibah, ini adalah aturan tanggap darurat paling mendasar agar kita dapat menyelamatkan nyawa dengan evakuasi cepat."
+          "label": "Versi 1 (Super Ringkas)",
+          "ko": "빨리 안전하게 도망치기 위해서입니다.",
+          "id": "Agar bisa segera lari ke tempat aman.",
+          "audio": "/audio/tts/options/safety_17_opt_1.mp3"
+        },
+        {
+          "label": "Versi 2 (Standar Ringkas)",
+          "ko": "위급할 때 신속히 대피하기 위해서입니다.",
+          "id": "Agar bisa segera evakuasi saat keadaan darurat.",
+          "audio": "/audio/tts/options/safety_17_opt_2.mp3"
         }
       ]
     },
@@ -2358,20 +2468,28 @@
       "question_ko": "소화기란 무엇이며 소화기의 색상은 어떻게 되나요?",
       "question_ro": "Sohwagiran mueosimyeo sohwagieui saeksang-eun eotteoke doenayo?",
       "question_id": "Apakah itu APAR (alat pemadam api ringan) dan apa warnanya?",
-      "answer_ko": "소화기란 불을 끄기 위한 도구로 보통은 붉은색입니다. 평소에 소화기의 위치를 확인해 두는 것이 중요합니다.",
-      "answer_id": "APAR adalah alat pemadam kebakaran dan biasanya berwarna merah. Sangat penting mengetahui letak APAR dalam keseharian.",
+      "answer_ko": "소화기란 불을 끄기 위한 도구로 보통은 붉은색입니다. 평소에 소화기의 위치를 확인해야 합니다.",
+      "answer_id": "APAR adalah alat pemadam kebakaran dan biasanya berwarna merah. Kita harus mengecek letak APAR setiap saat.",
       "audio_q": "/audio/03_k3_keselamatan_pabrik/18_Tanya_소화기란_무엇이며_소화기의_색상은_어떻게_되나요.mp3",
       "audio_a": "/audio/03_k3_keselamatan_pabrik/18_Jawab_불을_끄기_위한_도구로_보통은_붉은색입니다.mp3",
       "answer_options": [
         {
-          "label": "Versi Ringkas",
-          "ko": "소화기란 불을 끄기 위한 도구로입니다.",
-          "id": "APAR adalah alat pemadam kebakaran dan biasanya berwarna merah. Sangat penting mengetahui letak APAR dalam keseharian."
+          "label": "Jawaban Resmi Asli",
+          "ko": "소화기란 불을 끄기 위한 도구로 보통은 붉은색입니다. 평소에 소화기의 위치를 확인해야 합니다.",
+          "id": "APAR adalah alat pemadam kebakaran dan biasanya berwarna merah. Kita harus mengecek letak APAR setiap saat.",
+          "audio": "/audio/03_k3_keselamatan_pabrik/18_Jawab_불을_끄기_위한_도구로_보통은_붉은색입니다.mp3"
         },
         {
-          "label": "Versi Lengkap Resmi",
-          "ko": "소화기란 불을 끄기 위한 도구로 보통은 붉은색입니다. 평소에 소화기의 위치를 확인해 두는 것이 중요합니다.",
-          "id": "APAR adalah alat pemadam kebakaran dan biasanya berwarna merah. Sangat penting mengetahui letak APAR dalam keseharian."
+          "label": "Versi 1 (Super Ringkas)",
+          "ko": "불을 끄는 기구이며 빨간색입니다.",
+          "id": "Alat pemadam api dan warnanya merah.",
+          "audio": "/audio/tts/options/safety_18_opt_1.mp3"
+        },
+        {
+          "label": "Versi 2 (Standar Ringkas)",
+          "ko": "화재를 진압하는 도구이고 빨간색입니다.",
+          "id": "Alat memadamkan kebakaran dan berwarna merah.",
+          "audio": "/audio/tts/options/safety_18_opt_2.mp3"
         }
       ]
     },
@@ -2382,19 +2500,27 @@
       "question_ro": "Anjeonbogeon pyojineun mueosingayo?",
       "question_id": "Apakah yang dimaksud dengan rambu K3 (keselamatan & kesehatan kerja)?",
       "answer_ko": "작업장 내 위험 요인을 알리고 안전한 행동을 유도하기 위해 사용하는 시각적 표지입니다.",
-      "answer_id": "Rambu visual yang digunakan untuk memberitahukan bahaya di tempat kerja dan mengarahkan perilaku aman.",
+      "answer_id": "Rambu visual untuk memberitahu faktor bahaya di area kerja dan mengarahkan perilaku aman.",
       "audio_q": "/audio/03_k3_keselamatan_pabrik/19_Tanya_안전보건표지는_무엇인가요.mp3",
       "audio_a": "/audio/03_k3_keselamatan_pabrik/19_Jawab_위험_요인을_알리고_안전한_행동을_유도하기_위해_사용하는_시각적_표지입니다.mp3",
       "answer_options": [
         {
-          "label": "Versi Ringkas",
-          "ko": "작업장 내 위험 요인을 알리고입니다.",
-          "id": "Rambu visual yang digunakan untuk memberitahukan bahaya di tempat kerja dan mengarahkan perilaku aman."
+          "label": "Jawaban Resmi Asli",
+          "ko": "작업장 내 위험 요인을 알리고 안전한 행동을 유도하기 위해 사용하는 시각적 표지입니다.",
+          "id": "Rambu visual untuk memberitahu faktor bahaya di area kerja dan mengarahkan perilaku aman.",
+          "audio": "/audio/03_k3_keselamatan_pabrik/19_Jawab_위험_요인을_알리고_안전한_행동을_유도하기_위해_사용하는_시각적_표지입니다.mp3"
         },
         {
-          "label": "Versi Lengkap Resmi",
-          "ko": "작업장 내 위험 요인을 알리고 안전한 행동을 유도하기 위해 사용하는 시각적 표지입니다.",
-          "id": "Rambu visual yang digunakan untuk memberitahukan bahaya di tempat kerja dan mengarahkan perilaku aman."
+          "label": "Versi 1 (Super Ringkas)",
+          "ko": "위험을 알리는 그림 표지입니다.",
+          "id": "Gambar rambu pengingat bahaya.",
+          "audio": "/audio/tts/options/safety_19_opt_1.mp3"
+        },
+        {
+          "label": "Versi 2 (Standar Ringkas)",
+          "ko": "안전을 지키기 위해 보는 경고 표지입니다.",
+          "id": "Rambu peringatan untuk keselamatan kerja.",
+          "audio": "/audio/tts/options/safety_19_opt_2.mp3"
         }
       ]
     },
@@ -2404,20 +2530,28 @@
       "question_ko": "안전보건표지에는 어떤 종류가 있을까요?",
       "question_ro": "Anjeonbogeon pyojieneun eotteon jongnyuga isseulkkayo?",
       "question_id": "Apa saja jenis-jenis rambu keselamatan dan kesehatan kerja (K3)?",
-      "answer_ko": "위험 행동을 막기 위한 금지 표지, 위험에 대한 주의를 위한 경고 표지, 안전 행동 유도를 위한 지시 표시, 대피 경로 등을 알려주기 위한 안내 표지가 있습니다.",
-      "answer_id": "Ada rambu Larangan (금지), rambu Peringatan Bahaya (경고), rambu Tindakan Wajib (지시), dan rambu Panduan Arah (안내).",
+      "answer_ko": "위험 행동을 막기 위한 금지 표지, 위험에 대한 주의를 위한 경고 표지, 안전 행동을 명령하는 지시 표지, 대피 등을 안내하는 안내 표지가 있습니다.",
+      "answer_id": "Ada rambu larangan, rambu peringatan/bahaya, rambu petunjuk/perintah wajib, dan rambu petunjuk arah/informasi.",
       "audio_q": "/audio/03_k3_keselamatan_pabrik/20_Tanya_안전보건표지에는_어떤_종류가_있을까요.mp3",
       "audio_a": "/audio/03_k3_keselamatan_pabrik/20_Jawab_금지_표지_경고_표지_지시_표시_안내_표지가_있습니다.mp3",
       "answer_options": [
         {
-          "label": "Versi Ringkas",
-          "ko": "위험 행동을 막기 위한 금지입니다.",
-          "id": "Ada rambu Larangan (금지)"
+          "label": "Jawaban Resmi Asli",
+          "ko": "위험 행동을 막기 위한 금지 표지, 위험에 대한 주의를 위한 경고 표지, 안전 행동을 명령하는 지시 표지, 대피 등을 안내하는 안내 표지가 있습니다.",
+          "id": "Ada rambu larangan, rambu peringatan/bahaya, rambu petunjuk/perintah wajib, dan rambu petunjuk arah/informasi.",
+          "audio": "/audio/03_k3_keselamatan_pabrik/20_Jawab_금지_표지_경고_표지_지시_표시_안내_표지가_있습니다.mp3"
         },
         {
-          "label": "Versi Lengkap Resmi",
-          "ko": "위험 행동을 막기 위한 금지 표지, 위험에 대한 주의를 위한 경고 표지, 안전 행동 유도를 위한 지시 표시, 대피 경로 등을 알려주기 위한 안내 표지가 있습니다.",
-          "id": "Ada rambu Larangan (금지), rambu Peringatan Bahaya (경고), rambu Tindakan Wajib (지시), dan rambu Panduan Arah (안내)."
+          "label": "Versi 1 (Super Ringkas)",
+          "ko": "금지, 경고, 지시, 안내 표지가 있습니다.",
+          "id": "Ada rambu larangan, peringatan, instruksi, dan petunjuk.",
+          "audio": "/audio/tts/options/safety_20_opt_1.mp3"
+        },
+        {
+          "label": "Versi 2 (Standar Ringkas)",
+          "ko": "금지 표지와 경고 표지, 지시 표지가 있습니다.",
+          "id": "Ada rambu larangan, peringatan, dan instruksi APD.",
+          "audio": "/audio/tts/options/safety_20_opt_2.mp3"
         }
       ]
     },
@@ -2427,20 +2561,28 @@
       "question_ko": "안전보건표지를 왜 확인해야 할까요?",
       "question_ro": "Anjeonbogeon pyojireul wae hwaginhaeya halkkayo?",
       "question_id": "Mengapa kita harus memeriksa rambu keselamatan dan kesehatan kerja (K3)?",
-      "answer_ko": "표지를 통하여 눈에 보이지 않는 위험을 시각적으로 가장 빠르고 명확하게 파악할 수 있기 때문입니다.",
-      "answer_id": "Karena melalui rambu kita dapat mengetahui dan mewaspadai bahaya yang tak terlihat secara cepat dan jelas.",
+      "answer_ko": "표지를 통하여 눈에 보이지 않는 위험을 시각적으로 가장 빠르고 명확하게 파악하여 사고를 방지하기 위해서입니다.",
+      "answer_id": "Untuk mencegah kecelakaan dengan memahami bahaya tersembunyi secara cepat dan jelas melalui rambu visual.",
       "audio_q": "/audio/03_k3_keselamatan_pabrik/21_Tanya_안전보건표지를_왜_확인해야_할까요.mp3",
       "audio_a": "/audio/03_k3_keselamatan_pabrik/21_Jawab_표지를_통하여_위험을_파악하기_위해서입니다.mp3",
       "answer_options": [
         {
-          "label": "Versi Ringkas",
-          "ko": "표지를 통하여 눈에 보이지 않는입니다.",
-          "id": "Karena melalui rambu kita dapat mengetahui dan mewaspadai bahaya yang tak terlihat secara cepat dan jelas."
+          "label": "Jawaban Resmi Asli",
+          "ko": "표지를 통하여 눈에 보이지 않는 위험을 시각적으로 가장 빠르고 명확하게 파악하여 사고를 방지하기 위해서입니다.",
+          "id": "Untuk mencegah kecelakaan dengan memahami bahaya tersembunyi secara cepat dan jelas melalui rambu visual.",
+          "audio": "/audio/03_k3_keselamatan_pabrik/21_Jawab_표지를_통하여_위험을_파악하기_위해서입니다.mp3"
         },
         {
-          "label": "Versi Lengkap Resmi",
-          "ko": "표지를 통하여 눈에 보이지 않는 위험을 시각적으로 가장 빠르고 명확하게 파악할 수 있기 때문입니다.",
-          "id": "Karena melalui rambu kita dapat mengetahui dan mewaspadai bahaya yang tak terlihat secara cepat dan jelas."
+          "label": "Versi 1 (Super Ringkas)",
+          "ko": "위험을 미리 알고 사고를 막기 위해서입니다.",
+          "id": "Untuk mengetahui bahaya lebih awal dan mencegah celaka.",
+          "audio": "/audio/tts/options/safety_21_opt_1.mp3"
+        },
+        {
+          "label": "Versi 2 (Standar Ringkas)",
+          "ko": "작업장 위험을 파악하기 위해서입니다.",
+          "id": "Untuk memahami faktor bahaya tempat kerja.",
+          "audio": "/audio/tts/options/safety_21_opt_2.mp3"
         }
       ]
     },
@@ -2450,20 +2592,28 @@
       "question_ko": "위험장소 출입금지 등 금지표지는 무슨 색인가요?",
       "question_ro": "Wiheomjangso churipgeumji deung geumjipyojineun museun saekingayo?",
       "question_id": "Rambu larangan seperti dilarang masuk ke tempat berbahaya itu berwarna apa?",
-      "answer_ko": "출입금지 등 위험 행동을 막기 위한 금지 표지는 붉은색 원 모양에 붉은색 사선이 그려져 있습니다.",
-      "answer_id": "Rambu larangan untuk mencegah tindakan berbahaya seperti dilarang masuk digambarkan dengan lingkaran merah dan garis miring merah.",
+      "answer_ko": "출입금지 등 위험 행동을 막기 위한 금지 표지는 붉은색 원 모양에 붉은색 사선 형태입니다.",
+      "answer_id": "Rambu larangan berbentuk lingkaran merah dengan garis miring merah.",
       "audio_q": "/audio/03_k3_keselamatan_pabrik/22_Tanya_위험장소_출입금지_등_금지표지는_무슨_색인가요.mp3",
       "audio_a": "/audio/03_k3_keselamatan_pabrik/22_Jawab_빨간색입니다.mp3",
       "answer_options": [
         {
-          "label": "Versi Ringkas",
-          "ko": "출입금지 등 위험 행동을 막기입니다.",
-          "id": "Rambu larangan untuk mencegah tindakan berbahaya seperti dilarang masuk digambarkan dengan lingkaran merah dan garis miring merah."
+          "label": "Jawaban Resmi Asli",
+          "ko": "출입금지 등 위험 행동을 막기 위한 금지 표지는 붉은색 원 모양에 붉은색 사선 형태입니다.",
+          "id": "Rambu larangan berbentuk lingkaran merah dengan garis miring merah.",
+          "audio": "/audio/03_k3_keselamatan_pabrik/22_Jawab_빨간색입니다.mp3"
         },
         {
-          "label": "Versi Lengkap Resmi",
-          "ko": "출입금지 등 위험 행동을 막기 위한 금지 표지는 붉은색 원 모양에 붉은색 사선이 그려져 있습니다.",
-          "id": "Rambu larangan untuk mencegah tindakan berbahaya seperti dilarang masuk digambarkan dengan lingkaran merah dan garis miring merah."
+          "label": "Versi 1 (Super Ringkas)",
+          "ko": "빨간색입니다.",
+          "id": "Berwarna merah.",
+          "audio": "/audio/tts/options/safety_22_opt_1.mp3"
+        },
+        {
+          "label": "Versi 2 (Standar Ringkas)",
+          "ko": "빨간색 원과 사선입니다.",
+          "id": "Lingkaran merah dan garis silang merah.",
+          "audio": "/audio/tts/options/safety_22_opt_2.mp3"
         }
       ]
     },
@@ -2473,20 +2623,28 @@
       "question_ko": "방호장치가 무엇인가요?",
       "question_ro": "Banghojangchiga mueosingayo?",
       "question_id": "Apakah yang dimaksud dengan alat pengaman mesin (safety guard)?",
-      "answer_ko": "기계 등에서 발생하는 위험 요인으로부터 작업자의 신체를 보호하거나 위험을 차단하는 설비입니다.",
-      "answer_id": "Perlengkapan yang melindungi tubuh pekerja atau mengisolasi bahaya dari faktor bahaya yang muncul dari mesin.",
+      "answer_ko": "기계 등에서 발생하는 위험 요인으로부터 작업자의 신체를 보호하거나 위험을 차단하기 위한 안전장치입니다.",
+      "answer_id": "Perangkat keselamatan untuk melindungi tubuh pekerja atau memutus sumber bahaya dari mesin.",
       "audio_q": "/audio/03_k3_keselamatan_pabrik/23_Tanya_방호장치가_무엇인가요.mp3",
       "audio_a": "/audio/03_k3_keselamatan_pabrik/23_Jawab_사고를_예방하는_안전장치입니다.mp3",
       "answer_options": [
         {
-          "label": "Versi Ringkas",
-          "ko": "기계 등에서 발생하는 위험 요인으로부터입니다.",
-          "id": "Perlengkapan yang melindungi tubuh pekerja atau mengisolasi bahaya dari faktor bahaya yang muncul dari mesin."
+          "label": "Jawaban Resmi Asli",
+          "ko": "기계 등에서 발생하는 위험 요인으로부터 작업자의 신체를 보호하거나 위험을 차단하기 위한 안전장치입니다.",
+          "id": "Perangkat keselamatan untuk melindungi tubuh pekerja atau memutus sumber bahaya dari mesin.",
+          "audio": "/audio/03_k3_keselamatan_pabrik/23_Jawab_사고를_예방하는_안전장치입니다.mp3"
         },
         {
-          "label": "Versi Lengkap Resmi",
-          "ko": "기계 등에서 발생하는 위험 요인으로부터 작업자의 신체를 보호하거나 위험을 차단하는 설비입니다.",
-          "id": "Perlengkapan yang melindungi tubuh pekerja atau mengisolasi bahaya dari faktor bahaya yang muncul dari mesin."
+          "label": "Versi 1 (Super Ringkas)",
+          "ko": "기계 사고를 막는 안전장치입니다.",
+          "id": "Pengaman pencegah kecelakaan mesin.",
+          "audio": "/audio/tts/options/safety_23_opt_1.mp3"
+        },
+        {
+          "label": "Versi 2 (Standar Ringkas)",
+          "ko": "작업자를 보호하는 기계 덮개나 센서입니다.",
+          "id": "Penutup atau sensor mesin pelindung pekerja.",
+          "audio": "/audio/tts/options/safety_23_opt_2.mp3"
         }
       ]
     },
@@ -2496,20 +2654,28 @@
       "question_ko": "정상 작동이 무슨 뜻인가요?",
       "question_ro": "Jeongsang jakdong-i museun tteusingayo?",
       "question_id": "Apakah arti dari operasi normal (bekerja dengan normal)?",
-      "answer_ko": "장치, 설비 등이 정해진 목적과 기준에 맞게 안전하고 정확하게 작동하는 상태입니다.",
-      "answer_id": "Kondisi di mana alat atau perlengkapan bekerja secara aman dan akurat sesuai tujuan serta standar yang ditetapkan.",
+      "answer_ko": "장치, 설비 등이 정해진 목적과 기준에 맞게 안전하고 정확하게 작동하는 상태를 의미합니다.",
+      "answer_id": "Kondisi peralatan atau instalasi beroperasi secara aman dan tepat sesuai fungsi dan standarnya.",
       "audio_q": "/audio/03_k3_keselamatan_pabrik/24_Tanya_정상_작동이_무슨_뜻인가요.mp3",
       "audio_a": "/audio/03_k3_keselamatan_pabrik/24_Jawab_기계가_문제없이_잘_돌아가는_것입니다.mp3",
       "answer_options": [
         {
-          "label": "Versi Ringkas",
-          "ko": "장치, 설비 등이 정해진 목적과입니다.",
-          "id": "Kondisi di mana alat atau perlengkapan bekerja secara aman dan akurat sesuai tujuan serta standar yang ditetapkan."
+          "label": "Jawaban Resmi Asli",
+          "ko": "장치, 설비 등이 정해진 목적과 기준에 맞게 안전하고 정확하게 작동하는 상태를 의미합니다.",
+          "id": "Kondisi peralatan atau instalasi beroperasi secara aman dan tepat sesuai fungsi dan standarnya.",
+          "audio": "/audio/03_k3_keselamatan_pabrik/24_Jawab_기계가_문제없이_잘_돌아가는_것입니다.mp3"
         },
         {
-          "label": "Versi Lengkap Resmi",
-          "ko": "장치, 설비 등이 정해진 목적과 기준에 맞게 안전하고 정확하게 작동하는 상태입니다.",
-          "id": "Kondisi di mana alat atau perlengkapan bekerja secara aman dan akurat sesuai tujuan serta standar yang ditetapkan."
+          "label": "Versi 1 (Super Ringkas)",
+          "ko": "기계가 고장 없이 잘 돌아가는 것입니다.",
+          "id": "Mesin berputar/beroperasi dengan baik tanpa rusak.",
+          "audio": "/audio/tts/options/safety_24_opt_1.mp3"
+        },
+        {
+          "label": "Versi 2 (Standar Ringkas)",
+          "ko": "문제없이 바르게 작동하는 것입니다.",
+          "id": "Beroperasi dengan benar tanpa masalah.",
+          "audio": "/audio/tts/options/safety_24_opt_2.mp3"
         }
       ]
     },
@@ -2519,20 +2685,28 @@
       "question_ko": "방호장치 정상 작동 여부를 왜 확인하여야 하나요?",
       "question_ro": "Banghojangchi jeongsang jakdong yeobureul wae hwaginhayeoya hanayo?",
       "question_id": "Mengapa kita harus memeriksa apakah alat pengaman mesin berfungsi normal?",
-      "answer_ko": "사람이 실수를 하더라도 방호장치가 정상적으로 작동해야만 실질적인 보호 효과가 있기 때문입니다.",
-      "answer_id": "Karena meskipun manusia melakukan kesalahan, alat pengaman harus berfungsi normal agar memberikan perlindungan yang nyata.",
+      "answer_ko": "사람이 실수를 하더라도 방호장치가 정상적으로 작동해야만 실질적인 보호 효과를 발휘하여 사고를 막을 수 있기 때문입니다.",
+      "answer_id": "Karena pengaman harus bekerja normal agar tetap melindungi dan mencegah kecelakaan meskipun manusia melakukan kesalahan.",
       "audio_q": "/audio/03_k3_keselamatan_pabrik/25_Tanya_방호장치_정상_작동_여부를_왜_확인하여야_하나요.mp3",
       "audio_a": "/audio/03_k3_keselamatan_pabrik/25_Jawab_안전사고를_방지하기_위해서입니다.mp3",
       "answer_options": [
         {
-          "label": "Versi Ringkas",
-          "ko": "사람이 실수를 하더라도 방호장치가 정상적으로입니다.",
-          "id": "Karena meskipun manusia melakukan kesalahan"
+          "label": "Jawaban Resmi Asli",
+          "ko": "사람이 실수를 하더라도 방호장치가 정상적으로 작동해야만 실질적인 보호 효과를 발휘하여 사고를 막을 수 있기 때문입니다.",
+          "id": "Karena pengaman harus bekerja normal agar tetap melindungi dan mencegah kecelakaan meskipun manusia melakukan kesalahan.",
+          "audio": "/audio/03_k3_keselamatan_pabrik/25_Jawab_안전사고를_방지하기_위해서입니다.mp3"
         },
         {
-          "label": "Versi Lengkap Resmi",
-          "ko": "사람이 실수를 하더라도 방호장치가 정상적으로 작동해야만 실질적인 보호 효과가 있기 때문입니다.",
-          "id": "Karena meskipun manusia melakukan kesalahan, alat pengaman harus berfungsi normal agar memberikan perlindungan yang nyata."
+          "label": "Versi 1 (Super Ringkas)",
+          "ko": "사고를 확실히 막기 위해서입니다.",
+          "id": "Untuk memastikan terhindar dari kecelakaan.",
+          "audio": "/audio/tts/options/safety_25_opt_1.mp3"
+        },
+        {
+          "label": "Versi 2 (Standar Ringkas)",
+          "ko": "끼임이나 감전 사고를 방지하기 위해서입니다.",
+          "id": "Untuk mencegah kecelakaan terjepit atau tersengat listrik.",
+          "audio": "/audio/tts/options/safety_25_opt_2.mp3"
         }
       ]
     },
@@ -2542,20 +2716,28 @@
       "question_ko": "작업 전 안전점검이 무엇인가요?",
       "question_ro": "Jageop jeon anjeonjeomgeom-i mueosingayo?",
       "question_id": "Apakah yang dimaksud dengan inspeksi keselamatan sebelum bekerja?",
-      "answer_ko": "기계에 이상한 소리가 나거나 흔들리거나 하면 사용하지 말고 반장님 등 관리자에게 보고해야 합니다.",
-      "answer_id": "Jika mesin mengeluarkan suara aneh atau bergetar ganjil, jangan digunakan dan segera laporkan kepada mandor/pengawas.",
+      "answer_ko": "기계에 이상한 소리가 나거나 흔들리거나 하면 사용하지 말고 반장님 등 관리자에게 알리고 점검을 받아야 합니다.",
+      "answer_id": "Jika mesin bersuara aneh atau bergetar tidak wajar, jangan gunakan, segera lapor mandor untuk diperiksa.",
       "audio_q": "/audio/03_k3_keselamatan_pabrik/26_Tanya_작업_전_안전점검이_무엇인가요.mp3",
       "audio_a": "/audio/03_k3_keselamatan_pabrik/26_Jawab_일하기_전에_위험_요소를_확인하는_것입니다.mp3",
       "answer_options": [
         {
-          "label": "Versi Ringkas",
-          "ko": "기계에 이상한 소리가 나거나 흔들리거나입니다.",
-          "id": "Jika mesin mengeluarkan suara aneh atau bergetar ganjil"
+          "label": "Jawaban Resmi Asli",
+          "ko": "기계에 이상한 소리가 나거나 흔들리거나 하면 사용하지 말고 반장님 등 관리자에게 알리고 점검을 받아야 합니다.",
+          "id": "Jika mesin bersuara aneh atau bergetar tidak wajar, jangan gunakan, segera lapor mandor untuk diperiksa.",
+          "audio": "/audio/03_k3_keselamatan_pabrik/26_Jawab_일하기_전에_위험_요소를_확인하는_것입니다.mp3"
         },
         {
-          "label": "Versi Lengkap Resmi",
-          "ko": "기계에 이상한 소리가 나거나 흔들리거나 하면 사용하지 말고 반장님 등 관리자에게 보고해야 합니다.",
-          "id": "Jika mesin mengeluarkan suara aneh atau bergetar ganjil, jangan digunakan dan segera laporkan kepada mandor/pengawas."
+          "label": "Versi 1 (Super Ringkas)",
+          "ko": "일하기 전에 기계 이상을 확인하는 것입니다.",
+          "id": "Mengecek kondisi mesin sebelum mulai bekerja.",
+          "audio": "/audio/tts/options/safety_26_opt_1.mp3"
+        },
+        {
+          "label": "Versi 2 (Standar Ringkas)",
+          "ko": "기계와 공구의 안전 상태를 미리 확인합니다.",
+          "id": "Memeriksa keselamatan mesin dan alat sebelum kerja.",
+          "audio": "/audio/tts/options/safety_26_opt_2.mp3"
         }
       ]
     },
@@ -2565,20 +2747,28 @@
       "question_ko": "화학물질이 무엇인가요?",
       "question_ro": "Hwahangmuljiri mueosingayo?",
       "question_id": "Apakah yang dimaksud dengan bahan kimia berbahaya di pabrik?",
-      "answer_ko": "사업장에서 제품을 만드는 데 사용하는 고체, 액체, 기체로 사람에게 유해하거나 폭발 등의 위험성을 가진 물질입니다.",
-      "answer_id": "Bahan berwujud padat, cair, atau gas yang digunakan di pabrik untuk membuat produk, yang berpotensi bahaya atau ledakan bagi manusia.",
+      "answer_ko": "사업장에서 제품을 만드는 데 사용하는 고체, 액체, 기체로 사람에게 유해하거나 위험한 물질을 의미합니다.",
+      "answer_id": "Benda padat, cair, atau gas yang digunakan dalam produksi pabrik yang berbahaya atau beracun bagi manusia.",
       "audio_q": "/audio/03_k3_keselamatan_pabrik/27_Tanya_화학물질이_무엇인가요.mp3",
       "audio_a": "/audio/03_k3_keselamatan_pabrik/27_Jawab_신나_페인트_기름_같은_물질입니다.mp3",
       "answer_options": [
         {
-          "label": "Versi Ringkas",
-          "ko": "사업장에서 제품을 만드는 데 사용하는입니다.",
-          "id": "Bahan berwujud padat"
+          "label": "Jawaban Resmi Asli",
+          "ko": "사업장에서 제품을 만드는 데 사용하는 고체, 액체, 기체로 사람에게 유해하거나 위험한 물질을 의미합니다.",
+          "id": "Benda padat, cair, atau gas yang digunakan dalam produksi pabrik yang berbahaya atau beracun bagi manusia.",
+          "audio": "/audio/03_k3_keselamatan_pabrik/27_Jawab_신나_페인트_기름_같은_물질입니다.mp3"
         },
         {
-          "label": "Versi Lengkap Resmi",
-          "ko": "사업장에서 제품을 만드는 데 사용하는 고체, 액체, 기체로 사람에게 유해하거나 폭발 등의 위험성을 가진 물질입니다.",
-          "id": "Bahan berwujud padat, cair, atau gas yang digunakan di pabrik untuk membuat produk, yang berpotensi bahaya atau ledakan bagi manusia."
+          "label": "Versi 1 (Super Ringkas)",
+          "ko": "신나, 페인트 같은 위험한 약품입니다.",
+          "id": "Bahan berbahaya seperti thiner atau cat.",
+          "audio": "/audio/tts/options/safety_27_opt_1.mp3"
+        },
+        {
+          "label": "Versi 2 (Standar Ringkas)",
+          "ko": "공장에서 쓰는 유해한 액체나 가스입니다.",
+          "id": "Cairan atau gas berbahaya yang dipakai di pabrik.",
+          "audio": "/audio/tts/options/safety_27_opt_2.mp3"
         }
       ]
     },
@@ -2588,20 +2778,28 @@
       "question_ko": "MSDS(물질안전보건자료)가 무엇인가요?",
       "question_ro": "MSDS(muljil-anjeon-bogeon-jaryo)ga mueosingayo?",
       "question_id": "Apakah yang dimaksud dengan MSDS (Lembar Data Keselamatan Bahan)?",
-      "answer_ko": "화학물질에 대한 정보, 이름, 성분, 유해성, 위험성, 보관 방법, 다룰 때 주의할 점, 필요한 보호구, 응급 조치 등이 담긴 설명서입니다.",
-      "answer_id": "Buku panduan yang memuat informasi bahan kimia: nama, komposisi, bahaya, metode penyimpanan, tindakan pencegahan saat penanganan, APD yang dibutuhkan, dan pertolongan pertama.",
+      "answer_ko": "화학물질에 대한 정보, 이름, 성분, 유해성, 위험성, 보관 방법, 다룰 때 주의사항, 응급조치 요령 등이 적혀있는 설명서입니다.",
+      "answer_id": "Lembar panduan keselamatan yang memuat nama, kandungan, bahaya, cara simpan, tindakan darurat bahan kimia.",
       "audio_q": "/audio/03_k3_keselamatan_pabrik/28_Tanya_MSDS_물질안전보건자료가_무엇인가요.mp3",
       "audio_a": "/audio/03_k3_keselamatan_pabrik/28_Jawab_화학물질의_안전_설명서입니다.mp3",
       "answer_options": [
         {
-          "label": "Versi Ringkas",
-          "ko": "화학물질에 대한 정보, 이름, 성분,입니다.",
-          "id": "Buku panduan yang memuat informasi bahan kimia: nama"
+          "label": "Jawaban Resmi Asli",
+          "ko": "화학물질에 대한 정보, 이름, 성분, 유해성, 위험성, 보관 방법, 다룰 때 주의사항, 응급조치 요령 등이 적혀있는 설명서입니다.",
+          "id": "Lembar panduan keselamatan yang memuat nama, kandungan, bahaya, cara simpan, tindakan darurat bahan kimia.",
+          "audio": "/audio/03_k3_keselamatan_pabrik/28_Jawab_화학물질의_안전_설명서입니다.mp3"
         },
         {
-          "label": "Versi Lengkap Resmi",
-          "ko": "화학물질에 대한 정보, 이름, 성분, 유해성, 위험성, 보관 방법, 다룰 때 주의할 점, 필요한 보호구, 응급 조치 등이 담긴 설명서입니다.",
-          "id": "Buku panduan yang memuat informasi bahan kimia: nama, komposisi, bahaya, metode penyimpanan, tindakan pencegahan saat penanganan, APD yang dibutuhkan, dan pertolongan pertama."
+          "label": "Versi 1 (Super Ringkas)",
+          "ko": "화학물질의 안전 설명서입니다.",
+          "id": "Buku panduan keselamatan bahan kimia.",
+          "audio": "/audio/tts/options/safety_28_opt_1.mp3"
+        },
+        {
+          "label": "Versi 2 (Standar Ringkas)",
+          "ko": "화학물질 위험과 응급처치가 적힌 설명서입니다.",
+          "id": "Panduan berisi bahaya bahan kimia dan P3K-nya.",
+          "audio": "/audio/tts/options/safety_28_opt_2.mp3"
         }
       ]
     },
@@ -2611,20 +2809,28 @@
       "question_ko": "화학물질 MSDS(물질안전보건자료)를 왜 확인해야 할까요?",
       "question_ro": "Hwahangmuljil MSDSreul wae hwaginhaeya halkkayo?",
       "question_id": "Mengapa kita harus memeriksa lembar MSDS bahan kimia?",
-      "answer_ko": "화학물질을 안전하게 취급하고 사고를 예방하기 위해 반드시 확인해야 하는 가장 기본적인 안전 정보이기 때문입니다.",
-      "answer_id": "Karena itu adalah informasi keselamatan paling mendasar yang wajib diperiksa untuk menangani bahan kimia secara aman dan mencegah kecelakaan.",
+      "answer_ko": "화학물질을 안전하게 취급하고 사고를 예방하기 위해 반드시 확인해야 하는 필수 정보이기 때문입니다.",
+      "answer_id": "Karena merupakan informasi penting yang wajib diperiksa agar dapat menangani zat kimia dengan aman dan mencegah insiden.",
       "audio_q": "/audio/03_k3_keselamatan_pabrik/29_Tanya_화학물질_MSDS를_왜_확인해야_할까요.mp3",
       "audio_a": "/audio/03_k3_keselamatan_pabrik/29_Jawab_안전하게_작업하기_위해서입니다.mp3",
       "answer_options": [
         {
-          "label": "Versi Ringkas",
-          "ko": "화학물질을 안전하게 취급하고 사고를 예방하기입니다.",
-          "id": "Karena itu adalah informasi keselamatan paling mendasar yang wajib diperiksa untuk menangani bahan kimia secara aman dan mencegah kecelakaan."
+          "label": "Jawaban Resmi Asli",
+          "ko": "화학물질을 안전하게 취급하고 사고를 예방하기 위해 반드시 확인해야 하는 필수 정보이기 때문입니다.",
+          "id": "Karena merupakan informasi penting yang wajib diperiksa agar dapat menangani zat kimia dengan aman dan mencegah insiden.",
+          "audio": "/audio/03_k3_keselamatan_pabrik/29_Jawab_안전하게_작업하기_위해서입니다.mp3"
         },
         {
-          "label": "Versi Lengkap Resmi",
-          "ko": "화학물질을 안전하게 취급하고 사고를 예방하기 위해 반드시 확인해야 하는 가장 기본적인 안전 정보이기 때문입니다.",
-          "id": "Karena itu adalah informasi keselamatan paling mendasar yang wajib diperiksa untuk menangani bahan kimia secara aman dan mencegah kecelakaan."
+          "label": "Versi 1 (Super Ringkas)",
+          "ko": "중독 사고를 막고 안전하게 쓰기 위해서입니다.",
+          "id": "Untuk mencegah keracunan dan bekerja dengan selamat.",
+          "audio": "/audio/tts/options/safety_29_opt_1.mp3"
+        },
+        {
+          "label": "Versi 2 (Standar Ringkas)",
+          "ko": "화학물질을 안전하게 다루기 위해서입니다.",
+          "id": "Agar bisa menangani bahan kimia dengan aman.",
+          "audio": "/audio/tts/options/safety_29_opt_2.mp3"
         }
       ]
     },
@@ -2634,20 +2840,28 @@
       "question_ko": "화학물질을 다룰 때 어떤 보호구를 착용해야 하나요?",
       "question_ro": "Hwahangmuljireul darul ttae eotteon bohogureul chak-yonghaeya hanayo?",
       "question_id": "APD apa yang harus dipakai saat menangani bahan kimia di pabrik?",
-      "answer_ko": "화학물질을 사용하는 작업 전에는 방독마스크, 화학물질용 보호장갑 등을 준비하고 작업 시 착용합니다.",
-      "answer_id": "Sebelum pekerjaan yang menggunakan bahan kimia, siapkan masker respirator anti-gas kimia, sarung tangan khusus bahan kimia, dan kenakan saat bekerja.",
+      "answer_ko": "화학물질을 사용하는 작업 전에는 방독마스크, 화학물질용 보호장갑 등을 준비하여 반드시 착용하여야 합니다.",
+      "answer_id": "Sebelum menangani zat kimia, wajib menyiapkan dan memakai masker gas serta sarung tangan khusus bahan kimia.",
       "audio_q": "/audio/03_k3_keselamatan_pabrik/30_Tanya_화학물질을_다룰_때_어떤_보호구를_착용해야_하나요.mp3",
       "audio_a": "/audio/03_k3_keselamatan_pabrik/30_Jawab_보안경과_방독마스크_내화학_장갑입니다.mp3",
       "answer_options": [
         {
-          "label": "Versi Ringkas",
-          "ko": "화학물질을 사용하는 작업 전에는 방독마스크,입니다.",
-          "id": "Sebelum pekerjaan yang menggunakan bahan kimia"
+          "label": "Jawaban Resmi Asli",
+          "ko": "화학물질을 사용하는 작업 전에는 방독마스크, 화학물질용 보호장갑 등을 준비하여 반드시 착용하여야 합니다.",
+          "id": "Sebelum menangani zat kimia, wajib menyiapkan dan memakai masker gas serta sarung tangan khusus bahan kimia.",
+          "audio": "/audio/03_k3_keselamatan_pabrik/30_Jawab_보안경과_방독마스크_내화학_장갑입니다.mp3"
         },
         {
-          "label": "Versi Lengkap Resmi",
-          "ko": "화학물질을 사용하는 작업 전에는 방독마스크, 화학물질용 보호장갑 등을 준비하고 작업 시 착용합니다.",
-          "id": "Sebelum pekerjaan yang menggunakan bahan kimia, siapkan masker respirator anti-gas kimia, sarung tangan khusus bahan kimia, dan kenakan saat bekerja."
+          "label": "Versi 1 (Super Ringkas)",
+          "ko": "방독마스크와 고무장갑, 보안경입니다.",
+          "id": "Masker gas, sarung tangan karet kimia, dan kacamata pelindung.",
+          "audio": "/audio/tts/options/safety_30_opt_1.mp3"
+        },
+        {
+          "label": "Versi 2 (Standar Ringkas)",
+          "ko": "방독마스크와 내화학 장갑을 착용합니다.",
+          "id": "Memakai masker gas dan sarung tangan tahan kimia.",
+          "audio": "/audio/tts/options/safety_30_opt_2.mp3"
         }
       ]
     }
@@ -2666,14 +2880,10 @@
       "audio_a": null,
       "answer_options": [
         {
-          "label": "Versi Ringkas (Mudah Diucap)",
-          "ko": "제 이름은 [이름]입니다.",
-          "id": "Nama saya adalah [Nama]"
-        },
-        {
           "label": "Versi Standar Sopan",
           "ko": "제 이름은 [이름]입니다.",
-          "id": "Nama saya adalah [Nama]."
+          "id": "Nama saya adalah [Nama].",
+          "audio": "/audio/tts/options/wwc_01_opt_0.mp3"
         }
       ]
     },
@@ -2690,14 +2900,10 @@
       "audio_a": null,
       "answer_options": [
         {
-          "label": "Versi Ringkas (Mudah Diucap)",
-          "ko": "제 이름은 [이름]이에요.",
-          "id": "Nama saya adalah [Nama]"
-        },
-        {
           "label": "Versi Standar Sopan",
           "ko": "제 이름은 [이름]이에요.",
-          "id": "Nama saya adalah [Nama]."
+          "id": "Nama saya adalah [Nama].",
+          "audio": "/audio/tts/options/wwc_02_opt_0.mp3"
         }
       ]
     },
@@ -2714,14 +2920,10 @@
       "audio_a": null,
       "answer_options": [
         {
-          "label": "Versi Ringkas (Mudah Diucap)",
-          "ko": "제 이름은 [이름]입니다.",
-          "id": "Nama saya adalah [Nama]"
-        },
-        {
           "label": "Versi Standar Sopan",
           "ko": "제 이름은 [이름]입니다.",
-          "id": "Nama saya adalah [Nama]."
+          "id": "Nama saya adalah [Nama].",
+          "audio": "/audio/tts/options/wwc_03_opt_0.mp3"
         }
       ]
     },
@@ -2738,14 +2940,10 @@
       "audio_a": null,
       "answer_options": [
         {
-          "label": "Versi Ringkas (Mudah Diucap)",
-          "ko": "저는 [나이]살이에요.",
-          "id": "Saya berusia [Umur] tahun"
-        },
-        {
           "label": "Versi Standar Sopan",
           "ko": "저는 [나이]살이에요.",
-          "id": "Saya berusia [Umur] tahun."
+          "id": "Saya berusia [Umur] tahun.",
+          "audio": "/audio/tts/options/wwc_04_opt_0.mp3"
         }
       ]
     },
@@ -2762,14 +2960,10 @@
       "audio_a": null,
       "answer_options": [
         {
-          "label": "Versi Ringkas (Mudah Diucap)",
-          "ko": "저는 [나이]살입니다.",
-          "id": "Saya berusia [Umur] tahun"
-        },
-        {
           "label": "Versi Standar Sopan",
           "ko": "저는 [나이]살입니다.",
-          "id": "Saya berusia [Umur] tahun."
+          "id": "Saya berusia [Umur] tahun.",
+          "audio": "/audio/tts/options/wwc_05_opt_0.mp3"
         }
       ]
     },
@@ -2786,14 +2980,10 @@
       "audio_a": null,
       "answer_options": [
         {
-          "label": "Versi Ringkas (Mudah Diucap)",
-          "ko": "저는 [나이]살입니다.",
-          "id": "Saya berusia [Umur] tahun"
-        },
-        {
           "label": "Versi Standar Sopan",
           "ko": "저는 [나이]살입니다.",
-          "id": "Saya berusia [Umur] tahun."
+          "id": "Saya berusia [Umur] tahun.",
+          "audio": "/audio/tts/options/wwc_06_opt_0.mp3"
         }
       ]
     },
@@ -2810,14 +3000,10 @@
       "audio_a": null,
       "answer_options": [
         {
-          "label": "Versi Ringkas (Mudah Diucap)",
-          "ko": "제 생일은 [년]년 [월]월 [일]일입니다.",
-          "id": "Tanggal lahir saya tahun [Tahun], bulan [Bulan], tanggal [Hari]"
-        },
-        {
           "label": "Versi Standar Sopan",
           "ko": "제 생일은 [년]년 [월]월 [일]일입니다.",
-          "id": "Tanggal lahir saya tahun [Tahun], bulan [Bulan], tanggal [Hari]."
+          "id": "Tanggal lahir saya tahun [Tahun], bulan [Bulan], tanggal [Hari].",
+          "audio": "/audio/tts/options/wwc_07_opt_0.mp3"
         }
       ]
     },
@@ -2834,16 +3020,10 @@
       "audio_a": null,
       "answer_options": [
         {
-          "label": "Punya Saudara",
-          "ko": "네, 형제가 있습니다.",
-          "ro": "Ne, hyeongjega itseumnida.",
-          "id": "Ya, saya punya saudara kandung."
-        },
-        {
-          "label": "Anak Tunggal",
-          "ko": "아니요, 외동입니다.",
-          "ro": "Aniyo, oedong-imnida.",
-          "id": "Tidak, saya anak tunggal."
+          "label": "Versi Standar Sopan",
+          "ko": "제 생일은 [년]년 [월]월 [일]일이에요.",
+          "id": "Tanggal lahir saya tahun [Tahun], bulan [Bulan], tanggal [Hari].",
+          "audio": "/audio/tts/options/wwc_08_opt_0.mp3"
         }
       ]
     },
@@ -2860,16 +3040,10 @@
       "audio_a": null,
       "answer_options": [
         {
-          "label": "Belum Menikah",
-          "ko": "아니요, 아직 안 했습니다.",
-          "ro": "Aniyo, ajik an haetseumnida.",
-          "id": "Belum, saya belum menikah."
-        },
-        {
-          "label": "Sudah Menikah",
-          "ko": "네, 결혼했습니다.",
-          "ro": "Ne, gyeolhonhaetseumnida.",
-          "id": "Ya, saya sudah menikah."
+          "label": "Versi Standar Sopan",
+          "ko": "제 고향은 인도네시아 [지역]입니다.",
+          "id": "Kampung halaman saya di [Kota], Indonesia.",
+          "audio": "/audio/tts/options/wwc_09_opt_0.mp3"
         }
       ]
     },
@@ -2886,22 +3060,10 @@
       "audio_a": null,
       "answer_options": [
         {
-          "label": "Belum Punya",
-          "ko": "아니요, 아직 없습니다.",
-          "ro": "Aniyo, ajik eopseumnida.",
-          "id": "Belum, belum punya anak."
-        },
-        {
-          "label": "Punya 1 Anak",
-          "ko": "네, 아이가 하나 있습니다.",
-          "ro": "Ne, aiga hana itseumnida.",
-          "id": "Ya, punya 1 orang anak."
-        },
-        {
-          "label": "Punya 2 Anak",
-          "ko": "네, 아이가 둘 있습니다.",
-          "ro": "Ne, aiga dul itseumnida.",
-          "id": "Ya, punya 2 orang anak."
+          "label": "Versi Standar Sopan",
+          "ko": "제 고향은 인도네시아 [지역]이에요.",
+          "id": "Kampung halaman saya di [Kota], Indonesia.",
+          "audio": "/audio/tts/options/wwc_10_opt_0.mp3"
         }
       ]
     },
@@ -2912,20 +3074,22 @@
       "question_ko": "결혼하셨습니까?",
       "question_ro": "Gyeolhonhasyeossseumnikka?",
       "question_id": "Apakah sudah menikah?",
-      "answer_ko": "네, 결혼했습니다. / 아니요, 아직 안 했습니다.",
-      "answer_id": "Ya, sudah menikah. / Belum, belum menikah.",
+      "answer_ko": "아니요, 아직 안 했습니다. 미혼입니다.",
+      "answer_id": "Belum, saya belum menikah. Masih lajang.",
       "audio_q": "/audio/01_wawancara_data_diri/11_결혼하셨습니까_(Apakah_sudah_menikah).mp3",
       "audio_a": null,
       "answer_options": [
         {
-          "label": "Versi Ringkas (Mudah Diucap)",
-          "ko": "네, 결혼했습니다.",
-          "id": "Ya, sudah menikah"
+          "label": "Belum Menikah (Lajang)",
+          "ko": "아니요, 아직 안 했습니다. 미혼입니다.",
+          "id": "Belum, saya belum menikah. Masih lajang.",
+          "audio": "/audio/tts/options/wwc_11_opt_0.mp3"
         },
         {
-          "label": "Versi Standar Sopan",
-          "ko": "네, 결혼했습니다. / 아니요, 아직 안 했습니다.",
-          "id": "Ya, sudah menikah. / Belum, belum menikah."
+          "label": "Sudah Menikah",
+          "ko": "네, 결혼했습니다.",
+          "id": "Ya, saya sudah menikah.",
+          "audio": "/audio/tts/options/wwc_11_opt_1.mp3"
         }
       ]
     },
@@ -2936,20 +3100,22 @@
       "question_ko": "결혼했어요?",
       "question_ro": "Gyeolhonhaesseoyo?",
       "question_id": "Apakah sudah menikah akrab?",
-      "answer_ko": "네, 결혼했어요. / 아니요, 아직 안 했어요.",
-      "answer_id": "Ya, sudah menikah. / Belum, belum menikah.",
+      "answer_ko": "아니요, 아직 안 했어요.",
+      "answer_id": "Belum, saya belum menikah.",
       "audio_q": "/audio/01_wawancara_data_diri/12_결혼했어요_(Apakah_sudah_menikah_akrab).mp3",
       "audio_a": null,
       "answer_options": [
         {
-          "label": "Versi Ringkas (Mudah Diucap)",
-          "ko": "네, 결혼했어요.",
-          "id": "Ya, sudah menikah"
+          "label": "Belum Menikah",
+          "ko": "아니요, 아직 안 했어요.",
+          "id": "Belum, saya belum menikah.",
+          "audio": "/audio/tts/options/wwc_12_opt_0.mp3"
         },
         {
-          "label": "Versi Standar Sopan",
-          "ko": "네, 결혼했어요. / 아니요, 아직 안 했어요.",
-          "id": "Ya, sudah menikah. / Belum, belum menikah."
+          "label": "Sudah Menikah",
+          "ko": "네, 결혼했어요.",
+          "id": "Ya, sudah menikah.",
+          "audio": "/audio/tts/options/wwc_12_opt_1.mp3"
         }
       ]
     },
@@ -2960,20 +3126,28 @@
       "question_ko": "아이가 있습니까?",
       "question_ro": "Aiga isseumnikka?",
       "question_id": "Apakah punya anak?",
-      "answer_ko": "네, [명]명 있습니다. / 아니요, 없습니다.",
-      "answer_id": "Ya, punya [Jumlah] anak. / Tidak punya.",
+      "answer_ko": "아니요, 아직 없습니다.",
+      "answer_id": "Belum, belum punya anak.",
       "audio_q": "/audio/01_wawancara_data_diri/13_아이가_있습니까_(Apakah_punya_anak).mp3",
       "audio_a": null,
       "answer_options": [
         {
-          "label": "Versi Ringkas (Mudah Diucap)",
-          "ko": "네, [명]명 있습니다.",
-          "id": "Ya, punya [Jumlah] anak"
+          "label": "Belum Punya Anak",
+          "ko": "아니요, 아직 없습니다.",
+          "id": "Belum, belum punya anak.",
+          "audio": "/audio/tts/options/wwc_13_opt_0.mp3"
         },
         {
-          "label": "Versi Standar Sopan",
-          "ko": "네, [명]명 있습니다. / 아니요, 없습니다.",
-          "id": "Ya, punya [Jumlah] anak. / Tidak punya."
+          "label": "Punya 1 Anak",
+          "ko": "네, 아이가 하나 있습니다.",
+          "id": "Ya, punya 1 anak.",
+          "audio": "/audio/tts/options/wwc_13_opt_1.mp3"
+        },
+        {
+          "label": "Punya 2 Anak",
+          "ko": "네, 아이가 둘 있습니다.",
+          "id": "Ya, punya 2 anak.",
+          "audio": "/audio/tts/options/wwc_13_opt_2.mp3"
         }
       ]
     },
@@ -2984,28 +3158,28 @@
       "question_ko": "부모님이 계십니까?",
       "question_ro": "Bumonimi gyesimnikka?",
       "question_id": "Apakah orang tua masih ada?",
-      "answer_ko": "네, 두 분 다 계십니다.",
-      "answer_id": "Ya, kedua orang tua masih sehat ada.",
+      "answer_ko": "네, 부모님 두 분 다 계십니다.",
+      "answer_id": "Ya, kedua orang tua saya masih ada dan sehat.",
       "audio_q": "/audio/01_wawancara_data_diri/14_부모님이_계십니까_(Apakah_orang_tua_masih_ada).mp3",
       "audio_a": null,
       "answer_options": [
         {
-          "label": "Naik Motor (Ringkas)",
-          "ko": "오토바이를 타고 왔습니다.",
-          "ro": "Otoba-ireul tago watseumnida.",
-          "id": "Datang naik sepeda motor."
+          "label": "Keduanya Masih Ada",
+          "ko": "네, 부모님 두 분 다 계십니다.",
+          "id": "Ya, kedua orang tua saya masih ada dan sehat.",
+          "audio": "/audio/tts/options/wwc_14_opt_0.mp3"
         },
         {
-          "label": "Naik Mobil / Taksi",
-          "ko": "택시를 타고 왔습니다.",
-          "ro": "Taeksireul tago watseumnida.",
-          "id": "Datang naik taksi."
+          "label": "Ibu Saja",
+          "ko": "어머니만 계십니다.",
+          "id": "Hanya ibu yang masih ada.",
+          "audio": "/audio/tts/options/wwc_14_opt_1.mp3"
         },
         {
-          "label": "Naik Bus",
-          "ko": "버스를 타고 왔습니다.",
-          "ro": "Beoseureul tago watseumnida.",
-          "id": "Datang naik bus."
+          "label": "Ayah Saja",
+          "ko": "아버지만 계십니다.",
+          "id": "Hanya ayah yang masih ada.",
+          "audio": "/audio/tts/options/wwc_14_opt_2.mp3"
         }
       ]
     },
@@ -3017,19 +3191,21 @@
       "question_ro": "Bumonimi gyeseyo?",
       "question_id": "Apakah orang tua masih ada akrab?",
       "answer_ko": "네, 두 분 다 계세요.",
-      "answer_id": "Ya, kedua orang tua masih sehat ada.",
+      "answer_id": "Ya, kedua orang tua masih ada.",
       "audio_q": "/audio/01_wawancara_data_diri/15_부모님이_계세요_(Apakah_orang_tua_masih_ada_akrab).mp3",
       "audio_a": null,
       "answer_options": [
         {
-          "label": "Versi Ringkas (Mudah Diucap)",
+          "label": "Keduanya Masih Ada",
           "ko": "네, 두 분 다 계세요.",
-          "id": "Ya, kedua orang tua masih sehat ada"
+          "id": "Ya, kedua orang tua masih ada.",
+          "audio": "/audio/tts/options/wwc_15_opt_0.mp3"
         },
         {
-          "label": "Versi Standar Sopan",
-          "ko": "네, 두 분 다 계세요.",
-          "id": "Ya, kedua orang tua masih sehat ada."
+          "label": "Ibu Saja",
+          "ko": "어머니만 계세요.",
+          "id": "Hanya ibu yang masih ada.",
+          "audio": "/audio/tts/options/wwc_15_opt_1.mp3"
         }
       ]
     },
@@ -3046,22 +3222,10 @@
       "audio_a": null,
       "answer_options": [
         {
-          "label": "Pernah Pabrik",
-          "ko": "공장에서 일한 적이 있습니다.",
-          "ro": "Gongjang-eseo ilhan jeogi itseumnida.",
-          "id": "Pernah bekerja di pabrik."
-        },
-        {
-          "label": "Pernah Konstruksi",
-          "ko": "건설 현장에서 일했습니다.",
-          "ro": "Geonseol hyeonjang-eseo ilhaetseumnida.",
-          "id": "Pernah bekerja di proyek konstruksi."
-        },
-        {
-          "label": "Belum Pernah (Pertama)",
-          "ko": "일한 적이 없습니다. 이번이 처음입니다.",
-          "ro": "Ilhan jeogi eopseumnida. Ibeoni cheoeumimnida.",
-          "id": "Belum pernah bekerja. Ini pertama kalinya."
+          "label": "Versi Standar Sopan",
+          "ko": "우리 가족은 모두 [명]명입니다.",
+          "id": "Keluarga saya semuanya ada [Jumlah] orang.",
+          "audio": "/audio/tts/options/wwc_16_opt_0.mp3"
         }
       ]
     },
@@ -3078,14 +3242,10 @@
       "audio_a": null,
       "answer_options": [
         {
-          "label": "Versi Ringkas (Mudah Diucap)",
-          "ko": "우리 가족은 모두 [명]명이에요.",
-          "id": "Keluarga saya semuanya ada [Jumlah] orang"
-        },
-        {
           "label": "Versi Standar Sopan",
           "ko": "우리 가족은 모두 [명]명이에요.",
-          "id": "Keluarga saya semuanya ada [Jumlah] orang."
+          "id": "Keluarga saya semuanya ada [Jumlah] orang.",
+          "audio": "/audio/tts/options/wwc_17_opt_0.mp3"
         }
       ]
     },
@@ -3096,28 +3256,34 @@
       "question_ko": "형제가 몇 명 있습니까?",
       "question_ro": "Hyeongjega myeot myeong isseumnikka?",
       "question_id": "Berapa saudara kandung?",
-      "answer_ko": "형제는 모두 [명]명 있습니다.",
-      "answer_id": "Saudara kandung saya ada [Jumlah] orang.",
+      "answer_ko": "외동입니다. 형제가 없습니다.",
+      "answer_id": "Saya anak tunggal. Tidak punya saudara.",
       "audio_q": "/audio/01_wawancara_data_diri/18_형제가_몇_명_있습니까_(Berapa_saudara_kandung).mp3",
       "audio_a": null,
       "answer_options": [
         {
-          "label": "Belum Pernah",
-          "ko": "아니요, 가 본 적이 없습니다.",
-          "ro": "Aniyo, ga bon jeogi eopseumnida.",
-          "id": "Tidak, belum pernah ke luar negeri."
+          "label": "Anak Tunggal",
+          "ko": "외동입니다. 형제가 없습니다.",
+          "id": "Saya anak tunggal. Tidak punya saudara.",
+          "audio": "/audio/tts/options/wwc_18_opt_0.mp3"
         },
         {
-          "label": "Pernah (Korea)",
-          "ko": "네, 한국에 가 본 적이 있습니다.",
-          "ro": "Ne, Hanguge ga bon jeogi itseumnida.",
-          "id": "Ya, pernah pergi ke Korea."
+          "label": "Punya 1 Saudara",
+          "ko": "한 명 있습니다.",
+          "id": "Punya 1 orang saudara.",
+          "audio": "/audio/tts/options/wwc_18_opt_1.mp3"
         },
         {
-          "label": "Pernah (Negara Lain)",
-          "ko": "네, 외국에 가 본 적이 있습니다.",
-          "ro": "Ne, oeguge ga bon jeogi itseumnida.",
-          "id": "Ya, pernah ke luar negeri."
+          "label": "Punya 2 Saudara",
+          "ko": "두 명 있습니다.",
+          "id": "Punya 2 orang saudara.",
+          "audio": "/audio/tts/options/wwc_18_opt_2.mp3"
+        },
+        {
+          "label": "Punya 3 Saudara",
+          "ko": "세 명 있습니다.",
+          "id": "Punya 3 orang saudara.",
+          "audio": "/audio/tts/options/wwc_18_opt_3.mp3"
         }
       ]
     },
@@ -3128,28 +3294,28 @@
       "question_ko": "형제가 몇 명이에요?",
       "question_ro": "Hyeongjega myeot myeong-ieyo?",
       "question_id": "Berapa saudara kandung akrab?",
-      "answer_ko": "형제는 모두 [명]명이에요.",
-      "answer_id": "Saudara kandung saya ada [Jumlah] orang.",
+      "answer_ko": "외동이에요. 형제가 없어요.",
+      "answer_id": "Saya anak tunggal. Tidak punya saudara.",
       "audio_q": "/audio/01_wawancara_data_diri/19_형제가_몇_명이에요_(Berapa_saudara_kandung_akrab).mp3",
       "audio_a": null,
       "answer_options": [
         {
-          "label": "Bulu Tangkis (Ringkas)",
-          "ko": "배드민턴을 좋아합니다.",
-          "ro": "Baedeuminteoneul joahamnida.",
-          "id": "Saya suka bulu tangkis."
+          "label": "Anak Tunggal",
+          "ko": "외동이에요. 형제가 없어요.",
+          "id": "Saya anak tunggal. Tidak punya saudara.",
+          "audio": "/audio/tts/options/wwc_19_opt_0.mp3"
         },
         {
-          "label": "Sepak Bola",
-          "ko": "축구를 좋아합니다.",
-          "ro": "Chukgureul joahamnida.",
-          "id": "Saya suka sepak bola."
+          "label": "Punya 1 Saudara",
+          "ko": "한 명 있어요.",
+          "id": "Punya 1 orang saudara.",
+          "audio": "/audio/tts/options/wwc_19_opt_1.mp3"
         },
         {
-          "label": "Lari Pagi",
-          "ko": "달리기를 좋아합니다.",
-          "ro": "Dalligireul joahamnida.",
-          "id": "Saya suka lari pagi."
+          "label": "Punya 2 Saudara",
+          "ko": "두 명 있어요.",
+          "id": "Punya 2 orang saudara.",
+          "audio": "/audio/tts/options/wwc_19_opt_2.mp3"
         }
       ]
     },
@@ -3166,22 +3332,10 @@
       "audio_a": null,
       "answer_options": [
         {
-          "label": "Olahraga (Ringkas)",
-          "ko": "운동입니다.",
-          "ro": "Undong-imnida.",
-          "id": "Hobi saya olahraga."
-        },
-        {
-          "label": "Sepak Bola",
-          "ko": "축구하는 것입니다.",
-          "ro": "Chukguhaneun geosimnida.",
-          "id": "Hobi saya bermain sepak bola."
-        },
-        {
-          "label": "Mendengarkan Musik",
-          "ko": "음악 듣는 것입니다.",
-          "ro": "Eum-ak deunneun geosimnida.",
-          "id": "Hobi saya mendengarkan musik."
+          "label": "Versi Standar Sopan",
+          "ko": "제 키는 [키]센티미터예요.",
+          "id": "Tinggi badan saya [Tinggi] cm.",
+          "audio": "/audio/tts/options/wwc_20_opt_0.mp3"
         }
       ]
     },
@@ -3198,14 +3352,10 @@
       "audio_a": null,
       "answer_options": [
         {
-          "label": "Versi Ringkas (Mudah Diucap)",
-          "ko": "제 키는 [키]센티미터입니다.",
-          "id": "Tinggi badan saya [Tinggi] cm"
-        },
-        {
           "label": "Versi Standar Sopan",
           "ko": "제 키는 [키]센티미터입니다.",
-          "id": "Tinggi badan saya [Tinggi] cm."
+          "id": "Tinggi badan saya [Tinggi] cm.",
+          "audio": "/audio/tts/options/wwc_21_opt_0.mp3"
         }
       ]
     },
@@ -3222,22 +3372,10 @@
       "audio_a": null,
       "answer_options": [
         {
-          "label": "3 Bulan (Ringkas)",
-          "ko": "3개월 동안 배웠습니다.",
-          "ro": "Samgaewol dongan baewotseumnida.",
-          "id": "Belajar selama 3 bulan."
-        },
-        {
-          "label": "5 Bulan",
-          "ko": "5개월 동안 공부했습니다.",
-          "ro": "Ogaewol dongan gongbuhaetseumnida.",
-          "id": "Belajar selama 5 bulan."
-        },
-        {
-          "label": "1 Tahun",
-          "ko": "1년 동안 배웠습니다.",
-          "ro": "Ilnyeon dongan baewotseumnida.",
-          "id": "Belajar selama 1 tahun."
+          "label": "Versi Standar Sopan",
+          "ko": "제 몸무게는 [몸무게]킬로그램이에요.",
+          "id": "Berat badan saya [Berat] kg.",
+          "audio": "/audio/tts/options/wwc_22_opt_0.mp3"
         }
       ]
     },
@@ -3248,20 +3386,28 @@
       "question_ko": "취미는 뭐예요?",
       "question_ro": "Chwimineun mwoyeyo?",
       "question_id": "Apa hobi Anda?",
-      "answer_ko": "제 취미는 [취미/운동]이에요.",
-      "answer_id": "Hobi saya adalah [Olahraga/Membaca].",
+      "answer_ko": "제 취미는 운동입니다.",
+      "answer_id": "Hobi saya berolahraga.",
       "audio_q": "/audio/01_wawancara_data_diri/23_취미는_뭐예요_(Apa_hobi_Anda).mp3",
       "audio_a": null,
       "answer_options": [
         {
-          "label": "Versi Ringkas (Mudah Diucap)",
-          "ko": "제 취미는 [취미/운동]이에요.",
-          "id": "Hobi saya adalah [Olahraga/Membaca]"
+          "label": "Olahraga",
+          "ko": "제 취미는 운동입니다.",
+          "id": "Hobi saya berolahraga.",
+          "audio": "/audio/tts/options/wwc_23_opt_0.mp3"
         },
         {
-          "label": "Versi Standar Sopan",
-          "ko": "제 취미는 [취미/운동]이에요.",
-          "id": "Hobi saya adalah [Olahraga/Membaca]."
+          "label": "Mendengarkan Musik",
+          "ko": "제 취미는 음악 감상입니다.",
+          "id": "Hobi saya mendengarkan musik.",
+          "audio": "/audio/tts/options/wwc_23_opt_1.mp3"
+        },
+        {
+          "label": "Membaca Buku",
+          "ko": "제 취미는 독서입니다.",
+          "id": "Hobi saya membaca buku.",
+          "audio": "/audio/tts/options/wwc_23_opt_2.mp3"
         }
       ]
     },
@@ -3273,19 +3419,33 @@
       "question_ro": "Museun undong-eul joahaeyo?",
       "question_id": "Olahraga apa yang disukai?",
       "answer_ko": "축구를 제일 좋아합니다.",
-      "answer_id": "Saya paling suka sepak bola.",
+      "answer_id": "Paling suka sepak bola.",
       "audio_q": "/audio/01_wawancara_data_diri/24_무슨_운동을_좋아해요_(Olahraga_apa_yang_disukai).mp3",
       "audio_a": null,
       "answer_options": [
         {
-          "label": "Versi Ringkas (Mudah Diucap)",
+          "label": "Sepak Bola",
           "ko": "축구를 제일 좋아합니다.",
-          "id": "Saya paling suka sepak bola"
+          "id": "Paling suka sepak bola.",
+          "audio": "/audio/tts/options/wwc_24_opt_0.mp3"
         },
         {
-          "label": "Versi Standar Sopan",
-          "ko": "축구를 제일 좋아합니다.",
-          "id": "Saya paling suka sepak bola."
+          "label": "Bulu Tangkis",
+          "ko": "배드민턴을 제일 좋아합니다.",
+          "id": "Paling suka bulu tangkis.",
+          "audio": "/audio/tts/options/wwc_24_opt_1.mp3"
+        },
+        {
+          "label": "Lari / Jogging",
+          "ko": "달리기를 제일 좋아합니다.",
+          "id": "Paling suka lari pagi/jogging.",
+          "audio": "/audio/tts/options/wwc_24_opt_2.mp3"
+        },
+        {
+          "label": "Voli",
+          "ko": "배구를 제일 좋아합니다.",
+          "id": "Paling suka bola voli.",
+          "audio": "/audio/tts/options/wwc_24_opt_3.mp3"
         }
       ]
     },
@@ -3302,14 +3462,28 @@
       "audio_a": null,
       "answer_options": [
         {
-          "label": "Versi Ringkas (Mudah Diucap)",
+          "label": "Warna Biru",
           "ko": "파란색을 좋아합니다.",
-          "id": "Saya suka warna biru"
+          "id": "Saya suka warna biru.",
+          "audio": "/audio/tts/options/wwc_25_opt_0.mp3"
         },
         {
-          "label": "Versi Standar Sopan",
-          "ko": "파란색을 좋아합니다.",
-          "id": "Saya suka warna biru."
+          "label": "Warna Putih",
+          "ko": "하얀색을 좋아합니다.",
+          "id": "Saya suka warna putih.",
+          "audio": "/audio/tts/options/wwc_25_opt_1.mp3"
+        },
+        {
+          "label": "Warna Hitam",
+          "ko": "검은색을 좋아합니다.",
+          "id": "Saya suka warna hitam.",
+          "audio": "/audio/tts/options/wwc_25_opt_2.mp3"
+        },
+        {
+          "label": "Warna Merah",
+          "ko": "빨간색을 좋아합니다.",
+          "id": "Saya suka warna merah.",
+          "audio": "/audio/tts/options/wwc_25_opt_3.mp3"
         }
       ]
     },
@@ -3326,22 +3500,10 @@
       "audio_a": null,
       "answer_options": [
         {
-          "label": "Biru (Ringkas)",
-          "ko": "파란색을 좋아합니다.",
-          "ro": "Paransaekeul joahamnida.",
-          "id": "Saya suka warna biru."
-        },
-        {
-          "label": "Putih (Ringkas)",
-          "ko": "하얀색을 좋아합니다.",
-          "ro": "Hayansaekeul joahamnida.",
-          "id": "Saya suka warna putih."
-        },
-        {
-          "label": "Hitam (Ringkas)",
-          "ko": "검은색을 좋아합니다.",
-          "ro": "Geomeunsaekeul joahamnida.",
-          "id": "Saya suka warna hitam."
+          "label": "Versi Standar Sopan",
+          "ko": "오늘은 [요일]요일입니다.",
+          "id": "Hari ini adalah hari [Hari].",
+          "audio": "/audio/tts/options/wwc_26_opt_0.mp3"
         }
       ]
     },
@@ -3358,14 +3520,10 @@
       "audio_a": null,
       "answer_options": [
         {
-          "label": "Versi Ringkas (Mudah Diucap)",
-          "ko": "어제는 [요일]요일이었습니다.",
-          "id": "Kemarin adalah hari [Hari]"
-        },
-        {
           "label": "Versi Standar Sopan",
           "ko": "어제는 [요일]요일이었습니다.",
-          "id": "Kemarin adalah hari [Hari]."
+          "id": "Kemarin adalah hari [Hari].",
+          "audio": "/audio/tts/options/wwc_27_opt_0.mp3"
         }
       ]
     },
@@ -3382,14 +3540,10 @@
       "audio_a": null,
       "answer_options": [
         {
-          "label": "Versi Ringkas (Mudah Diucap)",
-          "ko": "내일은 [요일]요일입니다.",
-          "id": "Besok adalah hari [Hari]"
-        },
-        {
           "label": "Versi Standar Sopan",
           "ko": "내일은 [요일]요일입니다.",
-          "id": "Besok adalah hari [Hari]."
+          "id": "Besok adalah hari [Hari].",
+          "audio": "/audio/tts/options/wwc_28_opt_0.mp3"
         }
       ]
     },
@@ -3406,14 +3560,10 @@
       "audio_a": null,
       "answer_options": [
         {
-          "label": "Versi Ringkas (Mudah Diucap)",
-          "ko": "모레는 [요일]요일입니다.",
-          "id": "Lusa adalah hari [Hari]"
-        },
-        {
           "label": "Versi Standar Sopan",
           "ko": "모레는 [요일]요일입니다.",
-          "id": "Lusa adalah hari [Hari]."
+          "id": "Lusa adalah hari [Hari].",
+          "audio": "/audio/tts/options/wwc_29_opt_0.mp3"
         }
       ]
     },
@@ -3430,16 +3580,10 @@
       "audio_a": null,
       "answer_options": [
         {
-          "label": "Opsi Ringkas (Siap Kerja)",
-          "ko": "네, 기꺼이 일하겠습니다.",
-          "ro": "Ne, gikkeoi ilhagetseumnida.",
-          "id": "Ya, saya siap bekerja dengan senang hati."
-        },
-        {
-          "label": "Opsi Sopan Standar",
-          "ko": "일이 많으면 야근을 열심히 하겠습니다.",
-          "ro": "Iri maneumyeon yageuneul yeolsimhi hagetseumnida.",
-          "id": "Jika pekerjaan banyak, saya akan lembur dengan giat."
+          "label": "Versi Standar Sopan",
+          "ko": "오늘은 [월]월 [일]일입니다.",
+          "id": "Hari ini tanggal [Tanggal] bulan [Bulan].",
+          "audio": "/audio/tts/options/wwc_30_opt_0.mp3"
         }
       ]
     },
@@ -3456,16 +3600,10 @@
       "audio_a": null,
       "answer_options": [
         {
-          "label": "Opsi Super Ringkas",
-          "ko": "기계를 멈추고 반장님께 보고합니다.",
-          "ro": "Gigye-reul meomchugo banjangnimkke bogohamnida.",
-          "id": "Hentikan mesin dan lapor ke mandor."
-        },
-        {
-          "label": "Opsi Standar",
-          "ko": "즉시 작업을 중단하고 상사에게 알립니다.",
-          "ro": "Jeuksi jageobeul jungdanhago sangsa-ege allimnida.",
-          "id": "Segera hentikan pekerjaan dan beritahu atasan."
+          "label": "Versi Standar Sopan",
+          "ko": "내일은 [일]일입니다.",
+          "id": "Besok tanggal [Tanggal].",
+          "audio": "/audio/tts/options/wwc_31_opt_0.mp3"
         }
       ]
     },
@@ -3482,16 +3620,10 @@
       "audio_a": null,
       "answer_options": [
         {
-          "label": "Opsi Super Ringkas",
-          "ko": "대화로 풀고 서로 이해하겠습니다.",
-          "ro": "Daehwaro pulgo seoro ihae-hagetseumnida.",
-          "id": "Selesaikan lewat bicara dan saling memahami."
-        },
-        {
-          "label": "Opsi Minta Bantuan Atasan",
-          "ko": "먼저 사과하고 상사에게 도움을 청합니다.",
-          "ro": "Meonjeo sagwahago sangsa-ege doumeul cheonghamnida.",
-          "id": "Minta maaf lebih dulu dan minta saran atasan."
+          "label": "Versi Standar Sopan",
+          "ko": "지금은 [시]시 [분]분입니다.",
+          "id": "Sekarang pukul [Jam] lewat [Menit].",
+          "audio": "/audio/tts/options/wwc_32_opt_0.mp3"
         }
       ]
     },
@@ -3508,14 +3640,10 @@
       "audio_a": null,
       "answer_options": [
         {
-          "label": "Versi Ringkas (Mudah Diucap)",
-          "ko": "한국어 공부와 체력 관리를 하고 있습니다.",
-          "id": "Saya sedang belajar bahasa Korea dan melatih fisik"
-        },
-        {
           "label": "Versi Standar Sopan",
           "ko": "한국어 공부와 체력 관리를 하고 있습니다.",
-          "id": "Saya sedang belajar bahasa Korea dan melatih fisik."
+          "id": "Saya sedang belajar bahasa Korea dan melatih fisik.",
+          "audio": "/audio/tts/options/wwc_33_opt_0.mp3"
         }
       ]
     },
@@ -3526,28 +3654,28 @@
       "question_ko": "한국에 왜 가고 싶어요?",
       "question_ro": "Hanguge wae gago sipeoyo?",
       "question_id": "Mengapa ingin ke Korea?",
-      "answer_ko": "돈을 벌어 부모님을 돕고 기술을 배우고 싶습니다.",
-      "answer_id": "Ingin bekerja mencari nafkah untuk orang tua dan belajar teknologi.",
+      "answer_ko": "돈을 벌고 기술을 배우고 싶어서입니다.",
+      "answer_id": "Untuk mencari uang dan mempelajari keterampilan.",
       "audio_q": "/audio/01_wawancara_data_diri/34_한국에_왜_가고_싶어요_(Mengapa_ingin_ke_Korea).mp3",
       "audio_a": null,
       "answer_options": [
         {
-          "label": "Opsi 1 (Super Ringkas)",
-          "ko": "돈을 벌고 기술을 배우고 싶습니다.",
-          "ro": "Doneul beolgo gisureul bae-ugo sipseumnida.",
-          "id": "Ingin mencari uang dan belajar keterampilan."
+          "label": "Cari Uang & Keterampilan",
+          "ko": "돈을 벌고 기술을 배우고 싶어서입니다.",
+          "id": "Untuk mencari uang dan mempelajari keterampilan.",
+          "audio": "/audio/tts/options/wwc_34_opt_0.mp3"
         },
         {
-          "label": "Opsi 2 (Membantu Keluarga)",
-          "ko": "가족을 돕고 돈을 벌기 위해 갑니다.",
-          "ro": "Gajokeul dopgo doneul beolgi wihae gamnida.",
-          "id": "Pergi untuk membantu keluarga dan mencari uang."
+          "label": "Membantu Keluarga",
+          "ko": "돈을 벌어 가족을 돕기 위해서입니다.",
+          "id": "Untuk mencari nafkah guna membantu keluarga.",
+          "audio": "/audio/tts/options/wwc_34_opt_1.mp3"
         },
         {
-          "label": "Opsi 3 (Pengalaman & Kerja Rajin)",
-          "ko": "한국에서 성실히 일하고 싶습니다.",
-          "ro": "Hangug-eseo seongsilhi ilhago sipseumnida.",
-          "id": "Ingin bekerja dengan rajin di Korea."
+          "label": "Pengalaman Kerja Maju",
+          "ko": "한국의 선진 기술을 배우고 싶습니다.",
+          "id": "Ingin mempelajari teknologi maju di Korea.",
+          "audio": "/audio/tts/options/wwc_34_opt_2.mp3"
         }
       ]
     },
@@ -3564,14 +3692,10 @@
       "audio_a": null,
       "answer_options": [
         {
-          "label": "Versi Ringkas (Mudah Diucap)",
-          "ko": "제조업 공장에서 열심히 일하고 싶습니다.",
-          "id": "Saya ingin bekerja keras di pabrik manufaktur"
-        },
-        {
           "label": "Versi Standar Sopan",
           "ko": "제조업 공장에서 열심히 일하고 싶습니다.",
-          "id": "Saya ingin bekerja keras di pabrik manufaktur."
+          "id": "Saya ingin bekerja keras di pabrik manufaktur.",
+          "audio": "/audio/tts/options/wwc_35_opt_0.mp3"
         }
       ]
     },
@@ -3582,20 +3706,28 @@
       "question_ko": "한국말을 잘하는데 어디에서 배웠어요? 얼마 동안 배웠어요?",
       "question_ro": "Hangungmareul jalhaneunde eodieseo baewosseoyo? Eolma dongan baewosseoyo?",
       "question_id": "Bahasa Korea Anda bagus, belajar di mana? Sudah berapa lama belajar?",
-      "answer_ko": "인도네시아 LPK 학원에서 [기간] 동안 열심히 배웠습니다.",
-      "answer_id": "Saya belajar dengan tekun selama [Durasi] di LPK Indonesia.",
+      "answer_ko": "인도네시아 LPK 학원에서 3개월 동안 배웠습니다.",
+      "answer_id": "Belajar selama 3 bulan di LPK Indonesia.",
       "audio_q": "/audio/01_wawancara_data_diri/36_한국말을_어디에서_배웠어요_(Di_mana_belajar_bahasa_Korea).mp3",
       "audio_a": null,
       "answer_options": [
         {
-          "label": "Versi Ringkas (Mudah Diucap)",
-          "ko": "인도네시아 LPK 학원에서 [기간] 동안 열심히 배웠습니다.",
-          "id": "Saya belajar dengan tekun selama [Durasi] di LPK Indonesia"
+          "label": "3 Bulan di LPK",
+          "ko": "인도네시아 LPK 학원에서 3개월 동안 배웠습니다.",
+          "id": "Belajar selama 3 bulan di LPK Indonesia.",
+          "audio": "/audio/tts/options/wwc_36_opt_0.mp3"
         },
         {
-          "label": "Versi Standar Sopan",
-          "ko": "인도네시아 LPK 학원에서 [기간] 동안 열심히 배웠습니다.",
-          "id": "Saya belajar dengan tekun selama [Durasi] di LPK Indonesia."
+          "label": "6 Bulan di LPK",
+          "ko": "인도네시아 LPK 학원에서 6개월 동안 배웠습니다.",
+          "id": "Belajar selama 6 bulan di LPK Indonesia.",
+          "audio": "/audio/tts/options/wwc_36_opt_1.mp3"
+        },
+        {
+          "label": "1 Tahun Mandiri/LPK",
+          "ko": "1년 동안 열심히 공부했습니다.",
+          "id": "Belajar dengan giat selama 1 tahun.",
+          "audio": "/audio/tts/options/wwc_36_opt_2.mp3"
         }
       ]
     },
@@ -3612,14 +3744,10 @@
       "audio_a": null,
       "answer_options": [
         {
-          "label": "Versi Ringkas (Mudah Diucap)",
-          "ko": "한국은 사계절이 있고 예절과 안전을 중요시합니다.",
-          "id": "Korea memiliki 4 musim dan sangat menjunjung tinggi etika serta keselamatan"
-        },
-        {
           "label": "Versi Standar Sopan",
           "ko": "한국은 사계절이 있고 예절과 안전을 중요시합니다.",
-          "id": "Korea memiliki 4 musim dan sangat menjunjung tinggi etika serta keselamatan."
+          "id": "Korea memiliki 4 musim dan sangat menjunjung tinggi etika serta keselamatan.",
+          "audio": "/audio/tts/options/wwc_37_opt_0.mp3"
         }
       ]
     },
@@ -3630,20 +3758,22 @@
       "question_ko": "불량품이 많으면 어떻게 할 거예요?",
       "question_ro": "Bullyangpumi maneumyeon eotteoke hal geoyeyo?",
       "question_id": "Jika banyak barang cacat?",
-      "answer_ko": "작업을 즉시 멈추고 반장님께 바로 보고하겠습니다.",
-      "answer_id": "Segera menghentikan mesin dan melapor kepada mandor/atasan.",
+      "answer_ko": "기계를 멈추고 반장님께 바로 보고합니다.",
+      "answer_id": "Matikan mesin dan langsung lapor ke mandor.",
       "audio_q": "/audio/01_wawancara_data_diri/38_불량품이_많으면_어떻게_할_거예요_(Jika_banyak_barang_cacat).mp3",
       "audio_a": null,
       "answer_options": [
         {
-          "label": "Versi Ringkas (Mudah Diucap)",
-          "ko": "작업을 즉시 멈추고 반장님께 바로 보고하겠습니다.",
-          "id": "Segera menghentikan mesin dan melapor kepada mandor/atasan"
+          "label": "Lapor Mandor (Super Ringkas)",
+          "ko": "기계를 멈추고 반장님께 바로 보고합니다.",
+          "id": "Matikan mesin dan langsung lapor ke mandor.",
+          "audio": "/audio/tts/options/wwc_38_opt_0.mp3"
         },
         {
-          "label": "Versi Standar Sopan",
-          "ko": "작업을 즉시 멈추고 반장님께 바로 보고하겠습니다.",
-          "id": "Segera menghentikan mesin dan melapor kepada mandor/atasan."
+          "label": "Cek Penyebab Bersama Atasan",
+          "ko": "작업을 즉시 멈추고 상사에게 보고하여 원인을 찾겠습니다.",
+          "id": "Segera hentikan pekerjaan, lapor atasan, dan cari tahu penyebabnya.",
+          "audio": "/audio/tts/options/wwc_38_opt_1.mp3"
         }
       ]
     },
@@ -3654,20 +3784,22 @@
       "question_ko": "일을 하다가 실수하면 어떻게 할 거예요?",
       "question_ro": "Ireul hadaga silsuhamyeon eotteoke hal geoyeyo?",
       "question_id": "Jika membuat kesalahan kerja?",
-      "answer_ko": "상사에게 즉시 보고하고 지시에 따라 바로잡겠습니다.",
-      "answer_id": "Segera melapor ke atasan dan memperbaikinya sesuai arahan.",
+      "answer_ko": "즉시 상사에게 보고하고 솔직하게 사과하겠습니다.",
+      "answer_id": "Segera lapor atasan dan minta maaf dengan jujur.",
       "audio_q": "/audio/01_wawancara_data_diri/39_일을_하다가_실수하면_어떻게_할_거예요_(Jika_membuat_kesalahan_kerja).mp3",
       "audio_a": null,
       "answer_options": [
         {
-          "label": "Versi Ringkas (Mudah Diucap)",
-          "ko": "상사에게 즉시 보고하고 지시에 따라 바로잡겠습니다.",
-          "id": "Segera melapor ke atasan dan memperbaikinya sesuai arahan"
+          "label": "Jujur & Lapor Atasan",
+          "ko": "즉시 상사에게 보고하고 솔직하게 사과하겠습니다.",
+          "id": "Segera lapor atasan dan minta maaf dengan jujur.",
+          "audio": "/audio/tts/options/wwc_39_opt_0.mp3"
         },
         {
-          "label": "Versi Standar Sopan",
-          "ko": "상사에게 즉시 보고하고 지시에 따라 바로잡겠습니다.",
-          "id": "Segera melapor ke atasan dan memperbaikinya sesuai arahan."
+          "label": "Perbaiki Sesuai Instruksi",
+          "ko": "상사에게 알리고 지시에 따라 바로잡겠습니다.",
+          "id": "Beritahu atasan dan perbaiki kesalahan sesuai instruksi.",
+          "audio": "/audio/tts/options/wwc_39_opt_1.mp3"
         }
       ]
     },
@@ -3678,20 +3810,22 @@
       "question_ko": "작업하다가 사고가 나면 어떻게 할 거예요?",
       "question_ro": "Jageop-hadaga sagoga namyeon eotteoke hal geoyeyo?",
       "question_id": "Jika terjadi kecelakaan kerja?",
-      "answer_ko": "큰 소리로 \"사고다!\" 외치고 안전 버튼을 누른 후 상사에게 보고합니다.",
-      "answer_id": "Berteriak memberi tahu rekan kerja, menekan tombol darurat, lalu melapor ke atasan.",
+      "answer_ko": "큰 소리로 '사고다!' 외치고 비상 정지 버튼을 누릅니다.",
+      "answer_id": "Teriak keras 'Kecelakaan!' lalu tekan tombol stop darurat.",
       "audio_q": "/audio/01_wawancara_data_diri/40_작업하다가_사고가_나면_어떻게_할_거예요_(Jika_terjadi_kecelakaan_kerja).mp3",
       "audio_a": null,
       "answer_options": [
         {
-          "label": "Versi Ringkas (Mudah Diucap)",
-          "ko": "큰 소리로 \"사고다!\" 외치고 안전 버튼을 누른 후 상사에게 보고합니다.",
-          "id": "Berteriak memberi tahu rekan kerja, menekan tombol darurat, lalu melapor ke atasan"
+          "label": "Tombol Darurat & Lapor",
+          "ko": "큰 소리로 '사고다!' 외치고 비상 정지 버튼을 누릅니다.",
+          "id": "Teriak keras 'Kecelakaan!' lalu tekan tombol stop darurat.",
+          "audio": "/audio/tts/options/wwc_40_opt_0.mp3"
         },
         {
-          "label": "Versi Standar Sopan",
-          "ko": "큰 소리로 \"사고다!\" 외치고 안전 버튼을 누른 후 상사에게 보고합니다.",
-          "id": "Berteriak memberi tahu rekan kerja, menekan tombol darurat, lalu melapor ke atasan."
+          "label": "Beri Pertolongan & Panggil Mandor",
+          "ko": "기계를 멈추고 다친 동료를 도우며 상사에게 알립니다.",
+          "id": "Matikan mesin, tolong rekan yang terluka, dan beritahu atasan.",
+          "audio": "/audio/tts/options/wwc_40_opt_1.mp3"
         }
       ]
     },
@@ -3702,20 +3836,22 @@
       "question_ko": "직장 동료하고 어떻게 지낼 거예요?",
       "question_ro": "Jikjang dongnyohago eotteoke jinael geoyeyo?",
       "question_id": "Bagaimana bergaul dengan teman kerja?",
-      "answer_ko": "항상 웃으며 인사하고 서로 도우며 배려하며 지내겠습니다.",
-      "answer_id": "Selalu menyapa dengan senyum, saling membantu, dan menjaga toleransi.",
+      "answer_ko": "항상 웃으며 인사하고 서로 도우며 배려하겠습니다.",
+      "answer_id": "Selalu tersenyum, menyapa, saling membantu, dan menghargai.",
       "audio_q": "/audio/01_wawancara_data_diri/41_직장_동료하고_어떻게_지낼_거예요_(Bagaimana_bergaul_dengan_teman_kerja).mp3",
       "audio_a": null,
       "answer_options": [
         {
-          "label": "Versi Ringkas (Mudah Diucap)",
-          "ko": "항상 웃으며 인사하고 서로 도우며 배려하며 지내겠습니다.",
-          "id": "Selalu menyapa dengan senyum, saling membantu, dan menjaga toleransi"
+          "label": "Saling Menghargai & Sopan",
+          "ko": "항상 웃으며 인사하고 서로 도우며 배려하겠습니다.",
+          "id": "Selalu tersenyum, menyapa, saling membantu, dan menghargai.",
+          "audio": "/audio/tts/options/wwc_41_opt_0.mp3"
         },
         {
-          "label": "Versi Standar Sopan",
-          "ko": "항상 웃으며 인사하고 서로 도우며 배려하며 지내겠습니다.",
-          "id": "Selalu menyapa dengan senyum, saling membantu, dan menjaga toleransi."
+          "label": "Komunikasi Baik",
+          "ko": "친절하게 대화하고 서로 화합하며 지내겠습니다.",
+          "id": "Berbicara dengan ramah dan menjaga keharmonisan kerja.",
+          "audio": "/audio/tts/options/wwc_41_opt_1.mp3"
         }
       ]
     },
@@ -3726,20 +3862,22 @@
       "question_ko": "직장 동료가 바쁘면 어떻게 할 거예요?",
       "question_ro": "Jikjang dongnyoga bappeumyeon eotteoke hal geoyeyo?",
       "question_id": "Jika rekan kerja sibuk?",
-      "answer_ko": "제 일을 빨리 끝내고 동료의 일을 돕겠습니다.",
-      "answer_id": "Menyelesaikan pekerjaan sendiri dengan cepat, lalu membantu rekan kerja.",
+      "answer_ko": "제 일을 먼저 빨리 끝내고 동료의 일을 적극 돕겠습니다.",
+      "answer_id": "Selesaikan tugas sendiri dulu dengan cepat, lalu aktif membantu rekan.",
       "audio_q": "/audio/01_wawancara_data_diri/42_직장_동료가_바쁘면_어떻게_할_거예요_(Jika_rekan_kerja_sibuk).mp3",
       "audio_a": null,
       "answer_options": [
         {
-          "label": "Versi Ringkas (Mudah Diucap)",
-          "ko": "제 일을 빨리 끝내고 동료의 일을 돕겠습니다.",
-          "id": "Menyelesaikan pekerjaan sendiri dengan cepat, lalu membantu rekan kerja"
+          "label": "Selesaikan Tugas Lalu Bantu",
+          "ko": "제 일을 먼저 빨리 끝내고 동료의 일을 적극 돕겠습니다.",
+          "id": "Selesaikan tugas sendiri dulu dengan cepat, lalu aktif membantu rekan.",
+          "audio": "/audio/tts/options/wwc_42_opt_0.mp3"
         },
         {
-          "label": "Versi Standar Sopan",
-          "ko": "제 일을 빨리 끝내고 동료의 일을 돕겠습니다.",
-          "id": "Menyelesaikan pekerjaan sendiri dengan cepat, lalu membantu rekan kerja."
+          "label": "Tanyakan Apa yang Bisa Dibantu",
+          "ko": "도와줄 일이 있는지 물어보고 함께 하겠습니다.",
+          "id": "Tanyakan ada yang bisa dibantu dan kerjakan bersama.",
+          "audio": "/audio/tts/options/wwc_42_opt_1.mp3"
         }
       ]
     },
@@ -3751,19 +3889,21 @@
       "question_ro": "Sangsaga nae uigyeone bandaehamyeon eotteoke hal geoyeyo?",
       "question_id": "Jika atasan tidak setuju?",
       "answer_ko": "상사님의 의견을 존중하고 회사의 지침에 따르겠습니다.",
-      "answer_id": "Menghormati keputusan atasan dan mengikuti arahan perusahaan.",
+      "answer_id": "Hormati pendapat atasan dan ikuti panduan perusahaan.",
       "audio_q": "/audio/01_wawancara_data_diri/43_상사가_내_의견에_반대하면_어떻게_할_거예요_(Jika_atasan_tidak_setuju).mp3",
       "audio_a": null,
       "answer_options": [
         {
-          "label": "Versi Ringkas (Mudah Diucap)",
+          "label": "Hormati Atasan & Patuhi SOP",
           "ko": "상사님의 의견을 존중하고 회사의 지침에 따르겠습니다.",
-          "id": "Menghormati keputusan atasan dan mengikuti arahan perusahaan"
+          "id": "Hormati pendapat atasan dan ikuti panduan perusahaan.",
+          "audio": "/audio/tts/options/wwc_43_opt_0.mp3"
         },
         {
-          "label": "Versi Standar Sopan",
-          "ko": "상사님의 의견을 존중하고 회사의 지침에 따르겠습니다.",
-          "id": "Menghormati keputusan atasan dan mengikuti arahan perusahaan."
+          "label": "Dengarkan Alasan & Belajar",
+          "ko": "제 부족한 점을 배우고 상사님의 지시대로 하겠습니다.",
+          "id": "Pelajari kekurangan saya dan lakukan sesuai instruksi atasan.",
+          "audio": "/audio/tts/options/wwc_43_opt_1.mp3"
         }
       ]
     },
@@ -3780,14 +3920,10 @@
       "audio_a": null,
       "answer_options": [
         {
-          "label": "Versi Ringkas (Mudah Diucap)",
-          "ko": "제 이름은 [이름]입니다.",
-          "id": "Nama saya [Nama]"
-        },
-        {
           "label": "Versi Standar Sopan",
           "ko": "제 이름은 [이름]입니다.",
-          "id": "Nama saya [Nama]."
+          "id": "Nama saya [Nama].",
+          "audio": "/audio/tts/options/hrdk_01_opt_0.mp3"
         }
       ]
     },
@@ -3804,14 +3940,10 @@
       "audio_a": null,
       "answer_options": [
         {
-          "label": "Versi Ringkas (Mudah Diucap)",
-          "ko": "저는 [나이]살입니다.",
-          "id": "Saya berusia [Umur] tahun"
-        },
-        {
           "label": "Versi Standar Sopan",
           "ko": "저는 [나이]살입니다.",
-          "id": "Saya berusia [Umur] tahun."
+          "id": "Saya berusia [Umur] tahun.",
+          "audio": "/audio/tts/options/hrdk_02_opt_0.mp3"
         }
       ]
     },
@@ -3828,14 +3960,10 @@
       "audio_a": null,
       "answer_options": [
         {
-          "label": "Versi Ringkas (Mudah Diucap)",
-          "ko": "제 생일은 [년]년 [월]월 [일]일입니다.",
-          "id": "Ulang tahun saya tanggal [Tanggal] bulan [Bulan] tahun [Tahun]"
-        },
-        {
           "label": "Versi Standar Sopan",
           "ko": "제 생일은 [년]년 [월]월 [일]일입니다.",
-          "id": "Ulang tahun saya tanggal [Tanggal] bulan [Bulan] tahun [Tahun]."
+          "id": "Ulang tahun saya tanggal [Tanggal] bulan [Bulan] tahun [Tahun].",
+          "audio": "/audio/tts/options/hrdk_03_opt_0.mp3"
         }
       ]
     },
@@ -3852,14 +3980,10 @@
       "audio_a": null,
       "answer_options": [
         {
-          "label": "Versi Ringkas (Mudah Diucap)",
-          "ko": "제 고향은 인도네시아 [지역]입니다.",
-          "id": "Kampung halaman saya di [Kota], Indonesia"
-        },
-        {
           "label": "Versi Standar Sopan",
           "ko": "제 고향은 인도네시아 [지역]입니다.",
-          "id": "Kampung halaman saya di [Kota], Indonesia."
+          "id": "Kampung halaman saya di [Kota], Indonesia.",
+          "audio": "/audio/tts/options/hrdk_04_opt_0.mp3"
         }
       ]
     },
@@ -3876,14 +4000,10 @@
       "audio_a": null,
       "answer_options": [
         {
-          "label": "Versi Ringkas (Mudah Diucap)",
-          "ko": "우리 가족은 모두 [명]명입니다.",
-          "id": "Keluarga saya semuanya ada [Jumlah] orang"
-        },
-        {
           "label": "Versi Standar Sopan",
           "ko": "우리 가족은 모두 [명]명입니다.",
-          "id": "Keluarga saya semuanya ada [Jumlah] orang."
+          "id": "Keluarga saya semuanya ada [Jumlah] orang.",
+          "audio": "/audio/tts/options/hrdk_05_opt_0.mp3"
         }
       ]
     },
@@ -3900,14 +4020,10 @@
       "audio_a": null,
       "answer_options": [
         {
-          "label": "Versi Ringkas (Mudah Diucap)",
-          "ko": "아버지, 어머니, 그리고 저 모두 세 명입니다.",
-          "id": "Ayah, ibu, dan saya, total 3 orang"
-        },
-        {
           "label": "Versi Standar Sopan",
           "ko": "아버지, 어머니, 그리고 저 모두 세 명입니다.",
-          "id": "Ayah, ibu, dan saya, total 3 orang."
+          "id": "Ayah, ibu, dan saya, total 3 orang.",
+          "audio": "/audio/tts/options/hrdk_06_opt_0.mp3"
         }
       ]
     },
@@ -3918,20 +4034,22 @@
       "question_ko": "부모님이 계세요?",
       "question_ro": "Bumonimi gyeseyo?",
       "question_id": "Apakah kedua orang tua masih ada / sehat?",
-      "answer_ko": "네, 두 분 다 계십니다.",
-      "answer_id": "Ya, kedua orang tua saya masih ada dan sehat.",
+      "answer_ko": "네, 두 분 다 건강하게 계십니다.",
+      "answer_id": "Ya, kedua orang tua masih sehat ada.",
       "audio_q": "/audio/hrdk_50/Soal_07_HRDK_Wawancara.mp3",
       "audio_a": null,
       "answer_options": [
         {
-          "label": "Versi Ringkas (Mudah Diucap)",
-          "ko": "네, 두 분 다 계십니다.",
-          "id": "Ya, kedua orang tua saya masih ada dan sehat"
+          "label": "Keduanya Masih Ada",
+          "ko": "네, 두 분 다 건강하게 계십니다.",
+          "id": "Ya, kedua orang tua masih sehat ada.",
+          "audio": "/audio/tts/options/hrdk_07_opt_0.mp3"
         },
         {
-          "label": "Versi Standar Sopan",
-          "ko": "네, 두 분 다 계십니다.",
-          "id": "Ya, kedua orang tua saya masih ada dan sehat."
+          "label": "Ibu Saja",
+          "ko": "어머니만 계십니다.",
+          "id": "Hanya ibu yang masih ada.",
+          "audio": "/audio/tts/options/hrdk_07_opt_1.mp3"
         }
       ]
     },
@@ -3942,20 +4060,28 @@
       "question_ko": "형제가 몇 명이 있습니까?",
       "question_ro": "Hyeongjega myeot myeong-i isseumnikka?",
       "question_id": "Berapa jumlah saudara kandung Anda?",
-      "answer_ko": "형제는 모두 [명]명 있습니다.",
-      "answer_id": "Saudara kandung saya ada [Jumlah] orang.",
+      "answer_ko": "외동입니다. 형제가 없습니다.",
+      "answer_id": "Saya anak tunggal. Tidak punya saudara.",
       "audio_q": "/audio/hrdk_50/Soal_08_HRDK_Wawancara.mp3",
       "audio_a": null,
       "answer_options": [
         {
-          "label": "Versi Ringkas (Mudah Diucap)",
-          "ko": "형제는 모두 [명]명 있습니다.",
-          "id": "Saudara kandung saya ada [Jumlah] orang"
+          "label": "Anak Tunggal",
+          "ko": "외동입니다. 형제가 없습니다.",
+          "id": "Saya anak tunggal. Tidak punya saudara.",
+          "audio": "/audio/tts/options/hrdk_08_opt_0.mp3"
         },
         {
-          "label": "Versi Standar Sopan",
-          "ko": "형제는 모두 [명]명 있습니다.",
-          "id": "Saudara kandung saya ada [Jumlah] orang."
+          "label": "Punya 1 Saudara",
+          "ko": "한 명 있습니다.",
+          "id": "Punya 1 orang saudara.",
+          "audio": "/audio/tts/options/hrdk_08_opt_1.mp3"
+        },
+        {
+          "label": "Punya 2 Saudara",
+          "ko": "두 명 있습니다.",
+          "id": "Punya 2 orang saudara.",
+          "audio": "/audio/tts/options/hrdk_08_opt_2.mp3"
         }
       ]
     },
@@ -3966,20 +4092,22 @@
       "question_ko": "결혼했어요?",
       "question_ro": "Gyeolhonhaesseoyo?",
       "question_id": "Apakah Anda sudah menikah?",
-      "answer_ko": "아니요, 아직 안 했습니다. 미혼입니다. / 네, 결혼했습니다.",
-      "answer_id": "Belum, saya belum menikah (lajang). / Ya, sudah menikah.",
+      "answer_ko": "아니요, 아직 안 했습니다. 미혼입니다.",
+      "answer_id": "Belum, belum menikah. Masih lajang.",
       "audio_q": "/audio/hrdk_50/Soal_09_HRDK_Wawancara.mp3",
       "audio_a": null,
       "answer_options": [
         {
-          "label": "Versi Ringkas (Mudah Diucap)",
-          "ko": "아니요, 아직 안 했습니다.",
-          "id": "Belum, saya belum menikah (lajang)"
+          "label": "Belum Menikah (Lajang)",
+          "ko": "아니요, 아직 안 했습니다. 미혼입니다.",
+          "id": "Belum, belum menikah. Masih lajang.",
+          "audio": "/audio/tts/options/hrdk_09_opt_0.mp3"
         },
         {
-          "label": "Versi Standar Sopan",
-          "ko": "아니요, 아직 안 했습니다. 미혼입니다. / 네, 결혼했습니다.",
-          "id": "Belum, saya belum menikah (lajang). / Ya, sudah menikah."
+          "label": "Sudah Menikah",
+          "ko": "네, 결혼했습니다.",
+          "id": "Ya, saya sudah menikah.",
+          "audio": "/audio/tts/options/hrdk_09_opt_1.mp3"
         }
       ]
     },
@@ -3990,20 +4118,28 @@
       "question_ko": "아이가 있어요?",
       "question_ro": "Aiga isseoyo?",
       "question_id": "Apakah Anda sudah memiliki anak?",
-      "answer_ko": "아니요, 아직 없습니다. / 네, [명]명 있습니다.",
-      "answer_id": "Belum punya anak. / Ya, punya [Jumlah] orang anak.",
+      "answer_ko": "아니요, 아직 없습니다.",
+      "answer_id": "Belum, belum punya anak.",
       "audio_q": "/audio/hrdk_50/Soal_10_HRDK_Wawancara.mp3",
       "audio_a": null,
       "answer_options": [
         {
-          "label": "Versi Ringkas (Mudah Diucap)",
+          "label": "Belum Punya Anak",
           "ko": "아니요, 아직 없습니다.",
-          "id": "Belum punya anak"
+          "id": "Belum, belum punya anak.",
+          "audio": "/audio/tts/options/hrdk_10_opt_0.mp3"
         },
         {
-          "label": "Versi Standar Sopan",
-          "ko": "아니요, 아직 없습니다. / 네, [명]명 있습니다.",
-          "id": "Belum punya anak. / Ya, punya [Jumlah] orang anak."
+          "label": "Punya 1 Anak",
+          "ko": "네, 아이가 하나 있습니다.",
+          "id": "Ya, punya 1 orang anak.",
+          "audio": "/audio/tts/options/hrdk_10_opt_1.mp3"
+        },
+        {
+          "label": "Punya 2 Anak",
+          "ko": "네, 아이가 둘 있습니다.",
+          "id": "Ya, punya 2 orang anak.",
+          "audio": "/audio/tts/options/hrdk_10_opt_2.mp3"
         }
       ]
     },
@@ -4020,14 +4156,10 @@
       "audio_a": null,
       "answer_options": [
         {
-          "label": "Versi Ringkas (Mudah Diucap)",
-          "ko": "제 키는 [키]센티미터입니다.",
-          "id": "Tinggi badan saya [Tinggi] cm"
-        },
-        {
           "label": "Versi Standar Sopan",
           "ko": "제 키는 [키]센티미터입니다.",
-          "id": "Tinggi badan saya [Tinggi] cm."
+          "id": "Tinggi badan saya [Tinggi] cm.",
+          "audio": "/audio/tts/options/hrdk_11_opt_0.mp3"
         }
       ]
     },
@@ -4044,14 +4176,10 @@
       "audio_a": null,
       "answer_options": [
         {
-          "label": "Versi Ringkas (Mudah Diucap)",
-          "ko": "제 몸무게는 [몸무게]킬로그램입니다.",
-          "id": "Berat badan saya [Berat] kg"
-        },
-        {
           "label": "Versi Standar Sopan",
           "ko": "제 몸무게는 [몸무게]킬로그램입니다.",
-          "id": "Berat badan saya [Berat] kg."
+          "id": "Berat badan saya [Berat] kg.",
+          "audio": "/audio/tts/options/hrdk_12_opt_0.mp3"
         }
       ]
     },
@@ -4068,14 +4196,10 @@
       "audio_a": null,
       "answer_options": [
         {
-          "label": "Versi Ringkas (Mudah Diucap)",
-          "ko": "지금은 [시]시 [분]분입니다.",
-          "id": "Sekarang pukul [Jam] lewat [Menit] menit"
-        },
-        {
           "label": "Versi Standar Sopan",
           "ko": "지금은 [시]시 [분]분입니다.",
-          "id": "Sekarang pukul [Jam] lewat [Menit] menit."
+          "id": "Sekarang pukul [Jam] lewat [Menit] menit.",
+          "audio": "/audio/tts/options/hrdk_13_opt_0.mp3"
         }
       ]
     },
@@ -4092,14 +4216,10 @@
       "audio_a": null,
       "answer_options": [
         {
-          "label": "Versi Ringkas (Mudah Diucap)",
-          "ko": "오늘은 [요일]요일입니다.",
-          "id": "Hari ini adalah hari [Hari]"
-        },
-        {
           "label": "Versi Standar Sopan",
           "ko": "오늘은 [요일]요일입니다.",
-          "id": "Hari ini adalah hari [Hari]."
+          "id": "Hari ini adalah hari [Hari].",
+          "audio": "/audio/tts/options/hrdk_14_opt_0.mp3"
         }
       ]
     },
@@ -4116,14 +4236,10 @@
       "audio_a": null,
       "answer_options": [
         {
-          "label": "Versi Ringkas (Mudah Diucap)",
-          "ko": "어제는 [요일]요일이었습니다.",
-          "id": "Kemarin adalah hari [Hari]"
-        },
-        {
           "label": "Versi Standar Sopan",
           "ko": "어제는 [요일]요일이었습니다.",
-          "id": "Kemarin adalah hari [Hari]."
+          "id": "Kemarin adalah hari [Hari].",
+          "audio": "/audio/tts/options/hrdk_15_opt_0.mp3"
         }
       ]
     },
@@ -4140,14 +4256,10 @@
       "audio_a": null,
       "answer_options": [
         {
-          "label": "Versi Ringkas (Mudah Diucap)",
-          "ko": "내일은 [요일]요일입니다.",
-          "id": "Besok adalah hari [Hari]"
-        },
-        {
           "label": "Versi Standar Sopan",
           "ko": "내일은 [요일]요일입니다.",
-          "id": "Besok adalah hari [Hari]."
+          "id": "Besok adalah hari [Hari].",
+          "audio": "/audio/tts/options/hrdk_16_opt_0.mp3"
         }
       ]
     },
@@ -4164,14 +4276,10 @@
       "audio_a": null,
       "answer_options": [
         {
-          "label": "Versi Ringkas (Mudah Diucap)",
-          "ko": "오늘은 [월]월 [일]일입니다.",
-          "id": "Hari ini tanggal [Tanggal] bulan [Bulan]"
-        },
-        {
           "label": "Versi Standar Sopan",
           "ko": "오늘은 [월]월 [일]일입니다.",
-          "id": "Hari ini tanggal [Tanggal] bulan [Bulan]."
+          "id": "Hari ini tanggal [Tanggal] bulan [Bulan].",
+          "audio": "/audio/tts/options/hrdk_17_opt_0.mp3"
         }
       ]
     },
@@ -4188,14 +4296,10 @@
       "audio_a": null,
       "answer_options": [
         {
-          "label": "Versi Ringkas (Mudah Diucap)",
-          "ko": "내일은 [월]월 [일]일입니다.",
-          "id": "Besok tanggal [Tanggal] bulan [Bulan]"
-        },
-        {
           "label": "Versi Standar Sopan",
           "ko": "내일은 [월]월 [일]일입니다.",
-          "id": "Besok tanggal [Tanggal] bulan [Bulan]."
+          "id": "Besok tanggal [Tanggal] bulan [Bulan].",
+          "audio": "/audio/tts/options/hrdk_18_opt_0.mp3"
         }
       ]
     },
@@ -4212,14 +4316,10 @@
       "audio_a": null,
       "answer_options": [
         {
-          "label": "Versi Ringkas (Mudah Diucap)",
-          "ko": "어제는 [월]월 [일]일이었습니다.",
-          "id": "Kemarin tanggal [Tanggal] bulan [Bulan]"
-        },
-        {
           "label": "Versi Standar Sopan",
           "ko": "어제는 [월]월 [일]일이었습니다.",
-          "id": "Kemarin tanggal [Tanggal] bulan [Bulan]."
+          "id": "Kemarin tanggal [Tanggal] bulan [Bulan].",
+          "audio": "/audio/tts/options/hrdk_19_opt_0.mp3"
         }
       ]
     },
@@ -4231,19 +4331,21 @@
       "question_ro": "Hanguge wae gago sipeoyo?",
       "question_id": "Mengapa Anda ingin pergi bekerja ke Korea?",
       "answer_ko": "돈을 벌어 가족을 돕고 기술을 배우고 싶어서입니다.",
-      "answer_id": "Untuk mencari nafkah membantu keluarga dan mempelajari teknologi.",
+      "answer_id": "Mencari uang membantu keluarga dan belajar keterampilan.",
       "audio_q": "/audio/hrdk_50/Soal_20_HRDK_Wawancara.mp3",
       "audio_a": null,
       "answer_options": [
         {
-          "label": "Versi Ringkas (Mudah Diucap)",
+          "label": "Bantu Keluarga & Cari Uang",
           "ko": "돈을 벌어 가족을 돕고 기술을 배우고 싶어서입니다.",
-          "id": "Untuk mencari nafkah membantu keluarga dan mempelajari teknologi"
+          "id": "Mencari uang membantu keluarga dan belajar keterampilan.",
+          "audio": "/audio/tts/options/hrdk_20_opt_0.mp3"
         },
         {
-          "label": "Versi Standar Sopan",
-          "ko": "돈을 벌어 가족을 돕고 기술을 배우고 싶어서입니다.",
-          "id": "Untuk mencari nafkah membantu keluarga dan mempelajari teknologi."
+          "label": "Bekerja Rajin di Pabrik",
+          "ko": "한국 공장에서 성실히 일하고 싶어서입니다.",
+          "id": "Ingin bekerja dengan rajin dan jujur di pabrik Korea.",
+          "audio": "/audio/tts/options/hrdk_20_opt_1.mp3"
         }
       ]
     },
@@ -4260,14 +4362,10 @@
       "audio_a": null,
       "answer_options": [
         {
-          "label": "Versi Ringkas (Mudah Diucap)",
-          "ko": "제조업 공장에서 성실하게 일하고 싶습니다.",
-          "id": "Saya ingin bekerja dengan tekun di pabrik manufaktur"
-        },
-        {
           "label": "Versi Standar Sopan",
           "ko": "제조업 공장에서 성실하게 일하고 싶습니다.",
-          "id": "Saya ingin bekerja dengan tekun di pabrik manufaktur."
+          "id": "Saya ingin bekerja dengan tekun di pabrik manufaktur.",
+          "audio": "/audio/tts/options/hrdk_21_opt_0.mp3"
         }
       ]
     },
@@ -4279,19 +4377,15 @@
       "question_ro": "Jikjang dongnyohago eotteoke jinael geoyeyo?",
       "question_id": "Bagaimana Anda bergaul dengan rekan kerja di pabrik?",
       "answer_ko": "항상 웃으며 인사하고 서로 도우며 배려하며 지내겠습니다.",
-      "answer_id": "Selalu tersenyum, menyapa, saling membantu, dan menjaga toleransi.",
+      "answer_id": "Selalu tersenyum ramah dan saling tolong menolong.",
       "audio_q": "/audio/hrdk_50/Soal_22_HRDK_Wawancara.mp3",
       "audio_a": null,
       "answer_options": [
         {
-          "label": "Versi Ringkas (Mudah Diucap)",
+          "label": "Ramah & Saling Membantu",
           "ko": "항상 웃으며 인사하고 서로 도우며 배려하며 지내겠습니다.",
-          "id": "Selalu tersenyum, menyapa, saling membantu, dan menjaga toleransi"
-        },
-        {
-          "label": "Versi Standar Sopan",
-          "ko": "항상 웃으며 인사하고 서로 도우며 배려하며 지내겠습니다.",
-          "id": "Selalu tersenyum, menyapa, saling membantu, dan menjaga toleransi."
+          "id": "Selalu tersenyum ramah dan saling tolong menolong.",
+          "audio": "/audio/tts/options/hrdk_22_opt_0.mp3"
         }
       ]
     },
@@ -4303,19 +4397,15 @@
       "question_ro": "Jikjang dongnyoga bappeumyeon eotteoke hal geoyeyo?",
       "question_id": "Jika rekan kerja sedang sangat sibuk, apa yang akan Anda lakukan?",
       "answer_ko": "제 일을 먼저 끝내고 동료의 일을 적극적으로 돕겠습니다.",
-      "answer_id": "Menyelesaikan pekerjaan sendiri dengan cepat, lalu sigap membantu rekan.",
+      "answer_id": "Selesaikan kerjaan saya dulu lalu segera bantu teman.",
       "audio_q": "/audio/hrdk_50/Soal_23_HRDK_Wawancara.mp3",
       "audio_a": null,
       "answer_options": [
         {
-          "label": "Versi Ringkas (Mudah Diucap)",
+          "label": "Bantu Selesai Tugas Sendiri",
           "ko": "제 일을 먼저 끝내고 동료의 일을 적극적으로 돕겠습니다.",
-          "id": "Menyelesaikan pekerjaan sendiri dengan cepat, lalu sigap membantu rekan"
-        },
-        {
-          "label": "Versi Standar Sopan",
-          "ko": "제 일을 먼저 끝내고 동료의 일을 적극적으로 돕겠습니다.",
-          "id": "Menyelesaikan pekerjaan sendiri dengan cepat, lalu sigap membantu rekan."
+          "id": "Selesaikan kerjaan saya dulu lalu segera bantu teman.",
+          "audio": "/audio/tts/options/hrdk_23_opt_0.mp3"
         }
       ]
     },
@@ -4326,20 +4416,22 @@
       "question_ko": "회사에 일이 많으면 어떻게 할 거예요?",
       "question_ro": "Hoesae iri maneumyeon eotteoke hal geoyeyo?",
       "question_id": "Jika di perusahaan banyak pekerjaan (lembur), apa yang akan Anda lakukan?",
-      "answer_ko": "기꺼이 야근이나 특근을 열심히 하겠습니다.",
-      "answer_id": "Saya siap dan bersedia lembur (야근/잔업) maupun masuk akhir pekan.",
+      "answer_ko": "네, 기꺼이 야근하겠습니다.",
+      "answer_id": "Ya, saya siap lembur dengan senang hati.",
       "audio_q": "/audio/hrdk_50/Soal_24_HRDK_Wawancara.mp3",
       "audio_a": null,
       "answer_options": [
         {
-          "label": "Versi Ringkas (Mudah Diucap)",
-          "ko": "기꺼이 야근이나 특근을 열심히 하겠습니다.",
-          "id": "Saya siap dan bersedia lembur (야근/잔업) maupun masuk akhir pekan"
+          "label": "Siap Lembur (Super Ringkas)",
+          "ko": "네, 기꺼이 야근하겠습니다.",
+          "id": "Ya, saya siap lembur dengan senang hati.",
+          "audio": "/audio/tts/options/hrdk_24_opt_0.mp3"
         },
         {
-          "label": "Versi Standar Sopan",
-          "ko": "기꺼이 야근이나 특근을 열심히 하겠습니다.",
-          "id": "Saya siap dan bersedia lembur (야근/잔업) maupun masuk akhir pekan."
+          "label": "Bekerja Rajin Sampai Selesai",
+          "ko": "일이 많으면 야근이나 특근을 열심히 하겠습니다.",
+          "id": "Jika banyak pekerjaan, saya akan giat lembur dan kerja lembur akhir pekan.",
+          "audio": "/audio/tts/options/hrdk_24_opt_1.mp3"
         }
       ]
     },
@@ -4356,14 +4448,10 @@
       "audio_a": null,
       "answer_options": [
         {
-          "label": "Versi Ringkas (Mudah Diucap)",
-          "ko": "한국은 사계절이 뚜렷하고 예절과 안전을 중요하게 생각하는 나라입니다.",
-          "id": "Korea memiliki 4 musim yang jelas, serta sangat menjunjung tinggi etika dan keselamatan"
-        },
-        {
           "label": "Versi Standar Sopan",
           "ko": "한국은 사계절이 뚜렷하고 예절과 안전을 중요하게 생각하는 나라입니다.",
-          "id": "Korea memiliki 4 musim yang jelas, serta sangat menjunjung tinggi etika dan keselamatan."
+          "id": "Korea memiliki 4 musim yang jelas, serta sangat menjunjung tinggi etika dan keselamatan.",
+          "audio": "/audio/tts/options/hrdk_25_opt_0.mp3"
         }
       ]
     },
@@ -4375,19 +4463,15 @@
       "question_ro": "Sangsaga dangsinui uigyeone bandaehamyeon eotteoke hal geoyeyo?",
       "question_id": "Jika atasan tidak setuju dengan pendapat Anda, apa yang akan Anda lakukan?",
       "answer_ko": "상사님의 의견을 존중하고 회사의 지침에 따르겠습니다.",
-      "answer_id": "Menghormati keputusan atasan dan mematuhi arahan kerja perusahaan.",
+      "answer_id": "Hormati pendapat atasan dan ikuti arahan perusahaan.",
       "audio_q": "/audio/hrdk_50/Soal_26_HRDK_Wawancara.mp3",
       "audio_a": null,
       "answer_options": [
         {
-          "label": "Versi Ringkas (Mudah Diucap)",
+          "label": "Patuhi Arahan Atasan",
           "ko": "상사님의 의견을 존중하고 회사의 지침에 따르겠습니다.",
-          "id": "Menghormati keputusan atasan dan mematuhi arahan kerja perusahaan"
-        },
-        {
-          "label": "Versi Standar Sopan",
-          "ko": "상사님의 의견을 존중하고 회사의 지침에 따르겠습니다.",
-          "id": "Menghormati keputusan atasan dan mematuhi arahan kerja perusahaan."
+          "id": "Hormati pendapat atasan dan ikuti arahan perusahaan.",
+          "audio": "/audio/tts/options/hrdk_26_opt_0.mp3"
         }
       ]
     },
@@ -4399,19 +4483,21 @@
       "question_ro": "Jageophadaga silsuhamyeon eotteoke hal geoyeyo?",
       "question_id": "Jika Anda berbuat kesalahan saat bekerja, apa yang akan Anda lakukan?",
       "answer_ko": "즉시 상사에게 보고하고 솔직하게 잘못을 바로잡겠습니다.",
-      "answer_id": "Segera melapor kepada atasan secara jujur dan memperbaikinya sesuai arahan.",
+      "answer_id": "Segera lapor atasan dan perbaiki kesalahan dengan jujur.",
       "audio_q": "/audio/hrdk_50/Soal_27_HRDK_Wawancara.mp3",
       "audio_a": null,
       "answer_options": [
         {
-          "label": "Versi Ringkas (Mudah Diucap)",
+          "label": "Lapor Segera",
           "ko": "즉시 상사에게 보고하고 솔직하게 잘못을 바로잡겠습니다.",
-          "id": "Segera melapor kepada atasan secara jujur dan memperbaikinya sesuai arahan"
+          "id": "Segera lapor atasan dan perbaiki kesalahan dengan jujur.",
+          "audio": "/audio/tts/options/hrdk_27_opt_0.mp3"
         },
         {
-          "label": "Versi Standar Sopan",
-          "ko": "즉시 상사에게 보고하고 솔직하게 잘못을 바로잡겠습니다.",
-          "id": "Segera melapor kepada atasan secara jujur dan memperbaikinya sesuai arahan."
+          "label": "Minta Petunjuk Perbaikan",
+          "ko": "숨기지 않고 상사님께 말씀드려 다시 배우겠습니다.",
+          "id": "Tidak akan menyembunyikannya, lapor ke atasan dan belajar memperbaikinya.",
+          "audio": "/audio/tts/options/hrdk_27_opt_1.mp3"
         }
       ]
     },
@@ -4422,20 +4508,22 @@
       "question_ko": "작업하다가 사고가 나면 어떻게 할 거예요?",
       "question_ro": "Jageophadaga sagoga namyeon eotteoke hal geoyeyo?",
       "question_id": "Jika terjadi kecelakaan saat bekerja, apa yang akan Anda lakukan?",
-      "answer_ko": "큰 소리로 \"사고다!\" 외치고 비상 정지 버튼을 누른 후 상사에게 보고합니다.",
-      "answer_id": "Berteriak memberi tahu rekan kerja, mematikan saklar darurat, lalu melapor ke atasan.",
+      "answer_ko": "큰 소리로 '사고다!' 외치고 비상 정지 버튼을 누른 후 상사에게 보고합니다.",
+      "answer_id": "Teriak keras 'Kecelakaan!', tekan tombol stop darurat, lalu lapor atasan.",
       "audio_q": "/audio/hrdk_50/Soal_28_HRDK_Wawancara.mp3",
       "audio_a": null,
       "answer_options": [
         {
-          "label": "Versi Ringkas (Mudah Diucap)",
-          "ko": "큰 소리로 \"사고다!\" 외치고 비상 정지 버튼을 누른 후 상사에게 보고합니다.",
-          "id": "Berteriak memberi tahu rekan kerja, mematikan saklar darurat, lalu melapor ke atasan"
+          "label": "Teriak & Tombol Stop",
+          "ko": "큰 소리로 '사고다!' 외치고 비상 정지 버튼을 누른 후 상사에게 보고합니다.",
+          "id": "Teriak keras 'Kecelakaan!', tekan tombol stop darurat, lalu lapor atasan.",
+          "audio": "/audio/tts/options/hrdk_28_opt_0.mp3"
         },
         {
-          "label": "Versi Standar Sopan",
-          "ko": "큰 소리로 \"사고다!\" 외치고 비상 정지 버튼을 누른 후 상사에게 보고합니다.",
-          "id": "Berteriak memberi tahu rekan kerja, mematikan saklar darurat, lalu melapor ke atasan."
+          "label": "Panggil Bantuan Cepat",
+          "ko": "즉시 비상 버튼을 누르고 관리자에게 알립니다.",
+          "id": "Segera tekan tombol darurat dan beri tahu penanggung jawab.",
+          "audio": "/audio/tts/options/hrdk_28_opt_1.mp3"
         }
       ]
     },
@@ -4452,14 +4540,10 @@
       "audio_a": null,
       "answer_options": [
         {
-          "label": "Versi Ringkas (Mudah Diucap)",
-          "ko": "한국어 공부와 체력 관리를 매일 열심히 하고 있습니다.",
-          "id": "Setiap hari saya fokus belajar bahasa Korea dan melatih kebugaran fisik"
-        },
-        {
           "label": "Versi Standar Sopan",
           "ko": "한국어 공부와 체력 관리를 매일 열심히 하고 있습니다.",
-          "id": "Setiap hari saya fokus belajar bahasa Korea dan melatih kebugaran fisik."
+          "id": "Setiap hari saya fokus belajar bahasa Korea dan melatih kebugaran fisik.",
+          "audio": "/audio/tts/options/hrdk_29_opt_0.mp3"
         }
       ]
     },
@@ -4476,14 +4560,10 @@
       "audio_a": null,
       "answer_options": [
         {
-          "label": "Versi Ringkas (Mudah Diucap)",
-          "ko": "아직 부족하지만 한국에 가서도 계속 열심히 배울 것입니다.",
-          "id": "Masih terus belajar, dan saya akan semakin giat belajar saat tiba di Korea"
-        },
-        {
           "label": "Versi Standar Sopan",
           "ko": "아직 부족하지만 한국에 가서도 계속 열심히 배울 것입니다.",
-          "id": "Masih terus belajar, dan saya akan semakin giat belajar saat tiba di Korea."
+          "id": "Masih terus belajar, dan saya akan semakin giat belajar saat tiba di Korea.",
+          "audio": "/audio/tts/options/hrdk_30_opt_0.mp3"
         }
       ]
     },
@@ -4494,20 +4574,34 @@
       "question_ko": "무엇을 타고 왔어요?",
       "question_ro": "Mueoseul tago wasseoyo?",
       "question_id": "Naik kendaraan apa Anda datang ke tempat ujian ini?",
-      "answer_ko": "오토바이(또는 버스)를 타고 왔습니다.",
-      "answer_id": "Saya datang naik sepeda motor (atau bus umum).",
+      "answer_ko": "오토바이를 타고 왔습니다.",
+      "answer_id": "Datang naik sepeda motor.",
       "audio_q": "/audio/hrdk_50/Soal_31_HRDK_Wawancara.mp3",
       "audio_a": null,
       "answer_options": [
         {
-          "label": "Versi Ringkas (Mudah Diucap)",
-          "ko": "오토바이(또는 버스)를 타고 왔습니다.",
-          "id": "Saya datang naik sepeda motor (atau bus umum)"
+          "label": "Naik Sepeda Motor",
+          "ko": "오토바이를 타고 왔습니다.",
+          "id": "Datang naik sepeda motor.",
+          "audio": "/audio/tts/options/hrdk_31_opt_0.mp3"
         },
         {
-          "label": "Versi Standar Sopan",
-          "ko": "오토바이(또는 버스)를 타고 왔습니다.",
-          "id": "Saya datang naik sepeda motor (atau bus umum)."
+          "label": "Naik Bus",
+          "ko": "버스를 타고 왔습니다.",
+          "id": "Datang naik bus.",
+          "audio": "/audio/tts/options/hrdk_31_opt_1.mp3"
+        },
+        {
+          "label": "Naik Mobil / Taksi",
+          "ko": "택시를 타고 왔습니다.",
+          "id": "Datang naik taksi/mobil.",
+          "audio": "/audio/tts/options/hrdk_31_opt_2.mp3"
+        },
+        {
+          "label": "Naik Kereta",
+          "ko": "기차를 타고 왔습니다.",
+          "id": "Datang naik kereta api.",
+          "audio": "/audio/tts/options/hrdk_31_opt_3.mp3"
         }
       ]
     },
@@ -4524,14 +4618,10 @@
       "audio_a": null,
       "answer_options": [
         {
-          "label": "Versi Ringkas (Mudah Diucap)",
-          "ko": "집에서 여기까지 한 시간 정도 걸렸습니다.",
-          "id": "Dari rumah ke sini memakan waktu sekitar 1 jam"
-        },
-        {
           "label": "Versi Standar Sopan",
           "ko": "집에서 여기까지 한 시간 정도 걸렸습니다.",
-          "id": "Dari rumah ke sini memakan waktu sekitar 1 jam."
+          "id": "Dari rumah ke sini memakan waktu sekitar 1 jam.",
+          "audio": "/audio/tts/options/hrdk_32_opt_0.mp3"
         }
       ]
     },
@@ -4542,20 +4632,34 @@
       "question_ko": "전에 무슨 일을 했어요?",
       "question_ro": "Jeone museun ireul haesseoyo?",
       "question_id": "Sebelumnya Anda pernah bekerja di bidang apa?",
-      "answer_ko": "인도네시아 공장에서 생산직으로 일했습니다.",
-      "answer_id": "Saya pernah bekerja di bagian produksi pabrik di Indonesia.",
+      "answer_ko": "인도네시아 제조업 공장에서 일했습니다.",
+      "answer_id": "Pernah bekerja di pabrik manufaktur di Indonesia.",
       "audio_q": "/audio/hrdk_50/Soal_33_HRDK_Wawancara.mp3",
       "audio_a": null,
       "answer_options": [
         {
-          "label": "Versi Ringkas (Mudah Diucap)",
-          "ko": "인도네시아 공장에서 생산직으로 일했습니다.",
-          "id": "Saya pernah bekerja di bagian produksi pabrik di Indonesia"
+          "label": "Pernah Pabrik Manufaktur",
+          "ko": "인도네시아 제조업 공장에서 일했습니다.",
+          "id": "Pernah bekerja di pabrik manufaktur di Indonesia.",
+          "audio": "/audio/tts/options/hrdk_33_opt_0.mp3"
         },
         {
-          "label": "Versi Standar Sopan",
-          "ko": "인도네시아 공장에서 생산직으로 일했습니다.",
-          "id": "Saya pernah bekerja di bagian produksi pabrik di Indonesia."
+          "label": "Pernah Konstruksi / Proyek",
+          "ko": "건설 현장에서 일한 경험이 있습니다.",
+          "id": "Punya pengalaman bekerja di lapangan konstruksi.",
+          "audio": "/audio/tts/options/hrdk_33_opt_1.mp3"
+        },
+        {
+          "label": "Pernah Bengkel / Mesin",
+          "ko": "정비소에서 기계 수리를 했습니다.",
+          "id": "Bekerja memperbaiki mesin di bengkel.",
+          "audio": "/audio/tts/options/hrdk_33_opt_2.mp3"
+        },
+        {
+          "label": "Belum Pernah (Fresh/Baru Lulus)",
+          "ko": "공장 경험은 없지만 열심히 배울 수 있습니다.",
+          "id": "Belum pernah kerja pabrik, tapi siap belajar giat.",
+          "audio": "/audio/tts/options/hrdk_33_opt_3.mp3"
         }
       ]
     },
@@ -4572,14 +4676,10 @@
       "audio_a": null,
       "answer_options": [
         {
-          "label": "Versi Ringkas (Mudah Diucap)",
-          "ko": "저는 건강하고 성실하며 맡은 일은 끝까지 책임지는 사람입니다.",
-          "id": "Karena saya berbadan sehat, jujur, rajin, dan sangat bertanggung jawab atas tugas"
-        },
-        {
           "label": "Versi Standar Sopan",
           "ko": "저는 건강하고 성실하며 맡은 일은 끝까지 책임지는 사람입니다.",
-          "id": "Karena saya berbadan sehat, jujur, rajin, dan sangat bertanggung jawab atas tugas."
+          "id": "Karena saya berbadan sehat, jujur, rajin, dan sangat bertanggung jawab atas tugas.",
+          "audio": "/audio/tts/options/hrdk_34_opt_0.mp3"
         }
       ]
     },
@@ -4590,20 +4690,28 @@
       "question_ko": "외국에 가 본 적이 있어요?",
       "question_ro": "Oeguge ga bon jeogi isseoyo?",
       "question_id": "Pernahkah Anda bepergian ke luar negeri sebelumnya?",
-      "answer_ko": "아니요, 외국에 가 본 적이 없습니다.",
-      "answer_id": "Belum, saya belum pernah pergi ke luar negeri.",
+      "answer_ko": "아니요, 외국에 가 본 적이 없습니다. 이번이 처음입니다.",
+      "answer_id": "Belum, belum pernah ke luar negeri. Ini yang pertama.",
       "audio_q": "/audio/hrdk_50/Soal_35_HRDK_Wawancara.mp3",
       "audio_a": null,
       "answer_options": [
         {
-          "label": "Versi Ringkas (Mudah Diucap)",
-          "ko": "아니요, 외국에 가 본 적이 없습니다.",
-          "id": "Belum, saya belum pernah pergi ke luar negeri"
+          "label": "Belum Pernah (Pertama)",
+          "ko": "아니요, 외국에 가 본 적이 없습니다. 이번이 처음입니다.",
+          "id": "Belum, belum pernah ke luar negeri. Ini yang pertama.",
+          "audio": "/audio/tts/options/hrdk_35_opt_0.mp3"
         },
         {
-          "label": "Versi Standar Sopan",
-          "ko": "아니요, 외국에 가 본 적이 없습니다.",
-          "id": "Belum, saya belum pernah pergi ke luar negeri."
+          "label": "Pernah ke Korea",
+          "ko": "네, 한국에 가 본 적이 있습니다.",
+          "id": "Ya, pernah pergi ke Korea.",
+          "audio": "/audio/tts/options/hrdk_35_opt_1.mp3"
+        },
+        {
+          "label": "Pernah ke Negara Lain",
+          "ko": "네, 다른 나라에 가 본 적이 있습니다.",
+          "id": "Ya, pernah pergi ke negara lain.",
+          "audio": "/audio/tts/options/hrdk_35_opt_2.mp3"
         }
       ]
     },
@@ -4615,19 +4723,27 @@
       "question_ro": "Museun undong-eul joahamnikka?",
       "question_id": "Olahraga apa yang paling Anda sukai?",
       "answer_ko": "축구를 제일 좋아합니다.",
-      "answer_id": "Saya paling suka bermain sepak bola.",
+      "answer_id": "Paling suka sepak bola.",
       "audio_q": "/audio/hrdk_50/Soal_36_HRDK_Wawancara.mp3",
       "audio_a": null,
       "answer_options": [
         {
-          "label": "Versi Ringkas (Mudah Diucap)",
+          "label": "Sepak Bola",
           "ko": "축구를 제일 좋아합니다.",
-          "id": "Saya paling suka bermain sepak bola"
+          "id": "Paling suka sepak bola.",
+          "audio": "/audio/tts/options/hrdk_36_opt_0.mp3"
         },
         {
-          "label": "Versi Standar Sopan",
-          "ko": "축구를 제일 좋아합니다.",
-          "id": "Saya paling suka bermain sepak bola."
+          "label": "Bulu Tangkis",
+          "ko": "배드민턴을 제일 좋아합니다.",
+          "id": "Paling suka bulu tangkis.",
+          "audio": "/audio/tts/options/hrdk_36_opt_1.mp3"
+        },
+        {
+          "label": "Lari Pagi",
+          "ko": "조깅이나 달리기를 좋아합니다.",
+          "id": "Suka jogging atau lari.",
+          "audio": "/audio/tts/options/hrdk_36_opt_2.mp3"
         }
       ]
     },
@@ -4638,20 +4754,28 @@
       "question_ko": "취미가 뭐예요?",
       "question_ro": "Chwimiga mwoyeyo?",
       "question_id": "Apa kegemaran atau hobi Anda?",
-      "answer_ko": "제 취미는 운동과 음악 감상입니다.",
-      "answer_id": "Hobi saya adalah berolahraga dan mendengarkan musik.",
+      "answer_ko": "제 취미는 운동과 체력 단련입니다.",
+      "answer_id": "Hobi saya olahraga dan melatih kebugaran fisik.",
       "audio_q": "/audio/hrdk_50/Soal_37_HRDK_Wawancara.mp3",
       "audio_a": null,
       "answer_options": [
         {
-          "label": "Versi Ringkas (Mudah Diucap)",
-          "ko": "제 취미는 운동과 음악 감상입니다.",
-          "id": "Hobi saya adalah berolahraga dan mendengarkan musik"
+          "label": "Olahraga & Fisik",
+          "ko": "제 취미는 운동과 체력 단련입니다.",
+          "id": "Hobi saya olahraga dan melatih kebugaran fisik.",
+          "audio": "/audio/tts/options/hrdk_37_opt_0.mp3"
         },
         {
-          "label": "Versi Standar Sopan",
-          "ko": "제 취미는 운동과 음악 감상입니다.",
-          "id": "Hobi saya adalah berolahraga dan mendengarkan musik."
+          "label": "Mendengarkan Musik",
+          "ko": "음악 듣는 것을 좋아합니다.",
+          "id": "Saya suka mendengarkan musik.",
+          "audio": "/audio/tts/options/hrdk_37_opt_1.mp3"
+        },
+        {
+          "label": "Sepak Bola",
+          "ko": "친구들과 축구하는 것입니다.",
+          "id": "Bermain sepak bola bersama teman-teman.",
+          "audio": "/audio/tts/options/hrdk_37_opt_2.mp3"
         }
       ]
     },
@@ -4663,19 +4787,21 @@
       "question_ro": "Bullyangpumi maneumyeon eotteoke hal geoyeyo?",
       "question_id": "Jika menemukan banyak produk cacat/rusak, apa tindakan Anda?",
       "answer_ko": "작업을 즉시 멈추고 반장님께 바로 보고하겠습니다.",
-      "answer_id": "Segera hentikan mesin pekerjaan dan langsung melapor kepada mandor.",
+      "answer_id": "Segera hentikan kerja dan lapor langsung ke mandor.",
       "audio_q": "/audio/hrdk_50/Soal_38_HRDK_Wawancara.mp3",
       "audio_a": null,
       "answer_options": [
         {
-          "label": "Versi Ringkas (Mudah Diucap)",
+          "label": "Hentikan Mesin & Lapor",
           "ko": "작업을 즉시 멈추고 반장님께 바로 보고하겠습니다.",
-          "id": "Segera hentikan mesin pekerjaan dan langsung melapor kepada mandor"
+          "id": "Segera hentikan kerja dan lapor langsung ke mandor.",
+          "audio": "/audio/tts/options/hrdk_38_opt_0.mp3"
         },
         {
-          "label": "Versi Standar Sopan",
-          "ko": "작업을 즉시 멈추고 반장님께 바로 보고하겠습니다.",
-          "id": "Segera hentikan mesin pekerjaan dan langsung melapor kepada mandor."
+          "label": "Cek Bersama & Perbaiki",
+          "ko": "기계를 멈추고 상사님 지시에 따라 다시 작업하겠습니다.",
+          "id": "Hentikan mesin dan kerjakan ulang sesuai instruksi atasan.",
+          "audio": "/audio/tts/options/hrdk_38_opt_1.mp3"
         }
       ]
     },
@@ -4692,14 +4818,10 @@
       "audio_a": null,
       "answer_options": [
         {
-          "label": "Versi Ringkas (Mudah Diucap)",
-          "ko": "기계 조작과 물건 포장 및 조립 기술이 있습니다.",
-          "id": "Saya terbiasa mengoperasikan mesin ringan, pengemasan, dan perakitan barang"
-        },
-        {
           "label": "Versi Standar Sopan",
           "ko": "기계 조작과 물건 포장 및 조립 기술이 있습니다.",
-          "id": "Saya terbiasa mengoperasikan mesin ringan, pengemasan, dan perakitan barang."
+          "id": "Saya terbiasa mengoperasikan mesin ringan, pengemasan, dan perakitan barang.",
+          "audio": "/audio/tts/options/hrdk_39_opt_0.mp3"
         }
       ]
     },
@@ -4716,14 +4838,10 @@
       "audio_a": null,
       "answer_options": [
         {
-          "label": "Versi Ringkas (Mudah Diucap)",
-          "ko": "손이 빠르고 꼼꼼하며 체력이 아주 좋습니다.",
-          "id": "Tangan saya cekatan, teliti dalam bekerja, dan stamina fisik sangat kuat"
-        },
-        {
           "label": "Versi Standar Sopan",
           "ko": "손이 빠르고 꼼꼼하며 체력이 아주 좋습니다.",
-          "id": "Tangan saya cekatan, teliti dalam bekerja, dan stamina fisik sangat kuat."
+          "id": "Tangan saya cekatan, teliti dalam bekerja, dan stamina fisik sangat kuat.",
+          "audio": "/audio/tts/options/hrdk_40_opt_0.mp3"
         }
       ]
     },
@@ -4740,14 +4858,10 @@
       "audio_a": null,
       "answer_options": [
         {
-          "label": "Versi Ringkas (Mudah Diucap)",
-          "ko": "날씨가 아주 맑고 좋습니다.",
-          "id": "Cuaca hari ini sangat cerah dan bagus"
-        },
-        {
           "label": "Versi Standar Sopan",
           "ko": "날씨가 아주 맑고 좋습니다.",
-          "id": "Cuaca hari ini sangat cerah dan bagus."
+          "id": "Cuaca hari ini sangat cerah dan bagus.",
+          "audio": "/audio/tts/options/hrdk_41_opt_0.mp3"
         }
       ]
     },
@@ -4758,20 +4872,28 @@
       "question_ko": "한국말을 얼마 동안 배웠어요?",
       "question_ro": "Hangungmareul eolma dongan baewosseoyo?",
       "question_id": "Berapa lama Anda sudah belajar bahasa Korea?",
-      "answer_ko": "약 6개월 동안 열심히 배웠습니다.",
-      "answer_id": "Saya telah belajar dengan tekun selama sekitar 6 bulan.",
+      "answer_ko": "약 3개월 동안 배웠습니다.",
+      "answer_id": "Belajar sekitar 3 bulan.",
       "audio_q": "/audio/hrdk_50/Soal_42_HRDK_Wawancara.mp3",
       "audio_a": null,
       "answer_options": [
         {
-          "label": "Versi Ringkas (Mudah Diucap)",
-          "ko": "약 6개월 동안 열심히 배웠습니다.",
-          "id": "Saya telah belajar dengan tekun selama sekitar 6 bulan"
+          "label": "3 Bulan (Ringkas)",
+          "ko": "약 3개월 동안 배웠습니다.",
+          "id": "Belajar sekitar 3 bulan.",
+          "audio": "/audio/tts/options/hrdk_42_opt_0.mp3"
         },
         {
-          "label": "Versi Standar Sopan",
+          "label": "6 Bulan",
           "ko": "약 6개월 동안 열심히 배웠습니다.",
-          "id": "Saya telah belajar dengan tekun selama sekitar 6 bulan."
+          "id": "Belajar sekitar 6 bulan dengan giat.",
+          "audio": "/audio/tts/options/hrdk_42_opt_1.mp3"
+        },
+        {
+          "label": "1 Tahun",
+          "ko": "1년 동안 공부했습니다.",
+          "id": "Belajar selama 1 tahun.",
+          "audio": "/audio/tts/options/hrdk_42_opt_2.mp3"
         }
       ]
     },
@@ -4782,20 +4904,28 @@
       "question_ko": "한국어를 공부한 지 얼마나 되었습니까?",
       "question_ro": "Hangugeo-reul gongbuhan ji eolmana doe-eosseumnikka?",
       "question_id": "Sudah berapa lama sejak Anda pertama kali belajar bahasa Korea?",
-      "answer_ko": "한국어를 공부한 지 6개월 되었습니다.",
-      "answer_id": "Sudah 6 bulan sejak saya mulai belajar bahasa Korea.",
+      "answer_ko": "공부한 지 3개월 되었습니다.",
+      "answer_id": "Sudah 3 bulan sejak belajar.",
       "audio_q": "/audio/hrdk_50/Soal_43_HRDK_Wawancara.mp3",
       "audio_a": null,
       "answer_options": [
         {
-          "label": "Versi Ringkas (Mudah Diucap)",
-          "ko": "한국어를 공부한 지 6개월 되었습니다.",
-          "id": "Sudah 6 bulan sejak saya mulai belajar bahasa Korea"
+          "label": "3 Bulan",
+          "ko": "공부한 지 3개월 되었습니다.",
+          "id": "Sudah 3 bulan sejak belajar.",
+          "audio": "/audio/tts/options/hrdk_43_opt_0.mp3"
         },
         {
-          "label": "Versi Standar Sopan",
-          "ko": "한국어를 공부한 지 6개월 되었습니다.",
-          "id": "Sudah 6 bulan sejak saya mulai belajar bahasa Korea."
+          "label": "6 Bulan",
+          "ko": "공부한 지 6개월 되었습니다.",
+          "id": "Sudah 6 bulan sejak belajar.",
+          "audio": "/audio/tts/options/hrdk_43_opt_1.mp3"
+        },
+        {
+          "label": "1 Tahun",
+          "ko": "공부한 지 1년 되었습니다.",
+          "id": "Sudah 1 tahun sejak belajar.",
+          "audio": "/audio/tts/options/hrdk_43_opt_2.mp3"
         }
       ]
     },
@@ -4812,14 +4942,10 @@
       "audio_a": null,
       "answer_options": [
         {
-          "label": "Versi Ringkas (Mudah Diucap)",
-          "ko": "어려운 점도 있지만 배울수록 보람차고 재미있습니다.",
-          "id": "Ada bagian yang sulit, tetapi semakin dipelajari semakin menyenangkan"
-        },
-        {
           "label": "Versi Standar Sopan",
           "ko": "어려운 점도 있지만 배울수록 보람차고 재미있습니다.",
-          "id": "Ada bagian yang sulit, tetapi semakin dipelajari semakin menyenangkan."
+          "id": "Ada bagian yang sulit, tetapi semakin dipelajari semakin menyenangkan.",
+          "audio": "/audio/tts/options/hrdk_44_opt_0.mp3"
         }
       ]
     },
@@ -4836,14 +4962,10 @@
       "audio_a": null,
       "answer_options": [
         {
-          "label": "Versi Ringkas (Mudah Diucap)",
-          "ko": "인도네시아 한국어 LPK 학원에서 공부했습니다.",
-          "id": "Saya belajar di lembaga kursus LPK bahasa Korea di Indonesia"
-        },
-        {
           "label": "Versi Standar Sopan",
           "ko": "인도네시아 한국어 LPK 학원에서 공부했습니다.",
-          "id": "Saya belajar di lembaga kursus LPK bahasa Korea di Indonesia."
+          "id": "Saya belajar di lembaga kursus LPK bahasa Korea di Indonesia.",
+          "audio": "/audio/tts/options/hrdk_45_opt_0.mp3"
         }
       ]
     },
@@ -4855,19 +4977,27 @@
       "question_ro": "Museun saekkkareul joahamnikka?",
       "question_id": "Warna apa yang paling Anda sukai?",
       "answer_ko": "파란색을 제일 좋아합니다.",
-      "answer_id": "Saya paling menyukai warna biru.",
+      "answer_id": "Saya paling suka warna biru.",
       "audio_q": "/audio/hrdk_50/Soal_46_HRDK_Wawancara.mp3",
       "audio_a": null,
       "answer_options": [
         {
-          "label": "Versi Ringkas (Mudah Diucap)",
+          "label": "Warna Biru",
           "ko": "파란색을 제일 좋아합니다.",
-          "id": "Saya paling menyukai warna biru"
+          "id": "Saya paling suka warna biru.",
+          "audio": "/audio/tts/options/hrdk_46_opt_0.mp3"
         },
         {
-          "label": "Versi Standar Sopan",
-          "ko": "파란색을 제일 좋아합니다.",
-          "id": "Saya paling menyukai warna biru."
+          "label": "Warna Putih",
+          "ko": "하얀색을 제일 좋아합니다.",
+          "id": "Saya paling suka warna putih.",
+          "audio": "/audio/tts/options/hrdk_46_opt_1.mp3"
+        },
+        {
+          "label": "Warna Hitam",
+          "ko": "검은색을 제일 좋아합니다.",
+          "id": "Saya paling suka warna hitam.",
+          "audio": "/audio/tts/options/hrdk_46_opt_2.mp3"
         }
       ]
     },
@@ -4884,14 +5014,10 @@
       "audio_a": null,
       "answer_options": [
         {
-          "label": "Versi Ringkas (Mudah Diucap)",
-          "ko": "선선하고 시원한 가을을 좋아합니다.",
-          "id": "Saya menyukai musim gugur yang sejuk dan nyaman"
-        },
-        {
           "label": "Versi Standar Sopan",
           "ko": "선선하고 시원한 가을을 좋아합니다.",
-          "id": "Saya menyukai musim gugur yang sejuk dan nyaman."
+          "id": "Saya menyukai musim gugur yang sejuk dan nyaman.",
+          "audio": "/audio/tts/options/hrdk_47_opt_0.mp3"
         }
       ]
     },
@@ -4908,14 +5034,10 @@
       "audio_a": null,
       "answer_options": [
         {
-          "label": "Versi Ringkas (Mudah Diucap)",
-          "ko": "아직 없지만, 한국에 가면 꼭 사귀고 싶습니다.",
-          "id": "Belum punya, tapi saya sangat ingin berteman saat sudah bekerja di Korea"
-        },
-        {
           "label": "Versi Standar Sopan",
           "ko": "아직 없지만, 한국에 가면 꼭 사귀고 싶습니다.",
-          "id": "Belum punya, tapi saya sangat ingin berteman saat sudah bekerja di Korea."
+          "id": "Belum punya, tapi saya sangat ingin berteman saat sudah bekerja di Korea.",
+          "audio": "/audio/tts/options/hrdk_48_opt_0.mp3"
         }
       ]
     },
@@ -4932,14 +5054,10 @@
       "audio_a": null,
       "answer_options": [
         {
-          "label": "Versi Ringkas (Mudah Diucap)",
-          "ko": "아버지 연세는 [나이]세이십니다.",
-          "id": "Usia ayah saya adalah [Umur] tahun"
-        },
-        {
           "label": "Versi Standar Sopan",
           "ko": "아버지 연세는 [나이]세이십니다.",
-          "id": "Usia ayah saya adalah [Umur] tahun."
+          "id": "Usia ayah saya adalah [Umur] tahun.",
+          "audio": "/audio/tts/options/hrdk_49_opt_0.mp3"
         }
       ]
     },
@@ -4956,14 +5074,10 @@
       "audio_a": null,
       "answer_options": [
         {
-          "label": "Versi Ringkas (Mudah Diucap)",
-          "ko": "어머니 연세는 [나이]세이십니다.",
-          "id": "Usia ibu saya adalah [Umur] tahun"
-        },
-        {
           "label": "Versi Standar Sopan",
           "ko": "어머니 연세는 [나이]세이십니다.",
-          "id": "Usia ibu saya adalah [Umur] tahun."
+          "id": "Usia ibu saya adalah [Umur] tahun.",
+          "audio": "/audio/tts/options/hrdk_50_opt_0.mp3"
         }
       ]
     },
@@ -4980,14 +5094,10 @@
       "audio_a": null,
       "answer_options": [
         {
-          "label": "Versi Ringkas (Mudah Diucap)",
-          "ko": "네, 인터넷 검색과 기본적인 문서 작성을 할 수 있습니다.",
-          "id": "Ya, saya bisa mengoperasikan komputer untuk pencarian internet dan ketik dokumen"
-        },
-        {
           "label": "Versi Standar Sopan",
           "ko": "네, 인터넷 검색과 기본적인 문서 작성을 할 수 있습니다.",
-          "id": "Ya, saya bisa mengoperasikan komputer untuk pencarian internet dan ketik dokumen."
+          "id": "Ya, saya bisa mengoperasikan komputer untuk pencarian internet dan ketik dokumen.",
+          "audio": "/audio/tts/options/hrdk_51_opt_0.mp3"
         }
       ]
     },
@@ -5004,14 +5114,10 @@
       "audio_a": null,
       "answer_options": [
         {
-          "label": "Versi Ringkas (Mudah Diucap)",
-          "ko": "김치찌개와 불고기를 아주 좋아합니다.",
-          "id": "Saya sangat menyukai kimchi-jjigae dan bulgogi"
-        },
-        {
           "label": "Versi Standar Sopan",
           "ko": "김치찌개와 불고기를 아주 좋아합니다.",
-          "id": "Saya sangat menyukai kimchi-jjigae dan bulgogi."
+          "id": "Saya sangat menyukai kimchi-jjigae dan bulgogi.",
+          "audio": "/audio/tts/options/hrdk_52_opt_0.mp3"
         }
       ]
     }

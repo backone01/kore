@@ -637,7 +637,7 @@ export default function App() {
   const examProgress = examQuestions.length ? ((examIndex + 1) / examQuestions.length) * 100 : 0;
 
   return (
-    <div className="min-h-screen bg-[#FBFBFA] text-[#191919] flex flex-col font-sans selection:bg-blue-600 selection:text-white">
+    <div className="min-h-screen bg-slate-50 text-slate-900 flex flex-col font-sans selection:bg-blue-600 selection:text-white">
       
       <Header
         mode={mode}
@@ -825,7 +825,7 @@ export default function App() {
             
             {/* Phase 1: Intro Briefing */}
             {examPhase === 'intro' && (
-              <div className="w-full max-w-xl bg-white border border-[#E9E9E7] rounded-3xl p-6 md:p-9 shadow-sm space-y-6 text-left">
+              <div className="w-full max-w-xl bg-white border border-slate-200 rounded-3xl p-6 md:p-9 shadow-sm space-y-6 text-left">
                 <div className="space-y-2">
                   <div className="flex flex-wrap items-center gap-2">
                     <span className="px-3 py-1 rounded-full bg-blue-50 text-blue-700 text-[11px] font-bold uppercase tracking-wider">
@@ -835,76 +835,76 @@ export default function App() {
                       Total: 50 Poin
                     </span>
                   </div>
-                  <h2 className="text-2xl md:text-3xl font-extrabold text-[#191919] tracking-tight">
+                  <h2 className="text-2xl md:text-3xl font-extrabold text-slate-900 tracking-tight">
                     Simulasi Ujian Wawancara Resmi HRD Korea
                   </h2>
-                  <p className="text-xs md:text-sm text-[#787774] leading-relaxed">
+                  <p className="text-xs md:text-sm text-slate-500 leading-relaxed">
                     Sesuai perubahan regulasi terbaru HRD Korea (Revisions to the Skills Test), bobot wawancara dinaikkan menjadi 50 poin dengan 21 soal komprehensif:
                   </p>
                 </div>
 
                 {/* 5 Komponen Resmi Revisi HRD Korea */}
                 <div className="space-y-2 text-xs">
-                  <div className="p-3 rounded-2xl bg-[#FBFBFA] border border-[#E9E9E7] flex items-center justify-between">
+                  <div className="p-3 rounded-2xl bg-slate-50 border border-slate-200 flex items-center justify-between">
                     <div>
                       <div className="flex items-center gap-1.5">
-                        <p className="font-bold text-[#191919]">1. Perkenalan Diri Mandiri (Self-Introduction)</p>
+                        <p className="font-bold text-slate-900">1. Perkenalan Diri Mandiri (Self-Introduction)</p>
                         <span className="px-1.5 py-0.5 rounded bg-amber-100 text-amber-800 text-[9px] font-bold">🧍 BERDIRI</span>
                       </div>
-                      <p className="text-[11px] text-[#787774]">Monolog 자기소개 (Nama, Usia, Asal, Tekad Bekerja) [25 Detik]</p>
+                      <p className="text-[11px] text-slate-500">Monolog 자기소개 (Nama, Usia, Asal, Tekad Bekerja) [25 Detik]</p>
                     </div>
                     <span className="font-mono font-bold px-2.5 py-1 rounded-xl bg-blue-50 text-blue-700 text-xs">
                       2 Poin
                     </span>
                   </div>
 
-                  <div className="p-3 rounded-2xl bg-[#FBFBFA] border border-[#E9E9E7] flex items-center justify-between">
+                  <div className="p-3 rounded-2xl bg-slate-50 border border-slate-200 flex items-center justify-between">
                     <div>
                       <div className="flex items-center gap-1.5">
-                        <p className="font-bold text-[#191919]">2. Instruksi Gerak Fisik (Work Instructions)</p>
+                        <p className="font-bold text-slate-900">2. Instruksi Gerak Fisik (Work Instructions)</p>
                         <span className="px-1.5 py-0.5 rounded bg-amber-100 text-amber-800 text-[9px] font-bold">🧍 BERDIRI</span>
                       </div>
-                      <p className="text-[11px] text-[#787774]">Arah & gerak refleks fisik perintah kerja (5 Soal, @3 Poin)</p>
+                      <p className="text-[11px] text-slate-500">Arah & gerak refleks fisik perintah kerja (5 Soal, @3 Poin)</p>
                     </div>
                     <span className="font-mono font-bold px-2.5 py-1 rounded-xl bg-indigo-50 text-indigo-700 text-xs">
                       15 Poin
                     </span>
                   </div>
 
-                  <div className="p-3 rounded-2xl bg-[#FBFBFA] border border-[#E9E9E7] flex items-center justify-between">
+                  <div className="p-3 rounded-2xl bg-slate-50 border border-slate-200 flex items-center justify-between">
                     <div>
                       <div className="flex items-center gap-1.5">
-                        <p className="font-bold text-[#191919]">3. Kartu Visual Meja: Alat & Rambu K3</p>
+                        <p className="font-bold text-slate-900">3. Kartu Visual Meja: Alat & Rambu K3</p>
                         <span className="px-1.5 py-0.5 rounded bg-emerald-100 text-emerald-800 text-[9px] font-bold">🪑 DUDUK ("앉으세요")</span>
                       </div>
-                      <p className="text-[11px] text-[#787774]">Tebak nama/kegunaan perkakas manufaktur & piktogram K3 (5 Kartu, @1 Poin)</p>
+                      <p className="text-[11px] text-slate-500">Tebak nama/kegunaan perkakas manufaktur & piktogram K3 (5 Kartu, @1 Poin)</p>
                     </div>
                     <span className="font-mono font-bold px-2.5 py-1 rounded-xl bg-emerald-50 text-emerald-700 text-xs">
                       5 Poin
                     </span>
                   </div>
 
-                  <div className="p-3 rounded-2xl bg-[#FBFBFA] border border-[#E9E9E7] flex items-center justify-between">
+                  <div className="p-3 rounded-2xl bg-slate-50 border border-slate-200 flex items-center justify-between">
                     <div>
                       <div className="flex items-center gap-1.5">
-                        <p className="font-bold text-[#191919]">4. Pertanyaan K3 Industri Mendalam</p>
+                        <p className="font-bold text-slate-900">4. Pertanyaan K3 Industri Mendalam</p>
                         <span className="px-1.5 py-0.2 rounded bg-red-100 text-red-700 text-[9px] font-bold">BARU</span>
                         <span className="px-1.5 py-0.5 rounded bg-emerald-100 text-emerald-800 text-[9px] font-bold">🪑 DUDUK</span>
                       </div>
-                      <p className="text-[11px] text-[#787774]">Safety guard, APD wajib, & tanggap bahaya darurat (2 Soal, @5 Poin)</p>
+                      <p className="text-[11px] text-slate-500">Safety guard, APD wajib, & tanggap bahaya darurat (2 Soal, @5 Poin)</p>
                     </div>
                     <span className="font-mono font-bold px-2.5 py-1 rounded-xl bg-red-50 text-red-700 text-xs">
                       10 Poin
                     </span>
                   </div>
 
-                  <div className="p-3 rounded-2xl bg-[#FBFBFA] border border-[#E9E9E7] flex items-center justify-between">
+                  <div className="p-3 rounded-2xl bg-slate-50 border border-slate-200 flex items-center justify-between">
                     <div>
                       <div className="flex items-center gap-1.5">
-                        <p className="font-bold text-[#191919]">5. Percakapan Dasar & Sikap Kerja NCS</p>
+                        <p className="font-bold text-slate-900">5. Percakapan Dasar & Sikap Kerja NCS</p>
                         <span className="px-1.5 py-0.5 rounded bg-emerald-100 text-emerald-800 text-[9px] font-bold">🪑 DUDUK</span>
                       </div>
-                      <p className="text-[11px] text-[#787774]">Waktu/pribadi, hitung cepat gudang, situasi kerja & motivasi (8 Soal)</p>
+                      <p className="text-[11px] text-slate-500">Waktu/pribadi, hitung cepat gudang, situasi kerja & motivasi (8 Soal)</p>
                     </div>
                     <span className="font-mono font-bold px-2.5 py-1 rounded-xl bg-purple-50 text-purple-700 text-xs">
                       18 Poin
@@ -933,7 +933,7 @@ export default function App() {
                   <div className="flex items-center gap-2 w-full sm:w-auto justify-end">
                     <button
                       onClick={() => setMode('practice')}
-                      className="px-4 py-2.5 rounded-2xl text-xs font-semibold text-[#787774] hover:text-[#191919]"
+                      className="px-4 py-2.5 rounded-2xl text-xs font-semibold text-slate-500 hover:text-slate-900"
                     >
                       Kembali
                     </button>
@@ -950,10 +950,10 @@ export default function App() {
 
             {/* Phase 2: Live Exam Terminal */}
             {examPhase === 'running' && (
-              <div className="w-full max-w-xl bg-white border border-[#E9E9E7] rounded-3xl p-6 md:p-8 shadow-sm space-y-6">
+              <div className="w-full max-w-xl bg-white border border-slate-200 rounded-3xl p-6 md:p-8 shadow-sm space-y-6">
                 
                 {/* Stage Header */}
-                <div className="flex items-center justify-between pb-3 border-b border-[#EFEFED] text-left">
+                <div className="flex items-center justify-between pb-3 border-b border-slate-100 text-left">
                   <div>
                     <div className="flex flex-wrap items-center gap-2 mb-0.5">
                       <span className="text-[11px] font-bold text-blue-600 uppercase tracking-wider">
@@ -972,7 +972,7 @@ export default function App() {
                         </span>
                       )}
                     </div>
-                    <h3 className="text-xs text-[#787774] font-medium">
+                    <h3 className="text-xs text-slate-500 font-medium">
                       Soal No. {examIndex + 1} dari {examQuestions.length} • {examQuestions[examIndex]?.partTitle}
                     </h3>
                   </div>
@@ -1020,24 +1020,24 @@ export default function App() {
                         <span className="text-3xl">🪑</span>
                       </div>
                       <div>
-                        <h2 className="text-2xl md:text-3xl font-black text-[#191919] font-kr">
+                        <h2 className="text-2xl md:text-3xl font-black text-slate-900 font-kr">
                           앉으세요.
                         </h2>
-                        <p className="text-xs text-[#787774] font-mono mt-0.5">Anjeuseyo.</p>
+                        <p className="text-xs text-slate-500 font-mono mt-0.5">Anjeuseyo.</p>
                         <p className="text-xs font-bold text-blue-800 mt-2 bg-blue-50 border border-blue-200 px-3 py-1.5 rounded-xl inline-block">
                           Instruksi Penguji: Silakan duduk di depan meja penguji
                         </p>
                       </div>
-                      <div className="p-3.5 bg-[#FBFBFA] border border-[#E5E5E3] rounded-xl text-xs space-y-1">
+                      <div className="p-3.5 bg-slate-50 border border-slate-200 rounded-xl text-xs space-y-1">
                         <span className="text-[10px] font-bold text-emerald-800 uppercase tracking-wider block">
                           Respon Sopan Kandidat:
                         </span>
                         <strong className="text-lg font-kr font-bold text-emerald-900 block">"감사합니다."</strong>
-                        <span className="text-[11px] text-[#787774] block">(Membungkuk sopan 15° lalu duduk dengan tegap)</span>
+                        <span className="text-[11px] text-slate-500 block">(Membungkuk sopan 15° lalu duduk dengan tegap)</span>
                       </div>
                     </div>
                   ) : examQuestions[examIndex]?.image_url ? (
-                    <div className="w-full max-w-sm bg-white rounded-2xl border border-[#E9E9E7] p-4 shadow-xs flex flex-col items-center">
+                    <div className="w-full max-w-sm bg-white rounded-2xl border border-slate-200 p-4 shadow-xs flex flex-col items-center">
                       <img
                         src={getAssetUrl(examQuestions[examIndex].image_url)}
                         alt="Soal Ujian Bergambar"
@@ -1069,7 +1069,7 @@ export default function App() {
                       >
                         <Volume2 className="w-8 h-8" />
                       </button>
-                      <p className="text-xs text-[#787774] font-medium max-w-xs mx-auto">
+                      <p className="text-xs text-slate-500 font-medium max-w-xs mx-auto">
                         Dengarkan pertanyaan penguji dengan cermat dan jawab langsung secara lisan.
                       </p>
                       <button 
@@ -1093,11 +1093,11 @@ export default function App() {
                         <span className="text-red-600 flex items-center gap-1.5">
                           <Mic className="w-3.5 h-3.5 animate-pulse" /> Sedang Merekam Suara...
                         </span>
-                        <span className="text-[#191919] font-mono">
+                        <span className="text-slate-900 font-mono">
                           Sisa: {examTimeLeft}s
                         </span>
                       </div>
-                      <div className="w-full bg-[#EFEFED] rounded-full h-2 overflow-hidden">
+                      <div className="w-full bg-slate-100 rounded-full h-2 overflow-hidden">
                         <div
                           className="bg-red-500 h-full rounded-full transition-all duration-1000 ease-linear"
                           style={{
@@ -1110,10 +1110,10 @@ export default function App() {
                 </div>
 
                 {/* Skip / Next Footer */}
-                <div className="pt-3 border-t border-[#EFEFED] flex items-center justify-between">
+                <div className="pt-3 border-t border-slate-100 flex items-center justify-between">
                   <button
                     onClick={exitExam}
-                    className="text-xs text-[#787774] hover:text-[#191919]"
+                    className="text-xs text-slate-500 hover:text-slate-900"
                   >
                     Batalkan Ujian
                   </button>
@@ -1122,7 +1122,7 @@ export default function App() {
                     {examStepStatus === 'asking' && (
                       <button
                         onClick={() => beginAnswerPhase(examIndex, examQuestions[examIndex]?.duration || 7, examQuestions, examStepTokenRef.current)}
-                        className="px-3.5 py-2 rounded-xl bg-[#FBFBFA] hover:bg-[#EFEFED] border border-[#E9E9E7] text-[#37352F] text-xs font-semibold flex items-center gap-1.5 transition-all"
+                        className="px-3.5 py-2 rounded-xl bg-slate-50 hover:bg-slate-100 border border-slate-200 text-[#37352F] text-xs font-semibold flex items-center gap-1.5 transition-all"
                       >
                         <Mic className="w-3.5 h-3.5 text-red-600" /> Langsung Jawab
                       </button>
@@ -1130,7 +1130,7 @@ export default function App() {
 
                     <button
                       onClick={skipExamTimer}
-                      className="px-4 py-2 rounded-xl bg-[#191919] hover:bg-[#333] text-white text-xs font-bold flex items-center gap-1.5 transition-all shadow-xs"
+                      className="px-4 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold flex items-center gap-1.5 transition-all shadow-xs"
                     >
                       {examIndex + 1 === examQuestions.length ? 'Selesai & Lihat Skor' : 'Lanjut ke Soal Berikutnya'} <ChevronRight className="w-3.5 h-3.5" />
                     </button>
@@ -1142,27 +1142,27 @@ export default function App() {
 
             {/* Phase 3: Exam Summary */}
             {examPhase === 'summary' && (
-              <div className="w-full max-w-2xl bg-white border border-[#E9E9E7] rounded-3xl p-6 md:p-8 shadow-sm space-y-6 text-left">
+              <div className="w-full max-w-2xl bg-white border border-slate-200 rounded-3xl p-6 md:p-8 shadow-sm space-y-6 text-left">
                 
                 {/* Official Scorecard Header */}
-                <div className="border-b border-[#EFEFED] pb-5 space-y-4">
+                <div className="border-b border-slate-100 pb-5 space-y-4">
                   <div className="flex items-center justify-between">
                     <span className="px-3 py-1 rounded-full bg-blue-50 text-blue-800 text-xs font-bold uppercase tracking-wider">
                       Laporan Hasil Ujian Wawancara (Standar Revisi HRD Korea)
                     </span>
-                    <span className="text-xs text-[#787774] font-medium">{examQuestions.length} Butir Ujian Selesai</span>
+                    <span className="text-xs text-slate-500 font-medium">{examQuestions.length} Butir Ujian Selesai</span>
                   </div>
 
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-4 rounded-2xl bg-[#FBFBFA] border border-[#E9E9E7]">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-4 rounded-2xl bg-slate-50 border border-slate-200">
                     <div>
-                      <span className="text-xs text-[#787774] uppercase tracking-wider font-semibold">
+                      <span className="text-xs text-slate-500 uppercase tracking-wider font-semibold">
                         Total Skor Wawancara Anda:
                       </span>
                       <div className="flex items-baseline gap-2 mt-1">
-                        <span className="text-3xl sm:text-4xl font-black text-[#191919]">
+                        <span className="text-3xl sm:text-4xl font-black text-slate-900">
                           {Number(examScoreSummary.totalScore.toFixed(1))}
                         </span>
-                        <span className="text-base text-[#787774] font-bold">/ 50 Poin</span>
+                        <span className="text-base text-slate-500 font-bold">/ 50 Poin</span>
                       </div>
                       <div className="mt-2">
                         {examScoreSummary.isPassedExam ? (
@@ -1179,40 +1179,40 @@ export default function App() {
 
                     {/* Breakdown Scores Grid */}
                     <div className="grid grid-cols-2 gap-2 text-[11px] sm:min-w-[240px]">
-                      <div className="p-2 rounded-xl bg-white border border-[#E9E9E7]">
-                        <span className="text-[#787774] block">Perkenalan Diri:</span>
-                        <span className="font-bold text-[#191919] font-mono">
+                      <div className="p-2 rounded-xl bg-white border border-slate-200">
+                        <span className="text-slate-500 block">Perkenalan Diri:</span>
+                        <span className="font-bold text-slate-900 font-mono">
                           {examScoreSummary.categoryScores.intro.earned} / {examScoreSummary.categoryScores.intro.max} Poin
                         </span>
                       </div>
-                      <div className="p-2 rounded-xl bg-white border border-[#E9E9E7]">
-                        <span className="text-[#787774] block">5 Instruksi Kerja:</span>
-                        <span className="font-bold text-[#191919] font-mono">
+                      <div className="p-2 rounded-xl bg-white border border-slate-200">
+                        <span className="text-slate-500 block">5 Instruksi Kerja:</span>
+                        <span className="font-bold text-slate-900 font-mono">
                           {examScoreSummary.categoryScores.instructions.earned} / {examScoreSummary.categoryScores.instructions.max} Poin
                         </span>
                       </div>
-                      <div className="p-2 rounded-xl bg-white border border-[#E9E9E7]">
-                        <span className="text-[#787774] block">5 Perkakas:</span>
-                        <span className="font-bold text-[#191919] font-mono">
+                      <div className="p-2 rounded-xl bg-white border border-slate-200">
+                        <span className="text-slate-500 block">5 Perkakas:</span>
+                        <span className="font-bold text-slate-900 font-mono">
                           {examScoreSummary.categoryScores.tools.earned} / {examScoreSummary.categoryScores.tools.max} Poin
                         </span>
                       </div>
-                      <div className="p-2 rounded-xl bg-white border border-[#E9E9E7]">
-                        <span className="text-[#787774] block">2 Soal K3 Mendalam:</span>
-                        <span className="font-bold text-[#191919] font-mono">
+                      <div className="p-2 rounded-xl bg-white border border-slate-200">
+                        <span className="text-slate-500 block">2 Soal K3 Mendalam:</span>
+                        <span className="font-bold text-slate-900 font-mono">
                           {examScoreSummary.categoryScores.safety.earned} / {examScoreSummary.categoryScores.safety.max} Poin
                         </span>
                       </div>
-                      <div className="col-span-2 p-2 rounded-xl bg-white border border-[#E9E9E7] flex items-center justify-between">
-                        <span className="text-[#787774]">Sikap Kerja & NCS:</span>
-                        <span className="font-bold text-[#191919] font-mono">
+                      <div className="col-span-2 p-2 rounded-xl bg-white border border-slate-200 flex items-center justify-between">
+                        <span className="text-slate-500">Sikap Kerja & NCS:</span>
+                        <span className="font-bold text-slate-900 font-mono">
                           {examScoreSummary.categoryScores.ncs.earned} / {examScoreSummary.categoryScores.ncs.max} Poin
                         </span>
                       </div>
                     </div>
                   </div>
 
-                  <p className="text-xs text-[#787774]">
+                  <p className="text-xs text-slate-500">
                     Dengarkan kembali rekaman suara Anda per nomor. Klik tombol status untuk menyesuaikan penilaian mandiri secara objektif:
                   </p>
                 </div>
@@ -1223,7 +1223,7 @@ export default function App() {
                     const rating = selfRatings[idx];
 
                     return (
-                      <div key={q.id || idx} className="p-4 rounded-2xl bg-[#FBFBFA] border border-[#E9E9E7] space-y-3 text-xs">
+                      <div key={q.id || idx} className="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-3 text-xs">
                         <div className="flex items-start justify-between gap-4">
                           <div>
                             <div className="flex items-center gap-2">
@@ -1234,42 +1234,42 @@ export default function App() {
                                 Bobot: {q.points} Poin
                               </span>
                             </div>
-                            <p className="text-[#191919] font-bold font-kr text-base mt-1">
+                            <p className="text-slate-900 font-bold font-kr text-base mt-1">
                               {q.question_ko}
                             </p>
-                            <p className="text-[#787774] text-xs italic">
+                            <p className="text-slate-500 text-xs italic">
                               "{q.question_id}"
                             </p>
                           </div>
 
                           {q.image_url && (
-                            <div className="w-16 h-16 bg-white p-1 rounded-xl border border-[#E9E9E7] flex-shrink-0">
+                            <div className="w-16 h-16 bg-white p-1 rounded-xl border border-slate-200 flex-shrink-0">
                               <img src={getAssetUrl(q.image_url)} alt="Thumbnail" className="w-full h-full object-contain" />
                             </div>
                           )}
                         </div>
 
                         {/* Official Answer */}
-                        <div className="p-3 rounded-xl bg-white border border-[#E9E9E7] space-y-0.5">
+                        <div className="p-3 rounded-xl bg-white border border-slate-200 space-y-0.5">
                           <span className="text-[10px] uppercase font-bold text-emerald-700 tracking-wider">
                             Kunci Jawaban Resmi:
                           </span>
-                          <p className="text-[#191919] font-bold font-kr text-base">
+                          <p className="text-slate-900 font-bold font-kr text-base">
                             {q.answer_short_ko || q.title_ko}
                           </p>
-                          <p className="text-[#787774] text-xs">
+                          <p className="text-slate-500 text-xs">
                             Artinya: {q.answer_short_id || q.title_id}
                           </p>
                         </div>
 
                         {/* Candidate Audio & Rating */}
-                        <div className="flex flex-wrap items-center justify-between gap-2 pt-2 border-t border-[#EFEFED]">
+                        <div className="flex flex-wrap items-center justify-between gap-2 pt-2 border-t border-slate-100">
                           <div className="flex items-center gap-2">
-                            <span className="text-[#787774] font-medium">Rekaman Suara Anda:</span>
+                            <span className="text-slate-500 font-medium">Rekaman Suara Anda:</span>
                             {recUrl ? (
                               <audio src={recUrl} controls className="h-7 w-44" />
                             ) : (
-                              <span className="text-[#787774] italic">Tidak ada rekaman</span>
+                              <span className="text-slate-500 italic">Tidak ada rekaman</span>
                             )}
                           </div>
 
@@ -1279,7 +1279,7 @@ export default function App() {
                               className={`px-3 py-1 rounded-xl text-xs font-bold transition-all ${
                                 rating === 'pass'
                                   ? 'bg-emerald-600 text-white'
-                                  : 'bg-white text-[#787774] border border-[#E9E9E7]'
+                                  : 'bg-white text-slate-500 border border-slate-200'
                               }`}
                             >
                               Benar (+{q.points} Poin)
@@ -1289,7 +1289,7 @@ export default function App() {
                               className={`px-3 py-1 rounded-xl text-xs font-bold transition-all ${
                                 rating === 'fail'
                                   ? 'bg-red-600 text-white'
-                                  : 'bg-white text-[#787774] border border-[#E9E9E7]'
+                                  : 'bg-white text-slate-500 border border-slate-200'
                               }`}
                             >
                               Salah (0 Poin)
@@ -1301,10 +1301,10 @@ export default function App() {
                   })}
                 </div>
 
-                <div className="pt-3 border-t border-[#EFEFED] flex items-center justify-between gap-2 flex-wrap">
+                <div className="pt-3 border-t border-slate-100 flex items-center justify-between gap-2 flex-wrap">
                   <button
                     onClick={() => setMode('practice')}
-                    className="text-xs font-semibold text-[#787774] hover:text-[#191919]"
+                    className="text-xs font-semibold text-slate-500 hover:text-slate-900"
                   >
                     Kembali ke Latihan
                   </button>
@@ -1332,7 +1332,7 @@ export default function App() {
               <div className="w-full space-y-3">
                 <button
                   onClick={() => setExamPhase('summary')}
-                  className="no-print text-xs font-bold text-[#787774] hover:text-[#191919] flex items-center gap-1"
+                  className="no-print text-xs font-bold text-slate-500 hover:text-slate-900 flex items-center gap-1"
                 >
                   ← Kembali ke Hasil Ujian
                 </button>
@@ -1354,14 +1354,14 @@ export default function App() {
       {/* 3. BOTTOM ACTION DOCK (FIXED AT BOTTOM ALA DUOLINGO / APPLE) */}
       {/* =================================================================== */}
       {mode === 'practice' && practiceSubMode === 'oral' && (
-        <footer className="w-full bg-white border-t border-[#E9E9E7] py-4 px-4 sticky bottom-0 z-30 shadow-xs">
+        <footer className="w-full bg-white border-t border-slate-200 py-4 px-4 sticky bottom-0 z-30 shadow-xs">
           <div className="max-w-xl mx-auto flex items-center justify-between gap-3">
             
             {/* Tombol Sebelumnya */}
             <button
               disabled={currentIndex === 0}
               onClick={() => setCurrentIndex(p => p - 1)}
-              className="p-3.5 rounded-2xl border border-[#E9E9E7] hover:bg-[#FBFBFA] text-[#37352F] disabled:opacity-30 disabled:cursor-not-allowed transition-all active:scale-95"
+              className="p-3.5 rounded-2xl border border-slate-200 hover:bg-slate-50 text-[#37352F] disabled:opacity-30 disabled:cursor-not-allowed transition-all active:scale-95"
               title="Sebelumnya"
             >
               <ChevronLeft className="w-5 h-5" />
@@ -1382,7 +1382,7 @@ export default function App() {
                 className={`p-3.5 rounded-2xl border transition-all active:scale-95 ${
                   isRecording
                     ? 'bg-red-600 text-white border-red-600 animate-pulse'
-                    : 'bg-white border-[#E9E9E7] hover:bg-red-50 text-red-600'
+                    : 'bg-white border-slate-200 hover:bg-red-50 text-red-600'
                 }`}
                 title={isRecording ? 'Selesai Merekam' : 'Rekam Suara Mandiri'}
               >
@@ -1394,7 +1394,7 @@ export default function App() {
                   const rand = Math.floor(Math.random() * filteredQuestions.length);
                   setCurrentIndex(rand);
                 }}
-                className="p-3.5 rounded-2xl border border-[#E9E9E7] hover:bg-[#FBFBFA] text-[#787774] transition-all"
+                className="p-3.5 rounded-2xl border border-slate-200 hover:bg-slate-50 text-slate-500 transition-all"
                 title="Soal Acak"
               >
                 <Shuffle className="w-4 h-4" />
@@ -1405,7 +1405,7 @@ export default function App() {
             <button
               disabled={currentIndex >= filteredQuestions.length - 1}
               onClick={() => setCurrentIndex(p => p + 1)}
-              className="p-3.5 rounded-2xl bg-[#191919] hover:bg-[#333] text-white disabled:opacity-30 disabled:cursor-not-allowed transition-all active:scale-95"
+              className="p-3.5 rounded-2xl bg-slate-900 hover:bg-slate-800 text-white disabled:opacity-30 disabled:cursor-not-allowed transition-all active:scale-95"
               title="Selanjutnya"
             >
               <ChevronRight className="w-5 h-5" />

@@ -142,12 +142,12 @@ export function PracticeQuiz({
 
   if (quizFinished) {
     return (
-      <div className="w-full max-w-lg mx-auto bg-white border border-[#E5E5E3] rounded-2xl p-6 text-center shadow-xs animate-fade-in">
+      <div className="w-full max-w-lg mx-auto bg-white border border-slate-200 rounded-2xl p-6 text-center shadow-xs animate-fade-in">
         <div className="w-14 h-14 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center mx-auto mb-4 border border-blue-200">
           <Trophy className="w-7 h-7" />
         </div>
-        <h2 className="text-xl font-black text-[#191919]">Sesi Kuis Selesai!</h2>
-        <p className="text-xs text-[#787774] mt-1">Berikut ringkasan hasil latihan pilihan ganda Anda:</p>
+        <h2 className="text-xl font-black text-slate-900">Sesi Kuis Selesai!</h2>
+        <p className="text-xs text-slate-500 mt-1">Berikut ringkasan hasil latihan pilihan ganda Anda:</p>
 
         <div className="grid grid-cols-3 gap-2 my-5">
           <div className="p-3 rounded-xl bg-emerald-50 border border-emerald-200">
@@ -179,12 +179,12 @@ export function PracticeQuiz({
     <div className="w-full max-w-xl mx-auto flex flex-col items-center">
       
       {/* 1. TOP SETTINGS & LANGUAGE CONTROL BAR */}
-      <div className="w-full bg-[#F6F6F5] border border-[#E5E5E3] rounded-2xl p-2.5 mb-3 space-y-2">
+      <div className="w-full bg-slate-100 border border-slate-200 rounded-2xl p-2.5 mb-3 space-y-2">
         
         {/* Row 1: Soal Index, Category, Score */}
         <div className="flex items-center justify-between text-xs">
           <div className="flex items-center gap-2">
-            <span className="font-mono font-bold text-[#191919] bg-white border border-[#E0E0DC] px-2.5 py-0.5 rounded-lg">
+            <span className="font-mono font-bold text-slate-900 bg-white border border-slate-200 px-2.5 py-0.5 rounded-lg">
               {currentIndex + 1} / {quizQuestions.length}
             </span>
             <span className="text-[11px] font-bold text-blue-700 bg-blue-50 border border-blue-200 px-2 py-0.5 rounded-md truncate max-w-[170px] sm:max-w-xs">
@@ -203,20 +203,20 @@ export function PracticeQuiz({
         </div>
 
         {/* Row 2: Pengaturan Bahasa Pilihan Jawaban & Soal */}
-        <div className="flex flex-wrap items-center justify-between gap-2 pt-1 border-t border-[#EAEAE8] text-xs">
+        <div className="flex flex-wrap items-center justify-between gap-2 pt-1 border-t border-slate-200 text-xs">
           {/* Bahasa Pilihan Jawaban */}
           <div className="flex items-center gap-1.5">
-            <span className="text-[10px] font-bold text-[#787774] uppercase tracking-wider">
+            <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wider">
               Pilihan:
             </span>
-            <div className="inline-flex p-0.5 bg-white border border-[#E0E0DC] rounded-lg">
+            <div className="inline-flex p-0.5 bg-white border border-slate-200 rounded-lg">
               <button
                 type="button"
                 onClick={() => setOptionLang('ko')}
                 className={`px-2.5 py-1 rounded-md text-[11px] font-bold transition-all ${
                   optionLang === 'ko'
                     ? 'bg-blue-600 text-white shadow-2xs'
-                    : 'text-[#787774] hover:text-[#191919]'
+                    : 'text-slate-500 hover:text-slate-900'
                 }`}
                 title="Pilihan jawaban dalam teks Hangul Korea"
               >
@@ -228,7 +228,7 @@ export function PracticeQuiz({
                 className={`px-2.5 py-1 rounded-md text-[11px] font-bold transition-all ${
                   optionLang === 'id'
                     ? 'bg-blue-600 text-white shadow-2xs'
-                    : 'text-[#787774] hover:text-[#191919]'
+                    : 'text-slate-500 hover:text-slate-900'
                 }`}
                 title="Pilihan jawaban dalam Bahasa Indonesia"
               >
@@ -240,13 +240,13 @@ export function PracticeQuiz({
           {/* Bahasa Soal & Toggle Arti */}
           <div className="flex items-center gap-1.5">
             <div className="flex items-center gap-1">
-              <span className="text-[10px] font-bold text-[#787774] uppercase tracking-wider">
+              <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wider">
                 Soal:
               </span>
               <select
                 value={questionLang}
                 onChange={(e) => setQuestionLang(e.target.value)}
-                className="bg-white border border-[#E0E0DC] text-[#191919] font-bold text-[11px] px-2 py-1 rounded-lg focus:outline-none focus:ring-1 focus:ring-blue-500"
+                className="bg-white border border-slate-200 text-slate-900 font-bold text-[11px] px-2 py-1 rounded-lg focus:outline-none focus:ring-1 focus:ring-blue-500"
               >
                 <option value="bilingual">🌐 Dua Bahasa</option>
                 <option value="ko">🇰🇷 Hanya Korea</option>
@@ -260,7 +260,7 @@ export function PracticeQuiz({
               className={`px-2 py-1 rounded-lg border text-[11px] font-bold transition-all flex items-center gap-1 ${
                 showOptionHint 
                   ? 'bg-amber-50 text-amber-800 border-amber-300' 
-                  : 'bg-white text-[#787774] border-[#E0E0DC] hover:text-[#191919]'
+                  : 'bg-white text-slate-500 border-slate-200 hover:text-slate-900'
               }`}
               title="Tampilkan arti bantuan di bawah teks pilihan"
             >
@@ -274,7 +274,7 @@ export function PracticeQuiz({
       </div>
 
       {/* 2. QUESTION CARD */}
-      <div className="w-full bg-white border border-[#E5E5E3] rounded-2xl p-5 mb-3.5 shadow-xs text-center">
+      <div className="w-full bg-white border border-slate-200 rounded-2xl p-5 mb-3.5 shadow-xs text-center">
         
         {/* Gambar Alat / Rambu jika ada */}
         {currentQ?.image_url && (
@@ -282,7 +282,7 @@ export function PracticeQuiz({
             <img 
               src={getAssetUrl(currentQ.image_url)} 
               alt="Soal Ujian" 
-              className="max-h-40 md:max-h-48 w-auto object-contain rounded-lg border border-[#EFEFED] p-1 bg-[#FAFAFA]"
+              className="max-h-40 md:max-h-48 w-auto object-contain rounded-lg border border-slate-100 p-1 bg-slate-50"
             />
           </div>
         )}
@@ -290,13 +290,13 @@ export function PracticeQuiz({
         {/* Teks Soal Sesuai Pilihan Bahasa */}
         <div className="space-y-1.5">
           {(questionLang === 'bilingual' || questionLang === 'ko') && (
-            <h3 className="text-xl md:text-2xl font-black text-[#191919] font-kr tracking-tight leading-snug">
+            <h3 className="text-xl md:text-2xl font-black text-slate-900 font-kr tracking-tight leading-snug">
               {currentQ?.question_ko || currentQ?.title_ko || "이것은 무엇입니까?"}
             </h3>
           )}
 
           {questionLang === 'ko' && currentQ?.question_romaja && (
-            <p className="text-xs text-[#787774] font-mono">
+            <p className="text-xs text-slate-500 font-mono">
               {currentQ.question_romaja}
             </p>
           )}
@@ -304,8 +304,8 @@ export function PracticeQuiz({
           {(questionLang === 'bilingual' || questionLang === 'id') && (
             <p className={`font-medium ${
               questionLang === 'id' 
-                ? 'text-lg md:text-xl font-bold text-[#191919]' 
-                : 'text-xs md:text-sm text-[#555] bg-[#FBFBFA] border border-[#E5E5E3] px-3 py-1 rounded-xl inline-block mt-0.5'
+                ? 'text-lg md:text-xl font-bold text-slate-900' 
+                : 'text-xs md:text-sm text-slate-600 bg-slate-50 border border-slate-200 px-3 py-1 rounded-xl inline-block mt-0.5'
             }`}>
               {currentQ?.question_id || currentQ?.title_id || "Apakah nama benda/alat ini?"}
             </p>
@@ -334,7 +334,7 @@ export function PracticeQuiz({
           const mainText = optionLang === 'ko' ? opt.ko : opt.id;
           const secondaryText = optionLang === 'ko' ? opt.id : opt.ko;
 
-          let btnStyle = "bg-white border-[#E5E5E3] text-[#191919] hover:border-slate-400 hover:bg-[#FBFBFA]";
+          let btnStyle = "bg-white border-slate-200 text-slate-900 hover:border-slate-400 hover:bg-slate-50";
           let icon = null;
 
           if (isAnswered) {
@@ -345,7 +345,7 @@ export function PracticeQuiz({
               btnStyle = "bg-red-50 border-red-500 text-red-950 font-bold shadow-xs";
               icon = <XCircle className="w-4 h-4 text-red-600 shrink-0" />;
             } else {
-              btnStyle = "bg-[#FBFBFA] border-[#E5E5E3] text-[#787774] opacity-50";
+              btnStyle = "bg-slate-50 border-slate-200 text-slate-500 opacity-50";
             }
           }
 
@@ -357,7 +357,7 @@ export function PracticeQuiz({
               className={`w-full min-h-[52px] p-3.5 rounded-xl border text-left text-xs md:text-sm font-semibold transition-all flex items-center justify-between gap-3 active:scale-[0.99] ${btnStyle}`}
             >
               <div className="flex items-start gap-3">
-                <span className="w-6 h-6 rounded-md bg-[#EFEFED] text-[#37352F] text-[11px] font-mono font-bold flex items-center justify-center shrink-0 mt-0.5">
+                <span className="w-6 h-6 rounded-md bg-slate-100 text-[#37352F] text-[11px] font-mono font-bold flex items-center justify-center shrink-0 mt-0.5">
                   {String.fromCharCode(65 + idx)}
                 </span>
                 
@@ -369,7 +369,7 @@ export function PracticeQuiz({
 
                   {/* Teks Bantuan / Terjemahan (Tampil jika showOptionHint ON atau sudah dijawab) */}
                   {(showOptionHint || isAnswered) && secondaryText && (
-                    <span className="text-[11px] text-[#787774] block font-normal mt-0.5">
+                    <span className="text-[11px] text-slate-500 block font-normal mt-0.5">
                       {optionLang === 'ko' ? `(${secondaryText})` : `(${secondaryText})`}
                     </span>
                   )}
@@ -384,7 +384,7 @@ export function PracticeQuiz({
 
       {/* 4. FEEDBACK & NEXT BUTTON */}
       {isAnswered && (
-        <div className="w-full mt-3.5 p-4 rounded-xl border border-[#E5E5E3] bg-[#FBFBFA] flex flex-col sm:flex-row items-center justify-between gap-3 animate-fade-in shadow-xs">
+        <div className="w-full mt-3.5 p-4 rounded-xl border border-slate-200 bg-slate-50 flex flex-col sm:flex-row items-center justify-between gap-3 animate-fade-in shadow-xs">
           <div className="text-left text-xs space-y-0.5">
             <span className={`font-bold block text-sm ${selectedOption?.isCorrect ? 'text-emerald-700' : 'text-red-700'}`}>
               {selectedOption?.isCorrect ? '✓ Jawaban Anda Benar!' : '✗ Jawaban Belum Tepat!'}
@@ -392,7 +392,7 @@ export function PracticeQuiz({
             <div className="text-[#37352F] text-[11px]">
               <span>Kunci Resmi: </span>
               <strong className="font-kr font-bold text-emerald-800 text-sm">{currentAnswerTexts.ko}</strong>
-              <span className="text-[#787774] ml-1">({currentAnswerTexts.id})</span>
+              <span className="text-slate-500 ml-1">({currentAnswerTexts.id})</span>
             </div>
           </div>
 

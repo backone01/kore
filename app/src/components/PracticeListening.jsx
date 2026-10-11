@@ -199,12 +199,12 @@ export function PracticeListening({
 
   if (quizFinished) {
     return (
-      <div className="w-full max-w-lg mx-auto bg-white border border-[#E5E5E3] rounded-3xl p-6 md:p-8 text-center shadow-xs animate-fade-in">
+      <div className="w-full max-w-lg mx-auto bg-white border border-slate-200 rounded-3xl p-6 md:p-8 text-center shadow-xs animate-fade-in">
         <div className="w-16 h-16 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center mx-auto mb-4 border border-blue-200">
           <Trophy className="w-8 h-8" />
         </div>
-        <h2 className="text-xl md:text-2xl font-black text-[#191919]">Sesi Latihan Mendengar Selesai!</h2>
-        <p className="text-xs text-[#787774] mt-1">Berikut akurasi kepekaan telinga Anda menangkap pertanyaan Korea:</p>
+        <h2 className="text-xl md:text-2xl font-black text-slate-900">Sesi Latihan Mendengar Selesai!</h2>
+        <p className="text-xs text-slate-500 mt-1">Berikut akurasi kepekaan telinga Anda menangkap pertanyaan Korea:</p>
 
         <div className="grid grid-cols-3 gap-2.5 my-6">
           <div className="p-3.5 rounded-2xl bg-emerald-50 border border-emerald-200">
@@ -233,13 +233,13 @@ export function PracticeListening({
   }
 
   return (
-    <div className="w-full max-w-xl mx-auto flex flex-col items-center animate-fade-in text-[#191919]">
+    <div className="w-full max-w-xl mx-auto flex flex-col items-center animate-fade-in text-slate-900">
       
       {/* 1. TOP SETTINGS & CONTROLS */}
-      <div className="w-full bg-[#F6F6F5] border border-[#E5E5E3] rounded-2xl p-3 mb-3.5 space-y-2">
+      <div className="w-full bg-slate-100 border border-slate-200 rounded-2xl p-3 mb-3.5 space-y-2">
         <div className="flex items-center justify-between text-xs">
           <div className="flex items-center gap-2">
-            <span className="font-mono font-bold text-[#191919] bg-white border border-[#E0E0DC] px-2.5 py-0.5 rounded-lg">
+            <span className="font-mono font-bold text-slate-900 bg-white border border-slate-200 px-2.5 py-0.5 rounded-lg">
               Soal {currentIndex + 1} / {shuffledQuestions.length}
             </span>
             <span className="text-[11px] font-bold text-purple-700 bg-purple-50 border border-purple-200 px-2 py-0.5 rounded-md flex items-center gap-1">
@@ -259,20 +259,20 @@ export function PracticeListening({
         </div>
 
         {/* Row 2: Kecepatan Audio & Bahasa Pilihan */}
-        <div className="flex flex-wrap items-center justify-between gap-2 pt-1.5 border-t border-[#EAEAE8] text-xs">
+        <div className="flex flex-wrap items-center justify-between gap-2 pt-1.5 border-t border-slate-200 text-xs">
           {/* Bahasa Pilihan Jawaban */}
           <div className="flex items-center gap-1.5">
-            <span className="text-[10px] font-bold text-[#787774] uppercase tracking-wider">
+            <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wider">
               Pilihan:
             </span>
-            <div className="inline-flex p-0.5 bg-white border border-[#E0E0DC] rounded-lg">
+            <div className="inline-flex p-0.5 bg-white border border-slate-200 rounded-lg">
               <button
                 type="button"
                 onClick={() => setOptionLang('ko')}
                 className={`px-2.5 py-1 rounded-md text-[11px] font-bold transition-all ${
                   optionLang === 'ko'
                     ? 'bg-blue-600 text-white shadow-2xs'
-                    : 'text-[#787774] hover:text-[#191919]'
+                    : 'text-slate-500 hover:text-slate-900'
                 }`}
               >
                 🇰🇷 Korea
@@ -283,7 +283,7 @@ export function PracticeListening({
                 className={`px-2.5 py-1 rounded-md text-[11px] font-bold transition-all ${
                   optionLang === 'id'
                     ? 'bg-blue-600 text-white shadow-2xs'
-                    : 'text-[#787774] hover:text-[#191919]'
+                    : 'text-slate-500 hover:text-slate-900'
                 }`}
               >
                 🇮🇩 Indo
@@ -294,7 +294,7 @@ export function PracticeListening({
           {/* Kecepatan Audio & Tombol Buka Naskah */}
           <div className="flex items-center gap-2">
             <div className="flex items-center gap-1">
-              <span className="text-[10px] font-bold text-[#787774] uppercase tracking-wider">
+              <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wider">
                 Kecepatan:
               </span>
               <button
@@ -302,7 +302,7 @@ export function PracticeListening({
                 className={`px-2 py-0.5 rounded-lg border text-[11px] font-mono font-bold transition-all ${
                   playbackRate === 0.85
                     ? 'bg-amber-100 text-amber-900 border-amber-300'
-                    : 'bg-white text-[#787774] border-[#E0E0DC] hover:text-[#191919]'
+                    : 'bg-white text-slate-500 border-slate-200 hover:text-slate-900'
                 }`}
                 title="Atur kecepatan audio (0.85x untuk pemula, 1.0x kecepatan asli penguji)"
               >
@@ -315,7 +315,7 @@ export function PracticeListening({
               className={`px-2.5 py-1 rounded-lg border text-[11px] font-bold flex items-center gap-1 transition-all ${
                 showScript
                   ? 'bg-blue-50 text-blue-700 border-blue-300'
-                  : 'bg-white text-[#787774] border-[#E0E0DC] hover:text-[#191919]'
+                  : 'bg-white text-slate-500 border-slate-200 hover:text-slate-900'
               }`}
               title="Buka naskah teks pertanyaan jika Anda tidak menangkap suara penguji"
             >
@@ -341,7 +341,7 @@ export function PracticeListening({
         <span className="text-xs font-bold text-blue-700 uppercase tracking-wider mb-1">
           {isLocalPlaying ? '🔊 Sedang Mendengarkan...' : '🎧 Dengarkan Pertanyaan Penguji'}
         </span>
-        <p className="text-xs text-[#787774] max-w-sm mb-4">
+        <p className="text-xs text-slate-500 max-w-sm mb-4">
           Teks pertanyaan disembunyikan agar telinga Anda terlatih menangkap ucapan Korea asli.
         </p>
 
@@ -361,15 +361,15 @@ export function PracticeListening({
 
         {/* Naskah Soal Terbuka (Jika tombol buka teks ditekan atau sudah dijawab) */}
         {showScript && (
-          <div className="w-full mt-5 pt-4 border-t border-[#EAEAE8] text-center animate-fade-in space-y-1">
+          <div className="w-full mt-5 pt-4 border-t border-slate-200 text-center animate-fade-in space-y-1">
             <span className="text-[10px] font-bold text-blue-800 uppercase tracking-wider">
               Naskah Transkrip Soal Asli:
             </span>
-            <h3 className="text-lg md:text-xl font-black text-[#191919] font-kr">
+            <h3 className="text-lg md:text-xl font-black text-slate-900 font-kr">
               {currentQ.question_ko || currentQ.title_ko}
             </h3>
             {currentQ.question_romaja && (
-              <p className="text-xs text-[#787774] font-mono">{currentQ.question_romaja}</p>
+              <p className="text-xs text-slate-500 font-mono">{currentQ.question_romaja}</p>
             )}
             <p className="text-xs font-semibold text-blue-700 bg-blue-50 px-3 py-1 rounded-xl inline-block mt-1 border border-blue-200">
               Artinya: "{currentQ.question_id || currentQ.title_id}"
@@ -380,7 +380,7 @@ export function PracticeListening({
 
       {/* 3. 4 PILIHAN GANDA (OPTIONS A, B, C, D) */}
       <div className="w-full space-y-2.5">
-        <div className="text-xs font-bold text-[#787774] px-1 mb-1 flex items-center justify-between">
+        <div className="text-xs font-bold text-slate-500 px-1 mb-1 flex items-center justify-between">
           <span>Pilih Jawaban yang Tepat Sesuai Audio:</span>
           <span className="text-[11px] font-normal">Mode: {optionLang === 'ko' ? '🇰🇷 Teks Korea' : '🇮🇩 Terjemahan Indo'}</span>
         </div>
@@ -389,7 +389,7 @@ export function PracticeListening({
           const mainText = optionLang === 'ko' ? opt.ko : opt.id;
           const secondaryText = optionLang === 'ko' ? opt.id : opt.ko;
 
-          let btnStyle = "bg-white border-[#E5E5E3] text-[#191919] hover:border-blue-400 hover:bg-[#FBFBFA]";
+          let btnStyle = "bg-white border-slate-200 text-slate-900 hover:border-blue-400 hover:bg-slate-50";
           let icon = null;
 
           if (isAnswered) {
@@ -400,7 +400,7 @@ export function PracticeListening({
               btnStyle = "bg-red-50 border-red-500 text-red-950 font-bold shadow-xs";
               icon = <XCircle className="w-4 h-4 text-red-600 shrink-0" />;
             } else {
-              btnStyle = "bg-[#FBFBFA] border-[#E5E5E3] text-[#787774] opacity-50";
+              btnStyle = "bg-slate-50 border-slate-200 text-slate-500 opacity-50";
             }
           }
 
@@ -412,7 +412,7 @@ export function PracticeListening({
               className={`w-full min-h-[52px] p-3.5 rounded-2xl border text-left text-xs md:text-sm font-semibold transition-all flex items-center justify-between gap-3 active:scale-[0.99] ${btnStyle}`}
             >
               <div className="flex items-start gap-3">
-                <span className="w-6 h-6 rounded-lg bg-[#EFEFED] text-[#37352F] text-[11px] font-mono font-bold flex items-center justify-center shrink-0 mt-0.5">
+                <span className="w-6 h-6 rounded-lg bg-slate-100 text-[#37352F] text-[11px] font-mono font-bold flex items-center justify-center shrink-0 mt-0.5">
                   {String.fromCharCode(65 + idx)}
                 </span>
                 
@@ -423,7 +423,7 @@ export function PracticeListening({
 
                   {/* Terjemahan muncul otomatis setelah dijawab */}
                   {isAnswered && secondaryText && (
-                    <span className="text-[11px] text-[#787774] block font-normal mt-0.5">
+                    <span className="text-[11px] text-slate-500 block font-normal mt-0.5">
                       ({secondaryText})
                     </span>
                   )}
@@ -438,7 +438,7 @@ export function PracticeListening({
 
       {/* 4. FEEDBACK & NEXT BUTTON */}
       {isAnswered && (
-        <div className="w-full mt-4 p-4 rounded-2xl border border-[#E5E5E3] bg-[#FBFBFA] flex flex-col sm:flex-row items-center justify-between gap-3 animate-fade-in shadow-xs">
+        <div className="w-full mt-4 p-4 rounded-2xl border border-slate-200 bg-slate-50 flex flex-col sm:flex-row items-center justify-between gap-3 animate-fade-in shadow-xs">
           <div className="text-left text-xs space-y-0.5">
             <span className={`font-bold block text-sm ${selectedOption?.isCorrect ? 'text-emerald-700' : 'text-red-700'}`}>
               {selectedOption?.isCorrect ? '✓ Pendengaran Anda Tepat!' : '✗ Pendengaran Belum Tepat!'}
@@ -446,7 +446,7 @@ export function PracticeListening({
             <div className="text-[#37352F] text-[11px]">
               <span>Kunci Resmi: </span>
               <strong className="font-kr font-bold text-emerald-800 text-sm">{currentAnswerTexts.ko}</strong>
-              <span className="text-[#787774] ml-1">({currentAnswerTexts.id})</span>
+              <span className="text-slate-500 ml-1">({currentAnswerTexts.id})</span>
             </div>
           </div>
 
