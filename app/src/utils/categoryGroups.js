@@ -15,17 +15,17 @@ export const MAIN_MODULES = [
     label: 'Wawancara & Jagisoge',
     shortLabel: 'Wawancara',
     icon: 'UserCheck',
-    desc: 'Data diri, perkenalan diri (Jagisoge), situasi kerja, dan respon HRDK',
-    categories: ['wawancara', 'simulasi_hrdk', 'wawancara_dasar', 'wawancara_profesional'],
+    desc: 'Data diri, perkenalan diri (Jagisoge), situasi kerja pabrik, dan respon HRDK',
+    categories: ['wawancara', 'simulasi_hrdk', 'wawancara_profesional'],
     studyTab: 'interview'
   },
   {
     id: 'mod_fisik',
-    label: 'Gerak Fisik & Instruksi',
+    label: 'Gerak Fisik & Refleks Tubuh',
     shortLabel: 'Gerak Fisik',
     icon: 'Activity',
-    desc: 'Instruksi gerak fisik (따라하세요), perintah arah, dan aksi kerja',
-    categories: ['gerak_fisik', 'perintah_gerak', 'perintah_kerja'],
+    desc: 'Instruksi refleks gerak fisik tubuh (따라하세요) saat berdiri di depan penguji',
+    categories: ['gerak_fisik'],
     studyTab: 'commands'
   },
   {
@@ -43,16 +43,16 @@ export const MAIN_MODULES = [
     shortLabel: 'Rambu K3',
     icon: 'ShieldAlert',
     desc: 'Rambu larangan, peringatan, tindakan wajib, dan jalur evakuasi',
-    categories: ['piktogram', 'rambu_lalulintas'],
+    categories: ['piktogram'],
     studyTab: 'piktogram'
   },
   {
     id: 'mod_alat',
-    label: 'Peralatan Kerja & APD',
+    label: 'Peralatan Kerja & Praktik Alat',
     shortLabel: 'Alat Kerja',
     icon: 'Wrench',
     desc: 'Nama alat manufaktur, fungsi alat, aksi penggunaan, dan penyimpanan',
-    categories: ['alat_manufaktur', 'alat_klasik', 'fungsi_alat', 'perintah_alat', 'penjelasan_alat', 'penggunaan_alat', 'penyimpanan_alat'],
+    categories: ['alat_manufaktur', 'alat_klasik', 'fungsi_alat', 'praktik_alat'],
     studyTab: 'alat'
   },
   {
@@ -68,8 +68,8 @@ export const MAIN_MODULES = [
 
 export const CATEGORY_GROUPS = [
   { id: 'g_wawancara', label: 'Wawancara & Perkenalan Diri (Interview)' },
-  { id: 'g_fisik', label: 'Gerak Fisik & Instruksi Kerja (Physical)' },
-  { id: 'g_skills', label: 'Peralatan, Rambu & K3 (Skills)' },
+  { id: 'g_fisik', label: 'Gerak Fisik Tubuh (Physical Reflex)' },
+  { id: 'g_skills', label: 'Peralatan, Praktik Alat & Rambu K3 (Skills)' },
   { id: 'g_angka', label: 'Angka, Hitungan & Konversi Satuan' },
 ];
 
