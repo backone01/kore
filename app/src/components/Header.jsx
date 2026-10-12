@@ -1,5 +1,6 @@
 import React from 'react';
 import { SlidersHorizontal, BookOpen, Layers, Award } from 'lucide-react';
+import { MAIN_MODULES } from '../utils/categoryGroups.js';
 
 export function Header({ 
   mode, 
@@ -76,18 +77,23 @@ export function Header({
 
         {/* RIGHT CONTROLS: CATEGORY FILTER & REGULATION BUTTON */}
         <div className="w-full sm:w-auto flex items-center justify-end gap-2 shrink-0">
-          {mode === 'practice' && (
-            <button
-              onClick={() => setCategoryModalOpen(true)}
-              className="flex-1 sm:flex-none px-3 py-1.5 rounded-xl bg-white border border-slate-200 hover:border-slate-300 text-xs font-bold text-slate-800 flex items-center justify-center gap-1.5 shadow-xs transition-all active:scale-95"
-              title="Pilih Kategori Soal Latihan"
-            >
-              <SlidersHorizontal className="w-3.5 h-3.5 text-blue-600 shrink-0" />
-              <span className="truncate max-w-[130px]">
-                {categoriesList.find(c => c.id === selectedCategory)?.label?.split('(')[0] || 'Kategori'}
-              </span>
-            </button>
-          )}
+          {mode === 'practice' && (() => {
+            const mod = MAIN_MODULES.find(m => m.id === selectedCategory);
+            const cat = categoriesList.find(c => c.id === selectedCategory);
+            const displayLabel = mod ? mod.shortLabel : (cat?.label?.split('(')[0] || 'Kategori');
+            return (
+              <button
+                onClick={() => setCategoryModalOpen(true)}
+                className="flex-1 sm:flex-none px-3 py-1.5 rounded-xl bg-white border border-slate-200 hover:border-slate-300 text-xs font-bold text-slate-800 flex items-center justify-center gap-1.5 shadow-xs transition-all active:scale-95"
+                title="Pilih Modul / Kategori Soal Latihan"
+              >
+                <SlidersHorizontal className="w-3.5 h-3.5 text-blue-600 shrink-0" />
+                <span className="truncate max-w-[140px]">
+                  {displayLabel}
+                </span>
+              </button>
+            );
+          })()}
 
           <button
             onClick={() => setRevisionModalOpen(true)}

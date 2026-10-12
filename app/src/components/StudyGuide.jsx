@@ -300,10 +300,10 @@ export function StudyGuide({ onStartPracticeCategory }) {
               </div>
 
               <button
-                onClick={() => onStartPracticeCategory && onStartPracticeCategory('k3_safety')}
+                onClick={() => onStartPracticeCategory && onStartPracticeCategory('mod_k3')}
                 className="px-3.5 py-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs flex items-center gap-1.5 shadow-2xs transition-all shrink-0 self-start sm:self-center active:scale-95"
               >
-                <span>Latih K3 di Flashcard / Kuis</span>
+                <span>Latih K3 di Flashcard / Kuis (30 Soal)</span>
                 <ChevronRight className="w-3.5 h-3.5" />
               </button>
             </div>
@@ -523,10 +523,10 @@ export function StudyGuide({ onStartPracticeCategory }) {
               </div>
 
               <button
-                onClick={() => onStartPracticeCategory && onStartPracticeCategory('wawancara')}
+                onClick={() => onStartPracticeCategory && onStartPracticeCategory('mod_wawancara')}
                 className="px-3.5 py-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs flex items-center gap-1.5 shadow-2xs transition-all shrink-0 self-start sm:self-center active:scale-95"
               >
-                <span>Latih Wawancara Lisan</span>
+                <span>Latih Wawancara di Flashcard</span>
                 <ChevronRight className="w-3.5 h-3.5" />
               </button>
             </div>
@@ -737,10 +737,10 @@ export function StudyGuide({ onStartPracticeCategory }) {
               </div>
 
               <button
-                onClick={() => onStartPracticeCategory && onStartPracticeCategory('gerak_fisik')}
+                onClick={() => onStartPracticeCategory && onStartPracticeCategory('mod_fisik')}
                 className="px-3.5 py-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs flex items-center gap-1.5 shadow-2xs transition-all shrink-0 self-start sm:self-center active:scale-95"
               >
-                <span>Latih Refleks Gerak Fisik</span>
+                <span>Latih Refleks Gerak Fisik di Flashcard</span>
                 <ChevronRight className="w-3.5 h-3.5" />
               </button>
             </div>
@@ -886,12 +886,22 @@ export function StudyGuide({ onStartPracticeCategory }) {
       {/* ========================================================================= */}
       {activeTab === 'numbers' && (
         <div className="space-y-4">
-          <div className="bg-white border border-slate-200 rounded-2xl p-4 md:p-5 shadow-xs">
-            <h3 className="font-extrabold text-sm mb-1">Perbedaan Angka Sino-Korea vs Angka Asli Korea:</h3>
-            <p className="text-xs text-slate-500 leading-relaxed">
-              <strong>Sino-Korea:</strong> Menit, Tanggal/Bulan/Tahun, Uang (Won), Nomor Telepon, Berat/Panjang.<br />
-              <strong>Asli Korea:</strong> Jam (waktu), Umur (살), dan Satuan Hitung Barang (개, 대, 명, 마리, 박스, 권).
-            </p>
+          <div className="bg-white border border-slate-200 rounded-2xl p-4 md:p-5 shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div>
+              <h3 className="font-extrabold text-sm md:text-base mb-1">Perbedaan Angka Sino-Korea vs Angka Asli Korea:</h3>
+              <p className="text-xs text-slate-500 leading-relaxed">
+                <strong>Sino-Korea:</strong> Menit, Tanggal/Bulan/Tahun, Uang (Won), Nomor Telepon, Berat/Panjang.<br />
+                <strong>Asli Korea:</strong> Jam (waktu), Umur (살), dan Satuan Hitung Barang (개, 대, 명, 마리, 박스, 권).
+              </p>
+            </div>
+
+            <button
+              onClick={() => onStartPracticeCategory && onStartPracticeCategory('mod_angka')}
+              className="px-3.5 py-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs flex items-center gap-1.5 shadow-2xs transition-all shrink-0 self-start sm:self-center active:scale-95"
+            >
+              <span>Latih Hitungan Pabrik di Kuis</span>
+              <ChevronRight className="w-3.5 h-3.5" />
+            </button>
           </div>
 
           {/* Sino Table */}
@@ -1283,14 +1293,24 @@ export function StudyGuide({ onStartPracticeCategory }) {
         }, {});
         return (
           <div className="space-y-4">
-            <div className="bg-white border border-slate-200 rounded-2xl p-4 shadow-xs">
-              <h3 className="font-extrabold text-sm flex items-center gap-2 mb-1">
-                <ShieldAlert className="w-4 h-4 text-amber-600 shrink-0" />
-                {piktogramList.length} Piktogram & Rambu Keselamatan Kerja (안전 표지)
-              </h3>
-              <p className="text-xs text-slate-500">
-                Pertanyaan penguji: <em>"이 안전 표지는 무슨 뜻입니까?"</em> — Hafal arti setiap rambu beserta nama Koreanya.
-              </p>
+            <div className="bg-white border border-slate-200 rounded-2xl p-4 md:p-5 shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+              <div>
+                <h3 className="font-extrabold text-sm md:text-base flex items-center gap-2 mb-1">
+                  <ShieldAlert className="w-4 h-4 text-amber-600 shrink-0" />
+                  <span>{piktogramList.length} Piktogram & Rambu Keselamatan Kerja (안전 표지)</span>
+                </h3>
+                <p className="text-xs text-slate-500">
+                  Pertanyaan penguji: <em>"이 안전 표지는 무슨 뜻입니까?"</em> — Hafal arti setiap rambu beserta nama Koreanya.
+                </p>
+              </div>
+
+              <button
+                onClick={() => onStartPracticeCategory && onStartPracticeCategory('mod_piktogram')}
+                className="px-3.5 py-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs flex items-center gap-1.5 shadow-2xs transition-all shrink-0 self-start sm:self-center active:scale-95"
+              >
+                <span>Latih Rambu K3 di Kuis / Flashcard</span>
+                <ChevronRight className="w-3.5 h-3.5" />
+              </button>
             </div>
             {Object.entries(groups).map(([groupName, items]) => (
               <div key={groupName} className="bg-white border border-slate-200 rounded-2xl p-4 shadow-xs space-y-3">
@@ -1395,14 +1415,24 @@ export function StudyGuide({ onStartPracticeCategory }) {
         }, {});
         return (
           <div className="space-y-4">
-            <div className="bg-white border border-slate-200 rounded-2xl p-4 shadow-xs">
-              <h3 className="font-extrabold text-sm flex items-center gap-2 mb-1">
-                <Wrench className="w-4 h-4 text-slate-600 shrink-0" />
-                {alatList.length} Alat & Perkakas Manufaktur (공구 & 기계)
-              </h3>
-              <p className="text-xs text-slate-500">
-                Pertanyaan penguji: <em>"이 공구의 이름은 무엇입니까?"</em> — Hafal nama Korea setiap alat dari fotonya.
-              </p>
+            <div className="bg-white border border-slate-200 rounded-2xl p-4 md:p-5 shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+              <div>
+                <h3 className="font-extrabold text-sm md:text-base flex items-center gap-2 mb-1">
+                  <Wrench className="w-4 h-4 text-slate-600 shrink-0" />
+                  <span>{alatList.length} Alat & Perkakas Manufaktur (공구 & 기계)</span>
+                </h3>
+                <p className="text-xs text-slate-500">
+                  Pertanyaan penguji: <em>"이 공구의 이름은 무엇입니까?"</em> — Hafal nama Korea setiap alat dari fotonya.
+                </p>
+              </div>
+
+              <button
+                onClick={() => onStartPracticeCategory && onStartPracticeCategory('mod_alat')}
+                className="px-3.5 py-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs flex items-center gap-1.5 shadow-2xs transition-all shrink-0 self-start sm:self-center active:scale-95"
+              >
+                <span>Latih Perkakas di Flashcard</span>
+                <ChevronRight className="w-3.5 h-3.5" />
+              </button>
             </div>
             {Object.entries(groups).map(([groupName, items]) => (
               <div key={groupName} className="bg-white border border-slate-200 rounded-2xl p-4 shadow-xs space-y-3">

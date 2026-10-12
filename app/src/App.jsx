@@ -18,7 +18,7 @@ import { PracticeQuiz } from './components/PracticeQuiz.jsx';
 import { PracticeListening } from './components/PracticeListening.jsx';
 import { PracticeOral } from './components/PracticeOral.jsx';
 import { getAssetUrl } from './utils/assetHelper.js';
-import { CATEGORY_GROUPS } from './utils/categoryGroups.js';
+import { MAIN_MODULES, CATEGORY_GROUPS, filterQuestionsByCategory } from './utils/categoryGroups.js';
 
 export default function App() {
   // App Mode: 'study' (Materi & Hafalan) | 'practice' (Latihan Soal) | 'exam' (Simulasi Ujian Resmi)
@@ -65,10 +65,9 @@ export default function App() {
   // Token guard to completely prevent audio repeat/loop bugs in Exam
   const examStepTokenRef = useRef(0);
 
-  // Filtered practice questions
+  // Filtered practice questions - Mendukung modul utama maupun sub-kategori spesifik
   const filteredQuestions = useMemo(() => {
-    if (selectedCategory === 'all') return questionsData;
-    return questionsData.filter(q => q.category === selectedCategory);
+    return filterQuestionsByCategory(questionsData, selectedCategory);
   }, [selectedCategory]);
 
   const currentQ = filteredQuestions[currentIndex] || filteredQuestions[0] || {};
@@ -674,36 +673,91 @@ export default function App() {
         {mode === 'practice' && (
           <div className="w-full flex flex-col items-center space-y-4 animate-in fade-in duration-200">
             
-            {/* Category Quick Filter Bar */}
+            {/* Main Modules Quick Filter Bar (Selaras 100% dengan Modul Materi) */}
             <div className="w-full max-w-3xl px-2">
               <div className="flex items-center gap-1.5 overflow-x-auto pb-1 scrollbar-none justify-start sm:justify-center">
-                {categoriesList.map(cat => {
-                  const isSelected = selectedCategory === cat.id;
+                {MAIN_MODULES.map(mod => {
+                  const isDirect = selectedCategory === mod.id;
+                  const isIncludedSub = mod.categories.includes(selectedCategory);
+                  const isSelected = isDirect || (selectedCategory !== 'all' && isIncludedSub);
+                  
+                  const count = mod.id === 'all' 
+                    ? questionsData.length 
+                    : questionsData.filter(q => mod.categories.includes(q.category)).length;
+
                   return (
                     <button
-                      key={cat.id}
+                      key={mod.id}
                       onClick={() => {
-                        setSelectedCategory(cat.id);
+                        setSelectedCategory(mod.id);
                         setCurrentIndex(0);
                         stopAllAudio();
                       }}
-                      className={`px-3 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap transition-all flex items-center gap-1.5 shrink-0 border ${
+                      className={`px-3 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap transition-all flex items-center gap-1.5 shrink-0 border active:scale-95 ${
                         isSelected
                           ? 'bg-slate-900 text-white border-slate-900 shadow-xs'
                           : 'bg-white text-slate-600 border-slate-200 hover:text-slate-900 hover:bg-slate-50'
                       }`}
                     >
-                      <span>{cat.label}</span>
+                      <span>{mod.shortLabel}</span>
                       <span className={`text-[10px] font-mono px-1.5 py-0.5 rounded-full ${
                         isSelected ? 'bg-white/20 text-white' : 'bg-slate-100 text-slate-600'
                       }`}>
-                        {cat.count}
+                        {count}
                       </span>
                     </button>
                   );
                 })}
               </div>
             </div>
+
+            {/* Sub-category Filter Bar jika modul aktif memiliki sub-kategori */}
+            {(() => {
+              const currentMod = MAIN_MODULES.find(m => m.id === selectedCategory || m.categories.includes(selectedCategory));
+              if (!currentMod || currentMod.categories.length <= 1) return null;
+              const subItems = categoriesList.filter(c => currentMod.categories.includes(c.id));
+              if (subItems.length <= 1) return null;
+
+              return (
+                <div className="w-full max-w-3xl px-2 flex items-center gap-1.5 overflow-x-auto pb-1 scrollbar-none justify-start sm:justify-center animate-in fade-in duration-150">
+                  <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider shrink-0 mr-0.5">Sub-Topik:</span>
+                  <button
+                    onClick={() => {
+                      setSelectedCategory(currentMod.id);
+                      setCurrentIndex(0);
+                      stopAllAudio();
+                    }}
+                    className={`px-2.5 py-1 rounded-lg text-[11px] font-semibold transition-all shrink-0 border active:scale-95 ${
+                      selectedCategory === currentMod.id
+                        ? 'bg-blue-600 text-white border-blue-600 shadow-2xs font-bold'
+                        : 'bg-white text-slate-600 border-slate-200 hover:text-slate-900 hover:bg-slate-50'
+                    }`}
+                  >
+                    Semua {currentMod.shortLabel}
+                  </button>
+                  {subItems.map(sub => {
+                    const isSubSelected = selectedCategory === sub.id;
+                    return (
+                      <button
+                        key={sub.id}
+                        onClick={() => {
+                          setSelectedCategory(sub.id);
+                          setCurrentIndex(0);
+                          stopAllAudio();
+                        }}
+                        className={`px-2.5 py-1 rounded-lg text-[11px] font-semibold transition-all shrink-0 border active:scale-95 ${
+                          isSubSelected
+                            ? 'bg-blue-600 text-white border-blue-600 shadow-2xs font-bold'
+                            : 'bg-white text-slate-600 border-slate-200 hover:text-slate-900 hover:bg-slate-50'
+                        }`}
+                      >
+                        {sub.label.split('(')[0].trim()} ({sub.count})
+                      </button>
+                    );
+                  })}
+                </div>
+              );
+            })()}
 
             {/* Sub-mode Navigation Selector */}
             <div className="w-full max-w-xl flex items-center justify-center">
@@ -1423,6 +1477,7 @@ export default function App() {
         selectedCategory={selectedCategory}
         setSelectedCategory={setSelectedCategory}
         setCurrentIndex={setCurrentIndex}
+        questionsData={questionsData}
       />
       <RevisionModal open={revisionModalOpen} onClose={() => setRevisionModalOpen(false)} />
 
