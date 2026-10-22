@@ -1,5 +1,5 @@
 /**
- * Fisher-Yates unbiased shuffle — O(n)
+ * Fisher-Yates unbiased shuffle : O(n)
  * Replaces biased `arr.sort(() => 0.5 - Math.random())`
  */
 export function shuffle(arr) {

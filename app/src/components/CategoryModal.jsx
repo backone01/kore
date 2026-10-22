@@ -1,16 +1,11 @@
 import React from 'react';
-import { X, Layers, UserCheck, Activity, AlertTriangle, ShieldAlert, Wrench, Hash, Check } from 'lucide-react';
+import { X, Layers, UserCheck, Activity, AlertTriangle, ShieldAlert, Wrench, Hash, Palette, Check } from 'lucide-react';
 import { MAIN_MODULES } from '../utils/categoryGroups.js';
+import { Badge } from './ui/badge.jsx';
+import { Button } from './ui/button.jsx';
+import { cn } from '../utils/cn.js';
 
-const ICON_MAP = {
-  Layers,
-  UserCheck,
-  Activity,
-  AlertTriangle,
-  ShieldAlert,
-  Wrench,
-  Hash
-};
+const ICON_MAP = { Layers, UserCheck, Activity, AlertTriangle, ShieldAlert, Wrench, Hash, Palette };
 
 export function CategoryModal({
   open,
@@ -22,6 +17,15 @@ export function CategoryModal({
   setCurrentIndex,
   questionsData = []
 }) {
+  React.useEffect(() => {
+    if (!open) return;
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') onClose();
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [open, onClose]);
+
   if (!open) return null;
 
   const pick = (id) => {
@@ -31,101 +35,89 @@ export function CategoryModal({
   };
 
   return (
-    <div className="fixed inset-0 z-50 bg-black/40 backdrop-blur-xs flex items-center justify-center p-4 animate-in fade-in duration-150">
-      <div className="bg-white border border-slate-200 rounded-3xl p-5 md:p-6 max-w-lg w-full shadow-2xl space-y-4 max-h-[90vh] flex flex-col">
+    <div className="fixed inset-0 z-50 bg-foreground/40 backdrop-blur-sm flex items-end sm:items-center justify-center p-0 sm:p-4 animate-fade-in"
+      onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}>
+      <div className="bg-card border border-border rounded-t-lg sm:rounded-lg w-full max-w-lg max-h-[90vh] flex flex-col shadow-xl">
         {/* Header */}
-        <div className="flex items-center justify-between pb-3 border-b border-slate-100 shrink-0">
+        <div className="flex items-center justify-between p-4 pb-3 border-b border-border">
           <div>
-            <h3 className="font-extrabold text-slate-900 text-base">Pilih Modul & Kategori Soal</h3>
-            <p className="text-xs text-slate-500 mt-0.5">Selaras 100% dengan materi hafalan dan tahapan ujian resmi</p>
+            <h2 className="font-bold text-base text-foreground">Pilih Modul & Kategori</h2>
+            <p className="text-xs text-muted-foreground mt-0.5">Selaras dengan materi dan ujian resmi</p>
           </div>
-          <button onClick={onClose} className="p-1.5 rounded-xl text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition-colors">
-            <X className="w-5 h-5" />
-          </button>
+          <Button variant="ghost" size="icon" onClick={onClose} aria-label="Tutup">
+            <X className="h-4 w-4" />
+          </Button>
         </div>
 
-        {/* Content Scroll */}
-        <div className="space-y-4 overflow-y-auto pr-1 flex-1 text-slate-900">
-          
-          {/* SEKSI 1: 6 MODUL UTAMA KISI-KISI TAHAP 2 (REKOMENDASI) */}
+        {/* Content */}
+        <div className="overflow-y-auto p-4 space-y-5">
+          {/* Main modules */}
           <div>
-            <div className="flex items-center justify-between mb-2">
-              <span className="text-[10px] font-black uppercase tracking-wider text-blue-600 bg-blue-50 px-2 py-0.5 rounded-md border border-blue-200/60">
-                Pilihan Modul Utama (Rekomendasi)
-              </span>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+            <span className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground">Modul Utama</span>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-2">
               {MAIN_MODULES.map(mod => {
                 const IconComponent = ICON_MAP[mod.icon] || Layers;
-                const isSelected = selectedCategory === mod.id;
-                
-                // Hitung total soal
+                const isSelected = selectedCategory === mod.id
+                  || (selectedCategory !== 'all' && mod.categories.includes(selectedCategory));
                 const count = mod.id === 'all'
                   ? questionsData.length
                   : questionsData.filter(q => mod.categories.includes(q.category)).length;
+                const countLabel = mod.categories.length === 0 && mod.id !== 'all' ? 'Materi' : `${count} soal`;
+                const isStudyOnly = mod.id !== 'all' && mod.categories.length === 0;
 
                 return (
                   <button
                     key={mod.id}
-                    onClick={() => pick(mod.id)}
-                    className={`flex items-start gap-2.5 p-3 rounded-2xl text-left transition-all border active:scale-95 ${
-                      isSelected
-                        ? 'bg-blue-50/80 border-blue-300 text-blue-950 shadow-xs ring-1 ring-blue-400'
-                        : 'bg-slate-50/70 border-slate-200 hover:bg-white hover:border-slate-300 text-slate-800'
-                    }`}
-                  >
-                    <div className={`p-2 rounded-xl shrink-0 mt-0.5 ${
-                      isSelected ? 'bg-blue-600 text-white shadow-2xs' : 'bg-white text-slate-600 border border-slate-200'
-                    }`}>
-                      <IconComponent className="w-4 h-4" />
-                    </div>
-                    <div className="min-w-0 flex-1">
-                      <div className="flex items-center justify-between gap-1">
-                        <span className="text-xs font-black truncate">{mod.label}</span>
-                        {isSelected && <Check className="w-3.5 h-3.5 text-blue-600 shrink-0" />}
-                      </div>
-                      <p className="text-[10px] text-slate-500 line-clamp-1 mt-0.5">{mod.desc}</p>
-                      <span className="inline-block mt-1 text-[10px] font-mono font-bold text-slate-600 bg-white px-2 py-0.2 rounded border border-slate-200">
-                        {count} Soal
+                    onClick={() => { if (!isStudyOnly) pick(mod.id); }}
+                    disabled={isStudyOnly}
+                    title={isStudyOnly ? 'Modul ini hanya tersedia di mode Materi' : mod.desc}
+                    className={cn(
+                      'flex items-start gap-2.5 p-3 rounded-md text-left border transition-all',
+                      isSelected ? 'bg-primary/5 border-primary text-foreground'
+                        : isStudyOnly ? 'bg-muted/50 text-muted-foreground opacity-60 cursor-not-allowed'
+                        : 'bg-card border-border hover:border-foreground/30'
+                    )}>
+                    <span className={cn('p-1.5 rounded-md shrink-0 mt-0.5',
+                      isSelected ? 'bg-primary text-primary-foreground' : 'bg-secondary text-muted-foreground')}>
+                      <IconComponent className="h-4 w-4" />
+                    </span>
+                    <span className="min-w-0 flex-1">
+                      <span className="flex items-center justify-between gap-1">
+                        <span className="text-xs font-bold truncate">{mod.label}</span>
+                        {isSelected && <Check className="h-3.5 w-3.5 text-primary shrink-0" />}
                       </span>
-                    </div>
+                      <span className="block text-[11px] text-muted-foreground mt-0.5 line-clamp-1">{mod.desc}</span>
+                      <Badge variant="outline" className="mt-1.5">{countLabel}</Badge>
+                    </span>
                   </button>
                 );
               })}
             </div>
           </div>
 
-          {/* SEKSI 2: SUB-KATEGORI SPESIFIK */}
-          <div className="pt-2 border-t border-slate-100">
-            <span className="text-[10px] font-black uppercase tracking-wider text-slate-500 mb-2 block">
-              Atau Pilih Sub-Kategori Spesifik:
-            </span>
-
-            <div className="space-y-3">
+          {/* Sub-categories */}
+          <div className="pt-1 border-t border-border">
+            <span className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground">Sub-Kategori Spesifik</span>
+            <div className="mt-2 space-y-3">
               {categoryGroups.map(g => {
                 const items = categoriesList.filter(c => c.group === g.id);
                 if (!items.length) return null;
                 return (
                   <div key={g.id} className="space-y-1.5">
-                    <p className="text-[11px] font-bold text-slate-700 px-1">{g.label}</p>
+                    <p className="text-[11px] font-medium text-muted-foreground px-0.5">{g.label}</p>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5">
                       {items.map(cat => {
                         const isSelected = selectedCategory === cat.id;
                         return (
-                          <button
-                            key={cat.id}
-                            onClick={() => pick(cat.id)}
-                            className={`flex items-center justify-between px-3 py-2 rounded-xl text-xs font-semibold transition-all border ${
-                              isSelected
-                                ? 'bg-blue-600 text-white border-blue-600 shadow-xs'
-                                : 'bg-white border-slate-200 hover:bg-slate-50 text-slate-700'
-                            }`}
-                          >
+                          <button key={cat.id} onClick={() => pick(cat.id)}
+                            className={cn(
+                              'flex items-center justify-between px-3 py-2 rounded-md text-xs font-medium border transition-all',
+                              isSelected ? 'bg-primary text-primary-foreground border-primary'
+                                : 'bg-card text-foreground border-border hover:bg-secondary'
+                            )}>
                             <span className="truncate pr-2">{cat.label}</span>
-                            <span className={`font-mono text-[10px] px-1.5 py-0.5 rounded ${
-                              isSelected ? 'bg-white/20 text-white' : 'bg-slate-100 text-slate-500'
-                            }`}>
+                            <span className={cn('font-mono text-[10px] px-1.5 py-0.5 rounded',
+                              isSelected ? 'bg-white/20' : 'bg-secondary text-muted-foreground')}>
                               {cat.count}
                             </span>
                           </button>
@@ -137,7 +129,6 @@ export function CategoryModal({
               })}
             </div>
           </div>
-
         </div>
       </div>
     </div>

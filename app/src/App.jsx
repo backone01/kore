@@ -18,7 +18,11 @@ import { PracticeQuiz } from './components/PracticeQuiz.jsx';
 import { PracticeListening } from './components/PracticeListening.jsx';
 import { PracticeOral } from './components/PracticeOral.jsx';
 import { getAssetUrl } from './utils/assetHelper.js';
-import { MAIN_MODULES, CATEGORY_GROUPS, filterQuestionsByCategory } from './utils/categoryGroups.js';
+import { MAIN_MODULES, CATEGORY_GROUPS, filterQuestionsByCategory, MODULE_COLORS } from './utils/categoryGroups.js';
+import { cn } from './utils/cn.js';
+import { Badge } from './components/ui/badge.jsx';
+import { Button } from './components/ui/button.jsx';
+import { Card } from './components/ui/card.jsx';
 
 export default function App() {
   // App Mode: 'study' (Materi & Hafalan) | 'practice' (Latihan Soal) | 'exam' (Simulasi Ujian Resmi)
@@ -130,7 +134,7 @@ export default function App() {
     practiceAudioRef.current.play().catch(() => setIsPlayingAudio(false));
   };
 
-  // Practice Mic Recording — revoke previous blob to prevent leak
+  // Practice Mic Recording: revoke previous blob to prevent leak
   const toggleRecording = async () => {
     if (isRecording) {
       if (mediaRecorderRef.current) mediaRecorderRef.current.stop();
@@ -173,15 +177,13 @@ export default function App() {
   // =========================================================================
   // Sesuai Peraturan Revisi Terbaru HRD Korea (Revisions to the Skills Test):
   // Total Skor Wawancara: 50 Poin (Meningkat dari 30 Poin)
-  // 1. Self-Introduction (Perkenalan Diri): 2 Poin (2 Soal: Nama & Umur/Lahir, @1 Poin)
-  // 2. 5 Work Instructions (5 Perintah Kerja): 15 Poin (5 Soal, @3 Poin - Ditingkatkan dari 3 ke 5 item)
-  // 3. 5 Tools (5 Perkakas Manufaktur): 5 Poin (5 Soal, @1 Poin - Ditingkatkan dari 3 ke 5 item)
-  // 4. 2 In-Depth Safety Questions (2 Pertanyaan K3 Mendalam): 10 Poin (2 Soal, @5 Poin - Fitur K3 Baru)
-  // 5. Basic Conversation & NCS Vocational Competency (Percakapan & Sikap): 18 Poin
-  //    - Dasar Berhitung Cepat Pabrik: 4 Poin
-  //    - Sikap Kerja / Respon Masalah Pabrik: 7 Poin
-  //    - Motivasi & Komitmen Bekerja di Korea: 7 Poin
-  // Total: 17 Soal | 50 Poin Penuh
+  // 1. Self-Introduction (Perkenalan Diri Monolog 25 Detik): 2 Poin
+  // 2. 5 Work Instructions (5 Perintah Gerak Fisik): 15 Poin (5 Soal @3 Poin)
+  // 3. 5 Visual Cards (4 Rambu K3 + 1 Perkakas Manufaktur/Klasik): 5 Poin (5 Soal @1 Poin)
+  // 4. 2 Praktik Alat Meja (Fungsi + Perintah Aksi): 2 Poin (2 Soal @1 Poin)
+  // 5. 2 In-Depth Safety Questions (2 Pertanyaan K3 Mendalam): 10 Poin (2 Soal @5 Poin)
+  // 6. Percakapan & NCS (12 Topik Unik inkl. 1 Sikap Profesional + 1 Hitung Cepat + 1 Konversi/Lisan): 16 Poin (14 Soal)
+  // Total: 30 Langkah (1 intro + 5 gerak + 1 transisi + 5 visual + 2 praktik + 2 K3 + 14 NCS) | 50 Poin Penuh
   const startRealExam = () => {
     stopAllAudio();
 
@@ -214,10 +216,9 @@ export default function App() {
     // 2. 5 Instruksi Gerak Fisik (15 Poin, @3 Poin, Berdiri) - Urutan Logis: Naikkan Dulu Baru Turunkan
     const workInstructionsPool = questionsData.filter(q => q.category === 'gerak_fisik');
     const selectedInstructions = getLogicalMovementSequence(workInstructionsPool, 5);
-
     // 3. 5 Kartu Visual Meja Resmi HRD Korea (5 Poin, @1 Poin, Duduk)
     // Terdiri dari 4 Pilar Rambu K3 (1 Wajib, 1 Peringatan, 1 Larangan, 1 Evakuasi) + 1 Perkakas Manufaktur
-    const toolsPool = questionsData.filter(q => q.category === 'alat_manufaktur');
+    const toolsPool = questionsData.filter(q => q.category === 'alat_manufaktur' || q.category === 'alat_klasik');
     const pictogramPool = questionsData.filter(q => q.category === 'piktogram');
 
     const classifyPictogram = (p) => {
@@ -251,7 +252,35 @@ export default function App() {
     // - 1 Soal Fungsi Alat ("드라이버는 무엇에 사용합니까?")
     // - 1 Soal Perintah Aksi Praktik ("나사를 조이는 도구(드라이버)를 공구함에 넣으세요")
     const toolFuncPool = questionsData.filter(q => q.category === 'fungsi_alat');
-    const toolActPool = questionsData.filter(q => q.category === 'perintah_alat');
+    const toolActPool = questionsData.filter(q => q.category === 'praktik_alat' || q.category === 'perintah_alat');
+    const toolActFallback = toolActPool.length > 0 ? toolActPool : toolFuncPool;
+    // Peta nama alat -> foto (dari 90 kartu nama alat) agar soal fungsi/praktik
+    // tekstual tetap menampilkan foto alatnya seperti di meja ujian asli.
+    const toolPhotoByName = {};
+    questionsData
+      .filter(q => (q.category === 'alat_manufaktur' || q.category === 'alat_klasik') && q.image_url)
+      .forEach(q => {
+        const m = ((q.answer_short_ko || '').trim()).match(/^(.+?)입니다\.?$/);
+        const name = (m ? m[1] : (q.title_ko || '').trim());
+        if (name && !toolPhotoByName[name]) toolPhotoByName[name] = q.image_url;
+      });
+    const norm = (s) => (s || '').replace(/\s+/g, '');
+    const photoByFlat = {};
+    Object.entries(toolPhotoByName).forEach(([name, url]) => { photoByFlat[norm(name)] = url; });
+    const normNames = Object.keys(toolPhotoByName).map(n => ({ raw: n, flat: norm(n) })).sort((a, b) => b.flat.length - a.flat.length);
+    const attachToolPhoto = (item) => {
+      if (!item || item.image_url) return item;
+      const ko = item.question_ko || '';
+      const subjMatch = ko.match(/^(.+?)[은는] (무엇에 사용합니까|어디에 쓰는 도구입니까)/);
+      let hit = (subjMatch && (toolPhotoByName[subjMatch[1]] || photoByFlat[norm(subjMatch[1])])) || null;
+      if (!hit) {
+        const haystack = `${ko} ${item.answer_short_ko || ''} ${item.answer_full_ko || ''}`;
+        const flatHay = norm(haystack);
+        const found = normNames.find(n => n.flat && (haystack.includes(n.raw) || flatHay.includes(n.flat)));
+        if (found) hit = toolPhotoByName[found.raw];
+      }
+      return hit ? { ...item, image_url: hit } : item;
+    };
     const practicalToolQuestions = [
       {
         section: 'Tahap 2: Praktik Alat (1/2)',
@@ -260,7 +289,7 @@ export default function App() {
         stance: 'sitting',
         points: 1,
         duration: 8,
-        ...(getRandomSample(toolFuncPool, 1)[0] || toolFuncPool[0])
+        ...attachToolPhoto(getRandomSample(toolFuncPool, 1)[0] || toolFuncPool[0])
       },
       {
         section: 'Tahap 2: Praktik Alat (2/2)',
@@ -269,7 +298,7 @@ export default function App() {
         stance: 'sitting',
         points: 1,
         duration: 8,
-        ...(getRandomSample(toolActPool, 1)[0] || toolActPool[0])
+        ...attachToolPhoto(getRandomSample(toolActFallback, 1)[0] || toolActFallback[0])
       }
     ];
 
@@ -279,7 +308,7 @@ export default function App() {
 
     // 6. Percakapan Dasar & Sikap Kerja NCS Pabrik (Total: 14 Soal = 16 Poin, Duduk)
     // Pengacakan Cerdas: 12 pertanyaan dari rumpun topik unik + 2 hitungan stok pabrik (tanpa duplikat)
-    const isConv = q => q.category === 'wawancara' || q.category === 'simulasi_hrdk';
+    const isConv = q => q.category === 'wawancara' || q.category === 'simulasi_hrdk' || q.category === 'wawancara_profesional';
     const allConv = questionsData.filter(isConv);
 
     // Klasifikasi topik unik agar tidak ada duplikasi materi atau pertanyaan kembar
@@ -349,9 +378,34 @@ export default function App() {
       };
     });
 
-    // 2 Soal Hitungan Berhitung Cepat Pabrik (@1.5 Poin = 3 Poin)
+    // Jaminan: minimal 1 soal Sikap Kerja Profesional (wawancara_profesional) di tiap paket.
+    // Jika belum ada, ganti slot fleksibel (lainnya/motivasi/keunggulan, @1 Poin) dengan 1 soal profesional.
+    const profPool = questionsData.filter(q => q.category === 'wawancara_profesional');
+    const usedConvIds = new Set(selectedConvQuestions.map(q => q && q.id));
+    const hasProf = selectedConvQuestions.some(q => q && q.category === 'wawancara_profesional');
+    if (!hasProf && profPool.length) {
+      const profPick = getRandomSample(profPool.filter(q => !usedConvIds.has(q.id)), 1)[0] || getRandomSample(profPool, 1)[0];
+      const replaceIdx = selectedTopics.findIndex(t => t === 'lainnya' || t === 'motivasi_alasan_korea' || t === 'keterampilan_keunggulan');
+      if (profPick && replaceIdx >= 0) {
+        selectedConvQuestions[replaceIdx] = {
+          part: 'ncs',
+          partTitle: 'Sikap Kerja Profesional (NCS)',
+          stance: 'sitting',
+          duration: 8,
+          points: 1,
+          ...profPick
+        };
+      }
+    }
+
+    // 2 Soal Hitungan (@1.5 Poin = 3 Poin): 1 Berhitung Cepat Pabrik + 1 Konversi Satuan/Hitungan Lisan
+    // Slot kedua dijamin dari konversi_satuan/hitungan_lisan agar semua materi hitungan masuk tiap paket
     const mathPool = questionsData.filter(q => q.category === 'matematika');
-    const selectedMath = getRandomSample(mathPool, 2).map((item) => ({
+    const convertPool = questionsData.filter(q => q.category === 'konversi_satuan' || q.category === 'hitungan_lisan');
+    const selectedMath = [
+      ...getRandomSample(mathPool, 1),
+      ...getRandomSample(convertPool.length ? convertPool : mathPool, 1)
+    ].map((item) => ({
       part: 'ncs',
       partTitle: 'Dasar Berhitung Cepat Pabrik (수리능력 - Stok Gudang)',
       stance: 'sitting',
@@ -366,9 +420,37 @@ export default function App() {
       section: `Tahap 2: Tanya-Jawab Meja (${idx + 1}/14)`
     }));
 
+    // ==============================================================
+    // TRANSISI: DUDUK / BERDIRI (0 Poin, tidak dinilai)
+    // ==============================================================
+    const makeSitTransition = (id) => ({
+      id,
+      section: 'Transisi Meja Penguji',
+      part: 'transition',
+      partTitle: 'Instruksi Penguji: Silakan Duduk (앉으세요)',
+      stance: 'sitting',
+      points: 0,
+      duration: 5,
+      question_ko: '앉으세요.',
+      question_romaja: 'Anjeuseyo.',
+      question_id: 'Instruksi Penguji: Silakan duduk di kursi depan meja penguji.',
+      answer_short_ko: '감사합니다.',
+      answer_short_id: 'Terima kasih (Membungkuk sopan 15° lalu duduk dengan tegap di kursi).',
+      answer_full_ko: '감사합니다.',
+      answer_full_id: 'Terima kasih (Membungkuk sopan 15° lalu duduk dengan tegap di kursi).',
+      title_ko: '앉으세요.',
+      title_id: 'Silakan duduk.',
+      audio_q: '/audio/examiner_sit_down.mp3',
+      audio_a: null,
+      image_url: null
+    });
+
+    // (Transisi berdiri tidak dipakai: blok berdiri dimainkan sekaligus di depan
+    // agar alur masuk akal: berdiri, gerak, lalu duduk sekali sampai selesai.)
+
     const examSet = [
       // ==============================================================
-      // TAHAP 1: BERDIRI DI DEPAN KAMERA (🧍)
+      // TAHAP 1: BERDIRI DI DEPAN KAMERA (standing)
       // ==============================================================
       // 1. Monolog Perkenalan Diri (2 Poin)
       introItem,
@@ -384,39 +466,16 @@ export default function App() {
         ...item
       })),
 
-      // ==============================================================
-      // TRANSISI RESMI: DUDUK DI MEJA PENGUJI (🪑) - "앉으세요"
-      // ==============================================================
-      {
-        id: 'transisi_duduk',
-        section: 'Transisi Meja Penguji',
-        part: 'transition',
-        partTitle: 'Instruksi Penguji: Silakan Duduk (앉으세요)',
-        stance: 'sitting',
-        points: 0,
-        duration: 5,
-        question_ko: '앉으세요.',
-        question_romaja: 'Anjeuseyo.',
-        question_id: 'Instruksi Penguji: Silakan duduk di kursi depan meja penguji.',
-        answer_short_ko: '감사합니다.',
-        answer_short_id: 'Terima kasih (Membungkuk sopan 15° lalu duduk dengan tegap di kursi).',
-        answer_full_ko: '감사합니다.',
-        answer_full_id: 'Terima kasih (Membungkuk sopan 15° lalu duduk dengan tegap di kursi).',
-        title_ko: '앉으세요.',
-        title_id: 'Silakan duduk.',
-        audio_q: '/audio/examiner_sit_down.mp3',
-        audio_a: null,
-        image_url: null
-      },
+      makeSitTransition('transisi_duduk'),
 
       // ==============================================================
-      // TAHAP 2: DUDUK DI MEJA PENGUJI (🪑)
+      // TAHAP 2: DUDUK DI MEJA PENGUJI (sitting)
       // ==============================================================
       // 1. 5 Kartu Visual Meja Resmi HRDK: 4 Pilar Rambu K3 + 1 Perkakas (5 Poin, @1 Poin)
       ...selectedVisualCards.map((item, idx) => ({
         section: `Tahap 2: Kartu Visual (${idx + 1}/5)`,
         part: 'tools',
-        partTitle: item.visualType || (item.category === 'piktogram' ? 'Tebak Rambu Piktogram K3 (안전표지)' : 'Tebak Perkakas Manufaktur (도구 명칭)'),
+        partTitle: item.visualType || (item.category === 'piktogram' ? 'Tebak Rambu Piktogram K3 (안전표지)' : item.category === 'alat_klasik' ? 'Tebak Perkakas Klasik (도구 명칭)' : 'Tebak Perkakas Manufaktur (도구 명칭)'),
         stance: 'sitting',
         points: 1,
         duration: 6,
@@ -444,7 +503,7 @@ export default function App() {
     setExamQuestions(examSet);
     setExamIndex(0);
     setExamRecordings({});
-    // Start unrated — user must self-assess objectively, not inflated 50/50
+    // Start unrated: user must self-assess objectively, not inflated 50/50
     setSelfRatings({});
     setExamPhase('running');
     
@@ -452,7 +511,7 @@ export default function App() {
     executeExamStep(0, examSet);
   };
 
-  // Kalkulasi Skor Wawancara Resmi (Total 50 Poin) — unrated = 0
+  // Kalkulasi Skor Wawancara Resmi (Total 50 Poin), unrated = 0
   const examScoreSummary = useMemo(() => {
     let totalScore = 0;
     let ratedCount = 0;
@@ -517,6 +576,11 @@ export default function App() {
     };
 
     // Play Question Audio ONLY from real MP3 file!
+    // Transisi tanpa file MP3 (mis. 일어서세요) dilewati tanpa suara agar tidak memutar audio yang salah.
+    if (q.part === 'transition' && !q.audio_q) {
+      setTimeout(advanceToAnswerPhase, 1500);
+      return;
+    }
     const audioSrc = q.audio_q || (q.category === 'piktogram' ? '/audio/examiner_sign_q.mp3' : '/audio/examiner_tool_q.mp3');
     examAudioPlayerRef.current.src = getAssetUrl(audioSrc);
     examAudioPlayerRef.current.onended = advanceToAnswerPhase;
@@ -605,31 +669,31 @@ export default function App() {
     setExamPhase('intro');
   };
 
-  // Kelompok kategori gaya modul Hub — definisi bersama di utils/categoryGroups.js
+  // Kelompok kategori gaya modul Hub: definisi bersama di utils/categoryGroups.js
   // (dipakai juga oleh mode Materi agar pengkategorian konsisten)
 
   const categoriesList = [
     { id: 'all', label: 'Semua Bank Soal', count: questionsData.length },
-    { id: 'simulasi_hrdk', group: 'g_wawancara', label: 'Simulasi Resmi HRDK', count: questionsData.filter(q=>q.category==='simulasi_hrdk').length },
-    { id: 'wawancara', group: 'g_wawancara', label: 'Wawancara Data Diri & Situasi', count: questionsData.filter(q=>q.category==='wawancara').length },
-    { id: 'wawancara_profesional', group: 'g_wawancara', label: 'Wawancara Sikap Kerja NCS', count: questionsData.filter(q=>q.category==='wawancara_profesional').length },
-    { id: 'gerak_fisik', group: 'g_fisik', label: 'Perintah Gerak Fisik Tubuh (따라하세요)', count: questionsData.filter(q=>q.category==='gerak_fisik').length },
-    { id: 'k3_safety', group: 'g_skills', label: 'K3 & Keselamatan Pabrik', count: questionsData.filter(q=>q.category==='k3_safety').length },
-    { id: 'piktogram', group: 'g_skills', label: 'Piktogram & Rambu K3', count: questionsData.filter(q=>q.category==='piktogram').length },
-    { id: 'alat_manufaktur', group: 'g_skills', label: 'Perkakas Manufaktur & APD', count: questionsData.filter(q=>q.category==='alat_manufaktur').length },
-    { id: 'alat_klasik', group: 'g_skills', label: 'Perkakas Klasik (JAGISOSE)', count: questionsData.filter(q=>q.category==='alat_klasik').length },
-    { id: 'fungsi_alat', group: 'g_skills', label: 'Fungsi Perkakas Manufaktur', count: questionsData.filter(q=>q.category==='fungsi_alat').length },
-    { id: 'praktik_alat', group: 'g_skills', label: 'Praktik & Penggunaan Alat Kerja', count: questionsData.filter(q=>q.category==='praktik_alat').length },
-    { id: 'matematika', group: 'g_angka', label: 'Dasar Berhitung Pabrik', count: questionsData.filter(q=>q.category==='matematika').length },
-    { id: 'konversi_satuan', group: 'g_angka', label: 'Konversi Satuan & Waktu', count: questionsData.filter(q=>q.category==='konversi_satuan').length },
-    { id: 'hitungan_lisan', group: 'g_angka', label: 'Hitungan Lisan Pabrik', count: questionsData.filter(q=>q.category==='hitungan_lisan').length },
+    { id: 'simulasi_hrdk', group: 'interview', label: 'Simulasi Resmi HRDK', count: questionsData.filter(q=>q.category==='simulasi_hrdk').length },
+    { id: 'wawancara', group: 'interview', label: 'Wawancara Data Diri & Situasi', count: questionsData.filter(q=>q.category==='wawancara').length },
+    { id: 'wawancara_profesional', group: 'interview', label: 'Wawancara Sikap Kerja NCS', count: questionsData.filter(q=>q.category==='wawancara_profesional').length },
+    { id: 'gerak_fisik', group: 'physical', label: 'Perintah Gerak Fisik Tubuh (따라하세요)', count: questionsData.filter(q=>q.category==='gerak_fisik').length },
+    { id: 'k3_safety', group: 'safety', label: 'K3 & Keselamatan Pabrik', count: questionsData.filter(q=>q.category==='k3_safety').length },
+    { id: 'piktogram', group: 'safety', label: 'Piktogram & Rambu K3', count: questionsData.filter(q=>q.category==='piktogram').length },
+    { id: 'alat_manufaktur', group: 'tools', label: 'Perkakas Manufaktur & APD', count: questionsData.filter(q=>q.category==='alat_manufaktur').length },
+    { id: 'alat_klasik', group: 'tools', label: 'Perkakas Klasik (JAGISOSE)', count: questionsData.filter(q=>q.category==='alat_klasik').length },
+    { id: 'fungsi_alat', group: 'tools', label: 'Fungsi Perkakas Manufaktur', count: questionsData.filter(q=>q.category==='fungsi_alat').length },
+    { id: 'praktik_alat', group: 'tools', label: 'Praktik & Penggunaan Alat Kerja', count: questionsData.filter(q=>q.category==='praktik_alat').length },
+    { id: 'matematika', group: 'numbers', label: 'Dasar Berhitung Pabrik', count: questionsData.filter(q=>q.category==='matematika').length },
+    { id: 'konversi_satuan', group: 'numbers', label: 'Konversi Satuan & Waktu', count: questionsData.filter(q=>q.category==='konversi_satuan').length },
+    { id: 'hitungan_lisan', group: 'numbers', label: 'Hitungan Lisan Pabrik', count: questionsData.filter(q=>q.category==='hitungan_lisan').length },
   ];
 
   const practiceProgress = filteredQuestions.length ? ((currentIndex + 1) / filteredQuestions.length) * 100 : 0;
   const examProgress = examQuestions.length ? ((examIndex + 1) / examQuestions.length) * 100 : 0;
 
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-900 flex flex-col font-sans selection:bg-blue-600 selection:text-white">
+    <div className="min-h-screen bg-background text-foreground flex flex-col font-sans selection:bg-primary selection:text-primary-foreground">
       
       <Header
         mode={mode}
@@ -664,16 +728,15 @@ export default function App() {
         {/* A. PRACTICE MODE (LATIHAN MANDIRI) */}
         {/* ================================================================= */}
         {mode === 'practice' && (
-          <div className="w-full flex flex-col items-center space-y-4 animate-in fade-in duration-200">
+          <div className="w-full flex flex-col items-center space-y-4 animate-fade-in">
             
-            {/* Main Modules Quick Filter Bar (Selaras 100% dengan Modul Materi) */}
-            <div className="w-full max-w-3xl px-2">
-              <div className="flex items-center gap-1.5 overflow-x-auto pb-1 scrollbar-none justify-start sm:justify-center">
-                {MAIN_MODULES.map(mod => {
+            {/* Module filter */}
+            <div className="w-full max-w-3xl px-1 sm:px-2">
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+                {MAIN_MODULES.filter(m => m.id === 'all' || m.categories.length > 0).map(mod => {
                   const isDirect = selectedCategory === mod.id;
                   const isIncludedSub = mod.categories.includes(selectedCategory);
                   const isSelected = isDirect || (selectedCategory !== 'all' && isIncludedSub);
-                  
                   const count = mod.id === 'all' 
                     ? questionsData.length 
                     : questionsData.filter(q => mod.categories.includes(q.category)).length;
@@ -686,16 +749,16 @@ export default function App() {
                         setCurrentIndex(0);
                         stopAllAudio();
                       }}
-                      className={`px-3 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap transition-all flex items-center gap-1.5 shrink-0 border active:scale-95 ${
+                      className={cn(
+                        'px-3 py-2.5 rounded-lg text-xs sm:text-sm font-semibold transition-all flex items-center justify-between gap-1.5 border min-h-[44px] text-left',
                         isSelected
-                          ? 'bg-slate-900 text-white border-slate-900 shadow-xs'
-                          : 'bg-white text-slate-600 border-slate-200 hover:text-slate-900 hover:bg-slate-50'
-                      }`}
+                          ? 'bg-primary text-primary-foreground border-primary shadow-xs'
+                          : 'bg-card text-foreground border-border hover:bg-secondary/70'
+                      )}
                     >
-                      <span>{mod.shortLabel}</span>
-                      <span className={`text-[10px] font-mono px-1.5 py-0.5 rounded-full ${
-                        isSelected ? 'bg-white/20 text-white' : 'bg-slate-100 text-slate-600'
-                      }`}>
+                      <span className="truncate">{mod.shortLabel}</span>
+                      <span className={cn('text-[10px] font-mono px-1.5 py-0.5 rounded shrink-0',
+                        isSelected ? 'bg-white/20 text-white' : 'bg-secondary text-muted-foreground border border-border/50')}>
                         {count}
                       </span>
                     </button>
@@ -704,7 +767,7 @@ export default function App() {
               </div>
             </div>
 
-            {/* Sub-category Filter Bar jika modul aktif memiliki sub-kategori */}
+            {/* Sub-category filter */}
             {(() => {
               const currentMod = MAIN_MODULES.find(m => m.id === selectedCategory || m.categories.includes(selectedCategory));
               if (!currentMod || currentMod.categories.length <= 1) return null;
@@ -712,20 +775,17 @@ export default function App() {
               if (subItems.length <= 1) return null;
 
               return (
-                <div className="w-full max-w-3xl px-2 flex items-center gap-1.5 overflow-x-auto pb-1 scrollbar-none justify-start sm:justify-center animate-in fade-in duration-150">
-                  <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider shrink-0 mr-0.5">Sub-Topik:</span>
+                <div className="w-full max-w-3xl px-1 sm:px-2 flex items-center gap-1.5 overflow-x-auto no-scrollbar sm:flex-wrap sm:justify-center py-1 animate-fade-in">
                   <button
                     onClick={() => {
                       setSelectedCategory(currentMod.id);
                       setCurrentIndex(0);
                       stopAllAudio();
                     }}
-                    className={`px-2.5 py-1 rounded-lg text-[11px] font-semibold transition-all shrink-0 border active:scale-95 ${
+                    className={cn('shrink-0 px-2.5 py-1.5 rounded-md text-xs font-medium transition-all border min-h-[34px] flex items-center',
                       selectedCategory === currentMod.id
-                        ? 'bg-blue-600 text-white border-blue-600 shadow-2xs font-bold'
-                        : 'bg-white text-slate-600 border-slate-200 hover:text-slate-900 hover:bg-slate-50'
-                    }`}
-                  >
+                        ? 'bg-primary text-primary-foreground border-primary shadow-xs'
+                        : 'bg-card text-foreground border-border hover:bg-secondary')}>
                     Semua {currentMod.shortLabel}
                   </button>
                   {subItems.map(sub => {
@@ -738,12 +798,10 @@ export default function App() {
                           setCurrentIndex(0);
                           stopAllAudio();
                         }}
-                        className={`px-2.5 py-1 rounded-lg text-[11px] font-semibold transition-all shrink-0 border active:scale-95 ${
+                        className={cn('shrink-0 px-2.5 py-1.5 rounded-md text-xs font-medium transition-all border min-h-[34px] flex items-center',
                           isSubSelected
-                            ? 'bg-blue-600 text-white border-blue-600 shadow-2xs font-bold'
-                            : 'bg-white text-slate-600 border-slate-200 hover:text-slate-900 hover:bg-slate-50'
-                        }`}
-                      >
+                            ? 'bg-primary text-primary-foreground border-primary shadow-xs'
+                            : 'bg-card text-muted-foreground border-border hover:text-foreground hover:bg-secondary')}>
                         {sub.label.split('(')[0].trim()} ({sub.count})
                       </button>
                     );
@@ -752,68 +810,33 @@ export default function App() {
               );
             })()}
 
-            {/* Sub-mode Navigation Selector */}
-            <div className="w-full max-w-xl flex items-center justify-center">
-              <div className="inline-flex p-1 bg-slate-100 border border-slate-200/80 rounded-xl text-xs font-semibold gap-0.5">
-                <button
-                  onClick={() => {
-                    setPracticeSubMode('flashcard');
-                    stopAllAudio();
-                  }}
-                  className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg transition-all ${
-                    practiceSubMode === 'flashcard'
-                      ? 'bg-white text-slate-900 font-bold shadow-xs border border-slate-200/80'
-                      : 'text-slate-600 hover:text-slate-900'
-                  }`}
-                >
-                  <Layers className="w-3.5 h-3.5 text-blue-600" />
-                  <span>Flashcard</span>
-                </button>
-
-                <button
-                  onClick={() => {
-                    setPracticeSubMode('quiz');
-                    stopAllAudio();
-                  }}
-                  className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg transition-all ${
-                    practiceSubMode === 'quiz'
-                      ? 'bg-white text-slate-900 font-bold shadow-xs border border-slate-200/80'
-                      : 'text-slate-600 hover:text-slate-900'
-                  }`}
-                >
-                  <CheckCircle className="w-3.5 h-3.5 text-emerald-600" />
-                  <span>Pilihan Ganda</span>
-                </button>
-
-                <button
-                  onClick={() => {
-                    setPracticeSubMode('listening');
-                    stopAllAudio();
-                  }}
-                  className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg transition-all ${
-                    practiceSubMode === 'listening'
-                      ? 'bg-white text-slate-900 font-bold shadow-xs border border-slate-200/80'
-                      : 'text-slate-600 hover:text-slate-900'
-                  }`}
-                >
-                  <Headphones className="w-3.5 h-3.5 text-amber-600" />
-                  <span>Latihan Mendengar</span>
-                </button>
-
-                <button
-                  onClick={() => {
-                    setPracticeSubMode('oral');
-                    stopAllAudio();
-                  }}
-                  className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg transition-all ${
-                    practiceSubMode === 'oral'
-                      ? 'bg-white text-slate-900 font-bold shadow-xs border border-slate-200/80'
-                      : 'text-slate-600 hover:text-slate-900'
-                  }`}
-                >
-                  <Mic className="w-3.5 h-3.5 text-purple-600" />
-                  <span>Latihan Lisan</span>
-                </button>
+            {/* Sub-mode tabs */}
+            <div className="w-full max-w-xl flex items-center justify-center px-1">
+              <div className="w-full sm:w-auto grid grid-cols-4 sm:flex p-1 bg-secondary border border-border rounded-lg text-xs font-semibold gap-1">
+                {[
+                  { id: 'flashcard', label: 'Flashcard', icon: Layers },
+                  { id: 'quiz', label: 'Kuis', icon: CheckCircle },
+                  { id: 'listening', label: 'Dengar', icon: Headphones },
+                  { id: 'oral', label: 'Lisan', icon: Mic },
+                ].map(tab => {
+                  const Icon = tab.icon;
+                  const active = practiceSubMode === tab.id;
+                  return (
+                    <button
+                      key={tab.id}
+                      onClick={() => { setPracticeSubMode(tab.id); stopAllAudio(); }}
+                      className={cn(
+                        'flex items-center justify-center gap-1.5 px-2 sm:px-4 py-2 rounded-md transition-all min-h-[38px] text-xs font-semibold',
+                        active
+                          ? 'bg-card text-foreground border border-border shadow-xs'
+                          : 'border-transparent text-muted-foreground hover:text-foreground hover:bg-card/50'
+                      )}
+                    >
+                      <Icon className="w-3.5 h-3.5 shrink-0" />
+                      <span className="truncate">{tab.label}</span>
+                    </button>
+                  );
+                })}
               </div>
             </div>
 
@@ -868,194 +891,173 @@ export default function App() {
         {/* B. EXAM MODE (SIMULASI UJIAN RESMI HRD KOREA) */}
         {/* ================================================================= */}
         {mode === 'exam' && (
-          <div className="w-full flex flex-col items-center text-center space-y-6 animate-in fade-in duration-200">
+          <div className="w-full flex flex-col items-center text-center space-y-6 animate-fade-in">
             
             {/* Phase 1: Intro Briefing */}
             {examPhase === 'intro' && (
-              <div className="w-full max-w-xl bg-white border border-slate-200 rounded-3xl p-6 md:p-9 shadow-sm space-y-6 text-left">
+              <Card className="w-full max-w-xl p-6 md:p-8 space-y-6 text-left">
                 <div className="space-y-2">
                   <div className="flex flex-wrap items-center gap-2">
-                    <span className="px-3 py-1 rounded-full bg-blue-50 text-blue-700 text-[11px] font-bold uppercase tracking-wider">
-                      Standar Revisi Resmi HRD Korea
-                    </span>
-                    <span className="px-2.5 py-0.5 rounded-full bg-amber-50 text-amber-800 text-[11px] font-bold border border-amber-200">
-                      Total: 50 Poin
-                    </span>
+                    <Badge variant="outline" className="font-mono">STANDAR RESMI HRDK</Badge>
+                    <Badge variant="outline" className="font-mono">TOTAL 50 POIN</Badge>
                   </div>
-                  <h2 className="text-2xl md:text-3xl font-extrabold text-slate-900 tracking-tight">
+                  <h2 className="text-2xl md:text-3xl font-bold text-foreground tracking-tight">
                     Simulasi Ujian Wawancara Resmi HRD Korea
                   </h2>
-                  <p className="text-xs md:text-sm text-slate-500 leading-relaxed">
-                    Sesuai perubahan regulasi terbaru HRD Korea (Revisions to the Skills Test), bobot wawancara dinaikkan menjadi 50 poin dengan 21 soal komprehensif:
+                  <p className="text-xs md:text-sm text-muted-foreground leading-relaxed">
+                     Sesuai perubahan regulasi terbaru HRD Korea (Revisions to the Skills Test), bobot wawancara dinaikkan menjadi 50 poin dengan 30 langkah simulasi:
                   </p>
                 </div>
 
-                {/* 5 Komponen Resmi Revisi HRD Korea */}
-                <div className="space-y-2 text-xs">
-                  <div className="p-3 rounded-2xl bg-slate-50 border border-slate-200 flex items-center justify-between">
-                    <div>
-                      <div className="flex items-center gap-1.5">
-                        <p className="font-bold text-slate-900">1. Perkenalan Diri Mandiri (Self-Introduction)</p>
-                        <span className="px-1.5 py-0.5 rounded bg-amber-100 text-amber-800 text-[9px] font-bold">🧍 BERDIRI</span>
+                {/* 5 Komponen Ujian Wawancara */}
+                <div className="space-y-2.5 text-xs">
+                  <div className="p-3 sm:p-3.5 rounded-md bg-secondary border border-border flex items-center justify-between gap-2.5">
+                    <div className="min-w-0">
+                      <div className="flex items-center gap-1.5 flex-wrap">
+                        <p className="font-bold text-sm text-foreground">1. Perkenalan Diri Mandiri (Self-Introduction)</p>
+                        <Badge variant="outline" className="font-mono text-[10px]">BERDIRI</Badge>
                       </div>
-                      <p className="text-[11px] text-slate-500">Monolog 자기소개 (Nama, Usia, Asal, Tekad Bekerja) [25 Detik]</p>
+                      <p className="text-[11px] text-muted-foreground mt-0.5">Monolog 자기소개 (Nama, Usia, Asal, Tekad Bekerja) [25 Detik]</p>
                     </div>
-                    <span className="font-mono font-bold px-2.5 py-1 rounded-xl bg-blue-50 text-blue-700 text-xs">
+                    <span className="font-mono font-bold px-2 py-1 rounded bg-primary text-primary-foreground text-xs shrink-0">
                       2 Poin
                     </span>
                   </div>
 
-                  <div className="p-3 rounded-2xl bg-slate-50 border border-slate-200 flex items-center justify-between">
-                    <div>
-                      <div className="flex items-center gap-1.5">
-                        <p className="font-bold text-slate-900">2. Instruksi Gerak Fisik (Work Instructions)</p>
-                        <span className="px-1.5 py-0.5 rounded bg-amber-100 text-amber-800 text-[9px] font-bold">🧍 BERDIRI</span>
+                  <div className="p-3 sm:p-3.5 rounded-md bg-secondary border border-border flex items-center justify-between gap-2.5">
+                    <div className="min-w-0">
+                      <div className="flex items-center gap-1.5 flex-wrap">
+                        <p className="font-bold text-sm text-foreground">2. Instruksi Gerak Fisik (Work Instructions)</p>
+                        <Badge variant="outline" className="font-mono text-[10px]">BERDIRI</Badge>
                       </div>
-                      <p className="text-[11px] text-slate-500">Arah & gerak refleks fisik perintah kerja (5 Soal, @3 Poin)</p>
+                      <p className="text-[11px] text-muted-foreground mt-0.5">Arah & gerak refleks fisik perintah kerja (5 Soal, @3 Poin)</p>
                     </div>
-                    <span className="font-mono font-bold px-2.5 py-1 rounded-xl bg-indigo-50 text-indigo-700 text-xs">
+                    <span className="font-mono font-bold px-2 py-1 rounded bg-primary text-primary-foreground text-xs shrink-0">
                       15 Poin
                     </span>
                   </div>
 
-                  <div className="p-3 rounded-2xl bg-slate-50 border border-slate-200 flex items-center justify-between">
-                    <div>
-                      <div className="flex items-center gap-1.5">
-                        <p className="font-bold text-slate-900">3. Kartu Visual Meja: Alat & Rambu K3</p>
-                        <span className="px-1.5 py-0.5 rounded bg-emerald-100 text-emerald-800 text-[9px] font-bold">🪑 DUDUK ("앉으세요")</span>
+                  <div className="p-3 sm:p-3.5 rounded-md bg-secondary border border-border flex items-center justify-between gap-2.5">
+                    <div className="min-w-0">
+                      <div className="flex items-center gap-1.5 flex-wrap">
+                        <p className="font-bold text-sm text-foreground">3. Kartu Visual & Praktik Alat Meja</p>
+                        <Badge variant="outline" className="font-mono text-[10px]">DUDUK</Badge>
                       </div>
-                      <p className="text-[11px] text-slate-500">Tebak nama/kegunaan perkakas manufaktur & piktogram K3 (5 Kartu, @1 Poin)</p>
+                      <p className="text-[11px] text-muted-foreground mt-0.5">5 kartu visual (4 rambu + 1 alat) + 2 praktik alat fungsi & aksi (@1 Poin)</p>
                     </div>
-                    <span className="font-mono font-bold px-2.5 py-1 rounded-xl bg-emerald-50 text-emerald-700 text-xs">
-                      5 Poin
+                    <span className="font-mono font-bold px-2 py-1 rounded bg-primary text-primary-foreground text-xs shrink-0">
+                      7 Poin
                     </span>
                   </div>
 
-                  <div className="p-3 rounded-2xl bg-slate-50 border border-slate-200 flex items-center justify-between">
-                    <div>
-                      <div className="flex items-center gap-1.5">
-                        <p className="font-bold text-slate-900">4. Pertanyaan K3 Industri Mendalam</p>
-                        <span className="px-1.5 py-0.2 rounded bg-red-100 text-red-700 text-[9px] font-bold">BARU</span>
-                        <span className="px-1.5 py-0.5 rounded bg-emerald-100 text-emerald-800 text-[9px] font-bold">🪑 DUDUK</span>
+                  <div className="p-3 sm:p-3.5 rounded-md bg-secondary border border-border flex items-center justify-between gap-2.5">
+                    <div className="min-w-0">
+                      <div className="flex items-center gap-1.5 flex-wrap">
+                        <p className="font-bold text-sm text-foreground">4. Pertanyaan K3 Industri Mendalam</p>
+                        <Badge variant="outline" className="font-mono text-[10px]">BARU</Badge>
+                        <Badge variant="outline" className="font-mono text-[10px]">DUDUK</Badge>
                       </div>
-                      <p className="text-[11px] text-slate-500">Safety guard, APD wajib, & tanggap bahaya darurat (2 Soal, @5 Poin)</p>
+                      <p className="text-[11px] text-muted-foreground mt-0.5">Safety guard, APD wajib, & tanggap bahaya darurat (2 Soal, @5 Poin)</p>
                     </div>
-                    <span className="font-mono font-bold px-2.5 py-1 rounded-xl bg-red-50 text-red-700 text-xs">
+                    <span className="font-mono font-bold px-2 py-1 rounded bg-primary text-primary-foreground text-xs shrink-0">
                       10 Poin
                     </span>
                   </div>
 
-                  <div className="p-3 rounded-2xl bg-slate-50 border border-slate-200 flex items-center justify-between">
-                    <div>
-                      <div className="flex items-center gap-1.5">
-                        <p className="font-bold text-slate-900">5. Percakapan Dasar & Sikap Kerja NCS</p>
-                        <span className="px-1.5 py-0.5 rounded bg-emerald-100 text-emerald-800 text-[9px] font-bold">🪑 DUDUK</span>
+                  <div className="p-3 sm:p-3.5 rounded-md bg-secondary border border-border flex items-center justify-between gap-2.5">
+                    <div className="min-w-0">
+                      <div className="flex items-center gap-1.5 flex-wrap">
+                        <p className="font-bold text-sm text-foreground">5. Percakapan Dasar & Sikap Kerja NCS</p>
+                        <Badge variant="outline" className="font-mono text-[10px]">DUDUK</Badge>
                       </div>
-                      <p className="text-[11px] text-slate-500">Waktu/pribadi, hitung cepat gudang, situasi kerja & motivasi (8 Soal)</p>
+                      <p className="text-[11px] text-muted-foreground mt-0.5">Tanggal/hari/waktu, data diri, sikap kerja, hitungan gudang (14 Soal)</p>
                     </div>
-                    <span className="font-mono font-bold px-2.5 py-1 rounded-xl bg-purple-50 text-purple-700 text-xs">
-                      18 Poin
+                    <span className="font-mono font-bold px-2 py-1 rounded bg-primary text-primary-foreground text-xs shrink-0">
+                      16 Poin
                     </span>
                   </div>
                 </div>
 
-                <div className="p-3.5 rounded-2xl bg-amber-50 border border-amber-200/80 text-xs text-amber-900 space-y-1">
+                <div className="p-3.5 rounded-md bg-warn/5 border border-warn/30 text-xs text-warn space-y-1">
                   <div className="flex items-center justify-between font-bold">
                     <span>Ambang Batas Kelulusan:</span>
-                    <span className="text-emerald-700 font-extrabold">Minimal 30 / 50 Poin (60%)</span>
+                    <span className="text-emerald-700">Minimal 30 / 50 Poin (60%)</span>
                   </div>
-                  <p className="text-amber-800 text-[11px]">
-                    Ujian berlangsung otomatis dengan rekaman MP3 penguji asli dan batas waktu bicara 6–9 detik per nomor.
+                  <p className="text-warn/90 text-[11px]">
+                    Ujian berlangsung otomatis dengan rekaman MP3 penguji asli dan batas waktu bicara 6-9 detik per nomor.
                   </p>
                 </div>
 
                 <div className="pt-2 flex flex-col sm:flex-row items-center justify-between gap-3">
-                  <button
-                    onClick={() => setRevisionModalOpen(true)}
-                    className="text-xs font-semibold text-blue-600 hover:text-blue-800 flex items-center gap-1"
-                  >
-                    <Info className="w-3.5 h-3.5" /> Pelajari Detail Regulasi Resmi HRDK
-                  </button>
+                  <Button variant="link" size="sm" onClick={() => setRevisionModalOpen(true)}>
+                    <Info className="h-3.5 w-3.5" />
+                    <span>Detail Regulasi Resmi HRDK</span>
+                  </Button>
 
                   <div className="flex items-center gap-2 w-full sm:w-auto justify-end">
-                    <button
-                      onClick={() => setMode('practice')}
-                      className="px-4 py-2.5 rounded-2xl text-xs font-semibold text-slate-500 hover:text-slate-900"
-                    >
-                      Kembali
-                    </button>
-                    <button
-                      onClick={startRealExam}
-                      className="px-6 py-3 rounded-2xl bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold shadow-sm shadow-blue-500/25 transition-all active:scale-98"
-                    >
-                      Mulai Simulasi (21 Soal)
-                    </button>
+                    <Button variant="ghost" onClick={() => setMode('practice')}>
+                      <span>Kembali</span>
+                    </Button>
+                    <Button onClick={startRealExam} size="lg">
+                      <span>Mulai Simulasi (30 Soal)</span>
+                    </Button>
                   </div>
                 </div>
-              </div>
+              </Card>
             )}
 
             {/* Phase 2: Live Exam Terminal */}
             {examPhase === 'running' && (
-              <div className="w-full max-w-xl bg-white border border-slate-200 rounded-3xl p-6 md:p-8 shadow-sm space-y-6">
+              <Card className="w-full max-w-xl p-6 md:p-8 space-y-6">
                 
                 {/* Stage Header */}
-                <div className="flex items-center justify-between pb-3 border-b border-slate-100 text-left">
-                  <div>
+                <div className="flex items-center justify-between pb-3 border-b border-border text-left gap-2">
+                  <div className="min-w-0">
                     <div className="flex flex-wrap items-center gap-2 mb-0.5">
-                      <span className="text-[11px] font-bold text-blue-600 uppercase tracking-wider">
+                      <span className="text-[11px] font-bold text-primary uppercase tracking-wider">
                         {examQuestions[examIndex]?.section}
                       </span>
-                      <span className="px-2 py-0.5 rounded-full bg-blue-50 text-blue-700 text-[10px] font-bold border border-blue-200">
-                        Bobot: {examQuestions[examIndex]?.points} Poin
-                      </span>
+                      <Badge variant="outline">Bobot: {examQuestions[examIndex]?.points} Poin</Badge>
                       {examQuestions[examIndex]?.stance === 'standing' ? (
-                        <span className="px-2 py-0.5 rounded-full bg-amber-50 text-amber-800 text-[10px] font-bold border border-amber-200">
-                          🧍 Posisi: Berdiri
-                        </span>
+                        <Badge variant="outline" className="font-mono">BERDIRI</Badge>
                       ) : (
-                        <span className="px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-800 text-[10px] font-bold border border-emerald-200">
-                          🪑 Posisi: Duduk di Meja
-                        </span>
+                        <Badge variant="outline" className="font-mono">DUDUK</Badge>
                       )}
                     </div>
-                    <h3 className="text-xs text-slate-500 font-medium">
+                    <h3 className="text-xs text-muted-foreground font-medium truncate">
                       Soal No. {examIndex + 1} dari {examQuestions.length} • {examQuestions[examIndex]?.partTitle}
                     </h3>
                   </div>
 
-                  <div>
+                  <div className="shrink-0">
                     {examStepStatus === 'asking' ? (
-                      <span className="px-3 py-1 rounded-full bg-amber-50 text-amber-800 text-xs font-bold">
-                        Penguji Bertanya...
-                      </span>
+                      <Badge variant="outline" className="font-mono">PENGUJI BERTANYA</Badge>
                     ) : (
-                      <span className="px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 text-xs font-bold animate-pulse">
-                        Waktu Menjawab!
-                      </span>
+                      <Badge variant="success" className="font-mono animate-pulse-dot">WAKTU MENJAWAB</Badge>
                     )}
                   </div>
                 </div>
 
                 {/* Transition Instruction Banner (e.g. 앉으세요) */}
                 {examQuestions[examIndex]?.transitionNote && (
-                  <div className="p-3.5 rounded-2xl bg-blue-50/90 border border-blue-200 text-xs text-blue-900 font-semibold flex items-center justify-between gap-2.5 text-left animate-in slide-in-from-top duration-200">
-                    <div className="flex items-center gap-2.5">
-                      <span className="text-xl">🪑</span>
-                      <div>
-                        <p className="font-bold text-blue-950">Arahan Transisi Bilik Ujian:</p>
-                        <p className="text-blue-800 text-[11px] font-medium">{examQuestions[examIndex].transitionNote}</p>
+                  <div className="p-3.5 rounded-md bg-accent/60 border border-primary/20 text-xs text-accent-foreground font-medium flex items-center justify-between gap-2.5 text-left animate-fade-in">
+                    <div className="flex items-center gap-2.5 min-w-0">
+                      <Badge variant="outline" className="font-mono shrink-0">TRANSISI</Badge>
+                      <div className="min-w-0">
+                        <p className="font-bold truncate">Arahan Transisi Bilik Ujian</p>
+                        <p className="text-muted-foreground text-[11px] font-normal truncate">{examQuestions[examIndex].transitionNote}</p>
                       </div>
                     </div>
-                    <button 
+                    <Button
+                      variant="outline" size="sm"
                       onClick={() => {
                         const a = new Audio(getAssetUrl('/audio/examiner_sit_down.mp3'));
                         a.play().catch(() => {});
                       }}
-                      className="px-2.5 py-1.5 rounded-xl bg-blue-100 hover:bg-blue-200 text-blue-900 text-[11px] font-bold flex items-center gap-1 shrink-0 cursor-pointer"
-                    >
-                      <Volume2 className="w-3.5 h-3.5" /> Dengar "앉으세요"
-                    </button>
+                      className="shrink-0">
+                      <Volume2 className="h-3.5 w-3.5" />
+                      <span className="hidden sm:inline">Dengar</span>
+                    </Button>
                   </div>
                 )}
 
@@ -1063,73 +1065,59 @@ export default function App() {
                 <div className="py-6 flex flex-col items-center justify-center min-h-[220px]">
                   {examQuestions[examIndex]?.part === 'transition' ? (
                     <div className="space-y-4 text-center py-4 w-full max-w-sm mx-auto animate-fade-in">
-                      <div className="w-16 h-16 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center mx-auto border border-blue-200">
-                        <span className="text-3xl">🪑</span>
-                      </div>
+                      <Badge variant="outline" className="mx-auto font-mono">
+                        {examQuestions[examIndex]?.stance === 'standing' ? 'BERDIRI' : 'DUDUK'}
+                      </Badge>
                       <div>
-                        <h2 className="text-2xl md:text-3xl font-black text-slate-900 font-kr">
-                          앉으세요.
+                        <h2 className="text-2xl md:text-3xl font-bold text-foreground font-kr">
+                          {examQuestions[examIndex]?.question_ko}
                         </h2>
-                        <p className="text-xs text-slate-500 font-mono mt-0.5">Anjeuseyo.</p>
-                        <p className="text-xs font-bold text-blue-800 mt-2 bg-blue-50 border border-blue-200 px-3 py-1.5 rounded-xl inline-block">
-                          Instruksi Penguji: Silakan duduk di depan meja penguji
+                        <p className="text-xs text-muted-foreground font-mono mt-0.5">{examQuestions[examIndex]?.question_romaja}</p>
+                        <p className="text-xs font-bold text-primary mt-2 bg-accent px-3 py-1.5 rounded-sm inline-block">
+                          {examQuestions[examIndex]?.question_id}
                         </p>
                       </div>
-                      <div className="p-3.5 bg-slate-50 border border-slate-200 rounded-xl text-xs space-y-1">
+                      <div className="p-3.5 bg-secondary border border-border rounded-md text-xs space-y-1 text-left">
                         <span className="text-[10px] font-bold text-emerald-800 uppercase tracking-wider block">
                           Respon Sopan Kandidat:
                         </span>
-                        <strong className="text-lg font-kr font-bold text-emerald-900 block">"감사합니다."</strong>
-                        <span className="text-[11px] text-slate-500 block">(Membungkuk sopan 15° lalu duduk dengan tegap)</span>
+                        <strong className="text-lg font-kr font-bold text-emerald-900 block">"{examQuestions[examIndex]?.answer_short_ko}"</strong>
+                        <span className="text-[11px] text-muted-foreground block">({examQuestions[examIndex]?.answer_short_id})</span>
                       </div>
                     </div>
                   ) : examQuestions[examIndex]?.image_url ? (
-                    <div className="w-full max-w-sm bg-white rounded-2xl border border-slate-200 p-4 shadow-xs flex flex-col items-center">
+                    <div className="w-full max-w-sm bg-card rounded-md border border-border p-4 flex flex-col items-center">
                       <img
                         src={getAssetUrl(examQuestions[examIndex].image_url)}
                         alt="Soal Ujian Bergambar"
                         className="max-h-56 w-auto mx-auto object-contain"
                       />
-                      <button 
+                      <Button variant="outline" size="sm"
+                        className="mt-3"
                         onClick={() => {
                           if (examAudioPlayerRef.current) {
                             examAudioPlayerRef.current.currentTime = 0;
                             examAudioPlayerRef.current.play().catch(() => {});
                           }
-                        }}
-                        className="mt-3 text-[11px] font-bold text-blue-700 bg-blue-50 border border-blue-200 px-3 py-1 rounded-xl inline-flex items-center gap-1 hover:bg-blue-100 cursor-pointer"
-                      >
-                        <Volume2 className="w-3.5 h-3.5" /> Dengar Ulang Suara Penguji
-                      </button>
+                        }}>
+                        <Volume2 className="h-3.5 w-3.5" />
+                        <span className="hidden sm:inline">Dengar Ulang Suara Penguji</span>
+                        <span className="sm:hidden">Dengar</span>
+                      </Button>
                     </div>
                   ) : (
                     <div className="space-y-3 text-center">
-                      <button 
+                      <Button variant="outline" size="lg"
                         onClick={() => {
                           if (examAudioPlayerRef.current) {
                             examAudioPlayerRef.current.currentTime = 0;
                             examAudioPlayerRef.current.play().catch(() => {});
                           }
                         }}
-                        title="Putar Ulang Audio Pertanyaan"
-                        className="w-16 h-16 rounded-2xl bg-blue-50 hover:bg-blue-100 text-blue-600 flex items-center justify-center mx-auto border border-blue-200 cursor-pointer shadow-xs active:scale-95 transition-all"
-                      >
-                        <Volume2 className="w-8 h-8" />
-                      </button>
-                      <p className="text-xs text-slate-500 font-medium max-w-xs mx-auto">
-                        Dengarkan pertanyaan penguji dengan cermat dan jawab langsung secara lisan.
-                      </p>
-                      <button 
-                        onClick={() => {
-                          if (examAudioPlayerRef.current) {
-                            examAudioPlayerRef.current.currentTime = 0;
-                            examAudioPlayerRef.current.play().catch(() => {});
-                          }
-                        }}
-                        className="text-[11px] font-bold text-blue-700 bg-blue-50 border border-blue-200 px-3 py-1 rounded-xl inline-flex items-center gap-1 hover:bg-blue-100 cursor-pointer"
-                      >
-                        <Volume2 className="w-3 h-3" /> Putar Ulang Pertanyaan
-                      </button>
+                        title="Putar Ulang Audio Pertanyaan">
+                        <Volume2 className="h-5 w-5" />
+                        <span>Putar Ulang Pertanyaan</span>
+                      </Button>
                     </div>
                   )}
 
@@ -1137,16 +1125,16 @@ export default function App() {
                   {examStepStatus === 'answering' && (
                     <div className="w-full max-w-sm mt-6 space-y-2">
                       <div className="flex items-center justify-between text-xs font-bold">
-                        <span className="text-red-600 flex items-center gap-1.5">
-                          <Mic className="w-3.5 h-3.5 animate-pulse" /> Sedang Merekam Suara...
+                        <span className="text-destructive flex items-center gap-1.5">
+                          <Mic className="h-3.5 w-3.5 animate-pulse-dot" /> Sedang Merekam Suara...
                         </span>
-                        <span className="text-slate-900 font-mono">
+                        <span className="text-foreground font-mono">
                           Sisa: {examTimeLeft}s
                         </span>
                       </div>
-                      <div className="w-full bg-slate-100 rounded-full h-2 overflow-hidden">
+                      <div className="h-1.5 w-full bg-secondary rounded-full overflow-hidden">
                         <div
-                          className="bg-red-500 h-full rounded-full transition-all duration-1000 ease-linear"
+                          className="bg-destructive h-full rounded-full transition-all duration-1000 ease-linear"
                           style={{
                             width: `${(examTimeLeft / (examQuestions[examIndex]?.duration || 7)) * 100}%`
                           }}
@@ -1157,109 +1145,97 @@ export default function App() {
                 </div>
 
                 {/* Skip / Next Footer */}
-                <div className="pt-3 border-t border-slate-100 flex items-center justify-between">
-                  <button
-                    onClick={exitExam}
-                    className="text-xs text-slate-500 hover:text-slate-900"
-                  >
+                <div className="pt-3 border-t border-border flex items-center justify-between gap-2">
+                  <Button variant="ghost" size="sm" onClick={exitExam}>
                     Batalkan Ujian
-                  </button>
+                  </Button>
 
                   <div className="flex items-center gap-2">
                     {examStepStatus === 'asking' && (
-                      <button
-                        onClick={() => beginAnswerPhase(examIndex, examQuestions[examIndex]?.duration || 7, examQuestions, examStepTokenRef.current)}
-                        className="px-3.5 py-2 rounded-xl bg-slate-50 hover:bg-slate-100 border border-slate-200 text-[#37352F] text-xs font-semibold flex items-center gap-1.5 transition-all"
-                      >
-                        <Mic className="w-3.5 h-3.5 text-red-600" /> Langsung Jawab
-                      </button>
+                      <Button variant="outline" size="sm"
+                        onClick={() => beginAnswerPhase(examIndex, examQuestions[examIndex]?.duration || 7, examQuestions, examStepTokenRef.current)}>
+                        <Mic className="h-3.5 w-3.5 text-destructive" />
+                        <span>Langsung Jawab</span>
+                      </Button>
                     )}
 
-                    <button
-                      onClick={skipExamTimer}
-                      className="px-4 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold flex items-center gap-1.5 transition-all shadow-xs"
-                    >
-                      {examIndex + 1 === examQuestions.length ? 'Selesai & Lihat Skor' : 'Lanjut ke Soal Berikutnya'} <ChevronRight className="w-3.5 h-3.5" />
-                    </button>
+                    <Button size="sm" onClick={skipExamTimer}>
+                      <span>{examIndex + 1 === examQuestions.length ? 'Selesai & Lihat Skor' : 'Lanjut'}</span>
+                      <ChevronRight className="h-3.5 w-3.5" />
+                    </Button>
                   </div>
                 </div>
 
-              </div>
+              </Card>
             )}
 
             {/* Phase 3: Exam Summary */}
             {examPhase === 'summary' && (
-              <div className="w-full max-w-2xl bg-white border border-slate-200 rounded-3xl p-6 md:p-8 shadow-sm space-y-6 text-left">
+              <Card className="w-full max-w-2xl p-6 md:p-8 space-y-6 text-left">
                 
-                {/* Official Scorecard Header */}
-                <div className="border-b border-slate-100 pb-5 space-y-4">
-                  <div className="flex items-center justify-between">
-                    <span className="px-3 py-1 rounded-full bg-blue-50 text-blue-800 text-xs font-bold uppercase tracking-wider">
-                      Laporan Hasil Ujian Wawancara (Standar Revisi HRD Korea)
-                    </span>
-                    <span className="text-xs text-slate-500 font-medium">{examQuestions.length} Butir Ujian Selesai</span>
+                {/* Scorecard Header */}
+                <div className="border-b border-border pb-5 space-y-4">
+                  <div className="flex items-center justify-between gap-2 flex-wrap">
+                    <Badge variant="outline" className="font-mono">LAPORAN HASIL UJIAN</Badge>
+                    <span className="text-xs text-muted-foreground font-medium">{examQuestions.length} Butir Ujian Selesai</span>
                   </div>
 
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-4 rounded-2xl bg-slate-50 border border-slate-200">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-4 rounded-md bg-secondary border border-border">
                     <div>
-                      <span className="text-xs text-slate-500 uppercase tracking-wider font-semibold">
+                      <span className="text-xs text-muted-foreground uppercase tracking-wider font-semibold">
                         Total Skor Wawancara Anda:
                       </span>
                       <div className="flex items-baseline gap-2 mt-1">
-                        <span className="text-3xl sm:text-4xl font-black text-slate-900">
+                        <span className="text-3xl sm:text-4xl font-bold text-foreground">
                           {Number(examScoreSummary.totalScore.toFixed(1))}
                         </span>
-                        <span className="text-base text-slate-500 font-bold">/ 50 Poin</span>
+                        <span className="text-base text-muted-foreground font-bold">/ 50 Poin</span>
                       </div>
                       <div className="mt-2">
                         {examScoreSummary.isPassedExam ? (
-                          <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200 text-xs font-bold">
-                            <CheckCircle className="w-3.5 h-3.5" /> LULUS AMBANG BATAS WAWANCARA (≥ 60%)
-                          </span>
+                          <Badge variant="success"><CheckCircle className="h-3 w-3" /> LULUS AMBANG BATAS (≥ 60%)</Badge>
                         ) : (
-                          <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-red-50 text-red-700 border border-red-200 text-xs font-bold">
-                            <AlertCircle className="w-3.5 h-3.5" /> BELUM MENCAPAI AMBANG BATAS (Min. 30 Poin)
-                          </span>
+                          <Badge variant="destructive"><AlertCircle className="h-3 w-3" /> BELUM MENCAPAI AMBANG BATAS</Badge>
                         )}
                       </div>
                     </div>
 
                     {/* Breakdown Scores Grid */}
                     <div className="grid grid-cols-2 gap-2 text-[11px] sm:min-w-[240px]">
-                      <div className="p-2 rounded-xl bg-white border border-slate-200">
-                        <span className="text-slate-500 block">Perkenalan Diri:</span>
-                        <span className="font-bold text-slate-900 font-mono">
+                      <div className="p-2.5 rounded-md bg-card border border-border">
+                        <span className="text-muted-foreground block font-medium">Perkenalan Diri:</span>
+                        <span className="font-bold text-foreground font-mono">
                           {examScoreSummary.categoryScores.intro.earned} / {examScoreSummary.categoryScores.intro.max} Poin
                         </span>
                       </div>
-                      <div className="p-2 rounded-xl bg-white border border-slate-200">
-                        <span className="text-slate-500 block">5 Instruksi Kerja:</span>
-                        <span className="font-bold text-slate-900 font-mono">
+                      <div className="p-2.5 rounded-md bg-card border border-border">
+                        <span className="text-muted-foreground block font-medium">Instruksi Kerja:</span>
+                        <span className="font-bold text-foreground font-mono">
                           {examScoreSummary.categoryScores.instructions.earned} / {examScoreSummary.categoryScores.instructions.max} Poin
                         </span>
                       </div>
-                      <div className="p-2 rounded-xl bg-white border border-slate-200">
-                        <span className="text-slate-500 block">5 Perkakas:</span>
-                        <span className="font-bold text-slate-900 font-mono">
+                      <div className="p-2.5 rounded-md bg-card border border-border">
+                        <span className="text-muted-foreground block font-medium">Visual & Praktik Alat:</span>
+                        <span className="font-bold text-foreground font-mono">
                           {examScoreSummary.categoryScores.tools.earned} / {examScoreSummary.categoryScores.tools.max} Poin
                         </span>
                       </div>
-                      <div className="p-2 rounded-xl bg-white border border-slate-200">
-                        <span className="text-slate-500 block">2 Soal K3 Mendalam:</span>
-                        <span className="font-bold text-slate-900 font-mono">
+                      <div className="p-2.5 rounded-md bg-card border border-border">
+                        <span className="text-muted-foreground block font-medium">K3 Mendalam:</span>
+                        <span className="font-bold text-foreground font-mono">
                           {examScoreSummary.categoryScores.safety.earned} / {examScoreSummary.categoryScores.safety.max} Poin
                         </span>
                       </div>
-                      <div className="col-span-2 p-2 rounded-xl bg-white border border-slate-200 flex items-center justify-between">
-                        <span className="text-slate-500">Sikap Kerja & NCS:</span>
-                        <span className="font-bold text-slate-900 font-mono">
+                      <div className="col-span-2 p-2.5 rounded-md bg-card border border-border flex items-center justify-between">
+                        <span className="text-muted-foreground font-medium">Percakapan & NCS (14 Soal):</span>
+                        <span className="font-bold text-foreground font-mono">
                           {examScoreSummary.categoryScores.ncs.earned} / {examScoreSummary.categoryScores.ncs.max} Poin
                         </span>
                       </div>
                     </div>
                   </div>
 
-                  <p className="text-xs text-slate-500">
+                  <p className="text-xs text-muted-foreground">
                     Dengarkan kembali rekaman suara Anda per nomor. Klik tombol status untuk menyesuaikan penilaian mandiri secara objektif:
                   </p>
                 </div>
@@ -1270,77 +1246,63 @@ export default function App() {
                     const rating = selfRatings[idx];
 
                     return (
-                      <div key={q.id || idx} className="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-3 text-xs">
+                      <div key={q.id || idx} className="p-4 rounded-md bg-secondary border border-border space-y-3 text-xs">
                         <div className="flex items-start justify-between gap-4">
-                          <div>
-                            <div className="flex items-center gap-2">
-                              <span className="font-bold text-blue-600">
+                          <div className="min-w-0">
+                            <div className="flex items-center gap-2 flex-wrap">
+                              <span className="font-bold text-primary">
                                 {q.section}
                               </span>
-                              <span className="px-2 py-0.5 rounded-md bg-blue-50 text-blue-700 text-[10px] font-bold">
-                                Bobot: {q.points} Poin
-                              </span>
+                              <Badge variant="outline" className="font-mono">Bobot: {q.points} Poin</Badge>
                             </div>
-                            <p className="text-slate-900 font-bold font-kr text-base mt-1">
+                            <p className="text-foreground font-bold font-kr text-base mt-1">
                               {q.question_ko}
                             </p>
-                            <p className="text-slate-500 text-xs italic">
+                            <p className="text-muted-foreground text-xs italic">
                               "{q.question_id}"
                             </p>
                           </div>
 
                           {q.image_url && (
-                            <div className="w-16 h-16 bg-white p-1 rounded-xl border border-slate-200 flex-shrink-0">
+                            <div className="w-16 h-16 bg-card p-1 rounded-sm border border-border shrink-0">
                               <img src={getAssetUrl(q.image_url)} alt="Thumbnail" className="w-full h-full object-contain" />
                             </div>
                           )}
                         </div>
 
                         {/* Official Answer */}
-                        <div className="p-3 rounded-xl bg-white border border-slate-200 space-y-0.5">
+                        <div className="p-3 rounded-sm bg-card border border-border space-y-0.5">
                           <span className="text-[10px] uppercase font-bold text-emerald-700 tracking-wider">
                             Kunci Jawaban Resmi:
                           </span>
-                          <p className="text-slate-900 font-bold font-kr text-base">
+                          <p className="text-foreground font-bold font-kr text-base">
                             {q.answer_short_ko || q.title_ko}
                           </p>
-                          <p className="text-slate-500 text-xs">
+                          <p className="text-muted-foreground text-xs">
                             Artinya: {q.answer_short_id || q.title_id}
                           </p>
                         </div>
 
                         {/* Candidate Audio & Rating */}
-                        <div className="flex flex-wrap items-center justify-between gap-2 pt-2 border-t border-slate-100">
+                        <div className="flex flex-wrap items-center justify-between gap-2 pt-2 border-t border-border">
                           <div className="flex items-center gap-2">
-                            <span className="text-slate-500 font-medium">Rekaman Suara Anda:</span>
+                            <span className="text-muted-foreground font-medium">Rekaman Suara Anda:</span>
                             {recUrl ? (
                               <audio src={recUrl} controls className="h-7 w-44" />
                             ) : (
-                              <span className="text-slate-500 italic">Tidak ada rekaman</span>
+                              <span className="text-muted-foreground italic">Tidak ada rekaman</span>
                             )}
                           </div>
 
                           <div className="flex items-center gap-1.5">
-                            <button
-                              onClick={() => setSelfRatings(prev => ({ ...prev, [idx]: 'pass' }))}
-                              className={`px-3 py-1 rounded-xl text-xs font-bold transition-all ${
-                                rating === 'pass'
-                                  ? 'bg-emerald-600 text-white'
-                                  : 'bg-white text-slate-500 border border-slate-200'
-                              }`}
-                            >
-                              Benar (+{q.points} Poin)
-                            </button>
-                            <button
-                              onClick={() => setSelfRatings(prev => ({ ...prev, [idx]: 'fail' }))}
-                              className={`px-3 py-1 rounded-xl text-xs font-bold transition-all ${
-                                rating === 'fail'
-                                  ? 'bg-red-600 text-white'
-                                  : 'bg-white text-slate-500 border border-slate-200'
-                              }`}
-                            >
-                              Salah (0 Poin)
-                            </button>
+                            <Button size="sm" variant={rating === 'pass' ? 'default' : 'outline'}
+                              onClick={() => setSelfRatings(prev => ({ ...prev, [idx]: 'pass' }))}>
+                              <span>Benar (+{q.points})</span>
+                            </Button>
+                            <Button size="sm" variant={rating === 'fail' ? 'destructive' : 'outline'}
+                              onClick={() => setSelfRatings(prev => ({ ...prev, [idx]: 'fail' }))}>
+                              <span>Salah (0)</span>
+                            </Button>
                           </div>
                         </div>
                       </div>
@@ -1348,31 +1310,24 @@ export default function App() {
                   })}
                 </div>
 
-                <div className="pt-3 border-t border-slate-100 flex items-center justify-between gap-2 flex-wrap">
-                  <button
-                    onClick={() => setMode('practice')}
-                    className="text-xs font-semibold text-slate-500 hover:text-slate-900"
-                  >
+                <div className="pt-3 border-t border-border flex items-center justify-between gap-2 flex-wrap">
+                  <Button variant="ghost" size="sm" onClick={() => setMode('practice')}>
                     Kembali ke Latihan
-                  </button>
+                  </Button>
                   <div className="flex items-center gap-2">
-                    <button
-                      onClick={() => setExamPhase('rekap')}
+                    <Button size="sm" onClick={() => setExamPhase('rekap')}
                       disabled={!examScoreSummary.isComplete}
                       title={examScoreSummary.isComplete ? 'Lanjut ke lembar skor resmi 2026' : 'Nilai semua butir dulu (Benar/Salah) agar rekap akurat'}
-                      className="px-5 py-2.5 rounded-2xl bg-emerald-600 hover:bg-emerald-500 disabled:opacity-30 disabled:cursor-not-allowed text-white text-xs font-bold flex items-center gap-2 shadow-xs"
-                    >
-                      Rekap Skor Resmi <ChevronRight className="w-3.5 h-3.5" />
-                    </button>
-                    <button
-                      onClick={startRealExam}
-                      className="px-5 py-2.5 rounded-2xl bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold flex items-center gap-2 shadow-xs"
-                    >
-                      <RotateCcw className="w-3.5 h-3.5" /> Ulangi Ujian (Paket Acak Baru)
-                    </button>
+                      variant="default">
+                      <span>Rekap Skor Resmi</span>
+                      <ChevronRight className="h-3.5 w-3.5" />
+                    </Button>
+                    <Button size="sm" onClick={startRealExam}>
+                      <span>Ulangi Ujian</span>
+                    </Button>
                   </div>
                 </div>
-              </div>
+              </Card>
             )}
 
             {examPhase === 'rekap' && (
@@ -1401,63 +1356,35 @@ export default function App() {
       {/* 3. BOTTOM ACTION DOCK (FIXED AT BOTTOM ALA DUOLINGO / APPLE) */}
       {/* =================================================================== */}
       {mode === 'practice' && practiceSubMode === 'oral' && (
-        <footer className="w-full bg-white border-t border-slate-200 py-4 px-4 sticky bottom-0 z-30 shadow-xs">
+        <footer className="w-full bg-card border-t border-border py-3 px-4 sticky bottom-0 z-30">
           <div className="max-w-xl mx-auto flex items-center justify-between gap-3">
             
-            {/* Tombol Sebelumnya */}
-            <button
+            <Button variant="outline" size="icon"
               disabled={currentIndex === 0}
               onClick={() => setCurrentIndex(p => p - 1)}
-              className="p-3.5 rounded-2xl border border-slate-200 hover:bg-slate-50 text-[#37352F] disabled:opacity-30 disabled:cursor-not-allowed transition-all active:scale-95"
-              title="Sebelumnya"
-            >
-              <ChevronLeft className="w-5 h-5" />
-            </button>
+              title="Sebelumnya">
+              <ChevronLeft className="h-4 w-4" />
+            </Button>
 
-            {/* Tombol Tengah: Audio Soal + Rekam Suara */}
             <div className="flex items-center gap-2.5">
-              <button
-                onClick={playPracticeQuestion}
-                className="px-5 py-3.5 rounded-2xl bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold flex items-center gap-2 shadow-sm shadow-blue-500/25 transition-all active:scale-95"
-              >
-                <Play className="w-4 h-4 fill-current" />
-                <span>{isPlayingAudio ? 'Memutar...' : 'Putar Audio Soal'}</span>
-              </button>
+              <Button onClick={playPracticeQuestion}>
+                <Play className="h-4 w-4" />
+                <span>{isPlayingAudio ? 'Memutar...' : 'Putar Soal'}</span>
+              </Button>
 
-              <button
+              <Button variant="outline" size="icon"
                 onClick={toggleRecording}
-                className={`p-3.5 rounded-2xl border transition-all active:scale-95 ${
-                  isRecording
-                    ? 'bg-red-600 text-white border-red-600 animate-pulse'
-                    : 'bg-white border-slate-200 hover:bg-red-50 text-red-600'
-                }`}
                 title={isRecording ? 'Selesai Merekam' : 'Rekam Suara Mandiri'}
-              >
-                <Mic className="w-5 h-5" />
-              </button>
-
-              <button
-                onClick={() => {
-                  const rand = Math.floor(Math.random() * filteredQuestions.length);
-                  setCurrentIndex(rand);
-                }}
-                className="p-3.5 rounded-2xl border border-slate-200 hover:bg-slate-50 text-slate-500 transition-all"
-                title="Soal Acak"
-              >
-                <Shuffle className="w-4 h-4" />
-              </button>
+                className={isRecording ? 'bg-destructive text-destructive-foreground border-destructive animate-pulse-dot' : ''}>
+                <Mic className="h-4 w-4" />
+              </Button>
             </div>
 
-            {/* Tombol Selanjutnya */}
-            <button
-              disabled={currentIndex >= filteredQuestions.length - 1}
-              onClick={() => setCurrentIndex(p => p + 1)}
-              className="p-3.5 rounded-2xl bg-slate-900 hover:bg-slate-800 text-white disabled:opacity-30 disabled:cursor-not-allowed transition-all active:scale-95"
-              title="Selanjutnya"
-            >
-              <ChevronRight className="w-5 h-5" />
-            </button>
-
+            <Button variant="outline" size="icon"
+              onClick={() => setCurrentIndex(p => (p + 1 < filteredQuestions.length ? p + 1 : 0))}
+              title="Berikutnya">
+              <ChevronRight className="h-4 w-4" />
+            </Button>
           </div>
         </footer>
       )}

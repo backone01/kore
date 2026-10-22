@@ -1,111 +1,97 @@
 import React from 'react';
-import { SlidersHorizontal, BookOpen, Layers, Award } from 'lucide-react';
-import { MAIN_MODULES } from '../utils/categoryGroups.js';
+import { SlidersHorizontal, BookOpen, Layers, Award, FileText } from 'lucide-react';
+import { Button } from './ui/button.jsx';
+import { cn } from '../utils/cn.js';
 
-export function Header({ 
-  mode, 
-  setMode, 
-  stopAllAudio, 
-  practiceProgress, 
-  examProgress, 
-  categoriesList, 
-  selectedCategory, 
-  setCategoryModalOpen, 
-  setRevisionModalOpen, 
-  examPhase 
+export function Header({
+  mode,
+  setMode,
+  stopAllAudio,
+  practiceProgress,
+  examProgress,
+  categoriesList,
+  selectedCategory,
+  setCategoryModalOpen,
+  setRevisionModalOpen,
+  examPhase
 }) {
-  return (
-    <header className="w-full bg-white/95 backdrop-blur-md border-b border-slate-200 sticky top-0 z-40 transition-colors">
-      <div className="max-w-4xl mx-auto px-3 sm:px-6 py-2.5 flex flex-col sm:flex-row items-center justify-between gap-2.5 sm:gap-4">
-        
-        {/* TOP / LEFT: BRAND & MODE TABS */}
-        <div className="w-full sm:w-auto flex items-center justify-between sm:justify-start gap-3">
-          {/* Brand Mark */}
-          <div className="flex items-center gap-2 shrink-0">
-            <span className="w-2.5 h-2.5 rounded-full bg-blue-600 ring-4 ring-blue-50" />
-            <span className="font-black text-xs md:text-sm text-slate-900 tracking-tight">
-              EPS-TOPIK PRO
-            </span>
-          </div>
+  const modes = [
+    { id: 'study', label: 'Materi', icon: BookOpen },
+    { id: 'practice', label: 'Latihan', icon: Layers },
+    { id: 'exam', label: 'Ujian', icon: Award },
+  ];
 
-          {/* Segmented Controls (3 Modes) */}
-          <nav className="flex items-center bg-slate-100 p-1 rounded-xl gap-0.5 border border-slate-200/60" aria-label="Mode Aplikasi">
-            <button
-              onClick={() => { setMode('study'); stopAllAudio(); }}
-              className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
-                mode === 'study' 
-                  ? 'bg-white text-blue-700 shadow-xs border border-slate-200/80' 
-                  : 'text-slate-600 hover:text-slate-900'
-              }`}
-            >
-              Materi
-            </button>
-            <button
-              onClick={() => { setMode('practice'); stopAllAudio(); }}
-              className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
-                mode === 'practice' 
-                  ? 'bg-white text-slate-900 shadow-xs border border-slate-200/80' 
-                  : 'text-slate-600 hover:text-slate-900'
-              }`}
-            >
-              Latihan
-            </button>
-            <button
-              onClick={() => { setMode('exam'); stopAllAudio(); }}
-              className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
-                mode === 'exam' 
-                  ? 'bg-blue-600 text-white shadow-xs' 
-                  : 'text-slate-600 hover:text-slate-900'
-              }`}
-            >
-              Simulasi Ujian
-            </button>
-          </nav>
+  return (
+    <header className="sticky top-0 z-40 border-b border-border bg-card/95 backdrop-blur-md">
+      <div className="max-w-5xl mx-auto flex h-14 items-center justify-between px-3 sm:px-6 gap-2">
+        {/* Brand */}
+        <div className="flex items-center gap-2 shrink-0">
+          <span className="h-7 w-7 rounded-lg bg-primary flex items-center justify-center shadow-xs">
+            <span className="font-kr text-xs font-bold text-primary-foreground">E</span>
+          </span>
+          <span className="font-bold text-sm tracking-tight text-foreground hidden md:inline">
+            EPS-TOPIK PRO
+          </span>
         </div>
 
-        {/* PROGRESS BAR (IF IN EXAM RUNNING) */}
-        {mode === 'exam' && examPhase === 'running' && (
-          <div className="w-full sm:flex-1 max-w-xs mx-2">
-            <div className="w-full bg-slate-100 rounded-full h-2 overflow-hidden border border-slate-200">
-              <div 
-                className="bg-blue-600 h-full rounded-full transition-all duration-300" 
-                style={{ width: `${examProgress}%` }} 
-              />
-            </div>
-          </div>
-        )}
-
-        {/* RIGHT CONTROLS: CATEGORY FILTER & REGULATION BUTTON */}
-        <div className="w-full sm:w-auto flex items-center justify-end gap-2 shrink-0">
-          {mode === 'practice' && (() => {
-            const mod = MAIN_MODULES.find(m => m.id === selectedCategory);
-            const cat = categoriesList.find(c => c.id === selectedCategory);
-            const displayLabel = mod ? mod.shortLabel : (cat?.label?.split('(')[0] || 'Kategori');
+        {/* Mode tabs with comfortable touch targets and visible labels */}
+        <nav className="flex items-center rounded-lg bg-secondary p-1 gap-1" aria-label="Mode aplikasi">
+          {modes.map(m => {
+            const Icon = m.icon;
+            const active = mode === m.id;
             return (
               <button
-                onClick={() => setCategoryModalOpen(true)}
-                className="flex-1 sm:flex-none px-3 py-1.5 rounded-xl bg-white border border-slate-200 hover:border-slate-300 text-xs font-bold text-slate-800 flex items-center justify-center gap-1.5 shadow-xs transition-all active:scale-95"
-                title="Pilih Modul / Kategori Soal Latihan"
+                key={m.id}
+                onClick={() => { setMode(m.id); stopAllAudio(); }}
+                aria-current={active ? 'page' : undefined}
+                className={cn(
+                  'flex items-center gap-1.5 rounded-md px-2.5 sm:px-3.5 py-1.5 text-xs font-semibold transition-all border min-h-[36px]',
+                  active
+                    ? 'bg-card text-foreground border-border shadow-xs'
+                    : 'border-transparent text-muted-foreground hover:text-foreground hover:bg-card/50'
+                )}
               >
-                <SlidersHorizontal className="w-3.5 h-3.5 text-blue-600 shrink-0" />
-                <span className="truncate max-w-[140px]">
-                  {displayLabel}
-                </span>
+                <Icon className="h-3.5 w-3.5 shrink-0" />
+                <span>{m.label}</span>
               </button>
             );
-          })()}
+          })}
+        </nav>
 
-          <button
+        {/* Right controls */}
+        <div className="flex items-center gap-1.5 shrink-0">
+          {mode === 'practice' && (
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => setCategoryModalOpen(true)}
+              aria-label="Pilih Kategori Bank Soal"
+              className="h-9 px-2.5 sm:px-3 text-xs"
+            >
+              <SlidersHorizontal className="h-3.5 w-3.5" />
+              <span className="hidden sm:inline">Kategori</span>
+            </Button>
+          )}
+
+          <Button
+            variant="ghost"
+            size="sm"
             onClick={() => setRevisionModalOpen(true)}
-            className="px-2.5 sm:px-3 py-1.5 rounded-xl bg-amber-50 hover:bg-amber-100/80 border border-amber-200/80 text-amber-900 text-xs font-bold flex items-center gap-1.5 transition-all shadow-xs active:scale-95"
-            title="Lihat Regulasi Resmi Revisi HRD Korea 2026"
+            aria-label="Panduan Regulasi HRDK"
+            className="h-9 px-2 sm:px-3 text-xs text-muted-foreground hover:text-foreground"
           >
-            <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse" />
-            <span className="whitespace-nowrap">Regulasi HRDK</span>
-          </button>
+            <FileText className="h-3.5 w-3.5 sm:hidden" />
+            <span className="hidden sm:inline">Regulasi</span>
+          </Button>
         </div>
-
       </div>
+
+      {/* Exam progress bar */}
+      {mode === 'exam' && examPhase === 'running' && (
+        <div className="h-1 w-full bg-secondary">
+          <div className="h-full bg-primary transition-all duration-300" style={{ width: `${examProgress}%` }} />
+        </div>
+      )}
     </header>
   );
 }

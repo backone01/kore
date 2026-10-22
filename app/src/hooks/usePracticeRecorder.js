@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
 
 /**
- * Practice voice recorder — handles MediaRecorder lifecycle
+ * Practice voice recorder : handles MediaRecorder lifecycle
  * + revokeObjectURL to prevent memory leak
  */
 export function usePracticeRecorder() {
