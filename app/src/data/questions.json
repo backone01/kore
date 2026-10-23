@@ -20314,17 +20314,26 @@
     "question_romaja": "",
     "question_id": "Lihat ke kanan",
     "image_url": null,
-    "answer_short_ko": null,
-    "answer_short_id": null,
-    "answer_full_ko": null,
-    "answer_full_id": null,
+    "answer_short_ko": "네, 알겠습니다! (오른쪽을 봅니다)",
+    "answer_short_id": "Tengokkan pandangan dan kepala ke arah kanan.",
+    "answer_full_ko": "네, 알겠습니다! (오른쪽을 봅니다)",
+    "answer_full_id": "Tengokkan pandangan dan kepala ke arah kanan.",
     "title_ko": "오른쪽으로 보세요",
     "title_id": "Lihat ke kanan",
     "level": "Aksi",
     "source": "Skill Test Hub epstopikhub.com (Bagian 2)",
     "audio_q": "/audio/hub/nu/51.m4a",
     "audio_a": null,
-    "answer_options": []
+    "answer_options": [
+      {
+        "label": "Aksi Fisik Sesuai Instruksi",
+        "ko": "네, 알겠습니다! (오른쪽을 봅니다)",
+        "id": "Tengokkan pandangan dan kepala ke arah kanan.",
+        "audio": null
+      }
+    ],
+    "answer_ko": "네, 알겠습니다! (오른쪽을 봅니다)",
+    "answer_id": "Tengokkan pandangan dan kepala ke arah kanan."
   },
   {
     "id": "hhl_02",
@@ -20334,17 +20343,26 @@
     "question_romaja": "",
     "question_id": "Lihat ke kiri",
     "image_url": null,
-    "answer_short_ko": null,
-    "answer_short_id": null,
-    "answer_full_ko": null,
-    "answer_full_id": null,
+    "answer_short_ko": "네, 알겠습니다! (왼쪽을 봅니다)",
+    "answer_short_id": "Tengokkan pandangan dan kepala ke arah kiri.",
+    "answer_full_ko": "네, 알겠습니다! (왼쪽을 봅니다)",
+    "answer_full_id": "Tengokkan pandangan dan kepala ke arah kiri.",
     "title_ko": "왼쪽으로 보세요",
     "title_id": "Lihat ke kiri",
     "level": "Aksi",
     "source": "Skill Test Hub epstopikhub.com (Bagian 2)",
     "audio_q": "/audio/hub/nu/52.m4a",
     "audio_a": null,
-    "answer_options": []
+    "answer_options": [
+      {
+        "label": "Aksi Fisik Sesuai Instruksi",
+        "ko": "네, 알겠습니다! (왼쪽을 봅니다)",
+        "id": "Tengokkan pandangan dan kepala ke arah kiri.",
+        "audio": null
+      }
+    ],
+    "answer_ko": "네, 알겠습니다! (왼쪽을 봅니다)",
+    "answer_id": "Tengokkan pandangan dan kepala ke arah kiri."
   },
   {
     "id": "hhl_03",
@@ -20354,17 +20372,26 @@
     "question_romaja": "",
     "question_id": "Lihat ke atas",
     "image_url": null,
-    "answer_short_ko": null,
-    "answer_short_id": null,
-    "answer_full_ko": null,
-    "answer_full_id": null,
+    "answer_short_ko": "네, 알겠습니다! (위를 봅니다)",
+    "answer_short_id": "Arahkan pandangan dan kepala ke arah atas.",
+    "answer_full_ko": "네, 알겠습니다! (위를 봅니다)",
+    "answer_full_id": "Arahkan pandangan dan kepala ke arah atas.",
     "title_ko": "위로 보세요",
     "title_id": "Lihat ke atas",
     "level": "Aksi",
     "source": "Skill Test Hub epstopikhub.com (Bagian 2)",
     "audio_q": "/audio/hub/nu/53.m4a",
     "audio_a": null,
-    "answer_options": []
+    "answer_options": [
+      {
+        "label": "Aksi Fisik Sesuai Instruksi",
+        "ko": "네, 알겠습니다! (위를 봅니다)",
+        "id": "Arahkan pandangan dan kepala ke arah atas.",
+        "audio": null
+      }
+    ],
+    "answer_ko": "네, 알겠습니다! (위를 봅니다)",
+    "answer_id": "Arahkan pandangan dan kepala ke arah atas."
   },
   {
     "id": "hhl_04",
@@ -20374,17 +20401,26 @@
     "question_romaja": "",
     "question_id": "Lihat ke bawah",
     "image_url": null,
-    "answer_short_ko": null,
-    "answer_short_id": null,
-    "answer_full_ko": null,
-    "answer_full_id": null,
+    "answer_short_ko": "네, 알겠습니다! (아래를 봅니다)",
+    "answer_short_id": "Arahkan pandangan dan kepala ke arah bawah lantai.",
+    "answer_full_ko": "네, 알겠습니다! (아래를 봅니다)",
+    "answer_full_id": "Arahkan pandangan dan kepala ke arah bawah lantai.",
     "title_ko": "아래로 보세요",
     "title_id": "Lihat ke bawah",
     "level": "Aksi",
     "source": "Skill Test Hub epstopikhub.com (Bagian 2)",
     "audio_q": "/audio/hub/nu/54.m4a",
     "audio_a": null,
-    "answer_options": []
+    "answer_options": [
+      {
+        "label": "Aksi Fisik Sesuai Instruksi",
+        "ko": "네, 알겠습니다! (아래를 봅니다)",
+        "id": "Arahkan pandangan dan kepala ke arah bawah lantai.",
+        "audio": null
+      }
+    ],
+    "answer_ko": "네, 알겠습니다! (아래를 봅니다)",
+    "answer_id": "Arahkan pandangan dan kepala ke arah bawah lantai."
   },
   {
     "id": "hhl_05",
@@ -20394,17 +20430,26 @@
     "question_romaja": "",
     "question_id": "Angkat tangan kanan. Turunkan.",
     "image_url": null,
-    "answer_short_ko": null,
-    "answer_short_id": null,
-    "answer_full_ko": null,
-    "answer_full_id": null,
+    "answer_short_ko": "네, 알겠습니다! (오른손을 올렸다가 내립니다)",
+    "answer_short_id": "Angkat tangan kanan setinggi bahu lalu turunkan kembali.",
+    "answer_full_ko": "네, 알겠습니다! (오른손을 올렸다가 내립니다)",
+    "answer_full_id": "Angkat tangan kanan setinggi bahu lalu turunkan kembali.",
     "title_ko": "오른손 올리세요. 내리세요",
     "title_id": "Angkat tangan kanan. Turunkan.",
     "level": "Aksi",
     "source": "Skill Test Hub epstopikhub.com (Bagian 2)",
     "audio_q": "/audio/hub/nu/55.m4a",
     "audio_a": null,
-    "answer_options": []
+    "answer_options": [
+      {
+        "label": "Aksi Fisik Sesuai Instruksi",
+        "ko": "네, 알겠습니다! (오른손을 올렸다가 내립니다)",
+        "id": "Angkat tangan kanan setinggi bahu lalu turunkan kembali.",
+        "audio": null
+      }
+    ],
+    "answer_ko": "네, 알겠습니다! (오른손을 올렸다가 내립니다)",
+    "answer_id": "Angkat tangan kanan setinggi bahu lalu turunkan kembali."
   },
   {
     "id": "hhl_06",
@@ -20414,17 +20459,26 @@
     "question_romaja": "",
     "question_id": "Angkat tangan kiri. Turunkan.",
     "image_url": null,
-    "answer_short_ko": null,
-    "answer_short_id": null,
-    "answer_full_ko": null,
-    "answer_full_id": null,
+    "answer_short_ko": "네, 알겠습니다! (왼손을 올렸다가 내립니다)",
+    "answer_short_id": "Angkat tangan kiri setinggi bahu lalu turunkan kembali.",
+    "answer_full_ko": "네, 알겠습니다! (왼손을 올렸다가 내립니다)",
+    "answer_full_id": "Angkat tangan kiri setinggi bahu lalu turunkan kembali.",
     "title_ko": "왼손 올리세요. 내리세요",
     "title_id": "Angkat tangan kiri. Turunkan.",
     "level": "Aksi",
     "source": "Skill Test Hub epstopikhub.com (Bagian 2)",
     "audio_q": "/audio/hub/nu/56.m4a",
     "audio_a": null,
-    "answer_options": []
+    "answer_options": [
+      {
+        "label": "Aksi Fisik Sesuai Instruksi",
+        "ko": "네, 알겠습니다! (왼손을 올렸다가 내립니다)",
+        "id": "Angkat tangan kiri setinggi bahu lalu turunkan kembali.",
+        "audio": null
+      }
+    ],
+    "answer_ko": "네, 알겠습니다! (왼손을 올렸다가 내립니다)",
+    "answer_id": "Angkat tangan kiri setinggi bahu lalu turunkan kembali."
   },
   {
     "id": "hhl_07",
@@ -20434,17 +20488,26 @@
     "question_romaja": "",
     "question_id": "Angkat kedua tangan. Turunkan.",
     "image_url": null,
-    "answer_short_ko": null,
-    "answer_short_id": null,
-    "answer_full_ko": null,
-    "answer_full_id": null,
+    "answer_short_ko": "네, 알겠습니다! (양손을 올렸다가 내립니다)",
+    "answer_short_id": "Angkat kedua tangan bersamaan lalu turunkan kembali.",
+    "answer_full_ko": "네, 알겠습니다! (양손을 올렸다가 내립니다)",
+    "answer_full_id": "Angkat kedua tangan bersamaan lalu turunkan kembali.",
     "title_ko": "양손 올리세요. 내리세요",
     "title_id": "Angkat kedua tangan. Turunkan.",
     "level": "Aksi",
     "source": "Skill Test Hub epstopikhub.com (Bagian 2)",
     "audio_q": "/audio/hub/nu/57.m4a",
     "audio_a": null,
-    "answer_options": []
+    "answer_options": [
+      {
+        "label": "Aksi Fisik Sesuai Instruksi",
+        "ko": "네, 알겠습니다! (양손을 올렸다가 내립니다)",
+        "id": "Angkat kedua tangan bersamaan lalu turunkan kembali.",
+        "audio": null
+      }
+    ],
+    "answer_ko": "네, 알겠습니다! (양손을 올렸다가 내립니다)",
+    "answer_id": "Angkat kedua tangan bersamaan lalu turunkan kembali."
   },
   {
     "id": "hhl_08",
@@ -20454,17 +20517,26 @@
     "question_romaja": "",
     "question_id": "Angkat kaki kanan. Turunkan.",
     "image_url": null,
-    "answer_short_ko": null,
-    "answer_short_id": null,
-    "answer_full_ko": null,
-    "answer_full_id": null,
+    "answer_short_ko": "네, 알겠습니다! (오른발을 올렸다가 내립니다)",
+    "answer_short_id": "Angkat kaki kanan beberapa detik lalu turunkan kembali ke lantai.",
+    "answer_full_ko": "네, 알겠습니다! (오른발을 올렸다가 내립니다)",
+    "answer_full_id": "Angkat kaki kanan beberapa detik lalu turunkan kembali ke lantai.",
     "title_ko": "오른발 올리세요. 내리세요",
     "title_id": "Angkat kaki kanan. Turunkan.",
     "level": "Aksi",
     "source": "Skill Test Hub epstopikhub.com (Bagian 2)",
     "audio_q": "/audio/hub/nu/58.m4a",
     "audio_a": null,
-    "answer_options": []
+    "answer_options": [
+      {
+        "label": "Aksi Fisik Sesuai Instruksi",
+        "ko": "네, 알겠습니다! (오른발을 올렸다가 내립니다)",
+        "id": "Angkat kaki kanan beberapa detik lalu turunkan kembali ke lantai.",
+        "audio": null
+      }
+    ],
+    "answer_ko": "네, 알겠습니다! (오른발을 올렸다가 내립니다)",
+    "answer_id": "Angkat kaki kanan beberapa detik lalu turunkan kembali ke lantai."
   },
   {
     "id": "hhl_09",
@@ -20474,17 +20546,26 @@
     "question_romaja": "",
     "question_id": "Angkat kaki kiri. Turunkan.",
     "image_url": null,
-    "answer_short_ko": null,
-    "answer_short_id": null,
-    "answer_full_ko": null,
-    "answer_full_id": null,
+    "answer_short_ko": "네, 알겠습니다! (왼발을 올렸다가 내립니다)",
+    "answer_short_id": "Angkat kaki kiri beberapa detik lalu turunkan kembali ke lantai.",
+    "answer_full_ko": "네, 알겠습니다! (왼발을 올렸다가 내립니다)",
+    "answer_full_id": "Angkat kaki kiri beberapa detik lalu turunkan kembali ke lantai.",
     "title_ko": "왼발 올리세요. 내리세요",
     "title_id": "Angkat kaki kiri. Turunkan.",
     "level": "Aksi",
     "source": "Skill Test Hub epstopikhub.com (Bagian 2)",
     "audio_q": "/audio/hub/nu/59.m4a",
     "audio_a": null,
-    "answer_options": []
+    "answer_options": [
+      {
+        "label": "Aksi Fisik Sesuai Instruksi",
+        "ko": "네, 알겠습니다! (왼발을 올렸다가 내립니다)",
+        "id": "Angkat kaki kiri beberapa detik lalu turunkan kembali ke lantai.",
+        "audio": null
+      }
+    ],
+    "answer_ko": "네, 알겠습니다! (왼발을 올렸다가 내립니다)",
+    "answer_id": "Angkat kaki kiri beberapa detik lalu turunkan kembali ke lantai."
   },
   {
     "id": "hhl_10",
@@ -20494,17 +20575,26 @@
     "question_romaja": "",
     "question_id": "Berjalanlah ke kanan",
     "image_url": null,
-    "answer_short_ko": null,
-    "answer_short_id": null,
-    "answer_full_ko": null,
-    "answer_full_id": null,
+    "answer_short_ko": "네, 알겠습니다! (오른쪽으로 걸어갑니다)",
+    "answer_short_id": "Langkahkan kaki berjalan ke arah kanan.",
+    "answer_full_ko": "네, 알겠습니다! (오른쪽으로 걸어갑니다)",
+    "answer_full_id": "Langkahkan kaki berjalan ke arah kanan.",
     "title_ko": "오른쪽으로 걸어가세요",
     "title_id": "Berjalanlah ke kanan",
     "level": "Aksi",
     "source": "Skill Test Hub epstopikhub.com (Bagian 2)",
     "audio_q": "/audio/hub/nu/60.m4a",
     "audio_a": null,
-    "answer_options": []
+    "answer_options": [
+      {
+        "label": "Aksi Fisik Sesuai Instruksi",
+        "ko": "네, 알겠습니다! (오른쪽으로 걸어갑니다)",
+        "id": "Langkahkan kaki berjalan ke arah kanan.",
+        "audio": null
+      }
+    ],
+    "answer_ko": "네, 알겠습니다! (오른쪽으로 걸어갑니다)",
+    "answer_id": "Langkahkan kaki berjalan ke arah kanan."
   },
   {
     "id": "hhl_11",
@@ -20514,17 +20604,26 @@
     "question_romaja": "",
     "question_id": "Berjalanlah ke kiri",
     "image_url": null,
-    "answer_short_ko": null,
-    "answer_short_id": null,
-    "answer_full_ko": null,
-    "answer_full_id": null,
+    "answer_short_ko": "네, 알겠습니다! (왼쪽으로 걸어갑니다)",
+    "answer_short_id": "Langkahkan kaki berjalan ke arah kiri.",
+    "answer_full_ko": "네, 알겠습니다! (왼쪽으로 걸어갑니다)",
+    "answer_full_id": "Langkahkan kaki berjalan ke arah kiri.",
     "title_ko": "왼쪽으로 걸어가세요",
     "title_id": "Berjalanlah ke kiri",
     "level": "Aksi",
     "source": "Skill Test Hub epstopikhub.com (Bagian 2)",
     "audio_q": "/audio/hub/nu/61.m4a",
     "audio_a": null,
-    "answer_options": []
+    "answer_options": [
+      {
+        "label": "Aksi Fisik Sesuai Instruksi",
+        "ko": "네, 알겠습니다! (왼쪽으로 걸어갑니다)",
+        "id": "Langkahkan kaki berjalan ke arah kiri.",
+        "audio": null
+      }
+    ],
+    "answer_ko": "네, 알겠습니다! (왼쪽으로 걸어갑니다)",
+    "answer_id": "Langkahkan kaki berjalan ke arah kiri."
   },
   {
     "id": "hhl_12",
@@ -20534,17 +20633,26 @@
     "question_romaja": "",
     "question_id": "Berjalanlah ke belakang",
     "image_url": null,
-    "answer_short_ko": null,
-    "answer_short_id": null,
-    "answer_full_ko": null,
-    "answer_full_id": null,
+    "answer_short_ko": "네, 알겠습니다! (뒤로 걸어갑니다)",
+    "answer_short_id": "Langkahkan kaki mundur berjalan ke belakang dengan hati-hati.",
+    "answer_full_ko": "네, 알겠습니다! (뒤로 걸어갑니다)",
+    "answer_full_id": "Langkahkan kaki mundur berjalan ke belakang dengan hati-hati.",
     "title_ko": "뒤로 걸어가세요",
     "title_id": "Berjalanlah ke belakang",
     "level": "Aksi",
     "source": "Skill Test Hub epstopikhub.com (Bagian 2)",
     "audio_q": "/audio/hub/nu/62.m4a",
     "audio_a": null,
-    "answer_options": []
+    "answer_options": [
+      {
+        "label": "Aksi Fisik Sesuai Instruksi",
+        "ko": "네, 알겠습니다! (뒤로 걸어갑니다)",
+        "id": "Langkahkan kaki mundur berjalan ke belakang dengan hati-hati.",
+        "audio": null
+      }
+    ],
+    "answer_ko": "네, 알겠습니다! (뒤로 걸어갑니다)",
+    "answer_id": "Langkahkan kaki mundur berjalan ke belakang dengan hati-hati."
   },
   {
     "id": "hhl_13",
@@ -20554,17 +20662,26 @@
     "question_romaja": "",
     "question_id": "Berjalanlah ke depan",
     "image_url": null,
-    "answer_short_ko": null,
-    "answer_short_id": null,
-    "answer_full_ko": null,
-    "answer_full_id": null,
+    "answer_short_ko": "네, 알겠습니다! (앞으로 걸어갑니다)",
+    "answer_short_id": "Langkahkan kaki maju berjalan ke depan.",
+    "answer_full_ko": "네, 알겠습니다! (앞으로 걸어갑니다)",
+    "answer_full_id": "Langkahkan kaki maju berjalan ke depan.",
     "title_ko": "앞으로 걸어가세요",
     "title_id": "Berjalanlah ke depan",
     "level": "Aksi",
     "source": "Skill Test Hub epstopikhub.com (Bagian 2)",
     "audio_q": "/audio/hub/nu/63.m4a",
     "audio_a": null,
-    "answer_options": []
+    "answer_options": [
+      {
+        "label": "Aksi Fisik Sesuai Instruksi",
+        "ko": "네, 알겠습니다! (앞으로 걸어갑니다)",
+        "id": "Langkahkan kaki maju berjalan ke depan.",
+        "audio": null
+      }
+    ],
+    "answer_ko": "네, 알겠습니다! (앞으로 걸어갑니다)",
+    "answer_id": "Langkahkan kaki maju berjalan ke depan."
   },
   {
     "id": "hhl_14",
@@ -20574,17 +20691,26 @@
     "question_romaja": "",
     "question_id": "Putar badan ke kanan",
     "image_url": null,
-    "answer_short_ko": null,
-    "answer_short_id": null,
-    "answer_full_ko": null,
-    "answer_full_id": null,
+    "answer_short_ko": "네, 알겠습니다! (오른쪽으로 몸을 돌립니다)",
+    "answer_short_id": "Putar arah badan ke arah kanan.",
+    "answer_full_ko": "네, 알겠습니다! (오른쪽으로 몸을 돌립니다)",
+    "answer_full_id": "Putar arah badan ke arah kanan.",
     "title_ko": "오른쪽으로 돌아서세요",
     "title_id": "Putar badan ke kanan",
     "level": "Aksi",
     "source": "Skill Test Hub epstopikhub.com (Bagian 2)",
     "audio_q": "/audio/hub/nu/64.m4a",
     "audio_a": null,
-    "answer_options": []
+    "answer_options": [
+      {
+        "label": "Aksi Fisik Sesuai Instruksi",
+        "ko": "네, 알겠습니다! (오른쪽으로 몸을 돌립니다)",
+        "id": "Putar arah badan ke arah kanan.",
+        "audio": null
+      }
+    ],
+    "answer_ko": "네, 알겠습니다! (오른쪽으로 몸을 돌립니다)",
+    "answer_id": "Putar arah badan ke arah kanan."
   },
   {
     "id": "hhl_15",
@@ -20594,17 +20720,26 @@
     "question_romaja": "",
     "question_id": "Putar badan ke kiri",
     "image_url": null,
-    "answer_short_ko": null,
-    "answer_short_id": null,
-    "answer_full_ko": null,
-    "answer_full_id": null,
+    "answer_short_ko": "네, 알겠습니다! (왼쪽으로 몸을 돌립니다)",
+    "answer_short_id": "Putar arah badan ke arah kiri.",
+    "answer_full_ko": "네, 알겠습니다! (왼쪽으로 몸을 돌립니다)",
+    "answer_full_id": "Putar arah badan ke arah kiri.",
     "title_ko": "왼쪽으로 돌아서세요",
     "title_id": "Putar badan ke kiri",
     "level": "Aksi",
     "source": "Skill Test Hub epstopikhub.com (Bagian 2)",
     "audio_q": "/audio/hub/nu/65.m4a",
     "audio_a": null,
-    "answer_options": []
+    "answer_options": [
+      {
+        "label": "Aksi Fisik Sesuai Instruksi",
+        "ko": "네, 알겠습니다! (왼쪽으로 몸을 돌립니다)",
+        "id": "Putar arah badan ke arah kiri.",
+        "audio": null
+      }
+    ],
+    "answer_ko": "네, 알겠습니다! (왼쪽으로 몸을 돌립니다)",
+    "answer_id": "Putar arah badan ke arah kiri."
   },
   {
     "id": "hhl_16",
@@ -20614,17 +20749,26 @@
     "question_romaja": "",
     "question_id": "Putar badan ke belakang",
     "image_url": null,
-    "answer_short_ko": null,
-    "answer_short_id": null,
-    "answer_full_ko": null,
-    "answer_full_id": null,
+    "answer_short_ko": "네, 알겠습니다! (뒤로 돌아섭니다)",
+    "answer_short_id": "Putar balik badan 180 derajat menghadap ke belakang.",
+    "answer_full_ko": "네, 알겠습니다! (뒤로 돌아섭니다)",
+    "answer_full_id": "Putar balik badan 180 derajat menghadap ke belakang.",
     "title_ko": "뒤로 돌아서세요",
     "title_id": "Putar badan ke belakang",
     "level": "Aksi",
     "source": "Skill Test Hub epstopikhub.com (Bagian 2)",
     "audio_q": "/audio/hub/nu/66.m4a",
     "audio_a": null,
-    "answer_options": []
+    "answer_options": [
+      {
+        "label": "Aksi Fisik Sesuai Instruksi",
+        "ko": "네, 알겠습니다! (뒤로 돌아섭니다)",
+        "id": "Putar balik badan 180 derajat menghadap ke belakang.",
+        "audio": null
+      }
+    ],
+    "answer_ko": "네, 알겠습니다! (뒤로 돌아섭니다)",
+    "answer_id": "Putar balik badan 180 derajat menghadap ke belakang."
   },
   {
     "id": "hhl_17",
@@ -20634,17 +20778,26 @@
     "question_romaja": "",
     "question_id": "Duduk. Berdiri.",
     "image_url": null,
-    "answer_short_ko": null,
-    "answer_short_id": null,
-    "answer_full_ko": null,
-    "answer_full_id": null,
+    "answer_short_ko": "네, 알겠습니다! (앉았다가 일어납니다)",
+    "answer_short_id": "Jongkok atau duduk sebentar lalu segera berdiri tegak kembali.",
+    "answer_full_ko": "네, 알겠습니다! (앉았다가 일어납니다)",
+    "answer_full_id": "Jongkok atau duduk sebentar lalu segera berdiri tegak kembali.",
     "title_ko": "앉으세요. 일어나세요",
     "title_id": "Duduk. Berdiri.",
     "level": "Aksi",
     "source": "Skill Test Hub epstopikhub.com (Bagian 2)",
     "audio_q": "/audio/hub/nu/67.m4a",
     "audio_a": null,
-    "answer_options": []
+    "answer_options": [
+      {
+        "label": "Aksi Fisik Sesuai Instruksi",
+        "ko": "네, 알겠습니다! (앉았다가 일어납니다)",
+        "id": "Jongkok atau duduk sebentar lalu segera berdiri tegak kembali.",
+        "audio": null
+      }
+    ],
+    "answer_ko": "네, 알겠습니다! (앉았다가 일어납니다)",
+    "answer_id": "Jongkok atau duduk sebentar lalu segera berdiri tegak kembali."
   },
   {
     "id": "hhl_18",
@@ -20654,17 +20807,26 @@
     "question_romaja": "",
     "question_id": "Kepalkan tangan",
     "image_url": null,
-    "answer_short_ko": null,
-    "answer_short_id": null,
-    "answer_full_ko": null,
-    "answer_full_id": null,
+    "answer_short_ko": "네, 알겠습니다! (주먹을 쥡니다)",
+    "answer_short_id": "Kepalkan kedua telapak tangan dengan kuat.",
+    "answer_full_ko": "네, 알겠습니다! (주먹을 쥡니다)",
+    "answer_full_id": "Kepalkan kedua telapak tangan dengan kuat.",
     "title_ko": "주먹을 쥐세요",
     "title_id": "Kepalkan tangan",
     "level": "Aksi",
     "source": "Skill Test Hub epstopikhub.com (Bagian 2)",
     "audio_q": "/audio/hub/nu/68.m4a",
     "audio_a": null,
-    "answer_options": []
+    "answer_options": [
+      {
+        "label": "Aksi Fisik Sesuai Instruksi",
+        "ko": "네, 알겠습니다! (주먹을 쥡니다)",
+        "id": "Kepalkan kedua telapak tangan dengan kuat.",
+        "audio": null
+      }
+    ],
+    "answer_ko": "네, 알겠습니다! (주먹을 쥡니다)",
+    "answer_id": "Kepalkan kedua telapak tangan dengan kuat."
   },
   {
     "id": "hhl_19",
@@ -20674,17 +20836,26 @@
     "question_romaja": "",
     "question_id": "Buka kepalan tangan",
     "image_url": null,
-    "answer_short_ko": null,
-    "answer_short_id": null,
-    "answer_full_ko": null,
-    "answer_full_id": null,
+    "answer_short_ko": "네, 알겠습니다! (주먹을 폅니다)",
+    "answer_short_id": "Buka kepalan tangan hingga jari-jari terbuka lebar.",
+    "answer_full_ko": "네, 알겠습니다! (주먹을 폅니다)",
+    "answer_full_id": "Buka kepalan tangan hingga jari-jari terbuka lebar.",
     "title_ko": "주먹을 펴세요.",
     "title_id": "Buka kepalan tangan",
     "level": "Aksi",
     "source": "Skill Test Hub epstopikhub.com (Bagian 2)",
     "audio_q": "/audio/hub/nu/69.m4a",
     "audio_a": null,
-    "answer_options": []
+    "answer_options": [
+      {
+        "label": "Aksi Fisik Sesuai Instruksi",
+        "ko": "네, 알겠습니다! (주먹을 폅니다)",
+        "id": "Buka kepalan tangan hingga jari-jari terbuka lebar.",
+        "audio": null
+      }
+    ],
+    "answer_ko": "네, 알겠습니다! (주먹을 폅니다)",
+    "answer_id": "Buka kepalan tangan hingga jari-jari terbuka lebar."
   },
   {
     "id": "hhl_20",
@@ -20694,17 +20865,26 @@
     "question_romaja": "",
     "question_id": "Tepuk tangan tiga kali",
     "image_url": null,
-    "answer_short_ko": null,
-    "answer_short_id": null,
-    "answer_full_ko": null,
-    "answer_full_id": null,
+    "answer_short_ko": "네, 알겠습니다! (손뼉을 세 번 칩니다)",
+    "answer_short_id": "Tepuk tangan sebanyak tiga kali: prok-prok-prok.",
+    "answer_full_ko": "네, 알겠습니다! (손뼉을 세 번 칩니다)",
+    "answer_full_id": "Tepuk tangan sebanyak tiga kali: prok-prok-prok.",
     "title_ko": "세번 박수 하세요.",
     "title_id": "Tepuk tangan tiga kali",
     "level": "Aksi",
     "source": "Skill Test Hub epstopikhub.com (Bagian 2)",
     "audio_q": "/audio/hub/nu/70.m4a",
     "audio_a": null,
-    "answer_options": []
+    "answer_options": [
+      {
+        "label": "Aksi Fisik Sesuai Instruksi",
+        "ko": "네, 알겠습니다! (손뼉을 세 번 칩니다)",
+        "id": "Tepuk tangan sebanyak tiga kali: prok-prok-prok.",
+        "audio": null
+      }
+    ],
+    "answer_ko": "네, 알겠습니다! (손뼉을 세 번 칩니다)",
+    "answer_id": "Tepuk tangan sebanyak tiga kali: prok-prok-prok."
   },
   {
     "id": "hhl_21",
@@ -20714,17 +20894,26 @@
     "question_romaja": "",
     "question_id": "Putarkan kepala",
     "image_url": null,
-    "answer_short_ko": null,
-    "answer_short_id": null,
-    "answer_full_ko": null,
-    "answer_full_id": null,
+    "answer_short_ko": "네, 알겠습니다! (고개를 천천히 돌립니다)",
+    "answer_short_id": "Putarkan kepala perlahan ke samping.",
+    "answer_full_ko": "네, 알겠습니다! (고개를 천천히 돌립니다)",
+    "answer_full_id": "Putarkan kepala perlahan ke samping.",
     "title_ko": "고개를 돌리세요.",
     "title_id": "Putarkan kepala",
     "level": "Aksi",
     "source": "Skill Test Hub epstopikhub.com (Bagian 2)",
     "audio_q": "/audio/hub/nu/71.m4a",
     "audio_a": null,
-    "answer_options": []
+    "answer_options": [
+      {
+        "label": "Aksi Fisik Sesuai Instruksi",
+        "ko": "네, 알겠습니다! (고개를 천천히 돌립니다)",
+        "id": "Putarkan kepala perlahan ke samping.",
+        "audio": null
+      }
+    ],
+    "answer_ko": "네, 알겠습니다! (고개를 천천히 돌립니다)",
+    "answer_id": "Putarkan kepala perlahan ke samping."
   },
   {
     "id": "hhl_22",
@@ -20734,17 +20923,26 @@
     "question_romaja": "",
     "question_id": "Putarkan pinggang",
     "image_url": null,
-    "answer_short_ko": null,
-    "answer_short_id": null,
-    "answer_full_ko": null,
-    "answer_full_id": null,
+    "answer_short_ko": "네, 알겠습니다! (허리를 가볍게 돌립니다)",
+    "answer_short_id": "Putarkan pinggang ke kanan dan kiri.",
+    "answer_full_ko": "네, 알겠습니다! (허리를 가볍게 돌립니다)",
+    "answer_full_id": "Putarkan pinggang ke kanan dan kiri.",
     "title_ko": "허리를 돌리세요.",
     "title_id": "Putarkan pinggang",
     "level": "Aksi",
     "source": "Skill Test Hub epstopikhub.com (Bagian 2)",
     "audio_q": "/audio/hub/nu/72.m4a",
     "audio_a": null,
-    "answer_options": []
+    "answer_options": [
+      {
+        "label": "Aksi Fisik Sesuai Instruksi",
+        "ko": "네, 알겠습니다! (허리를 가볍게 돌립니다)",
+        "id": "Putarkan pinggang ke kanan dan kiri.",
+        "audio": null
+      }
+    ],
+    "answer_ko": "네, 알겠습니다! (허리를 가볍게 돌립니다)",
+    "answer_id": "Putarkan pinggang ke kanan dan kiri."
   },
   {
     "id": "hhl_23",
@@ -20754,17 +20952,26 @@
     "question_romaja": "",
     "question_id": "Pegang telinga",
     "image_url": null,
-    "answer_short_ko": null,
-    "answer_short_id": null,
-    "answer_full_ko": null,
-    "answer_full_id": null,
+    "answer_short_ko": "네, 알겠습니다! (양쪽 귀를 잡습니다)",
+    "answer_short_id": "Pegang kedua daun telinga dengan kedua tangan.",
+    "answer_full_ko": "네, 알겠습니다! (양쪽 귀를 잡습니다)",
+    "answer_full_id": "Pegang kedua daun telinga dengan kedua tangan.",
     "title_ko": "귀를 잡으세요.",
     "title_id": "Pegang telinga",
     "level": "Aksi",
     "source": "Skill Test Hub epstopikhub.com (Bagian 2)",
     "audio_q": "/audio/hub/nu/73.m4a",
     "audio_a": null,
-    "answer_options": []
+    "answer_options": [
+      {
+        "label": "Aksi Fisik Sesuai Instruksi",
+        "ko": "네, 알겠습니다! (양쪽 귀를 잡습니다)",
+        "id": "Pegang kedua daun telinga dengan kedua tangan.",
+        "audio": null
+      }
+    ],
+    "answer_ko": "네, 알겠습니다! (양쪽 귀를 잡습니다)",
+    "answer_id": "Pegang kedua daun telinga dengan kedua tangan."
   },
   {
     "id": "hhl_24",
@@ -20774,17 +20981,26 @@
     "question_romaja": "",
     "question_id": "Pegang telinga kiri",
     "image_url": null,
-    "answer_short_ko": null,
-    "answer_short_id": null,
-    "answer_full_ko": null,
-    "answer_full_id": null,
+    "answer_short_ko": "네, 알겠습니다! (왼쪽 귀를 잡습니다)",
+    "answer_short_id": "Pegang telinga kiri dengan tangan.",
+    "answer_full_ko": "네, 알겠습니다! (왼쪽 귀를 잡습니다)",
+    "answer_full_id": "Pegang telinga kiri dengan tangan.",
     "title_ko": "외쪽에 귀를 잡으세요.",
     "title_id": "Pegang telinga kiri",
     "level": "Aksi",
     "source": "Skill Test Hub epstopikhub.com (Bagian 2)",
     "audio_q": "/audio/hub/nu/74.m4a",
     "audio_a": null,
-    "answer_options": []
+    "answer_options": [
+      {
+        "label": "Aksi Fisik Sesuai Instruksi",
+        "ko": "네, 알겠습니다! (왼쪽 귀를 잡습니다)",
+        "id": "Pegang telinga kiri dengan tangan.",
+        "audio": null
+      }
+    ],
+    "answer_ko": "네, 알겠습니다! (왼쪽 귀를 잡습니다)",
+    "answer_id": "Pegang telinga kiri dengan tangan."
   },
   {
     "id": "hhl_25",
@@ -20794,17 +21010,26 @@
     "question_romaja": "",
     "question_id": "Pegang telinga kanan",
     "image_url": null,
-    "answer_short_ko": null,
-    "answer_short_id": null,
-    "answer_full_ko": null,
-    "answer_full_id": null,
+    "answer_short_ko": "네, 알겠습니다! (오른쪽 귀를 잡습니다)",
+    "answer_short_id": "Pegang telinga kanan dengan tangan.",
+    "answer_full_ko": "네, 알겠습니다! (오른쪽 귀를 잡습니다)",
+    "answer_full_id": "Pegang telinga kanan dengan tangan.",
     "title_ko": "오른 귀를 잡으세요.",
     "title_id": "Pegang telinga kanan",
     "level": "Aksi",
     "source": "Skill Test Hub epstopikhub.com (Bagian 2)",
     "audio_q": "/audio/hub/nu/75.m4a",
     "audio_a": null,
-    "answer_options": []
+    "answer_options": [
+      {
+        "label": "Aksi Fisik Sesuai Instruksi",
+        "ko": "네, 알겠습니다! (오른쪽 귀를 잡습니다)",
+        "id": "Pegang telinga kanan dengan tangan.",
+        "audio": null
+      }
+    ],
+    "answer_ko": "네, 알겠습니다! (오른쪽 귀를 잡습니다)",
+    "answer_id": "Pegang telinga kanan dengan tangan."
   },
   {
     "id": "hhl_26",
@@ -20814,17 +21039,26 @@
     "question_romaja": "",
     "question_id": "Pegang hidung",
     "image_url": null,
-    "answer_short_ko": null,
-    "answer_short_id": null,
-    "answer_full_ko": null,
-    "answer_full_id": null,
+    "answer_short_ko": "네, 알겠습니다! (코를 만집니다)",
+    "answer_short_id": "Pegang atau sentuh hidung dengan jari telunjuk.",
+    "answer_full_ko": "네, 알겠습니다! (코를 만집니다)",
+    "answer_full_id": "Pegang atau sentuh hidung dengan jari telunjuk.",
     "title_ko": "코를 잡으세요.",
     "title_id": "Pegang hidung",
     "level": "Aksi",
     "source": "Skill Test Hub epstopikhub.com (Bagian 2)",
     "audio_q": "/audio/hub/nu/76.m4a",
     "audio_a": null,
-    "answer_options": []
+    "answer_options": [
+      {
+        "label": "Aksi Fisik Sesuai Instruksi",
+        "ko": "네, 알겠습니다! (코를 만집니다)",
+        "id": "Pegang atau sentuh hidung dengan jari telunjuk.",
+        "audio": null
+      }
+    ],
+    "answer_ko": "네, 알겠습니다! (코를 만집니다)",
+    "answer_id": "Pegang atau sentuh hidung dengan jari telunjuk."
   },
   {
     "id": "hhl_27",
@@ -20834,17 +21068,26 @@
     "question_romaja": "",
     "question_id": "Sentuh telinga kanan dengan tangan kiri",
     "image_url": null,
-    "answer_short_ko": null,
-    "answer_short_id": null,
-    "answer_full_ko": null,
-    "answer_full_id": null,
+    "answer_short_ko": "네, 알겠습니다! (왼손으로 오른쪽 귀를 만집니다)",
+    "answer_short_id": "Gunakan tangan kiri menyilang untuk memegang telinga kanan.",
+    "answer_full_ko": "네, 알겠습니다! (왼손으로 오른쪽 귀를 만집니다)",
+    "answer_full_id": "Gunakan tangan kiri menyilang untuk memegang telinga kanan.",
     "title_ko": "왼쪽 손으로 오른쪽 귀를 만져 보세요",
     "title_id": "Sentuh telinga kanan dengan tangan kiri",
     "level": "Aksi",
     "source": "Skill Test Hub epstopikhub.com (Bagian 2)",
     "audio_q": "/audio/hub/nu/2651_new.m4a",
     "audio_a": null,
-    "answer_options": []
+    "answer_options": [
+      {
+        "label": "Aksi Fisik Sesuai Instruksi",
+        "ko": "네, 알겠습니다! (왼손으로 오른쪽 귀를 만집니다)",
+        "id": "Gunakan tangan kiri menyilang untuk memegang telinga kanan.",
+        "audio": null
+      }
+    ],
+    "answer_ko": "네, 알겠습니다! (왼손으로 오른쪽 귀를 만집니다)",
+    "answer_id": "Gunakan tangan kiri menyilang untuk memegang telinga kanan."
   },
   {
     "id": "hhl_28",
@@ -20854,17 +21097,26 @@
     "question_romaja": "",
     "question_id": "Sentuh telinga kiri dengan tangan kanan",
     "image_url": null,
-    "answer_short_ko": null,
-    "answer_short_id": null,
-    "answer_full_ko": null,
-    "answer_full_id": null,
+    "answer_short_ko": "네, 알겠습니다! (오른손으로 왼쪽 귀를 만집니다)",
+    "answer_short_id": "Gunakan tangan kanan menyilang untuk memegang telinga kiri.",
+    "answer_full_ko": "네, 알겠습니다! (오른손으로 왼쪽 귀를 만집니다)",
+    "answer_full_id": "Gunakan tangan kanan menyilang untuk memegang telinga kiri.",
     "title_ko": "오른쪽 손으로 왼쪽 귀를 만져 보세요",
     "title_id": "Sentuh telinga kiri dengan tangan kanan",
     "level": "Aksi",
     "source": "Skill Test Hub epstopikhub.com (Bagian 2)",
     "audio_q": "/audio/hub/nu/2652_new.m4a",
     "audio_a": null,
-    "answer_options": []
+    "answer_options": [
+      {
+        "label": "Aksi Fisik Sesuai Instruksi",
+        "ko": "네, 알겠습니다! (오른손으로 왼쪽 귀를 만집니다)",
+        "id": "Gunakan tangan kanan menyilang untuk memegang telinga kiri.",
+        "audio": null
+      }
+    ],
+    "answer_ko": "네, 알겠습니다! (오른손으로 왼쪽 귀를 만집니다)",
+    "answer_id": "Gunakan tangan kanan menyilang untuk memegang telinga kiri."
   },
   {
     "id": "hhl_29",
@@ -20874,17 +21126,26 @@
     "question_romaja": "",
     "question_id": "Rentangkan kedua tangan ke depan",
     "image_url": null,
-    "answer_short_ko": null,
-    "answer_short_id": null,
-    "answer_full_ko": null,
-    "answer_full_id": null,
+    "answer_short_ko": "네, 알겠습니다! (양팔을 앞으로 곧게 뻗습니다)",
+    "answer_short_id": "Rentangkan dan luruskan kedua tangan lurus ke arah depan dada.",
+    "answer_full_ko": "네, 알겠습니다! (양팔을 앞으로 곧게 뻗습니다)",
+    "answer_full_id": "Rentangkan dan luruskan kedua tangan lurus ke arah depan dada.",
     "title_ko": "양팔을 앞으로 뻗어 보세요",
     "title_id": "Rentangkan kedua tangan ke depan",
     "level": "Aksi",
     "source": "Skill Test Hub epstopikhub.com (Bagian 2)",
     "audio_q": "/audio/hub/nu/2653_new.m4a",
     "audio_a": null,
-    "answer_options": []
+    "answer_options": [
+      {
+        "label": "Aksi Fisik Sesuai Instruksi",
+        "ko": "네, 알겠습니다! (양팔을 앞으로 곧게 뻗습니다)",
+        "id": "Rentangkan dan luruskan kedua tangan lurus ke arah depan dada.",
+        "audio": null
+      }
+    ],
+    "answer_ko": "네, 알겠습니다! (양팔을 앞으로 곧게 뻗습니다)",
+    "answer_id": "Rentangkan dan luruskan kedua tangan lurus ke arah depan dada."
   },
   {
     "id": "hhl_30",
@@ -20894,17 +21155,26 @@
     "question_romaja": "",
     "question_id": "Lentangkan jari-jari",
     "image_url": null,
-    "answer_short_ko": null,
-    "answer_short_id": null,
-    "answer_full_ko": null,
-    "answer_full_id": null,
+    "answer_short_ko": "네, 알겠습니다! (손가락을 활짝 폅니다)",
+    "answer_short_id": "Lentangkan seluruh jari tangan terbuka lebar.",
+    "answer_full_ko": "네, 알겠습니다! (손가락을 활짝 폅니다)",
+    "answer_full_id": "Lentangkan seluruh jari tangan terbuka lebar.",
     "title_ko": "손가락을 펴 보세요",
     "title_id": "Lentangkan jari-jari",
     "level": "Aksi",
     "source": "Skill Test Hub epstopikhub.com (Bagian 2)",
     "audio_q": "/audio/hub/nu/2654_new.m4a",
     "audio_a": null,
-    "answer_options": []
+    "answer_options": [
+      {
+        "label": "Aksi Fisik Sesuai Instruksi",
+        "ko": "네, 알겠습니다! (손가락을 활짝 폅니다)",
+        "id": "Lentangkan seluruh jari tangan terbuka lebar.",
+        "audio": null
+      }
+    ],
+    "answer_ko": "네, 알겠습니다! (손가락을 활짝 폅니다)",
+    "answer_id": "Lentangkan seluruh jari tangan terbuka lebar."
   },
   {
     "id": "hhl_31",
@@ -20914,17 +21184,26 @@
     "question_romaja": "Songarageul umjigyeo boseyo",
     "question_id": "Gerak-gerakkan jari-jari",
     "image_url": null,
-    "answer_short_ko": null,
-    "answer_short_id": null,
-    "answer_full_ko": null,
-    "answer_full_id": null,
+    "answer_short_ko": "네, 알겠습니다! (손가락을 꼼지락 움직입니다)",
+    "answer_short_id": "Gerak-gerakkan jari tangan seperti sedang mengetik atau meregangkan otot.",
+    "answer_full_ko": "네, 알겠습니다! (손가락을 꼼지락 움직입니다)",
+    "answer_full_id": "Gerak-gerakkan jari tangan seperti sedang mengetik atau meregangkan otot.",
     "title_ko": "손가락을 움직여 보세요",
     "title_id": "Gerak-gerakkan jari-jari",
     "level": "Aksi",
     "source": "Skill Test Hub epstopikhub.com (Bagian 2)",
     "audio_q": "/audio/hub/nu/2655_new.m4a",
     "audio_a": null,
-    "answer_options": []
+    "answer_options": [
+      {
+        "label": "Aksi Fisik Sesuai Instruksi",
+        "ko": "네, 알겠습니다! (손가락을 꼼지락 움직입니다)",
+        "id": "Gerak-gerakkan jari tangan seperti sedang mengetik atau meregangkan otot.",
+        "audio": null
+      }
+    ],
+    "answer_ko": "네, 알겠습니다! (손가락을 꼼지락 움직입니다)",
+    "answer_id": "Gerak-gerakkan jari tangan seperti sedang mengetik atau meregangkan otot."
   },
   {
     "id": "hhl_32",
@@ -20934,17 +21213,26 @@
     "question_romaja": "Nuneul kkamppagiseyo.",
     "question_id": "Kedipkan mata Anda.",
     "image_url": null,
-    "answer_short_ko": "네, 알겠습니다.",
-    "answer_short_id": "Baik, saya mengerti (langsung mengedipkan kedua mata).",
-    "answer_full_ko": "네, 알겠습니다.",
-    "answer_full_id": "Baik, saya mengerti (langsung mengedipkan kedua mata).",
+    "answer_short_ko": "네, 알겠습니다! (눈을 두세 번 깜빡입니다)",
+    "answer_short_id": "Kedipkan kedua mata secara alami dan jelas.",
+    "answer_full_ko": "네, 알겠습니다! (눈을 두세 번 깜빡입니다)",
+    "answer_full_id": "Kedipkan kedua mata secara alami dan jelas.",
     "title_ko": "눈을 깜빡이세요.",
     "title_id": "Kedipkan mata.",
     "level": "Dasar",
     "source": "Perintah Gerak Fisik HRD Korea",
-    "audio_q": null,
+    "audio_q": "/audio/tts/commands/hhl_32_q.mp3",
     "audio_a": null,
-    "answer_options": []
+    "answer_options": [
+      {
+        "label": "Aksi Fisik Sesuai Instruksi",
+        "ko": "네, 알겠습니다! (눈을 두세 번 깜빡입니다)",
+        "id": "Kedipkan kedua mata secara alami dan jelas.",
+        "audio": null
+      }
+    ],
+    "answer_ko": "네, 알겠습니다! (눈을 두세 번 깜빡입니다)",
+    "answer_id": "Kedipkan kedua mata secara alami dan jelas."
   },
   {
     "id": "hhl_33",
@@ -20954,17 +21242,26 @@
     "question_romaja": "Nuneul gameuseyo. Nuneul tteuseyo.",
     "question_id": "Tutup mata Anda. Buka mata Anda.",
     "image_url": null,
-    "answer_short_ko": "네, 알겠습니다.",
-    "answer_short_id": "Baik (pejamkan mata sebentar lalu buka kembali saat diminta).",
-    "answer_full_ko": "네, 알겠습니다.",
-    "answer_full_id": "Baik (pejamkan mata sebentar lalu buka kembali saat diminta).",
+    "answer_short_ko": "네, 알겠습니다! (눈을 감았다가 다시 뜹니다)",
+    "answer_short_id": "Tutup mata rapat sebentar lalu buka mata kembali.",
+    "answer_full_ko": "네, 알겠습니다! (눈을 감았다가 다시 뜹니다)",
+    "answer_full_id": "Tutup mata rapat sebentar lalu buka mata kembali.",
     "title_ko": "눈을 감으세요. 눈을 뜨세요.",
     "title_id": "Tutup mata, lalu buka mata.",
     "level": "Dasar",
     "source": "Perintah Gerak Fisik HRD Korea",
-    "audio_q": null,
+    "audio_q": "/audio/tts/commands/hhl_33_q.mp3",
     "audio_a": null,
-    "answer_options": []
+    "answer_options": [
+      {
+        "label": "Aksi Fisik Sesuai Instruksi",
+        "ko": "네, 알겠습니다! (눈을 감았다가 다시 뜹니다)",
+        "id": "Tutup mata rapat sebentar lalu buka mata kembali.",
+        "audio": null
+      }
+    ],
+    "answer_ko": "네, 알겠습니다! (눈을 감았다가 다시 뜹니다)",
+    "answer_id": "Tutup mata rapat sebentar lalu buka mata kembali."
   },
   {
     "id": "hhl_34",
@@ -20974,17 +21271,26 @@
     "question_romaja": "Ibeul beolliseyo. A haseyo.",
     "question_id": "Buka mulut Anda. Ucapkan 'A'.",
     "image_url": null,
-    "answer_short_ko": "아",
-    "answer_short_id": "Membuka mulut lebar sambil mengucapkan 'A'.",
-    "answer_full_ko": "아",
-    "answer_full_id": "Membuka mulut lebar sambil mengucapkan 'A'.",
+    "answer_short_ko": "아! (입을 크게 벌립니다)",
+    "answer_short_id": "Buka mulut lebar-lebar sambil mengucapkan suara vokal A.",
+    "answer_full_ko": "아! (입을 크게 벌립니다)",
+    "answer_full_id": "Buka mulut lebar-lebar sambil mengucapkan suara vokal A.",
     "title_ko": "입을 벌리세요. 아 하세요.",
     "title_id": "Buka mulut (A).",
     "level": "Dasar",
     "source": "Perintah Gerak Fisik HRD Korea",
-    "audio_q": null,
+    "audio_q": "/audio/tts/commands/hhl_34_q.mp3",
     "audio_a": null,
-    "answer_options": []
+    "answer_options": [
+      {
+        "label": "Aksi Fisik Sesuai Instruksi",
+        "ko": "아! (입을 크게 벌립니다)",
+        "id": "Buka mulut lebar-lebar sambil mengucapkan suara vokal A.",
+        "audio": null
+      }
+    ],
+    "answer_ko": "아! (입을 크게 벌립니다)",
+    "answer_id": "Buka mulut lebar-lebar sambil mengucapkan suara vokal A."
   },
   {
     "id": "hhl_35",
@@ -20994,17 +21300,26 @@
     "question_romaja": "Eokkaereul dolliseyo.",
     "question_id": "Putar bahu Anda.",
     "image_url": null,
-    "answer_short_ko": "네, 알겠습니다.",
-    "answer_short_id": "Baik (memutar kedua bahu dengan rileks).",
-    "answer_full_ko": "네, 알겠습니다.",
-    "answer_full_id": "Baik (memutar kedua bahu dengan rileks).",
+    "answer_short_ko": "네, 알겠습니다! (어깨를 뒤로 돌립니다)",
+    "answer_short_id": "Putarkan kedua bahu ke arah belakang dengan rileks.",
+    "answer_full_ko": "네, 알겠습니다! (어깨를 뒤로 돌립니다)",
+    "answer_full_id": "Putarkan kedua bahu ke arah belakang dengan rileks.",
     "title_ko": "어깨를 돌리세요.",
     "title_id": "Putar bahu.",
     "level": "Dasar",
     "source": "Perintah Gerak Fisik HRD Korea",
-    "audio_q": null,
+    "audio_q": "/audio/tts/commands/hhl_35_q.mp3",
     "audio_a": null,
-    "answer_options": []
+    "answer_options": [
+      {
+        "label": "Aksi Fisik Sesuai Instruksi",
+        "ko": "네, 알겠습니다! (어깨를 뒤로 돌립니다)",
+        "id": "Putarkan kedua bahu ke arah belakang dengan rileks.",
+        "audio": null
+      }
+    ],
+    "answer_ko": "네, 알겠습니다! (어깨를 뒤로 돌립니다)",
+    "answer_id": "Putarkan kedua bahu ke arah belakang dengan rileks."
   },
   {
     "id": "hmv_01",
