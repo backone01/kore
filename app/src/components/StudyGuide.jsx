@@ -1399,7 +1399,7 @@ export function StudyGuide({ onStartPracticeCategory }) {
     { id: 'piktogram', moduleId: 'safety', label: 'Piktogram & Rambu K3', icon: ShieldAlert, count: '98 Rambu' },
 
     { id: 'alat', moduleId: 'tools', label: 'Foto & Nama Alat Manufaktur', icon: Image, count: `${alatCount} Alat` },
-    { id: 'manufacturing', moduleId: 'tools', label: 'Pos Praktik & SOP Pabrik', icon: Factory, count: 'SOP' },
+    { id: 'manufacturing', moduleId: 'tools', label: 'Pos Praktik Meja & Peragaan Alat', icon: Wrench, count: '3 Pos Meja' },
 
     { id: 'numbers', moduleId: 'numbers', label: 'Nomor & Angka Sino/Asli', icon: Hash, count: 'Sino/Asli' },
     { id: 'time', moduleId: 'numbers', label: 'Jam & Waktu', icon: Clock, count: 'Format' },
@@ -1891,8 +1891,6 @@ export function StudyGuide({ onStartPracticeCategory }) {
             onPick={(i) => {
               if (playerUI.on && playerUI.tab === 'k3') { setSelK3(i); jumpPlayer(i); return; }
               setSelK3(i === selK3 ? -1 : i);
-              const q = filteredK3[i];
-              if (q && i !== selK3) playAudio(q.audio_q, q.question_ko);
             }}
             onPlayRow={(i) => {
               setSelK3(i);
@@ -2071,8 +2069,6 @@ export function StudyGuide({ onStartPracticeCategory }) {
             onPick={(i) => {
               if (playerUI.on && playerUI.tab === 'interview') { setSelInt(i); jumpPlayer(i); return; }
               setSelInt(i === selInt ? -1 : i);
-              const q = filteredInterview[i];
-              if (q && i !== selInt) playAudio(q.audio_q, q.question_ko);
             }}
             onPlayRow={(i) => {
               setSelInt(i);
@@ -4022,17 +4018,17 @@ export function StudyGuide({ onStartPracticeCategory }) {
           <div className="border-b border-border pb-3">
             <div className="flex items-center gap-2 mb-1">
               <Badge variant="outline" className="border-amber-500/30 text-amber-600 dark:text-amber-400 text-[10px]">
-                TES PRAKTIK MEJA PENGUJI
+                TES PRAKTIK MEJA PENGUJI (기능시험)
               </Badge>
               <span className="text-[11px] font-bold text-muted-foreground uppercase tracking-wider">
-                Perakitan, Pengukuran & Instruksi Alat
+                Peragaan Alat, Perakitan & Tugas Meja
               </span>
             </div>
             <h2 className="text-lg sm:text-xl font-bold text-foreground">
-              {studyData.manufacturing.title}
+              3 Pos Praktik Meja Ujian & Peragaan Perkakas
             </h2>
             <p className="text-xs sm:text-sm text-muted-foreground mt-0.5 leading-relaxed">
-              Pelajari 3 pos ujian praktik meja, tanya jawab fungsi alat, perintah mengambil alat, dan skenario situasi pabrik.
+              Panduan 3 tugas meja penguji (Pin Board, Gantungan Rantai, Rakit Baut), tanya jawab fungsi alat, serta perintah peragaan aksi perkakas.
             </p>
           </div>
 
@@ -4150,9 +4146,14 @@ export function StudyGuide({ onStartPracticeCategory }) {
           {/* Bagian 4: Skenario Situasi Kritis Pabrik */}
           {studyData.manufacturing.scenarios && (
             <div className="space-y-3">
-              <h3 className="text-sm font-bold text-foreground uppercase tracking-wider">
-                4. Skenario Situasi Kerja & Lembur di Pabrik ({studyData.manufacturing.scenarios.length})
-              </h3>
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1.5">
+                <h3 className="text-sm font-bold text-foreground uppercase tracking-wider">
+                  4. SOP Wawancara Situasi Kerja & Lembur ({studyData.manufacturing.scenarios.length})
+                </h3>
+                <span className="text-[11px] text-muted-foreground">
+                  *Diujikan pada sesi Wawancara Sikap Kerja Pabrik
+                </span>
+              </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                 {studyData.manufacturing.scenarios.map((sc, idx) => (
                   <div key={idx} className="rounded-xl border border-border bg-card p-4 space-y-2">

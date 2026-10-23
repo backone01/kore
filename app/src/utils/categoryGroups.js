@@ -55,7 +55,7 @@ export const HRDK_MODULES = [
     label: '4. Perkakas & Alat Kerja (공구 & 기능시험)',
     shortLabel: '4. Alat Kerja',
     icon: 'Wrench',
-    desc: '90 Foto & Nama Alat Manufaktur, Fungsi Alat, serta Praktik Peragaan Aksi Alat',
+    desc: '90 Foto & Nama Alat Manufaktur, 3 Pos Praktik Meja (Pin Board, Gantungan, Baut) & Fungsi Perkakas',
     categories: ['alat_manufaktur', 'alat_klasik', 'fungsi_alat', 'praktik_alat', 'perintah_alat'],
     studyTab: 'tools',
     points: 7,
