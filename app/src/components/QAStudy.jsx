@@ -187,6 +187,11 @@ export function QAPlayerDeck({
           <span className="font-mono text-xs font-bold px-2 py-0.5 rounded-md bg-secondary text-foreground border border-border shrink-0">
             #{currentIndex + 1} dari {totalCount}
           </span>
+          {ui.shuffle && isPlaying && (
+            <span className="font-mono text-[11px] font-semibold px-2 py-0.5 rounded-md bg-emerald-100 text-emerald-800 dark:bg-emerald-950/60 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-700 shrink-0">
+              Acak #{ui.pos + 1}/{totalCount}
+            </span>
+          )}
           {statusBadge}
         </div>
 
@@ -388,7 +393,7 @@ export function QAPlayerDeck({
         <div className="flex items-center justify-center gap-2">
           <button
             type="button"
-            disabled={currentIndex <= 0}
+            disabled={isPlaying ? (!ui.repeat && ui.pos <= 0) : currentIndex <= 0}
             onClick={onPrev}
             title="Soal sebelumnya"
             className="grid size-9 place-items-center rounded-lg border border-border bg-secondary hover:bg-secondary/80 text-foreground disabled:opacity-35 transition-all"
@@ -411,7 +416,7 @@ export function QAPlayerDeck({
 
           <button
             type="button"
-            disabled={currentIndex >= totalCount - 1}
+            disabled={isPlaying ? (!ui.repeat && ui.pos >= (ui.total ? ui.total - 1 : totalCount - 1)) : currentIndex >= totalCount - 1}
             onClick={onNext}
             title="Soal berikutnya"
             className="grid size-9 place-items-center rounded-lg border border-border bg-secondary hover:bg-secondary/80 text-foreground disabled:opacity-35 transition-all"
@@ -425,29 +430,31 @@ export function QAPlayerDeck({
           <button
             type="button"
             onClick={onShuffle}
-            title={ui.shuffle ? 'Acak urutan: Aktif' : 'Acak urutan: Nonaktif'}
+            title={ui.shuffle ? 'Acak urutan: Aktif (Shuffle On)' : 'Acak urutan: Nonaktif (Shuffle Off)'}
             className={cn(
-              'p-2 rounded-lg border text-xs font-semibold transition-all min-h-[34px]',
+              'px-2.5 py-1.5 rounded-lg border text-xs font-semibold transition-all min-h-[34px] flex items-center gap-1.5',
               ui.shuffle
-                ? 'bg-emerald-600 text-white border-emerald-700 shadow-xs'
+                ? 'bg-emerald-600 text-white border-emerald-700 shadow-xs ring-1 ring-emerald-400'
                 : 'bg-secondary text-muted-foreground border-border hover:text-foreground'
             )}
           >
             <Shuffle className="h-3.5 w-3.5" />
+            <span className="text-[11px] font-bold">{ui.shuffle ? 'Acak' : 'Urut'}</span>
           </button>
 
           <button
             type="button"
             onClick={onRepeat}
-            title={ui.repeat ? 'Ulangi playlist: Aktif' : 'Ulangi playlist: Nonaktif'}
+            title={ui.repeat ? 'Ulangi playlist: Aktif (Loop On)' : 'Ulangi playlist: Nonaktif (Loop Off)'}
             className={cn(
-              'p-2 rounded-lg border text-xs font-semibold transition-all min-h-[34px]',
+              'px-2.5 py-1.5 rounded-lg border text-xs font-semibold transition-all min-h-[34px] flex items-center gap-1.5',
               ui.repeat
-                ? 'bg-emerald-600 text-white border-emerald-700 shadow-xs'
+                ? 'bg-emerald-600 text-white border-emerald-700 shadow-xs ring-1 ring-emerald-400'
                 : 'bg-secondary text-muted-foreground border-border hover:text-foreground'
             )}
           >
             <Repeat className="h-3.5 w-3.5" />
+            <span className="text-[11px] font-bold">{ui.repeat ? 'Loop' : '1x'}</span>
           </button>
         </div>
       </div>

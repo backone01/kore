@@ -434,6 +434,14 @@ export function StudyGuide({ onStartPracticeCategory }) {
       stopPlayer();
       return;
     }
+    if (last && r.repeat && r.shuffle && r.order.length > 1) {
+      const newOrder = [...r.order];
+      for (let i = newOrder.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [newOrder[i], newOrder[j]] = [newOrder[j], newOrder[i]];
+      }
+      r.order = newOrder;
+    }
     r.pos = last ? 0 : r.pos + 1;
     r.step = 'q';
     syncPlayer();
@@ -491,13 +499,14 @@ export function StudyGuide({ onStartPracticeCategory }) {
     const s0 = Math.max(0, Math.min(startIdx, items.length - 1));
     let order = items.map((_, i) => i);
     if (playerRef.current.shuffle) {
-      for (let i = order.length - 1; i > 0; i--) {
+      const remaining = order.filter(i => i !== s0);
+      for (let i = remaining.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
-        [order[i], order[j]] = [order[j], order[i]];
+        [remaining[i], remaining[j]] = [remaining[j], remaining[i]];
       }
-      order = [s0, ...order.filter(i => i !== s0)];
+      order = [s0, ...remaining];
     }
-    const targetPos = order.indexOf(s0) >= 0 ? order.indexOf(s0) : 0;
+    const targetPos = 0;
     Object.assign(playerRef.current, {
       tab,
       items: [...items],
@@ -557,7 +566,28 @@ export function StudyGuide({ onStartPracticeCategory }) {
     drivePlayer();
   };
 
-  const toggleShuffle = () => { playerRef.current.shuffle = !playerRef.current.shuffle; syncPlayer(); };
+  const toggleShuffle = () => {
+    const r = playerRef.current;
+    const nextShuffle = !r.shuffle;
+    r.shuffle = nextShuffle;
+
+    if (r.items && r.items.length > 0) {
+      const currentIdx = r.order && r.order.length > 0 ? (r.order[r.pos] ?? 0) : 0;
+      if (nextShuffle) {
+        const remaining = r.items.map((_, i) => i).filter(i => i !== currentIdx);
+        for (let i = remaining.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [remaining[i], remaining[j]] = [remaining[j], remaining[i]];
+        }
+        r.order = [currentIdx, ...remaining];
+        r.pos = 0;
+      } else {
+        r.order = r.items.map((_, i) => i);
+        r.pos = Math.max(0, r.order.indexOf(currentIdx));
+      }
+    }
+    syncPlayer();
+  };
   const toggleRepeat = () => { playerRef.current.repeat = !playerRef.current.repeat; syncPlayer(); };
 
   const seekPlayer = (frac) => {
