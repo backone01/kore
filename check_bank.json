@@ -1,0 +1,62 @@
+[
+ {
+  "id": "1",
+  "id_img": "",
+  "type": "van-dap",
+  "timer": "3",
+  "question_kr": "이름이 뭐 예요?",
+  "question_vi": "Tên bạn là gì?",
+  "answer_kr": "제 이름은 (000)입니다.",
+  "answer_vi": "Tên tôi là (000)."
+ },
+ {
+  "id": "2",
+  "id_img": "",
+  "type": "van-dap",
+  "timer": "4",
+  "question_kr": "나이가 어떻게 되세요?",
+  "question_vi": "Bạn bao nhiêu tuổi?",
+  "answer_kr": "저는 (서른 여섯) 살입니다.",
+  "answer_vi": "Tôi (ba mươi sáu) tuổi."
+ },
+ {
+  "id": "51",
+  "id_img": "",
+  "type": "hieu-lenh",
+  "timer": "4",
+  "question_kr": "오른쪽으로 보세요",
+  "question_vi": "Hãy nhìn về bên phải",
+  "answer_kr": "",
+  "answer_vi": ""
+ },
+ {
+  "id": "52",
+  "id_img": "",
+  "type": "hieu-lenh",
+  "timer": "4",
+  "question_kr": "왼쪽으로 보세요",
+  "question_vi": "Hãy nhìn về bên trái",
+  "answer_kr": "",
+  "answer_vi": ""
+ },
+ {
+  "id": "157",
+  "id_img": "",
+  "type": "ky-nang-nghe-nghiep",
+  "timer": "6",
+  "question_kr": "직장 동료하고 어떻게 지낼거예요?",
+  "question_vi": "Bạn sẽ đối xử với đồng nghiệp như thế nào?",
+  "answer_kr": "배려하면서 즐겁게 지낼겁니다. 바쁘면 도와줄게요.",
+  "answer_vi": "Tôi sẽ sống hòa thuận và giúp đỡ khi đồng nghiệp bận."
+ },
+ {
+  "id": "158",
+  "id_img": "",
+  "type": "ky-nang-nghe-nghiep",
+  "timer": "6",
+  "question_kr": "직장 동료가 바쁘면 어떻게 할거예요?",
+  "question_vi": "Nếu đồng nghiệp bận, bạn sẽ làm gì?",
+  "answer_kr": "제 일이 끝나면 즐겁게 도와줄게요.",
+  "answer_vi": "Tôi sẽ giúp khi xong việc của mình."
+ }
+]

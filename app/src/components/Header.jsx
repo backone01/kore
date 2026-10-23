@@ -22,11 +22,11 @@ export function Header({
   ];
 
   return (
-    <header className="sticky top-0 z-40 border-b border-border bg-card/95 backdrop-blur-md">
-      <div className="max-w-5xl mx-auto flex h-14 items-center justify-between px-3 sm:px-6 gap-2">
+    <header className="sticky top-0 z-40 border-b border-border bg-card">
+      <div className="max-w-5xl mx-auto flex h-14 items-center justify-between px-2.5 sm:px-6 gap-1.5 sm:gap-3">
         {/* Brand */}
         <div className="flex items-center gap-2 shrink-0">
-          <span className="h-7 w-7 rounded-lg bg-primary flex items-center justify-center shadow-xs">
+          <span className="h-7 w-7 rounded-md bg-primary flex items-center justify-center">
             <span className="font-kr text-xs font-bold text-primary-foreground">E</span>
           </span>
           <span className="font-bold text-sm tracking-tight text-foreground hidden md:inline">
@@ -34,24 +34,25 @@ export function Header({
           </span>
         </div>
 
-        {/* Mode tabs with comfortable touch targets and visible labels */}
-        <nav className="flex items-center rounded-lg bg-secondary p-1 gap-1" aria-label="Mode aplikasi">
+        {/* Mode tabs */}
+        <nav className="flex items-center rounded-lg bg-secondary p-1 gap-0.5 sm:gap-1" aria-label="Mode aplikasi">
           {modes.map(m => {
             const Icon = m.icon;
             const active = mode === m.id;
             return (
               <button
                 key={m.id}
+                type="button"
                 onClick={() => { setMode(m.id); stopAllAudio(); }}
                 aria-current={active ? 'page' : undefined}
                 className={cn(
-                  'flex items-center gap-1.5 rounded-md px-2.5 sm:px-3.5 py-1.5 text-xs font-semibold transition-all border min-h-[36px]',
+                  'flex items-center justify-center gap-1.5 rounded-md px-2.5 sm:px-3.5 py-1.5 text-xs font-semibold transition-colors min-h-[34px] sm:min-h-[36px] whitespace-nowrap',
                   active
-                    ? 'bg-card text-foreground border-border shadow-xs'
-                    : 'border-transparent text-muted-foreground hover:text-foreground hover:bg-card/50'
+                    ? 'bg-card text-foreground shadow-xs'
+                    : 'text-muted-foreground hover:text-foreground'
                 )}
               >
-                <Icon className="h-3.5 w-3.5 shrink-0" />
+                <Icon className="h-3.5 w-3.5 shrink-0 hidden sm:inline" />
                 <span>{m.label}</span>
               </button>
             );
@@ -59,16 +60,16 @@ export function Header({
         </nav>
 
         {/* Right controls */}
-        <div className="flex items-center gap-1.5 shrink-0">
+        <div className="flex items-center gap-1 sm:gap-1.5 shrink-0">
           {mode === 'practice' && (
             <Button
               variant="outline"
               size="sm"
               onClick={() => setCategoryModalOpen(true)}
               aria-label="Pilih Kategori Bank Soal"
-              className="h-9 px-2.5 sm:px-3 text-xs"
+              className="h-8 sm:h-9 px-2 sm:px-3 text-xs gap-1.5"
             >
-              <SlidersHorizontal className="h-3.5 w-3.5" />
+              <SlidersHorizontal className="h-3.5 w-3.5 shrink-0" />
               <span className="hidden sm:inline">Kategori</span>
             </Button>
           )}
@@ -78,9 +79,9 @@ export function Header({
             size="sm"
             onClick={() => setRevisionModalOpen(true)}
             aria-label="Panduan Regulasi HRDK"
-            className="h-9 px-2 sm:px-3 text-xs text-muted-foreground hover:text-foreground"
+            className="h-8 sm:h-9 px-2 sm:px-3 text-xs text-muted-foreground hover:text-foreground gap-1.5"
           >
-            <FileText className="h-3.5 w-3.5 sm:hidden" />
+            <FileText className="h-3.5 w-3.5 shrink-0" />
             <span className="hidden sm:inline">Regulasi</span>
           </Button>
         </div>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Eye, EyeOff, Volume2, Mic, CheckCircle2, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Eye, EyeOff, Volume2, Mic, CheckCircle2 } from 'lucide-react';
 import { Button } from './ui/button.jsx';
 import { Card } from './ui/card.jsx';
 import { Badge } from './ui/badge.jsx';
@@ -25,47 +25,58 @@ export function PracticeOral({
   recordedAudioUrl
 }) {
   return (
-    <div className="w-full max-w-xl mx-auto flex flex-col items-center text-center space-y-4">
+    <div className="w-full max-w-xl mx-auto flex flex-col items-center text-center space-y-3.5">
 
       {/* Meta bar */}
-      <div className="w-full flex items-center justify-between text-xs text-muted-foreground px-1">
-        <span className="font-mono font-bold text-foreground bg-secondary border border-border px-2.5 py-1 rounded-md">
+      <div className="w-full flex items-center justify-between text-xs text-muted-foreground pb-2 border-b border-border px-0.5">
+        <span className="font-mono font-bold text-foreground">
           Soal {currentIndex + 1} / {total}
         </span>
 
-        <div className="flex items-center gap-2">
-          <div className="flex items-center gap-1.5">
-            <span className="text-[11px] font-medium">Arti</span>
+        <div className="flex items-center gap-3">
+          <label className="flex items-center gap-1.5 cursor-pointer">
+            <span className="text-[11px] font-medium text-foreground">Arti</span>
             <Switch
               checked={showTranslate}
               onCheckedChange={setShowTranslate}
               aria-label="Tampilkan terjemahan"
             />
-          </div>
+          </label>
 
-          <div className="flex items-center gap-1.5">
-            <span className="text-[11px] font-medium">Blind</span>
+          <label className="flex items-center gap-1.5 cursor-pointer">
+            <span className="text-[11px] font-medium text-foreground">Blind</span>
             <Switch
               checked={blindMode}
               onCheckedChange={setBlindMode}
               aria-label="Mode buta teks"
             />
-          </div>
+          </label>
         </div>
       </div>
 
-      {/* Question card */}
-      <Card className="w-full p-5 flex flex-col items-center">
-        <Badge variant="outline" className="mb-3 font-mono">
-          {currentQ?.category_title || currentQ?.category}
-        </Badge>
+      {/* Unified Question & Answer Card (single-level surface) */}
+      <Card className="w-full p-5 sm:p-6 flex flex-col items-center">
+        <div className="w-full flex items-center justify-between gap-2 mb-3">
+          <Badge variant="outline" className="font-mono truncate">
+            {currentQ?.category_title || currentQ?.category}
+          </Badge>
+
+          <button
+            type="button"
+            onClick={() => setShowAnswer(!showAnswer)}
+            className="inline-flex items-center gap-1 text-xs font-semibold text-primary hover:underline shrink-0"
+          >
+            {showAnswer ? <EyeOff className="h-3.5 w-3.5" /> : <Eye className="h-3.5 w-3.5" />}
+            <span>{showAnswer ? 'Tutup Kunci' : 'Lihat Kunci Jawaban'}</span>
+          </button>
+        </div>
 
         {currentQ?.image_url && (
           <div className="max-h-48 md:max-h-60 w-full flex items-center justify-center mb-3">
             <img
               src={getAssetUrl(currentQ.image_url)}
               alt="Perkakas atau Rambu K3"
-              className="max-h-44 md:max-h-56 w-auto object-contain rounded-md"
+              className="max-h-44 md:max-h-56 w-auto object-contain"
             />
           </div>
         )}
@@ -80,80 +91,61 @@ export function PracticeOral({
                 {currentQ?.question_romaja}
               </p>
             )}
-            {showTranslate && (
-              <p className="text-xs md:text-sm text-foreground bg-muted border border-border px-3.5 py-1.5 rounded-md inline-block mt-1 font-medium">
-                "{currentQ?.question_id}"
+            {showTranslate && currentQ?.question_id && (
+              <p className="text-sm text-muted-foreground mt-1 leading-relaxed">
+                &ldquo;{currentQ?.question_id}&rdquo;
               </p>
             )}
           </div>
         ) : (
-          <div className="py-4 px-5 rounded-md bg-warn/10 border border-warn/30 text-xs text-warn font-medium my-2">
-            <strong>Blind Mode Aktif:</strong> Teks pertanyaan disembunyikan. Tebak langsung nama Korea alat atau jawab audio penguji secara mandiri.
-          </div>
+          <p className="py-4 text-xs text-warn font-medium my-2 max-w-md">
+            Blind Mode Aktif: Teks pertanyaan disembunyikan. Dengarkan suara penguji lewat tombol di bilah bawah lalu jawab secara lisan.
+          </p>
         )}
 
-        <div className="mt-3">
-          <Button onClick={onPlayQuestion}>
-            <Volume2 className={cn('h-4 w-4', isPlayingAudio && 'animate-pulse')} />
-            <span>Putar Suara Penguji</span>
-          </Button>
-        </div>
-      </Card>
-
-      {/* Answer reveal */}
-      <div className="w-full">
-        {!showAnswer ? (
-          <Button variant="outline" onClick={() => setShowAnswer(true)} className="w-full">
-            <Eye className="h-4 w-4" />
-            <span>Buka Kunci Jawaban Resmi</span>
-          </Button>
-        ) : (
-          <Card className="w-full p-4 text-left space-y-2 animate-fade-in border-emerald-500/40">
-            <div className="flex items-center justify-between">
-              <span className="text-[10px] font-bold text-emerald-800 uppercase tracking-wider flex items-center gap-1">
+        {/* Answer Key integrated cleanly with a top divider */}
+        {showAnswer && (
+          <div className="w-full mt-4 pt-4 border-t border-border text-left space-y-1.5 animate-fade-in">
+            <div className="flex items-center justify-between gap-2">
+              <span className="text-[11px] font-bold text-emerald-700 uppercase tracking-wider flex items-center gap-1">
                 <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600" />
-                Jawaban Model HRD Korea:
+                Jawaban Model HRD Korea
               </span>
-              <div className="flex items-center gap-2">
-                {currentQ?.audio_a && (
-                  <Button type="button" variant="secondary" size="sm" onClick={onPlayAnswer}>
-                    <Volume2 className="h-3 w-3" />
-                    <span>Audio Jawaban</span>
-                  </Button>
-                )}
-                <Button variant="ghost" size="sm" onClick={() => setShowAnswer(false)}>
-                  Tutup
+              {currentQ?.audio_a && (
+                <Button type="button" variant="secondary" size="sm" onClick={onPlayAnswer} className="h-7 text-xs">
+                  <Volume2 className="h-3 w-3" />
+                  <span>Audio Jawaban</span>
                 </Button>
-              </div>
+              )}
             </div>
 
             <p className="text-xl font-bold text-foreground font-kr">
               {currentQ?.answer_short_ko || currentQ?.title_ko}
             </p>
             {showTranslate && (
-              <p className="text-xs text-muted-foreground font-medium leading-relaxed">
+              <p className="text-xs text-muted-foreground leading-relaxed">
                 Artinya: {currentQ?.answer_short_id || currentQ?.title_id}
               </p>
             )}
-          </Card>
-        )}
-      </div>
-
-      {/* Recorded voice */}
-      {recordedAudioUrl && (
-        <Card className="w-full p-3 flex items-center justify-between gap-3 animate-fade-in">
-          <div className="flex items-center gap-2 text-xs font-medium text-foreground">
-            <span className="h-2 w-2 rounded-full bg-destructive animate-pulse-dot" />
-            <span>Hasil Rekaman Suara Anda:</span>
           </div>
-          <audio src={recordedAudioUrl} controls className="h-8 max-w-[200px]" />
-        </Card>
-      )}
+        )}
+
+        {/* Recorded voice playback integrated cleanly */}
+        {recordedAudioUrl && (
+          <div className="w-full mt-4 pt-3.5 border-t border-border flex flex-wrap items-center justify-between gap-3 animate-fade-in">
+            <div className="flex items-center gap-2 text-xs font-medium text-foreground">
+              <span className="h-2 w-2 rounded-full bg-destructive animate-pulse-dot" />
+              <span>Rekaman Suara Anda:</span>
+            </div>
+            <audio src={recordedAudioUrl} controls className="h-8 max-w-[220px]" />
+          </div>
+        )}
+      </Card>
 
       {/* Mic instruction */}
-      <div className="text-[11px] text-muted-foreground font-medium flex items-center justify-center gap-1.5 pt-1">
-        <Mic className={cn('h-3.5 w-3.5', isRecording ? 'text-destructive animate-pulse-dot' : 'text-muted-foreground')} />
-        <span>Gunakan tombol Mikrofon di bilah bawah untuk melatih intonasi suara Anda</span>
+      <div className="text-[11px] text-muted-foreground font-medium flex items-center justify-center gap-1.5">
+        <Mic className={cn('h-3.5 w-3.5 shrink-0', isRecording ? 'text-destructive animate-pulse-dot' : 'text-muted-foreground')} />
+        <span>Gunakan bilah kontrol di bawah layar untuk memutar soal dan merekam suara</span>
       </div>
     </div>
   );

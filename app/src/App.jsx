@@ -5,7 +5,7 @@ import {
   Mic, ChevronRight, ChevronLeft, CheckCircle2,
   Shuffle, X, AlertCircle, Layers,
   RefreshCw, Info, CheckCircle,
-  RotateCcw, ArrowRight, Headphones
+  RotateCcw, ArrowRight, Headphones, SlidersHorizontal
 } from 'lucide-react';
 import { getRandomSample, getLogicalMovementSequence } from './utils/shuffle.js';
 import { Header } from './components/Header.jsx';
@@ -728,117 +728,100 @@ export default function App() {
         {/* A. PRACTICE MODE (LATIHAN MANDIRI) */}
         {/* ================================================================= */}
         {mode === 'practice' && (
-          <div className="w-full flex flex-col items-center space-y-4 animate-fade-in">
+          <div className="w-full flex flex-col items-center space-y-3 animate-fade-in">
             
-            {/* Module filter */}
-            <div className="w-full max-w-3xl px-1 sm:px-2">
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
-                {MAIN_MODULES.filter(m => m.id === 'all' || m.categories.length > 0).map(mod => {
-                  const isDirect = selectedCategory === mod.id;
-                  const isIncludedSub = mod.categories.includes(selectedCategory);
-                  const isSelected = isDirect || (selectedCategory !== 'all' && isIncludedSub);
-                  const count = mod.id === 'all' 
-                    ? questionsData.length 
-                    : questionsData.filter(q => mod.categories.includes(q.category)).length;
-
-                  return (
-                    <button
-                      key={mod.id}
-                      onClick={() => {
-                        setSelectedCategory(mod.id);
-                        setCurrentIndex(0);
-                        stopAllAudio();
-                      }}
-                      className={cn(
-                        'px-3 py-2.5 rounded-lg text-xs sm:text-sm font-semibold transition-all flex items-center justify-between gap-1.5 border min-h-[44px] text-left',
-                        isSelected
-                          ? 'bg-primary text-primary-foreground border-primary shadow-xs'
-                          : 'bg-card text-foreground border-border hover:bg-secondary/70'
-                      )}
-                    >
-                      <span className="truncate">{mod.shortLabel}</span>
-                      <span className={cn('text-[10px] font-mono px-1.5 py-0.5 rounded shrink-0',
-                        isSelected ? 'bg-white/20 text-white' : 'bg-secondary text-muted-foreground border border-border/50')}>
-                        {count}
-                      </span>
-                    </button>
-                  );
-                })}
-              </div>
-            </div>
-
-            {/* Sub-category filter */}
+            {/* Baris 1: 4 Tab Mode Latihan + Tombol Pemilih Kategori Aktif */}
             {(() => {
-              const currentMod = MAIN_MODULES.find(m => m.id === selectedCategory || m.categories.includes(selectedCategory));
-              if (!currentMod || currentMod.categories.length <= 1) return null;
-              const subItems = categoriesList.filter(c => currentMod.categories.includes(c.id));
-              if (subItems.length <= 1) return null;
+              const activeMod = MAIN_MODULES.find(m => m.id === selectedCategory);
+              const activeSub = categoriesList.find(c => c.id === selectedCategory);
+              const activeCatLabel = activeMod ? activeMod.shortLabel : (activeSub ? activeSub.label.split('(')[0].trim() : 'Semua Soal');
 
               return (
-                <div className="w-full max-w-3xl px-1 sm:px-2 flex items-center gap-1.5 overflow-x-auto no-scrollbar sm:flex-wrap sm:justify-center py-1 animate-fade-in">
-                  <button
-                    onClick={() => {
-                      setSelectedCategory(currentMod.id);
-                      setCurrentIndex(0);
-                      stopAllAudio();
-                    }}
-                    className={cn('shrink-0 px-2.5 py-1.5 rounded-md text-xs font-medium transition-all border min-h-[34px] flex items-center',
-                      selectedCategory === currentMod.id
-                        ? 'bg-primary text-primary-foreground border-primary shadow-xs'
-                        : 'bg-card text-foreground border-border hover:bg-secondary')}>
-                    Semua {currentMod.shortLabel}
-                  </button>
-                  {subItems.map(sub => {
-                    const isSubSelected = selectedCategory === sub.id;
-                    return (
-                      <button
-                        key={sub.id}
-                        onClick={() => {
-                          setSelectedCategory(sub.id);
-                          setCurrentIndex(0);
-                          stopAllAudio();
-                        }}
-                        className={cn('shrink-0 px-2.5 py-1.5 rounded-md text-xs font-medium transition-all border min-h-[34px] flex items-center',
-                          isSubSelected
-                            ? 'bg-primary text-primary-foreground border-primary shadow-xs'
-                            : 'bg-card text-muted-foreground border-border hover:text-foreground hover:bg-secondary')}>
-                        {sub.label.split('(')[0].trim()} ({sub.count})
-                      </button>
-                    );
-                  })}
+                <div className="w-full max-w-xl space-y-2">
+                  <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-2">
+                    {/* 4 Tab Mode Latihan */}
+                    <div className="grid grid-cols-4 sm:flex p-1 bg-secondary border border-border rounded-lg text-xs font-semibold gap-1">
+                      {[
+                        { id: 'flashcard', label: 'Flashcard', icon: Layers },
+                        { id: 'quiz', label: 'Kuis', icon: CheckCircle },
+                        { id: 'listening', label: 'Dengar', icon: Headphones },
+                        { id: 'oral', label: 'Lisan', icon: Mic },
+                      ].map(tab => {
+                        const Icon = tab.icon;
+                        const active = practiceSubMode === tab.id;
+                        return (
+                          <button
+                            key={tab.id}
+                            type="button"
+                            onClick={() => { setPracticeSubMode(tab.id); stopAllAudio(); }}
+                            className={cn(
+                              'flex items-center justify-center gap-1.5 px-2.5 sm:px-3.5 py-1.5 rounded-md transition-colors min-h-[36px] text-xs font-semibold',
+                              active
+                                ? 'bg-card text-foreground shadow-xs'
+                                : 'text-muted-foreground hover:text-foreground'
+                            )}
+                          >
+                            <Icon className="w-3.5 h-3.5 shrink-0 hidden sm:inline" />
+                            <span className="truncate">{tab.label}</span>
+                          </button>
+                        );
+                      })}
+                    </div>
+
+                    {/* Tombol Pemilih Kategori Aktif */}
+                    <button
+                      type="button"
+                      onClick={() => setCategoryModalOpen(true)}
+                      className="flex items-center justify-between sm:justify-center gap-2 px-3 py-1.5 rounded-lg border border-border bg-card hover:bg-secondary/60 text-xs font-semibold text-foreground min-h-[38px] shrink-0 transition-colors"
+                      title="Klik untuk memilih modul atau sub-kategori spesifik"
+                    >
+                      <span className="flex items-center gap-1.5 min-w-0">
+                        <SlidersHorizontal className="w-3.5 h-3.5 text-primary shrink-0" />
+                        <span className="truncate max-w-[180px]">{activeCatLabel}</span>
+                      </span>
+                      <span className="font-mono text-[11px] text-muted-foreground bg-secondary px-1.5 py-0.5 rounded shrink-0">
+                        {filteredQuestions.length} soal
+                      </span>
+                    </button>
+                  </div>
+
+                  {/* Baris Chip Filter Modul Cepat Horizontal (1 Baris) */}
+                  <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-0.5">
+                    {MAIN_MODULES.filter(m => m.id === 'all' || m.categories.length > 0).map(mod => {
+                      const isDirect = selectedCategory === mod.id;
+                      const isIncludedSub = mod.categories.includes(selectedCategory);
+                      const isSelected = isDirect || (selectedCategory !== 'all' && isIncludedSub);
+                      const count = mod.id === 'all'
+                        ? questionsData.length
+                        : questionsData.filter(q => mod.categories.includes(q.category)).length;
+
+                      return (
+                        <button
+                          key={mod.id}
+                          type="button"
+                          onClick={() => {
+                            setSelectedCategory(mod.id);
+                            setCurrentIndex(0);
+                            stopAllAudio();
+                          }}
+                          className={cn(
+                            'shrink-0 px-2.5 py-1 rounded-md text-xs font-medium transition-colors border flex items-center gap-1.5 min-h-[32px]',
+                            isSelected
+                              ? 'bg-primary text-primary-foreground border-primary'
+                              : 'bg-card text-muted-foreground border-border hover:text-foreground hover:bg-secondary/60'
+                          )}
+                        >
+                          <span>{mod.shortLabel}</span>
+                          <span className={cn('text-[10px] font-mono', isSelected ? 'text-primary-foreground/85' : 'text-muted-foreground')}>
+                            {count}
+                          </span>
+                        </button>
+                      );
+                    })}
+                  </div>
                 </div>
               );
             })()}
-
-            {/* Sub-mode tabs */}
-            <div className="w-full max-w-xl flex items-center justify-center px-1">
-              <div className="w-full sm:w-auto grid grid-cols-4 sm:flex p-1 bg-secondary border border-border rounded-lg text-xs font-semibold gap-1">
-                {[
-                  { id: 'flashcard', label: 'Flashcard', icon: Layers },
-                  { id: 'quiz', label: 'Kuis', icon: CheckCircle },
-                  { id: 'listening', label: 'Dengar', icon: Headphones },
-                  { id: 'oral', label: 'Lisan', icon: Mic },
-                ].map(tab => {
-                  const Icon = tab.icon;
-                  const active = practiceSubMode === tab.id;
-                  return (
-                    <button
-                      key={tab.id}
-                      onClick={() => { setPracticeSubMode(tab.id); stopAllAudio(); }}
-                      className={cn(
-                        'flex items-center justify-center gap-1.5 px-2 sm:px-4 py-2 rounded-md transition-all min-h-[38px] text-xs font-semibold',
-                        active
-                          ? 'bg-card text-foreground border border-border shadow-xs'
-                          : 'border-transparent text-muted-foreground hover:text-foreground hover:bg-card/50'
-                      )}
-                    >
-                      <Icon className="w-3.5 h-3.5 shrink-0" />
-                      <span className="truncate">{tab.label}</span>
-                    </button>
-                  );
-                })}
-              </div>
-            </div>
 
             {/* Sub-mode Content */}
             {practiceSubMode === 'flashcard' && (
@@ -891,105 +874,98 @@ export default function App() {
         {/* B. EXAM MODE (SIMULASI UJIAN RESMI HRD KOREA) */}
         {/* ================================================================= */}
         {mode === 'exam' && (
-          <div className="w-full flex flex-col items-center text-center space-y-6 animate-fade-in">
+          <div className="w-full flex flex-col items-center text-center space-y-5 animate-fade-in">
             
-            {/* Phase 1: Intro Briefing */}
+            {/* Phase 1: Intro Briefing (Zero Nested Cards) */}
             {examPhase === 'intro' && (
-              <Card className="w-full max-w-xl p-6 md:p-8 space-y-6 text-left">
+              <div className="w-full max-w-xl space-y-5 text-left">
+                {/* Clean Page Header */}
                 <div className="space-y-2">
                   <div className="flex flex-wrap items-center gap-2">
                     <Badge variant="outline" className="font-mono">STANDAR RESMI HRDK</Badge>
                     <Badge variant="outline" className="font-mono">TOTAL 50 POIN</Badge>
                   </div>
-                  <h2 className="text-2xl md:text-3xl font-bold text-foreground tracking-tight">
+                  <h2 className="text-xl md:text-2xl font-bold text-foreground tracking-tight">
                     Simulasi Ujian Wawancara Resmi HRD Korea
                   </h2>
                   <p className="text-xs md:text-sm text-muted-foreground leading-relaxed">
-                     Sesuai perubahan regulasi terbaru HRD Korea (Revisions to the Skills Test), bobot wawancara dinaikkan menjadi 50 poin dengan 30 langkah simulasi:
+                    Sesuai perubahan regulasi terbaru HRD Korea (Revisions to the Skills Test), bobot wawancara dinaikkan menjadi 50 poin dengan 30 langkah simulasi:
                   </p>
                 </div>
 
-                {/* 5 Komponen Ujian Wawancara */}
-                <div className="space-y-2.5 text-xs">
-                  <div className="p-3 sm:p-3.5 rounded-md bg-secondary border border-border flex items-center justify-between gap-2.5">
+                {/* 5 Komponen Ujian Wawancara dalam 1 container tunggal divide-y */}
+                <div className="rounded-xl border border-border bg-card divide-y divide-border overflow-hidden text-xs">
+                  <div className="p-3.5 sm:p-4 flex items-center justify-between gap-3">
                     <div className="min-w-0">
                       <div className="flex items-center gap-1.5 flex-wrap">
                         <p className="font-bold text-sm text-foreground">1. Perkenalan Diri Mandiri (Self-Introduction)</p>
                         <Badge variant="outline" className="font-mono text-[10px]">BERDIRI</Badge>
                       </div>
-                      <p className="text-[11px] text-muted-foreground mt-0.5">Monolog 자기소개 (Nama, Usia, Asal, Tekad Bekerja) [25 Detik]</p>
+                      <p className="text-xs text-muted-foreground mt-0.5">Monolog 자기소개 (Nama, Usia, Asal, Tekad Bekerja) · 25 Detik</p>
                     </div>
-                    <span className="font-mono font-bold px-2 py-1 rounded bg-primary text-primary-foreground text-xs shrink-0">
-                      2 Poin
-                    </span>
+                    <span className="font-mono font-bold text-sm text-primary shrink-0">2 Poin</span>
                   </div>
 
-                  <div className="p-3 sm:p-3.5 rounded-md bg-secondary border border-border flex items-center justify-between gap-2.5">
+                  <div className="p-3.5 sm:p-4 flex items-center justify-between gap-3">
                     <div className="min-w-0">
                       <div className="flex items-center gap-1.5 flex-wrap">
                         <p className="font-bold text-sm text-foreground">2. Instruksi Gerak Fisik (Work Instructions)</p>
                         <Badge variant="outline" className="font-mono text-[10px]">BERDIRI</Badge>
                       </div>
-                      <p className="text-[11px] text-muted-foreground mt-0.5">Arah & gerak refleks fisik perintah kerja (5 Soal, @3 Poin)</p>
+                      <p className="text-xs text-muted-foreground mt-0.5">Arah & gerak refleks fisik perintah kerja (5 Soal @3 Poin)</p>
                     </div>
-                    <span className="font-mono font-bold px-2 py-1 rounded bg-primary text-primary-foreground text-xs shrink-0">
-                      15 Poin
-                    </span>
+                    <span className="font-mono font-bold text-sm text-primary shrink-0">15 Poin</span>
                   </div>
 
-                  <div className="p-3 sm:p-3.5 rounded-md bg-secondary border border-border flex items-center justify-between gap-2.5">
+                  <div className="p-3.5 sm:p-4 flex items-center justify-between gap-3">
                     <div className="min-w-0">
                       <div className="flex items-center gap-1.5 flex-wrap">
                         <p className="font-bold text-sm text-foreground">3. Kartu Visual & Praktik Alat Meja</p>
                         <Badge variant="outline" className="font-mono text-[10px]">DUDUK</Badge>
                       </div>
-                      <p className="text-[11px] text-muted-foreground mt-0.5">5 kartu visual (4 rambu + 1 alat) + 2 praktik alat fungsi & aksi (@1 Poin)</p>
+                      <p className="text-xs text-muted-foreground mt-0.5">5 kartu visual (4 rambu + 1 alat) + 2 praktik alat fungsi & aksi (@1 Poin)</p>
                     </div>
-                    <span className="font-mono font-bold px-2 py-1 rounded bg-primary text-primary-foreground text-xs shrink-0">
-                      7 Poin
-                    </span>
+                    <span className="font-mono font-bold text-sm text-primary shrink-0">7 Poin</span>
                   </div>
 
-                  <div className="p-3 sm:p-3.5 rounded-md bg-secondary border border-border flex items-center justify-between gap-2.5">
+                  <div className="p-3.5 sm:p-4 flex items-center justify-between gap-3">
                     <div className="min-w-0">
                       <div className="flex items-center gap-1.5 flex-wrap">
                         <p className="font-bold text-sm text-foreground">4. Pertanyaan K3 Industri Mendalam</p>
                         <Badge variant="outline" className="font-mono text-[10px]">BARU</Badge>
                         <Badge variant="outline" className="font-mono text-[10px]">DUDUK</Badge>
                       </div>
-                      <p className="text-[11px] text-muted-foreground mt-0.5">Safety guard, APD wajib, & tanggap bahaya darurat (2 Soal, @5 Poin)</p>
+                      <p className="text-xs text-muted-foreground mt-0.5">Safety guard, APD wajib, & tanggap bahaya darurat (2 Soal @5 Poin)</p>
                     </div>
-                    <span className="font-mono font-bold px-2 py-1 rounded bg-primary text-primary-foreground text-xs shrink-0">
-                      10 Poin
-                    </span>
+                    <span className="font-mono font-bold text-sm text-primary shrink-0">10 Poin</span>
                   </div>
 
-                  <div className="p-3 sm:p-3.5 rounded-md bg-secondary border border-border flex items-center justify-between gap-2.5">
+                  <div className="p-3.5 sm:p-4 flex items-center justify-between gap-3">
                     <div className="min-w-0">
                       <div className="flex items-center gap-1.5 flex-wrap">
                         <p className="font-bold text-sm text-foreground">5. Percakapan Dasar & Sikap Kerja NCS</p>
                         <Badge variant="outline" className="font-mono text-[10px]">DUDUK</Badge>
                       </div>
-                      <p className="text-[11px] text-muted-foreground mt-0.5">Tanggal/hari/waktu, data diri, sikap kerja, hitungan gudang (14 Soal)</p>
+                      <p className="text-xs text-muted-foreground mt-0.5">Tanggal/hari/waktu, data diri, sikap kerja, hitungan gudang (14 Soal)</p>
                     </div>
-                    <span className="font-mono font-bold px-2 py-1 rounded bg-primary text-primary-foreground text-xs shrink-0">
-                      16 Poin
+                    <span className="font-mono font-bold text-sm text-primary shrink-0">16 Poin</span>
+                  </div>
+
+                  {/* Passing threshold info row inside same container */}
+                  <div className="p-3.5 sm:p-4 bg-secondary/40 flex flex-col sm:flex-row sm:items-center justify-between gap-1.5 text-xs">
+                    <div className="flex items-center gap-2 font-semibold text-foreground">
+                      <span>Ambang Batas Kelulusan:</span>
+                      <span className="text-emerald-700 font-bold">Minimal 30 / 50 Poin (60%)</span>
+                    </div>
+                    <span className="text-[11px] text-muted-foreground">
+                      Otomatis dengan audio penguji asli (6-9 detik/soal)
                     </span>
                   </div>
                 </div>
 
-                <div className="p-3.5 rounded-md bg-warn/5 border border-warn/30 text-xs text-warn space-y-1">
-                  <div className="flex items-center justify-between font-bold">
-                    <span>Ambang Batas Kelulusan:</span>
-                    <span className="text-emerald-700">Minimal 30 / 50 Poin (60%)</span>
-                  </div>
-                  <p className="text-warn/90 text-[11px]">
-                    Ujian berlangsung otomatis dengan rekaman MP3 penguji asli dan batas waktu bicara 6-9 detik per nomor.
-                  </p>
-                </div>
-
-                <div className="pt-2 flex flex-col sm:flex-row items-center justify-between gap-3">
-                  <Button variant="link" size="sm" onClick={() => setRevisionModalOpen(true)}>
+                {/* Action controls */}
+                <div className="flex flex-col sm:flex-row items-center justify-between gap-3 pt-1">
+                  <Button variant="link" size="sm" onClick={() => setRevisionModalOpen(true)} className="px-0">
                     <Info className="h-3.5 w-3.5" />
                     <span>Detail Regulasi Resmi HRDK</span>
                   </Button>
@@ -998,34 +974,32 @@ export default function App() {
                     <Button variant="ghost" onClick={() => setMode('practice')}>
                       <span>Kembali</span>
                     </Button>
-                    <Button onClick={startRealExam} size="lg">
+                    <Button onClick={startRealExam} size="lg" className="flex-1 sm:flex-initial">
                       <span>Mulai Simulasi (30 Soal)</span>
                     </Button>
                   </div>
                 </div>
-              </Card>
+              </div>
             )}
 
             {/* Phase 2: Live Exam Terminal */}
             {examPhase === 'running' && (
-              <Card className="w-full max-w-xl p-6 md:p-8 space-y-6">
+              <Card className="w-full max-w-xl p-5 sm:p-6 md:p-8 space-y-5">
                 
                 {/* Stage Header */}
-                <div className="flex items-center justify-between pb-3 border-b border-border text-left gap-2">
+                <div className="flex items-start sm:items-center justify-between pb-3.5 border-b border-border text-left gap-2">
                   <div className="min-w-0">
-                    <div className="flex flex-wrap items-center gap-2 mb-0.5">
+                    <div className="flex flex-wrap items-center gap-1.5 mb-1">
                       <span className="text-[11px] font-bold text-primary uppercase tracking-wider">
                         {examQuestions[examIndex]?.section}
                       </span>
-                      <Badge variant="outline">Bobot: {examQuestions[examIndex]?.points} Poin</Badge>
-                      {examQuestions[examIndex]?.stance === 'standing' ? (
-                        <Badge variant="outline" className="font-mono">BERDIRI</Badge>
-                      ) : (
-                        <Badge variant="outline" className="font-mono">DUDUK</Badge>
-                      )}
+                      <Badge variant="outline" className="text-[10px]">Bobot: {examQuestions[examIndex]?.points} Poin</Badge>
+                      <Badge variant="outline" className="font-mono text-[10px]">
+                        {examQuestions[examIndex]?.stance === 'standing' ? 'BERDIRI' : 'DUDUK'}
+                      </Badge>
                     </div>
                     <h3 className="text-xs text-muted-foreground font-medium truncate">
-                      Soal No. {examIndex + 1} dari {examQuestions.length} • {examQuestions[examIndex]?.partTitle}
+                      Soal No. {examIndex + 1} dari {examQuestions.length} · {examQuestions[examIndex]?.partTitle}
                     </h3>
                   </div>
 
@@ -1038,15 +1012,12 @@ export default function App() {
                   </div>
                 </div>
 
-                {/* Transition Instruction Banner (e.g. 앉으세요) */}
+                {/* Transition Instruction Banner */}
                 {examQuestions[examIndex]?.transitionNote && (
-                  <div className="p-3.5 rounded-md bg-accent/60 border border-primary/20 text-xs text-accent-foreground font-medium flex items-center justify-between gap-2.5 text-left animate-fade-in">
-                    <div className="flex items-center gap-2.5 min-w-0">
-                      <Badge variant="outline" className="font-mono shrink-0">TRANSISI</Badge>
-                      <div className="min-w-0">
-                        <p className="font-bold truncate">Arahan Transisi Bilik Ujian</p>
-                        <p className="text-muted-foreground text-[11px] font-normal truncate">{examQuestions[examIndex].transitionNote}</p>
-                      </div>
+                  <div className="pb-3 border-b border-border text-xs text-foreground flex items-center justify-between gap-2.5 text-left animate-fade-in">
+                    <div className="min-w-0">
+                      <p className="font-bold truncate">Arahan Transisi Bilik Ujian</p>
+                      <p className="text-muted-foreground text-[11px] truncate">{examQuestions[examIndex].transitionNote}</p>
                     </div>
                     <Button
                       variant="outline" size="sm"
@@ -1061,39 +1032,42 @@ export default function App() {
                   </div>
                 )}
 
-                {/* Hero Visual or Audio Prompt */}
-                <div className="py-6 flex flex-col items-center justify-center min-h-[220px]">
+                {/* Hero Visual or Audio Prompt (no nested card around image) */}
+                <div className="py-4 flex flex-col items-center justify-center min-h-[200px]">
                   {examQuestions[examIndex]?.part === 'transition' ? (
-                    <div className="space-y-4 text-center py-4 w-full max-w-sm mx-auto animate-fade-in">
+                    <div className="space-y-4 text-center py-2 w-full max-w-sm mx-auto animate-fade-in">
                       <Badge variant="outline" className="mx-auto font-mono">
                         {examQuestions[examIndex]?.stance === 'standing' ? 'BERDIRI' : 'DUDUK'}
                       </Badge>
-                      <div>
+                      <div className="space-y-1">
                         <h2 className="text-2xl md:text-3xl font-bold text-foreground font-kr">
                           {examQuestions[examIndex]?.question_ko}
                         </h2>
-                        <p className="text-xs text-muted-foreground font-mono mt-0.5">{examQuestions[examIndex]?.question_romaja}</p>
-                        <p className="text-xs font-bold text-primary mt-2 bg-accent px-3 py-1.5 rounded-sm inline-block">
+                        <p className="text-xs text-muted-foreground font-mono">{examQuestions[examIndex]?.question_romaja}</p>
+                        <p className="text-sm font-medium text-primary pt-1">
                           {examQuestions[examIndex]?.question_id}
                         </p>
                       </div>
-                      <div className="p-3.5 bg-secondary border border-border rounded-md text-xs space-y-1 text-left">
-                        <span className="text-[10px] font-bold text-emerald-800 uppercase tracking-wider block">
-                          Respon Sopan Kandidat:
+                      <div className="pt-3 border-t border-border text-xs space-y-1 text-center">
+                        <span className="text-[10px] font-bold text-emerald-700 uppercase tracking-wider block">
+                          Respon Sopan Kandidat
                         </span>
-                        <strong className="text-lg font-kr font-bold text-emerald-900 block">"{examQuestions[examIndex]?.answer_short_ko}"</strong>
-                        <span className="text-[11px] text-muted-foreground block">({examQuestions[examIndex]?.answer_short_id})</span>
+                        <strong className="text-lg font-kr font-bold text-foreground block">
+                          &ldquo;{examQuestions[examIndex]?.answer_short_ko}&rdquo;
+                        </strong>
+                        <span className="text-xs text-muted-foreground block">
+                          ({examQuestions[examIndex]?.answer_short_id})
+                        </span>
                       </div>
                     </div>
                   ) : examQuestions[examIndex]?.image_url ? (
-                    <div className="w-full max-w-sm bg-card rounded-md border border-border p-4 flex flex-col items-center">
+                    <div className="w-full flex flex-col items-center space-y-3">
                       <img
                         src={getAssetUrl(examQuestions[examIndex].image_url)}
                         alt="Soal Ujian Bergambar"
-                        className="max-h-56 w-auto mx-auto object-contain"
+                        className="max-h-52 sm:max-h-60 w-auto mx-auto object-contain"
                       />
                       <Button variant="outline" size="sm"
-                        className="mt-3"
                         onClick={() => {
                           if (examAudioPlayerRef.current) {
                             examAudioPlayerRef.current.currentTime = 0;
@@ -1101,8 +1075,7 @@ export default function App() {
                           }
                         }}>
                         <Volume2 className="h-3.5 w-3.5" />
-                        <span className="hidden sm:inline">Dengar Ulang Suara Penguji</span>
-                        <span className="sm:hidden">Dengar</span>
+                        <span>Dengar Ulang Suara Penguji</span>
                       </Button>
                     </div>
                   ) : (
@@ -1123,7 +1096,7 @@ export default function App() {
 
                   {/* Response Timer Bar */}
                   {examStepStatus === 'answering' && (
-                    <div className="w-full max-w-sm mt-6 space-y-2">
+                    <div className="w-full max-w-sm mt-5 space-y-2">
                       <div className="flex items-center justify-between text-xs font-bold">
                         <span className="text-destructive flex items-center gap-1.5">
                           <Mic className="h-3.5 w-3.5 animate-pulse-dot" /> Sedang Merekam Suara...
@@ -1169,172 +1142,160 @@ export default function App() {
               </Card>
             )}
 
-            {/* Phase 3: Exam Summary */}
+            {/* Phase 3: Exam Summary (Zero Nested Cards, Natural Page Scroll) */}
             {examPhase === 'summary' && (
-              <Card className="w-full max-w-2xl p-6 md:p-8 space-y-6 text-left">
+              <div className="w-full max-w-2xl space-y-5 text-left">
                 
-                {/* Scorecard Header */}
-                <div className="border-b border-border pb-5 space-y-4">
+                {/* 1. Ringkasan Skor di atas (1 kartu bersih) */}
+                <div className="rounded-xl border border-border bg-card p-5 space-y-4">
                   <div className="flex items-center justify-between gap-2 flex-wrap">
                     <Badge variant="outline" className="font-mono">LAPORAN HASIL UJIAN</Badge>
-                    <span className="text-xs text-muted-foreground font-medium">{examQuestions.length} Butir Ujian Selesai</span>
+                    <span className="text-xs text-muted-foreground font-medium">
+                      Dinilai: {examScoreSummary.ratedCount} / {examQuestions.length} Butir
+                    </span>
                   </div>
 
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-4 rounded-md bg-secondary border border-border">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-border">
                     <div>
                       <span className="text-xs text-muted-foreground uppercase tracking-wider font-semibold">
-                        Total Skor Wawancara Anda:
+                        Total Skor Wawancara Anda
                       </span>
                       <div className="flex items-baseline gap-2 mt-1">
-                        <span className="text-3xl sm:text-4xl font-bold text-foreground">
+                        <span className="text-3xl sm:text-4xl font-bold font-mono text-foreground">
                           {Number(examScoreSummary.totalScore.toFixed(1))}
                         </span>
                         <span className="text-base text-muted-foreground font-bold">/ 50 Poin</span>
                       </div>
-                      <div className="mt-2">
-                        {examScoreSummary.isPassedExam ? (
-                          <Badge variant="success"><CheckCircle className="h-3 w-3" /> LULUS AMBANG BATAS (≥ 60%)</Badge>
-                        ) : (
-                          <Badge variant="destructive"><AlertCircle className="h-3 w-3" /> BELUM MENCAPAI AMBANG BATAS</Badge>
-                        )}
-                      </div>
                     </div>
 
-                    {/* Breakdown Scores Grid */}
-                    <div className="grid grid-cols-2 gap-2 text-[11px] sm:min-w-[240px]">
-                      <div className="p-2.5 rounded-md bg-card border border-border">
-                        <span className="text-muted-foreground block font-medium">Perkenalan Diri:</span>
-                        <span className="font-bold text-foreground font-mono">
-                          {examScoreSummary.categoryScores.intro.earned} / {examScoreSummary.categoryScores.intro.max} Poin
-                        </span>
-                      </div>
-                      <div className="p-2.5 rounded-md bg-card border border-border">
-                        <span className="text-muted-foreground block font-medium">Instruksi Kerja:</span>
-                        <span className="font-bold text-foreground font-mono">
-                          {examScoreSummary.categoryScores.instructions.earned} / {examScoreSummary.categoryScores.instructions.max} Poin
-                        </span>
-                      </div>
-                      <div className="p-2.5 rounded-md bg-card border border-border">
-                        <span className="text-muted-foreground block font-medium">Visual & Praktik Alat:</span>
-                        <span className="font-bold text-foreground font-mono">
-                          {examScoreSummary.categoryScores.tools.earned} / {examScoreSummary.categoryScores.tools.max} Poin
-                        </span>
-                      </div>
-                      <div className="p-2.5 rounded-md bg-card border border-border">
-                        <span className="text-muted-foreground block font-medium">K3 Mendalam:</span>
-                        <span className="font-bold text-foreground font-mono">
-                          {examScoreSummary.categoryScores.safety.earned} / {examScoreSummary.categoryScores.safety.max} Poin
-                        </span>
-                      </div>
-                      <div className="col-span-2 p-2.5 rounded-md bg-card border border-border flex items-center justify-between">
-                        <span className="text-muted-foreground font-medium">Percakapan & NCS (14 Soal):</span>
-                        <span className="font-bold text-foreground font-mono">
-                          {examScoreSummary.categoryScores.ncs.earned} / {examScoreSummary.categoryScores.ncs.max} Poin
-                        </span>
-                      </div>
+                    <div>
+                      {examScoreSummary.isPassedExam ? (
+                        <Badge variant="success"><CheckCircle className="h-3.5 w-3.5" /> LULUS AMBANG BATAS (≥ 60%)</Badge>
+                      ) : (
+                        <Badge variant="destructive"><AlertCircle className="h-3.5 w-3.5" /> BELUM MENCAPAI AMBANG BATAS</Badge>
+                      )}
                     </div>
                   </div>
 
-                  <p className="text-xs text-muted-foreground">
-                    Dengarkan kembali rekaman suara Anda per nomor. Klik tombol status untuk menyesuaikan penilaian mandiri secara objektif:
-                  </p>
+                  {/* Rincian per bagian dengan garis pemisah tipis tanpa kotak bertumpuk */}
+                  <div className="divide-y divide-border text-xs">
+                    {Object.entries(examScoreSummary.categoryScores).map(([key, item]) => (
+                      <div key={key} className="py-2 flex items-center justify-between gap-2">
+                        <span className="text-muted-foreground font-medium">{item.label}</span>
+                        <span className="font-bold text-foreground font-mono">
+                          {Number(item.earned.toFixed(1))} / {item.max} Poin
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Action Bar */}
+                  <div className="pt-3 border-t border-border flex items-center justify-between gap-2 flex-wrap">
+                    <Button variant="ghost" size="sm" onClick={() => setMode('practice')}>
+                      Kembali ke Latihan
+                    </Button>
+                    <div className="flex items-center gap-2">
+                      <Button size="sm" onClick={() => setExamPhase('rekap')}
+                        disabled={!examScoreSummary.isComplete}
+                        title={examScoreSummary.isComplete ? 'Lanjut ke lembar skor resmi 2026' : 'Nilai semua butir dulu (Benar/Salah) agar rekap akurat'}
+                        variant="default">
+                        <span>Rekap Skor Resmi</span>
+                        <ChevronRight className="h-3.5 w-3.5" />
+                      </Button>
+                      <Button size="sm" variant="outline" onClick={startRealExam}>
+                        <span>Ulangi Ujian</span>
+                      </Button>
+                    </div>
+                  </div>
                 </div>
 
-                <div className="space-y-4 max-h-[460px] overflow-y-auto pr-1">
-                  {examQuestions.map((q, idx) => {
-                    const recUrl = examRecordings[idx];
-                    const rating = selfRatings[idx];
+                {/* 2. Daftar Evaluasi 30 Soal (1 level divide-y, natural page scroll) */}
+                <div className="space-y-2">
+                  <p className="text-xs text-muted-foreground px-1">
+                    Dengarkan kembali rekaman suara Anda per nomor, lalu tandai penilaian mandiri secara objektif:
+                  </p>
 
-                    return (
-                      <div key={q.id || idx} className="p-4 rounded-md bg-secondary border border-border space-y-3 text-xs">
-                        <div className="flex items-start justify-between gap-4">
-                          <div className="min-w-0">
-                            <div className="flex items-center gap-2 flex-wrap">
-                              <span className="font-bold text-primary">
-                                {q.section}
-                              </span>
-                              <Badge variant="outline" className="font-mono">Bobot: {q.points} Poin</Badge>
+                  <div className="rounded-xl border border-border bg-card divide-y divide-border overflow-hidden text-xs">
+                    {examQuestions.map((q, idx) => {
+                      const recUrl = examRecordings[idx];
+                      const rating = selfRatings[idx];
+
+                      return (
+                        <div key={q.id || idx} className="p-4 sm:p-5 space-y-3">
+                          <div className="flex items-start justify-between gap-4">
+                            <div className="min-w-0 space-y-1">
+                              <div className="flex items-center gap-2 flex-wrap">
+                                <span className="font-bold text-primary">
+                                  #{idx + 1} · {q.section}
+                                </span>
+                                <Badge variant="outline" className="font-mono">Bobot: {q.points} Poin</Badge>
+                              </div>
+                              <p className="text-foreground font-bold font-kr text-base">
+                                {q.question_ko}
+                              </p>
+                              <p className="text-muted-foreground text-xs">
+                                &ldquo;{q.question_id}&rdquo;
+                              </p>
                             </div>
-                            <p className="text-foreground font-bold font-kr text-base mt-1">
-                              {q.question_ko}
-                            </p>
-                            <p className="text-muted-foreground text-xs italic">
-                              "{q.question_id}"
-                            </p>
-                          </div>
 
-                          {q.image_url && (
-                            <div className="w-16 h-16 bg-card p-1 rounded-sm border border-border shrink-0">
-                              <img src={getAssetUrl(q.image_url)} alt="Thumbnail" className="w-full h-full object-contain" />
-                            </div>
-                          )}
-                        </div>
-
-                        {/* Official Answer */}
-                        <div className="p-3 rounded-sm bg-card border border-border space-y-0.5">
-                          <span className="text-[10px] uppercase font-bold text-emerald-700 tracking-wider">
-                            Kunci Jawaban Resmi:
-                          </span>
-                          <p className="text-foreground font-bold font-kr text-base">
-                            {q.answer_short_ko || q.title_ko}
-                          </p>
-                          <p className="text-muted-foreground text-xs">
-                            Artinya: {q.answer_short_id || q.title_id}
-                          </p>
-                        </div>
-
-                        {/* Candidate Audio & Rating */}
-                        <div className="flex flex-wrap items-center justify-between gap-2 pt-2 border-t border-border">
-                          <div className="flex items-center gap-2">
-                            <span className="text-muted-foreground font-medium">Rekaman Suara Anda:</span>
-                            {recUrl ? (
-                              <audio src={recUrl} controls className="h-7 w-44" />
-                            ) : (
-                              <span className="text-muted-foreground italic">Tidak ada rekaman</span>
+                            {q.image_url && (
+                              <img
+                                src={getAssetUrl(q.image_url)}
+                                alt="Soal"
+                                className="w-16 h-16 object-contain shrink-0"
+                              />
                             )}
                           </div>
 
-                          <div className="flex items-center gap-1.5">
-                            <Button size="sm" variant={rating === 'pass' ? 'default' : 'outline'}
-                              onClick={() => setSelfRatings(prev => ({ ...prev, [idx]: 'pass' }))}>
-                              <span>Benar (+{q.points})</span>
-                            </Button>
-                            <Button size="sm" variant={rating === 'fail' ? 'destructive' : 'outline'}
-                              onClick={() => setSelfRatings(prev => ({ ...prev, [idx]: 'fail' }))}>
-                              <span>Salah (0)</span>
-                            </Button>
+                          {/* Official Answer (clean typography with subtle left accent or top divider) */}
+                          <div className="pt-2.5 border-t border-border/60 space-y-0.5">
+                            <span className="text-[10px] uppercase font-bold text-emerald-700 tracking-wider block">
+                              Kunci Jawaban Resmi
+                            </span>
+                            <p className="text-foreground font-bold font-kr text-base">
+                              {q.answer_short_ko || q.title_ko}
+                            </p>
+                            <p className="text-muted-foreground text-xs">
+                              Artinya: {q.answer_short_id || q.title_id}
+                            </p>
+                          </div>
+
+                          {/* Candidate Audio & Self Rating */}
+                          <div className="flex flex-wrap items-center justify-between gap-2 pt-2.5 border-t border-border/60">
+                            <div className="flex items-center gap-2">
+                              <span className="text-muted-foreground font-medium">Rekaman:</span>
+                              {recUrl ? (
+                                <audio src={recUrl} controls className="h-7 w-44" />
+                              ) : (
+                                <span className="text-muted-foreground italic">Tidak ada rekaman</span>
+                              )}
+                            </div>
+
+                            <div className="flex items-center gap-1.5">
+                              <Button size="sm" variant={rating === 'pass' ? 'default' : 'outline'}
+                                onClick={() => setSelfRatings(prev => ({ ...prev, [idx]: 'pass' }))}>
+                                <span>Benar (+{q.points})</span>
+                              </Button>
+                              <Button size="sm" variant={rating === 'fail' ? 'destructive' : 'outline'}
+                                onClick={() => setSelfRatings(prev => ({ ...prev, [idx]: 'fail' }))}>
+                                <span>Salah (0)</span>
+                              </Button>
+                            </div>
                           </div>
                         </div>
-                      </div>
-                    );
-                  })}
-                </div>
-
-                <div className="pt-3 border-t border-border flex items-center justify-between gap-2 flex-wrap">
-                  <Button variant="ghost" size="sm" onClick={() => setMode('practice')}>
-                    Kembali ke Latihan
-                  </Button>
-                  <div className="flex items-center gap-2">
-                    <Button size="sm" onClick={() => setExamPhase('rekap')}
-                      disabled={!examScoreSummary.isComplete}
-                      title={examScoreSummary.isComplete ? 'Lanjut ke lembar skor resmi 2026' : 'Nilai semua butir dulu (Benar/Salah) agar rekap akurat'}
-                      variant="default">
-                      <span>Rekap Skor Resmi</span>
-                      <ChevronRight className="h-3.5 w-3.5" />
-                    </Button>
-                    <Button size="sm" onClick={startRealExam}>
-                      <span>Ulangi Ujian</span>
-                    </Button>
+                      );
+                    })}
                   </div>
                 </div>
-              </Card>
+              </div>
             )}
 
             {examPhase === 'rekap' && (
               <div className="w-full space-y-3">
                 <button
+                  type="button"
                   onClick={() => setExamPhase('summary')}
-                  className="no-print text-xs font-bold text-slate-500 hover:text-slate-900 flex items-center gap-1"
+                  className="no-print text-xs font-bold text-muted-foreground hover:text-foreground flex items-center gap-1 transition-colors"
                 >
                   ← Kembali ke Hasil Ujian
                 </button>

@@ -167,25 +167,25 @@ export function PracticeListening({
 
   if (quizFinished) {
     return (
-      <div className="w-full max-w-lg mx-auto bg-card border border-border rounded-lg p-6 md:p-8 text-center animate-fade-in">
-        <div className="w-16 h-16 rounded-lg bg-primary/10 text-primary flex items-center justify-center mx-auto mb-4 border border-primary/20">
-          <Trophy className="w-8 h-8" />
+      <Card className="w-full max-w-lg mx-auto p-6 text-center animate-fade-in space-y-5">
+        <div className="space-y-1.5">
+          <Trophy className="w-8 h-8 text-primary mx-auto mb-2" />
+          <h2 className="text-xl font-bold text-foreground">Sesi Latihan Mendengar Selesai</h2>
+          <p className="text-xs text-muted-foreground">Ringkasan kepekaan telinga Anda menangkap pertanyaan Korea:</p>
         </div>
-        <h2 className="text-xl md:text-2xl font-bold text-foreground">Sesi Latihan Mendengar Selesai</h2>
-        <p className="text-xs text-muted-foreground mt-1">Berikut akurasi kepekaan telinga Anda menangkap pertanyaan Korea:</p>
 
-        <div className="grid grid-cols-3 gap-2.5 my-6">
-          <div className="p-3.5 rounded-md bg-emerald-50 border border-emerald-200">
-            <span className="text-xl font-bold text-emerald-800">{score.correct}</span>
-            <span className="text-xs font-medium text-emerald-700 block mt-0.5">Benar</span>
+        <div className="grid grid-cols-3 divide-x divide-border border-y border-border py-4">
+          <div>
+            <span className="text-xl font-bold text-emerald-700 font-mono">{score.correct}</span>
+            <span className="text-[11px] font-medium text-muted-foreground block mt-0.5">Benar</span>
           </div>
-          <div className="p-3.5 rounded-md bg-red-50 border border-red-200">
-            <span className="text-xl font-bold text-red-800">{score.wrong}</span>
-            <span className="text-xs font-medium text-red-700 block mt-0.5">Salah</span>
+          <div>
+            <span className="text-xl font-bold text-red-700 font-mono">{score.wrong}</span>
+            <span className="text-[11px] font-medium text-muted-foreground block mt-0.5">Salah</span>
           </div>
-          <div className="p-3.5 rounded-md bg-primary/5 border border-primary/20">
-            <span className="text-xl font-bold text-primary">{accuracy}%</span>
-            <span className="text-xs font-medium text-primary block mt-0.5">Akurasi</span>
+          <div>
+            <span className="text-xl font-bold text-primary font-mono">{accuracy}%</span>
+            <span className="text-[11px] font-medium text-muted-foreground block mt-0.5">Akurasi</span>
           </div>
         </div>
 
@@ -193,89 +193,94 @@ export function PracticeListening({
           <RotateCcw className="h-4 w-4" />
           <span>Ulangi Latihan Mendengar dari Awal</span>
         </Button>
-      </div>
+      </Card>
     );
   }
 
   return (
     <div className="w-full max-w-xl mx-auto flex flex-col items-center animate-fade-in text-foreground">
 
-      {/* Controls */}
-      <div className="w-full bg-secondary border border-border rounded-md p-3 mb-3.5 space-y-2">
-        <div className="flex items-center justify-between text-xs">
-          <div className="flex items-center gap-2">
-            <span className="font-mono font-bold text-foreground bg-card border border-border px-2.5 py-0.5 rounded-sm">
-              Soal {currentIndex + 1} / {shuffledQuestions.length}
-            </span>
-            <span className="text-[11px] font-medium text-purple-700 bg-purple-50 border border-purple-200 px-2 py-0.5 rounded-sm flex items-center gap-1">
-              <Headphones className="h-3 w-3" />
-              <span>Audio-First</span>
-            </span>
-          </div>
-
-          <div className="flex items-center gap-1.5 font-mono text-[11px] font-bold">
-            <span className="text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">
-              {score.correct}
-            </span>
-            <span className="text-red-700 bg-red-50 px-2 py-0.5 rounded border border-red-200">
-              {score.wrong}
-            </span>
-          </div>
+      {/* Compact single-row horizontal toolbar */}
+      <div className="w-full flex flex-wrap items-center justify-between gap-2 pb-2.5 mb-2.5 border-b border-border text-xs">
+        <div className="flex items-center gap-2">
+          <span className="font-mono font-bold text-foreground">
+            {currentIndex + 1} / {shuffledQuestions.length}
+          </span>
+          <span className="text-muted-foreground">·</span>
+          <span className="font-mono text-[11px] font-bold text-emerald-700">✓ {score.correct}</span>
+          <span className="font-mono text-[11px] font-bold text-red-700">✗ {score.wrong}</span>
         </div>
 
-        <div className="flex flex-wrap items-center justify-between gap-2 pt-1.5 border-t border-border text-xs">
-          <div className="flex items-center gap-1.5">
-            <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider">Pilihan:</span>
-            <div className="inline-flex p-0.5 bg-card border border-border rounded-sm">
-              <button type="button" onClick={() => setOptionLang('ko')}
-                className={cn('px-2.5 py-1 rounded-sm text-[11px] font-medium transition-colors',
-                  optionLang === 'ko' ? 'bg-primary text-primary-foreground' : 'text-muted-foreground hover:text-foreground')}>
-                Korea
-              </button>
-              <button type="button" onClick={() => setOptionLang('id')}
-                className={cn('px-2.5 py-1 rounded-sm text-[11px] font-medium transition-colors',
-                  optionLang === 'id' ? 'bg-primary text-primary-foreground' : 'text-muted-foreground hover:text-foreground')}>
-                Indo
-              </button>
-            </div>
+        <div className="flex flex-wrap items-center gap-1.5">
+          {/* Option language toggle */}
+          <div className="inline-flex rounded-md border border-border bg-secondary p-0.5">
+            <button
+              type="button"
+              onClick={() => setOptionLang('ko')}
+              className={cn(
+                'px-2 py-0.5 rounded text-[11px] font-medium transition-colors',
+                optionLang === 'ko' ? 'bg-card text-foreground shadow-xs' : 'text-muted-foreground hover:text-foreground'
+              )}
+            >
+              Opsi KR
+            </button>
+            <button
+              type="button"
+              onClick={() => setOptionLang('id')}
+              className={cn(
+                'px-2 py-0.5 rounded text-[11px] font-medium transition-colors',
+                optionLang === 'id' ? 'bg-card text-foreground shadow-xs' : 'text-muted-foreground hover:text-foreground'
+              )}
+            >
+              Opsi ID
+            </button>
           </div>
 
-          <div className="flex items-center gap-2">
-            <div className="flex items-center gap-1">
-              <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider">Kecepatan:</span>
-              <button onClick={() => setPlaybackRate(prev => prev === 1.0 ? 0.85 : 1.0)}
-                className={cn('px-2 py-0.5 rounded-sm border text-[11px] font-mono font-bold transition-colors',
-                  playbackRate === 0.85
-                    ? 'bg-warn/10 text-warn border-warn/30'
-                    : 'bg-card text-muted-foreground border-border hover:text-foreground')}
-                title="Atur kecepatan audio (0.85x untuk pemula, 1.0x kecepatan asli penguji)">
-                {playbackRate}x
-              </button>
-            </div>
+          <button
+            type="button"
+            onClick={() => setPlaybackRate(prev => prev === 1.0 ? 0.85 : 1.0)}
+            className={cn(
+              'px-2 py-1 rounded-md border text-[11px] font-mono font-bold transition-colors',
+              playbackRate === 0.85
+                ? 'bg-warn/10 text-warn border-warn/30'
+                : 'bg-card text-muted-foreground border-border hover:text-foreground'
+            )}
+            title="Atur kecepatan audio (0.85x untuk pemula, 1.0x kecepatan asli penguji)"
+          >
+            {playbackRate}x
+          </button>
 
-            <Button variant="outline" size="sm" onClick={() => setShowScript(!showScript)}
-              title="Buka naskah teks pertanyaan jika Anda tidak menangkap suara penguji">
-              {showScript ? <EyeOff className="h-3 w-3" /> : <Eye className="h-3 w-3" />}
-              <span>{showScript ? 'Tutup Teks' : 'Buka Teks'}</span>
-            </Button>
-          </div>
+          <button
+            type="button"
+            onClick={() => setShowScript(!showScript)}
+            title="Buka naskah teks pertanyaan jika Anda tidak menangkap suara penguji"
+            className={cn(
+              'inline-flex items-center gap-1 px-2 py-1 rounded-md border text-[11px] font-medium transition-colors',
+              showScript
+                ? 'bg-primary/10 text-primary border-primary/30'
+                : 'bg-card text-muted-foreground border-border hover:text-foreground'
+            )}
+          >
+            {showScript ? <EyeOff className="h-3 w-3" /> : <Eye className="h-3 w-3" />}
+            <span>{showScript ? 'Tutup Teks' : 'Buka Teks'}</span>
+          </button>
         </div>
       </div>
 
       {/* Audio terminal */}
-      <Card className={cn('w-full p-6 md:p-8 mb-4 text-center flex flex-col items-center justify-center transition-colors',
+      <Card className={cn('w-full p-5 sm:p-6 mb-3.5 text-center flex flex-col items-center justify-center transition-colors',
         isLocalPlaying && 'border-primary/40')}>
-        <div className={cn('w-20 h-20 rounded-full flex items-center justify-center mb-4 transition-all duration-300',
+        <div className={cn('w-16 h-16 rounded-full flex items-center justify-center mb-3 transition-all duration-300',
           isLocalPlaying
-            ? 'bg-primary text-primary-foreground scale-105'
-            : 'bg-primary/10 text-primary border border-primary/20')}>
-          <Headphones className={cn('h-10 w-10', isLocalPlaying && 'animate-pulse-dot')} />
+            ? 'bg-primary text-primary-foreground'
+            : 'bg-primary/10 text-primary')}>
+          <Headphones className={cn('h-8 w-8', isLocalPlaying && 'animate-pulse-dot')} />
         </div>
 
         <span className="text-xs font-bold text-primary uppercase tracking-wider mb-1">
           {isLocalPlaying ? 'Sedang Mendengarkan' : 'Dengarkan Pertanyaan Penguji'}
         </span>
-        <p className="text-xs text-muted-foreground max-w-sm mb-4">
+        <p className="text-xs text-muted-foreground max-w-sm mb-3.5">
           Teks pertanyaan disembunyikan agar telinga Anda terlatih menangkap ucapan Korea asli.
         </p>
 
@@ -285,9 +290,9 @@ export function PracticeListening({
         </Button>
 
         {showScript && (
-          <div className="w-full mt-5 pt-4 border-t border-border text-center animate-fade-in space-y-1">
-            <span className="text-[10px] font-bold text-primary uppercase tracking-wider">
-              Naskah Transkrip Soal Asli:
+          <div className="w-full mt-4 pt-3.5 border-t border-border/60 text-center animate-fade-in space-y-1">
+            <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider block">
+              Naskah Transkrip Soal Asli
             </span>
             <h3 className="text-lg md:text-xl font-bold text-foreground font-kr">
               {currentQ.question_ko || currentQ.title_ko}
@@ -295,79 +300,81 @@ export function PracticeListening({
             {currentQ.question_romaja && (
               <p className="text-xs text-muted-foreground font-mono">{currentQ.question_romaja}</p>
             )}
-            <p className="text-xs font-medium text-primary bg-primary/5 px-3 py-1 rounded-md inline-block mt-1 border border-primary/20">
-              Artinya: "{currentQ.question_id || currentQ.title_id}"
+            <p className="text-sm text-muted-foreground pt-0.5">
+              &ldquo;{currentQ.question_id || currentQ.title_id}&rdquo;
             </p>
           </div>
         )}
       </Card>
 
       {/* Options */}
-      <div className="w-full space-y-2.5">
-        <div className="text-xs font-bold text-muted-foreground px-1 mb-1 flex items-center justify-between">
-          <span>Pilih Jawaban yang Tepat Sesuai Audio:</span>
-          <span className="text-[11px] font-normal">Mode: {optionLang === 'ko' ? 'Teks Korea' : 'Terjemahan Indo'}</span>
-        </div>
-
+      <div className="w-full space-y-2">
         {currentOptions.map((opt, idx) => {
           const mainText = optionLang === 'ko' ? opt.ko : opt.id;
           const secondaryText = optionLang === 'ko' ? opt.id : opt.ko;
 
-          let btnStyle = 'bg-card border-border text-foreground hover:border-primary/40 hover:bg-secondary';
+          let btnStyle = 'bg-card border-border text-foreground hover:border-foreground/40 hover:bg-secondary/60';
           let icon = null;
 
           if (isAnswered) {
             if (opt.isCorrect) {
-              btnStyle = 'bg-emerald-50 border-emerald-500 text-emerald-950 font-bold';
+              btnStyle = 'bg-emerald-50 border-emerald-500 text-emerald-950 font-semibold';
               icon = <CheckCircle className="h-4 w-4 text-emerald-600 shrink-0" />;
             } else if (selectedOption === opt && !opt.isCorrect) {
-              btnStyle = 'bg-red-50 border-red-500 text-red-950 font-bold';
+              btnStyle = 'bg-red-50 border-red-500 text-red-950 font-semibold';
               icon = <XCircle className="h-4 w-4 text-red-600 shrink-0" />;
             } else {
-              btnStyle = 'bg-muted border-border text-muted-foreground opacity-50';
+              btnStyle = 'bg-muted/40 border-border text-muted-foreground opacity-60';
             }
           }
 
           return (
-            <Button key={idx} variant="outline" disabled={isAnswered}
+            <button
+              key={idx}
+              type="button"
+              disabled={isAnswered}
               onClick={() => handleSelectOption(opt)}
-              className={cn('w-full min-h-[52px] p-3.5 rounded-md text-left text-xs md:text-sm font-medium justify-between gap-3', btnStyle)}>
-              <div className="flex items-start gap-3">
-                <span className="w-6 h-6 rounded-sm bg-secondary text-[11px] font-mono font-bold flex items-center justify-center shrink-0 mt-0.5">
+              className={cn(
+                'w-full min-h-[48px] px-3.5 py-3 rounded-lg border text-left transition-colors flex items-center justify-between gap-3 whitespace-normal',
+                btnStyle
+              )}
+            >
+              <div className="flex items-start gap-3 min-w-0 flex-1">
+                <span className="w-6 h-6 rounded bg-secondary text-[11px] font-mono font-bold flex items-center justify-center shrink-0 mt-0.5 text-foreground">
                   {String.fromCharCode(65 + idx)}
                 </span>
-                <div>
-                  <span className={cn('leading-snug', optionLang === 'ko' ? 'font-kr text-base font-bold' : 'text-sm')}>
+                <div className="min-w-0 flex-1 whitespace-normal text-left">
+                  <span className={cn('block leading-snug break-words', optionLang === 'ko' ? 'font-kr text-base font-bold' : 'text-sm font-medium')}>
                     {mainText}
                   </span>
                   {isAnswered && secondaryText && (
-                    <span className="text-[11px] text-muted-foreground block font-normal mt-0.5">
-                      ({secondaryText})
+                    <span className="text-xs text-muted-foreground block font-normal mt-0.5 leading-snug break-words">
+                      {secondaryText}
                     </span>
                   )}
                 </div>
               </div>
               {icon}
-            </Button>
+            </button>
           );
         })}
       </div>
 
       {/* Feedback */}
       {isAnswered && (
-        <div className="w-full mt-4 p-4 rounded-md border border-border bg-secondary flex flex-col sm:flex-row items-center justify-between gap-3 animate-fade-in">
+        <div className="w-full mt-3.5 pt-3.5 border-t border-border flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 animate-fade-in">
           <div className="text-left text-xs space-y-0.5">
             <span className={cn('font-bold block text-sm', selectedOption?.isCorrect ? 'text-emerald-700' : 'text-red-700')}>
               {selectedOption?.isCorrect ? 'Pendengaran Anda Tepat' : 'Pendengaran Belum Tepat'}
             </span>
-            <div className="text-foreground text-[11px]">
-              <span>Kunci Resmi: </span>
+            <div className="text-foreground text-xs">
+              <span className="text-muted-foreground">Kunci Resmi: </span>
               <strong className="font-kr font-bold text-emerald-800 text-sm">{currentAnswerTexts.ko}</strong>
               <span className="text-muted-foreground ml-1">({currentAnswerTexts.id})</span>
             </div>
           </div>
 
-          <Button onClick={handleNext} className="w-full sm:w-auto">
+          <Button onClick={handleNext} className="w-full sm:w-auto shrink-0">
             <span>Soal Berikutnya</span>
             <ArrowRight className="h-4 w-4" />
           </Button>

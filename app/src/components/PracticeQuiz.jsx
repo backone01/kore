@@ -1,8 +1,7 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useMemo } from 'react';
 import { CheckCircle, XCircle, Volume2, ArrowRight, RotateCcw, Trophy, Eye, EyeOff } from 'lucide-react';
 import { Button } from './ui/button.jsx';
 import { Card } from './ui/card.jsx';
-import { Badge } from './ui/badge.jsx';
 import { cn } from '../utils/cn.js';
 import { getAssetUrl } from '../utils/assetHelper.js';
 
@@ -116,25 +115,25 @@ export function PracticeQuiz({
 
   if (quizFinished) {
     return (
-      <div className="w-full max-w-lg mx-auto bg-card border border-border rounded-lg p-6 text-center animate-fade-in">
-        <div className="w-14 h-14 rounded-lg bg-primary/10 text-primary flex items-center justify-center mx-auto mb-4 border border-primary/20">
-          <Trophy className="w-7 h-7" />
+      <Card className="w-full max-w-lg mx-auto p-6 text-center animate-fade-in space-y-5">
+        <div className="space-y-1.5">
+          <Trophy className="w-8 h-8 text-primary mx-auto mb-2" />
+          <h2 className="text-xl font-bold text-foreground">Sesi Kuis Selesai</h2>
+          <p className="text-xs text-muted-foreground">Ringkasan hasil latihan pilihan ganda Anda:</p>
         </div>
-        <h2 className="text-xl font-bold text-foreground">Sesi Kuis Selesai</h2>
-        <p className="text-xs text-muted-foreground mt-1">Berikut ringkasan hasil latihan pilihan ganda Anda:</p>
 
-        <div className="grid grid-cols-3 gap-2 my-5">
-          <div className="p-3 rounded-md bg-emerald-50 border border-emerald-200">
-            <span className="text-lg font-bold text-emerald-800">{score.correct}</span>
-            <span className="text-[11px] font-medium text-emerald-700 block">Benar</span>
+        <div className="grid grid-cols-3 divide-x divide-border border-y border-border py-4">
+          <div>
+            <span className="text-xl font-bold text-emerald-700 font-mono">{score.correct}</span>
+            <span className="text-[11px] font-medium text-muted-foreground block mt-0.5">Benar</span>
           </div>
-          <div className="p-3 rounded-md bg-red-50 border border-red-200">
-            <span className="text-lg font-bold text-red-800">{score.wrong}</span>
-            <span className="text-[11px] font-medium text-red-700 block">Salah</span>
+          <div>
+            <span className="text-xl font-bold text-red-700 font-mono">{score.wrong}</span>
+            <span className="text-[11px] font-medium text-muted-foreground block mt-0.5">Salah</span>
           </div>
-          <div className="p-3 rounded-md bg-primary/5 border border-primary/20">
-            <span className="text-lg font-bold text-primary">{accuracy}%</span>
-            <span className="text-[11px] font-medium text-primary block">Akurasi</span>
+          <div>
+            <span className="text-xl font-bold text-primary font-mono">{accuracy}%</span>
+            <span className="text-[11px] font-medium text-muted-foreground block mt-0.5">Akurasi</span>
           </div>
         </div>
 
@@ -142,79 +141,87 @@ export function PracticeQuiz({
           <RotateCcw className="h-4 w-4" />
           <span>Ulangi Kuis dari Awal</span>
         </Button>
-      </div>
+      </Card>
     );
   }
 
   return (
     <div className="w-full max-w-xl mx-auto flex flex-col items-center">
 
-      {/* Settings bar */}
-      <div className="w-full bg-secondary border border-border rounded-md p-2.5 mb-3 space-y-2">
-        <div className="flex items-center justify-between text-xs">
-          <div className="flex items-center gap-2">
-            <span className="font-mono font-bold text-foreground bg-card border border-border px-2.5 py-0.5 rounded-sm">
-              {currentIndex + 1} / {quizQuestions.length}
-            </span>
-            <Badge variant="outline" className="truncate max-w-[170px] sm:max-w-xs">
-              {currentQ?.category_title || currentQ?.category}
-            </Badge>
-          </div>
-
-          <div className="flex items-center gap-1.5 font-mono text-[11px] font-bold">
-            <span className="text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">
-              {score.correct}
-            </span>
-            <span className="text-red-700 bg-red-50 px-2 py-0.5 rounded border border-red-200">
-              {score.wrong}
-            </span>
-          </div>
+      {/* Compact single-row horizontal toolbar */}
+      <div className="w-full flex flex-wrap items-center justify-between gap-2 pb-2.5 mb-2.5 border-b border-border text-xs">
+        <div className="flex items-center gap-2">
+          <span className="font-mono font-bold text-foreground">
+            {currentIndex + 1} / {quizQuestions.length}
+          </span>
+          <span className="text-muted-foreground">·</span>
+          <span className="font-mono text-[11px] font-bold text-emerald-700">✓ {score.correct}</span>
+          <span className="font-mono text-[11px] font-bold text-red-700">✗ {score.wrong}</span>
         </div>
 
-        <div className="flex flex-wrap items-center justify-between gap-2 pt-1 border-t border-border text-xs">
-          <div className="flex items-center gap-1.5">
-            <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider">Pilihan:</span>
-            <div className="inline-flex p-0.5 bg-card border border-border rounded-sm">
-              <button type="button" onClick={() => setOptionLang('ko')}
-                className={cn('px-2.5 py-1 rounded-sm text-[11px] font-medium transition-colors',
-                  optionLang === 'ko' ? 'bg-primary text-primary-foreground' : 'text-muted-foreground hover:text-foreground')}>
-                Korea
-              </button>
-              <button type="button" onClick={() => setOptionLang('id')}
-                className={cn('px-2.5 py-1 rounded-sm text-[11px] font-medium transition-colors',
-                  optionLang === 'id' ? 'bg-primary text-primary-foreground' : 'text-muted-foreground hover:text-foreground')}>
-                Indo
-              </button>
-            </div>
+        <div className="flex flex-wrap items-center gap-1.5">
+          {/* Option language toggle */}
+          <div className="inline-flex rounded-md border border-border bg-secondary p-0.5">
+            <button
+              type="button"
+              onClick={() => setOptionLang('ko')}
+              className={cn(
+                'px-2 py-0.5 rounded text-[11px] font-medium transition-colors',
+                optionLang === 'ko' ? 'bg-card text-foreground shadow-xs' : 'text-muted-foreground hover:text-foreground'
+              )}
+            >
+              Opsi KR
+            </button>
+            <button
+              type="button"
+              onClick={() => setOptionLang('id')}
+              className={cn(
+                'px-2 py-0.5 rounded text-[11px] font-medium transition-colors',
+                optionLang === 'id' ? 'bg-card text-foreground shadow-xs' : 'text-muted-foreground hover:text-foreground'
+              )}
+            >
+              Opsi ID
+            </button>
           </div>
 
-          <div className="flex items-center gap-1.5">
-            <div className="flex items-center gap-1">
-              <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider">Soal:</span>
-              <select value={questionLang} onChange={(e) => setQuestionLang(e.target.value)}
-                className="bg-card border border-border text-foreground font-medium text-[11px] px-2 py-1 rounded-sm focus:outline-none focus:ring-2 focus:ring-ring">
-                <option value="bilingual">Dua Bahasa</option>
-                <option value="ko">Korea</option>
-                <option value="id">Indo</option>
-              </select>
-            </div>
+          {/* Question language selector */}
+          <select
+            value={questionLang}
+            onChange={(e) => setQuestionLang(e.target.value)}
+            aria-label="Bahasa Soal"
+            className="bg-card border border-border text-foreground font-medium text-[11px] px-2 py-1 rounded-md focus:outline-none focus:ring-2 focus:ring-ring"
+          >
+            <option value="bilingual">Soal: 2 Bahasa</option>
+            <option value="ko">Soal: Korea</option>
+            <option value="id">Soal: Indo</option>
+          </select>
 
-            <Button variant="outline" size="sm"
-              onClick={() => setShowOptionHint(!showOptionHint)}
-              title="Tampilkan arti bantuan di bawah teks pilihan">
-              {showOptionHint ? <Eye className="h-3 w-3" /> : <EyeOff className="h-3 w-3" />}
-              <span>Arti {showOptionHint ? 'ON' : 'OFF'}</span>
-            </Button>
-          </div>
+          <button
+            type="button"
+            onClick={() => setShowOptionHint(!showOptionHint)}
+            title="Tampilkan arti bantuan di bawah teks pilihan"
+            className={cn(
+              'inline-flex items-center gap-1 px-2 py-1 rounded-md border text-[11px] font-medium transition-colors',
+              showOptionHint
+                ? 'bg-primary/10 text-primary border-primary/30'
+                : 'bg-card text-muted-foreground border-border hover:text-foreground'
+            )}
+          >
+            {showOptionHint ? <Eye className="h-3 w-3" /> : <EyeOff className="h-3 w-3" />}
+            <span>Arti {showOptionHint ? 'ON' : 'OFF'}</span>
+          </button>
         </div>
       </div>
 
-      {/* Question card */}
+      {/* Question card - clean without inner boxes */}
       <Card className="w-full p-5 mb-3.5 text-center">
         {currentQ?.image_url && (
           <div className="max-h-44 md:max-h-52 w-full flex items-center justify-center mb-3">
-            <img src={getAssetUrl(currentQ.image_url)} alt="Soal Ujian"
-              className="max-h-40 md:max-h-48 w-auto object-contain rounded-md border border-border p-1 bg-muted" />
+            <img
+              src={getAssetUrl(currentQ.image_url)}
+              alt="Soal Ujian"
+              className="max-h-40 md:max-h-48 w-auto object-contain"
+            />
           </div>
         )}
 
@@ -230,17 +237,20 @@ export function PracticeQuiz({
           )}
 
           {(questionLang === 'bilingual' || questionLang === 'id') && (
-            <p className={cn('font-medium',
-              questionLang === 'id'
-                ? 'text-lg md:text-xl font-bold text-foreground'
-                : 'text-xs md:text-sm text-muted-foreground bg-muted border border-border px-3 py-1 rounded-md inline-block mt-0.5')}>
+            <p
+              className={cn(
+                questionLang === 'id'
+                  ? 'text-lg md:text-xl font-bold text-foreground'
+                  : 'text-sm text-muted-foreground mt-1'
+              )}
+            >
               {currentQ?.question_id || currentQ?.title_id || 'Apakah nama benda/alat ini?'}
             </p>
           )}
         </div>
 
         {currentQ?.audio_q && (
-          <div className="mt-3">
+          <div className="mt-3.5">
             <Button type="button" variant="secondary" size="sm" onClick={() => onPlayAudio(currentQ.audio_q)}>
               <Volume2 className={cn('h-3.5 w-3.5', isPlayingAudio && 'animate-pulse text-primary')} />
               <span>Putar Suara Soal Penguji</span>
@@ -250,66 +260,73 @@ export function PracticeQuiz({
       </Card>
 
       {/* Options */}
-      <div className="w-full space-y-2.5">
+      <div className="w-full space-y-2">
         {currentOptions.map((opt, idx) => {
           const mainText = optionLang === 'ko' ? opt.ko : opt.id;
           const secondaryText = optionLang === 'ko' ? opt.id : opt.ko;
 
-          let btnStyle = 'bg-card border-border text-foreground hover:border-foreground/40 hover:bg-secondary';
+          let btnStyle = 'bg-card border-border text-foreground hover:border-foreground/40 hover:bg-secondary/60';
           let icon = null;
 
           if (isAnswered) {
             if (opt.isCorrect) {
-              btnStyle = 'bg-emerald-50 border-emerald-500 text-emerald-950 font-bold';
+              btnStyle = 'bg-emerald-50 border-emerald-500 text-emerald-950 font-semibold';
               icon = <CheckCircle className="h-4 w-4 text-emerald-600 shrink-0" />;
             } else if (selectedOption === opt && !opt.isCorrect) {
-              btnStyle = 'bg-red-50 border-red-500 text-red-950 font-bold';
+              btnStyle = 'bg-red-50 border-red-500 text-red-950 font-semibold';
               icon = <XCircle className="h-4 w-4 text-red-600 shrink-0" />;
             } else {
-              btnStyle = 'bg-muted border-border text-muted-foreground opacity-50';
+              btnStyle = 'bg-muted/40 border-border text-muted-foreground opacity-60';
             }
           }
 
           return (
-            <Button key={idx} variant="outline" disabled={isAnswered}
+            <button
+              key={idx}
+              type="button"
+              disabled={isAnswered}
               onClick={() => handleSelectOption(opt)}
-              className={cn('w-full min-h-[52px] p-3.5 rounded-md text-left text-xs md:text-sm font-medium justify-between gap-3', btnStyle)}>
-              <div className="flex items-start gap-3">
-                <span className="w-6 h-6 rounded-sm bg-secondary text-[11px] font-mono font-bold flex items-center justify-center shrink-0 mt-0.5">
+              className={cn(
+                'w-full min-h-[48px] px-3.5 py-3 rounded-lg border text-left transition-colors flex items-center justify-between gap-3 whitespace-normal',
+                btnStyle
+              )}
+            >
+              <div className="flex items-start gap-3 min-w-0 flex-1">
+                <span className="w-6 h-6 rounded bg-secondary text-[11px] font-mono font-bold flex items-center justify-center shrink-0 mt-0.5 text-foreground">
                   {String.fromCharCode(65 + idx)}
                 </span>
-                <div>
-                  <span className={cn('leading-snug', optionLang === 'ko' ? 'font-kr text-base font-bold' : 'text-sm')}>
+                <div className="min-w-0 flex-1 whitespace-normal text-left">
+                  <span className={cn('block leading-snug break-words', optionLang === 'ko' ? 'font-kr text-base font-bold' : 'text-sm font-medium')}>
                     {mainText}
                   </span>
                   {(showOptionHint || isAnswered) && secondaryText && (
-                    <span className="text-[11px] text-muted-foreground block font-normal mt-0.5">
-                      ({secondaryText})
+                    <span className="text-xs text-muted-foreground block font-normal mt-0.5 leading-snug break-words">
+                      {secondaryText}
                     </span>
                   )}
                 </div>
               </div>
               {icon}
-            </Button>
+            </button>
           );
         })}
       </div>
 
       {/* Feedback */}
       {isAnswered && (
-        <div className="w-full mt-3.5 p-4 rounded-md border border-border bg-secondary flex flex-col sm:flex-row items-center justify-between gap-3 animate-fade-in">
+        <div className="w-full mt-3.5 pt-3.5 border-t border-border flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 animate-fade-in">
           <div className="text-left text-xs space-y-0.5">
             <span className={cn('font-bold block text-sm', selectedOption?.isCorrect ? 'text-emerald-700' : 'text-red-700')}>
               {selectedOption?.isCorrect ? 'Jawaban Anda Benar' : 'Jawaban Belum Tepat'}
             </span>
-            <div className="text-foreground text-[11px]">
-              <span>Kunci Resmi: </span>
+            <div className="text-foreground text-xs">
+              <span className="text-muted-foreground">Kunci Resmi: </span>
               <strong className="font-kr font-bold text-emerald-800 text-sm">{currentAnswerTexts.ko}</strong>
               <span className="text-muted-foreground ml-1">({currentAnswerTexts.id})</span>
             </div>
           </div>
 
-          <Button onClick={handleNext} className="w-full sm:w-auto">
+          <Button onClick={handleNext} className="w-full sm:w-auto shrink-0">
             <span>Soal Berikutnya</span>
             <ArrowRight className="h-4 w-4" />
           </Button>

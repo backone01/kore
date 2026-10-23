@@ -5560,6 +5560,262 @@
       "command_id": "Turunkan kedua tangan",
       "action_desc": "Langsung lakukan gerakan: Turunkan kedua tangan bersamaan ke posisi siap.",
       "audio_q": "/audio/02_perintah_gerak_fisik/16_양손_내리세요_(Turunkan_kedua_tangan).mp3"
+    },
+    {
+      "id": "cmd_17",
+      "command_ko": "오른손 올리세요. 내리세요",
+      "command_ro": "Oreunson olliseyo. Naeriseyo.",
+      "command_id": "Angkat tangan kanan. Turunkan.",
+      "action_desc": "Angkat tangan kanan lurus ke atas, lalu turunkan kembali saat diminta.",
+      "audio_q": "/audio/hub/nu/55.m4a"
+    },
+    {
+      "id": "cmd_18",
+      "command_ko": "왼손 올리세요. 내리세요",
+      "command_ro": "Oenson olliseyo. Naeriseyo.",
+      "command_id": "Angkat tangan kiri. Turunkan.",
+      "action_desc": "Angkat tangan kiri lurus ke atas, lalu turunkan kembali saat diminta.",
+      "audio_q": "/audio/hub/nu/56.m4a"
+    },
+    {
+      "id": "cmd_19",
+      "command_ko": "양손 올리세요. 내리세요",
+      "command_ro": "Yangson olliseyo. Naeriseyo.",
+      "command_id": "Angkat kedua tangan. Turunkan.",
+      "action_desc": "Angkat kedua tangan ke atas bersamaan, lalu turunkan kembali.",
+      "audio_q": "/audio/hub/nu/57.m4a"
+    },
+    {
+      "id": "cmd_20",
+      "command_ko": "양팔을 앞으로 뻗어 보세요",
+      "command_ro": "Yangpareul apeuro ppeodeo boseyo.",
+      "command_id": "Rentangkan kedua tangan ke depan",
+      "action_desc": "Luruskan kedua lengan sejajar bahu ke arah depan.",
+      "audio_q": "/audio/hub/nu/2653_new.m4a"
+    },
+    {
+      "id": "cmd_21",
+      "command_ko": "손가락을 펴 보세요",
+      "command_ro": "Songarageul pyeo boseyo.",
+      "command_id": "Rentangkan / buka jari-jari tangan",
+      "action_desc": "Buka lebar kesepuluh jari tangan di depan penguji.",
+      "audio_q": "/audio/hub/nu/2654_new.m4a"
+    },
+    {
+      "id": "cmd_22",
+      "command_ko": "손가락을 움직여 보세요",
+      "command_ro": "Songarageul umjigyeo boseyo.",
+      "command_id": "Gerak-gerakkan jari-jari tangan",
+      "action_desc": "Gerakkan kesepuluh jari tangan untuk menunjukkan kelenturan jari.",
+      "audio_q": "/audio/hub/nu/2655_new.m4a"
+    },
+    {
+      "id": "cmd_23",
+      "command_ko": "주먹을 쥐세요",
+      "command_ro": "Jumeogeul jwiseyo.",
+      "command_id": "Kepalkan tangan",
+      "action_desc": "Kepalkan kedua tangan dengan erat.",
+      "audio_q": "/audio/hub/nu/68.m4a"
+    },
+    {
+      "id": "cmd_24",
+      "command_ko": "주먹을 펴세요.",
+      "command_ro": "Jumeogeul pyeoseyo.",
+      "command_id": "Buka kepalan tangan",
+      "action_desc": "Buka kembali kepalan kedua telapak tangan.",
+      "audio_q": "/audio/hub/nu/69.m4a"
+    },
+    {
+      "id": "cmd_25",
+      "command_ko": "세번 박수 하세요.",
+      "command_ro": "Sebeon baksu haseyo.",
+      "command_id": "Tepuk tangan tiga kali",
+      "action_desc": "Bertepuk tangan sebanyak 3 kali dengan ritme jelas.",
+      "audio_q": "/audio/hub/nu/70.m4a"
+    },
+    {
+      "id": "cmd_26",
+      "command_ko": "오른발 올리세요. 내리세요",
+      "command_ro": "Oreunbal olliseyo. Naeriseyo.",
+      "command_id": "Angkat kaki kanan. Turunkan.",
+      "action_desc": "Angkat kaki kanan sambil menjaga keseimbangan, lalu turunkan kembali.",
+      "audio_q": "/audio/hub/nu/58.m4a"
+    },
+    {
+      "id": "cmd_27",
+      "command_ko": "왼발 올리세요. 내리세요",
+      "command_ro": "Oenbal olliseyo. Naeriseyo.",
+      "command_id": "Angkat kaki kiri. Turunkan.",
+      "action_desc": "Angkat kaki kiri sambil menjaga keseimbangan, lalu turunkan kembali.",
+      "audio_q": "/audio/hub/nu/59.m4a"
+    },
+    {
+      "id": "cmd_28",
+      "command_ko": "앉으세요. 일어나세요",
+      "command_ro": "Anjeuseyo. Ireonaseyo.",
+      "command_id": "Duduk (jongkok). Berdiri.",
+      "action_desc": "Duduk atau berjongkok sebentar, lalu berdiri tegak kembali.",
+      "audio_q": "/audio/hub/nu/67.m4a"
+    },
+    {
+      "id": "cmd_29",
+      "command_ko": "허리를 숙이세요.",
+      "command_ro": "Heorireul sugiseyo.",
+      "command_id": "Membungkukkan badan / pinggang",
+      "action_desc": "Bungkukkan badan / pinggang ke arah depan lalu tegak kembali.",
+      "audio_q": null
+    },
+    {
+      "id": "cmd_30",
+      "command_ko": "허리를 돌리세요.",
+      "command_ro": "Heorireul dolliseyo.",
+      "command_id": "Putarkan pinggang",
+      "action_desc": "Putar pinggang ke kanan dan ke kiri dengan luwes.",
+      "audio_q": "/audio/hub/nu/72.m4a"
+    },
+    {
+      "id": "cmd_31",
+      "command_ko": "어깨를 돌리세요.",
+      "command_ro": "Eokkaereul dolliseyo.",
+      "command_id": "Putar bahu Anda.",
+      "action_desc": "Putar kedua bahu dengan rileks untuk menunjukkan kelenturan bahu.",
+      "audio_q": null
+    },
+    {
+      "id": "cmd_32",
+      "command_ko": "고개를 돌리세요.",
+      "command_ro": "Gogaereul dolliseyo.",
+      "command_id": "Putarkan kepala",
+      "action_desc": "Putar kepala perlahan melingkar.",
+      "audio_q": "/audio/hub/nu/71.m4a"
+    },
+    {
+      "id": "cmd_33",
+      "command_ko": "귀를 잡으세요.",
+      "command_ro": "Gwireul jabeuseyo.",
+      "command_id": "Pegang kedua telinga",
+      "action_desc": "Pegang kedua daun telinga dengan kedua tangan.",
+      "audio_q": "/audio/hub/nu/73.m4a"
+    },
+    {
+      "id": "cmd_34",
+      "command_ko": "외쪽에 귀를 잡으세요.",
+      "command_ro": "Oenjjoge gwireul jabeuseyo.",
+      "command_id": "Pegang telinga kiri",
+      "action_desc": "Pegang daun telinga sebelah kiri.",
+      "audio_q": "/audio/hub/nu/74.m4a"
+    },
+    {
+      "id": "cmd_35",
+      "command_ko": "오른 귀를 잡으세요.",
+      "command_ro": "Oreun gwireul jabeuseyo.",
+      "command_id": "Pegang telinga kanan",
+      "action_desc": "Pegang daun telinga sebelah kanan.",
+      "audio_q": "/audio/hub/nu/75.m4a"
+    },
+    {
+      "id": "cmd_36",
+      "command_ko": "왼쪽 손으로 오른쪽 귀를 만져 보세요",
+      "command_ro": "Oenjjok soneuro oreunjjok gwireul manjyeo boseyo.",
+      "command_id": "Sentuh telinga kanan dengan tangan kiri",
+      "action_desc": "Silangkan tangan kiri untuk menyentuh telinga sebelah kanan.",
+      "audio_q": "/audio/hub/nu/2651_new.m4a"
+    },
+    {
+      "id": "cmd_37",
+      "command_ko": "오른쪽 손으로 왼쪽 귀를 만져 보세요",
+      "command_ro": "Oreunjjok soneuro oenjjok gwireul manjyeo boseyo.",
+      "command_id": "Sentuh telinga kiri dengan tangan kanan",
+      "action_desc": "Silangkan tangan kanan untuk menyentuh telinga sebelah kiri.",
+      "audio_q": "/audio/hub/nu/2652_new.m4a"
+    },
+    {
+      "id": "cmd_38",
+      "command_ko": "코를 잡으세요.",
+      "command_ro": "Koreul jabeuseyo.",
+      "command_id": "Pegang hidung",
+      "action_desc": "Sentuh atau pegang ujung hidung Anda.",
+      "audio_q": "/audio/hub/nu/76.m4a"
+    },
+    {
+      "id": "cmd_39",
+      "command_ko": "눈을 깜빡이세요.",
+      "command_ro": "Nuneul kkamppagiseyo.",
+      "command_id": "Kedipkan mata Anda.",
+      "action_desc": "Langsung mengedipkan kedua mata beberapa kali.",
+      "audio_q": null
+    },
+    {
+      "id": "cmd_40",
+      "command_ko": "눈을 감으세요. 눈을 뜨세요.",
+      "command_ro": "Nuneul gameuseyo. Nuneul tteuseyo.",
+      "command_id": "Tutup mata Anda. Buka mata Anda.",
+      "action_desc": "Pejamkan kedua mata sebentar, lalu buka kembali saat diminta.",
+      "audio_q": null
+    },
+    {
+      "id": "cmd_41",
+      "command_ko": "입을 벌리세요. 아 하세요.",
+      "command_ro": "Ibeul beolliseyo. A haseyo.",
+      "command_id": "Buka mulut Anda. Ucapkan 'A'.",
+      "action_desc": "Membuka mulut lebar sambil mengucapkan 'A'.",
+      "audio_q": null
+    },
+    {
+      "id": "cmd_42",
+      "command_ko": "오른쪽으로 걸어가세요",
+      "command_ro": "Oreunjjogeuro georeogaseyo.",
+      "command_id": "Berjalanlah ke kanan",
+      "action_desc": "Berjalan melangkah ke arah kanan.",
+      "audio_q": "/audio/hub/nu/60.m4a"
+    },
+    {
+      "id": "cmd_43",
+      "command_ko": "왼쪽으로 걸어가세요",
+      "command_ro": "Oenjjogeuro georeogaseyo.",
+      "command_id": "Berjalanlah ke kiri",
+      "action_desc": "Berjalan melangkah ke arah kiri.",
+      "audio_q": "/audio/hub/nu/61.m4a"
+    },
+    {
+      "id": "cmd_44",
+      "command_ko": "뒤로 걸어가세요",
+      "command_ro": "Dwiro georeogaseyo.",
+      "command_id": "Berjalanlah ke belakang",
+      "action_desc": "Berjalan mundur ke arah belakang.",
+      "audio_q": "/audio/hub/nu/62.m4a"
+    },
+    {
+      "id": "cmd_45",
+      "command_ko": "앞으로 걸어가세요",
+      "command_ro": "Apeuro georeogaseyo.",
+      "command_id": "Berjalanlah ke depan",
+      "action_desc": "Berjalan maju ke arah depan.",
+      "audio_q": "/audio/hub/nu/63.m4a"
+    },
+    {
+      "id": "cmd_46",
+      "command_ko": "오른쪽으로 돌아서세요",
+      "command_ro": "Oreunjjogeuro doraseoseyo.",
+      "command_id": "Putar badan ke kanan",
+      "action_desc": "Putar posisi tubuh menghadap ke arah kanan.",
+      "audio_q": "/audio/hub/nu/64.m4a"
+    },
+    {
+      "id": "cmd_47",
+      "command_ko": "왼쪽으로 돌아서세요",
+      "command_ro": "Oenjjogeuro doraseoseyo.",
+      "command_id": "Putar badan ke kiri",
+      "action_desc": "Putar posisi tubuh menghadap ke arah kiri.",
+      "audio_q": "/audio/hub/nu/65.m4a"
+    },
+    {
+      "id": "cmd_48",
+      "command_ko": "뒤로 돌아서세요",
+      "command_ro": "Dwiro doraseoseyo.",
+      "command_id": "Putar badan ke belakang",
+      "action_desc": "Putar balik badan 180 derajat menghadap ke belakang.",
+      "audio_q": "/audio/hub/nu/66.m4a"
     }
   ]
 }

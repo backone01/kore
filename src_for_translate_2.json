@@ -1,0 +1,505 @@
+{
+ "hieu_lenh": {
+  "51": {
+   "ko": "오른쪽으로 보세요",
+   "a_ko": ""
+  },
+  "52": {
+   "ko": "왼쪽으로 보세요",
+   "a_ko": ""
+  },
+  "53": {
+   "ko": "위로 보세요",
+   "a_ko": ""
+  },
+  "54": {
+   "ko": "아래로 보세요",
+   "a_ko": ""
+  },
+  "55": {
+   "ko": "오른손 올리세요. 내리세요",
+   "a_ko": ""
+  },
+  "56": {
+   "ko": "왼손 올리세요. 내리세요",
+   "a_ko": ""
+  },
+  "57": {
+   "ko": "양손 올리세요. 내리세요",
+   "a_ko": ""
+  },
+  "58": {
+   "ko": "오른발 올리세요. 내리세요",
+   "a_ko": ""
+  },
+  "59": {
+   "ko": "왼발 올리세요. 내리세요",
+   "a_ko": ""
+  },
+  "60": {
+   "ko": "오른쪽으로 걸어가세요",
+   "a_ko": ""
+  },
+  "61": {
+   "ko": "왼쪽으로 걸어가세요",
+   "a_ko": ""
+  },
+  "62": {
+   "ko": "뒤로 걸어가세요",
+   "a_ko": ""
+  },
+  "63": {
+   "ko": "앞으로 걸어가세요",
+   "a_ko": ""
+  },
+  "64": {
+   "ko": "오른쪽으로 돌아서세요",
+   "a_ko": ""
+  },
+  "65": {
+   "ko": "왼쪽으로 돌아서세요",
+   "a_ko": ""
+  },
+  "66": {
+   "ko": "뒤로 돌아서세요",
+   "a_ko": ""
+  },
+  "67": {
+   "ko": "앉으세요. 일어나세요",
+   "a_ko": ""
+  },
+  "68": {
+   "ko": "주먹을 쥐세요",
+   "a_ko": ""
+  },
+  "69": {
+   "ko": "주먹을 펴세요.",
+   "a_ko": ""
+  },
+  "70": {
+   "ko": "세번 박수 하세요.",
+   "a_ko": ""
+  },
+  "71": {
+   "ko": "고개를 돌리세요.",
+   "a_ko": ""
+  },
+  "72": {
+   "ko": "허리를 돌리세요.",
+   "a_ko": ""
+  },
+  "73": {
+   "ko": "귀를 잡으세요.",
+   "a_ko": ""
+  },
+  "74": {
+   "ko": "외쪽에 귀를 잡으세요.",
+   "a_ko": ""
+  },
+  "75": {
+   "ko": "오른 귀를 잡으세요.",
+   "a_ko": ""
+  },
+  "76": {
+   "ko": "코를 잡으세요.",
+   "a_ko": ""
+  },
+  "2651_new": {
+   "ko": "왼쪽 손으로 오른쪽 귀를 만져 보세요",
+   "a_ko": ""
+  },
+  "2652_new": {
+   "ko": "오른쪽 손으로 왼쪽 귀를 만져 보세요",
+   "a_ko": ""
+  },
+  "2653_new": {
+   "ko": "양팔을 앞으로 뻗어 보세요",
+   "a_ko": ""
+  },
+  "2654_new": {
+   "ko": "손가락을 펴 보세요",
+   "a_ko": ""
+  },
+  "2655_new": {
+   "ko": "손가락을 움직여 보세요",
+   "a_ko": ""
+  }
+ },
+ "chithihanhdong": {
+  "sxct_001": {
+   "ko": "다음 작업 지시를 잘 듣고 지시대로 정확하게 수행하세요.",
+   "type": "su-dung-cong-cu",
+   "id": 1,
+   "audio_id": "001"
+  },
+  "sxct_002": {
+   "ko": "안전모와 안전장갑을 착용하세요.",
+   "type": "su-dung-cong-cu",
+   "id": 2,
+   "audio_id": "002"
+  },
+  "sxct_003": {
+   "ko": "망치와 톱을 가져오세요.",
+   "type": "su-dung-cong-cu",
+   "id": 3,
+   "audio_id": "003"
+  },
+  "sxct_004": {
+   "ko": "망치로 나무판에 못을 박아 보세요.",
+   "type": "su-dung-cong-cu",
+   "id": 4,
+   "audio_id": "004"
+  },
+  "sxct_005": {
+   "ko": "톱으로 나무를 잘라 보세요.",
+   "type": "su-dung-cong-cu",
+   "id": 5,
+   "audio_id": "005"
+  },
+  "sxct_006": {
+   "ko": "망치와 톱을 공구함에 넣으세요.",
+   "type": "su-dung-cong-cu",
+   "id": 6,
+   "audio_id": "006"
+  },
+  "sxct_007": {
+   "ko": "안전모를 착용하세요.",
+   "type": "su-dung-cong-cu",
+   "id": 7,
+   "audio_id": "007"
+  },
+  "sxct_008": {
+   "ko": "줄자와 전기드릴을 가져오세요.",
+   "type": "su-dung-cong-cu",
+   "id": 8,
+   "audio_id": "008"
+  },
+  "sxct_009": {
+   "ko": "줄자로 나무판의 길이를 재 보세요.",
+   "type": "su-dung-cong-cu",
+   "id": 9,
+   "audio_id": "009"
+  },
+  "sxct_010": {
+   "ko": "표시된 곳에 전기드릴로 나사못을 박아 보세요.",
+   "type": "su-dung-cong-cu",
+   "id": 10,
+   "audio_id": "010"
+  },
+  "ngu_1": {
+   "ko": "밧줄을 묶는 동작을 해 보세요.",
+   "type": "su-dung-cong-cu",
+   "id": 1,
+   "audio_id": "1"
+  },
+  "ngu_2": {
+   "ko": "구명조끼를 입는 동작을 해 보세요.",
+   "type": "su-dung-cong-cu",
+   "id": 2,
+   "audio_id": "2"
+  },
+  "ngu_3": {
+   "ko": "그물을 끌어올리는 동작을 해 보세요.",
+   "type": "su-dung-cong-cu",
+   "id": 3,
+   "audio_id": "3"
+  },
+  "ngu_4": {
+   "ko": "그물을 정리하는 동작을 해 보세요.",
+   "type": "su-dung-cong-cu",
+   "id": 4,
+   "audio_id": "4"
+  },
+  "ngu_5": {
+   "ko": "그물을 세척하는 동작을 해 보세요.",
+   "type": "su-dung-cong-cu",
+   "id": 5,
+   "audio_id": "5"
+  },
+  "lam_1": {
+   "ko": "예초기를 사용하는 동작을 해 보세요.",
+   "type": "su-dung-cong-cu",
+   "id": 1,
+   "audio_id": "1"
+  },
+  "lam_2": {
+   "ko": "낫으로 잡초를 베는 동작을 해 보세요.",
+   "type": "su-dung-cong-cu",
+   "id": 2,
+   "audio_id": "2"
+  },
+  "lam_3": {
+   "ko": "도끼로 나무를 자르는 동작을 해 보세요.",
+   "type": "su-dung-cong-cu",
+   "id": 3,
+   "audio_id": "3"
+  },
+  "lam_4": {
+   "ko": "망치로 못을 박는 동작을 해 보세요.",
+   "type": "su-dung-cong-cu",
+   "id": 4,
+   "audio_id": "4"
+  },
+  "lam_5": {
+   "ko": "망치로 못을 빼는 동작을 해 보세요.",
+   "type": "su-dung-cong-cu",
+   "id": 5,
+   "audio_id": "5"
+  },
+  "lam_6": {
+   "ko": "삽으로 땅을 파는 동작을 해 보세요.",
+   "type": "su-dung-cong-cu",
+   "id": 6,
+   "audio_id": "6"
+  },
+  "lam_7": {
+   "ko": "밧줄을 묶는 동작을 해 보세요.",
+   "type": "su-dung-cong-cu",
+   "id": 7,
+   "audio_id": "7"
+  },
+  "lam_8": {
+   "ko": "저울로 무게를 재는 동작을 해 보세요.",
+   "type": "su-dung-cong-cu",
+   "id": 8,
+   "audio_id": "8"
+  },
+  "dichvu_1": {
+   "ko": "광택제를 사용해서 바닥을 닦아 주세요.",
+   "type": "su-dung-cong-cu",
+   "id": 1,
+   "audio_id": "1"
+  },
+  "dichvu_2": {
+   "ko": "버니셔로 바닥을 광택 내세요.",
+   "type": "su-dung-cong-cu",
+   "id": 2,
+   "audio_id": "2"
+  },
+  "dichvu_3": {
+   "ko": "세척제로 싱크대를 청소하세요.",
+   "type": "su-dung-cong-cu",
+   "id": 3,
+   "audio_id": "3"
+  },
+  "dichvu_4": {
+   "ko": "소독제로 손잡이를 소독하세요.",
+   "type": "su-dung-cong-cu",
+   "id": 4,
+   "audio_id": "4"
+  },
+  "dichvu_5": {
+   "ko": "제거제로 얼룩을 제거하세요.",
+   "type": "su-dung-cong-cu",
+   "id": 5,
+   "audio_id": "5"
+  },
+  "dichvu_6": {
+   "ko": "주방카트로 식기를 옮기세요.",
+   "type": "su-dung-cong-cu",
+   "id": 6,
+   "audio_id": "6"
+  },
+  "dichvu_7": {
+   "ko": "진공청소기로 바닥을 청소하세요.",
+   "type": "su-dung-cong-cu",
+   "id": 7,
+   "audio_id": "7"
+  },
+  "dichvu_8": {
+   "ko": "하우스키핑카트를 정리해 주세요.",
+   "type": "su-dung-cong-cu",
+   "id": 8,
+   "audio_id": "8"
+  },
+  "dichvu_9": {
+   "ko": "국자로 국을 퍼 주세요.",
+   "type": "su-dung-cong-cu",
+   "id": 9,
+   "audio_id": "9"
+  },
+  "dichvu_10": {
+   "ko": "냄비를 닦는 행동을 해 보세요.",
+   "type": "su-dung-cong-cu",
+   "id": 10,
+   "audio_id": "10"
+  }
+ },
+ "thietbiantoan": {
+  "sxct_1": {
+   "ko": "방수 앞치마",
+   "vi": "tạp dề chống nước",
+   "id": 1
+  },
+  "sxct_2": {
+   "ko": "안전모",
+   "vi": "Mũ an toàn",
+   "id": 2
+  },
+  "sxct_3": {
+   "ko": "위생마스크",
+   "vi": "Khẩu trang vệ sinh",
+   "id": 3
+  },
+  "sxct_4": {
+   "ko": "위생장화",
+   "vi": "Ủng vệ sinh",
+   "id": 4
+  },
+  "sxct_5": {
+   "ko": "방진마스크",
+   "vi": "Khẩu trang phòng bụi",
+   "id": 5
+  },
+  "sxct_6": {
+   "ko": "안전장갑",
+   "vi": "Găng tay an toàn",
+   "id": 6
+  },
+  "sxct_7": {
+   "ko": "위생모",
+   "vi": "Mũ vệ sinh",
+   "id": 7
+  },
+  "sxct_8": {
+   "ko": "작업복",
+   "vi": "Đồ bảo hộ",
+   "id": 8
+  },
+  "sxct_9": {
+   "ko": "보안경 ",
+   "vi": "Kính bảo hộ",
+   "id": 9
+  },
+  "sxct_10": {
+   "ko": "안전화",
+   "vi": "Giầy bảo hộ",
+   "id": 10
+  },
+  "nong_1": {
+   "ko": "농약방제복",
+   "vi": "Quần áo bảo hộ thuốc trừ sâu",
+   "id": 1
+  },
+  "nong_2": {
+   "ko": "안전장갑",
+   "vi": "Găng tay bảo hộ ",
+   "id": 2
+  },
+  "nong_3": {
+   "ko": "안전화",
+   "vi": "Giầy bảo hộ",
+   "id": 3
+  },
+  "nong_4": {
+   "ko": "작업복",
+   "vi": "Quần áo bảo hộ",
+   "id": 4
+  },
+  "nong_5": {
+   "ko": "절연용보호구",
+   "vi": "Thiết bị bảo vệ cách điện",
+   "id": 5
+  },
+  "nong_6": {
+   "ko": "축산작업복",
+   "vi": "Quần áo nghề chăn nuôi",
+   "id": 6
+  },
+  "ngu_1": {
+   "ko": "구명조끼",
+   "vi": "Áo phao cứu sinh",
+   "id": 1
+  },
+  "ngu_2": {
+   "ko": "방수 앞치마",
+   "vi": "Tạp dề chống nước",
+   "id": 2
+  },
+  "ngu_3": {
+   "ko": "보안경",
+   "vi": "Kính bảo hộ",
+   "id": 3
+  },
+  "ngu_4": {
+   "ko": "안전모",
+   "vi": "Mũ bảo hộ",
+   "id": 4
+  },
+  "ngu_5": {
+   "ko": "장화",
+   "vi": "Ủng bảo hộ",
+   "id": 5
+  },
+  "ngu_6": {
+   "ko": "청력보호구",
+   "vi": "Bảo vệ thính giác",
+   "id": 6
+  },
+  "lam_1": {
+   "ko": "무릎보호대",
+   "vi": "Bảo vệ đầu gối",
+   "id": 1
+  },
+  "lam_2": {
+   "ko": "보안경",
+   "vi": "Kính bảo hộ",
+   "id": 2
+  },
+  "lam_3": {
+   "ko": "안면보호구",
+   "vi": "Bảo vệ mặt",
+   "id": 3
+  },
+  "lam_4": {
+   "ko": "안전장갑",
+   "vi": "Găng tay bảo hộ",
+   "id": 4
+  },
+  "lam_5": {
+   "ko": "안전화",
+   "vi": "Giày bảo hộ",
+   "id": 5
+  },
+  "lam_6": {
+   "ko": "작업복",
+   "vi": "Quần áo bảo hộ",
+   "id": 6
+  },
+  "dichvu_1": {
+   "ko": "오븐장갑",
+   "vi": "Găng tay bắc nồi",
+   "id": 1
+  },
+  "dichvu_2": {
+   "ko": "위생마스크",
+   "vi": "Khẩu trang vệ sinh",
+   "id": 2
+  },
+  "dichvu_3": {
+   "ko": "위생모",
+   "vi": "Mũ vệ sinh",
+   "id": 3
+  },
+  "dichvu_4": {
+   "ko": "위생복",
+   "vi": "Quần áo vệ sinh",
+   "id": 4
+  },
+  "dichvu_5": {
+   "ko": "위생장갑",
+   "vi": "Găng tay vệ sinh",
+   "id": 5
+  },
+  "dichvu_6": {
+   "ko": "위생장화",
+   "vi": "Giày vệ sinh",
+   "id": 6
+  },
+  "dichvu_7": {
+   "ko": "절단방지장갑",
+   "vi": "Găng tay bảo hộ",
+   "id": 7
+  }
+ }
+}

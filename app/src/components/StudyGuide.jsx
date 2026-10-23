@@ -2,18 +2,17 @@ import React, { useState, useRef, useMemo, useEffect } from 'react';
 import studyData from '../data/studyMaterials.json';
 import allQuestions from '../data/questions.json';
 import {
-  Volume2, Eye, EyeOff, Search, Sparkles, BookOpen,
+  Volume2, Eye, EyeOff, Search, Sparkles,
   Calendar, Clock, Hash, Palette, Users, UserCheck,
-  Factory, Wrench, CheckCircle2, ArrowRight, RotateCcw, AlertTriangle,
-  Activity, ChevronRight, ChevronDown, ChevronUp, Check, ShieldAlert, Image, Headphones, Copy, Play,
+  Factory, Wrench, AlertTriangle,
+  Activity, ChevronRight, ShieldAlert, Image, Copy, Play, Pause,
   X, Maximize2
 } from 'lucide-react';
 import { getAssetUrl } from '../utils/assetHelper.js';
-import { HRDK_MODULES, MODULE_COLORS } from '../utils/categoryGroups.js';
+import { HRDK_MODULES } from '../utils/categoryGroups.js';
 import { Badge } from './ui/badge.jsx';
 import { Button } from './ui/button.jsx';
-import { Card, CardContent } from './ui/card.jsx';
-import { QADetail, QAList, QAPlayerDeck, QAControls, QAViewBar, SoundWave } from './QAStudy.jsx';
+import { QADetail, QAList, QAPlayerDeck, QAViewBar } from './QAStudy.jsx';
 import { cn } from '../utils/cn.js';
 
 const JAGISOGE_SAMPLES = [
@@ -109,6 +108,20 @@ const JAGI_FOKUS_OPTIONS = [
   },
 ];
 
+function classifyPhysicalGroup(ko = '', id = '') {
+  const s = `${ko} ${id}`.toLowerCase();
+  if (/눈|입|코|귀|고개|mata|mulut|hidung|telinga|kepala/.test(s)) {
+    return 'Kepala, Mata, Hidung & Telinga';
+  }
+  if (/손|팔|주먹|박수|손가락|tangan|jari|kepal|tepuk/.test(s)) {
+    return 'Tangan & Jari';
+  }
+  if (/발|앉|일어나|허리|어깨|kaki|duduk|berdiri|pinggang|bahu|membungkuk|bungkuk/.test(s)) {
+    return 'Kaki & Postur Tubuh';
+  }
+  return 'Arah & Pandangan';
+}
+
 export function StudyGuide({ onStartPracticeCategory }) {
   const [activeModule, setActiveModule] = useState('interview');
   const [activeTab, setActiveTab] = useState('interview');
@@ -122,6 +135,7 @@ export function StudyGuide({ onStartPracticeCategory }) {
   const [selectedOptionByCard, setSelectedOptionByCard] = useState({});
   const [k3Filter, setK3Filter] = useState('all');
   const [interviewFilter, setInterviewFilter] = useState('all');
+  const [cmdFilter, setCmdFilter] = useState('all');
   const [pikGroup, setPikGroup] = useState('all');
   const [alatGroup, setAlatGroup] = useState('all');
   const [selK3, setSelK3] = useState(0);
@@ -135,21 +149,7 @@ export function StudyGuide({ onStartPracticeCategory }) {
   const [playRate, setPlayRate] = useState(1);
   const [playDelay, setPlayDelay] = useState(2);
   const [audioProg, setAudioProg] = useState({ t: 0, d: 0 });
-  const [page, setPage] = useState({});
-  const PAGE_SIZE = 8;
 
-  // Jagisoge wizard
-  const JAGI_OPTS = (studyData.jagisoge || {}).form_options || {};
-  const SLOT_OPTS = {
-    asal: JAGI_OPTS.asal || [{ id: '인도네시아', text: 'Indonesia' }],
-    hobi: JAGI_OPTS.hobi || [{ id: '운동', text: 'olahraga' }],
-    nikah: JAGI_OPTS.nikah || [{ id: '아직 결혼하지 않았습니다', text: 'belum menikah' }],
-    kelebihan: JAGI_OPTS.kelebihan || [{ id: '부지런한 사람이고 빨리 적응할 수 있습니다', text: 'rajin dan cepat beradaptasi' }],
-    tutup: JAGI_OPTS.tutup || [{ id: '열심히 일하겠습니다. 잘 부탁드립니다. 감사합니다', text: 'kerja rajin, mohon bimbingannya' }],
-    pengalaman: ((studyData.jagisoge || {}).optional_slots || {}).pengalaman || [
-      '선택한 분야(서비스/제조)의 경력이 없지만 최선을 다하겠습니다',
-    ],
-  };
   const [jagiForm, setJagiForm] = useState({
     nama: 'BAMBANG SUTEJO',
     umur: '25',
@@ -159,7 +159,6 @@ export function StudyGuide({ onStartPracticeCategory }) {
   });
   const [jagiCopied, setJagiCopied] = useState(false);
 
-  // Angka asli Korea 1-99 (umur, jumlah keluarga)
   const nativeKo = (n) => {
     n = parseInt(n, 10);
     if (!n || n < 1 || n > 99) return '';
@@ -170,7 +169,7 @@ export function StudyGuide({ onStartPracticeCategory }) {
     return TENS[t] + (o ? ONE[o] : '');
   };
 
-  const jagiSentences = () => {
+  const getJagiSentences = () => {
     const f = jagiForm;
     const nama = (f.nama || '').trim() || 'OOO';
     const umurKo = nativeKo(f.umur) || '스물다섯';
@@ -224,15 +223,63 @@ export function StudyGuide({ onStartPracticeCategory }) {
       },
     ];
   };
+  const jagiSentences = getJagiSentences;
 
   const copyJagi = async () => {
-    const text = jagiSentences().map(s => s.ko).join(' ');
+    const text = getJagiSentences().map(s => s.ko).join(' ');
     try {
       await navigator.clipboard.writeText(text);
       setJagiCopied(true);
       setTimeout(() => setJagiCopied(false), 2000);
     } catch { setJagiCopied(false); }
   };
+
+  // Gabungkan dan deduplikasi seluruh perintah gerak fisik dari studyData.physical_commands & allQuestions (gerak_fisik)
+  const mergedPhysicalCommands = useMemo(() => {
+    const normKo = (t) => (t || '').replace(/[.?!]/g, '').replace(/\s+/g, ' ').trim();
+    const map = new Map();
+
+    (studyData.physical_commands || []).forEach((c, i) => {
+      const key = normKo(c.command_ko);
+      if (!key) return;
+      map.set(key, {
+        id: c.id || `sm_cmd_${i}`,
+        command_ko: c.command_ko,
+        command_ro: c.command_ro || '',
+        command_id: c.command_id || '',
+        action_desc: c.action_desc || c.command_id || '',
+        audio_q: c.audio_q || null,
+        group: classifyPhysicalGroup(c.command_ko, c.command_id),
+      });
+    });
+
+    allQuestions
+      .filter(q => q.category === 'gerak_fisik')
+      .forEach((q, i) => {
+        const ko = q.question_ko || q.title_ko || '';
+        const key = normKo(ko);
+        if (!key) return;
+        const existing = map.get(key);
+        if (existing) {
+          if (!existing.command_ro && q.question_romaja) existing.command_ro = q.question_romaja;
+          if (!existing.audio_q && q.audio_q) existing.audio_q = q.audio_q;
+          if (!existing.action_desc && q.answer_short_id) existing.action_desc = q.answer_short_id;
+        } else {
+          const idText = q.question_id || q.title_id || '';
+          map.set(key, {
+            id: q.id || `q_cmd_${i}`,
+            command_ko: ko,
+            command_ro: q.question_romaja || '',
+            command_id: idText,
+            action_desc: q.answer_short_id || `Langsung peragakan gerakan: ${idText}`,
+            audio_q: q.audio_q || null,
+            group: classifyPhysicalGroup(ko, idText),
+          });
+        }
+      });
+
+    return Array.from(map.values());
+  }, []);
 
   const alatCount = allQuestions.filter(
     q => q.category === 'alat_manufaktur' || q.category === 'alat_klasik'
@@ -316,10 +363,6 @@ export function StudyGuide({ onStartPracticeCategory }) {
     }
   };
 
-  // =========================================================================
-  // PLAYER AUTOPLAY ALA EPSTOPIKHUB: soal → jeda hafalan → jawaban → lanjut.
-  // Mesin memakai ref agar callback async audio/TTS selalu baca state segar.
-  // =========================================================================
   const playerRef = useRef({
     tab: null,
     items: [],
@@ -498,7 +541,7 @@ export function StudyGuide({ onStartPracticeCategory }) {
       }
       order = [s0, ...remaining];
     }
-    const targetPos = 0;
+    const targetPos = playerRef.current.shuffle ? 0 : s0;
     Object.assign(playerRef.current, {
       tab,
       items: [...items],
@@ -525,14 +568,6 @@ export function StudyGuide({ onStartPracticeCategory }) {
     stopAudioOnly();
     playerRef.current.on = false;
     syncPlayer();
-  };
-
-  const resumePlayer = () => {
-    const r = playerRef.current;
-    if (!r.order.length) return;
-    r.on = true;
-    r.step = 'q';
-    drivePlayer();
   };
 
   const stepPlayer = (d) => {
@@ -599,12 +634,6 @@ export function StudyGuide({ onStartPracticeCategory }) {
     try { audioRef.current.playbackRate = next; } catch { /* abaikan */ }
   };
 
-  const cycleDelay = () => {
-    const steps = [1, 2, 3, 5];
-    const i = steps.indexOf(playDelay);
-    setPlayDelay(steps[(i + 1) % steps.length]);
-  };
-
   useEffect(() => {
     const a = audioRef.current;
     if (!a) return undefined;
@@ -630,117 +659,37 @@ export function StudyGuide({ onStartPracticeCategory }) {
   const isAnswerHidden = (cardId) => {
     if (hideAllAnswers) {
       return !revealedCardAnswers[cardId];
-    } else {
-      return revealedCardAnswers[cardId] === true;
     }
+    return revealedCardAnswers[cardId] === true;
   };
 
   const toggleCardAnswer = (cardId) => {
     setRevealedCardAnswers(prev => ({
       ...prev,
-      [cardId]: hideAllAnswers ? !prev[cardId] : !prev[cardId]
+      [cardId]: !prev[cardId]
     }));
   };
 
-  const getPagedItems = (items, key) => {
-    const total = Math.max(1, Math.ceil(items.length / PAGE_SIZE));
-    const p = Math.min(page[key] || 1, total);
-    const start = (p - 1) * PAGE_SIZE;
-    return items.slice(start, start + PAGE_SIZE);
-  };
-
-  const pageOffset = (key) => {
-    return ((page[key] || 1) - 1) * PAGE_SIZE;
-  };
-
-  const getTotalPages = (items) => {
-    return Math.ceil(items.length / PAGE_SIZE);
-  };
-
-  const Pagination = ({ items, pkey }) => {
-    const total = getTotalPages(items);
-    if (total <= 1) return null;
-    const current = Math.min(page[pkey] || 1, total);
-    const go = (n) => setPage(prev => ({ ...prev, [pkey]: Math.max(1, Math.min(total, n)) }));
-    // Nomor halaman ringkas: 1 … c-1 c c+1 … total
-    const nums = [];
-    for (let n = 1; n <= total; n++) {
-      if (n === 1 || n === total || Math.abs(n - current) <= 1) nums.push(n);
-      else if (nums[nums.length - 1] !== '…') nums.push('…');
-    }
-    return (
-      <div className="flex items-center justify-center gap-1.5 pt-2 flex-wrap">
-        <button
-          onClick={() => go(1)}
-          disabled={current === 1}
-          title="Halaman pertama"
-          className="px-2.5 py-1.5 rounded-lg border border-slate-200 bg-white text-sm font-bold text-slate-600 disabled:opacity-40 hover:bg-slate-50"
-        >
-          «
-        </button>
-        <button
-          onClick={() => go(current - 1)}
-          disabled={current === 1}
-          className="px-3 py-1.5 rounded-lg border border-slate-200 bg-white text-sm font-bold text-slate-600 disabled:opacity-40 hover:bg-slate-50"
-        >
-          ←
-        </button>
-        {nums.map((n, i) => n === '…' ? (
-          <span key={'e' + i} className="text-slate-400 font-bold px-1">…</span>
-        ) : (
-          <button
-            key={n}
-            onClick={() => go(n)}
-            className={cn(
-              'w-9 h-9 rounded-lg text-sm font-bold transition-all',
-              current === n
-                ? 'bg-slate-800 text-white shadow-md'
-                : 'border border-slate-200 bg-white text-slate-600 hover:bg-slate-50'
-            )}
-          >
-            {n}
-          </button>
-        ))}
-        <button
-          onClick={() => go(current + 1)}
-          disabled={current === total}
-          className="px-3 py-1.5 rounded-lg border border-slate-200 bg-white text-sm font-bold text-slate-600 disabled:opacity-40 hover:bg-slate-50"
-        >
-          →
-        </button>
-        <button
-          onClick={() => go(total)}
-          disabled={current === total}
-          title="Halaman terakhir"
-          className="px-2.5 py-1.5 rounded-lg border border-slate-200 bg-white text-sm font-bold text-slate-600 disabled:opacity-40 hover:bg-slate-50"
-        >
-          »
-        </button>
-      </div>
-    );
-  };
-
   const subTabs = [
-    { id: 'interview', moduleId: 'interview', label: 'Tanya Jawab Wawancara', icon: UserCheck, count: `${interviewCount} Soal & Situasi` },
-    { id: 'jagisoge', moduleId: 'interview', label: 'Jagisoge 40 Detik', icon: Sparkles, count: 'Perkenalan Diri' },
-    { id: 'family', moduleId: 'interview', label: 'Keluarga & Relasi', icon: Users, count: 'Silsilah & Hitungan' },
+    { id: 'interview', moduleId: 'interview', label: 'Tanya Jawab Wawancara', icon: UserCheck, count: `${interviewCount}` },
+    { id: 'jagisoge', moduleId: 'interview', label: 'Jagisoge 40 Detik', icon: Sparkles, count: 'Naskah' },
+    { id: 'family', moduleId: 'interview', label: 'Keluarga & Relasi', icon: Users, count: 'Silsilah' },
 
-    { id: 'commands', moduleId: 'physical', label: 'Refleks Gerak Fisik', icon: Activity, count: '47 Gerakan' },
+    { id: 'commands', moduleId: 'physical', label: 'Refleks Gerak Fisik', icon: Activity, count: `${mergedPhysicalCommands.length} Gerak` },
 
-    { id: 'k3', moduleId: 'safety', label: '30 Q&A K3 Resmi', icon: AlertTriangle, count: '30 Q&A & APD' },
-    { id: 'piktogram', moduleId: 'safety', label: 'Piktogram & Rambu K3', icon: ShieldAlert, count: '98 Rambu K3' },
+    { id: 'k3', moduleId: 'safety', label: '30 Q&A K3 Resmi', icon: AlertTriangle, count: '30 Q&A' },
+    { id: 'piktogram', moduleId: 'safety', label: 'Piktogram & Rambu K3', icon: ShieldAlert, count: '98 Rambu' },
 
-    { id: 'alat', moduleId: 'tools', label: 'Foto & Nama Alat Manufaktur', icon: Image, count: `${alatCount} Foto Alat` },
-    { id: 'manufacturing', moduleId: 'tools', label: 'Pos Praktik & SOP Pabrik', icon: Factory, count: 'SOP & 3 Tugas' },
+    { id: 'alat', moduleId: 'tools', label: 'Foto & Nama Alat Manufaktur', icon: Image, count: `${alatCount} Alat` },
+    { id: 'manufacturing', moduleId: 'tools', label: 'Pos Praktik & SOP Pabrik', icon: Factory, count: 'SOP' },
 
-    { id: 'numbers', moduleId: 'numbers', label: 'Nomor & Angka Sino/Asli', icon: Hash, count: 'Sino & Asli' },
-    { id: 'time', moduleId: 'numbers', label: 'Jam & Waktu', icon: Clock, count: 'Format & Soal' },
-    { id: 'calendar', moduleId: 'numbers', label: 'Hari & Kalender', icon: Calendar, count: 'Hari, Bulan, Tgl' },
+    { id: 'numbers', moduleId: 'numbers', label: 'Nomor & Angka Sino/Asli', icon: Hash, count: 'Sino/Asli' },
+    { id: 'time', moduleId: 'numbers', label: 'Jam & Waktu', icon: Clock, count: 'Format' },
+    { id: 'calendar', moduleId: 'numbers', label: 'Hari & Kalender', icon: Calendar, count: 'Kalender' },
 
     { id: 'colors', moduleId: 'colors', label: 'Warna Pabrik & Tes Warna', icon: Palette, count: '11 Warna' },
   ];
 
-  // Filter K3
   const filteredK3 = useMemo(() => {
     let list = studyData.k3_safety || [];
     if (k3Filter === 'apd') {
@@ -763,32 +712,31 @@ export function StudyGuide({ onStartPracticeCategory }) {
     return list;
   }, [k3Filter, searchQuery]);
 
-  // Filter Interview
   const filteredInterview = useMemo(() => {
     let list = studyData.interview || [];
     if (interviewFilter === 'pribadi') {
       list = list.filter(q =>
-        q.question_ko?.includes('이름') || 
-        q.question_ko?.includes('나이') || 
-        q.question_ko?.includes('생일') || 
-        q.question_ko?.includes('고향') || 
-        q.question_ko?.includes('가족') || 
-        q.question_ko?.includes('결혼') || 
-        q.question_ko?.includes('취미') || 
-        q.question_ko?.includes('운동') || 
+        q.question_ko?.includes('이름') ||
+        q.question_ko?.includes('나이') ||
+        q.question_ko?.includes('생일') ||
+        q.question_ko?.includes('고향') ||
+        q.question_ko?.includes('가족') ||
+        q.question_ko?.includes('결혼') ||
+        q.question_ko?.includes('취미') ||
+        q.question_ko?.includes('운동') ||
         q.question_ko?.includes('색깔')
       );
     } else if (interviewFilter === 'situasi') {
       list = list.filter(q =>
-        q.question_ko?.includes('불량품') || 
-        q.question_ko?.includes('실수') || 
-        q.question_ko?.includes('사고') || 
-        q.question_ko?.includes('동료') || 
-        q.question_ko?.includes('상사') || 
-        q.question_ko?.includes('반대') || 
-        q.question_ko?.includes('어려우면') || 
-        q.question_ko?.includes('야근') || 
-        q.question_ko?.includes('잔업') || 
+        q.question_ko?.includes('불량품') ||
+        q.question_ko?.includes('실수') ||
+        q.question_ko?.includes('사고') ||
+        q.question_ko?.includes('동료') ||
+        q.question_ko?.includes('상사') ||
+        q.question_ko?.includes('반대') ||
+        q.question_ko?.includes('어려우면') ||
+        q.question_ko?.includes('야근') ||
+        q.question_ko?.includes('잔업') ||
         q.question_ko?.includes('월급')
       );
     } else if (interviewFilter === 'hrdk') {
@@ -803,6 +751,20 @@ export function StudyGuide({ onStartPracticeCategory }) {
     return list;
   }, [interviewFilter, searchQuery]);
 
+  const filteredCommands = useMemo(() => {
+    let list = mergedPhysicalCommands;
+    if (cmdFilter !== 'all') {
+      list = list.filter(c => c.group === cmdFilter);
+    }
+    if (searchQuery.trim()) {
+      const q = searchQuery.toLowerCase();
+      list = list.filter(c =>
+        `${c.command_ko} ${c.command_ro} ${c.command_id} ${c.action_desc}`.toLowerCase().includes(q)
+      );
+    }
+    return list;
+  }, [mergedPhysicalCommands, cmdFilter, searchQuery]);
+
   const selK3Eff = Math.min(selK3, Math.max(0, filteredK3.length - 1));
   const selIntEff = Math.min(selInt, Math.max(0, filteredInterview.length - 1));
 
@@ -810,7 +772,7 @@ export function StudyGuide({ onStartPracticeCategory }) {
     interview: '면접',
     physical: '신체동작',
     safety: '산업안전',
-    tools: '공구 · 기능',
+    tools: '공구·기능',
     numbers: '기초연산',
     colors: '색각검사',
   };
@@ -833,19 +795,19 @@ export function StudyGuide({ onStartPracticeCategory }) {
 
   return (
     <div className="w-full max-w-4xl mx-auto px-3 sm:px-4 pb-20 animate-fade-in text-foreground">
-      
       {/* Page header */}
-      <div className="mb-4">
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3">
+      <div className="mb-3">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-2.5">
           <div>
             <p className="text-[11px] font-mono font-bold text-muted-foreground uppercase tracking-widest">Skill Test · Tahap 2</p>
-            <h1 className="text-2xl md:text-3xl font-bold tracking-tight mt-1">Materi & Hafalan</h1>
-            <p className="text-xs md:text-sm text-muted-foreground mt-1">
-              Kisi-kisi resmi HRD Korea: wawancara, gerak fisik, K3, alat, hitungan.
+            <h1 className="text-xl sm:text-2xl font-bold tracking-tight mt-0.5">Materi & Hafalan</h1>
+            <p className="text-xs text-muted-foreground mt-0.5">
+              Kisi-kisi resmi HRD Korea: wawancara, gerak fisik, K3, alat, dan hitungan.
             </p>
           </div>
           <div className="shrink-0">
             <Button
+              size="sm"
               variant={hideAllAnswers ? 'default' : 'outline'}
               onClick={() => {
                 setHideAllAnswers(prev => !prev);
@@ -860,141 +822,151 @@ export function StudyGuide({ onStartPracticeCategory }) {
         </div>
       </div>
 
-        {/* Module rail */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-2">
-          {HRDK_MODULES.filter(m => m.id !== 'all').map((mod, i) => {
-            const active = activeModule === mod.id;
-            const count = mod.categories.length === 0
-              ? 'Materi'
-              : `${allQuestions.filter(q => mod.categories.includes(q.category)).length} soal`;
-            return (
-              <button
-                key={mod.id}
-                onClick={() => selectModule(mod.id)}
-                aria-current={active ? 'true' : undefined}
+      {/* Compact Module Grid (2x3 Mobile, 3x2 Desktop - Ringkas & Tidak Bertumpuk) */}
+      <div className="grid grid-cols-2 sm:grid-cols-3 gap-1.5 sm:gap-2 mb-3">
+        {HRDK_MODULES.filter(m => m.id !== 'all').map((mod, i) => {
+          const active = activeModule === mod.id;
+          const cleanName = mod.shortLabel.replace(/^\d+\.\s*/, '');
+          return (
+            <button
+              key={mod.id}
+              type="button"
+              onClick={() => selectModule(mod.id)}
+              aria-current={active ? 'true' : undefined}
+              className={cn(
+                'flex items-center gap-2 px-2.5 py-2 sm:px-3 sm:py-2.5 rounded-xl border text-left transition-all min-h-[46px]',
+                active
+                  ? 'bg-primary text-primary-foreground border-primary shadow-xs'
+                  : 'bg-card text-foreground border-border hover:bg-secondary/60'
+              )}
+            >
+              <span
                 className={cn(
-                  'flex items-center gap-2.5 sm:gap-3 p-3 sm:px-4 sm:py-3.5 rounded-lg border text-left transition-all min-h-[52px]',
-                  active
-                    ? 'bg-primary text-primary-foreground border-primary shadow-xs'
-                    : 'bg-card text-foreground border-border hover:bg-secondary/70'
+                  'font-mono text-[11px] font-bold w-6 h-6 rounded-md flex items-center justify-center shrink-0',
+                  active ? 'bg-white/20 text-white' : 'bg-secondary text-muted-foreground'
                 )}
               >
-                <span className={cn('font-mono text-xs font-bold w-7 h-7 rounded-md flex items-center justify-center shrink-0',
-                  active ? 'bg-white/20 text-white' : 'bg-secondary text-muted-foreground border border-border/40')}>
-                  {String(i + 1).padStart(2, '0')}
+                {i + 1}
+              </span>
+              <span className="min-w-0 flex-1">
+                <span className="block text-xs font-bold truncate leading-tight">
+                  {cleanName}
                 </span>
-                <span className="hidden sm:inline-block font-kr text-base md:text-lg font-bold leading-none shrink-0 w-20 md:w-24">
-                  {MOD_KO[mod.id] || mod.shortLabel}
+                <span
+                  className={cn(
+                    'block text-[10px] font-kr truncate mt-0.5 leading-none',
+                    active ? 'text-white/80' : 'text-muted-foreground'
+                  )}
+                >
+                  {MOD_KO[mod.id]}
+                  {mod.points > 0 ? ` · ${mod.points}P` : ''}
                 </span>
-                <span className="flex-1 min-w-0">
-                  <span className="block text-xs sm:text-sm font-bold truncate">
-                    {mod.shortLabel.replace(/^\d+\.\s*/, '')}
-                  </span>
-                  <span className={cn('block text-[11px] truncate mt-0.5', active ? 'text-white/80' : 'text-muted-foreground')}>
-                    <span className="sm:hidden font-kr font-bold mr-1">{MOD_KO[mod.id]} •</span>
-                    {count}
-                  </span>
-                </span>
-                {mod.points > 0 && (
-                  <span className={cn('font-mono text-[10px] sm:text-[11px] font-bold px-1.5 sm:px-2 py-0.5 rounded shrink-0',
-                    active ? 'bg-white/20 text-white' : 'bg-secondary text-muted-foreground border border-border/40')}>
-                    {mod.points} Poin
-                  </span>
-                )}
-                <ChevronRight className={cn('h-4 w-4 shrink-0', active ? 'text-white/80' : 'text-muted-foreground')} />
-              </button>
-            );
-          })}
-        </div>
-
-        {/* Sub-nav */}
-        {(() => {
-          const currentSubTabs = subTabs.filter(st => st.moduleId === activeModule);
-          if (currentSubTabs.length <= 1) return null;
-
-          return (
-            <div className="sticky top-14 z-30 -mx-3 px-3 sm:-mx-4 sm:px-4 bg-background/95 backdrop-blur py-2 border-b border-border mb-4">
-              <div className="flex gap-4 sm:gap-6 overflow-x-auto no-scrollbar py-0.5">
-                {currentSubTabs.map(st => {
-                  const isTabActive = activeTab === st.id;
-                  return (
-                    <button
-                      key={st.id}
-                      onClick={() => {
-                        stopPlayer();
-                        setActiveTab(st.id);
-                        setSearchQuery('');
-                      }}
-                      className={cn(
-                        'shrink-0 pb-1.5 text-xs font-medium whitespace-nowrap border-b-2 -mb-2 transition-colors min-h-[32px] flex items-center',
-                        isTabActive
-                          ? 'border-foreground text-foreground font-bold'
-                          : 'border-transparent text-muted-foreground hover:text-foreground'
-                      )}>
-                      <span>{st.label}</span>
-                      <span className="ml-1.5 font-mono text-[10px] opacity-70 bg-secondary px-1.5 py-0.5 rounded-sm">{st.count}</span>
-                    </button>
-                  );
-                })}
-              </div>
-            </div>
+              </span>
+            </button>
           );
-        })()}
+        })}
+      </div>
 
-      {/* K3 Tab */}
+      {/* Sub-navigation bar */}
+      {(() => {
+        const currentSubTabs = subTabs.filter(st => st.moduleId === activeModule);
+        if (currentSubTabs.length <= 1) return null;
+
+        return (
+          <div className="sticky top-14 z-30 -mx-3 px-3 sm:-mx-4 sm:px-4 bg-background/95 backdrop-blur py-1.5 border-b border-border mb-4">
+            <div className="flex gap-2 overflow-x-auto no-scrollbar py-0.5">
+              {currentSubTabs.map(st => {
+                const isTabActive = activeTab === st.id;
+                return (
+                  <button
+                    key={st.id}
+                    type="button"
+                    onClick={() => {
+                      stopPlayer();
+                      setActiveTab(st.id);
+                      setSearchQuery('');
+                    }}
+                    className={cn(
+                      'shrink-0 px-3 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap transition-colors min-h-[34px] flex items-center gap-1.5 border',
+                      isTabActive
+                        ? 'bg-foreground text-background border-foreground'
+                        : 'bg-card text-muted-foreground border-border hover:text-foreground'
+                    )}
+                  >
+                    <span>{st.label}</span>
+                    <span
+                      className={cn(
+                        'font-mono text-[10px] px-1.5 py-0.5 rounded',
+                        isTabActive ? 'bg-background/20 text-background' : 'bg-secondary text-muted-foreground'
+                      )}
+                    >
+                      {st.count}
+                    </span>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        );
+      })()}
+
+      {/* K3 Tab (Flat Open Header, Zero Outer Card) */}
       {activeTab === 'k3' && (
         <div className="space-y-4">
-          <Card className="p-4 md:p-5">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-3.5">
+          <div className="space-y-3 pb-3 border-b border-border">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
               <div>
                 <h3 className="font-bold text-base flex items-center gap-2">
                   <AlertTriangle className="h-4 w-4 text-amber-600 shrink-0" />
                   <span>30 Tanya Jawab Standar K3 Industri HRD Korea</span>
                 </h3>
                 <p className="text-xs text-muted-foreground mt-0.5">
-                  Mencakup APD (보호구), Pintu Darurat, APAR, Rambu K3, Pengaman Mesin, dan Lembar Data Keselamatan Bahan Kimia (MSDS).
+                  Mencakup APD (보호구), Pintu Darurat, APAR, Rambu K3, Pengaman Mesin, dan MSDS.
                 </p>
               </div>
 
-              <Button onClick={() => onStartPracticeCategory && onStartPracticeCategory('safety')}>
-                <span>Latih K3 di Flashcard / Kuis (30 Soal)</span>
+              <Button size="sm" onClick={() => onStartPracticeCategory && onStartPracticeCategory('safety')} className="shrink-0">
+                <span>Latih K3 di Flashcard</span>
                 <ChevronRight className="h-3.5 w-3.5" />
               </Button>
             </div>
 
-            <div className="flex flex-wrap items-center gap-1.5 mb-3 text-xs">
+            <div className="flex flex-wrap items-center gap-1.5 text-xs">
               {[
                 { id: 'all', label: 'Semua Topik (30)' },
-                { id: 'apd', label: 'Alat Pelindung Diri APD (14)' },
+                { id: 'apd', label: 'APD (14)' },
                 { id: 'evakuasi', label: 'Pintu Darurat & APAR (4)' },
-                { id: 'rambu', label: 'Rambu-Rambu K3 (4)' },
-                { id: 'mesin', label: 'Pengaman Mesin & Cek (4)' },
+                { id: 'rambu', label: 'Rambu K3 (4)' },
+                { id: 'mesin', label: 'Pengaman Mesin (4)' },
                 { id: 'kimia', label: 'Bahan Kimia & MSDS (4)' },
               ].map(f => (
                 <button
                   key={f.id}
+                  type="button"
                   onClick={() => { setK3Filter(f.id); setSelK3(0); stopPlayer(); }}
-                  className={cn('px-3 py-1.5 rounded-sm font-medium transition-all',
+                  className={cn(
+                    'px-2.5 py-1.5 rounded-lg font-semibold transition-all border',
                     k3Filter === f.id
-                      ? 'bg-foreground text-background'
-                      : 'bg-secondary text-muted-foreground hover:bg-secondary/70 hover:text-foreground border border-border/60'
-                  )}>
+                      ? 'bg-foreground text-background border-foreground'
+                      : 'bg-card text-muted-foreground hover:text-foreground border-border'
+                  )}
+                >
                   {f.label}
                 </button>
               ))}
             </div>
 
             <div className="relative">
-              <Search className="h-4 w-4 absolute left-3 top-3 text-muted-foreground" />
+              <Search className="h-4 w-4 absolute left-3 top-2.5 text-muted-foreground" />
               <input
                 type="text"
                 placeholder="Cari kata kunci K3 (misal: 안전모, 소화기, MSDS, 방호장치, pelindung)..."
                 value={searchQuery}
                 onChange={(e) => { setSearchQuery(e.target.value); setSelK3(0); stopPlayer(); }}
-                className="w-full pl-9 pr-4 py-2 bg-muted border border-input rounded-md text-sm font-medium text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring/30 focus:border-ring"
+                className="w-full pl-9 pr-4 py-2 bg-card border border-input rounded-lg text-sm font-medium text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring/30 focus:border-ring"
               />
             </div>
-          </Card>
+          </div>
 
           <QAPlayerDeck
             ui={playerUI.tab === 'k3' ? playerUI : { on: false, step: 'idle', shuffle: playerRef.current.shuffle, repeat: playerRef.current.repeat }}
@@ -1014,30 +986,19 @@ export function StudyGuide({ onStartPracticeCategory }) {
               playerRef.current.mode = next;
             }}
             includeAnswers={includeAnswers}
-            onToggleIncludeAnswers={() => setIncludeAnswers(p => !p)}
             gapCountdown={gapCountdown}
             hideText={hideText}
-            onToggleHideText={() => setHideText(p => !p)}
             onPrev={() => {
-              if (playerUI.on && playerUI.tab === 'k3') {
-                stepPlayer(-1);
-              } else {
-                setSelK3(Math.max(0, selK3Eff - 1));
-              }
+              if (playerUI.on && playerUI.tab === 'k3') stepPlayer(-1);
+              else setSelK3(Math.max(0, selK3Eff - 1));
             }}
             onTogglePlay={() => {
-              if (playerUI.on && playerUI.tab === 'k3') {
-                pausePlayer();
-              } else {
-                startPlayer('k3', filteredK3, selK3Eff, playerMode);
-              }
+              if (playerUI.on && playerUI.tab === 'k3') pausePlayer();
+              else startPlayer('k3', filteredK3, selK3Eff, playerMode);
             }}
             onNext={() => {
-              if (playerUI.on && playerUI.tab === 'k3') {
-                stepPlayer(1);
-              } else {
-                setSelK3(Math.min(filteredK3.length - 1, selK3Eff + 1));
-              }
+              if (playerUI.on && playerUI.tab === 'k3') stepPlayer(1);
+              else setSelK3(Math.min(filteredK3.length - 1, selK3Eff + 1));
             }}
             onShuffle={toggleShuffle}
             onRepeat={toggleRepeat}
@@ -1076,6 +1037,7 @@ export function StudyGuide({ onStartPracticeCategory }) {
             visible={filteredK3.length}
             total={(studyData.k3_safety || []).length}
           />
+
           <QAList
             items={filteredK3}
             selIdx={selK3Eff}
@@ -1100,7 +1062,7 @@ export function StudyGuide({ onStartPracticeCategory }) {
                   selOptIdx={selectedOptionByCard[cardId] ?? 0}
                   onSelectOpt={(oi) => setSelectedOptionByCard(prev => ({ ...prev, [cardId]: oi }))}
                   onToggle={() => toggleCardAnswer(cardId)}
-                  onPlayQ={() => playAudio(q.audio_q)}
+                  onPlayQ={() => playAudio(q.audio_q, q.question_ko)}
                   onPlayAnswer={() => {
                     const si = selectedOptionByCard[cardId] ?? 0;
                     if (activeOpt.audio) playAudio(activeOpt.audio, activeOpt.ko);
@@ -1127,32 +1089,31 @@ export function StudyGuide({ onStartPracticeCategory }) {
               startPlayer('k3', filteredK3, i, 'sequential');
             }}
           />
-
         </div>
       )}
 
-      {/* Interview Tab */}
+      {/* Interview Tab (Flat Open Header, Zero Outer Card) */}
       {activeTab === 'interview' && (
         <div className="space-y-4">
-          <Card className="p-4 md:p-5">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-3.5">
+          <div className="space-y-3 pb-3 border-b border-border">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
               <div>
                 <h3 className="font-bold text-base flex items-center gap-2">
                   <UserCheck className="h-4 w-4 text-primary shrink-0" />
                   <span>{interviewCount} Bank Soal Wawancara Resmi MSK Indonesia & HRD Korea</span>
                 </h3>
                 <p className="text-xs text-muted-foreground mt-0.5">
-                  Pertanyaan data diri, alasan bekerja di Korea, ketahanan fisik, serta respon cepat atas situasi kritis di pabrik.
+                  Pertanyaan data diri, alasan bekerja di Korea, ketahanan fisik, serta situasi kritis di pabrik.
                 </p>
               </div>
 
-              <Button onClick={() => onStartPracticeCategory && onStartPracticeCategory('interview')}>
+              <Button size="sm" onClick={() => onStartPracticeCategory && onStartPracticeCategory('interview')} className="shrink-0">
                 <span>Latih Wawancara di Flashcard</span>
                 <ChevronRight className="h-3.5 w-3.5" />
               </Button>
             </div>
 
-            <div className="flex flex-wrap items-center gap-1.5 mb-3 text-xs">
+            <div className="flex flex-wrap items-center gap-1.5 text-xs">
               {[
                 { id: 'all', label: `Semua Soal (${interviewCount})` },
                 { id: 'pribadi', label: 'Data Diri & Pribadi' },
@@ -1161,28 +1122,31 @@ export function StudyGuide({ onStartPracticeCategory }) {
               ].map(f => (
                 <button
                   key={f.id}
+                  type="button"
                   onClick={() => { setInterviewFilter(f.id); setSelInt(0); stopPlayer(); }}
-                  className={cn('px-3 py-1.5 rounded-sm font-medium transition-all',
+                  className={cn(
+                    'px-2.5 py-1.5 rounded-lg font-semibold transition-all border',
                     interviewFilter === f.id
-                      ? 'bg-foreground text-background'
-                      : 'bg-secondary text-muted-foreground hover:bg-secondary/70 hover:text-foreground border border-border/60'
-                  )}>
+                      ? 'bg-foreground text-background border-foreground'
+                      : 'bg-card text-muted-foreground hover:text-foreground border-border'
+                  )}
+                >
                   {f.label}
                 </button>
               ))}
             </div>
 
             <div className="relative">
-              <Search className="h-4 w-4 absolute left-3 top-3 text-muted-foreground" />
+              <Search className="h-4 w-4 absolute left-3 top-2.5 text-muted-foreground" />
               <input
                 type="text"
                 placeholder="Cari pertanyaan wawancara (misal: 불량품, 사고, 이름, 나이, 야근, gaji, teman)..."
                 value={searchQuery}
                 onChange={(e) => { setSearchQuery(e.target.value); setSelInt(0); stopPlayer(); }}
-                className="w-full pl-9 pr-4 py-2 bg-muted border border-input rounded-md text-sm font-medium text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring/30 focus:border-ring"
+                className="w-full pl-9 pr-4 py-2 bg-card border border-input rounded-lg text-sm font-medium text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring/30 focus:border-ring"
               />
             </div>
-          </Card>
+          </div>
 
           <QAPlayerDeck
             ui={playerUI.tab === 'interview' ? playerUI : { on: false, step: 'idle', shuffle: playerRef.current.shuffle, repeat: playerRef.current.repeat }}
@@ -1202,30 +1166,19 @@ export function StudyGuide({ onStartPracticeCategory }) {
               playerRef.current.mode = next;
             }}
             includeAnswers={includeAnswers}
-            onToggleIncludeAnswers={() => setIncludeAnswers(p => !p)}
             gapCountdown={gapCountdown}
             hideText={hideText}
-            onToggleHideText={() => setHideText(p => !p)}
             onPrev={() => {
-              if (playerUI.on && playerUI.tab === 'interview') {
-                stepPlayer(-1);
-              } else {
-                setSelInt(Math.max(0, selIntEff - 1));
-              }
+              if (playerUI.on && playerUI.tab === 'interview') stepPlayer(-1);
+              else setSelInt(Math.max(0, selIntEff - 1));
             }}
             onTogglePlay={() => {
-              if (playerUI.on && playerUI.tab === 'interview') {
-                pausePlayer();
-              } else {
-                startPlayer('interview', filteredInterview, selIntEff, playerMode);
-              }
+              if (playerUI.on && playerUI.tab === 'interview') pausePlayer();
+              else startPlayer('interview', filteredInterview, selIntEff, playerMode);
             }}
             onNext={() => {
-              if (playerUI.on && playerUI.tab === 'interview') {
-                stepPlayer(1);
-              } else {
-                setSelInt(Math.min(filteredInterview.length - 1, selIntEff + 1));
-              }
+              if (playerUI.on && playerUI.tab === 'interview') stepPlayer(1);
+              else setSelInt(Math.min(filteredInterview.length - 1, selIntEff + 1));
             }}
             onShuffle={toggleShuffle}
             onRepeat={toggleRepeat}
@@ -1264,6 +1217,7 @@ export function StudyGuide({ onStartPracticeCategory }) {
             visible={filteredInterview.length}
             total={interviewCount}
           />
+
           <QAList
             items={filteredInterview}
             selIdx={selIntEff}
@@ -1288,7 +1242,7 @@ export function StudyGuide({ onStartPracticeCategory }) {
                   selOptIdx={selectedOptionByCard[cardId] ?? 0}
                   onSelectOpt={(oi) => setSelectedOptionByCard(prev => ({ ...prev, [cardId]: oi }))}
                   onToggle={() => toggleCardAnswer(cardId)}
-                  onPlayQ={() => playAudio(q.audio_q)}
+                  onPlayQ={() => playAudio(q.audio_q, q.question_ko)}
                   onPlayAnswer={() => {
                     const si = selectedOptionByCard[cardId] ?? 0;
                     if (activeOpt.audio) playAudio(activeOpt.audio, activeOpt.ko);
@@ -1315,1492 +1269,1733 @@ export function StudyGuide({ onStartPracticeCategory }) {
               startPlayer('interview', filteredInterview, i, 'sequential');
             }}
           />
-
-
-
         </div>
       )}
 
-      {/* Physical Commands Tab */}
+      {/* Physical Commands Tab (Lengkap 48 Gerakan, Tanpa Paginasi Sempit, Zero Nested Box) */}
       {activeTab === 'commands' && (
         <div className="space-y-4">
-          <Card className="p-4 md:p-5">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-2">
+          <div className="space-y-3 pb-3 border-b border-border">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
               <div>
                 <h3 className="font-bold text-base flex items-center gap-2">
                   <Activity className="h-4 w-4 text-emerald-600 shrink-0" />
-                  <span>Perintah Gerakan Fisik Penguji (따라하세요)</span>
+                  <span>{mergedPhysicalCommands.length} Perintah Gerakan Fisik Penguji (따라하세요)</span>
                 </h3>
                 <p className="text-xs text-muted-foreground mt-0.5">
-                  Diujikan saat Anda berdiri di depan penguji untuk mengetes refleks mendengar dan arah tubuh.
+                  Diujikan saat berdiri di depan penguji: refleks tangan/jari, kaki/postur, kepala/mata/hidung/telinga, dan arah.
                 </p>
               </div>
 
-              <Button onClick={() => onStartPracticeCategory && onStartPracticeCategory('physical')}>
-                <span>Latih Refleks Gerak Fisik di Flashcard</span>
-                <ChevronRight className="h-3.5 w-3.5" />
-              </Button>
-            </div>
-          </Card>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            {getPagedItems(studyData.physical_commands || [], 'physical').map((cmd, idx) => {
-              const cardId = `cmd_${cmd.id || idx}`;
-              const hidden = isAnswerHidden(cardId);
-
-              return (
-                <Card key={cardId} className="p-4 flex flex-col justify-between hover:shadow-md transition-all border-l-4 border-l-emerald-500 bg-emerald-50/30">
-                  <div className="space-y-2">
-                    <div className="flex items-center justify-between">
-                      <span className="text-[10px] font-bold text-emerald-800 bg-emerald-100 px-2 py-0.5 rounded-md border border-emerald-300">
-                        Perintah #{idx + 1}
-                      </span>
-
-                      <div className="flex items-center gap-1.5">
-                        {cmd.audio_q && (
-                          <Button type="button" variant="secondary" size="sm"
-                            onClick={() => playAudio(cmd.audio_q)}>
-                            <Volume2 className="h-3 w-3" />
-                            <span>Dengar</span>
-                          </Button>
-                        )}
-
-                        <Button type="button" variant="outline" size="sm"
-                          onClick={() => toggleCardAnswer(cardId)}
-                          title={hidden ? 'Buka arti' : 'Tutup arti'}>
-                          {hidden ? <EyeOff className="h-3.5 w-3.5 text-warn" /> : <Eye className="h-3.5 w-3.5" />}
-                        </Button>
-                      </div>
-                    </div>
-
-                    <h4 className="text-xl font-bold text-foreground font-kr tracking-tight">
-                      {cmd.command_ko}
-                    </h4>
-                    {cmd.command_ro && (
-                      <p className="text-xs text-muted-foreground font-mono">{cmd.command_ro}</p>
-                    )}
-
-                    {hidden ? (
-                      <div 
-                        onClick={() => toggleCardAnswer(cardId)}
-                        className="py-1.5 px-3 rounded-sm bg-warn/10 border border-dashed border-warn/30 text-center cursor-pointer text-[11px] font-bold text-warn"
-                      >
-                        Arti disembunyikan (Klik mata)
-                      </div>
-                    ) : (
-                      <p className="text-xs font-bold text-primary">
-                        Artinya: {cmd.command_id}
-                      </p>
-                    )}
-                  </div>
-
-                  <div className="mt-3 pt-2 border-t border-border text-[11px] text-muted-foreground font-medium bg-muted p-2 rounded-md">
-                    <strong>Refleks:</strong> {cmd.action_desc || cmd.command_id}
-                  </div>
-                </Card>
-              );
-            })}
-          </div>
-          <Pagination items={studyData.physical_commands || []} pkey="physical" />
-        </div>
-      )}
-
-      {/* Jagisoge Tab */}
-      {activeTab === 'jagisoge' && (
-        <div className="space-y-4">
-          {/* Sub Navigation Bar */}
-          <div className="flex items-center gap-2 border-b border-border pb-3 overflow-x-auto no-scrollbar">
-            <button
-              type="button"
-              onClick={() => setJagiSubTab('generator')}
-              className={cn(
-                'px-4 py-2 rounded-lg text-xs sm:text-sm font-bold transition-all flex items-center gap-2 shrink-0',
-                jagiSubTab === 'generator'
-                  ? 'bg-primary text-primary-foreground shadow-xs'
-                  : 'bg-secondary text-muted-foreground hover:text-foreground'
-              )}
-            >
-              <Sparkles className="h-4 w-4" />
-              <span>Buat Naskah Saya (~35 Detik)</span>
-            </button>
-            <button
-              type="button"
-              onClick={() => setJagiSubTab('samples')}
-              className={cn(
-                'px-4 py-2 rounded-lg text-xs sm:text-sm font-bold transition-all flex items-center gap-2 shrink-0',
-                jagiSubTab === 'samples'
-                  ? 'bg-primary text-primary-foreground shadow-xs'
-                  : 'bg-secondary text-muted-foreground hover:text-foreground'
-              )}
-            >
-              <Volume2 className="h-4 w-4" />
-              <span>4 Contoh Audio Penguji & Tips HRDK</span>
-            </button>
-          </div>
-
-          {/* SubTab 1: Generator Naskah 35 Detik */}
-          {jagiSubTab === 'generator' && (
-            <div className="space-y-4">
-              {/* Header Box */}
-              <div className="rounded-xl border border-border bg-card p-4 sm:p-5">
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-                  <div>
-                    <h3 className="text-base sm:text-lg font-bold font-kr text-foreground flex items-center gap-2">
-                      <Sparkles className="h-4 w-4 text-primary shrink-0" />
-                      <span>Generator Jagisoge Resmi (Standar Emas 35 Detik)</span>
-                    </h3>
-                    <p className="text-xs text-muted-foreground mt-0.5">
-                      Batas ujian resmi HRD Korea adalah <strong>maksimal 40 detik</strong>. Seluruh data yang Anda isi di bawah 100% otomatis masuk ke naskah 6 kalimat standar ujian.
-                    </p>
-                  </div>
-                  <span className="font-mono text-xs font-bold px-2.5 py-1 rounded-md bg-emerald-100 text-emerald-800 dark:bg-emerald-950/60 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-700 shrink-0 self-start sm:self-auto">
-                    Target: 30 - 35 Detik
-                  </span>
-                </div>
-
-                {/* Form Input 1 Halaman Tanpa Stepper Ribet */}
-                <div className="mt-4 pt-4 border-t border-border grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
-                  {/* 1. Nama Lengkap */}
-                  <div className="sm:col-span-2">
-                    <label className="text-[11px] font-bold text-muted-foreground block mb-1">
-                      Nama Lengkap Anda
-                    </label>
-                    <input
-                      type="text"
-                      placeholder="cth: BAMBANG SUTEJO"
-                      value={jagiForm.nama}
-                      onChange={(e) => setJagiForm({ ...jagiForm, nama: e.target.value })}
-                      className="w-full px-3 py-2 bg-muted border border-input rounded-md text-sm font-bold text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring/30 focus:border-ring"
-                    />
-                  </div>
-
-                  {/* 2. Usia */}
-                  <div>
-                    <div className="flex items-center justify-between mb-1">
-                      <span className="text-[11px] font-bold text-muted-foreground">Usia (Tahun)</span>
-                      <span className="text-[10px] font-mono font-bold text-emerald-700 dark:text-emerald-400">
-                        = {nativeKo(jagiForm.umur) || '스물다섯'} 살
-                      </span>
-                    </div>
-                    <div className="flex items-stretch gap-1">
-                      <button
-                        type="button"
-                        onClick={() => setJagiForm(f => ({ ...f, umur: String(Math.max(18, (parseInt(f.umur || '25', 10) || 25) - 1)) }))}
-                        className="px-3 rounded-md bg-secondary hover:bg-secondary/70 border border-border font-bold text-muted-foreground active:scale-95"
-                      >
-                        -
-                      </button>
-                      <input
-                        type="number"
-                        min="18"
-                        max="60"
-                        value={jagiForm.umur}
-                        onChange={(e) => setJagiForm({ ...jagiForm, umur: e.target.value })}
-                        className="w-full px-2 py-2 bg-muted border border-input rounded-md text-sm font-bold text-center text-foreground focus:outline-none focus:ring-2 focus:ring-ring/30"
-                      />
-                      <button
-                        type="button"
-                        onClick={() => setJagiForm(f => ({ ...f, umur: String(Math.min(60, (parseInt(f.umur || '25', 10) || 25) + 1)) }))}
-                        className="px-3 rounded-md bg-secondary hover:bg-secondary/70 border border-border font-bold text-muted-foreground active:scale-95"
-                      >
-                        +
-                      </button>
-                    </div>
-                  </div>
-
-                  {/* 3. Jumlah Keluarga */}
-                  <div>
-                    <div className="flex items-center justify-between mb-1">
-                      <span className="text-[11px] font-bold text-muted-foreground">Jumlah Keluarga</span>
-                      <span className="text-[10px] font-mono font-bold text-emerald-700 dark:text-emerald-400">
-                        = {nativeKo(jagiForm.keluarga) || '네'} 명
-                      </span>
-                    </div>
-                    <div className="flex items-stretch gap-1">
-                      <button
-                        type="button"
-                        onClick={() => setJagiForm(f => ({ ...f, keluarga: String(Math.max(1, (parseInt(f.keluarga || '4', 10) || 4) - 1)) }))}
-                        className="px-3 rounded-md bg-secondary hover:bg-secondary/70 border border-border font-bold text-muted-foreground active:scale-95"
-                      >
-                        -
-                      </button>
-                      <input
-                        type="number"
-                        min="1"
-                        max="20"
-                        value={jagiForm.keluarga}
-                        onChange={(e) => setJagiForm({ ...jagiForm, keluarga: e.target.value })}
-                        className="w-full px-2 py-2 bg-muted border border-input rounded-md text-sm font-bold text-center text-foreground focus:outline-none focus:ring-2 focus:ring-ring/30"
-                      />
-                      <button
-                        type="button"
-                        onClick={() => setJagiForm(f => ({ ...f, keluarga: String(Math.min(20, (parseInt(f.keluarga || '4', 10) || 4) + 1)) }))}
-                        className="px-3 rounded-md bg-secondary hover:bg-secondary/70 border border-border font-bold text-muted-foreground active:scale-95"
-                      >
-                        +
-                      </button>
-                    </div>
-                  </div>
-
-                  {/* 4. Status Pernikahan */}
-                  <div className="sm:col-span-2">
-                    <span className="text-[11px] font-bold text-muted-foreground block mb-1">
-                      Status Pernikahan
-                    </span>
-                    <div className="grid grid-cols-2 gap-2">
-                      <button
-                        type="button"
-                        onClick={() => setJagiForm({ ...jagiForm, nikah: '아직 결혼하지 않았습니다' })}
-                        className={cn(
-                          'px-3 py-2 rounded-md text-xs font-bold border transition-all text-center',
-                          jagiForm.nikah === '아직 결혼하지 않았습니다'
-                            ? 'bg-primary text-primary-foreground border-primary shadow-xs'
-                            : 'bg-muted text-muted-foreground border-border hover:text-foreground'
-                        )}
-                      >
-                        Belum Menikah (미혼)
-                      </button>
-                      <button
-                        type="button"
-                        onClick={() => setJagiForm({ ...jagiForm, nikah: '결혼했습니다' })}
-                        className={cn(
-                          'px-3 py-2 rounded-md text-xs font-bold border transition-all text-center',
-                          jagiForm.nikah === '결혼했습니다'
-                            ? 'bg-primary text-primary-foreground border-primary shadow-xs'
-                            : 'bg-muted text-muted-foreground border-border hover:text-foreground'
-                        )}
-                      >
-                        Sudah Menikah (기혼)
-                      </button>
-                    </div>
-                  </div>
-
-                  {/* 5. Fokus Bidang / Kelebihan */}
-                  <div className="sm:col-span-2">
-                    <span className="text-[11px] font-bold text-muted-foreground block mb-1">
-                      Fokus Bidang Pengalaman / Kelebihan
-                    </span>
-                    <select
-                      value={jagiForm.fokus}
-                      onChange={(e) => setJagiForm({ ...jagiForm, fokus: e.target.value })}
-                      className="w-full px-3 py-2 bg-muted border border-input rounded-md text-xs sm:text-sm font-semibold text-foreground focus:outline-none focus:ring-2 focus:ring-ring/30"
-                    >
-                      {JAGI_FOKUS_OPTIONS.map((opt) => (
-                        <option key={opt.id} value={opt.id}>
-                          {opt.label}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-                </div>
-              </div>
-
-              {/* Live Preview Hasil Naskah (Clean Dark/Contrast Showcase) */}
-              <div className="rounded-xl border border-border bg-foreground text-background p-4 sm:p-5 space-y-4">
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-background/20 pb-3">
-                  <div>
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground">
-                      Hasil Naskah Siap Hafal (6 Kalimat Emas)
-                    </span>
-                    <div className="flex items-center gap-2 mt-0.5">
-                      <span className="text-xs font-bold text-emerald-400">
-                        Durasi Bicara: ~32 Detik
-                      </span>
-                      <span className="text-xs text-muted-foreground">·</span>
-                      <span className="text-xs text-muted-foreground">
-                        Standar HRD Korea (Maks. 40 Detik)
-                      </span>
-                    </div>
-                  </div>
-
-                  <div className="flex items-center gap-2 shrink-0">
-                    <Button
-                      type="button"
-                      variant="secondary"
-                      size="sm"
-                      onClick={() => {
-                        const fullKo = getJagiSentences().map(s => s.ko).join(' ');
-                        playAudio(null, fullKo);
-                      }}
-                      className="font-bold gap-1.5"
-                    >
-                      <Volume2 className="h-4 w-4" />
-                      <span>Dengar Naskah Penuh</span>
-                    </Button>
-
-                    <Button
-                      type="button"
-                      variant="secondary"
-                      size="sm"
-                      onClick={copyJagi}
-                      className="font-bold gap-1.5"
-                    >
-                      <Copy className="h-4 w-4" />
-                      <span>{jagiCopied ? 'Tersalin!' : 'Salin Naskah'}</span>
-                    </Button>
-                  </div>
-                </div>
-
-                {/* Teks Lengkap Hangeul & Terjemahan */}
-                <div className="space-y-2">
-                  <p className="font-kr font-bold text-base sm:text-lg leading-relaxed text-background">
-                    {getJagiSentences().map(s => s.ko).join(' ')}
-                  </p>
-                  <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed italic">
-                    {getJagiSentences().map(s => s.id).join(' ')}
-                  </p>
-                </div>
-
-                {/* Rincian Kalimat Per Kalimat */}
-                <div className="pt-2 border-t border-background/20 space-y-2">
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground block">
-                    Pelajari Per Kalimat:
-                  </span>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-                    {getJagiSentences().map((st) => (
-                      <div
-                        key={st.no}
-                        className="rounded-lg bg-background/10 border border-background/15 p-2.5 flex items-start justify-between gap-2"
-                      >
-                        <div className="min-w-0">
-                          <div className="flex items-center gap-1.5">
-                            <span className="text-[10px] font-bold text-emerald-400">
-                              #{st.no}
-                            </span>
-                            <span className="text-[10px] font-semibold text-muted-foreground">
-                              {st.title} (~{st.durasi})
-                            </span>
-                          </div>
-                          <p className="font-kr font-bold text-xs sm:text-sm text-background mt-0.5">
-                            {st.ko}
-                          </p>
-                          <p className="text-[11px] text-muted-foreground mt-0.5">
-                            {st.id}
-                          </p>
-                        </div>
-                        <button
-                          type="button"
-                          onClick={() => playAudio(null, st.ko)}
-                          title="Dengar pelafalan kalimat ini"
-                          className="p-1.5 rounded-md hover:bg-background/20 text-background shrink-0 mt-0.5"
-                        >
-                          <Volume2 className="h-4 w-4" />
-                        </button>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-          )}
-
-          {/* SubTab 2: 4 Contoh Resmi & Tips HRDK */}
-          {jagiSubTab === 'samples' && (
-            <div className="space-y-4">
-              {/* 4 Contoh Resmi Audio Penguji */}
-              <div className="rounded-xl border border-border bg-card p-4 sm:p-5 space-y-3.5">
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-                  <div>
-                    <span className="text-xs font-semibold text-primary">HRD Korea Sample · Wawancara Resmi</span>
-                    <h3 className="text-base sm:text-lg font-bold font-kr text-foreground mt-0.5">
-                      {JAGISOGE_SAMPLES[activeSampleIdx].koTitle}
-                    </h3>
-                    <p className="text-xs text-muted-foreground mt-0.5">
-                      {JAGISOGE_SAMPLES[activeSampleIdx].desc}
-                    </p>
-                  </div>
-
-                  <Button
-                    type="button"
-                    onClick={() => {
-                      const text = JAGISOGE_SAMPLES[activeSampleIdx].sentences.map(s => s.ko).join(' ');
-                      if (playingAudio === text) stopAudioOnly();
-                      else playAudio(null, text);
-                    }}
-                    className="font-bold gap-2 shrink-0 shadow-xs"
-                  >
-                    {playingAudio === JAGISOGE_SAMPLES[activeSampleIdx].sentences.map(s => s.ko).join(' ') ? (
-                      <>
-                        <Pause className="h-4 w-4" />
-                        <span>Jeda Contoh</span>
-                      </>
-                    ) : (
-                      <>
-                        <Volume2 className="h-4 w-4" />
-                        <span>Putar Contoh Audio</span>
-                      </>
-                    )}
-                  </Button>
-                </div>
-
-                {/* Selector Sample */}
-                <div className="flex gap-1.5 overflow-x-auto no-scrollbar pb-1">
-                  {JAGISOGE_SAMPLES.map((s, idx) => (
-                    <button
-                      key={s.id}
-                      type="button"
-                      onClick={() => {
-                        stopAudioOnly();
-                        setActiveSampleIdx(idx);
-                      }}
-                      className={cn(
-                        'px-3.5 py-1.5 rounded-lg text-xs font-bold border transition-all shrink-0 min-h-[34px]',
-                        activeSampleIdx === idx
-                          ? 'bg-primary text-primary-foreground border-primary shadow-xs'
-                          : 'bg-muted text-muted-foreground border-border hover:text-foreground'
-                      )}
-                    >
-                      {s.title}
-                    </button>
-                  ))}
-                </div>
-
-                {/* Konten Sample */}
-                <div className="rounded-xl border border-border bg-muted/40 p-3.5 space-y-2">
-                  {JAGISOGE_SAMPLES[activeSampleIdx].sentences.map((st, i) => (
-                    <div key={i} className="text-xs sm:text-sm">
-                      <p className="font-kr font-bold text-foreground">{st.ko}</p>
-                      <p className="text-muted-foreground mt-0.5 italic">{st.id}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Naskah Baku HRD Korea */}
-              <div className="rounded-xl border border-border bg-card p-4 sm:p-5 space-y-3">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <span className="text-xs font-mono font-bold text-primary uppercase">Standar Baku Ujian</span>
-                    <h3 className="text-base sm:text-lg font-bold text-foreground">Naskah Baku HRD Korea (Batas 40 Detik)</h3>
-                  </div>
-                  <Button variant="outline" size="sm" onClick={() => playAudio('/audio/examiner_jagisoge.mp3')}>
-                    <Volume2 className="h-3.5 w-3.5 mr-1" />
-                    <span>Audio Penguji</span>
-                  </Button>
-                </div>
-
-                <div className="p-3.5 rounded-lg bg-muted border border-border text-sm font-kr font-bold text-foreground leading-relaxed">
-                  {(studyData.jagisoge.sentences || []).map(s => s.ko).join(' ')}
-                </div>
-
-                <div className="p-3.5 rounded-lg bg-primary/5 border border-primary/20 text-xs text-foreground/80 leading-relaxed">
-                  <strong>Terjemahan Bahasa Indonesia:</strong><br />
-                  {(studyData.jagisoge.sentences || []).map(s => s.id).join(' ')}
-                </div>
-
-                {/* Checklist Etika Ujian */}
-                <div className="pt-2 border-t border-border">
-                  <h4 className="font-bold text-xs text-muted-foreground uppercase tracking-wider mb-2">
-                    Checklist Kelulusan Sesi Jagisoge:
-                  </h4>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-muted-foreground">
-                    {studyData.jagisoge.examiner_checklist.map((item, idx) => (
-                      <div key={idx} className="p-2 rounded-md bg-muted/50 border border-border">
-                        {item}
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-          )}
-        </div>
-      )}
-
-      {/* Time Tab */}
-      {activeTab === 'time' && (
-        <div className="space-y-4">
-          <div className="p-4 rounded-xl bg-slate-50 border border-slate-200">
-            <h3 className="font-bold text-base text-slate-800 mb-1">Rumus Utama Membaca Jam:</h3>
-            <p className="text-sm text-slate-600 leading-relaxed">
-              <strong>Jam = Angka Asli Korea + 시 (si)</strong> | <strong>Menit = Angka Sino-Korea + 분 (bun)</strong> | <strong>Detik = Sino + 초 (cho)</strong><br />
-              Contoh: 08:30 = <em>여덟 시 삼십 분</em> (yeodeol-si samsip-bun) atau <em>여덟 시 반</em> (yeodeol-si ban).
-            </p>
-          </div>
-
-          <div className="grid grid-cols-2 gap-3">
-            {getPagedItems(studyData.time.examples || [], 'time').map((item, idx) => {
-              const cardId = `time_${idx}`;
-              const hidden = isAnswerHidden(cardId);
-
-              return (
-                <div key={idx} className="p-4 rounded-xl border border-slate-200 bg-white shadow-sm">
-                  <div className="flex items-center justify-between gap-2">
-                    <span className="text-xs font-mono font-bold px-2 py-1 rounded-lg bg-slate-100 text-slate-700">{item.time}</span>
-                    <div className="flex items-center gap-1">
-                      {item.audio && (
-                        <button onClick={() => playAudio(item.audio)} className="p-1.5 rounded-lg text-slate-500 hover:bg-slate-100 transition-colors">
-                          <Volume2 className="h-4 w-4" />
-                        </button>
-                      )}
-                      <button onClick={() => toggleCardAnswer(cardId)} className="p-1.5 rounded-lg text-slate-500 hover:bg-slate-100">
-                        {hidden ? <EyeOff className="h-4 w-4 text-amber-600" /> : <Eye className="h-4 w-4" />}
-                      </button>
-                    </div>
-                  </div>
-                  {hidden ? (
-                    <div onClick={() => toggleCardAnswer(cardId)} className="cursor-pointer text-xs font-bold text-amber-700 bg-amber-50 px-3 py-2 rounded-lg mt-3 text-center">
-                      Tersembunyi
-                    </div>
-                  ) : (
-                    <div className="mt-2">
-                      <div className="font-kr font-bold text-lg text-slate-800">{item.ko}</div>
-                      <div className="text-sm text-slate-500 mt-0.5">{item.id}</div>
-                    </div>
-                  )}
-                </div>
-              );
-            })}
-          </div>
-          <Pagination items={studyData.time.examples || []} pkey="time" />
-        </div>
-      )}
-
-      {/* Calendar Tab */}
-      {activeTab === 'calendar' && (
-        <div className="space-y-4">
-          <div>
-            <h4 className="font-bold text-sm text-slate-700 mb-2">Nama-Nama Hari (요일):</h4>
-            <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-7 gap-2">
-              {(studyData.calendar.days || []).map((d, idx) => {
-                const cardId = `cal_d_${idx}`;
-                const hidden = isAnswerHidden(cardId);
-
-                return (
-                  <div key={idx} className="p-3 rounded-xl border border-slate-200 bg-white text-center shadow-sm">
-                    <div className="flex items-center justify-between mb-1">
-                      <button onClick={() => toggleCardAnswer(cardId)} className="text-slate-400 hover:text-slate-600">
-                        {hidden ? <EyeOff className="h-3.5 w-3.5 text-amber-600" /> : <Eye className="h-3.5 w-3.5" />}
-                      </button>
-                    </div>
-                    {hidden ? (
-                      <div onClick={() => toggleCardAnswer(cardId)} className="cursor-pointer text-xs font-bold text-amber-700 py-2">
-                        ?
-                      </div>
-                    ) : (
-                      <>
-                        <div className="font-kr font-bold text-base text-slate-800">{d.ko}</div>
-                        <div className="text-xs text-slate-500 font-medium">{d.id}</div>
-                      </>
-                    )}
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-
-          <div>
-            <h4 className="font-bold text-sm text-slate-700 mb-2">12 Bulan Kalender (월):</h4>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2">
-              {(studyData.calendar.months || []).map((m, idx) => (
-                <div key={idx} className={cn('p-3 rounded-xl border text-center shadow-sm', m.note ? 'bg-amber-50 border-amber-200' : 'bg-white border-slate-200')}>
-                  <div className="font-kr font-bold text-base text-slate-800">{m.ko}</div>
-                  <div className="text-xs text-slate-500 font-medium">{m.id}</div>
-                  {m.note && <div className="text-[10px] text-amber-700 font-bold mt-0.5">{m.note}</div>}
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* Colors Tab */}
-      {activeTab === 'colors' && (
-        <div className="space-y-4">
-          <div className="p-4 rounded-xl bg-slate-50 border border-slate-200">
-            <h3 className="font-bold text-base text-slate-800 flex items-center gap-2 mb-1">
-              <Palette className="h-4 w-4 text-slate-500 shrink-0" />
-              11 Warna Pabrik & Alasan Korea (색깔 & 이유)
-            </h3>
-            <p className="text-sm text-slate-600">
-              Pertanyaan wawancara: <em>"무슨 색깔을 좋아해요?"</em> (Hafal nama warna + alasan singkat Korea).
-            </p>
-          </div>
-
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-            {(studyData.colors.items || []).map((c, idx) => {
-              const cardId = `col_${idx}`;
-              const hidden = isAnswerHidden(cardId);
-
-              return (
-                <div key={idx} className="rounded-xl border border-slate-200 bg-white overflow-hidden shadow-sm">
-                  <div className="h-16 w-full" style={{ backgroundColor: c.hex }} />
-                  <div className="p-3.5 space-y-2">
-                    {hidden ? (
-                      <div
-                        onClick={() => toggleCardAnswer(cardId)}
-                        className="cursor-pointer py-2 px-3 rounded-lg bg-amber-50 border border-amber-200 text-center"
-                      >
-                        <span className="text-xs font-bold text-amber-700 flex items-center justify-center gap-1.5">
-                          <EyeOff className="h-3.5 w-3.5" />
-                          Tebak warna
-                        </span>
-                      </div>
-                    ) : (
-                      <div>
-                        <div className="font-kr font-bold text-lg text-slate-800 leading-tight">{c.ko}</div>
-                        <div className="text-sm text-slate-600 font-medium">{c.id}</div>
-                      </div>
-                    )}
-
-                    {!hidden && c.reason && (
-                      <div className="text-sm text-slate-600 bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 leading-relaxed">
-                        {c.reason}
-                      </div>
-                    )}
-
-                    <div className="flex items-center gap-1">
-                      {c.audio && (
-                        <button onClick={() => playAudio(c.audio)} className="p-1.5 rounded-lg text-slate-500 hover:bg-slate-100 transition-colors">
-                          <Volume2 className="h-3.5 w-3.5" />
-                        </button>
-                      )}
-                      <button onClick={() => toggleCardAnswer(cardId)} className="p-1.5 rounded-lg text-slate-500 hover:bg-slate-100 ml-auto">
-                        {hidden ? <EyeOff className="h-3.5 w-3.5 text-amber-600" /> : <Eye className="h-3.5 w-3.5" />}
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-
-          {studyData.colors.interview_qa && (
-            <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-2">
-              <h4 className="font-bold text-sm text-slate-700">
-                Contoh Tanya Jawab Warna di Wawancara:
-              </h4>
-              {studyData.colors.interview_qa.map((qa, i) => (
-                <div key={i} className="border border-slate-200 rounded-xl p-3 bg-white space-y-1">
-                  <div className="text-xs font-bold text-slate-500">{qa.q_id}</div>
-                  <div className="font-kr font-bold text-base text-slate-800">{qa.q_ko}</div>
-                  <div className="text-sm text-emerald-700 bg-emerald-50 rounded-lg px-3 py-2">
-                    {qa.a_id} <span className="font-kr font-bold">{qa.a_ko}</span>
-                  </div>
-                  {qa.audio && (
-                    <button onClick={() => playAudio(qa.audio)} className="text-xs text-slate-600 hover:text-slate-800 font-bold flex items-center gap-0.5">
-                      <Volume2 className="h-3 w-3" /> Putar
-                    </button>
-                  )}
-                </div>
-              ))}
-            </div>
-          )}
-        </div>
-      )}
-
-      {/* Family Tab */}
-      {activeTab === 'family' && (
-        <div className="space-y-4">
-          <div>
-            <h4 className="font-bold text-sm text-slate-700 mb-2">Anggota Keluarga (가족 구성원):</h4>
-          </div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-            {getPagedItems(studyData.family.items || studyData.family.members || [], 'family').map((f, idx) => {
-              const cardId = `fam_${idx}`;
-              const hidden = isAnswerHidden(cardId);
-
-              return (
-                <div key={idx} className="p-3.5 rounded-xl border border-slate-200 bg-white shadow-sm flex items-center justify-between gap-2">
-                  <div className="min-w-0">
-                    {hidden ? (
-                      <div onClick={() => toggleCardAnswer(cardId)} className="cursor-pointer text-xs font-bold text-amber-700 bg-amber-50 px-2 py-1.5 rounded-lg">
-                        ?
-                      </div>
-                    ) : (
-                      <>
-                        <div className="font-kr font-bold text-base text-slate-800">{f.ko}</div>
-                        <div className="text-xs text-slate-500 font-medium">{f.id}</div>
-                      </>
-                    )}
-                  </div>
-                  <div className="flex items-center gap-0.5 shrink-0">
-                    {f.audio && (
-                      <button onClick={() => playAudio(f.audio)} className="p-1.5 rounded-lg text-slate-500 hover:bg-slate-100 transition-colors">
-                        <Volume2 className="h-3.5 w-3.5" />
-                      </button>
-                    )}
-                    <button onClick={() => toggleCardAnswer(cardId)} className="p-1.5 rounded-lg text-slate-500 hover:bg-slate-100">
-                      {hidden ? <EyeOff className="h-3.5 w-3.5 text-amber-600" /> : <Eye className="h-3.5 w-3.5" />}
-                    </button>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-          <Pagination items={studyData.family.items || studyData.family.members || []} pkey="family" />
-        </div>
-      )}
-
-      {/* Piktogram Tab */}
-      {activeTab === 'piktogram' && (() => {
-        const piktogramList = allQuestions.filter(q => q.category === 'piktogram');
-        const GENERIC_GROUP = 'Piktogram & Rambu Keselamatan K3';
-        const remapGeneric = (item) => {
-          if (item.category_title !== GENERIC_GROUP) return item.category_title || 'Lainnya';
-          const tag = (item.title_id || '') + (item.title_ko || '');
-          const target = piktogramList.find(q =>
-            q.category_title !== GENERIC_GROUP &&
-            ((tag.includes('지시표지') && (q.category_title || '').includes('지시')) ||
-             (tag.includes('경고표지') && (q.category_title || '').includes('경고')) ||
-             (tag.includes('금지표지') && (q.category_title || '').includes('금지')) ||
-             ((tag.includes('안내표지') || tag.includes('유도')) && ((q.category_title || '').includes('안내') || (q.category_title || '').includes('유도') || (q.category_title || '').includes('Evakuasi'))))
-          );
-          return (target && target.category_title) || item.category_title || 'Lainnya';
-        };
-        const groups = piktogramList.reduce((acc, q) => {
-          const g = remapGeneric(q);
-          if (!acc[g]) acc[g] = [];
-          acc[g].push(q);
-          return acc;
-        }, {});
-        const pikQ = (searchQuery || '').trim().toLowerCase();
-        const pikMatch = (p) => !pikQ || ((p.title_ko || '') + ' ' + (p.title_id || '') + ' ' + (p.category_title || '')).toLowerCase().includes(pikQ);
-        const pikShown = Object.entries(groups)
-          .filter(([n]) => pikGroup === 'all' || n === pikGroup)
-          .map(([n, arr]) => [n, arr.filter(pikMatch)])
-          .filter(([, arr]) => arr.length > 0);
-        const pikFound = Object.values(groups).reduce((s, arr) => s + arr.filter(pikMatch).length, 0);
-        return (
-          <div className="space-y-4">
-            {/* Header Bersih */}
-            <div className="rounded-xl border border-border bg-card p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-              <div>
-                <h3 className="font-bold text-sm md:text-base flex items-center gap-2 mb-1">
-                  <ShieldAlert className="h-4 w-4 text-warn shrink-0" />
-                  <span>{piktogramList.length} Piktogram & Rambu Keselamatan K3 (안전 표지)</span>
-                </h3>
-                <p className="text-xs text-muted-foreground">
-                  Pertanyaan penguji: <em>"이 안전 표지는 무슨 뜻입니까?"</em> (Ketuk kartu untuk memperbesar gambar).
-                </p>
-              </div>
-
-              <Button onClick={() => onStartPracticeCategory && onStartPracticeCategory('safety')} className="shrink-0 font-bold gap-1.5 shadow-xs">
+              <Button size="sm" onClick={() => onStartPracticeCategory && onStartPracticeCategory('physical')} className="shrink-0">
                 <span>Latih di Flashcard</span>
                 <ChevronRight className="h-3.5 w-3.5" />
               </Button>
             </div>
 
-            {/* Kolom Pencarian */}
-            <div className="relative">
-              <Search className="h-4 w-4 absolute left-3 top-3 text-muted-foreground" />
-              <input
-                type="text"
-                placeholder="Cari rambu (misal: rompi, APAR, 대피, 금지, 소화기)..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-9 pr-4 py-2 bg-muted border border-input rounded-md text-sm font-medium text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring/30 focus:border-ring"
-              />
-            </div>
-
-            {/* Filter Chips Horizontal Ringkas */}
             <div className="flex flex-wrap items-center gap-1.5 text-xs">
-              <button
-                type="button"
-                onClick={() => setPikGroup('all')}
-                className={cn('px-3 py-1.5 rounded-lg font-bold transition-all border min-h-[34px]',
-                  pikGroup === 'all'
-                    ? 'bg-primary text-primary-foreground border-primary shadow-xs'
-                    : 'bg-card text-muted-foreground border-border hover:text-foreground'
-                )}>
-                Semua ({piktogramList.length})
-              </button>
-              {Object.entries(groups).map(([n, arr]) => (
+              {[
+                { id: 'all', label: `Semua (${mergedPhysicalCommands.length})` },
+                { id: 'Tangan & Jari', label: `Tangan & Jari (${mergedPhysicalCommands.filter(c => c.group === 'Tangan & Jari').length})` },
+                { id: 'Kaki & Postur Tubuh', label: `Kaki & Postur Tubuh (${mergedPhysicalCommands.filter(c => c.group === 'Kaki & Postur Tubuh').length})` },
+                { id: 'Kepala, Mata, Hidung & Telinga', label: `Kepala, Mata, Hidung & Telinga (${mergedPhysicalCommands.filter(c => c.group === 'Kepala, Mata, Hidung & Telinga').length})` },
+                { id: 'Arah & Pandangan', label: `Arah & Pandangan (${mergedPhysicalCommands.filter(c => c.group === 'Arah & Pandangan').length})` },
+              ].map(f => (
                 <button
-                  key={n}
+                  key={f.id}
                   type="button"
-                  onClick={() => setPikGroup(n)}
-                  className={cn('px-3 py-1.5 rounded-lg font-bold transition-all border min-h-[34px]',
-                    pikGroup === n
-                      ? 'bg-primary text-primary-foreground border-primary shadow-xs'
-                      : 'bg-card text-muted-foreground border-border hover:text-foreground'
-                  )}>
-                  {n} ({arr.length})
+                  onClick={() => setCmdFilter(f.id)}
+                  className={cn(
+                    'px-2.5 py-1.5 rounded-lg font-semibold transition-all border',
+                    cmdFilter === f.id
+                      ? 'bg-foreground text-background border-foreground'
+                      : 'bg-card text-muted-foreground hover:text-foreground border-border'
+                  )}
+                >
+                  {f.label}
                 </button>
               ))}
             </div>
 
-            {pikQ ? (
-              <p className="text-xs text-muted-foreground font-medium">Hasil pencarian "{searchQuery.trim()}"{pikGroup !== 'all' ? ` di ${pikGroup}` : ''}: <strong>{pikFound} rambu</strong></p>
-            ) : pikGroup !== 'all' ? (
-              <p className="text-xs text-muted-foreground font-medium">Kategori: <strong>{pikGroup}</strong> ({(groups[pikGroup] || []).length} rambu)</p>
-            ) : null}
+            <div className="relative">
+              <Search className="h-4 w-4 absolute left-3 top-2.5 text-muted-foreground" />
+              <input
+                type="text"
+                placeholder="Cari perintah fisik (misal: 오른손, 오른발, 눈, 귀, 코, 손가락, tangan, kaki, mata, telinga)..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="w-full pl-9 pr-4 py-2 bg-card border border-input rounded-lg text-sm font-medium text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring/30 focus:border-ring"
+              />
+            </div>
+          </div>
 
-            {pikShown.length === 0 && (
-              <p className="text-xs text-muted-foreground py-6 text-center">Tidak ada rambu yang cocok dengan pencarian.</p>
-            )}
+          {filteredCommands.length === 0 ? (
+            <p className="text-xs text-muted-foreground py-6 text-center">
+              Tidak ada perintah gerak fisik yang cocok dengan pencarian.
+            </p>
+          ) : (
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+              {filteredCommands.map((cmd, idx) => {
+                const cardId = `cmd_${cmd.id || idx}`;
+                const hidden = isAnswerHidden(cardId);
 
-            {/* Grid Kartu Rambu: 2 Kolom Mobile, Gambar Besar & Jelas */}
-            {pikShown.map(([groupName, items]) => (
-              <div key={groupName} className="space-y-2.5">
-                <h4 className="font-bold text-xs sm:text-sm text-foreground uppercase tracking-wider flex items-center gap-1.5">
-                  <span className="w-1.5 h-3 bg-primary rounded-full" />
-                  <span>{groupName} ({items.length})</span>
-                </h4>
+                return (
+                  <div
+                    key={cardId}
+                    className="rounded-xl border border-border bg-card p-3.5 sm:p-4 flex flex-col justify-between transition-colors hover:border-border/80"
+                  >
+                    <div className="space-y-1.5">
+                      <div className="flex items-center justify-between gap-2">
+                        <span className="font-mono text-[11px] font-bold text-muted-foreground">
+                          #{idx + 1} · {cmd.group}
+                        </span>
 
-                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2.5 sm:gap-3">
-                  {items.map((p, idx) => {
-                    const cardId = `pik_${p.id || idx}`;
-                    const hidden = isAnswerHidden(cardId);
-                    return (
-                      <div
-                        key={cardId}
-                        onClick={() => setInspectRambu(p)}
-                        className="rounded-xl border border-border bg-card overflow-hidden flex flex-col shadow-xs hover:border-primary/50 transition-all cursor-pointer group"
-                      >
-                        {/* Container Gambar Besar & Bersih */}
-                        <div className="bg-muted/40 p-3 flex items-center justify-center min-h-[96px] sm:min-h-[110px] border-b border-border/50 relative">
-                          <img
-                            src={getAssetUrl(p.image_url)}
-                            alt={p.title_id || p.title_ko}
-                            className="max-h-20 sm:max-h-24 w-auto object-contain transition-transform group-hover:scale-105"
-                            loading="lazy"
-                          />
-                          <button
+                        <div className="flex items-center gap-1.5 shrink-0">
+                          <Button
                             type="button"
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              setInspectRambu(p);
-                            }}
-                            title="Perbesar gambar"
-                            className="absolute top-1.5 right-1.5 p-1 rounded-md bg-background/80 text-muted-foreground hover:text-foreground opacity-0 group-hover:opacity-100 transition-opacity"
+                            variant="secondary"
+                            size="sm"
+                            className="h-7 px-2.5 text-xs gap-1"
+                            onClick={() => playAudio(cmd.audio_q, cmd.command_ko)}
                           >
-                            <Maximize2 className="h-3 w-3" />
-                          </button>
-                        </div>
+                            <Volume2 className="h-3.5 w-3.5" />
+                            <span>Dengar</span>
+                          </Button>
 
-                        {/* Teks & Kontrol */}
-                        <div className="p-2.5 flex flex-col gap-1.5 flex-1">
-                          {hidden ? (
-                            <div
-                              onClick={(e) => {
-                                e.stopPropagation();
-                                toggleCardAnswer(cardId);
-                              }}
-                              className="cursor-pointer text-center py-1.5 px-2 rounded-lg bg-amber-500/10 border border-dashed border-amber-500/30"
-                            >
-                              <EyeOff className="h-3 w-3 text-amber-600 dark:text-amber-400 mx-auto mb-0.5" />
-                              <span className="text-[10px] font-bold text-amber-700 dark:text-amber-300">Tebak Arti</span>
-                            </div>
-                          ) : (
-                            <div>
-                              <div className="font-kr font-bold text-xs sm:text-sm text-foreground leading-snug line-clamp-1">{p.title_ko}</div>
-                              <div className="text-[11px] text-muted-foreground font-medium line-clamp-1 mt-0.5">{p.title_id}</div>
-                            </div>
-                          )}
-
-                          <div className="flex items-center justify-between gap-1 mt-auto pt-1 border-t border-border/40">
-                            {(p.audio_a || p.title_ko) && (
-                              <button
-                                type="button"
-                                onClick={(e) => {
-                                  e.stopPropagation();
-                                  playAudio(p.audio_a, p.title_ko);
-                                }}
-                                className="p-1 rounded-md text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
-                                title={`Dengar: ${p.title_ko}`}
-                              >
-                                <Volume2 className="h-3.5 w-3.5" />
-                              </button>
-                            )}
-                            <button
-                              type="button"
-                              onClick={(e) => {
-                                e.stopPropagation();
-                                toggleCardAnswer(cardId);
-                              }}
-                              className="p-1 rounded-md text-muted-foreground hover:text-foreground hover:bg-secondary ml-auto transition-colors"
-                              aria-label={hidden ? 'Tampilkan arti' : 'Sembunyikan arti'}
-                            >
-                              {hidden ? <EyeOff className="h-3.5 w-3.5 text-amber-600 dark:text-amber-400" /> : <Eye className="h-3.5 w-3.5" />}
-                            </button>
-                          </div>
+                          <Button
+                            type="button"
+                            variant="outline"
+                            size="icon"
+                            className="h-7 w-7"
+                            onClick={() => toggleCardAnswer(cardId)}
+                            title={hidden ? 'Buka arti' : 'Tutup arti'}
+                          >
+                            {hidden ? <EyeOff className="h-3.5 w-3.5 text-warn" /> : <Eye className="h-3.5 w-3.5" />}
+                          </Button>
                         </div>
                       </div>
-                    );
-                  })}
-                </div>
-              </div>
-            ))}
 
-            {/* Modal Inspeksi Pratinjau Rambu Besar */}
-            {inspectRambu && (
-              <div
-                className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4 animate-fade-in"
-                onClick={() => setInspectRambu(null)}
-              >
-                <div
-                  className="bg-card text-foreground rounded-2xl border border-border shadow-xl max-w-sm w-full overflow-hidden p-5 space-y-4"
-                  onClick={(e) => e.stopPropagation()}
-                >
-                  <div className="flex items-center justify-between">
-                    <span className="text-[11px] font-bold text-muted-foreground uppercase tracking-wider">
-                      Detail Rambu K3 Resmi
-                    </span>
-                    <button
-                      type="button"
-                      onClick={() => setInspectRambu(null)}
-                      className="p-1.5 rounded-lg hover:bg-secondary text-muted-foreground hover:text-foreground"
-                    >
-                      <X className="h-5 w-5" />
-                    </button>
+                      <h4 className="text-lg sm:text-xl font-bold text-foreground font-kr tracking-tight leading-snug">
+                        {cmd.command_ko}
+                      </h4>
+                      {cmd.command_ro && (
+                        <p className="text-xs text-muted-foreground font-mono">{cmd.command_ro}</p>
+                      )}
+                    </div>
+
+                    <div className="mt-2.5 pt-2.5 border-t border-border/60">
+                      {hidden ? (
+                        <button
+                          type="button"
+                          onClick={() => toggleCardAnswer(cardId)}
+                          className="w-full text-left text-xs font-semibold text-muted-foreground hover:text-foreground flex items-center gap-1.5"
+                        >
+                          <EyeOff className="h-3.5 w-3.5 text-warn shrink-0" />
+                          <span>Arti & refleks disembunyikan (ketuk untuk membuka)</span>
+                        </button>
+                      ) : (
+                        <div className="space-y-0.5">
+                          <p className="text-xs sm:text-sm font-bold text-emerald-700 dark:text-emerald-400">
+                            {cmd.command_id}
+                          </p>
+                          <p className="text-[11px] text-muted-foreground leading-snug">
+                            <strong>Refleks:</strong> {cmd.action_desc}
+                          </p>
+                        </div>
+                      )}
+                    </div>
                   </div>
+                );
+              })}
+            </div>
+          )}
+        </div>
+      )}
 
-                  <div className="bg-muted/50 rounded-xl p-4 flex items-center justify-center min-h-[160px] border border-border/60">
-                    <img
-                      src={getAssetUrl(inspectRambu.image_url)}
-                      alt={inspectRambu.title_id || inspectRambu.title_ko}
-                      className="max-h-36 w-auto object-contain"
+
+      {/* 4. JAGISOGE (SELF INTRO) */}
+      {activeTab === 'jagisoge' && (
+        <div className="space-y-6 animate-fade-in">
+          <div className="border-b border-border pb-3">
+            <div className="flex items-center gap-2 mb-1">
+              <Badge variant="outline" className="border-indigo-500/30 text-indigo-600 dark:text-indigo-400 text-[10px]">
+                WAJIB HAFAL MATI ({studyData.jagisoge.duration})
+              </Badge>
+              <span className="text-[11px] font-bold text-muted-foreground uppercase tracking-wider">
+                {studyData.jagisoge.points}
+              </span>
+            </div>
+            <h2 className="text-lg sm:text-xl font-bold text-foreground">
+              {studyData.jagisoge.title}
+            </h2>
+            <p className="text-xs sm:text-sm text-muted-foreground mt-0.5 leading-relaxed">
+              {studyData.jagisoge.duration_note}
+            </p>
+          </div>
+
+          <div className="flex flex-wrap gap-2">
+            <button
+              type="button"
+              onClick={() => setJagiSubTab('generator')}
+              className={cn(
+                'flex items-center gap-2 px-3.5 py-2 rounded-lg text-xs font-bold border transition-all cursor-pointer',
+                jagiSubTab === 'generator'
+                  ? 'bg-primary text-primary-foreground border-primary shadow-sm'
+                  : 'bg-card text-muted-foreground border-border hover:text-foreground hover:bg-secondary/60'
+              )}
+            >
+              <Sparkles className="w-3.5 h-3.5" />
+              Generator Kustom (Data Diri Anda)
+            </button>
+            <button
+              type="button"
+              onClick={() => setJagiSubTab('samples')}
+              className={cn(
+                'flex items-center gap-2 px-3.5 py-2 rounded-lg text-xs font-bold border transition-all cursor-pointer',
+                jagiSubTab === 'samples'
+                  ? 'bg-primary text-primary-foreground border-primary shadow-sm'
+                  : 'bg-card text-muted-foreground border-border hover:text-foreground hover:bg-secondary/60'
+              )}
+            >
+              <Users className="w-3.5 h-3.5" />
+              10 Contoh Variasi Peserta ({JAGISOGE_SAMPLES.length})
+            </button>
+          </div>
+
+          {jagiSubTab === 'generator' ? (
+            <div className="space-y-6">
+              {/* Form Input Data Diri - Single Flat Container */}
+              <div className="rounded-xl border border-border bg-card p-4 sm:p-5 space-y-4">
+                <div className="flex items-center justify-between border-b border-border pb-3">
+                  <div>
+                    <h3 className="text-sm font-bold text-foreground">Isi Data Diri Anda</h3>
+                    <p className="text-xs text-muted-foreground">
+                      Angka usia dan jumlah keluarga otomatis dikonversi ke Angka Asli Korea (고유어 수).
+                    </p>
+                  </div>
+                  <Badge variant="secondary" className="text-[10px]">Auto-Convert</Badge>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5">
+                  <div className="space-y-1">
+                    <label className="text-[11px] font-bold text-muted-foreground uppercase">
+                      Nama Lengkap
+                    </label>
+                    <input
+                      type="text"
+                      value={jagiForm.nama}
+                      onChange={(e) => setJagiForm({ ...jagiForm, nama: e.target.value })}
+                      placeholder="Contoh: BUDI SANTOSO"
+                      className="w-full px-3 py-2 text-xs sm:text-sm bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/30 text-foreground"
                     />
                   </div>
 
-                  <div className="space-y-1 text-center">
-                    <h3 className="font-kr font-bold text-lg text-foreground">
-                      {inspectRambu.title_ko}
-                    </h3>
-                    <p className="text-sm font-medium text-muted-foreground">
-                      {inspectRambu.title_id}
-                    </p>
-                    <p className="text-xs text-primary font-semibold pt-1">
-                      Pertanyaan Penguji: "이 표지는 무슨 뜻입니까?"
-                    </p>
+                  <div className="space-y-1">
+                    <label className="text-[11px] font-bold text-muted-foreground uppercase">
+                      Usia (Tahun)
+                    </label>
+                    <input
+                      type="number"
+                      min={18}
+                      max={50}
+                      value={jagiForm.umur}
+                      onChange={(e) => setJagiForm({ ...jagiForm, umur: e.target.value })}
+                      className="w-full px-3 py-2 text-xs sm:text-sm bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/30 text-foreground"
+                    />
                   </div>
 
-                  <div className="flex items-center gap-2 pt-2">
-                    <Button
-                      type="button"
-                      onClick={() => playAudio(inspectRambu.audio_a, inspectRambu.title_ko)}
-                      className="flex-1 font-bold gap-2"
+                  <div className="space-y-1">
+                    <label className="text-[11px] font-bold text-muted-foreground uppercase">
+                      Jumlah Keluarga (Orang)
+                    </label>
+                    <input
+                      type="number"
+                      min={1}
+                      max={15}
+                      value={jagiForm.keluarga}
+                      onChange={(e) => setJagiForm({ ...jagiForm, keluarga: e.target.value })}
+                      className="w-full px-3 py-2 text-xs sm:text-sm bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/30 text-foreground"
+                    />
+                  </div>
+
+                  <div className="space-y-1">
+                    <label className="text-[11px] font-bold text-muted-foreground uppercase">
+                      Status Pernikahan
+                    </label>
+                    <select
+                      value={jagiForm.nikah}
+                      onChange={(e) => setJagiForm({ ...jagiForm, nikah: e.target.value })}
+                      className="w-full px-3 py-2 text-xs sm:text-sm bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/30 text-foreground"
                     >
-                      <Volume2 className="h-4 w-4" />
-                      <span>Dengar Pengucapan</span>
-                    </Button>
-                    <Button
-                      type="button"
-                      variant="outline"
-                      onClick={() => setInspectRambu(null)}
-                    >
-                      Tutup
-                    </Button>
+                      <option value="아직 결혼하지 않았습니다">Belum Menikah (아직 결혼하지 않았습니다)</option>
+                      <option value="결혼했습니다">Sudah Menikah (결혼했습니다)</option>
+                    </select>
+                  </div>
+
+                  <div className="space-y-1 sm:col-span-2 lg:col-span-4">
+                    <label className="text-[11px] font-bold text-muted-foreground uppercase">
+                      Pengalaman & Fokus Sektor
+                    </label>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 pt-0.5">
+                      {JAGI_FOKUS_OPTIONS.map((opt) => (
+                        <button
+                          key={opt.id}
+                          type="button"
+                          onClick={() => setJagiForm({ ...jagiForm, fokus: opt.id })}
+                          className={cn(
+                            'text-left p-2.5 rounded-lg border transition-all cursor-pointer',
+                            jagiForm.fokus === opt.id
+                              ? 'border-primary bg-primary/5 text-foreground'
+                              : 'border-border bg-background text-muted-foreground hover:text-foreground'
+                          )}
+                        >
+                          <p className="text-xs font-bold">{opt.label}</p>
+                          <p className="text-[11px] text-muted-foreground mt-0.5">{opt.desc}</p>
+                        </button>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </div>
-            )}
-          </div>
-        );
-      })()}
 
-      {/* Alat Tab */}
-      {activeTab === 'alat' && (() => {
-        const alatList = allQuestions.filter(q => q.category === 'alat_manufaktur' || q.category === 'alat_klasik');
-        const groups = alatList.reduce((acc, q) => {
-          const g = q.category_title || 'Alat Manufaktur';
-          if (!acc[g]) acc[g] = [];
-          acc[g].push(q);
-          return acc;
-        }, {});
-        const alatQ = (searchQuery || '').trim().toLowerCase();
-        const alatMatch = (a) => !alatQ || ((a.title_ko || '') + ' ' + (a.title_id || '') + ' ' + (a.category_title || '') + ' ' + (a.usage_short_ko || '') + ' ' + (a.usage_short_id || '')).toLowerCase().includes(alatQ);
-        const alatShown = Object.entries(groups)
-          .filter(([n]) => alatGroup === 'all' || n === alatGroup)
-          .map(([n, arr]) => [n, arr.filter(alatMatch)])
-          .filter(([, arr]) => arr.length > 0);
-        const alatFound = Object.values(groups).reduce((s, arr) => s + arr.filter(alatMatch).length, 0);
-        return (
-          <div className="space-y-4">
-            <Card className="p-4 md:p-5">
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-                <div>
-                  <h3 className="font-bold text-sm md:text-base flex items-center gap-2 mb-1">
-                    <Wrench className="h-4 w-4 text-muted-foreground shrink-0" />
-                    <span>{alatList.length} Alat & Perkakas Manufaktur (공구 & 기계)</span>
-                  </h3>
-                  <p className="text-xs text-muted-foreground">
-                    Pertanyaan penguji: <em>"이 공구의 이름은 무엇입니까?"</em> (Hafal nama Korea setiap alat dari fotonya).
-                  </p>
-                </div>
+              {/* Script Naskah Utuh Kustom */}
+              {(() => {
+                const customSentences = getJagiSentences();
+                const fullScriptKo = customSentences.map((s) => s.ko).join(' ');
+                return (
+                  <div className="rounded-xl border border-border bg-card p-4 sm:p-5 space-y-4">
+                    <div className="flex flex-wrap items-center justify-between gap-2 border-b border-border pb-3">
+                      <div>
+                        <span className="text-[10px] font-bold uppercase tracking-wider text-primary">
+                          Naskah Lengkap Siap Ucap
+                        </span>
+                        <h3 className="text-sm sm:text-base font-bold text-foreground">
+                          Urutan Kalimat Perkenalan Diri ({customSentences.length} Bagian)
+                        </h3>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <button
+                          type="button"
+                          onClick={copyJagi}
+                          className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-border bg-secondary hover:bg-secondary/80 text-foreground text-xs font-semibold transition-colors cursor-pointer"
+                        >
+                          <Copy className="w-3.5 h-3.5" />
+                          {jagiCopied ? 'Tersalin!' : 'Salin Teks'}
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => playAudio(null, fullScriptKo)}
+                          className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-primary text-primary-foreground text-xs font-bold hover:opacity-90 transition-opacity cursor-pointer"
+                        >
+                          <Volume2 className="w-3.5 h-3.5" />
+                          Putar Seluruh Naskah
+                        </button>
+                      </div>
+                    </div>
 
-                <Button onClick={() => onStartPracticeCategory && onStartPracticeCategory('tools')}>
-                  <span>Latih Perkakas di Flashcard</span>
-                  <ChevronRight className="h-3.5 w-3.5" />
-                </Button>
-              </div>
-            </Card>
-            <div className="relative">
-              <Search className="h-4 w-4 absolute left-3 top-3 text-muted-foreground" />
-              <input
-                type="text"
-                placeholder="Cari alat (misal: gerinda, 드릴, pompa, solder)..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-9 pr-4 py-2 bg-muted border border-input rounded-md text-sm font-medium text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring/30 focus:border-ring"
-              />
-            </div>
-            <div className="flex flex-wrap items-center gap-1.5 text-xs">
-              <button
-                onClick={() => setAlatGroup('all')}
-                className={cn('px-3 py-1.5 rounded-md font-bold transition-all border',
-                  alatGroup === 'all'
-                    ? 'bg-slate-800 text-white border-slate-800'
-                    : 'bg-white text-slate-600 border-slate-200 hover:border-slate-400'
-                )}>
-                Semua ({alatList.length})
-              </button>
-              {Object.entries(groups).map(([n, arr]) => (
-                <button
-                  key={n}
-                  onClick={() => setAlatGroup(n)}
-                  className={cn('px-3 py-1.5 rounded-md font-bold transition-all border',
-                    alatGroup === n
-                      ? 'bg-slate-800 text-white border-slate-800'
-                      : 'bg-white text-slate-600 border-slate-200 hover:border-slate-400'
-                  )}>
-                  {n} ({arr.length})
-                </button>
-              ))}
-            </div>
-            {alatQ ? (
-              <p className="text-xs text-slate-600 font-medium">Hasil pencarian "{searchQuery.trim()}"{alatGroup !== 'all' ? ` di ${alatGroup}` : ''}: <strong>{alatFound} alat</strong></p>
-            ) : alatGroup !== 'all' ? (
-              <p className="text-xs text-slate-600 font-medium">Menampilkan: <strong>{alatGroup}</strong> ({(groups[alatGroup] || []).length} alat)</p>
-            ) : null}
-            {alatShown.length === 0 && (
-              <p className="text-xs text-slate-500 py-4 text-center">Tidak ada alat yang cocok dengan pencarian.</p>
-            )}
-            {/* Grid Kartu Perkakas: 1-2 Kolom di Mobile agar Kegunaan Terbaca Jelas */}
-            {alatShown.map(([groupName, items]) => (
-              <div key={groupName} className="space-y-2.5">
-                <h4 className="font-bold text-xs sm:text-sm text-foreground uppercase tracking-wider flex items-center gap-1.5">
-                  <span className="w-1.5 h-3 bg-primary rounded-full" />
-                  <span>{groupName} ({items.length})</span>
-                </h4>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
-                  {items.map((a, idx) => {
-                    const cardId = `alat_${a.id || idx}`;
-                    const hidden = isAnswerHidden(cardId);
-                    return (
-                      <div key={cardId} className="rounded-xl border border-border bg-card overflow-hidden flex flex-col shadow-xs hover:border-primary/50 transition-all">
-                        <div className="bg-muted/40 p-3 flex items-center justify-center min-h-[96px] sm:min-h-[110px] border-b border-border/50">
-                          <img
-                            src={getAssetUrl(a.image_url)}
-                            alt={a.title_id || a.title_ko}
-                            className="max-h-20 sm:max-h-24 w-auto object-contain"
-                            loading="lazy"
-                          />
-                        </div>
-                        <div className="p-3 flex flex-col gap-2 flex-1">
-                          {a.level && (
-                            <span className="text-[10px] font-mono font-bold text-muted-foreground bg-secondary px-2 py-0.5 rounded-md self-start border border-border">
-                              Tingkat {a.level}
-                            </span>
-                          )}
-                          {hidden ? (
-                            <div
-                              onClick={() => toggleCardAnswer(cardId)}
-                              className="cursor-pointer text-center py-2 px-3 rounded-lg bg-amber-500/10 border border-dashed border-amber-500/30"
-                            >
-                              <EyeOff className="h-3.5 w-3.5 text-amber-600 dark:text-amber-400 mx-auto mb-0.5" />
-                              <span className="text-[11px] font-bold text-amber-700 dark:text-amber-300">Tebak Nama & Fungsi Alat</span>
-                            </div>
-                          ) : (
-                            <div className="space-y-1.5">
-                              <div>
-                                <div className="font-kr font-bold text-sm text-foreground leading-snug">{a.title_ko}</div>
-                                <div className="text-xs text-muted-foreground font-medium">{a.title_id}</div>
-                              </div>
-
-                              {(a.usage_short_ko || a.usage_full_ko) && (
-                                <div className="p-2 rounded-lg bg-secondary/50 border border-border/70 text-left space-y-1">
-                                  <div className="flex items-center justify-between">
-                                    <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider">
-                                      Fungsi / Kegunaan:
-                                    </span>
-                                    <button
-                                      type="button"
-                                      onClick={() => playAudio(null, a.usage_short_ko || a.usage_full_ko)}
-                                      className="text-[10px] text-primary hover:underline font-bold flex items-center gap-0.5"
-                                      title="Dengar pelafalan fungsi alat"
-                                    >
-                                      <Volume2 className="w-3 h-3" />
-                                      <span>Dengar</span>
-                                    </button>
-                                  </div>
-                                  <p className="font-kr font-bold text-xs text-foreground leading-snug">
-                                    {a.usage_short_ko || a.usage_full_ko}
-                                  </p>
-                                  {a.usage_short_id && (
-                                    <p className="text-[11px] text-muted-foreground">
-                                      {a.usage_short_id}
-                                    </p>
-                                  )}
-                                </div>
-                              )}
-                            </div>
-                          )}
-                          <div className="flex items-center justify-between gap-1 mt-auto pt-2 border-t border-border/40">
-                            {(a.audio_a || a.title_ko) && (
+                    <div className="divide-y divide-border">
+                      {customSentences.map((item) => (
+                        <div key={item.no} className="py-3.5 first:pt-0 last:pb-0 flex items-start gap-3">
+                          <span className="w-6 h-6 rounded-full bg-primary/10 text-primary text-xs font-bold flex items-center justify-center shrink-0 mt-0.5">
+                            {item.no}
+                          </span>
+                          <div className="flex-1 min-w-0 space-y-1">
+                            <div className="flex items-center justify-between gap-2">
+                              <span className="text-[11px] font-bold uppercase tracking-wider text-muted-foreground">
+                                {item.title} · {item.durasi}
+                              </span>
                               <button
                                 type="button"
-                                onClick={() => playAudio(a.audio_a, a.title_ko)}
-                                className="p-1.5 rounded-md text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
-                                title={`Dengar: ${a.title_ko}`}
+                                onClick={() => playAudio(null, item.ko)}
+                                className="flex items-center gap-1 px-2 py-1 rounded-md bg-secondary hover:bg-primary hover:text-primary-foreground text-foreground text-[11px] font-semibold transition-colors cursor-pointer"
                               >
-                                <Volume2 className="h-4 w-4" />
+                                <Volume2 className="w-3 h-3" />
+                                Dengarkan
                               </button>
-                            )}
-                            <button
-                              type="button"
-                              onClick={() => toggleCardAnswer(cardId)}
-                              className="p-1.5 rounded-md text-muted-foreground hover:text-foreground hover:bg-secondary ml-auto transition-colors"
-                              aria-label={hidden ? 'Tampilkan arti' : 'Sembunyikan arti'}
-                            >
-                              {hidden ? <EyeOff className="h-4 w-4 text-amber-600 dark:text-amber-400" /> : <Eye className="h-4 w-4" />}
-                            </button>
+                            </div>
+                            <p className="text-base sm:text-lg font-black text-foreground leading-snug break-keep">
+                              {item.ko}
+                            </p>
+                            <p className="text-xs sm:text-sm font-semibold text-emerald-700 dark:text-emerald-400">
+                              "{item.id}"
+                            </p>
                           </div>
                         </div>
+                      ))}
+                    </div>
+                  </div>
+                );
+              })()}
+
+              {/* 5 Kalimat Dasar & Checklist Penguji */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="rounded-xl border border-border bg-card p-4 space-y-3">
+                  <div className="flex items-center justify-between border-b border-border pb-2.5">
+                    <h3 className="text-xs font-bold uppercase tracking-wider text-muted-foreground">
+                      5 Struktur Kalimat Dasar HRD Korea
+                    </h3>
+                    {studyData.jagisoge.audio_examiner && (
+                      <button
+                        type="button"
+                        onClick={() => playAudio(studyData.jagisoge.audio_examiner, '자기소개를 해 보세요')}
+                        className="flex items-center gap-1 px-2.5 py-1 rounded-md bg-secondary hover:bg-primary hover:text-primary-foreground text-[11px] font-semibold text-foreground transition-colors cursor-pointer"
+                      >
+                        <Volume2 className="w-3 h-3" /> Perintah Penguji
+                      </button>
+                    )}
+                  </div>
+                  <div className="divide-y divide-border">
+                    {studyData.jagisoge.sentences.map((s, idx) => (
+                      <div key={idx} className="py-2.5 first:pt-0 last:pb-0 space-y-1">
+                        <div className="flex items-center justify-between">
+                          <span className="text-[11px] font-bold text-primary">{s.step}</span>
+                          <button
+                            type="button"
+                            onClick={() => playAudio(null, s.ko)}
+                            className="text-muted-foreground hover:text-foreground cursor-pointer"
+                          >
+                            <Volume2 className="w-3.5 h-3.5" />
+                          </button>
+                        </div>
+                        <p className="text-sm font-bold text-foreground">{s.ko}</p>
+                        <p className="text-[11px] font-mono text-indigo-600 dark:text-indigo-400">[{s.ro}]</p>
+                        <p className="text-xs text-emerald-700 dark:text-emerald-400">"{s.id}"</p>
+                        {s.tips && <p className="text-[11px] text-muted-foreground">{s.tips}</p>}
                       </div>
-                    );
-                  })}
+                    ))}
+                  </div>
+                </div>
+
+                {studyData.jagisoge.examiner_checklist && (
+                  <div className="rounded-xl border border-border bg-card p-4 space-y-3">
+                    <h3 className="text-xs font-bold uppercase tracking-wider text-muted-foreground border-b border-border pb-2.5">
+                      Checklist Penilaian Penguji Saat Jagisoge
+                    </h3>
+                    <ul className="space-y-2.5">
+                      {studyData.jagisoge.examiner_checklist.map((pt, i) => (
+                        <li key={i} className="text-xs text-foreground leading-relaxed">
+                          {pt}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </div>
+            </div>
+          ) : (
+            <div className="space-y-4">
+              {/* Selector 10 Variasi */}
+              <div className="flex flex-wrap gap-1.5">
+                {JAGISOGE_SAMPLES.map((v, idx) => (
+                  <button
+                    key={v.id}
+                    type="button"
+                    onClick={() => setActiveSampleIdx(idx)}
+                    className={cn(
+                      'px-3 py-1.5 rounded-lg text-xs font-semibold border transition-all cursor-pointer',
+                      activeSampleIdx === idx
+                        ? 'bg-primary text-primary-foreground border-primary shadow-sm'
+                        : 'bg-card text-muted-foreground border-border hover:text-foreground hover:bg-secondary/60'
+                    )}
+                  >
+                    {v.title}
+                  </button>
+                ))}
+              </div>
+
+              {(() => {
+                const chosen = JAGISOGE_SAMPLES[activeSampleIdx] || JAGISOGE_SAMPLES[0];
+                const fullKo = chosen.sentences.map((s) => s.ko).join(' ');
+                return (
+                  <div className="rounded-xl border border-border bg-card p-4 sm:p-5 space-y-4">
+                    <div className="flex flex-wrap items-center justify-between gap-2 border-b border-border pb-3">
+                      <div>
+                        <span className="text-[10px] font-bold uppercase tracking-wider text-primary">
+                          {chosen.koTitle}
+                        </span>
+                        <h3 className="text-base font-bold text-foreground">{chosen.title}</h3>
+                        <p className="text-xs text-muted-foreground">{chosen.desc}</p>
+                      </div>
+                      <button
+                        type="button"
+                        onClick={() => playAudio(null, fullKo)}
+                        className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-primary text-primary-foreground text-xs font-bold hover:opacity-90 transition-opacity cursor-pointer"
+                      >
+                        <Volume2 className="w-3.5 h-3.5" />
+                        Putar Semua Kalimat
+                      </button>
+                    </div>
+
+                    <div className="divide-y divide-border">
+                      {chosen.sentences.map((s, idx) => (
+                        <div key={idx} className="py-3 first:pt-0 last:pb-0 flex items-start justify-between gap-3">
+                          <div className="space-y-1 min-w-0">
+                            <span className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground">
+                              Kalimat #{idx + 1}
+                            </span>
+                            <p className="text-sm sm:text-base font-bold text-foreground break-keep">
+                              {s.ko}
+                            </p>
+                            <p className="text-xs text-emerald-700 dark:text-emerald-400 font-medium">
+                              "{s.id}"
+                            </p>
+                          </div>
+                          <button
+                            type="button"
+                            onClick={() => playAudio(null, s.ko)}
+                            className="w-8 h-8 rounded-lg bg-secondary hover:bg-primary hover:text-primary-foreground text-foreground flex items-center justify-center shrink-0 transition-colors cursor-pointer"
+                            title="Putar Audio"
+                          >
+                            <Volume2 className="w-3.5 h-3.5" />
+                          </button>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                );
+              })()}
+            </div>
+          )}
+        </div>
+      )}
+
+      {/* 5. TIME (JAM & WAKTU) */}
+      {activeTab === 'time' && (
+        <div className="space-y-6 animate-fade-in">
+          <div className="border-b border-border pb-3">
+            <div className="flex items-center gap-2 mb-1">
+              <Badge variant="outline" className="border-sky-500/30 text-sky-600 dark:text-sky-400 text-[10px]">
+                ATURAN KOMBINASI ANGKA
+              </Badge>
+              <span className="text-[11px] font-bold text-muted-foreground uppercase tracking-wider">
+                Jam (Native) + Menit (Sino)
+              </span>
+            </div>
+            <h2 className="text-lg sm:text-xl font-bold text-foreground">
+              Panduan Membaca Jam & Waktu Kerja (시간)
+            </h2>
+            <p className="text-xs sm:text-sm text-muted-foreground mt-0.5 leading-relaxed">
+              {studyData.time.formula}
+            </p>
+          </div>
+
+          {/* Kosakata Keterangan Waktu (Semua 15 Item Tanpa Paginasi) */}
+          <div className="space-y-3">
+            <h3 className="text-sm font-bold text-foreground uppercase tracking-wider">
+              Kosakata Keterangan Waktu ({studyData.time.terms.length})
+            </h3>
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-2.5">
+              {studyData.time.terms.map((t, idx) => (
+                <div
+                  key={idx}
+                  onClick={() => playAudio(t.audio, t.ko)}
+                  className="rounded-xl border border-border bg-card p-3 hover:border-primary/40 transition-colors cursor-pointer flex flex-col justify-between gap-1.5"
+                >
+                  <div className="flex items-start justify-between gap-1">
+                    <span className="text-base font-black text-foreground">{t.ko}</span>
+                    <Volume2 className="w-3.5 h-3.5 text-muted-foreground shrink-0 mt-0.5" />
+                  </div>
+                  <span className="text-[11px] font-mono text-indigo-600 dark:text-indigo-400">
+                    [{t.ro}]
+                  </span>
+                  <span className="text-xs font-semibold text-emerald-700 dark:text-emerald-400">
+                    {t.id}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Contoh Praktik Jam */}
+          <div className="space-y-3">
+            <h3 className="text-sm font-bold text-foreground uppercase tracking-wider">
+              Contoh Pembacaan Jam Lengkap ({studyData.time.examples.length})
+            </h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+              {studyData.time.examples.map((ex, idx) => (
+                <div
+                  key={idx}
+                  onClick={() => playAudio(ex.audio, ex.ko)}
+                  className="rounded-xl border border-border bg-card p-3.5 hover:border-primary/40 transition-colors cursor-pointer space-y-1.5"
+                >
+                  <div className="flex items-center justify-between">
+                    <span className="px-2 py-0.5 rounded bg-secondary text-foreground font-mono text-xs font-bold">
+                      {ex.time}
+                    </span>
+                    <Volume2 className="w-3.5 h-3.5 text-muted-foreground" />
+                  </div>
+                  <p className="text-sm sm:text-base font-black text-foreground break-keep">
+                    {ex.ko}
+                  </p>
+                  <p className="text-[11px] font-mono text-indigo-600 dark:text-indigo-400">
+                    [{ex.ro}]
+                  </p>
+                  <p className="text-xs font-semibold text-muted-foreground">
+                    {ex.id}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Tanya Jawab Lisan Jam */}
+          {studyData.time.interview_qa && (
+            <div className="space-y-3">
+              <h3 className="text-sm font-bold text-foreground uppercase tracking-wider">
+                Tanya Jawab Wawancara Seputar Jam ({studyData.time.interview_qa.length})
+              </h3>
+              <div className="divide-y divide-border rounded-xl border border-border bg-card overflow-hidden">
+                {studyData.time.interview_qa.map((qa, idx) => (
+                  <div key={idx} className="p-3.5 sm:p-4 space-y-2">
+                    <div className="flex items-start justify-between gap-2">
+                      <div>
+                        <span className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground">
+                          Pertanyaan Penguji #{idx + 1}
+                        </span>
+                        <p className="text-sm sm:text-base font-bold text-foreground">
+                          Q: {qa.q_ko}
+                        </p>
+                        {qa.q_ro && (
+                          <p className="text-xs font-mono text-indigo-600 dark:text-indigo-400">
+                            [{qa.q_ro}]
+                          </p>
+                        )}
+                        <p className="text-xs text-muted-foreground">"{qa.q_id}"</p>
+                      </div>
+                      <button
+                        type="button"
+                        onClick={() => playAudio(qa.audio, qa.q_ko)}
+                        className="px-2.5 py-1 rounded-md bg-secondary hover:bg-primary hover:text-primary-foreground text-[11px] font-semibold text-foreground flex items-center gap-1 shrink-0 transition-colors cursor-pointer"
+                      >
+                        <Volume2 className="w-3 h-3" /> Q
+                      </button>
+                    </div>
+
+                    <div className="pt-2 border-t border-border/60 flex items-start justify-between gap-2">
+                      <div>
+                        <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">
+                          Format Jawaban Sopan
+                        </span>
+                        <p className="text-sm sm:text-base font-bold text-emerald-700 dark:text-emerald-400">
+                          A: {qa.a_ko}
+                        </p>
+                        <p className="text-xs text-muted-foreground">"{qa.a_id}"</p>
+                      </div>
+                      <button
+                        type="button"
+                        onClick={() => playAudio(null, qa.a_ko)}
+                        className="px-2.5 py-1 rounded-md bg-emerald-600 hover:bg-emerald-500 text-white text-[11px] font-semibold flex items-center gap-1 shrink-0 transition-colors cursor-pointer"
+                      >
+                        <Volume2 className="w-3 h-3" /> A
+                      </button>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Bank Soal Jam Lisan */}
+          <BankSoalSection
+            title="Latihan Soal Jam & Waktu dari Bank Soal"
+            questions={jamLisanQuestions}
+            isAnswerHidden={isAnswerHidden}
+            toggleCardAnswer={toggleCardAnswer}
+            playAudio={playAudio}
+            playingAudio={playingAudio}
+          />
+        </div>
+      )}
+
+      {/* 6. CALENDAR (HARI, BULAN, TANGGAL) */}
+      {activeTab === 'calendar' && (
+        <div className="space-y-6 animate-fade-in">
+          <div className="border-b border-border pb-3">
+            <div className="flex items-center gap-2 mb-1">
+              <Badge variant="outline" className="border-indigo-500/30 text-indigo-600 dark:text-indigo-400 text-[10px]">
+                KALENDER & TANGGAL LAHIR
+              </Badge>
+              <span className="text-[11px] font-bold text-muted-foreground uppercase tracking-wider">
+                Wajib Ingat Pengecualian Juni (유월) & Oktober (시월)
+              </span>
+            </div>
+            <h2 className="text-lg sm:text-xl font-bold text-foreground">
+              Nama Hari, Bulan & Tanggal (요일 · 날짜)
+            </h2>
+            <p className="text-xs sm:text-sm text-muted-foreground mt-0.5 leading-relaxed">
+              Seluruh bulan dan tanggal menggunakan Angka Sino-Korea. Ketuk kartu untuk mendengarkan pelafalan.
+            </p>
+          </div>
+
+          {/* Nama Hari */}
+          <div className="space-y-3">
+            <h3 className="text-sm font-bold text-foreground uppercase tracking-wider">
+              Nama Hari & Akhir Pekan ({studyData.calendar.days.length})
+            </h3>
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-2.5">
+              {studyData.calendar.days.map((d, idx) => (
+                <div
+                  key={idx}
+                  onClick={() => playAudio(d.audio, d.ko)}
+                  className="rounded-xl border border-border bg-card p-3 hover:border-primary/40 transition-colors cursor-pointer space-y-1"
+                >
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs font-bold text-emerald-700 dark:text-emerald-400">{d.id}</span>
+                    <Volume2 className="w-3 h-3 text-muted-foreground" />
+                  </div>
+                  <p className="text-base font-black text-foreground">{d.ko}</p>
+                  <p className="text-[11px] font-mono text-indigo-600 dark:text-indigo-400">
+                    [{d.ro}]
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Keterangan Hari Relatif */}
+          <div className="space-y-3">
+            <h3 className="text-sm font-bold text-foreground uppercase tracking-wider">
+              Kosakata Hari, Minggu & Bulan Relatif ({studyData.calendar.rel_days.length})
+            </h3>
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2.5">
+              {studyData.calendar.rel_days.map((r, idx) => (
+                <div
+                  key={idx}
+                  onClick={() => playAudio(r.audio, r.ko)}
+                  className="rounded-xl border border-border bg-card p-3 hover:border-primary/40 transition-colors cursor-pointer space-y-1"
+                >
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm font-black text-foreground">{r.ko}</span>
+                    <Volume2 className="w-3.5 h-3.5 text-muted-foreground" />
+                  </div>
+                  <p className="text-[11px] font-mono text-indigo-600 dark:text-indigo-400">
+                    [{r.ro}]
+                  </p>
+                  <p className="text-xs font-semibold text-emerald-700 dark:text-emerald-400">
+                    {r.id}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* 12 Bulan */}
+          <div className="space-y-3">
+            <h3 className="text-sm font-bold text-foreground uppercase tracking-wider">
+              12 Nama Bulan (월 - Wol) - Perhatikan Juni (유월) & Oktober (시월)
+            </h3>
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2.5">
+              {studyData.calendar.months.map((m, idx) => {
+                const isSpecial = m.note && m.note !== 'Normal';
+                return (
+                  <div
+                    key={idx}
+                    onClick={() => playAudio(m.audio, m.ko)}
+                    className={cn(
+                      'rounded-xl border p-3 transition-colors cursor-pointer space-y-1',
+                      isSpecial
+                        ? 'border-rose-500/40 bg-rose-500/5 hover:border-rose-500'
+                        : 'border-border bg-card hover:border-primary/40'
+                    )}
+                  >
+                    <div className="flex items-center justify-between">
+                      <span className="text-xs font-bold text-muted-foreground">
+                        {m.id}
+                      </span>
+                      <Volume2 className="w-3 h-3 text-muted-foreground" />
+                    </div>
+                    <p className="text-base font-black text-foreground">{m.ko}</p>
+                    <p className="text-[11px] font-mono text-indigo-600 dark:text-indigo-400">
+                      [{m.ro}]
+                    </p>
+                    {isSpecial && (
+                      <p className="text-[10px] font-bold text-rose-600 dark:text-rose-400 leading-tight">
+                        {m.note}
+                      </p>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Tanya Jawab Kalender */}
+          {studyData.calendar.interview_qa && (
+            <div className="space-y-3">
+              <h3 className="text-sm font-bold text-foreground uppercase tracking-wider">
+                Tanya Jawab Wawancara Hari & Tanggal Lahir ({studyData.calendar.interview_qa.length})
+              </h3>
+              <div className="divide-y divide-border rounded-xl border border-border bg-card overflow-hidden">
+                {studyData.calendar.interview_qa.map((qa, idx) => (
+                  <div key={idx} className="p-3.5 sm:p-4 space-y-2">
+                    <div className="flex items-start justify-between gap-2">
+                      <div>
+                        <p className="text-sm sm:text-base font-bold text-foreground">
+                          Q: {qa.q_ko}
+                        </p>
+                        {qa.q_ro && (
+                          <p className="text-xs font-mono text-indigo-600 dark:text-indigo-400">
+                            [{qa.q_ro}]
+                          </p>
+                        )}
+                        <p className="text-xs text-muted-foreground">"{qa.q_id}"</p>
+                      </div>
+                      <button
+                        type="button"
+                        onClick={() => playAudio(qa.audio, qa.q_ko)}
+                        className="px-2.5 py-1 rounded-md bg-secondary hover:bg-primary hover:text-primary-foreground text-[11px] font-semibold text-foreground flex items-center gap-1 shrink-0 transition-colors cursor-pointer"
+                      >
+                        <Volume2 className="w-3 h-3" /> Q
+                      </button>
+                    </div>
+                    <div className="pt-2 border-t border-border/60 flex items-start justify-between gap-2">
+                      <div>
+                        <p className="text-sm sm:text-base font-bold text-emerald-700 dark:text-emerald-400">
+                          A: {qa.a_ko}
+                        </p>
+                        <p className="text-xs text-muted-foreground">"{qa.a_id}"</p>
+                      </div>
+                      <button
+                        type="button"
+                        onClick={() => playAudio(null, qa.a_ko)}
+                        className="px-2.5 py-1 rounded-md bg-emerald-600 hover:bg-emerald-500 text-white text-[11px] font-semibold flex items-center gap-1 shrink-0 transition-colors cursor-pointer"
+                      >
+                        <Volume2 className="w-3 h-3" /> A
+                      </button>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Bank Soal Tanggal Lisan */}
+          <BankSoalSection
+            title="Latihan Soal Hari, Bulan & Tanggal dari Bank Soal"
+            questions={tanggalLisanQuestions}
+            isAnswerHidden={isAnswerHidden}
+            toggleCardAnswer={toggleCardAnswer}
+            playAudio={playAudio}
+            playingAudio={playingAudio}
+          />
+        </div>
+      )}
+
+      {/* 7. COLORS (TES BUTA WARNA & WARNA) */}
+      {activeTab === 'colors' && (
+        <div className="space-y-6 animate-fade-in">
+          <div className="border-b border-border pb-3">
+            <div className="flex items-center gap-2 mb-1">
+              <Badge variant="outline" className="border-pink-500/30 text-pink-600 dark:text-pink-400 text-[10px]">
+                TES BUTA WARNA & OBJEK
+              </Badge>
+              <span className="text-[11px] font-bold text-muted-foreground uppercase tracking-wider">
+                {studyData.colors.items.length} Warna Utama
+              </span>
+            </div>
+            <h2 className="text-lg sm:text-xl font-bold text-foreground">
+              Kosakata Warna & Tes Buta Warna (색깔 · 색각검사)
+            </h2>
+            <p className="text-xs sm:text-sm text-muted-foreground mt-0.5 leading-relaxed">
+              Ketuk kartu warna untuk mendengarkan pelafalan dan alasan menyukai warna tersebut saat wawancara.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+            {studyData.colors.items.map((c, idx) => (
+              <div
+                key={idx}
+                onClick={() => playAudio(c.audio, c.ko)}
+                className="rounded-xl border border-border bg-card p-3.5 hover:border-primary/40 transition-colors cursor-pointer flex items-start gap-3"
+              >
+                <div
+                  className="w-10 h-10 rounded-lg border border-border shrink-0 shadow-inner mt-0.5"
+                  style={{ backgroundColor: c.hex }}
+                />
+                <div className="flex-1 min-w-0 space-y-1">
+                  <div className="flex items-start justify-between gap-1">
+                    <p className="text-sm sm:text-base font-black text-foreground leading-snug">
+                      {c.ko}
+                    </p>
+                    <Volume2 className="w-3.5 h-3.5 text-muted-foreground shrink-0 mt-0.5" />
+                  </div>
+                  <p className="text-[11px] font-mono text-indigo-600 dark:text-indigo-400">
+                    [{c.ro}]
+                  </p>
+                  <p className="text-xs font-bold text-emerald-700 dark:text-emerald-400">
+                    {c.id}
+                  </p>
+                  {c.reason && (
+                    <p className="text-[11px] text-muted-foreground pt-1 border-t border-border/60 leading-snug">
+                      {c.reason}
+                    </p>
+                  )}
                 </div>
               </div>
             ))}
           </div>
+
+          {studyData.colors.interview_qa && (
+            <div className="space-y-3">
+              <h3 className="text-sm font-bold text-foreground uppercase tracking-wider">
+                Tanya Jawab Tes Warna Saat Wawancara ({studyData.colors.interview_qa.length})
+              </h3>
+              <div className="divide-y divide-border rounded-xl border border-border bg-card overflow-hidden">
+                {studyData.colors.interview_qa.map((qa, idx) => (
+                  <div key={idx} className="p-3.5 sm:p-4 space-y-2">
+                    <div className="flex items-start justify-between gap-2">
+                      <div>
+                        <p className="text-sm sm:text-base font-bold text-foreground">
+                          Q: {qa.q_ko}
+                        </p>
+                        {qa.q_ro && (
+                          <p className="text-xs font-mono text-indigo-600 dark:text-indigo-400">
+                            [{qa.q_ro}]
+                          </p>
+                        )}
+                        <p className="text-xs text-muted-foreground">"{qa.q_id}"</p>
+                      </div>
+                      <button
+                        type="button"
+                        onClick={() => playAudio(qa.audio, qa.q_ko)}
+                        className="px-2.5 py-1 rounded-md bg-secondary hover:bg-primary hover:text-primary-foreground text-[11px] font-semibold text-foreground flex items-center gap-1 shrink-0 transition-colors cursor-pointer"
+                      >
+                        <Volume2 className="w-3 h-3" /> Q
+                      </button>
+                    </div>
+                    <div className="pt-2 border-t border-border/60 flex items-start justify-between gap-2">
+                      <div>
+                        <p className="text-sm sm:text-base font-bold text-emerald-700 dark:text-emerald-400">
+                          A: {qa.a_ko}
+                        </p>
+                        <p className="text-xs text-muted-foreground">"{qa.a_id}"</p>
+                      </div>
+                      <button
+                        type="button"
+                        onClick={() => playAudio(null, qa.a_ko)}
+                        className="px-2.5 py-1 rounded-md bg-emerald-600 hover:bg-emerald-500 text-white text-[11px] font-semibold flex items-center gap-1 shrink-0 transition-colors cursor-pointer"
+                      >
+                        <Volume2 className="w-3 h-3" /> A
+                      </button>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+      )}
+
+      {/* 8. FAMILY (ANGGOTA KELUARGA) */}
+      {activeTab === 'family' && (
+        <div className="space-y-6 animate-fade-in">
+          <div className="border-b border-border pb-3">
+            <div className="flex items-center gap-2 mb-1">
+              <Badge variant="outline" className="border-teal-500/30 text-teal-600 dark:text-teal-400 text-[10px]">
+                KOSAKATA KELUARGA INTI
+              </Badge>
+              <span className="text-[11px] font-bold text-muted-foreground uppercase tracking-wider">
+                {studyData.family.items.length} Anggota Keluarga
+              </span>
+            </div>
+            <h2 className="text-lg sm:text-xl font-bold text-foreground">
+              Silsilah & Anggota Keluarga (가족 관계)
+            </h2>
+            <p className="text-xs sm:text-sm text-muted-foreground mt-0.5 leading-relaxed">
+              Jumlah anggota keluarga wajib dihitung menggunakan Angka Asli Korea + 명 (myeong).
+            </p>
+          </div>
+
+          {studyData.family.rules && (
+            <div className="rounded-xl border border-border bg-card p-4 space-y-2">
+              <h3 className="text-xs font-bold uppercase tracking-wider text-muted-foreground">
+                Aturan Penting Menyebut Keluarga di Wawancara
+              </h3>
+              <ul className="space-y-1.5">
+                {studyData.family.rules.map((r, i) => (
+                  <li key={i} className="text-xs text-foreground leading-relaxed flex items-start gap-2">
+                    <span className="font-bold text-primary">{i + 1}.</span>
+                    <span>{r}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
+            {studyData.family.items.map((f, idx) => (
+              <div
+                key={idx}
+                onClick={() => playAudio(f.audio, f.ko)}
+                className="rounded-xl border border-border bg-card p-3.5 hover:border-primary/40 transition-colors cursor-pointer space-y-1"
+              >
+                <div className="flex items-start justify-between gap-2">
+                  <p className="text-base font-black text-foreground">{f.ko}</p>
+                  <Volume2 className="w-3.5 h-3.5 text-muted-foreground shrink-0 mt-0.5" />
+                </div>
+                <p className="text-[11px] font-mono text-indigo-600 dark:text-indigo-400">
+                  [{f.ro}]
+                </p>
+                <p className="text-xs sm:text-sm font-bold text-emerald-700 dark:text-emerald-400">
+                  {f.id}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          {studyData.family.interview_qa && (
+            <div className="space-y-3">
+              <h3 className="text-sm font-bold text-foreground uppercase tracking-wider">
+                Tanya Jawab Wawancara Seputar Keluarga ({studyData.family.interview_qa.length})
+              </h3>
+              <div className="divide-y divide-border rounded-xl border border-border bg-card overflow-hidden">
+                {studyData.family.interview_qa.map((qa, idx) => (
+                  <div key={idx} className="p-3.5 sm:p-4 space-y-2">
+                    <div className="flex items-start justify-between gap-2">
+                      <div>
+                        <p className="text-sm sm:text-base font-bold text-foreground">
+                          Q: {qa.q_ko}
+                        </p>
+                        {qa.q_ro && (
+                          <p className="text-xs font-mono text-indigo-600 dark:text-indigo-400">
+                            [{qa.q_ro}]
+                          </p>
+                        )}
+                        <p className="text-xs text-muted-foreground">"{qa.q_id}"</p>
+                      </div>
+                      <button
+                        type="button"
+                        onClick={() => playAudio(qa.audio, qa.q_ko)}
+                        className="px-2.5 py-1 rounded-md bg-secondary hover:bg-primary hover:text-primary-foreground text-[11px] font-semibold text-foreground flex items-center gap-1 shrink-0 transition-colors cursor-pointer"
+                      >
+                        <Volume2 className="w-3 h-3" /> Q
+                      </button>
+                    </div>
+                    <div className="pt-2 border-t border-border/60 flex items-start justify-between gap-2">
+                      <div>
+                        <p className="text-sm sm:text-base font-bold text-emerald-700 dark:text-emerald-400">
+                          A: {qa.a_ko}
+                        </p>
+                        <p className="text-xs text-muted-foreground">"{qa.a_id}"</p>
+                      </div>
+                      <button
+                        type="button"
+                        onClick={() => playAudio(null, qa.a_ko)}
+                        className="px-2.5 py-1 rounded-md bg-emerald-600 hover:bg-emerald-500 text-white text-[11px] font-semibold flex items-center gap-1 shrink-0 transition-colors cursor-pointer"
+                      >
+                        <Volume2 className="w-3 h-3" /> A
+                      </button>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+      )}
+
+      {/* 9. PIKTOGRAM (RAMBU K3 VISUAL) */}
+      {activeTab === 'piktogram' && (() => {
+        const allPik = allQuestions.filter((q) => q.category === 'piktogram');
+        const pikGroups = [
+          { id: 'all', label: 'Semua Rambu', count: allPik.length },
+          { id: 'wajib', label: '지시 (Wajib APD)', count: allPik.filter((x) => (x.category_title || '').includes('지시')).length },
+          { id: 'peringatan', label: '경고 (Bahaya)', count: allPik.filter((x) => (x.category_title || '').includes('경고')).length },
+          { id: 'larangan', label: '금지 (Larangan)', count: allPik.filter((x) => (x.category_title || '').includes('금지')).length },
+          { id: 'evakuasi', label: '안내·소방 (Evakuasi & Pemadam)', count: allPik.filter((x) => /안내|소방/.test(x.category_title || '')).length },
+        ];
+        const filteredPik = allPik.filter((item) => {
+          if (pikGroup === 'wajib' && !(item.category_title || '').includes('지시')) return false;
+          if (pikGroup === 'peringatan' && !(item.category_title || '').includes('경고')) return false;
+          if (pikGroup === 'larangan' && !(item.category_title || '').includes('금지')) return false;
+          if (pikGroup === 'evakuasi' && !/안내|소방/.test(item.category_title || '')) return false;
+          if (searchQuery.trim()) {
+            const q = searchQuery.toLowerCase();
+            return `${item.title_ko || ''} ${item.title_id || ''} ${item.answer_short_ko || ''} ${item.answer_short_id || ''}`.toLowerCase().includes(q);
+          }
+          return true;
+        });
+
+        return (
+          <div className="space-y-5 animate-fade-in">
+            <div className="border-b border-border pb-3">
+              <div className="flex items-center gap-2 mb-1">
+                <Badge variant="outline" className="border-amber-500/30 text-amber-600 dark:text-amber-400 text-[10px]">
+                  TES VISUAL GAMBAR K3
+                </Badge>
+                <span className="text-[11px] font-bold text-muted-foreground uppercase tracking-wider">
+                  {allPik.length} Rambu Resmi
+                </span>
+              </div>
+              <h2 className="text-lg sm:text-xl font-bold text-foreground">
+                Katalog Rambu Keselamatan Kerja (안전 표지판)
+              </h2>
+              <p className="text-xs sm:text-sm text-muted-foreground mt-0.5 leading-relaxed">
+                Ketuk gambar rambu untuk memperbesar dan dengarkan pelafalan resminya.
+              </p>
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-2.5 items-stretch sm:items-center justify-between">
+              <div className="flex flex-wrap gap-1.5">
+                {pikGroups.map((cat) => (
+                  <button
+                    key={cat.id}
+                    type="button"
+                    onClick={() => setPikGroup(cat.id)}
+                    className={cn(
+                      'px-2.5 py-1.5 rounded-lg text-xs font-semibold border transition-all cursor-pointer flex items-center gap-1.5',
+                      pikGroup === cat.id
+                        ? 'bg-primary text-primary-foreground border-primary shadow-sm'
+                        : 'bg-card text-muted-foreground border-border hover:text-foreground hover:bg-secondary/60'
+                    )}
+                  >
+                    <span>{cat.label}</span>
+                    <span className="text-[10px] opacity-80">({cat.count})</span>
+                  </button>
+                ))}
+              </div>
+
+              <div className="relative w-full sm:w-64 shrink-0">
+                <Search className="w-3.5 h-3.5 text-muted-foreground absolute left-3 top-1/2 -translate-y-1/2" />
+                <input
+                  type="text"
+                  placeholder="Cari rambu Korea / Indo..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="w-full pl-8 pr-7 py-1.5 text-xs bg-card border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/30 text-foreground"
+                />
+                {searchQuery && (
+                  <button
+                    type="button"
+                    onClick={() => setSearchQuery('')}
+                    className="absolute right-2 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground cursor-pointer"
+                  >
+                    <X className="w-3.5 h-3.5" />
+                  </button>
+                )}
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+              {filteredPik.map((item) => {
+                const cardId = `pik_${item.id}`;
+                const hidden = isAnswerHidden(cardId);
+                return (
+                  <div
+                    key={item.id}
+                    className="rounded-xl border border-border bg-card p-3.5 flex flex-col justify-between gap-3 hover:border-primary/40 transition-colors"
+                  >
+                    <div className="flex items-start gap-3">
+                      {item.image_url && (
+                        <button
+                          type="button"
+                          onClick={() => setInspectRambu(item)}
+                          className="w-16 h-16 rounded-lg border border-border bg-white p-1.5 shrink-0 flex items-center justify-center relative group cursor-pointer"
+                          title="Perbesar Gambar"
+                        >
+                          <img
+                            src={getAssetUrl(item.image_url)}
+                            alt={item.title_id || item.answer_short_id}
+                            className="max-w-full max-h-full object-contain"
+                            loading="lazy"
+                          />
+                          <span className="absolute bottom-1 right-1 w-4 h-4 rounded bg-black/60 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                            <Maximize2 className="w-2.5 h-2.5" />
+                          </span>
+                        </button>
+                      )}
+                      <div className="flex-1 min-w-0 space-y-1">
+                        <div className="flex items-start justify-between gap-1">
+                          <span className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground truncate">
+                            {item.category_title || 'Rambu K3'}
+                          </span>
+                          <button
+                            type="button"
+                            onClick={() => playAudio(item.audio_a, item.answer_short_ko || item.title_ko)}
+                            className="w-7 h-7 rounded-md bg-secondary hover:bg-primary hover:text-primary-foreground text-foreground flex items-center justify-center shrink-0 transition-colors cursor-pointer"
+                            title="Putar Audio Jawaban"
+                          >
+                            <Volume2 className="w-3.5 h-3.5" />
+                          </button>
+                        </div>
+                        <p className="text-sm sm:text-base font-black text-foreground leading-snug break-keep">
+                          {item.title_ko || item.answer_short_ko}
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="pt-2 border-t border-border/60">
+                      {hidden ? (
+                        <button
+                          type="button"
+                          onClick={() => toggleCardAnswer(cardId)}
+                          className="w-full py-1.5 px-2.5 rounded-lg bg-secondary/70 hover:bg-secondary text-xs font-medium text-muted-foreground flex items-center justify-center gap-1.5 transition-colors cursor-pointer"
+                        >
+                          <Eye className="w-3.5 h-3.5" />
+                          <span>Tampilkan Arti Rambu</span>
+                        </button>
+                      ) : (
+                        <div className="space-y-0.5">
+                          <p className="text-xs sm:text-sm font-bold text-emerald-700 dark:text-emerald-400">
+                            {item.title_id || item.answer_short_id}
+                          </p>
+                          <p className="text-[11px] text-muted-foreground leading-snug">
+                            Kalimat Lengkap: <strong>{item.answer_short_ko}</strong>
+                          </p>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
         );
       })()}
 
-      {/* Manufacturing Tab */}
-      {activeTab === 'manufacturing' && (
-        <div className="space-y-4">
-          <Card className="p-4 md:p-5">
-            <h3 className="font-bold text-sm mb-1">3 Pos Ujian Keterampilan Fisik Manufaktur (기초기능):</h3>
-            <p className="text-xs text-muted-foreground mb-3">Sesuai buku panduan ujian resmi Sistem Poin HRD Korea:</p>
+      {/* 10. ALAT KERJA & APD */}
+      {activeTab === 'alat' && (() => {
+        const allAlat = allQuestions.filter(
+          (q) => q.category === 'alat_manufaktur' || q.category === 'alat_klasik'
+        );
+        const alatGroups = [
+          { id: 'all', label: 'Semua Alat', count: allAlat.length },
+          { id: 'atas', label: 'Tingkat Atas (상)', count: allAlat.filter((x) => x.level === 'Atas' || x.level === 'Tinggi').length },
+          { id: 'menengah', label: 'Tingkat Menengah (중)', count: allAlat.filter((x) => x.level === 'Menengah' || x.level === 'Sedang').length },
+          { id: 'dasar', label: 'Tingkat Dasar (하)', count: allAlat.filter((x) => x.level === 'Dasar' || x.level === 'Rendah').length },
+          { id: 'apd', label: 'APD & Klasik', count: allAlat.filter((x) => x.level === 'Wajib' || x.category === 'alat_klasik').length },
+        ];
+        const filteredAlatList = allAlat.filter((item) => {
+          if (alatGroup === 'atas' && !(item.level === 'Atas' || item.level === 'Tinggi')) return false;
+          if (alatGroup === 'menengah' && !(item.level === 'Menengah' || item.level === 'Sedang')) return false;
+          if (alatGroup === 'dasar' && !(item.level === 'Dasar' || item.level === 'Rendah')) return false;
+          if (alatGroup === 'apd' && !(item.level === 'Wajib' || item.category === 'alat_klasik')) return false;
+          if (searchQuery.trim()) {
+            const q = searchQuery.toLowerCase();
+            return `${item.title_ko || ''} ${item.title_id || ''} ${item.answer_short_ko || ''} ${item.answer_short_id || ''} ${item.usage_short_ko || ''} ${item.usage_short_id || ''}`.toLowerCase().includes(q);
+          }
+          return true;
+        });
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
-              {(studyData.manufacturing.practical_tasks || []).map((task, idx) => (
-                <div key={idx} className="p-3.5 rounded-xl border border-slate-200 bg-white flex flex-col justify-between shadow-sm">
-                  <div>
-                    <span className="text-[10px] font-mono font-bold text-slate-600 bg-slate-100 px-1.5 py-0.5 rounded">
+        return (
+          <div className="space-y-5 animate-fade-in">
+            <div className="border-b border-border pb-3">
+              <div className="flex items-center gap-2 mb-1">
+                <Badge variant="outline" className="border-orange-500/30 text-orange-600 dark:text-orange-400 text-[10px]">
+                  IDENTIFIKASI OBJEK & FUNGSI
+                </Badge>
+                <span className="text-[11px] font-bold text-muted-foreground uppercase tracking-wider">
+                  {allAlat.length} Alat & APD
+                </span>
+              </div>
+              <h2 className="text-lg sm:text-xl font-bold text-foreground">
+                Katalog Alat Kerja Pabrik & APD (작업 공구 및 보호구)
+              </h2>
+              <p className="text-xs sm:text-sm text-muted-foreground mt-0.5 leading-relaxed">
+                Hafalkan nama alat beserta kalimat fungsinya ketika penguji menunjuk foto atau benda kerja di meja.
+              </p>
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-2.5 items-stretch sm:items-center justify-between">
+              <div className="flex flex-wrap gap-1.5">
+                {alatGroups.map((cat) => (
+                  <button
+                    key={cat.id}
+                    type="button"
+                    onClick={() => setAlatGroup(cat.id)}
+                    className={cn(
+                      'px-2.5 py-1.5 rounded-lg text-xs font-semibold border transition-all cursor-pointer flex items-center gap-1.5',
+                      alatGroup === cat.id
+                        ? 'bg-primary text-primary-foreground border-primary shadow-sm'
+                        : 'bg-card text-muted-foreground border-border hover:text-foreground hover:bg-secondary/60'
+                    )}
+                  >
+                    <span>{cat.label}</span>
+                    <span className="text-[10px] opacity-80">({cat.count})</span>
+                  </button>
+                ))}
+              </div>
+
+              <div className="relative w-full sm:w-64 shrink-0">
+                <Search className="w-3.5 h-3.5 text-muted-foreground absolute left-3 top-1/2 -translate-y-1/2" />
+                <input
+                  type="text"
+                  placeholder="Cari nama alat Korea / Indo..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="w-full pl-8 pr-7 py-1.5 text-xs bg-card border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/30 text-foreground"
+                />
+                {searchQuery && (
+                  <button
+                    type="button"
+                    onClick={() => setSearchQuery('')}
+                    className="absolute right-2 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground cursor-pointer"
+                  >
+                    <X className="w-3.5 h-3.5" />
+                  </button>
+                )}
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+              {filteredAlatList.map((item) => {
+                const cardId = `alat_${item.id}`;
+                const hidden = isAnswerHidden(cardId);
+                const usageObj = studyData.manufacturing?.tool_usages_catalog?.[item.id];
+                const usageKo = item.usage_short_ko || usageObj?.usage_short_ko;
+                const usageId = item.usage_short_id || usageObj?.usage_short_id;
+
+                return (
+                  <div
+                    key={item.id}
+                    className="rounded-xl border border-border bg-card p-3.5 flex flex-col justify-between gap-3 hover:border-primary/40 transition-colors"
+                  >
+                    <div className="flex items-start gap-3">
+                      {item.image_url && (
+                        <button
+                          type="button"
+                          onClick={() => setInspectRambu(item)}
+                          className="w-16 h-16 rounded-lg border border-border bg-white p-1.5 shrink-0 flex items-center justify-center relative group cursor-pointer"
+                          title="Perbesar Gambar"
+                        >
+                          <img
+                            src={getAssetUrl(item.image_url)}
+                            alt={item.title_id || item.answer_short_id}
+                            className="max-w-full max-h-full object-contain"
+                            loading="lazy"
+                          />
+                          <span className="absolute bottom-1 right-1 w-4 h-4 rounded bg-black/60 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                            <Maximize2 className="w-2.5 h-2.5" />
+                          </span>
+                        </button>
+                      )}
+                      <div className="flex-1 min-w-0 space-y-1">
+                        <div className="flex items-start justify-between gap-1">
+                          <span className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground truncate">
+                            Level: {item.level || 'Standar'}
+                          </span>
+                          <button
+                            type="button"
+                            onClick={() => playAudio(item.audio_a, item.answer_short_ko || item.title_ko)}
+                            className="w-7 h-7 rounded-md bg-secondary hover:bg-primary hover:text-primary-foreground text-foreground flex items-center justify-center shrink-0 transition-colors cursor-pointer"
+                            title="Putar Audio Jawaban"
+                          >
+                            <Volume2 className="w-3.5 h-3.5" />
+                          </button>
+                        </div>
+                        <p className="text-sm sm:text-base font-black text-foreground leading-snug break-keep">
+                          {item.title_ko || item.answer_short_ko}
+                        </p>
+                        <p className="text-xs text-muted-foreground">
+                          Jawaban: <strong className="text-foreground">{item.answer_short_ko}</strong>
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="pt-2 border-t border-border/60">
+                      {hidden ? (
+                        <button
+                          type="button"
+                          onClick={() => toggleCardAnswer(cardId)}
+                          className="w-full py-1.5 px-2.5 rounded-lg bg-secondary/70 hover:bg-secondary text-xs font-medium text-muted-foreground flex items-center justify-center gap-1.5 transition-colors cursor-pointer"
+                        >
+                          <Eye className="w-3.5 h-3.5" />
+                          <span>Tampilkan Nama & Kegunaan</span>
+                        </button>
+                      ) : (
+                        <div className="space-y-1">
+                          <p className="text-xs sm:text-sm font-bold text-emerald-700 dark:text-emerald-400">
+                            {item.title_id || item.answer_short_id}
+                          </p>
+                          {usageKo && (
+                            <div className="pt-1 border-t border-border/40 space-y-0.5">
+                              <div className="flex items-center justify-between gap-1">
+                                <span className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground">
+                                  Fungsi (용도):
+                                </span>
+                                <button
+                                  type="button"
+                                  onClick={() => playAudio(null, usageKo)}
+                                  className="text-[10px] font-semibold text-primary hover:underline cursor-pointer"
+                                >
+                                  Putar Fungsi
+                                </button>
+                              </div>
+                              <p className="text-xs font-bold text-foreground break-keep">{usageKo}</p>
+                              <p className="text-[11px] text-muted-foreground">{usageId}</p>
+                            </div>
+                          )}
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        );
+      })()}
+
+      {/* 11. MANUFACTURING (PRAKTIK KERJA MANUFAKTUR) */}
+      {activeTab === 'manufacturing' && (
+        <div className="space-y-7 animate-fade-in">
+          <div className="border-b border-border pb-3">
+            <div className="flex items-center gap-2 mb-1">
+              <Badge variant="outline" className="border-amber-500/30 text-amber-600 dark:text-amber-400 text-[10px]">
+                TES PRAKTIK MEJA PENGUJI
+              </Badge>
+              <span className="text-[11px] font-bold text-muted-foreground uppercase tracking-wider">
+                Perakitan, Pengukuran & Instruksi Alat
+              </span>
+            </div>
+            <h2 className="text-lg sm:text-xl font-bold text-foreground">
+              {studyData.manufacturing.title}
+            </h2>
+            <p className="text-xs sm:text-sm text-muted-foreground mt-0.5 leading-relaxed">
+              Pelajari 3 pos ujian praktik meja, tanya jawab fungsi alat, perintah mengambil alat, dan skenario situasi pabrik.
+            </p>
+          </div>
+
+          {/* Bagian 1: 3 Pos Tugas Praktik Utama */}
+          <div className="space-y-3">
+            <h3 className="text-sm font-bold text-foreground uppercase tracking-wider">
+              1. Tiga Pos Praktik Utama di Meja Ujian ({studyData.manufacturing.practical_tasks.length})
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3.5">
+              {studyData.manufacturing.practical_tasks.map((task, idx) => (
+                <div
+                  key={idx}
+                  className="rounded-xl border border-border bg-card p-4 space-y-2.5 flex flex-col justify-between"
+                >
+                  <div className="space-y-1.5">
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-primary">
                       {task.task_num}
                     </span>
-                    <h4 className="font-bold text-sm text-slate-800 mt-1.5">{task.task_name}</h4>
-                    <p className="text-xs text-slate-600 mt-1 leading-snug">{task.desc}</p>
+                    <h4 className="text-sm sm:text-base font-bold text-foreground">
+                      {task.task_name}
+                    </h4>
+                    <p className="text-xs text-muted-foreground leading-relaxed">
+                      {task.desc}
+                    </p>
                   </div>
-                  <div className="mt-2 pt-2 border-t border-slate-200 text-xs text-emerald-700 font-medium bg-emerald-50 p-2 rounded-lg">
-                    <strong>Kunci:</strong> {task.evaluation}
+                  <div className="pt-2 border-t border-border/60">
+                    <p className="text-[11px] text-emerald-700 dark:text-emerald-400 leading-snug">
+                      <strong>Fokus Penilaian:</strong> {task.evaluation}
+                    </p>
                   </div>
                 </div>
               ))}
             </div>
-          </Card>
+          </div>
 
-          <Card className="p-4 md:p-5 space-y-3">
-            <div>
-              <div className="flex items-center gap-2 flex-wrap">
-                <Badge variant="outline" className="font-mono">WAJIB DIHAFAL</Badge>
-                <h3 className="font-bold text-sm text-foreground">
-                  Tanya-Jawab Fungsi & Kegunaan Perkakas (도구의 용도):
-                </h3>
-              </div>
-              <p className="text-xs text-muted-foreground mt-1">
-                Pertanyaan resmi penguji di bilik meja: <em>"이 도구는 무엇에 사용합니까?"</em> (Alat ini digunakan untuk apa?):
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-              {getPagedItems(studyData.manufacturing.tool_functions || [], 'toolFunc').map((tf, idx) => {
-                const cardId = `tool_func_${idx}`;
-                const hidden = isAnswerHidden(cardId);
-
-                return (
-                  <div key={idx} className="p-3.5 rounded-xl border border-slate-200 bg-white flex flex-col justify-between space-y-1.5 shadow-sm">
+          {/* Bagian 2: Tanya Jawab Fungsi Alat Kerja */}
+          <div className="space-y-3">
+            <h3 className="text-sm font-bold text-foreground uppercase tracking-wider">
+              2. Tanya Jawab Fungsi Alat Kerja ({studyData.manufacturing.tool_functions.length})
+            </h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+              {studyData.manufacturing.tool_functions.map((tf) => (
+                <div
+                  key={tf.id}
+                  onClick={() => playAudio(tf.audio_a, tf.answer_short_ko)}
+                  className="rounded-xl border border-border bg-card p-3.5 hover:border-primary/40 transition-colors cursor-pointer space-y-2 flex flex-col justify-between"
+                >
+                  <div className="space-y-1">
                     <div className="flex items-start justify-between gap-2">
-                      <div className="min-w-0">
-                        <span className="text-[10px] font-mono font-bold text-slate-600 bg-slate-100 px-1.5 py-0.5 rounded">
-                          {tf.title_ko} • {tf.title_id}
-                        </span>
-                        <div className="font-kr font-bold text-sm text-slate-800 mt-1">
-                          {tf.question_ko}
-                        </div>
-                        <div className="text-xs text-slate-500 italic">{tf.question_id}</div>
-                      </div>
-                      <div className="flex items-center gap-0.5 shrink-0">
-                        {tf.audio_q && (
-                          <button onClick={() => playAudio(tf.audio_q)} className="p-1 rounded-lg text-slate-500 hover:bg-slate-100">
-                            <Volume2 className="h-3 w-3" />
-                          </button>
-                        )}
-                        <button onClick={() => toggleCardAnswer(cardId)} className="p-1 rounded-lg text-slate-400 hover:text-slate-600">
-                          {hidden ? <EyeOff className="h-3 w-3 text-amber-600" /> : <Eye className="h-3 w-3" />}
-                        </button>
-                      </div>
-                    </div>
-
-                    <div className="pt-1.5 border-t border-slate-200">
-                      {hidden ? (
-                        <div onClick={() => toggleCardAnswer(cardId)} className="cursor-pointer text-xs font-bold text-amber-700 bg-amber-50 px-2 py-1.5 rounded-lg border border-amber-200 text-center">
-                          Klik mata untuk lihat
-                        </div>
-                      ) : (
-                        <div className="space-y-0.5 bg-emerald-50 p-2 rounded-lg border border-emerald-200">
-                          <span className="text-[10px] font-bold text-emerald-700 uppercase tracking-wider block">
-                            Fungsi Alat:
-                          </span>
-                          <div className="font-kr font-bold text-xs text-emerald-900">{tf.answer_short_ko}</div>
-                          <div className="text-[10px] text-emerald-700 font-medium">{tf.answer_short_id}</div>
-                        </div>
-                      )}
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-            <Pagination items={studyData.manufacturing.tool_functions || []} pkey="toolFunc" />
-          </Card>
-
-          <Card className="p-4 md:p-5 space-y-3">
-            <div>
-              <div className="flex items-center gap-2 flex-wrap">
-                <Badge variant="outline" className="font-mono">PERAGAAN PRAKTIK</Badge>
-                <h3 className="font-bold text-sm text-foreground">
-                  Perintah Aksi Penggunaan & Penataan Alat (작업 지시 이행):
-                </h3>
-              </div>
-              <p className="text-xs text-muted-foreground mt-1">
-                Instruksi lisan penguji saat menyuruh peserta mengambil, menggunakan, atau merapikan alat kerja ke kotak perkakas (공구함):
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-              {getPagedItems(studyData.manufacturing.tool_action_commands || [], 'toolAct').map((ta, idx) => {
-                const cardId = `tool_act_${idx}`;
-                const hidden = isAnswerHidden(cardId);
-
-                return (
-                  <div key={idx} className="p-3.5 rounded-xl border border-slate-200 bg-white flex flex-col justify-between space-y-1.5 shadow-sm">
-                    <div className="flex items-start justify-between gap-2">
-                      <div className="min-w-0">
-                        <span className="text-[10px] font-mono font-bold text-slate-600 bg-slate-100 px-1.5 py-0.5 rounded">
-                          {ta.title_id}
-                        </span>
-                        <div className="font-kr font-bold text-sm text-slate-800 mt-1">
-                          {ta.question_ko}
-                        </div>
-                        <div className="text-xs text-slate-500 italic">{ta.question_id}</div>
-                      </div>
-                      <div className="flex items-center gap-0.5 shrink-0">
-                        {ta.audio_q && (
-                          <button onClick={() => playAudio(ta.audio_q)} className="p-1 rounded-lg text-slate-500 hover:bg-slate-100">
-                            <Volume2 className="h-3 w-3" />
-                          </button>
-                        )}
-                        <button onClick={() => toggleCardAnswer(cardId)} className="p-1 rounded-lg text-slate-400 hover:text-slate-600">
-                          {hidden ? <EyeOff className="h-3 w-3 text-amber-600" /> : <Eye className="h-3 w-3" />}
-                        </button>
-                      </div>
-                    </div>
-
-                    <div className="pt-1.5 border-t border-slate-200">
-                      {hidden ? (
-                        <div onClick={() => toggleCardAnswer(cardId)} className="cursor-pointer text-xs font-bold text-amber-700 bg-amber-50 px-2 py-1.5 rounded-lg border border-amber-200 text-center">
-                          Klik mata untuk lihat
-                        </div>
-                      ) : (
-                        <div className="space-y-0.5 bg-slate-50 p-2 rounded-lg border border-slate-200">
-                          <span className="text-[10px] font-bold text-slate-600 uppercase tracking-wider block">
-                            Respon Sopan:
-                          </span>
-                          <div className="font-kr font-bold text-xs text-slate-800">{ta.answer_short_ko}</div>
-                          <div className="text-[10px] text-slate-600 font-medium">{ta.answer_short_id}</div>
-                        </div>
-                      )}
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-            <Pagination items={studyData.manufacturing.tool_action_commands || []} pkey="toolAct" />
-          </Card>
-
-          <Card className="p-4 md:p-5">
-            <h3 className="font-bold text-sm mb-1">3 Tingkatan Alat Manufaktur HRD Korea 2026:</h3>
-            <p className="text-xs text-muted-foreground mb-3">Klasifikasi resmi kisi-kisi manufaktur 2026 (Tingkat Atas, Menengah, Bawah):</p>
-
-            <div className="space-y-2">
-              {(studyData.manufacturing.hrdk_tool_tiers || []).map((t, idx) => (
-                <div key={idx} className="p-3.5 rounded-xl border border-slate-200 bg-white shadow-sm">
-                  <div className="font-bold text-xs text-slate-700 uppercase tracking-wider mb-0.5">{t.tier}</div>
-                  <div className="text-xs text-slate-600 mb-1.5">{t.desc}</div>
-                  <div className="flex flex-wrap gap-1.5">
-                    {(t.tools || []).map((tool, i) => (
-                      <span key={i} className="px-2 py-0.5 rounded-lg bg-slate-100 border border-slate-200 font-mono text-[10px] font-bold text-slate-700">
-                        {tool}
+                      <span className="text-xs font-bold uppercase tracking-wider text-primary">
+                        {tf.title_id}
                       </span>
-                    ))}
+                      <Volume2 className="w-3.5 h-3.5 text-muted-foreground shrink-0 mt-0.5" />
+                    </div>
+                    <p className="text-xs font-semibold text-foreground break-keep">
+                      Q: {tf.question_ko}
+                    </p>
+                    <p className="text-[11px] text-muted-foreground">"{tf.question_id}"</p>
+                  </div>
+                  <div className="pt-2 border-t border-border/60 space-y-0.5">
+                    <p className="text-xs sm:text-sm font-black text-emerald-700 dark:text-emerald-400 break-keep">
+                      A: {tf.answer_short_ko}
+                    </p>
+                    <p className="text-[11px] text-muted-foreground">
+                      "{tf.answer_short_id}"
+                    </p>
                   </div>
                 </div>
               ))}
             </div>
-          </Card>
-        </div>
-      )}
+          </div>
 
-
-      {/* Numbers Tab */}
-      {activeTab === 'numbers' && (
-        <div className="space-y-4">
-          <Card className="p-4 md:p-5">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-              <div>
-                <h3 className="font-bold text-sm md:text-base mb-1">Perbedaan Angka Sino-Korea vs Angka Asli Korea:</h3>
-                <p className="text-xs text-muted-foreground leading-relaxed">
-                  <strong>Sino-Korea:</strong> Menit, Tanggal/Bulan/Tahun, Uang (Won), Nomor Telepon, Berat/Panjang.<br />
-                  <strong>Asli Korea:</strong> Jam (waktu), Umur (살), dan Satuan Hitung Barang (개, 대, 명, 마리, 박스, 권).
-                </p>
+          {/* Bagian 3: Instruksi Ambil & Serahkan Alat */}
+          {studyData.manufacturing.tool_action_commands && (
+            <div className="space-y-3">
+              <h3 className="text-sm font-bold text-foreground uppercase tracking-wider">
+                3. Perintah Mengambil, Memilih & Menyerahkan Alat ({studyData.manufacturing.tool_action_commands.length})
+              </h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                {studyData.manufacturing.tool_action_commands.map((cmd) => (
+                  <div
+                    key={cmd.id}
+                    onClick={() => playAudio(cmd.audio_q, cmd.question_ko)}
+                    className="rounded-xl border border-border bg-card p-3.5 hover:border-primary/40 transition-colors cursor-pointer space-y-2"
+                  >
+                    <div className="flex items-start justify-between gap-2">
+                      <div>
+                        <span className="text-[10px] font-bold uppercase tracking-wider text-amber-600 dark:text-amber-400">
+                          {cmd.title_id}
+                        </span>
+                        <p className="text-sm sm:text-base font-black text-foreground break-keep mt-0.5">
+                          "{cmd.question_ko}"
+                        </p>
+                      </div>
+                      <Volume2 className="w-4 h-4 text-muted-foreground shrink-0 mt-0.5" />
+                    </div>
+                    {cmd.question_romaja && (
+                      <p className="text-xs font-mono text-indigo-600 dark:text-indigo-400">
+                        [{cmd.question_romaja}]
+                      </p>
+                    )}
+                    <p className="text-xs text-muted-foreground">{cmd.question_id}</p>
+                    <div className="pt-2 border-t border-border/60">
+                      <p className="text-xs sm:text-sm font-bold text-emerald-700 dark:text-emerald-400">
+                        Respon: "{cmd.answer_short_ko}"
+                      </p>
+                      <p className="text-[11px] text-muted-foreground">"{cmd.answer_short_id}"</p>
+                    </div>
+                  </div>
+                ))}
               </div>
-
-              <Button onClick={() => onStartPracticeCategory && onStartPracticeCategory('numbers')}>
-                <span>Latih Hitungan Pabrik di Kuis</span>
-                <ChevronRight className="h-3.5 w-3.5" />
-              </Button>
             </div>
-          </Card>
+          )}
 
-          <div>
-            <h4 className="font-bold text-sm text-slate-700 mb-2">Angka Sino-Korea (일, 이, 삼, 사...):</h4>
-            <div className="grid grid-cols-3 sm:grid-cols-5 md:grid-cols-10 gap-1.5">
-              {(studyData.numbers.sino || []).map((n, idx) => {
-                const cardId = `num_s_${idx}`;
-                const hidden = isAnswerHidden(cardId);
-                return (
-                  <div key={idx} className="p-2 rounded-lg border border-slate-200 bg-white flex flex-col items-center text-center shadow-sm">
-                    {hidden ? (
-                      <div onClick={() => toggleCardAnswer(cardId)} className="cursor-pointer text-[10px] font-bold text-amber-700 py-1">
-                        {n.val}?
+          {/* Bagian 4: Skenario Situasi Kritis Pabrik */}
+          {studyData.manufacturing.scenarios && (
+            <div className="space-y-3">
+              <h3 className="text-sm font-bold text-foreground uppercase tracking-wider">
+                4. Skenario Situasi Kerja & Lembur di Pabrik ({studyData.manufacturing.scenarios.length})
+              </h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                {studyData.manufacturing.scenarios.map((sc, idx) => (
+                  <div key={idx} className="rounded-xl border border-border bg-card p-4 space-y-2">
+                    <div className="flex items-start justify-between gap-2">
+                      <div>
+                        <span className="text-[10px] font-bold uppercase tracking-wider text-primary">
+                          {sc.key_attitude}
+                        </span>
+                        <h4 className="text-xs sm:text-sm font-bold text-foreground">{sc.situation}</h4>
                       </div>
-                    ) : (
-                      <>
-                        <div className="font-kr font-bold text-sm text-slate-800">{n.ko}</div>
-                        <div className="text-[10px] text-slate-500 font-mono">{n.val}</div>
-                      </>
-                    )}
-                    <div className="flex items-center gap-0.5 mt-0.5">
-                      {n.audio && (
-                        <button onClick={() => playAudio(n.audio)} className="p-0.5 rounded text-slate-500 hover:bg-slate-100 transition-colors">
-                          <Volume2 className="h-3 w-3" />
-                        </button>
-                      )}
-                      <button onClick={() => toggleCardAnswer(cardId)} className="p-0.5 rounded text-slate-400 hover:text-slate-600">
-                        {hidden ? <EyeOff className="h-3 w-3 text-amber-600" /> : <Eye className="h-3 w-3" />}
+                      <button
+                        type="button"
+                        onClick={() => playAudio(sc.audio, sc.q_ko)}
+                        className="px-2 py-1 rounded-md bg-secondary hover:bg-primary hover:text-primary-foreground text-[11px] font-semibold text-foreground flex items-center gap-1 shrink-0 cursor-pointer"
+                      >
+                        <Volume2 className="w-3 h-3" /> Q
                       </button>
                     </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-
-          <div>
-            <h4 className="font-bold text-sm text-slate-700 mb-2">Angka Asli Korea (하나, 둘, 셋, 넷...):</h4>
-            <div className="grid grid-cols-3 sm:grid-cols-5 md:grid-cols-10 gap-1.5">
-              {(studyData.numbers.native || []).map((n, idx) => {
-                const cardId = `num_n_${idx}`;
-                const hidden = isAnswerHidden(cardId);
-                return (
-                  <div key={idx} className="p-2 rounded-lg border border-slate-200 bg-white flex flex-col items-center text-center shadow-sm">
-                    {hidden ? (
-                      <div onClick={() => toggleCardAnswer(cardId)} className="cursor-pointer text-[10px] font-bold text-amber-700 py-1">
-                        {n.val}?
-                      </div>
-                    ) : (
-                      <>
-                        <div className="font-kr font-bold text-sm text-slate-800">{n.ko}</div>
-                        <div className="text-[10px] text-slate-500 font-mono">{n.val}</div>
-                      </>
-                    )}
-                    <div className="flex items-center gap-0.5 mt-0.5">
-                      {n.audio && (
-                        <button onClick={() => playAudio(n.audio)} className="p-0.5 rounded text-slate-500 hover:bg-slate-100 transition-colors">
-                          <Volume2 className="h-3 w-3" />
+                    <p className="text-sm font-bold text-foreground">Q: {sc.q_ko}</p>
+                    <p className="text-xs text-muted-foreground">"{sc.q_id}"</p>
+                    <div className="pt-2 border-t border-border/60 space-y-1">
+                      <div className="flex items-start justify-between gap-2">
+                        <p className="text-xs sm:text-sm font-bold text-emerald-700 dark:text-emerald-400">
+                          A: {sc.a_ko}
+                        </p>
+                        <button
+                          type="button"
+                          onClick={() => playAudio(null, sc.a_ko)}
+                          className="px-2 py-1 rounded-md bg-emerald-600 hover:bg-emerald-500 text-white text-[11px] font-semibold flex items-center gap-1 shrink-0 cursor-pointer"
+                        >
+                          <Volume2 className="w-3 h-3" /> A
                         </button>
-                      )}
-                      <button onClick={() => toggleCardAnswer(cardId)} className="p-0.5 rounded text-slate-400 hover:text-slate-600">
-                        {hidden ? <EyeOff className="h-3 w-3 text-amber-600" /> : <Eye className="h-3 w-3" />}
-                      </button>
+                      </div>
+                      <p className="text-xs text-muted-foreground">"{sc.a_id}"</p>
                     </div>
                   </div>
-                );
-              })}
+                ))}
+              </div>
             </div>
+          )}
+
+          {/* Bagian 5: Daftar Tier Alat HRDK */}
+          {studyData.manufacturing.hrdk_tool_tiers && (
+            <div className="space-y-3">
+              <h3 className="text-sm font-bold text-foreground uppercase tracking-wider">
+                5. Pengelompokan Tingkat Alat Standar HRD Korea
+              </h3>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+                {studyData.manufacturing.hrdk_tool_tiers.map((tier, idx) => (
+                  <div key={idx} className="rounded-xl border border-border bg-card p-4 space-y-2.5">
+                    <div>
+                      <Badge variant="secondary" className="text-[10px] mb-1">
+                        {tier.tier}
+                      </Badge>
+                      <p className="text-xs text-muted-foreground">{tier.desc}</p>
+                    </div>
+                    <div className="flex flex-wrap gap-1.5 pt-1">
+                      {tier.tools.map((t, i) => {
+                        const koPart = t.split('(')[0].trim();
+                        return (
+                          <button
+                            key={i}
+                            type="button"
+                            onClick={() => playAudio(null, koPart)}
+                            className="px-2.5 py-1 rounded-lg border border-border bg-secondary/50 hover:bg-secondary text-xs font-semibold text-foreground transition-colors cursor-pointer text-left"
+                          >
+                            {t}
+                          </button>
+                        );
+                      })}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+      )}
+
+      {/* 12. NUMBERS (ANGKA SINO, NATIVE & SATUAN HITUNG) */}
+      {activeTab === 'numbers' && (
+        <div className="space-y-7 animate-fade-in">
+          <div className="border-b border-border pb-3">
+            <div className="flex items-center gap-2 mb-1">
+              <Badge variant="outline" className="border-blue-500/30 text-blue-600 dark:text-blue-400 text-[10px]">
+                DUA SISTEM ANGKA KOREA
+              </Badge>
+              <span className="text-[11px] font-bold text-muted-foreground uppercase tracking-wider">
+                Ketuk Kartu untuk Dengarkan Audio
+              </span>
+            </div>
+            <h2 className="text-lg sm:text-xl font-bold text-foreground">
+              Panduan Sistem Angka Sino-Korea, Asli Korea & Satuan Hitung
+            </h2>
+            <p className="text-xs sm:text-sm text-muted-foreground mt-0.5 leading-relaxed">
+              Ketuk kartu angka atau satuan mana saja untuk langsung mendengarkan pelafalan Koreanya.
+            </p>
           </div>
 
-          <div>
-            <h4 className="font-bold text-sm text-slate-700 mb-2">Satuan Hitung Manufaktur dan Gudang Pabrik:</h4>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2">
-              {(studyData.numbers.counters || studyData.numbers.units || []).map((c, idx) => (
-                <div key={idx} className="p-3 rounded-xl border border-slate-200 bg-white shadow-sm">
+          {studyData.numbers.rules && (
+            <div className="rounded-xl border border-border bg-card p-4 space-y-2">
+              <h3 className="text-xs font-bold uppercase tracking-wider text-muted-foreground">
+                Aturan Kapan Memakai Angka Sino vs Angka Asli Korea
+              </h3>
+              <ul className="space-y-1.5">
+                {studyData.numbers.rules.map((r, i) => (
+                  <li key={i} className="text-xs text-foreground leading-relaxed flex items-start gap-2">
+                    <span className="font-bold text-primary">{i + 1}.</span>
+                    <span>{r}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          {/* Sino-Korean Numbers */}
+          <div className="space-y-3">
+            <div>
+              <h3 className="text-sm font-bold text-foreground uppercase tracking-wider">
+                1. Angka Sino-Korea (한자어 수) - Tanggal, Bulan, Tahun, Menit, Detik, Uang & Nomor
+              </h3>
+              <p className="text-xs text-muted-foreground">
+                Ketuk kartu untuk memutar pelafalan angka Sino-Korea.
+              </p>
+            </div>
+            <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 gap-2.5">
+              {studyData.numbers.sino.map((n, idx) => (
+                <div
+                  key={idx}
+                  onClick={() => playAudio(n.audio, n.ko)}
+                  className="rounded-xl border border-border bg-card p-3 hover:border-primary/40 transition-colors cursor-pointer space-y-0.5"
+                >
                   <div className="flex items-center justify-between">
-                    <span className="font-kr font-bold text-base text-slate-800">{c.ko || c.unit}</span>
-                    <span className="text-[10px] font-mono bg-slate-100 text-slate-600 px-2 py-0.5 rounded-full font-bold">{c.meaning || c.type}</span>
+                    <span className="text-xs font-bold font-mono text-primary">
+                      {n.val}
+                    </span>
+                    <Volume2 className="w-3.5 h-3.5 text-muted-foreground" />
                   </div>
-                  <div className="text-sm text-slate-600 mt-1 leading-snug">{c.desc || (c.ro ? `${c.ro} - ${c.id}` : c.id)}</div>
-                  <div className="text-xs font-medium text-emerald-700 mt-0.5 font-mono">{c.example}</div>
+                  <p className="text-base sm:text-lg font-black text-foreground">{n.ko}</p>
+                  <p className="text-[11px] font-mono text-indigo-600 dark:text-indigo-400">
+                    [{n.ro}]
+                  </p>
                 </div>
               ))}
             </div>
           </div>
 
-          <BankSoalSection
-            icon={Hash}
-            title="Bank Soal Hitungan Pabrik"
-            desc="Soal hitungan lisan dan matematika pabrik dari bank soal resmi."
-            badge={`${hitunganQuestions.length} Soal`}
-            questions={hitunganQuestions}
-            searchQuery={searchQuery}
-            setSearchQuery={setSearchQuery}
-            searchPlaceholder="Cari soal hitungan..."
-            idPrefix="hit"
-            practiceTarget="numbers"
-            practiceLabel="Latih Semua di Kuis"
-            onPractice={onStartPracticeCategory}
-            isAnswerHidden={isAnswerHidden}
-            toggleCardAnswer={toggleCardAnswer}
-            playAudio={playAudio}
-            playingAudio={playingAudio}
-          />
+          {/* Native Korean Numbers */}
+          <div className="space-y-3">
+            <div>
+              <h3 className="text-sm font-bold text-foreground uppercase tracking-wider">
+                2. Angka Asli Korea / Native (고유어 수) - Jam, Umur, Jumlah Barang & Orang
+              </h3>
+              <p className="text-xs text-muted-foreground">
+                Perhatikan angka 1, 2, 3, 4, dan 20 berubah bentuk menjadi 한, 두, 세, 네, 스무 saat diikuti satuan hitung!
+              </p>
+            </div>
+            <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 gap-2.5">
+              {studyData.numbers.native.map((n, idx) => (
+                <div
+                  key={idx}
+                  onClick={() => playAudio(n.audio, n.ko.split('(')[0].trim())}
+                  className="rounded-xl border border-border bg-card p-3 hover:border-primary/40 transition-colors cursor-pointer space-y-0.5"
+                >
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs font-bold font-mono text-emerald-600 dark:text-emerald-400">
+                      {n.val}
+                    </span>
+                    <Volume2 className="w-3.5 h-3.5 text-muted-foreground" />
+                  </div>
+                  <p className="text-base sm:text-lg font-black text-foreground">{n.ko}</p>
+                  <p className="text-[11px] font-mono text-indigo-600 dark:text-indigo-400">
+                    [{n.ro}]
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
 
-          <BankSoalSection
-            icon={Clock}
-            title="Bank Soal Konversi Waktu dan Satuan"
-            desc="Soal konversi resmi: 1 jam = 60 menit, meter ke cm ke mm, kg ke gram, liter ke ml."
-            badge={`${konversiQuestions.length} Soal`}
-            questions={konversiQuestions}
-            searchQuery={searchQuery}
-            setSearchQuery={setSearchQuery}
-            searchPlaceholder="Cari konversi..."
-            idPrefix="konv"
-            practiceTarget="numbers"
-            practiceLabel="Latih Semua di Kuis"
-            onPractice={onStartPracticeCategory}
-            isAnswerHidden={isAnswerHidden}
-            toggleCardAnswer={toggleCardAnswer}
-            playAudio={playAudio}
-            playingAudio={playingAudio}
-          />
+          {/* Satuan Hitung (Units) */}
+          {studyData.numbers.units && (
+            <div className="space-y-3">
+              <h3 className="text-sm font-bold text-foreground uppercase tracking-wider">
+                3. Satuan Hitung Benda & Pabrik (단위 명사) - {studyData.numbers.units.length} Satuan
+              </h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                {studyData.numbers.units.map((u, idx) => (
+                  <div
+                    key={idx}
+                    onClick={() => playAudio(u.audio, u.unit)}
+                    className="rounded-xl border border-border bg-card p-3.5 hover:border-primary/40 transition-colors cursor-pointer space-y-1.5"
+                  >
+                    <div className="flex items-start justify-between gap-2">
+                      <div>
+                        <span className="text-base font-black text-foreground">
+                          {u.unit}
+                        </span>
+                        <span className="text-xs font-mono text-indigo-600 dark:text-indigo-400 ml-1.5">
+                          [{u.ro}]
+                        </span>
+                      </div>
+                      <Badge variant="secondary" className="text-[10px]">
+                        {u.type}
+                      </Badge>
+                    </div>
+                    <p className="text-xs font-bold text-emerald-700 dark:text-emerald-400">
+                      {u.id}
+                    </p>
+                    {u.example && (
+                      <p className="text-xs text-muted-foreground pt-1 border-t border-border/60">
+                        Contoh: <strong className="text-foreground">{u.example}</strong>
+                      </p>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
 
+          {/* Bank Soal Angka & Hitungan */}
           <BankSoalSection
-            icon={Clock}
-            title="Soal Lisan Jam"
-            desc="Pertanyaan jam lisan, keluar di ujian sebagai bagian Wawancara dan Percakapan Dasar (Modul 1)."
-            badge={`${jamLisanQuestions.length} Soal`}
-            questions={jamLisanQuestions}
-            searchQuery={searchQuery}
-            setSearchQuery={setSearchQuery}
-            searchPlaceholder="Cari soal jam..."
-            idPrefix="jam"
-            practiceTarget="interview"
-            practiceLabel="Latih di Wawancara"
-            onPractice={onStartPracticeCategory}
+            title="Latihan Soal Hitungan, Satuan & Konversi Angka"
+            questions={[...hitunganQuestions, ...konversiQuestions]}
             isAnswerHidden={isAnswerHidden}
             toggleCardAnswer={toggleCardAnswer}
             playAudio={playAudio}
@@ -2809,124 +3004,154 @@ export function StudyGuide({ onStartPracticeCategory }) {
         </div>
       )}
 
-      </div>
-    );
-  }
+      {/* Modal Inspector untuk Gambar Piktogram & Alat */}
+      {inspectRambu && (
+        <div
+          className="fixed inset-0 z-50 bg-black/70 backdrop-blur-xs flex items-center justify-center p-4"
+          onClick={() => setInspectRambu(null)}
+        >
+          <div
+            className="bg-card border border-border rounded-2xl max-w-md w-full p-5 space-y-4 shadow-xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="flex items-center justify-between border-b border-border pb-3">
+              <span className="text-xs font-bold uppercase tracking-wider text-muted-foreground">
+                {inspectRambu.category_title || 'Detail Gambar'}
+              </span>
+              <button
+                type="button"
+                onClick={() => setInspectRambu(null)}
+                className="w-7 h-7 rounded-lg bg-secondary hover:bg-secondary/80 flex items-center justify-center text-foreground cursor-pointer"
+              >
+                <X className="w-4 h-4" />
+              </button>
+            </div>
 
-// --- Section bank soal yang reusable (dipakai tab Angka/Jam/Kalender) ---
+            {inspectRambu.image_url && (
+              <div className="w-full h-56 rounded-xl border border-border bg-white p-4 flex items-center justify-center">
+                <img
+                  src={getAssetUrl(inspectRambu.image_url)}
+                  alt={inspectRambu.title_id || inspectRambu.answer_short_id}
+                  className="max-w-full max-h-full object-contain"
+                />
+              </div>
+            )}
+
+            <div className="space-y-1.5">
+              <div className="flex items-center justify-between gap-2">
+                <p className="text-lg font-black text-foreground">
+                  {inspectRambu.title_ko || inspectRambu.answer_short_ko}
+                </p>
+                <button
+                  type="button"
+                  onClick={() => playAudio(inspectRambu.audio_a, inspectRambu.answer_short_ko || inspectRambu.title_ko)}
+                  className="px-3 py-1.5 rounded-lg bg-primary text-primary-foreground text-xs font-bold flex items-center gap-1.5 cursor-pointer"
+                >
+                  <Volume2 className="w-3.5 h-3.5" /> Dengarkan
+                </button>
+              </div>
+              <p className="text-sm font-bold text-emerald-700 dark:text-emerald-400">
+                {inspectRambu.title_id || inspectRambu.answer_short_id}
+              </p>
+              <p className="text-xs text-muted-foreground pt-2 border-t border-border leading-relaxed">
+                Jawaban Lengkap: <strong className="text-foreground">{inspectRambu.answer_full_ko || inspectRambu.answer_short_ko}</strong>
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
 function BankSoalSection({
-  icon: Icon,
   title,
-  desc,
-  badge,
   questions,
-  searchQuery,
-  setSearchQuery,
-  searchPlaceholder = 'Cari soal...',
-  idPrefix,
-  practiceTarget,
-  practiceLabel,
-  onPractice,
   isAnswerHidden,
   toggleCardAnswer,
   playAudio,
-  playingAudio,
 }) {
-  const q = (searchQuery || '').trim().toLowerCase();
-  const filtered = q
-    ? questions.filter(item =>
-        ((item.question_ko || '') + ' ' + (item.question_id || '') + ' ' + (item.answer_short_ko || '') + ' ' + (item.answer_short_id || '')).toLowerCase().includes(q)
-      )
-    : questions;
-  const shown = filtered.slice(0, 60);
-  const hiddenRest = filtered.length - shown.length;
+  if (!questions || questions.length === 0) return null;
 
   return (
-    <Card className="p-4 md:p-5 space-y-3">
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-        <div>
-          <h4 className="font-bold text-sm md:text-base flex items-center gap-2">
-            <Icon className="h-4 w-4 text-primary shrink-0" />
-            <span>{title}</span>
-            <Badge variant="outline" className="font-mono">{badge}</Badge>
-          </h4>
-          <p className="text-xs text-muted-foreground mt-1 leading-relaxed">{desc}</p>
-        </div>
-        {onPractice && practiceTarget && (
-          <Button size="sm" onClick={() => onPractice(practiceTarget)} className="shrink-0">
-            <span>{practiceLabel}</span>
-            <ChevronRight className="h-3.5 w-3.5" />
-          </Button>
-        )}
+    <div className="space-y-3 pt-2">
+      <div className="flex items-center justify-between">
+        <h3 className="text-sm font-bold text-foreground uppercase tracking-wider">
+          {title} ({questions.length} Soal)
+        </h3>
       </div>
 
-      {setSearchQuery && (
-        <div className="relative">
-          <Search className="h-4 w-4 absolute left-3 top-3 text-muted-foreground" />
-          <input
-            type="text"
-            placeholder={searchPlaceholder}
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-9 pr-4 py-2 bg-muted border border-input rounded-md text-sm font-medium text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring/30 focus:border-ring"
-          />
-        </div>
-      )}
-
-      {shown.length === 0 ? (
-        <p className="text-xs text-muted-italic py-2">Tidak ada soal yang cocok dengan pencarian.</p>
-      ) : (
-        <div className="space-y-2.5">
-          {shown.map((item, idx) => {
-            const cardId = `${idPrefix}_${item.id || idx}`;
-            const hidden = isAnswerHidden(cardId);
-            return (
-              <div key={cardId} className="p-3.5 rounded-md border border-border bg-muted space-y-2">
-                <div className="flex items-center justify-between gap-2">
-                  <span className="text-[11px] font-bold text-primary">
-                    #{idx + 1} • {item.category_title || item.category}
-                  </span>
-                  <div className="flex items-center gap-1 shrink-0">
-                    {item.audio_q && (
-                      <Button type="button" variant="secondary" size="sm"
-                        onClick={() => playAudio(item.audio_q)}>
-                        <Volume2 className="h-3.5 w-3.5" />
-                        <span>Soal</span>
-                      </Button>
+      <div className="divide-y divide-border rounded-xl border border-border bg-card overflow-hidden">
+        {questions.map((q, idx) => {
+          const cardId = `bank_${q.id || idx}`;
+          const hidden = isAnswerHidden ? isAnswerHidden(cardId) : false;
+          const ansKo = q.answer_short_ko || q.answer_full_ko || q.answer_ko || '';
+          const ansId = q.answer_short_id || q.answer_full_id || q.answer_id || '';
+          return (
+            <div key={q.id || idx} className="p-3.5 sm:p-4 space-y-2.5">
+              <div className="flex items-start justify-between gap-3">
+                <div className="space-y-1 min-w-0">
+                  <div className="flex items-center gap-2">
+                    <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-secondary text-muted-foreground">
+                      #{idx + 1}
+                    </span>
+                    {q.category_title && (
+                      <span className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground">
+                        {q.category_title}
+                      </span>
                     )}
-                    <Button type="button" variant="outline" size="icon"
-                      onClick={() => toggleCardAnswer(cardId)}
-                      title="Sembunyi/tampilkan jawaban">
-                      {hidden ? <EyeOff className="h-4 w-4 text-warn" /> : <Eye className="h-4 w-4" />}
-                    </Button>
                   </div>
+                  <p className="text-sm sm:text-base font-black text-foreground break-keep">
+                    Q: {q.question_ko}
+                  </p>
+                  {q.question_romaja && (
+                    <p className="text-xs font-mono text-indigo-600 dark:text-indigo-400">
+                      [{q.question_romaja}]
+                    </p>
+                  )}
+                  <p className="text-xs text-muted-foreground">"{q.question_id}"</p>
                 </div>
-                <div className="font-kr font-bold text-lg text-foreground leading-snug">{item.question_ko}</div>
-                {item.question_romaja && (
-                  <div className="text-[11px] text-muted-foreground font-mono">{item.question_romaja}</div>
-                )}
-                <div className="text-xs text-foreground">Artinya: "{item.question_id}"</div>
+                <button
+                  type="button"
+                  onClick={() => playAudio(q.audio_q, q.question_ko)}
+                  className="px-2.5 py-1 rounded-md bg-secondary hover:bg-primary hover:text-primary-foreground text-[11px] font-semibold text-foreground flex items-center gap-1 shrink-0 transition-colors cursor-pointer"
+                >
+                  <Volume2 className="w-3 h-3" /> Q
+                </button>
+              </div>
+
+              <div className="pt-2 border-t border-border/60">
                 {hidden ? (
-                  <div onClick={() => toggleCardAnswer(cardId)} className="cursor-pointer text-xs font-bold text-warn bg-warn/10 border border-dashed border-warn/30 px-2.5 py-1.5 rounded-md">
-                    Jawaban tersembunyi (klik untuk mengintip)
-                  </div>
+                  <button
+                    type="button"
+                    onClick={() => toggleCardAnswer && toggleCardAnswer(cardId)}
+                    className="w-full py-1.5 px-3 rounded-lg bg-secondary/70 hover:bg-secondary text-xs font-medium text-muted-foreground flex items-center justify-center gap-1.5 transition-colors cursor-pointer"
+                  >
+                    <Eye className="w-3.5 h-3.5" />
+                    <span>Jawaban disembunyikan (ketuk untuk melihat)</span>
+                  </button>
                 ) : (
-                  <div className="p-2.5 rounded-sm bg-card border border-emerald-200 space-y-0.5">
-                    <div className="font-kr font-bold text-sm text-emerald-900">{item.answer_short_ko}</div>
-                    <div className="text-xs text-muted-foreground">{item.answer_short_id}</div>
+                  <div className="flex items-start justify-between gap-3">
+                    <div className="space-y-0.5 min-w-0">
+                      <p className="text-sm sm:text-base font-bold text-emerald-700 dark:text-emerald-400 break-keep">
+                        A: {ansKo}
+                      </p>
+                      <p className="text-xs text-muted-foreground">"{ansId}"</p>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => playAudio(q.audio_a, ansKo)}
+                      className="px-2.5 py-1 rounded-md bg-emerald-600 hover:bg-emerald-500 text-white text-[11px] font-semibold flex items-center gap-1 shrink-0 transition-colors cursor-pointer"
+                    >
+                      <Volume2 className="w-3 h-3" /> A
+                    </button>
                   </div>
                 )}
               </div>
-            );
-          })}
-        </div>
-      )}
-
-      {hiddenRest > 0 && (
-        <Button variant="outline" className="w-full" onClick={() => onPractice && practiceTarget && onPractice(practiceTarget)}>
-          <span>+{hiddenRest} soal lainnya (buka latihan lengkap)</span>
-        </Button>
-      )}
-    </Card>
+            </div>
+          );
+        })}
+      </div>
+    </div>
   );
 }

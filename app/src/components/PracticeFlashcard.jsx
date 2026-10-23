@@ -87,14 +87,16 @@ export function PracticeFlashcard({
     <div className="w-full max-w-xl mx-auto flex flex-col items-center select-none">
 
       {/* Top bar */}
-      <div className="w-full flex items-center justify-between text-xs text-muted-foreground mb-3 px-1">
-        <div className="flex items-center gap-2">
-          <span className="font-mono font-bold text-foreground bg-secondary border border-border px-2.5 py-1 rounded-md">
+      <div className="w-full flex items-center justify-between text-xs text-muted-foreground mb-2.5 px-0.5">
+        <div className="flex items-center gap-2.5">
+          <span className="font-mono font-bold text-foreground">
             {currentIndex + 1} / {total}
           </span>
-          <span className="text-[11px] font-medium hidden sm:inline text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-md border border-emerald-200">
-            Hafal: {memorizedIds.size}
-          </span>
+          {memorizedIds.size > 0 && (
+            <span className="text-[11px] font-medium text-emerald-700">
+              · Hafal: {memorizedIds.size}
+            </span>
+          )}
         </div>
 
         <div className="flex items-center gap-1.5">
@@ -106,12 +108,13 @@ export function PracticeFlashcard({
               setIsFlipped(false);
             }}
             title="Ganti arah sisi kartu"
+            className="h-8 text-xs"
           >
             <ArrowLeftRight className="h-3.5 w-3.5" />
-            <span className="hidden sm:inline">{cardDirection === 'ko_to_id' ? 'Depan Korea' : 'Depan Indo'}</span>
+            <span>{cardDirection === 'ko_to_id' ? 'Depan Korea' : 'Depan Indo'}</span>
           </Button>
 
-          <Button variant="outline" size="icon" onClick={handleShuffle} title="Acak urutan kartu">
+          <Button variant="outline" size="icon" onClick={handleShuffle} title="Acak urutan kartu" className="h-8 w-8">
             <Shuffle className="h-3.5 w-3.5" />
           </Button>
         </div>
@@ -121,15 +124,15 @@ export function PracticeFlashcard({
       <Card
         onClick={() => setIsFlipped(!isFlipped)}
         className={cn(
-          'w-full min-h-[350px] md:min-h-[390px] p-6 flex flex-col justify-between cursor-pointer transition-colors hover:border-foreground/30'
+          'w-full min-h-[340px] md:min-h-[380px] p-5 sm:p-6 flex flex-col justify-between cursor-pointer transition-colors hover:border-foreground/30'
         )}
       >
         {/* Status row */}
-        <div className="flex items-center justify-between w-full">
-          <Badge variant="outline" className="font-mono">
+        <div className="flex items-center justify-between w-full gap-2">
+          <Badge variant="outline" className="font-mono truncate max-w-[200px] sm:max-w-xs">
             {currentQ?.category_title || currentQ?.category}
           </Badge>
-          <div className="flex items-center gap-1.5">
+          <div className="flex items-center gap-1.5 shrink-0">
             {isMemorized && (
               <Badge variant="success"><Check className="h-3 w-3" /> Hafal</Badge>
             )}
@@ -137,7 +140,7 @@ export function PracticeFlashcard({
               <Badge variant="warn">Ulangi Nanti</Badge>
             )}
             <span className="text-[11px] text-muted-foreground font-medium hidden sm:inline">
-              Ketuk untuk membalik
+              Ketuk untuk balik
             </span>
           </div>
         </div>
@@ -151,7 +154,7 @@ export function PracticeFlashcard({
                   <img
                     src={getAssetUrl(currentQ.image_url)}
                     alt="Alat atau Rambu K3"
-                    className="max-h-44 md:max-h-52 w-auto object-contain rounded-md border border-border p-1 bg-muted"
+                    className="max-h-44 md:max-h-52 w-auto object-contain"
                   />
                 </div>
               )}
@@ -206,7 +209,7 @@ export function PracticeFlashcard({
               const displayId = activeOpt ? activeOpt.id : answerId;
 
               return (
-                <div className="space-y-3 w-full animate-fade-in">
+                <div className="space-y-3 w-full max-w-md mx-auto animate-fade-in">
                   <div className="flex items-center justify-center gap-1.5 flex-wrap">
                     <Badge variant="success">
                       {activeOpt?.label || 'Kunci Jawaban Resmi'}
@@ -237,21 +240,23 @@ export function PracticeFlashcard({
                     {displayKo}
                   </h3>
 
-                  <div className="p-3.5 rounded-lg border border-border bg-muted text-xs md:text-sm text-foreground font-medium leading-relaxed max-w-md mx-auto">
-                    <p className="font-bold text-emerald-800 text-base">
+                  {/* Clean typography for Indonesian meaning with thin separator */}
+                  <div className="border-t border-border/60 pt-3 space-y-1 text-center">
+                    <p className="font-bold text-emerald-700 text-base leading-snug">
                       {displayId}
                     </p>
                     {currentQ?.question_id && (
-                      <p className="text-[11px] text-muted-foreground mt-1.5 pt-1.5 border-t border-border">
-                        Maksud Soal: "{currentQ.question_id}"
+                      <p className="text-xs text-muted-foreground leading-relaxed">
+                        Maksud Soal: &ldquo;{currentQ.question_id}&rdquo;
                       </p>
                     )}
                   </div>
 
+                  {/* Clean typography for tool usage with thin separator */}
                   {(currentQ?.usage_short_ko || currentQ?.usage_full_ko) && (
-                    <div className="p-2.5 rounded-lg border border-border bg-muted max-w-md mx-auto text-left space-y-0.5">
+                    <div className="border-t border-border/60 pt-3 text-center space-y-0.5">
                       <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider block">
-                        Kegunaan Alat (용도):
+                        Kegunaan Alat (용도)
                       </span>
                       <p className="font-kr font-bold text-xs text-foreground">
                         {currentQ.usage_short_ko || currentQ.usage_full_ko}
@@ -298,7 +303,7 @@ export function PracticeFlashcard({
       </Card>
 
       {/* Actions */}
-      <div className="w-full grid grid-cols-2 gap-3 mt-4">
+      <div className="w-full grid grid-cols-2 gap-3 mt-3.5">
         <Button variant="outline" onClick={() => markReviewLater(currentQ?.id)}>
           <X className="h-4 w-4 text-warn" />
           <span>Ulangi Nanti</span>
@@ -311,13 +316,13 @@ export function PracticeFlashcard({
       </div>
 
       {/* Navigation */}
-      <div className="w-full flex items-center justify-between mt-3.5 text-xs text-muted-foreground px-1">
+      <div className="w-full flex items-center justify-between mt-3 text-xs text-muted-foreground px-1">
         <Button variant="ghost" size="sm" onClick={handlePrev}>
           <ChevronLeft className="h-4 w-4" />
           <span>Sebelumnya</span>
         </Button>
 
-        <span className="font-mono text-[11px] text-muted-foreground">Gunakan panah keyboard</span>
+        <span className="font-mono text-[11px] text-muted-foreground hidden sm:inline">Gunakan panah keyboard</span>
 
         <Button variant="ghost" size="sm" onClick={handleNext}>
           <span>Berikutnya</span>
