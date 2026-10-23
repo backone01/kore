@@ -269,7 +269,7 @@ function classifyPhysicalGroup(ko = '', id = '') {
   return 'Arah & Pandangan';
 }
 
-export function StudyGuide({ onStartPracticeCategory }) {
+export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
   const [activeModule, setActiveModule] = useState('interview');
   const [activeTab, setActiveTab] = useState('interview');
   const [activeSampleIdx, setActiveSampleIdx] = useState(0);
@@ -1398,8 +1398,7 @@ export function StudyGuide({ onStartPracticeCategory }) {
     { id: 'k3', moduleId: 'safety', label: '30 Topik K3 Resmi', icon: AlertTriangle, count: `${(studyData.k3_safety || []).length} Soal` },
     { id: 'piktogram', moduleId: 'safety', label: 'Piktogram & Rambu K3', icon: ShieldAlert, count: '98 Rambu' },
 
-    { id: 'alat', moduleId: 'tools', label: 'Foto & Nama Alat Manufaktur', icon: Image, count: `${alatCount} Alat` },
-    { id: 'manufacturing', moduleId: 'tools', label: 'Pos Praktik Meja & Peragaan Alat', icon: Wrench, count: '3 Pos Meja' },
+    { id: 'alat', moduleId: 'tools', label: 'Foto, Nama & Fungsi 90 Alat', icon: Wrench, count: `${alatCount} Alat` },
 
     { id: 'numbers', moduleId: 'numbers', label: 'Nomor & Angka Sino/Asli', icon: Hash, count: 'Sino/Asli' },
     { id: 'time', moduleId: 'numbers', label: 'Jam & Waktu', icon: Clock, count: 'Format' },
@@ -3855,21 +3854,35 @@ export function StudyGuide({ onStartPracticeCategory }) {
 
         return (
           <div className="space-y-5 animate-fade-in">
-            <div className="border-b border-border pb-3">
-              <div className="flex items-center gap-2 mb-1">
-                <Badge variant="outline" className="border-orange-500/30 text-orange-600 dark:text-orange-400 text-[10px]">
-                  IDENTIFIKASI OBJEK & FUNGSI
-                </Badge>
-                <span className="text-[11px] font-bold text-muted-foreground uppercase tracking-wider">
-                  {allAlat.length} Alat & APD
-                </span>
+            <div className="border-b border-border pb-3 flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
+              <div>
+                <div className="flex items-center gap-2 mb-1">
+                  <Badge variant="outline" className="border-orange-500/30 text-orange-600 dark:text-orange-400 text-[10px]">
+                    IDENTIFIKASI OBJEK & FUNGSI
+                  </Badge>
+                  <span className="text-[11px] font-bold text-muted-foreground uppercase tracking-wider">
+                    {allAlat.length} Alat & APD
+                  </span>
+                </div>
+                <h2 className="text-lg sm:text-xl font-bold text-foreground">
+                  Katalog 90 Alat Pabrik Manufaktur & Fungsi Kerja
+                </h2>
+                <p className="text-xs sm:text-sm text-muted-foreground mt-0.5 leading-relaxed">
+                  Foto fisik perkakas, nama Korea baku, dan pola kalimat fungsinya saat ditunjuk penguji di meja ujian.
+                </p>
               </div>
-              <h2 className="text-lg sm:text-xl font-bold text-foreground">
-                Katalog Alat Kerja Pabrik & APD (작업 공구 및 보호구)
-              </h2>
-              <p className="text-xs sm:text-sm text-muted-foreground mt-0.5 leading-relaxed">
-                Hafalkan nama alat beserta kalimat fungsinya ketika penguji menunjuk foto atau benda kerja di meja.
-              </p>
+
+              {onOpenRevisionModal && (
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={onOpenRevisionModal}
+                  className="text-xs gap-1.5 h-8 shrink-0 border-amber-500/30 text-amber-600 dark:text-amber-400 hover:bg-amber-500/10"
+                >
+                  <Award className="h-3.5 w-3.5" />
+                  <span>Ketentuan 3 Pos Praktik Meja (20 Poin)</span>
+                </Button>
+              )}
             </div>
 
             <div className="flex flex-col sm:flex-row gap-2.5 items-stretch sm:items-center justify-between">
@@ -4011,227 +4024,6 @@ export function StudyGuide({ onStartPracticeCategory }) {
           </div>
         );
       })()}
-
-      {/* 11. MANUFACTURING (PRAKTIK KERJA MANUFAKTUR) */}
-      {activeTab === 'manufacturing' && (
-        <div className="space-y-7 animate-fade-in">
-          <div className="border-b border-border pb-3">
-            <div className="flex items-center gap-2 mb-1">
-              <Badge variant="outline" className="border-amber-500/30 text-amber-600 dark:text-amber-400 text-[10px]">
-                TES PRAKTIK MEJA PENGUJI (기능시험)
-              </Badge>
-              <span className="text-[11px] font-bold text-muted-foreground uppercase tracking-wider">
-                Peragaan Alat, Perakitan & Tugas Meja
-              </span>
-            </div>
-            <h2 className="text-lg sm:text-xl font-bold text-foreground">
-              3 Pos Praktik Meja Ujian & Peragaan Perkakas
-            </h2>
-            <p className="text-xs sm:text-sm text-muted-foreground mt-0.5 leading-relaxed">
-              Panduan 3 tugas meja penguji (Pin Board, Gantungan Rantai, Rakit Baut), tanya jawab fungsi alat, serta perintah peragaan aksi perkakas.
-            </p>
-          </div>
-
-          {/* Bagian 1: 3 Pos Tugas Praktik Utama */}
-          <div className="space-y-3">
-            <h3 className="text-sm font-bold text-foreground uppercase tracking-wider">
-              1. Tiga Pos Praktik Utama di Meja Ujian ({studyData.manufacturing.practical_tasks.length})
-            </h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-3.5">
-              {studyData.manufacturing.practical_tasks.map((task, idx) => (
-                <div
-                  key={idx}
-                  className="rounded-xl border border-border bg-card p-4 space-y-2.5 flex flex-col justify-between"
-                >
-                  <div className="space-y-1.5">
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-primary">
-                      {task.task_num}
-                    </span>
-                    <h4 className="text-sm sm:text-base font-bold text-foreground">
-                      {task.task_name}
-                    </h4>
-                    <p className="text-xs text-muted-foreground leading-relaxed">
-                      {task.desc}
-                    </p>
-                  </div>
-                  <div className="pt-2 border-t border-border/60">
-                    <p className="text-[11px] text-emerald-700 dark:text-emerald-400 leading-snug">
-                      <strong>Fokus Penilaian:</strong> {task.evaluation}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Bagian 2: Tanya Jawab Fungsi Alat Kerja */}
-          <div className="space-y-3">
-            <h3 className="text-sm font-bold text-foreground uppercase tracking-wider">
-              2. Tanya Jawab Fungsi Alat Kerja ({studyData.manufacturing.tool_functions.length})
-            </h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-              {studyData.manufacturing.tool_functions.map((tf) => (
-                <div
-                  key={tf.id}
-                  onClick={() => playAudio(tf.audio_a, tf.answer_short_ko)}
-                  className="rounded-xl border border-border bg-card p-3.5 hover:border-primary/40 transition-colors cursor-pointer space-y-2 flex flex-col justify-between"
-                >
-                  <div className="space-y-1">
-                    <div className="flex items-start justify-between gap-2">
-                      <span className="text-xs font-bold uppercase tracking-wider text-primary">
-                        {tf.title_id}
-                      </span>
-                      <Volume2 className="w-3.5 h-3.5 text-muted-foreground shrink-0 mt-0.5" />
-                    </div>
-                    <p className="text-xs font-semibold text-foreground break-keep">
-                      Q: {tf.question_ko}
-                    </p>
-                    <p className="text-[11px] text-muted-foreground">"{tf.question_id}"</p>
-                  </div>
-                  <div className="pt-2 border-t border-border/60 space-y-0.5">
-                    <p className="text-xs sm:text-sm font-black text-emerald-700 dark:text-emerald-400 break-keep">
-                      A: {tf.answer_short_ko}
-                    </p>
-                    <p className="text-[11px] text-muted-foreground">
-                      "{tf.answer_short_id}"
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Bagian 3: Instruksi Ambil & Serahkan Alat */}
-          {studyData.manufacturing.tool_action_commands && (
-            <div className="space-y-3">
-              <h3 className="text-sm font-bold text-foreground uppercase tracking-wider">
-                3. Perintah Mengambil, Memilih & Menyerahkan Alat ({studyData.manufacturing.tool_action_commands.length})
-              </h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                {studyData.manufacturing.tool_action_commands.map((cmd) => (
-                  <div
-                    key={cmd.id}
-                    onClick={() => playAudio(cmd.audio_q, cmd.question_ko)}
-                    className="rounded-xl border border-border bg-card p-3.5 hover:border-primary/40 transition-colors cursor-pointer space-y-2"
-                  >
-                    <div className="flex items-start justify-between gap-2">
-                      <div>
-                        <span className="text-[10px] font-bold uppercase tracking-wider text-amber-600 dark:text-amber-400">
-                          {cmd.title_id}
-                        </span>
-                        <p className="text-sm sm:text-base font-black text-foreground break-keep mt-0.5">
-                          "{cmd.question_ko}"
-                        </p>
-                      </div>
-                      <Volume2 className="w-4 h-4 text-muted-foreground shrink-0 mt-0.5" />
-                    </div>
-                    {cmd.question_romaja && (
-                      <p className="text-xs font-mono text-indigo-600 dark:text-indigo-400">
-                        [{cmd.question_romaja}]
-                      </p>
-                    )}
-                    <p className="text-xs text-muted-foreground">{cmd.question_id}</p>
-                    <div className="pt-2 border-t border-border/60">
-                      <p className="text-xs sm:text-sm font-bold text-emerald-700 dark:text-emerald-400">
-                        Respon: "{cmd.answer_short_ko}"
-                      </p>
-                      <p className="text-[11px] text-muted-foreground">"{cmd.answer_short_id}"</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
-
-          {/* Bagian 4: Skenario Situasi Kritis Pabrik */}
-          {studyData.manufacturing.scenarios && (
-            <div className="space-y-3">
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1.5">
-                <h3 className="text-sm font-bold text-foreground uppercase tracking-wider">
-                  4. SOP Wawancara Situasi Kerja & Lembur ({studyData.manufacturing.scenarios.length})
-                </h3>
-                <span className="text-[11px] text-muted-foreground">
-                  *Diujikan pada sesi Wawancara Sikap Kerja Pabrik
-                </span>
-              </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                {studyData.manufacturing.scenarios.map((sc, idx) => (
-                  <div key={idx} className="rounded-xl border border-border bg-card p-4 space-y-2">
-                    <div className="flex items-start justify-between gap-2">
-                      <div>
-                        <span className="text-[10px] font-bold uppercase tracking-wider text-primary">
-                          {sc.key_attitude}
-                        </span>
-                        <h4 className="text-xs sm:text-sm font-bold text-foreground">{sc.situation}</h4>
-                      </div>
-                      <button
-                        type="button"
-                        onClick={() => playAudio(sc.audio, sc.q_ko)}
-                        className="px-2 py-1 rounded-md bg-secondary hover:bg-primary hover:text-primary-foreground text-[11px] font-semibold text-foreground flex items-center gap-1 shrink-0 cursor-pointer"
-                      >
-                        <Volume2 className="w-3 h-3" /> Q
-                      </button>
-                    </div>
-                    <p className="text-sm font-bold text-foreground">Q: {sc.q_ko}</p>
-                    <p className="text-xs text-muted-foreground">"{sc.q_id}"</p>
-                    <div className="pt-2 border-t border-border/60 space-y-1">
-                      <div className="flex items-start justify-between gap-2">
-                        <p className="text-xs sm:text-sm font-bold text-emerald-700 dark:text-emerald-400">
-                          A: {sc.a_ko}
-                        </p>
-                        <button
-                          type="button"
-                          onClick={() => playAudio(null, sc.a_ko)}
-                          className="px-2 py-1 rounded-md bg-emerald-600 hover:bg-emerald-500 text-white text-[11px] font-semibold flex items-center gap-1 shrink-0 cursor-pointer"
-                        >
-                          <Volume2 className="w-3 h-3" /> A
-                        </button>
-                      </div>
-                      <p className="text-xs text-muted-foreground">"{sc.a_id}"</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
-
-          {/* Bagian 5: Daftar Tier Alat HRDK */}
-          {studyData.manufacturing.hrdk_tool_tiers && (
-            <div className="space-y-3">
-              <h3 className="text-sm font-bold text-foreground uppercase tracking-wider">
-                5. Pengelompokan Tingkat Alat Standar HRD Korea
-              </h3>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-                {studyData.manufacturing.hrdk_tool_tiers.map((tier, idx) => (
-                  <div key={idx} className="rounded-xl border border-border bg-card p-4 space-y-2.5">
-                    <div>
-                      <Badge variant="secondary" className="text-[10px] mb-1">
-                        {tier.tier}
-                      </Badge>
-                      <p className="text-xs text-muted-foreground">{tier.desc}</p>
-                    </div>
-                    <div className="flex flex-wrap gap-1.5 pt-1">
-                      {tier.tools.map((t, i) => {
-                        const koPart = t.split('(')[0].trim();
-                        return (
-                          <button
-                            key={i}
-                            type="button"
-                            onClick={() => playAudio(null, koPart)}
-                            className="px-2.5 py-1 rounded-lg border border-border bg-secondary/50 hover:bg-secondary text-xs font-semibold text-foreground transition-colors cursor-pointer text-left"
-                          >
-                            {t}
-                          </button>
-                        );
-                      })}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
-        </div>
-      )}
 
       {/* 12. NUMBERS (ANGKA SINO, NATIVE & SATUAN HITUNG) */}
       {activeTab === 'numbers' && (

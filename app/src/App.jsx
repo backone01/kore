@@ -721,6 +721,7 @@ export default function App() {
               setMode('practice');
               stopAllAudio();
             }}
+            onOpenRevisionModal={() => setRevisionModalOpen(true)}
           />
         )}
 

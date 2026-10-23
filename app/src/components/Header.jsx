@@ -78,11 +78,11 @@ export function Header({
             variant="ghost"
             size="sm"
             onClick={() => setRevisionModalOpen(true)}
-            aria-label="Panduan Regulasi HRDK"
+            aria-label="Ketentuan & Rangkaian Ujian Skill Test"
             className="h-8 sm:h-9 px-2 sm:px-3 text-xs text-muted-foreground hover:text-foreground gap-1.5"
           >
             <FileText className="h-3.5 w-3.5 shrink-0" />
-            <span className="hidden sm:inline">Regulasi</span>
+            <span className="hidden sm:inline">Ketentuan Ujian</span>
           </Button>
         </div>
       </div>
