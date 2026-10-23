@@ -525,6 +525,11 @@ export function QAList({
                   )}
                 </div>
                 <div className="flex items-center gap-1.5 text-[11px] text-muted-foreground truncate mt-0.5">
+                  {q.level_mark && (
+                    <span className="font-mono text-[10px] font-bold text-amber-600 dark:text-amber-400 shrink-0">
+                      [{q.level_mark}]
+                    </span>
+                  )}
                   <span className="truncate">{subOf(q)}</span>
                   {q.question_id && (
                     <>
@@ -599,9 +604,21 @@ export function QADetail({
   const content = (
     <>
       <div className="flex flex-wrap items-center justify-between gap-2">
-        <span className={A.badge}>
-          #{num} · {subLabel}
-        </span>
+        <div className="flex flex-wrap items-center gap-1.5">
+          <span className={A.badge}>
+            #{num} · {subLabel}
+          </span>
+          {q.phase_ko && (
+            <span className="text-[10px] font-semibold px-2 py-0.5 rounded bg-muted text-muted-foreground border border-border">
+              {q.phase_ko} ({q.phase_id})
+            </span>
+          )}
+          {q.level_mark && (
+            <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/20">
+              Tingkat {q.level_mark}
+            </span>
+          )}
+        </div>
 
         <div className="flex items-center gap-1.5 ml-auto">
           {!embedded && onPrev && onNext && (

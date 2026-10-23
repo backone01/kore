@@ -44,7 +44,7 @@ export const HRDK_MODULES = [
     label: '3. K3 & Keselamatan Pabrik (산업안전 & 표지판)',
     shortLabel: '3. K3 & Rambu',
     icon: 'AlertTriangle',
-    desc: '30 Tanya Jawab K3 Mendalam Resmi HRDK (SOP, APD, APAR, MSDS) & 98 Rambu Keselamatan',
+    desc: '30 Topik K3 Mendalam Resmi HRDK/KOSHA (123 Tanya Jawab Lengkap) & 98 Rambu Keselamatan',
     categories: ['k3_safety', 'piktogram'],
     studyTab: 'safety',
     points: 10,

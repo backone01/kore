@@ -281,6 +281,8 @@ export function StudyGuide({ onStartPracticeCategory }) {
   const [playingAudio, setPlayingAudio] = useState(null);
   const [selectedOptionByCard, setSelectedOptionByCard] = useState({});
   const [k3Filter, setK3Filter] = useState('all');
+  const [k3TopicSelect, setK3TopicSelect] = useState('all');
+  const [k3LevelFilter, setK3LevelFilter] = useState('all');
   const [interviewFilter, setInterviewFilter] = useState('all');
   const [cmdFilter, setCmdFilter] = useState('all');
   const [pikGroup, setPikGroup] = useState('all');
@@ -1393,7 +1395,7 @@ export function StudyGuide({ onStartPracticeCategory }) {
 
     { id: 'commands', moduleId: 'physical', label: 'Refleks Gerak Fisik', icon: Activity, count: `${mergedPhysicalCommands.length} Gerak` },
 
-    { id: 'k3', moduleId: 'safety', label: '30 Q&A K3 Resmi', icon: AlertTriangle, count: '30 Q&A' },
+    { id: 'k3', moduleId: 'safety', label: '30 Topik K3 Resmi', icon: AlertTriangle, count: `${(studyData.k3_safety || []).length} Soal` },
     { id: 'piktogram', moduleId: 'safety', label: 'Piktogram & Rambu K3', icon: ShieldAlert, count: '98 Rambu' },
 
     { id: 'alat', moduleId: 'tools', label: 'Foto & Nama Alat Manufaktur', icon: Image, count: `${alatCount} Alat` },
@@ -1406,27 +1408,62 @@ export function StudyGuide({ onStartPracticeCategory }) {
     { id: 'colors', moduleId: 'colors', label: 'Warna Pabrik & Tes Warna', icon: Palette, count: '11 Warna' },
   ];
 
+  const k3PhaseCounts = useMemo(() => {
+    const list = studyData.k3_safety || [];
+    return {
+      all: list.length,
+      before: list.filter(x => x.phase_key === 'before').length,
+      during: list.filter(x => x.phase_key === 'during').length,
+      after: list.filter(x => x.phase_key === 'after').length,
+      emergency: list.filter(x => x.phase_key === 'emergency').length,
+    };
+  }, [studyData.k3_safety]);
+
+  const k3TopicsList = useMemo(() => {
+    const list = studyData.k3_safety || [];
+    const map = new Map();
+    list.forEach(item => {
+      if (item.topic_no && !map.has(item.topic_no)) {
+        map.set(item.topic_no, {
+          no: item.topic_no,
+          ko: item.topic_ko || `주제 ${item.topic_no}`,
+          id: item.topic_id || '',
+          phase_ko: item.phase_ko,
+          count: list.filter(x => x.topic_no === item.topic_no).length
+        });
+      }
+    });
+    return Array.from(map.values()).sort((a, b) => a.no - b.no);
+  }, [studyData.k3_safety]);
+
   const filteredK3 = useMemo(() => {
     let list = studyData.k3_safety || [];
-    if (k3Filter === 'apd') {
-      list = list.slice(0, 14);
-    } else if (k3Filter === 'evakuasi') {
-      list = list.slice(14, 18);
-    } else if (k3Filter === 'rambu') {
-      list = list.slice(18, 22);
-    } else if (k3Filter === 'mesin') {
-      list = list.slice(22, 26);
-    } else if (k3Filter === 'kimia') {
-      list = list.slice(26, 30);
+
+    // Filter per Tahap Kerja (Phase)
+    if (k3Filter && k3Filter !== 'all') {
+      list = list.filter(item => item.phase_key === k3Filter);
     }
+
+    // Filter per Topik Spesifik (1 s.d. 30)
+    if (k3TopicSelect && k3TopicSelect !== 'all') {
+      const tNo = parseInt(k3TopicSelect, 10);
+      list = list.filter(item => item.topic_no === tNo);
+    }
+
+    // Filter per Tingkat Kesulitan (①, ②, ③)
+    if (k3LevelFilter && k3LevelFilter !== 'all') {
+      list = list.filter(item => item.level_mark === k3LevelFilter);
+    }
+
+    // Pencarian Teks
     if (searchQuery.trim()) {
       const q = searchQuery.toLowerCase();
       list = list.filter(item =>
-        ((item.question_ko || '') + ' ' + (item.question_id || '') + ' ' + (item.answer_ko || '') + ' ' + (item.answer_id || '') + ' ' + (item.topic || '')).toLowerCase().includes(q)
+        ((item.question_ko || '') + ' ' + (item.question_id || '') + ' ' + (item.answer_ko || '') + ' ' + (item.answer_id || '') + ' ' + (item.topic || '') + ' ' + (item.topic_ko || '') + ' ' + (item.topic_id || '')).toLowerCase().includes(q)
       );
     }
     return list;
-  }, [k3Filter, searchQuery]);
+  }, [k3Filter, k3TopicSelect, k3LevelFilter, searchQuery]);
 
   const filteredInterview = useMemo(() => {
     let list = studyData.interview || [];
@@ -1634,10 +1671,10 @@ export function StudyGuide({ onStartPracticeCategory }) {
               <div>
                 <h3 className="font-bold text-base flex items-center gap-2">
                   <AlertTriangle className="h-4 w-4 text-amber-600 shrink-0" />
-                  <span>30 Tanya Jawab Standar K3 Industri HRD Korea</span>
+                  <span>30 Topik Lengkap K3 Industri HRD Korea ({k3PhaseCounts.all} Tanya Jawab)</span>
                 </h3>
                 <p className="text-xs text-muted-foreground mt-0.5">
-                  Mencakup APD (보호구), Pintu Darurat, APAR, Rambu K3, Pengaman Mesin, dan MSDS.
+                  Standar Resmi HRDK & KOSHA 2026: 4 Tahap Kerja (Sebelum, Saat, Setelah Bekerja & Situasi Bahaya).
                 </p>
               </div>
 
@@ -1647,36 +1684,93 @@ export function StudyGuide({ onStartPracticeCategory }) {
               </Button>
             </div>
 
-            <div className="flex flex-wrap items-center gap-1.5 text-xs">
-              {[
-                { id: 'all', label: 'Semua Topik (30)' },
-                { id: 'apd', label: 'APD (14)' },
-                { id: 'evakuasi', label: 'Pintu Darurat & APAR (4)' },
-                { id: 'rambu', label: 'Rambu K3 (4)' },
-                { id: 'mesin', label: 'Pengaman Mesin (4)' },
-                { id: 'kimia', label: 'Bahan Kimia & MSDS (4)' },
-              ].map(f => (
-                <button
-                  key={f.id}
-                  type="button"
-                  onClick={() => { setK3Filter(f.id); setSelK3(0); stopPlayer(); }}
-                  className={cn(
-                    'px-2.5 py-1.5 rounded-lg font-semibold transition-all border',
-                    k3Filter === f.id
-                      ? 'bg-foreground text-background border-foreground'
-                      : 'bg-card text-muted-foreground hover:text-foreground border-border'
-                  )}
-                >
-                  {f.label}
-                </button>
-              ))}
+            <div className="space-y-2">
+              <div className="flex flex-wrap items-center gap-1.5 text-xs">
+                {[
+                  { id: 'all', label: `Semua Tahap (${k3PhaseCounts.all})` },
+                  { id: 'before', label: `1. Sebelum Kerja (${k3PhaseCounts.before})` },
+                  { id: 'during', label: `2. Saat Kerja (${k3PhaseCounts.during})` },
+                  { id: 'after', label: `3. Setelah Kerja (${k3PhaseCounts.after})` },
+                  { id: 'emergency', label: `4. Situasi Bahaya (${k3PhaseCounts.emergency})` },
+                ].map(f => (
+                  <button
+                    key={f.id}
+                    type="button"
+                    onClick={() => { setK3Filter(f.id); setSelK3(0); stopPlayer(); }}
+                    className={cn(
+                      'px-2.5 py-1.5 rounded-lg font-semibold transition-all border',
+                      k3Filter === f.id
+                        ? 'bg-foreground text-background border-foreground shadow-sm'
+                        : 'bg-card text-muted-foreground hover:text-foreground border-border'
+                    )}
+                  >
+                    {f.label}
+                  </button>
+                ))}
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-0.5">
+                {/* Dropdown 30 Topik Spesifik */}
+                <div className="flex items-center gap-2 bg-card border border-input rounded-lg px-2.5 py-1.5 text-xs">
+                  <span className="text-muted-foreground whitespace-nowrap font-medium shrink-0">Topik Khusus:</span>
+                  <select
+                    value={k3TopicSelect}
+                    onChange={(e) => { setK3TopicSelect(e.target.value); setSelK3(0); stopPlayer(); }}
+                    className="w-full bg-transparent text-foreground font-semibold focus:outline-none cursor-pointer truncate"
+                  >
+                    <option value="all">Semua Topik (30 Topik Lengkap)</option>
+                    {k3TopicsList.map(t => (
+                      <option key={t.no} value={t.no}>
+                        Topik {t.no}. {t.ko} - {t.id} ({t.count} soal)
+                      </option>
+                    ))}
+                  </select>
+                </div>
+
+                {/* Filter Tingkat Kesulitan */}
+                <div className="flex items-center gap-2 bg-card border border-input rounded-lg px-2.5 py-1.5 text-xs">
+                  <span className="text-muted-foreground whitespace-nowrap font-medium shrink-0">Kesulitan:</span>
+                  <select
+                    value={k3LevelFilter}
+                    onChange={(e) => { setK3LevelFilter(e.target.value); setSelK3(0); stopPlayer(); }}
+                    className="w-full bg-transparent text-foreground font-semibold focus:outline-none cursor-pointer"
+                  >
+                    <option value="all">Semua Tingkat Kesulitan</option>
+                    <option value="①">Level ① - Dasar / Definisi (물건·장비 정의)</option>
+                    <option value="②">Level ② - Menengah / Alasan (이유 및 필요성)</option>
+                    <option value="③">Level ③ - Lanjutan / Tindakan (조치 및 대응)</option>
+                  </select>
+                </div>
+              </div>
+
+              {(k3Filter !== 'all' || k3TopicSelect !== 'all' || k3LevelFilter !== 'all' || searchQuery) && (
+                <div className="flex items-center justify-between text-xs pt-1 px-1">
+                  <span className="text-muted-foreground font-medium">
+                    Menampilkan <strong className="text-foreground">{filteredK3.length}</strong> dari {k3PhaseCounts.all} soal K3
+                  </span>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setK3Filter('all');
+                      setK3TopicSelect('all');
+                      setK3LevelFilter('all');
+                      setSearchQuery('');
+                      setSelK3(0);
+                      stopPlayer();
+                    }}
+                    className="text-primary hover:underline font-semibold"
+                  >
+                    Reset Filter
+                  </button>
+                </div>
+              )}
             </div>
 
             <div className="relative">
               <Search className="h-4 w-4 absolute left-3 top-2.5 text-muted-foreground" />
               <input
                 type="text"
-                placeholder="Cari kata kunci K3 (misal: 안전모, 소화기, MSDS, 방호장치, pelindung)..."
+                placeholder="Cari kata kunci K3 (misal: 지게차, 안전모, 소화기, MSDS, 방호장치, 환기)..."
                 value={searchQuery}
                 onChange={(e) => { setSearchQuery(e.target.value); setSelK3(0); stopPlayer(); }}
                 className="w-full pl-9 pr-4 py-2 bg-card border border-input rounded-lg text-sm font-medium text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring/30 focus:border-ring"

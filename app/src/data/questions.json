@@ -818,7 +818,16 @@
         "id": "Perlengkapan keselamatan untuk menjaga pekerja.",
         "audio": "/audio/tts/options/safety_01_opt_2.mp3"
       }
-    ]
+    ],
+    "topic_no": 1,
+    "topic_ko": "보호구 착용",
+    "topic_id": "Memakai alat pelindung diri",
+    "phase_key": "before",
+    "phase_ko": "작업 전",
+    "phase_id": "Sebelum Bekerja",
+    "level_mark": "①",
+    "level_desc": "Level 1 (Dasar)",
+    "topic": "Topik 1: 보호구 착용 (Memakai alat pelindung diri)"
   },
   {
     "id": "safety_02",
@@ -857,7 +866,16 @@
         "id": "Ada helm pengaman, sepatu pengaman, kacamata pelindung, dan earplug.",
         "audio": "/audio/tts/options/safety_02_opt_2.mp3"
       }
-    ]
+    ],
+    "topic_no": 1,
+    "topic_ko": "보호구 착용",
+    "topic_id": "Memakai alat pelindung diri",
+    "phase_key": "before",
+    "phase_ko": "작업 전",
+    "phase_id": "Sebelum Bekerja",
+    "level_mark": "②",
+    "level_desc": "Level 2 (Menengah)",
+    "topic": "Topik 1: 보호구 착용 (Memakai alat pelindung diri)"
   },
   {
     "id": "safety_12",
@@ -896,7 +914,16 @@
         "id": "Untuk mencegah kecelakaan kerja.",
         "audio": "/audio/tts/options/safety_12_opt_2.mp3"
       }
-    ]
+    ],
+    "topic_no": 1,
+    "topic_ko": "보호구 착용",
+    "topic_id": "Memakai alat pelindung diri",
+    "phase_key": "before",
+    "phase_ko": "작업 전",
+    "phase_id": "Sebelum Bekerja",
+    "level_mark": "②",
+    "level_desc": "Level 2 (Menengah)",
+    "topic": "Topik 1: 보호구 착용 (Memakai alat pelindung diri)"
   },
   {
     "id": "safety_13",
@@ -935,7 +962,16 @@
         "id": "Memakai helm safety dan memasang tali dagunya.",
         "audio": "/audio/tts/options/safety_13_opt_2.mp3"
       }
-    ]
+    ],
+    "topic_no": 1,
+    "topic_ko": "보호구 착용",
+    "topic_id": "Memakai alat pelindung diri",
+    "phase_key": "before",
+    "phase_ko": "작업 전",
+    "phase_id": "Sebelum Bekerja",
+    "level_mark": "①",
+    "level_desc": "Level 1 (Dasar)",
+    "topic": "Topik 1: 보호구 착용 (Memakai alat pelindung diri)"
   },
   {
     "id": "safety_14",
@@ -974,7 +1010,16 @@
         "id": "Memakai tali pengaman dan memasang kaitannya.",
         "audio": "/audio/tts/options/safety_14_opt_2.mp3"
       }
-    ]
+    ],
+    "topic_no": 1,
+    "topic_ko": "보호구 착용",
+    "topic_id": "Memakai alat pelindung diri",
+    "phase_key": "before",
+    "phase_ko": "작업 전",
+    "phase_id": "Sebelum Bekerja",
+    "level_mark": "③",
+    "level_desc": "Level 3 (Lanjutan)",
+    "topic": "Topik 1: 보호구 착용 (Memakai alat pelindung diri)"
   },
   {
     "id": "safety_03",
@@ -1013,7 +1058,16 @@
         "id": "Topi untuk melindungi kepala dari benda jatuh.",
         "audio": "/audio/tts/options/safety_03_opt_2.mp3"
       }
-    ]
+    ],
+    "topic_no": 1,
+    "topic_ko": "보호구 착용 (종류별 정의)",
+    "topic_id": "Memakai APD (Definisi Jenis APD)",
+    "phase_key": "before",
+    "phase_ko": "작업 전",
+    "phase_id": "Sebelum Bekerja",
+    "level_mark": "①",
+    "level_desc": "Level 1 (Dasar)",
+    "topic": "Topik 1: 보호구 착용 (Pengenalan Jenis APD)"
   },
   {
     "id": "safety_04",
@@ -1052,7 +1106,16 @@
         "id": "Sepatu yang melindungi kaki dari beban berat dan paku.",
         "audio": "/audio/tts/options/safety_04_opt_2.mp3"
       }
-    ]
+    ],
+    "topic_no": 1,
+    "topic_ko": "보호구 착용 (종류별 정의)",
+    "topic_id": "Memakai APD (Definisi Jenis APD)",
+    "phase_key": "before",
+    "phase_ko": "작업 전",
+    "phase_id": "Sebelum Bekerja",
+    "level_mark": "①",
+    "level_desc": "Level 1 (Dasar)",
+    "topic": "Topik 1: 보호구 착용 (Pengenalan Jenis APD)"
   },
   {
     "id": "safety_05",
@@ -1091,7 +1154,16 @@
         "id": "Tali pengaman untuk mencegah jatuh di tempat tinggi.",
         "audio": "/audio/tts/options/safety_05_opt_2.mp3"
       }
-    ]
+    ],
+    "topic_no": 1,
+    "topic_ko": "보호구 착용 (종류별 정의)",
+    "topic_id": "Memakai APD (Definisi Jenis APD)",
+    "phase_key": "before",
+    "phase_ko": "작업 전",
+    "phase_id": "Sebelum Bekerja",
+    "level_mark": "①",
+    "level_desc": "Level 1 (Dasar)",
+    "topic": "Topik 1: 보호구 착용 (Pengenalan Jenis APD)"
   },
   {
     "id": "safety_06",
@@ -1130,7 +1202,16 @@
         "id": "Melindungi wajah dari percikan bunga api.",
         "audio": "/audio/tts/options/safety_06_opt_2.mp3"
       }
-    ]
+    ],
+    "topic_no": 1,
+    "topic_ko": "보호구 착용 (종류별 정의)",
+    "topic_id": "Memakai APD (Definisi Jenis APD)",
+    "phase_key": "before",
+    "phase_ko": "작업 전",
+    "phase_id": "Sebelum Bekerja",
+    "level_mark": "①",
+    "level_desc": "Level 1 (Dasar)",
+    "topic": "Topik 1: 보호구 착용 (Pengenalan Jenis APD)"
   },
   {
     "id": "safety_07",
@@ -1169,7 +1250,16 @@
         "id": "Melindungi telinga dari kebisingan suara pabrik.",
         "audio": "/audio/tts/options/safety_07_opt_2.mp3"
       }
-    ]
+    ],
+    "topic_no": 1,
+    "topic_ko": "보호구 착용 (종류별 정의)",
+    "topic_id": "Memakai APD (Definisi Jenis APD)",
+    "phase_key": "before",
+    "phase_ko": "작업 전",
+    "phase_id": "Sebelum Bekerja",
+    "level_mark": "①",
+    "level_desc": "Level 1 (Dasar)",
+    "topic": "Topik 1: 보호구 착용 (Pengenalan Jenis APD)"
   },
   {
     "id": "safety_08",
@@ -1208,7 +1298,16 @@
         "id": "Melindungi saluran pernapasan dari partikel debu.",
         "audio": "/audio/tts/options/safety_08_opt_2.mp3"
       }
-    ]
+    ],
+    "topic_no": 1,
+    "topic_ko": "보호구 착용 (종류별 정의)",
+    "topic_id": "Memakai APD (Definisi Jenis APD)",
+    "phase_key": "before",
+    "phase_ko": "작업 전",
+    "phase_id": "Sebelum Bekerja",
+    "level_mark": "①",
+    "level_desc": "Level 1 (Dasar)",
+    "topic": "Topik 1: 보호구 착용 (Pengenalan Jenis APD)"
   },
   {
     "id": "safety_09",
@@ -1247,7 +1346,16 @@
         "id": "Menyaring bau dan gas kimia beracun.",
         "audio": "/audio/tts/options/safety_09_opt_2.mp3"
       }
-    ]
+    ],
+    "topic_no": 1,
+    "topic_ko": "보호구 착용 (종류별 정의)",
+    "topic_id": "Memakai APD (Definisi Jenis APD)",
+    "phase_key": "before",
+    "phase_ko": "작업 전",
+    "phase_id": "Sebelum Bekerja",
+    "level_mark": "①",
+    "level_desc": "Level 1 (Dasar)",
+    "topic": "Topik 1: 보호구 착용 (Pengenalan Jenis APD)"
   },
   {
     "id": "safety_10",
@@ -1286,7 +1394,16 @@
         "id": "Pakaian kerja yang melindungi badan dari panas dan api.",
         "audio": "/audio/tts/options/safety_10_opt_2.mp3"
       }
-    ]
+    ],
+    "topic_no": 1,
+    "topic_ko": "보호구 착용 (종류별 정의)",
+    "topic_id": "Memakai APD (Definisi Jenis APD)",
+    "phase_key": "before",
+    "phase_ko": "작업 전",
+    "phase_id": "Sebelum Bekerja",
+    "level_mark": "①",
+    "level_desc": "Level 1 (Dasar)",
+    "topic": "Topik 1: 보호구 착용 (Pengenalan Jenis APD)"
   },
   {
     "id": "safety_11",
@@ -1325,7 +1442,16 @@
         "id": "Pakaian kerja untuk area dingin seperti gudang beku.",
         "audio": "/audio/tts/options/safety_11_opt_2.mp3"
       }
-    ]
+    ],
+    "topic_no": 1,
+    "topic_ko": "보호구 착용 (종류별 정의)",
+    "topic_id": "Memakai APD (Definisi Jenis APD)",
+    "phase_key": "before",
+    "phase_ko": "작업 전",
+    "phase_id": "Sebelum Bekerja",
+    "level_mark": "①",
+    "level_desc": "Level 1 (Dasar)",
+    "topic": "Topik 1: 보호구 착용 (Pengenalan Jenis APD)"
   },
   {
     "id": "safety_19",
@@ -1364,7 +1490,16 @@
         "id": "Rambu peringatan untuk keselamatan kerja.",
         "audio": "/audio/tts/options/safety_19_opt_2.mp3"
       }
-    ]
+    ],
+    "topic_no": 1,
+    "topic_ko": "보호구 착용 (종류별 정의)",
+    "topic_id": "Memakai APD (Definisi Jenis APD)",
+    "phase_key": "before",
+    "phase_ko": "작업 전",
+    "phase_id": "Sebelum Bekerja",
+    "level_mark": "①",
+    "level_desc": "Level 1 (Dasar)",
+    "topic": "Topik 1: 보호구 착용 (Pengenalan Jenis APD)"
   },
   {
     "id": "safety_30",
@@ -1403,7 +1538,16 @@
         "id": "Memakai masker gas dan sarung tangan tahan kimia.",
         "audio": "/audio/tts/options/safety_30_opt_2.mp3"
       }
-    ]
+    ],
+    "topic_no": 1,
+    "topic_ko": "보호구 착용 (종류별 정의)",
+    "topic_id": "Memakai APD (Definisi Jenis APD)",
+    "phase_key": "before",
+    "phase_ko": "작업 전",
+    "phase_id": "Sebelum Bekerja",
+    "level_mark": "①",
+    "level_desc": "Level 1 (Dasar)",
+    "topic": "Topik 1: 보호구 착용 (Pengenalan Jenis APD)"
   },
   {
     "id": "safety_15",
@@ -1442,7 +1586,16 @@
         "id": "Pintu keluar saat terjadi kecelakaan atau kebakaran.",
         "audio": "/audio/tts/options/safety_15_opt_2.mp3"
       }
-    ]
+    ],
+    "topic_no": 2,
+    "topic_ko": "비상구 등 대피로 확인",
+    "topic_id": "Memeriksa pintu darurat dan jalur evakuasi",
+    "phase_key": "before",
+    "phase_ko": "작업 전",
+    "phase_id": "Sebelum Bekerja",
+    "level_mark": "①",
+    "level_desc": "Level 1 (Dasar)",
+    "topic": "Topik 2: 비상구 등 대피로 확인 (Memeriksa pintu darurat dan jalur evakuasi)"
   },
   {
     "id": "safety_16",
@@ -1481,7 +1634,16 @@
         "id": "Jalur evakuasi saat darurat.",
         "audio": "/audio/tts/options/safety_16_opt_2.mp3"
       }
-    ]
+    ],
+    "topic_no": 2,
+    "topic_ko": "비상구 등 대피로 확인",
+    "topic_id": "Memeriksa pintu darurat dan jalur evakuasi",
+    "phase_key": "before",
+    "phase_ko": "작업 전",
+    "phase_id": "Sebelum Bekerja",
+    "level_mark": "①",
+    "level_desc": "Level 1 (Dasar)",
+    "topic": "Topik 2: 비상구 등 대피로 확인 (Memeriksa pintu darurat dan jalur evakuasi)"
   },
   {
     "id": "safety_17",
@@ -1520,7 +1682,16 @@
         "id": "Agar bisa segera evakuasi saat keadaan darurat.",
         "audio": "/audio/tts/options/safety_17_opt_2.mp3"
       }
-    ]
+    ],
+    "topic_no": 2,
+    "topic_ko": "비상구 등 대피로 확인",
+    "topic_id": "Memeriksa pintu darurat dan jalur evakuasi",
+    "phase_key": "before",
+    "phase_ko": "작업 전",
+    "phase_id": "Sebelum Bekerja",
+    "level_mark": "②",
+    "level_desc": "Level 2 (Menengah)",
+    "topic": "Topik 2: 비상구 등 대피로 확인 (Memeriksa pintu darurat dan jalur evakuasi)"
   },
   {
     "id": "safety_18",
@@ -1559,7 +1730,16 @@
         "id": "Alat memadamkan kebakaran dan berwarna merah.",
         "audio": "/audio/tts/options/safety_18_opt_2.mp3"
       }
-    ]
+    ],
+    "topic_no": 2,
+    "topic_ko": "비상구 등 대피로 확인",
+    "topic_id": "Memeriksa pintu darurat dan jalur evakuasi",
+    "phase_key": "before",
+    "phase_ko": "작업 전",
+    "phase_id": "Sebelum Bekerja",
+    "level_mark": "②",
+    "level_desc": "Level 2 (Menengah)",
+    "topic": "Topik 2: 비상구 등 대피로 확인 (Memeriksa pintu darurat dan jalur evakuasi)"
   },
   {
     "id": "safety_31",
@@ -1592,7 +1772,16 @@
         "id": "Tanda visual yang memberi tahu bahaya.",
         "audio": "/audio/tts/k3/safety_31_s.mp3"
       }
-    ]
+    ],
+    "topic_no": 3,
+    "topic_ko": "안전보건표지 확인",
+    "topic_id": "Memeriksa rambu keselamatan dan kesehatan",
+    "phase_key": "before",
+    "phase_ko": "작업 전",
+    "phase_id": "Sebelum Bekerja",
+    "level_mark": "①",
+    "level_desc": "Level 1 (Dasar)",
+    "topic": "Topik 3: 안전보건표지 확인 (Memeriksa rambu keselamatan dan kesehatan)"
   },
   {
     "id": "safety_20",
@@ -1631,7 +1820,16 @@
         "id": "Ada rambu larangan, peringatan, dan instruksi APD.",
         "audio": "/audio/tts/options/safety_20_opt_2.mp3"
       }
-    ]
+    ],
+    "topic_no": 3,
+    "topic_ko": "안전보건표지 확인",
+    "topic_id": "Memeriksa rambu keselamatan dan kesehatan",
+    "phase_key": "before",
+    "phase_ko": "작업 전",
+    "phase_id": "Sebelum Bekerja",
+    "level_mark": "②",
+    "level_desc": "Level 2 (Menengah)",
+    "topic": "Topik 3: 안전보건표지 확인 (Memeriksa rambu keselamatan dan kesehatan)"
   },
   {
     "id": "safety_21",
@@ -1670,7 +1868,16 @@
         "id": "Untuk memahami faktor bahaya tempat kerja.",
         "audio": "/audio/tts/options/safety_21_opt_2.mp3"
       }
-    ]
+    ],
+    "topic_no": 3,
+    "topic_ko": "안전보건표지 확인",
+    "topic_id": "Memeriksa rambu keselamatan dan kesehatan",
+    "phase_key": "before",
+    "phase_ko": "작업 전",
+    "phase_id": "Sebelum Bekerja",
+    "level_mark": "②",
+    "level_desc": "Level 2 (Menengah)",
+    "topic": "Topik 3: 안전보건표지 확인 (Memeriksa rambu keselamatan dan kesehatan)"
   },
   {
     "id": "safety_22",
@@ -1709,7 +1916,16 @@
         "id": "Lingkaran merah dan garis silang merah.",
         "audio": "/audio/tts/options/safety_22_opt_2.mp3"
       }
-    ]
+    ],
+    "topic_no": 3,
+    "topic_ko": "안전보건표지 확인",
+    "topic_id": "Memeriksa rambu keselamatan dan kesehatan",
+    "phase_key": "before",
+    "phase_ko": "작업 전",
+    "phase_id": "Sebelum Bekerja",
+    "level_mark": "③",
+    "level_desc": "Level 3 (Lanjutan)",
+    "topic": "Topik 3: 안전보건표지 확인 (Memeriksa rambu keselamatan dan kesehatan)"
   },
   {
     "id": "safety_23",
@@ -1748,7 +1964,16 @@
         "id": "Penutup atau sensor mesin pelindung pekerja.",
         "audio": "/audio/tts/options/safety_23_opt_2.mp3"
       }
-    ]
+    ],
+    "topic_no": 4,
+    "topic_ko": "방호장치 정상 작동 여부 확인",
+    "topic_id": "Memeriksa alat pengaman berfungsi normal",
+    "phase_key": "before",
+    "phase_ko": "작업 전",
+    "phase_id": "Sebelum Bekerja",
+    "level_mark": "①",
+    "level_desc": "Level 1 (Dasar)",
+    "topic": "Topik 4: 방호장치 정상 작동 여부 확인 (Memeriksa alat pengaman berfungsi normal)"
   },
   {
     "id": "safety_24",
@@ -1787,7 +2012,16 @@
         "id": "Beroperasi dengan benar tanpa masalah.",
         "audio": "/audio/tts/options/safety_24_opt_2.mp3"
       }
-    ]
+    ],
+    "topic_no": 4,
+    "topic_ko": "방호장치 정상 작동 여부 확인",
+    "topic_id": "Memeriksa alat pengaman berfungsi normal",
+    "phase_key": "before",
+    "phase_ko": "작업 전",
+    "phase_id": "Sebelum Bekerja",
+    "level_mark": "②",
+    "level_desc": "Level 2 (Menengah)",
+    "topic": "Topik 4: 방호장치 정상 작동 여부 확인 (Memeriksa alat pengaman berfungsi normal)"
   },
   {
     "id": "safety_25",
@@ -1826,7 +2060,16 @@
         "id": "Untuk mencegah kecelakaan terjepit atau tersengat listrik.",
         "audio": "/audio/tts/options/safety_25_opt_2.mp3"
       }
-    ]
+    ],
+    "topic_no": 4,
+    "topic_ko": "방호장치 정상 작동 여부 확인",
+    "topic_id": "Memeriksa alat pengaman berfungsi normal",
+    "phase_key": "before",
+    "phase_ko": "작업 전",
+    "phase_id": "Sebelum Bekerja",
+    "level_mark": "②",
+    "level_desc": "Level 2 (Menengah)",
+    "topic": "Topik 4: 방호장치 정상 작동 여부 확인 (Memeriksa alat pengaman berfungsi normal)"
   },
   {
     "id": "safety_26",
@@ -1865,7 +2108,16 @@
         "id": "Memeriksa keselamatan mesin dan alat sebelum kerja.",
         "audio": "/audio/tts/options/safety_26_opt_2.mp3"
       }
-    ]
+    ],
+    "topic_no": 4,
+    "topic_ko": "방호장치 정상 작동 여부 확인",
+    "topic_id": "Memeriksa alat pengaman berfungsi normal",
+    "phase_key": "before",
+    "phase_ko": "작업 전",
+    "phase_id": "Sebelum Bekerja",
+    "level_mark": "③",
+    "level_desc": "Level 3 (Lanjutan)",
+    "topic": "Topik 4: 방호장치 정상 작동 여부 확인 (Memeriksa alat pengaman berfungsi normal)"
   },
   {
     "id": "safety_27",
@@ -1904,7 +2156,16 @@
         "id": "Cairan atau gas berbahaya yang dipakai di pabrik.",
         "audio": "/audio/tts/options/safety_27_opt_2.mp3"
       }
-    ]
+    ],
+    "topic_no": 15,
+    "topic_ko": "화학물질 작업 시 환기장치 가동",
+    "topic_id": "Menyalakan ventilasi saat bekerja dengan bahan kimia",
+    "phase_key": "during",
+    "phase_ko": "작업 중",
+    "phase_id": "Saat Bekerja",
+    "level_mark": "②",
+    "level_desc": "Level 2 (Menengah)",
+    "topic": "Topik 15: 화학물질 작업 시 환기장치 가동 (Menyalakan ventilasi saat bekerja dengan bahan kimia)"
   },
   {
     "id": "safety_28",
@@ -1943,7 +2204,16 @@
         "id": "Panduan berisi bahaya bahan kimia dan P3K-nya.",
         "audio": "/audio/tts/options/safety_28_opt_2.mp3"
       }
-    ]
+    ],
+    "topic_no": 5,
+    "topic_ko": "화학물질 MSDS(물질안전보건자료) 확인",
+    "topic_id": "Memeriksa MSDS (lembar data keselamatan bahan) bahan kimia",
+    "phase_key": "before",
+    "phase_ko": "작업 전",
+    "phase_id": "Sebelum Bekerja",
+    "level_mark": "①",
+    "level_desc": "Level 1 (Dasar)",
+    "topic": "Topik 5: 화학물질 MSDS(물질안전보건자료) 확인 (Memeriksa MSDS (lembar data keselamatan bahan) bahan kimia)"
   },
   {
     "id": "safety_29",
@@ -1982,7 +2252,16 @@
         "id": "Agar bisa menangani bahan kimia dengan aman.",
         "audio": "/audio/tts/options/safety_29_opt_2.mp3"
       }
-    ]
+    ],
+    "topic_no": 5,
+    "topic_ko": "화학물질 MSDS(물질안전보건자료) 확인",
+    "topic_id": "Memeriksa MSDS (lembar data keselamatan bahan) bahan kimia",
+    "phase_key": "before",
+    "phase_ko": "작업 전",
+    "phase_id": "Sebelum Bekerja",
+    "level_mark": "②",
+    "level_desc": "Level 2 (Menengah)",
+    "topic": "Topik 5: 화학물질 MSDS(물질안전보건자료) 확인 (Memeriksa MSDS (lembar data keselamatan bahan) bahan kimia)"
   },
   {
     "id": "safety_32",
@@ -2015,7 +2294,16 @@
         "id": "Siapkan masker gas dan sarung tangan pelindung.",
         "audio": "/audio/tts/k3/safety_32_s.mp3"
       }
-    ]
+    ],
+    "topic_no": 5,
+    "topic_ko": "화학물질 MSDS(물질안전보건자료) 확인",
+    "topic_id": "Memeriksa MSDS (lembar data keselamatan bahan) bahan kimia",
+    "phase_key": "before",
+    "phase_ko": "작업 전",
+    "phase_id": "Sebelum Bekerja",
+    "level_mark": "②",
+    "level_desc": "Level 2 (Menengah)",
+    "topic": "Topik 5: 화학물질 MSDS(물질안전보건자료) 확인 (Memeriksa MSDS (lembar data keselamatan bahan) bahan kimia)"
   },
   {
     "id": "safety_33",
@@ -2048,7 +2336,16 @@
         "id": "Ruang dengan udara kurang dan berbahaya.",
         "audio": "/audio/tts/k3/safety_33_s.mp3"
       }
-    ]
+    ],
+    "topic_no": 6,
+    "topic_ko": "밀폐공간 작업 전 환기",
+    "topic_id": "Ventilasi sebelum bekerja di ruang tertutup",
+    "phase_key": "before",
+    "phase_ko": "작업 전",
+    "phase_id": "Sebelum Bekerja",
+    "level_mark": "①",
+    "level_desc": "Level 1 (Dasar)",
+    "topic": "Topik 6: 밀폐공간 작업 전 환기 (Ventilasi sebelum bekerja di ruang tertutup)"
   },
   {
     "id": "safety_34",
@@ -2081,7 +2378,16 @@
         "id": "Mengganti udara kotor dengan udara bersih.",
         "audio": "/audio/tts/k3/safety_34_s.mp3"
       }
-    ]
+    ],
+    "topic_no": 6,
+    "topic_ko": "밀폐공간 작업 전 환기",
+    "topic_id": "Ventilasi sebelum bekerja di ruang tertutup",
+    "phase_key": "before",
+    "phase_ko": "작업 전",
+    "phase_id": "Sebelum Bekerja",
+    "level_mark": "①",
+    "level_desc": "Level 1 (Dasar)",
+    "topic": "Topik 6: 밀폐공간 작업 전 환기 (Ventilasi sebelum bekerja di ruang tertutup)"
   },
   {
     "id": "safety_35",
@@ -2114,7 +2420,16 @@
         "id": "Pekerja bisa meninggal karena gas atau kurang oksigen.",
         "audio": "/audio/tts/k3/safety_35_s.mp3"
       }
-    ]
+    ],
+    "topic_no": 6,
+    "topic_ko": "밀폐공간 작업 전 환기",
+    "topic_id": "Ventilasi sebelum bekerja di ruang tertutup",
+    "phase_key": "before",
+    "phase_ko": "작업 전",
+    "phase_id": "Sebelum Bekerja",
+    "level_mark": "②",
+    "level_desc": "Level 2 (Menengah)",
+    "topic": "Topik 6: 밀폐공간 작업 전 환기 (Ventilasi sebelum bekerja di ruang tertutup)"
   },
   {
     "id": "safety_36",
@@ -2147,7 +2462,16 @@
         "id": "Menjalankan mesin secara nyata.",
         "audio": "/audio/tts/k3/safety_36_s.mp3"
       }
-    ]
+    ],
+    "topic_no": 7,
+    "topic_ko": "가동 중인 기계 정비 금지",
+    "topic_id": "Dilarang memperbaiki mesin yang sedang beroperasi",
+    "phase_key": "during",
+    "phase_ko": "작업 중",
+    "phase_id": "Saat Bekerja",
+    "level_mark": "②",
+    "level_desc": "Level 2 (Menengah)",
+    "topic": "Topik 7: 가동 중인 기계 정비 금지 (Dilarang memperbaiki mesin yang sedang beroperasi)"
   },
   {
     "id": "safety_37",
@@ -2180,7 +2504,16 @@
         "id": "Pekerjaan memperbaiki mesin dan mengganti komponen.",
         "audio": "/audio/tts/k3/safety_37_s.mp3"
       }
-    ]
+    ],
+    "topic_no": 7,
+    "topic_ko": "가동 중인 기계 정비 금지",
+    "topic_id": "Dilarang memperbaiki mesin yang sedang beroperasi",
+    "phase_key": "during",
+    "phase_ko": "작업 중",
+    "phase_id": "Saat Bekerja",
+    "level_mark": "②",
+    "level_desc": "Level 2 (Menengah)",
+    "topic": "Topik 7: 가동 중인 기계 정비 금지 (Dilarang memperbaiki mesin yang sedang beroperasi)"
   },
   {
     "id": "safety_38",
@@ -2213,7 +2546,16 @@
         "id": "Jika mesin tiba-tiba bekerja, bisa terjadi kecelakaan.",
         "audio": "/audio/tts/k3/safety_38_s.mp3"
       }
-    ]
+    ],
+    "topic_no": 7,
+    "topic_ko": "가동 중인 기계 정비 금지",
+    "topic_id": "Dilarang memperbaiki mesin yang sedang beroperasi",
+    "phase_key": "during",
+    "phase_ko": "작업 중",
+    "phase_id": "Saat Bekerja",
+    "level_mark": "②",
+    "level_desc": "Level 2 (Menengah)",
+    "topic": "Topik 7: 가동 중인 기계 정비 금지 (Dilarang memperbaiki mesin yang sedang beroperasi)"
   },
   {
     "id": "safety_39",
@@ -2246,7 +2588,16 @@
         "id": "Jangan disentuh sembarangan, lapor ke atasan.",
         "audio": "/audio/tts/k3/safety_39_s.mp3"
       }
-    ]
+    ],
+    "topic_no": 7,
+    "topic_ko": "가동 중인 기계 정비 금지",
+    "topic_id": "Dilarang memperbaiki mesin yang sedang beroperasi",
+    "phase_key": "during",
+    "phase_ko": "작업 중",
+    "phase_id": "Saat Bekerja",
+    "level_mark": "③",
+    "level_desc": "Level 3 (Lanjutan)",
+    "topic": "Topik 7: 가동 중인 기계 정비 금지 (Dilarang memperbaiki mesin yang sedang beroperasi)"
   },
   {
     "id": "safety_40",
@@ -2279,7 +2630,16 @@
         "id": "Peralatan yang cara pakainya tidak diketahui.",
         "audio": "/audio/tts/k3/safety_40_s.mp3"
       }
-    ]
+    ],
+    "topic_no": 8,
+    "topic_ko": "모르는 기계 임의 조작 금지",
+    "topic_id": "Dilarang mengoperasikan mesin yang tidak dikenal sembarangan",
+    "phase_key": "during",
+    "phase_ko": "작업 중",
+    "phase_id": "Saat Bekerja",
+    "level_mark": "②",
+    "level_desc": "Level 2 (Menengah)",
+    "topic": "Topik 8: 모르는 기계 임의 조작 금지 (Dilarang mengoperasikan mesin yang tidak dikenal sembarangan)"
   },
   {
     "id": "safety_41",
@@ -2312,7 +2672,16 @@
         "id": "Mengoperasikan sesuka hati tanpa izin.",
         "audio": "/audio/tts/k3/safety_41_s.mp3"
       }
-    ]
+    ],
+    "topic_no": 8,
+    "topic_ko": "모르는 기계 임의 조작 금지",
+    "topic_id": "Dilarang mengoperasikan mesin yang tidak dikenal sembarangan",
+    "phase_key": "during",
+    "phase_ko": "작업 중",
+    "phase_id": "Saat Bekerja",
+    "level_mark": "②",
+    "level_desc": "Level 2 (Menengah)",
+    "topic": "Topik 8: 모르는 기계 임의 조작 금지 (Dilarang mengoperasikan mesin yang tidak dikenal sembarangan)"
   },
   {
     "id": "safety_42",
@@ -2345,7 +2714,16 @@
         "id": "Jika mesin tiba-tiba bergerak, bisa terjadi kecelakaan.",
         "audio": "/audio/tts/k3/safety_42_s.mp3"
       }
-    ]
+    ],
+    "topic_no": 8,
+    "topic_ko": "모르는 기계 임의 조작 금지",
+    "topic_id": "Dilarang mengoperasikan mesin yang tidak dikenal sembarangan",
+    "phase_key": "during",
+    "phase_ko": "작업 중",
+    "phase_id": "Saat Bekerja",
+    "level_mark": "③",
+    "level_desc": "Level 3 (Lanjutan)",
+    "topic": "Topik 8: 모르는 기계 임의 조작 금지 (Dilarang mengoperasikan mesin yang tidak dikenal sembarangan)"
   },
   {
     "id": "safety_43",
@@ -2378,7 +2756,16 @@
         "id": "Tombol untuk menghentikan mesin dengan cepat.",
         "audio": "/audio/tts/k3/safety_43_s.mp3"
       }
-    ]
+    ],
+    "topic_no": 8,
+    "topic_ko": "모르는 기계 임의 조작 금지",
+    "topic_id": "Dilarang mengoperasikan mesin yang tidak dikenal sembarangan",
+    "phase_key": "during",
+    "phase_ko": "작업 중",
+    "phase_id": "Saat Bekerja",
+    "level_mark": "③",
+    "level_desc": "Level 3 (Lanjutan)",
+    "topic": "Topik 8: 모르는 기계 임의 조작 금지 (Dilarang mengoperasikan mesin yang tidak dikenal sembarangan)"
   },
   {
     "id": "safety_44",
@@ -2411,7 +2798,16 @@
         "id": "Perlengkapan pelindung yang dipasang untuk pekerja.",
         "audio": "/audio/tts/k3/safety_44_s.mp3"
       }
-    ]
+    ],
+    "topic_no": 9,
+    "topic_ko": "안전장치·시설 해체·해지 금지",
+    "topic_id": "Dilarang membongkar atau menonaktifkan alat dan fasilitas pengaman",
+    "phase_key": "during",
+    "phase_ko": "작업 중",
+    "phase_id": "Saat Bekerja",
+    "level_mark": "①",
+    "level_desc": "Level 1 (Dasar)",
+    "topic": "Topik 9: 안전장치·시설 해체·해지 금지 (Dilarang membongkar atau menonaktifkan alat dan fasilitas pengaman)"
   },
   {
     "id": "safety_45",
@@ -2444,7 +2840,16 @@
         "id": "Melepas atau menghentikan fungsi pengaman.",
         "audio": "/audio/tts/k3/safety_45_s.mp3"
       }
-    ]
+    ],
+    "topic_no": 9,
+    "topic_ko": "안전장치·시설 해체·해지 금지",
+    "topic_id": "Dilarang membongkar atau menonaktifkan alat dan fasilitas pengaman",
+    "phase_key": "during",
+    "phase_ko": "작업 중",
+    "phase_id": "Saat Bekerja",
+    "level_mark": "①",
+    "level_desc": "Level 1 (Dasar)",
+    "topic": "Topik 9: 안전장치·시설 해체·해지 금지 (Dilarang membongkar atau menonaktifkan alat dan fasilitas pengaman)"
   },
   {
     "id": "safety_46",
@@ -2477,7 +2882,16 @@
         "id": "Karena tidak bisa lagi mencegah kecelakaan.",
         "audio": "/audio/tts/k3/safety_46_s.mp3"
       }
-    ]
+    ],
+    "topic_no": 9,
+    "topic_ko": "안전장치·시설 해체·해지 금지",
+    "topic_id": "Dilarang membongkar atau menonaktifkan alat dan fasilitas pengaman",
+    "phase_key": "during",
+    "phase_ko": "작업 중",
+    "phase_id": "Saat Bekerja",
+    "level_mark": "③",
+    "level_desc": "Level 3 (Lanjutan)",
+    "topic": "Topik 9: 안전장치·시설 해체·해지 금지 (Dilarang membongkar atau menonaktifkan alat dan fasilitas pengaman)"
   },
   {
     "id": "safety_47",
@@ -2510,7 +2924,16 @@
         "id": "Bisa terjepit mesin.",
         "audio": "/audio/tts/k3/safety_47_s.mp3"
       }
-    ]
+    ],
+    "topic_no": 9,
+    "topic_ko": "안전장치·시설 해체·해지 금지",
+    "topic_id": "Dilarang membongkar atau menonaktifkan alat dan fasilitas pengaman",
+    "phase_key": "during",
+    "phase_ko": "작업 중",
+    "phase_id": "Saat Bekerja",
+    "level_mark": "③",
+    "level_desc": "Level 3 (Lanjutan)",
+    "topic": "Topik 9: 안전장치·시설 해체·해지 금지 (Dilarang membongkar atau menonaktifkan alat dan fasilitas pengaman)"
   },
   {
     "id": "safety_48",
@@ -2543,7 +2966,16 @@
         "id": "Menetapkan secara resmi untuk mencegah kecelakaan.",
         "audio": "/audio/tts/k3/safety_48_s.mp3"
       }
-    ]
+    ],
+    "topic_no": 10,
+    "topic_ko": "지정된 보조 도구·공구 사용",
+    "topic_id": "Menggunakan alat bantu dan perkakas yang ditentukan",
+    "phase_key": "during",
+    "phase_ko": "작업 중",
+    "phase_id": "Saat Bekerja",
+    "level_mark": "②",
+    "level_desc": "Level 2 (Menengah)",
+    "topic": "Topik 10: 지정된 보조 도구·공구 사용 (Menggunakan alat bantu dan perkakas yang ditentukan)"
   },
   {
     "id": "safety_49",
@@ -2576,7 +3008,16 @@
         "id": "Peralatan pelengkap untuk mencegah kecelakaan.",
         "audio": "/audio/tts/k3/safety_49_s.mp3"
       }
-    ]
+    ],
+    "topic_no": 10,
+    "topic_ko": "지정된 보조 도구·공구 사용",
+    "topic_id": "Menggunakan alat bantu dan perkakas yang ditentukan",
+    "phase_key": "during",
+    "phase_ko": "작업 중",
+    "phase_id": "Saat Bekerja",
+    "level_mark": "②",
+    "level_desc": "Level 2 (Menengah)",
+    "topic": "Topik 10: 지정된 보조 도구·공구 사용 (Menggunakan alat bantu dan perkakas yang ditentukan)"
   },
   {
     "id": "safety_50",
@@ -2609,7 +3050,16 @@
         "id": "Karena memakai tidak sesuai kegunaan itu berbahaya.",
         "audio": "/audio/tts/k3/safety_50_s.mp3"
       }
-    ]
+    ],
+    "topic_no": 10,
+    "topic_ko": "지정된 보조 도구·공구 사용",
+    "topic_id": "Menggunakan alat bantu dan perkakas yang ditentukan",
+    "phase_key": "during",
+    "phase_ko": "작업 중",
+    "phase_id": "Saat Bekerja",
+    "level_mark": "③",
+    "level_desc": "Level 3 (Lanjutan)",
+    "topic": "Topik 10: 지정된 보조 도구·공구 사용 (Menggunakan alat bantu dan perkakas yang ditentukan)"
   },
   {
     "id": "safety_51",
@@ -2642,7 +3092,16 @@
         "id": "Untuk mencegah tangan terjepit.",
         "audio": "/audio/tts/k3/safety_51_s.mp3"
       }
-    ]
+    ],
+    "topic_no": 10,
+    "topic_ko": "지정된 보조 도구·공구 사용",
+    "topic_id": "Menggunakan alat bantu dan perkakas yang ditentukan",
+    "phase_key": "during",
+    "phase_ko": "작업 중",
+    "phase_id": "Saat Bekerja",
+    "level_mark": "③",
+    "level_desc": "Level 3 (Lanjutan)",
+    "topic": "Topik 10: 지정된 보조 도구·공구 사용 (Menggunakan alat bantu dan perkakas yang ditentukan)"
   },
   {
     "id": "safety_52",
@@ -2675,7 +3134,16 @@
         "id": "Mesin untuk memindahkan barang berat.",
         "audio": "/audio/tts/k3/safety_52_s.mp3"
       }
-    ]
+    ],
+    "topic_no": 11,
+    "topic_ko": "지게차 운전 시 안전벨트 착용 및 시야 확보",
+    "topic_id": "Memakai sabuk pengaman dan menjaga pandangan saat mengemudi forklift",
+    "phase_key": "during",
+    "phase_ko": "작업 중",
+    "phase_id": "Saat Bekerja",
+    "level_mark": "①",
+    "level_desc": "Level 1 (Dasar)",
+    "topic": "Topik 11: 지게차 운전 시 안전벨트 착용 및 시야 확보 (Memakai sabuk pengaman dan menjaga pandangan saat mengemudi forklift)"
   },
   {
     "id": "safety_53",
@@ -2708,7 +3176,16 @@
         "id": "Pelindung agar tubuh tidak terlempar.",
         "audio": "/audio/tts/k3/safety_53_s.mp3"
       }
-    ]
+    ],
+    "topic_no": 11,
+    "topic_ko": "지게차 운전 시 안전벨트 착용 및 시야 확보",
+    "topic_id": "Memakai sabuk pengaman dan menjaga pandangan saat mengemudi forklift",
+    "phase_key": "during",
+    "phase_ko": "작업 중",
+    "phase_id": "Saat Bekerja",
+    "level_mark": "①",
+    "level_desc": "Level 1 (Dasar)",
+    "topic": "Topik 11: 지게차 운전 시 안전벨트 착용 및 시야 확보 (Memakai sabuk pengaman dan menjaga pandangan saat mengemudi forklift)"
   },
   {
     "id": "safety_54",
@@ -2741,7 +3218,16 @@
         "id": "Mengemudi sambil melihat jelas ke segala arah.",
         "audio": "/audio/tts/k3/safety_54_s.mp3"
       }
-    ]
+    ],
+    "topic_no": 11,
+    "topic_ko": "지게차 운전 시 안전벨트 착용 및 시야 확보",
+    "topic_id": "Memakai sabuk pengaman dan menjaga pandangan saat mengemudi forklift",
+    "phase_key": "during",
+    "phase_ko": "작업 중",
+    "phase_id": "Saat Bekerja",
+    "level_mark": "②",
+    "level_desc": "Level 2 (Menengah)",
+    "topic": "Topik 11: 지게차 운전 시 안전벨트 착용 및 시야 확보 (Memakai sabuk pengaman dan menjaga pandangan saat mengemudi forklift)"
   },
   {
     "id": "safety_55",
@@ -2774,7 +3260,16 @@
         "id": "Bisa mencegah kecelakaan pengemudi dan rekan.",
         "audio": "/audio/tts/k3/safety_55_s.mp3"
       }
-    ]
+    ],
+    "topic_no": 11,
+    "topic_ko": "지게차 운전 시 안전벨트 착용 및 시야 확보",
+    "topic_id": "Memakai sabuk pengaman dan menjaga pandangan saat mengemudi forklift",
+    "phase_key": "during",
+    "phase_ko": "작업 중",
+    "phase_id": "Saat Bekerja",
+    "level_mark": "②",
+    "level_desc": "Level 2 (Menengah)",
+    "topic": "Topik 11: 지게차 운전 시 안전벨트 착용 및 시야 확보 (Memakai sabuk pengaman dan menjaga pandangan saat mengemudi forklift)"
   },
   {
     "id": "safety_56",
@@ -2807,7 +3302,16 @@
         "id": "Hanya orang berkualifikasi yang boleh mengemudi.",
         "audio": "/audio/tts/k3/safety_56_s.mp3"
       }
-    ]
+    ],
+    "topic_no": 11,
+    "topic_ko": "지게차 운전 시 안전벨트 착용 및 시야 확보",
+    "topic_id": "Memakai sabuk pengaman dan menjaga pandangan saat mengemudi forklift",
+    "phase_key": "during",
+    "phase_ko": "작업 중",
+    "phase_id": "Saat Bekerja",
+    "level_mark": "③",
+    "level_desc": "Level 3 (Lanjutan)",
+    "topic": "Topik 11: 지게차 운전 시 안전벨트 착용 및 시야 확보 (Memakai sabuk pengaman dan menjaga pandangan saat mengemudi forklift)"
   },
   {
     "id": "safety_57",
@@ -2840,7 +3344,16 @@
         "id": "Pekerjaan yang kemungkinan kecelakaannya tinggi.",
         "audio": "/audio/tts/k3/safety_57_s.mp3"
       }
-    ]
+    ],
+    "topic_no": 12,
+    "topic_ko": "위험작업은 2인1조 작업",
+    "topic_id": "Pekerjaan berbahaya dilakukan berdua",
+    "phase_key": "during",
+    "phase_ko": "작업 중",
+    "phase_id": "Saat Bekerja",
+    "level_mark": "②",
+    "level_desc": "Level 2 (Menengah)",
+    "topic": "Topik 12: 위험작업은 2인1조 작업 (Pekerjaan berbahaya dilakukan berdua)"
   },
   {
     "id": "safety_58",
@@ -2873,7 +3386,16 @@
         "id": "Satu orang bekerja, satu orang mengawasi.",
         "audio": "/audio/tts/k3/safety_58_s.mp3"
       }
-    ]
+    ],
+    "topic_no": 12,
+    "topic_ko": "위험작업은 2인1조 작업",
+    "topic_id": "Pekerjaan berbahaya dilakukan berdua",
+    "phase_key": "during",
+    "phase_ko": "작업 중",
+    "phase_id": "Saat Bekerja",
+    "level_mark": "②",
+    "level_desc": "Level 2 (Menengah)",
+    "topic": "Topik 12: 위험작업은 2인1조 작업 (Pekerjaan berbahaya dilakukan berdua)"
   },
   {
     "id": "safety_59",
@@ -2906,7 +3428,16 @@
         "id": "Karena bisa langsung menolong dan menangani.",
         "audio": "/audio/tts/k3/safety_59_s.mp3"
       }
-    ]
+    ],
+    "topic_no": 12,
+    "topic_ko": "위험작업은 2인1조 작업",
+    "topic_id": "Pekerjaan berbahaya dilakukan berdua",
+    "phase_key": "during",
+    "phase_ko": "작업 중",
+    "phase_id": "Saat Bekerja",
+    "level_mark": "③",
+    "level_desc": "Level 3 (Lanjutan)",
+    "topic": "Topik 12: 위험작업은 2인1조 작업 (Pekerjaan berbahaya dilakukan berdua)"
   },
   {
     "id": "safety_60",
@@ -2939,7 +3470,16 @@
         "id": "Hanya pekerjaan ringan, satu orang memegang tangga.",
         "audio": "/audio/tts/k3/safety_60_s.mp3"
       }
-    ]
+    ],
+    "topic_no": 12,
+    "topic_ko": "위험작업은 2인1조 작업",
+    "topic_id": "Pekerjaan berbahaya dilakukan berdua",
+    "phase_key": "during",
+    "phase_ko": "작업 중",
+    "phase_id": "Saat Bekerja",
+    "level_mark": "③",
+    "level_desc": "Level 3 (Lanjutan)",
+    "topic": "Topik 12: 위험작업은 2인1조 작업 (Pekerjaan berbahaya dilakukan berdua)"
   },
   {
     "id": "safety_61",
@@ -2972,7 +3512,16 @@
         "id": "Mesin besar dan berat untuk pekerjaan besar.",
         "audio": "/audio/tts/k3/safety_61_s.mp3"
       }
-    ]
+    ],
+    "topic_no": 13,
+    "topic_ko": "중장비 작업구역 접근 금지",
+    "topic_id": "Dilarang mendekati area kerja alat berat",
+    "phase_key": "during",
+    "phase_ko": "작업 중",
+    "phase_id": "Saat Bekerja",
+    "level_mark": "②",
+    "level_desc": "Level 2 (Menengah)",
+    "topic": "Topik 13: 중장비 작업구역 접근 금지 (Dilarang mendekati area kerja alat berat)"
   },
   {
     "id": "safety_62",
@@ -3005,7 +3554,16 @@
         "id": "Area kerja yang berisiko terjadi kecelakaan.",
         "audio": "/audio/tts/k3/safety_62_s.mp3"
       }
-    ]
+    ],
+    "topic_no": 13,
+    "topic_ko": "중장비 작업구역 접근 금지",
+    "topic_id": "Dilarang mendekati area kerja alat berat",
+    "phase_key": "during",
+    "phase_ko": "작업 중",
+    "phase_id": "Saat Bekerja",
+    "level_mark": "②",
+    "level_desc": "Level 2 (Menengah)",
+    "topic": "Topik 13: 중장비 작업구역 접근 금지 (Dilarang mendekati area kerja alat berat)"
   },
   {
     "id": "safety_63",
@@ -3038,7 +3596,16 @@
         "id": "Karena banyak titik buta, risikonya sangat tinggi.",
         "audio": "/audio/tts/k3/safety_63_s.mp3"
       }
-    ]
+    ],
+    "topic_no": 13,
+    "topic_ko": "중장비 작업구역 접근 금지",
+    "topic_id": "Dilarang mendekati area kerja alat berat",
+    "phase_key": "during",
+    "phase_ko": "작업 중",
+    "phase_id": "Saat Bekerja",
+    "level_mark": "③",
+    "level_desc": "Level 3 (Lanjutan)",
+    "topic": "Topik 13: 중장비 작업구역 접근 금지 (Dilarang mendekati area kerja alat berat)"
   },
   {
     "id": "safety_64",
@@ -3071,7 +3638,16 @@
         "id": "Jangan mendekati area kerja alat berat.",
         "audio": "/audio/tts/k3/safety_64_s.mp3"
       }
-    ]
+    ],
+    "topic_no": 13,
+    "topic_ko": "중장비 작업구역 접근 금지",
+    "topic_id": "Dilarang mendekati area kerja alat berat",
+    "phase_key": "during",
+    "phase_ko": "작업 중",
+    "phase_id": "Saat Bekerja",
+    "level_mark": "③",
+    "level_desc": "Level 3 (Lanjutan)",
+    "topic": "Topik 13: 중장비 작업구역 접근 금지 (Dilarang mendekati area kerja alat berat)"
   },
   {
     "id": "safety_65",
@@ -3104,7 +3680,16 @@
         "id": "Bahan mudah terbakar bertemu api lalu terbakar.",
         "audio": "/audio/tts/k3/safety_65_s.mp3"
       }
-    ]
+    ],
+    "topic_no": 14,
+    "topic_ko": "화재 가능 물질 주변 화기 금지",
+    "topic_id": "Dilarang membawa api dekat bahan yang mudah terbakar",
+    "phase_key": "during",
+    "phase_ko": "작업 중",
+    "phase_id": "Saat Bekerja",
+    "level_mark": "①",
+    "level_desc": "Level 1 (Dasar)",
+    "topic": "Topik 14: 화재 가능 물질 주변 화기 금지 (Dilarang membawa api dekat bahan yang mudah terbakar)"
   },
   {
     "id": "safety_66",
@@ -3137,7 +3722,16 @@
         "id": "Semua alat yang bisa menimbulkan api atau panas.",
         "audio": "/audio/tts/k3/safety_66_s.mp3"
       }
-    ]
+    ],
+    "topic_no": 14,
+    "topic_ko": "화재 가능 물질 주변 화기 금지",
+    "topic_id": "Dilarang membawa api dekat bahan yang mudah terbakar",
+    "phase_key": "during",
+    "phase_ko": "작업 중",
+    "phase_id": "Saat Bekerja",
+    "level_mark": "②",
+    "level_desc": "Level 2 (Menengah)",
+    "topic": "Topik 14: 화재 가능 물질 주변 화기 금지 (Dilarang membawa api dekat bahan yang mudah terbakar)"
   },
   {
     "id": "safety_67",
@@ -3170,7 +3764,16 @@
         "id": "Karena risiko kebakaran sangat besar.",
         "audio": "/audio/tts/k3/safety_67_s.mp3"
       }
-    ]
+    ],
+    "topic_no": 14,
+    "topic_ko": "화재 가능 물질 주변 화기 금지",
+    "topic_id": "Dilarang membawa api dekat bahan yang mudah terbakar",
+    "phase_key": "during",
+    "phase_ko": "작업 중",
+    "phase_id": "Saat Bekerja",
+    "level_mark": "②",
+    "level_desc": "Level 2 (Menengah)",
+    "topic": "Topik 14: 화재 가능 물질 주변 화기 금지 (Dilarang membawa api dekat bahan yang mudah terbakar)"
   },
   {
     "id": "safety_68",
@@ -3203,7 +3806,16 @@
         "id": "Singkirkan benda mudah terbakar dulu.",
         "audio": "/audio/tts/k3/safety_68_s.mp3"
       }
-    ]
+    ],
+    "topic_no": 14,
+    "topic_ko": "화재 가능 물질 주변 화기 금지",
+    "topic_id": "Dilarang membawa api dekat bahan yang mudah terbakar",
+    "phase_key": "during",
+    "phase_ko": "작업 중",
+    "phase_id": "Saat Bekerja",
+    "level_mark": "③",
+    "level_desc": "Level 3 (Lanjutan)",
+    "topic": "Topik 14: 화재 가능 물질 주변 화기 금지 (Dilarang membawa api dekat bahan yang mudah terbakar)"
   },
   {
     "id": "safety_69",
@@ -3236,7 +3848,16 @@
         "id": "Padamkan dengan alat pemadam, jika tidak bisa, evakuasi.",
         "audio": "/audio/tts/k3/safety_69_s.mp3"
       }
-    ]
+    ],
+    "topic_no": 14,
+    "topic_ko": "화재 가능 물질 주변 화기 금지",
+    "topic_id": "Dilarang membawa api dekat bahan yang mudah terbakar",
+    "phase_key": "during",
+    "phase_ko": "작업 중",
+    "phase_id": "Saat Bekerja",
+    "level_mark": "③",
+    "level_desc": "Level 3 (Lanjutan)",
+    "topic": "Topik 14: 화재 가능 물질 주변 화기 금지 (Dilarang membawa api dekat bahan yang mudah terbakar)"
   },
   {
     "id": "safety_123",
@@ -3275,7 +3896,16 @@
         "id": "Cairan atau gas berbahaya yang dipakai di pabrik.",
         "audio": "/audio/tts/options/safety_27_opt_2.mp3"
       }
-    ]
+    ],
+    "topic_no": 15,
+    "topic_ko": "화학물질 작업 시 환기장치 가동",
+    "topic_id": "Menyalakan ventilasi saat bekerja dengan bahan kimia",
+    "phase_key": "during",
+    "phase_ko": "작업 중",
+    "phase_id": "Saat Bekerja",
+    "level_mark": "②",
+    "level_desc": "Level 2 (Menengah)",
+    "topic": "Topik 15: 화학물질 작업 시 환기장치 가동 (Menyalakan ventilasi saat bekerja dengan bahan kimia)"
   },
   {
     "id": "safety_70",
@@ -3308,7 +3938,16 @@
         "id": "Perlengkapan yang mengganti udara kotor dengan udara segar.",
         "audio": "/audio/tts/k3/safety_70_s.mp3"
       }
-    ]
+    ],
+    "topic_no": 15,
+    "topic_ko": "화학물질 작업 시 환기장치 가동",
+    "topic_id": "Menyalakan ventilasi saat bekerja dengan bahan kimia",
+    "phase_key": "during",
+    "phase_ko": "작업 중",
+    "phase_id": "Saat Bekerja",
+    "level_mark": "②",
+    "level_desc": "Level 2 (Menengah)",
+    "topic": "Topik 15: 화학물질 작업 시 환기장치 가동 (Menyalakan ventilasi saat bekerja dengan bahan kimia)"
   },
   {
     "id": "safety_71",
@@ -3341,7 +3980,16 @@
         "id": "Gas berbahaya yang tak terlihat harus dibuang keluar.",
         "audio": "/audio/tts/k3/safety_71_s.mp3"
       }
-    ]
+    ],
+    "topic_no": 15,
+    "topic_ko": "화학물질 작업 시 환기장치 가동",
+    "topic_id": "Menyalakan ventilasi saat bekerja dengan bahan kimia",
+    "phase_key": "during",
+    "phase_ko": "작업 중",
+    "phase_id": "Saat Bekerja",
+    "level_mark": "③",
+    "level_desc": "Level 3 (Lanjutan)",
+    "topic": "Topik 15: 화학물질 작업 시 환기장치 가동 (Menyalakan ventilasi saat bekerja dengan bahan kimia)"
   },
   {
     "id": "safety_72",
@@ -3374,7 +4022,16 @@
         "id": "Nyalakan ventilasi dan pakai alat pelindung.",
         "audio": "/audio/tts/k3/safety_72_s.mp3"
       }
-    ]
+    ],
+    "topic_no": 15,
+    "topic_ko": "화학물질 작업 시 환기장치 가동",
+    "topic_id": "Menyalakan ventilasi saat bekerja dengan bahan kimia",
+    "phase_key": "during",
+    "phase_ko": "작업 중",
+    "phase_id": "Saat Bekerja",
+    "level_mark": "③",
+    "level_desc": "Level 3 (Lanjutan)",
+    "topic": "Topik 15: 화학물질 작업 시 환기장치 가동 (Menyalakan ventilasi saat bekerja dengan bahan kimia)"
   },
   {
     "id": "safety_73",
@@ -3407,7 +4064,16 @@
         "id": "Ruang yang masuknya dibatasi karena berbahaya.",
         "audio": "/audio/tts/k3/safety_73_s.mp3"
       }
-    ]
+    ],
+    "topic_no": 16,
+    "topic_ko": "통제구역 허가 없이 출입 금지",
+    "topic_id": "Dilarang masuk ke area terkontrol tanpa izin",
+    "phase_key": "during",
+    "phase_ko": "작업 중",
+    "phase_id": "Saat Bekerja",
+    "level_mark": "②",
+    "level_desc": "Level 2 (Menengah)",
+    "topic": "Topik 16: 통제구역 허가 없이 출입 금지 (Dilarang masuk ke area terkontrol tanpa izin)"
   },
   {
     "id": "safety_74",
@@ -3440,7 +4106,16 @@
         "id": "Persetujuan untuk bekerja setelah kondisi keselamatan diperiksa.",
         "audio": "/audio/tts/k3/safety_74_s.mp3"
       }
-    ]
+    ],
+    "topic_no": 16,
+    "topic_ko": "통제구역 허가 없이 출입 금지",
+    "topic_id": "Dilarang masuk ke area terkontrol tanpa izin",
+    "phase_key": "during",
+    "phase_ko": "작업 중",
+    "phase_id": "Saat Bekerja",
+    "level_mark": "②",
+    "level_desc": "Level 2 (Menengah)",
+    "topic": "Topik 16: 통제구역 허가 없이 출입 금지 (Dilarang masuk ke area terkontrol tanpa izin)"
   },
   {
     "id": "safety_75",
@@ -3473,7 +4148,16 @@
         "id": "Area ini lebih berbahaya dari area biasa, jadi jangan masuk tanpa izin.",
         "audio": "/audio/tts/k3/safety_75_s.mp3"
       }
-    ]
+    ],
+    "topic_no": 16,
+    "topic_ko": "통제구역 허가 없이 출입 금지",
+    "topic_id": "Dilarang masuk ke area terkontrol tanpa izin",
+    "phase_key": "during",
+    "phase_ko": "작업 중",
+    "phase_id": "Saat Bekerja",
+    "level_mark": "③",
+    "level_desc": "Level 3 (Lanjutan)",
+    "topic": "Topik 16: 통제구역 허가 없이 출입 금지 (Dilarang masuk ke area terkontrol tanpa izin)"
   },
   {
     "id": "safety_76",
@@ -3506,7 +4190,16 @@
         "id": "Tempat berbahaya yang tidak boleh dimasuki sembarang orang.",
         "audio": "/audio/tts/k3/safety_76_s.mp3"
       }
-    ]
+    ],
+    "topic_no": 16,
+    "topic_ko": "통제구역 허가 없이 출입 금지",
+    "topic_id": "Dilarang masuk ke area terkontrol tanpa izin",
+    "phase_key": "during",
+    "phase_ko": "작업 중",
+    "phase_id": "Saat Bekerja",
+    "level_mark": "③",
+    "level_desc": "Level 3 (Lanjutan)",
+    "topic": "Topik 16: 통제구역 허가 없이 출입 금지 (Dilarang masuk ke area terkontrol tanpa izin)"
   },
   {
     "id": "safety_77",
@@ -3539,7 +4232,16 @@
         "id": "Benda yang berat dan sulit dipindahkan.",
         "audio": "/audio/tts/k3/safety_77_s.mp3"
       }
-    ]
+    ],
+    "topic_no": 17,
+    "topic_ko": "중량물 들기는 허리 펴고 다리 힘을 이용",
+    "topic_id": "Mengangkat beban berat: luruskan pinggang, gunakan kekuatan kaki",
+    "phase_key": "during",
+    "phase_ko": "작업 중",
+    "phase_id": "Saat Bekerja",
+    "level_mark": "②",
+    "level_desc": "Level 2 (Menengah)",
+    "topic": "Topik 17: 중량물 들기는 허리 펴고 다리 힘을 이용 (Mengangkat beban berat: luruskan pinggang, gunakan kekuatan kaki)"
   },
   {
     "id": "safety_78",
@@ -3572,7 +4274,16 @@
         "id": "Karena memakai kekuatan kaki, pinggang tidak cedera.",
         "audio": "/audio/tts/k3/safety_78_s.mp3"
       }
-    ]
+    ],
+    "topic_no": 17,
+    "topic_ko": "중량물 들기는 허리 펴고 다리 힘을 이용",
+    "topic_id": "Mengangkat beban berat: luruskan pinggang, gunakan kekuatan kaki",
+    "phase_key": "during",
+    "phase_ko": "작업 중",
+    "phase_id": "Saat Bekerja",
+    "level_mark": "②",
+    "level_desc": "Level 2 (Menengah)",
+    "topic": "Topik 17: 중량물 들기는 허리 펴고 다리 힘을 이용 (Mengangkat beban berat: luruskan pinggang, gunakan kekuatan kaki)"
   },
   {
     "id": "safety_79",
@@ -3605,7 +4316,16 @@
         "id": "Angkat berdua atau pakai alat. Jika sendiri, pinggang lurus, pakai kaki.",
         "audio": "/audio/tts/k3/safety_79_s.mp3"
       }
-    ]
+    ],
+    "topic_no": 17,
+    "topic_ko": "중량물 들기는 허리 펴고 다리 힘을 이용",
+    "topic_id": "Mengangkat beban berat: luruskan pinggang, gunakan kekuatan kaki",
+    "phase_key": "during",
+    "phase_ko": "작업 중",
+    "phase_id": "Saat Bekerja",
+    "level_mark": "③",
+    "level_desc": "Level 3 (Lanjutan)",
+    "topic": "Topik 17: 중량물 들기는 허리 펴고 다리 힘을 이용 (Mengangkat beban berat: luruskan pinggang, gunakan kekuatan kaki)"
   },
   {
     "id": "safety_80",
@@ -3638,7 +4358,16 @@
         "id": "Memindahkan barang dari satu tempat ke tempat lain.",
         "audio": "/audio/tts/k3/safety_80_s.mp3"
       }
-    ]
+    ],
+    "topic_no": 18,
+    "topic_ko": "중량물 운반 시 운반기구 활용",
+    "topic_id": "Memakai alat angkut saat mengangkut beban berat",
+    "phase_key": "during",
+    "phase_ko": "작업 중",
+    "phase_id": "Saat Bekerja",
+    "level_mark": "①",
+    "level_desc": "Level 1 (Dasar)",
+    "topic": "Topik 18: 중량물 운반 시 운반기구 활용 (Memakai alat angkut saat mengangkut beban berat)"
   },
   {
     "id": "safety_81",
@@ -3671,7 +4400,16 @@
         "id": "Alat untuk memindahkan barang dengan aman.",
         "audio": "/audio/tts/k3/safety_81_s.mp3"
       }
-    ]
+    ],
+    "topic_no": 18,
+    "topic_ko": "중량물 운반 시 운반기구 활용",
+    "topic_id": "Memakai alat angkut saat mengangkut beban berat",
+    "phase_key": "during",
+    "phase_ko": "작업 중",
+    "phase_id": "Saat Bekerja",
+    "level_mark": "②",
+    "level_desc": "Level 2 (Menengah)",
+    "topic": "Topik 18: 중량물 운반 시 운반기구 활용 (Memakai alat angkut saat mengangkut beban berat)"
   },
   {
     "id": "safety_82",
@@ -3704,7 +4442,16 @@
         "id": "Mengangkat dengan tubuh berisiko membuat pinggang cedera.",
         "audio": "/audio/tts/k3/safety_82_s.mp3"
       }
-    ]
+    ],
+    "topic_no": 18,
+    "topic_ko": "중량물 운반 시 운반기구 활용",
+    "topic_id": "Memakai alat angkut saat mengangkut beban berat",
+    "phase_key": "during",
+    "phase_ko": "작업 중",
+    "phase_id": "Saat Bekerja",
+    "level_mark": "②",
+    "level_desc": "Level 2 (Menengah)",
+    "topic": "Topik 18: 중량물 운반 시 운반기구 활용 (Memakai alat angkut saat mengangkut beban berat)"
   },
   {
     "id": "safety_83",
@@ -3737,7 +4484,16 @@
         "id": "Gunakan alat angkut.",
         "audio": "/audio/tts/k3/safety_83_s.mp3"
       }
-    ]
+    ],
+    "topic_no": 18,
+    "topic_ko": "중량물 운반 시 운반기구 활용",
+    "topic_id": "Memakai alat angkut saat mengangkut beban berat",
+    "phase_key": "during",
+    "phase_ko": "작업 중",
+    "phase_id": "Saat Bekerja",
+    "level_mark": "③",
+    "level_desc": "Level 3 (Lanjutan)",
+    "topic": "Topik 18: 중량물 운반 시 운반기구 활용 (Memakai alat angkut saat mengangkut beban berat)"
   },
   {
     "id": "safety_84",
@@ -3770,7 +4526,16 @@
         "id": "Pindah posisi dari satu tempat ke tempat lain.",
         "audio": "/audio/tts/k3/safety_84_s.mp3"
       }
-    ]
+    ],
+    "topic_no": 19,
+    "topic_ko": "이동 시 안전통로 이용",
+    "topic_id": "Memakai jalur aman saat berpindah",
+    "phase_key": "during",
+    "phase_ko": "작업 중",
+    "phase_id": "Saat Bekerja",
+    "level_mark": "①",
+    "level_desc": "Level 1 (Dasar)",
+    "topic": "Topik 19: 이동 시 안전통로 이용 (Memakai jalur aman saat berpindah)"
   },
   {
     "id": "safety_85",
@@ -3803,7 +4568,16 @@
         "id": "Jalan yang dibuat agar bisa lewat dengan aman.",
         "audio": "/audio/tts/k3/safety_85_s.mp3"
       }
-    ]
+    ],
+    "topic_no": 19,
+    "topic_ko": "이동 시 안전통로 이용",
+    "topic_id": "Memakai jalur aman saat berpindah",
+    "phase_key": "during",
+    "phase_ko": "작업 중",
+    "phase_id": "Saat Bekerja",
+    "level_mark": "①",
+    "level_desc": "Level 1 (Dasar)",
+    "topic": "Topik 19: 이동 시 안전통로 이용 (Memakai jalur aman saat berpindah)"
   },
   {
     "id": "safety_86",
@@ -3836,7 +4610,16 @@
         "id": "Karena jalur aman bebas rintangan dan mesin.",
         "audio": "/audio/tts/k3/safety_86_s.mp3"
       }
-    ]
+    ],
+    "topic_no": 19,
+    "topic_ko": "이동 시 안전통로 이용",
+    "topic_id": "Memakai jalur aman saat berpindah",
+    "phase_key": "during",
+    "phase_ko": "작업 중",
+    "phase_id": "Saat Bekerja",
+    "level_mark": "②",
+    "level_desc": "Level 2 (Menengah)",
+    "topic": "Topik 19: 이동 시 안전통로 이용 (Memakai jalur aman saat berpindah)"
   },
   {
     "id": "safety_87",
@@ -3869,7 +4652,16 @@
         "id": "Waktu ketika melakukan pekerjaan.",
         "audio": "/audio/tts/k3/safety_87_s.mp3"
       }
-    ]
+    ],
+    "topic_no": 20,
+    "topic_ko": "작업 중 휴대폰 사용 금지",
+    "topic_id": "Dilarang memakai ponsel saat bekerja",
+    "phase_key": "during",
+    "phase_ko": "작업 중",
+    "phase_id": "Saat Bekerja",
+    "level_mark": "①",
+    "level_desc": "Level 1 (Dasar)",
+    "topic": "Topik 20: 작업 중 휴대폰 사용 금지 (Dilarang memakai ponsel saat bekerja)"
   },
   {
     "id": "safety_88",
@@ -3902,7 +4694,16 @@
         "id": "Perhatian terpecah dan risiko kecelakaan naik.",
         "audio": "/audio/tts/k3/safety_88_s.mp3"
       }
-    ]
+    ],
+    "topic_no": 20,
+    "topic_ko": "작업 중 휴대폰 사용 금지",
+    "topic_id": "Dilarang memakai ponsel saat bekerja",
+    "phase_key": "during",
+    "phase_ko": "작업 중",
+    "phase_id": "Saat Bekerja",
+    "level_mark": "②",
+    "level_desc": "Level 2 (Menengah)",
+    "topic": "Topik 20: 작업 중 휴대폰 사용 금지 (Dilarang memakai ponsel saat bekerja)"
   },
   {
     "id": "safety_89",
@@ -3935,7 +4736,16 @@
         "id": "Menaruh barang di tempatnya dan menjaga kebersihan.",
         "audio": "/audio/tts/k3/safety_89_s.mp3"
       }
-    ]
+    ],
+    "topic_no": 21,
+    "topic_ko": "정리정돈 및 청소",
+    "topic_id": "Merapikan dan membersihkan",
+    "phase_key": "after",
+    "phase_ko": "작업 후",
+    "phase_id": "Setelah Bekerja",
+    "level_mark": "①",
+    "level_desc": "Level 1 (Dasar)",
+    "topic": "Topik 21: 정리정돈 및 청소 (Merapikan dan membersihkan)"
   },
   {
     "id": "safety_90",
@@ -3968,7 +4778,16 @@
         "id": "Menghilangkan debu dan sampah agar bersih.",
         "audio": "/audio/tts/k3/safety_90_s.mp3"
       }
-    ]
+    ],
+    "topic_no": 21,
+    "topic_ko": "정리정돈 및 청소",
+    "topic_id": "Merapikan dan membersihkan",
+    "phase_key": "after",
+    "phase_ko": "작업 후",
+    "phase_id": "Setelah Bekerja",
+    "level_mark": "①",
+    "level_desc": "Level 1 (Dasar)",
+    "topic": "Topik 21: 정리정돈 및 청소 (Merapikan dan membersihkan)"
   },
   {
     "id": "safety_91",
@@ -4001,7 +4820,16 @@
         "id": "Barang cepat ditemukan dan benda berserakan bisa menyebabkan kecelakaan.",
         "audio": "/audio/tts/k3/safety_91_s.mp3"
       }
-    ]
+    ],
+    "topic_no": 21,
+    "topic_ko": "정리정돈 및 청소",
+    "topic_id": "Merapikan dan membersihkan",
+    "phase_key": "after",
+    "phase_ko": "작업 후",
+    "phase_id": "Setelah Bekerja",
+    "level_mark": "②",
+    "level_desc": "Level 2 (Menengah)",
+    "topic": "Topik 21: 정리정돈 및 청소 (Merapikan dan membersihkan)"
   },
   {
     "id": "safety_92",
@@ -4034,7 +4862,16 @@
         "id": "Alat yang membantu pekerjaan.",
         "audio": "/audio/tts/k3/safety_92_s.mp3"
       }
-    ]
+    ],
+    "topic_no": 22,
+    "topic_ko": "공구는 지정된 자리에 두기",
+    "topic_id": "Menaruh perkakas di tempat yang ditentukan",
+    "phase_key": "after",
+    "phase_ko": "작업 후",
+    "phase_id": "Setelah Bekerja",
+    "level_mark": "②",
+    "level_desc": "Level 2 (Menengah)",
+    "topic": "Topik 22: 공구는 지정된 자리에 두기 (Menaruh perkakas di tempat yang ditentukan)"
   },
   {
     "id": "safety_93",
@@ -4067,7 +4904,16 @@
         "id": "Tempat yang sudah ditetapkan untuk suatu benda.",
         "audio": "/audio/tts/k3/safety_93_s.mp3"
       }
-    ]
+    ],
+    "topic_no": 22,
+    "topic_ko": "공구는 지정된 자리에 두기",
+    "topic_id": "Menaruh perkakas di tempat yang ditentukan",
+    "phase_key": "after",
+    "phase_ko": "작업 후",
+    "phase_id": "Setelah Bekerja",
+    "level_mark": "②",
+    "level_desc": "Level 2 (Menengah)",
+    "topic": "Topik 22: 공구는 지정된 자리에 두기 (Menaruh perkakas di tempat yang ditentukan)"
   },
   {
     "id": "safety_94",
@@ -4100,7 +4946,16 @@
         "id": "Perkakas bisa hilang atau rusak, dan berbahaya jika di lantai.",
         "audio": "/audio/tts/k3/safety_94_s.mp3"
       }
-    ]
+    ],
+    "topic_no": 22,
+    "topic_ko": "공구는 지정된 자리에 두기",
+    "topic_id": "Menaruh perkakas di tempat yang ditentukan",
+    "phase_key": "after",
+    "phase_ko": "작업 후",
+    "phase_id": "Setelah Bekerja",
+    "level_mark": "②",
+    "level_desc": "Level 2 (Menengah)",
+    "topic": "Topik 22: 공구는 지정된 자리에 두기 (Menaruh perkakas di tempat yang ditentukan)"
   },
   {
     "id": "safety_95",
@@ -4133,7 +4988,16 @@
         "id": "Kegiatan menjaga kebersihan dan kesehatan.",
         "audio": "/audio/tts/k3/safety_95_s.mp3"
       }
-    ]
+    ],
+    "topic_no": 23,
+    "topic_ko": "손 씻기 등 위생관리 철저",
+    "topic_id": "Menjaga kebersihan diri seperti mencuci tangan",
+    "phase_key": "after",
+    "phase_ko": "작업 후",
+    "phase_id": "Setelah Bekerja",
+    "level_mark": "②",
+    "level_desc": "Level 2 (Menengah)",
+    "topic": "Topik 23: 손 씻기 등 위생관리 철저 (Menjaga kebersihan diri seperti mencuci tangan)"
   },
   {
     "id": "safety_96",
@@ -4166,7 +5030,16 @@
         "id": "Bahan kimia bisa masuk ke tubuh dan menyebabkan penyakit.",
         "audio": "/audio/tts/k3/safety_96_s.mp3"
       }
-    ]
+    ],
+    "topic_no": 23,
+    "topic_ko": "손 씻기 등 위생관리 철저",
+    "topic_id": "Menjaga kebersihan diri seperti mencuci tangan",
+    "phase_key": "after",
+    "phase_ko": "작업 후",
+    "phase_id": "Setelah Bekerja",
+    "level_mark": "②",
+    "level_desc": "Level 2 (Menengah)",
+    "topic": "Topik 23: 손 씻기 등 위생관리 철저 (Menjaga kebersihan diri seperti mencuci tangan)"
   },
   {
     "id": "safety_97",
@@ -4199,7 +5072,16 @@
         "id": "Cuci tangan sebelum makan.",
         "audio": "/audio/tts/k3/safety_97_s.mp3"
       }
-    ]
+    ],
+    "topic_no": 23,
+    "topic_ko": "손 씻기 등 위생관리 철저",
+    "topic_id": "Menjaga kebersihan diri seperti mencuci tangan",
+    "phase_key": "after",
+    "phase_ko": "작업 후",
+    "phase_id": "Setelah Bekerja",
+    "level_mark": "②",
+    "level_desc": "Level 2 (Menengah)",
+    "topic": "Topik 23: 손 씻기 등 위생관리 철저 (Menjaga kebersihan diri seperti mencuci tangan)"
   },
   {
     "id": "safety_98",
@@ -4232,7 +5114,16 @@
         "id": "Pekerjaan membersihkan dan memperbaiki mesin.",
         "audio": "/audio/tts/k3/safety_98_s.mp3"
       }
-    ]
+    ],
+    "topic_no": 24,
+    "topic_ko": "청소·수리 작업 시 기계 전원 차단",
+    "topic_id": "Memutus daya mesin saat membersihkan atau memperbaiki",
+    "phase_key": "after",
+    "phase_ko": "작업 후",
+    "phase_id": "Setelah Bekerja",
+    "level_mark": "②",
+    "level_desc": "Level 2 (Menengah)",
+    "topic": "Topik 24: 청소·수리 작업 시 기계 전원 차단 (Memutus daya mesin saat membersihkan atau memperbaiki)"
   },
   {
     "id": "safety_99",
@@ -4265,7 +5156,16 @@
         "id": "Memutus listrik sepenuhnya.",
         "audio": "/audio/tts/k3/safety_99_s.mp3"
       }
-    ]
+    ],
+    "topic_no": 24,
+    "topic_ko": "청소·수리 작업 시 기계 전원 차단",
+    "topic_id": "Memutus daya mesin saat membersihkan atau memperbaiki",
+    "phase_key": "after",
+    "phase_ko": "작업 후",
+    "phase_id": "Setelah Bekerja",
+    "level_mark": "②",
+    "level_desc": "Level 2 (Menengah)",
+    "topic": "Topik 24: 청소·수리 작업 시 기계 전원 차단 (Memutus daya mesin saat membersihkan atau memperbaiki)"
   },
   {
     "id": "safety_100",
@@ -4298,7 +5198,16 @@
         "id": "Karena pekerja harus mendekati bagian dalam mesin yang berbahaya.",
         "audio": "/audio/tts/k3/safety_100_s.mp3"
       }
-    ]
+    ],
+    "topic_no": 24,
+    "topic_ko": "청소·수리 작업 시 기계 전원 차단",
+    "topic_id": "Memutus daya mesin saat membersihkan atau memperbaiki",
+    "phase_key": "after",
+    "phase_ko": "작업 후",
+    "phase_id": "Setelah Bekerja",
+    "level_mark": "②",
+    "level_desc": "Level 2 (Menengah)",
+    "topic": "Topik 24: 청소·수리 작업 시 기계 전원 차단 (Memutus daya mesin saat membersihkan atau memperbaiki)"
   },
   {
     "id": "safety_101",
@@ -4331,7 +5240,16 @@
         "id": "Putus daya sebelum bekerja.",
         "audio": "/audio/tts/k3/safety_101_s.mp3"
       }
-    ]
+    ],
+    "topic_no": 24,
+    "topic_ko": "청소·수리 작업 시 기계 전원 차단",
+    "topic_id": "Memutus daya mesin saat membersihkan atau memperbaiki",
+    "phase_key": "after",
+    "phase_ko": "작업 후",
+    "phase_id": "Setelah Bekerja",
+    "level_mark": "③",
+    "level_desc": "Level 3 (Lanjutan)",
+    "topic": "Topik 24: 청소·수리 작업 시 기계 전원 차단 (Memutus daya mesin saat membersihkan atau memperbaiki)"
   },
   {
     "id": "safety_102",
@@ -4364,7 +5282,16 @@
         "id": "Semua alat yang menghasilkan api atau panas.",
         "audio": "/audio/tts/k3/safety_102_s.mp3"
       }
-    ]
+    ],
+    "topic_no": 25,
+    "topic_ko": "화기(⽕) 취급 시 불씨·불티 확인",
+    "topic_id": "Memeriksa bara dan percikan api saat menangani alat api",
+    "phase_key": "after",
+    "phase_ko": "작업 후",
+    "phase_id": "Setelah Bekerja",
+    "level_mark": "①",
+    "level_desc": "Level 1 (Dasar)",
+    "topic": "Topik 25: 화기(⽕) 취급 시 불씨·불티 확인 (Memeriksa bara dan percikan api saat menangani alat api)"
   },
   {
     "id": "safety_103",
@@ -4397,7 +5324,16 @@
         "id": "Bola api kecil yang belum padam.",
         "audio": "/audio/tts/k3/safety_103_s.mp3"
       }
-    ]
+    ],
+    "topic_no": 25,
+    "topic_ko": "화기(⽕) 취급 시 불씨·불티 확인",
+    "topic_id": "Memeriksa bara dan percikan api saat menangani alat api",
+    "phase_key": "after",
+    "phase_ko": "작업 후",
+    "phase_id": "Setelah Bekerja",
+    "level_mark": "②",
+    "level_desc": "Level 2 (Menengah)",
+    "topic": "Topik 25: 화기(⽕) 취급 시 불씨·불티 확인 (Memeriksa bara dan percikan api saat menangani alat api)"
   },
   {
     "id": "safety_104",
@@ -4430,7 +5366,16 @@
         "id": "Sisa bara bisa menyebabkan kebakaran di tempat lain nanti.",
         "audio": "/audio/tts/k3/safety_104_s.mp3"
       }
-    ]
+    ],
+    "topic_no": 25,
+    "topic_ko": "화기(⽕) 취급 시 불씨·불티 확인",
+    "topic_id": "Memeriksa bara dan percikan api saat menangani alat api",
+    "phase_key": "after",
+    "phase_ko": "작업 후",
+    "phase_id": "Setelah Bekerja",
+    "level_mark": "②",
+    "level_desc": "Level 2 (Menengah)",
+    "topic": "Topik 25: 화기(⽕) 취급 시 불씨·불티 확인 (Memeriksa bara dan percikan api saat menangani alat api)"
   },
   {
     "id": "safety_105",
@@ -4463,7 +5408,16 @@
         "id": "Cabut pin pengaman dulu.",
         "audio": "/audio/tts/k3/safety_105_s.mp3"
       }
-    ]
+    ],
+    "topic_no": 25,
+    "topic_ko": "화기(⽕) 취급 시 불씨·불티 확인",
+    "topic_id": "Memeriksa bara dan percikan api saat menangani alat api",
+    "phase_key": "after",
+    "phase_ko": "작업 후",
+    "phase_id": "Setelah Bekerja",
+    "level_mark": "②",
+    "level_desc": "Level 2 (Menengah)",
+    "topic": "Topik 25: 화기(⽕) 취급 시 불씨·불티 확인 (Memeriksa bara dan percikan api saat menangani alat api)"
   },
   {
     "id": "safety_106",
@@ -4496,7 +5450,16 @@
         "id": "Bahan terbakar dan menghasilkan panas dan cahaya.",
         "audio": "/audio/tts/k3/safety_106_s.mp3"
       }
-    ]
+    ],
+    "topic_no": 26,
+    "topic_ko": "화재 시 대피 우선",
+    "topic_id": "Evakuasi diutamakan saat kebakaran",
+    "phase_key": "emergency",
+    "phase_ko": "이상 발생 시",
+    "phase_id": "Situasi Bahaya & Darurat",
+    "level_mark": "①",
+    "level_desc": "Level 1 (Dasar)",
+    "topic": "Topik 26: 화재 시 대피 우선 (Evakuasi diutamakan saat kebakaran)"
   },
   {
     "id": "safety_107",
@@ -4529,7 +5492,16 @@
         "id": "Segera pindah ke tempat aman saat bahaya.",
         "audio": "/audio/tts/k3/safety_107_s.mp3"
       }
-    ]
+    ],
+    "topic_no": 26,
+    "topic_ko": "화재 시 대피 우선",
+    "topic_id": "Evakuasi diutamakan saat kebakaran",
+    "phase_key": "emergency",
+    "phase_ko": "이상 발생 시",
+    "phase_id": "Situasi Bahaya & Darurat",
+    "level_mark": "②",
+    "level_desc": "Level 2 (Menengah)",
+    "topic": "Topik 26: 화재 시 대피 우선 (Evakuasi diutamakan saat kebakaran)"
   },
   {
     "id": "safety_108",
@@ -4562,7 +5534,16 @@
         "id": "Asap berbahaya dan nyawa lebih penting daripada harta.",
         "audio": "/audio/tts/k3/safety_108_s.mp3"
       }
-    ]
+    ],
+    "topic_no": 26,
+    "topic_ko": "화재 시 대피 우선",
+    "topic_id": "Evakuasi diutamakan saat kebakaran",
+    "phase_key": "emergency",
+    "phase_ko": "이상 발생 시",
+    "phase_id": "Situasi Bahaya & Darurat",
+    "level_mark": "②",
+    "level_desc": "Level 2 (Menengah)",
+    "topic": "Topik 26: 화재 시 대피 우선 (Evakuasi diutamakan saat kebakaran)"
   },
   {
     "id": "safety_109",
@@ -4595,7 +5576,16 @@
         "id": "Nomor ke pemadam saat kebakaran atau darurat.",
         "audio": "/audio/tts/k3/safety_109_s.mp3"
       }
-    ]
+    ],
+    "topic_no": 26,
+    "topic_ko": "화재 시 대피 우선",
+    "topic_id": "Evakuasi diutamakan saat kebakaran",
+    "phase_key": "emergency",
+    "phase_ko": "이상 발생 시",
+    "phase_id": "Situasi Bahaya & Darurat",
+    "level_mark": "②",
+    "level_desc": "Level 2 (Menengah)",
+    "topic": "Topik 26: 화재 시 대피 우선 (Evakuasi diutamakan saat kebakaran)"
   },
   {
     "id": "safety_110",
@@ -4628,7 +5618,16 @@
         "id": "Pekerjaan yang caranya tidak diketahui dengan pasti.",
         "audio": "/audio/tts/k3/safety_110_s.mp3"
       }
-    ]
+    ],
+    "topic_no": 27,
+    "topic_ko": "모르는 작업은 물어보기",
+    "topic_id": "Tanyakan jika tidak tahu pekerjaannya",
+    "phase_key": "emergency",
+    "phase_ko": "이상 발생 시",
+    "phase_id": "Situasi Bahaya & Darurat",
+    "level_mark": "②",
+    "level_desc": "Level 2 (Menengah)",
+    "topic": "Topik 27: 모르는 작업은 물어보기 (Tanyakan jika tidak tahu pekerjaannya)"
   },
   {
     "id": "safety_111",
@@ -4661,7 +5660,16 @@
         "id": "Bertanya kepada orang lain tentang hal yang tidak diketahui.",
         "audio": "/audio/tts/k3/safety_111_s.mp3"
       }
-    ]
+    ],
+    "topic_no": 27,
+    "topic_ko": "모르는 작업은 물어보기",
+    "topic_id": "Tanyakan jika tidak tahu pekerjaannya",
+    "phase_key": "emergency",
+    "phase_ko": "이상 발생 시",
+    "phase_id": "Situasi Bahaya & Darurat",
+    "level_mark": "②",
+    "level_desc": "Level 2 (Menengah)",
+    "topic": "Topik 27: 모르는 작업은 물어보기 (Tanyakan jika tidak tahu pekerjaannya)"
   },
   {
     "id": "safety_112",
@@ -4694,7 +5702,16 @@
         "id": "Bekerja tanpa tahu bisa mengancam nyawa diri dan rekan.",
         "audio": "/audio/tts/k3/safety_112_s.mp3"
       }
-    ]
+    ],
+    "topic_no": 27,
+    "topic_ko": "모르는 작업은 물어보기",
+    "topic_id": "Tanyakan jika tidak tahu pekerjaannya",
+    "phase_key": "emergency",
+    "phase_ko": "이상 발생 시",
+    "phase_id": "Situasi Bahaya & Darurat",
+    "level_mark": "③",
+    "level_desc": "Level 3 (Lanjutan)",
+    "topic": "Topik 27: 모르는 작업은 물어보기 (Tanyakan jika tidak tahu pekerjaannya)"
   },
   {
     "id": "safety_113",
@@ -4727,7 +5744,16 @@
         "id": "Faktor bahaya yang bisa membuat orang terluka.",
         "audio": "/audio/tts/k3/safety_113_s.mp3"
       }
-    ]
+    ],
+    "topic_no": 28,
+    "topic_ko": "사고위험 발견 시 알려주기",
+    "topic_id": "Melaporkan jika menemukan bahaya kecelakaan",
+    "phase_key": "emergency",
+    "phase_ko": "이상 발생 시",
+    "phase_id": "Situasi Bahaya & Darurat",
+    "level_mark": "②",
+    "level_desc": "Level 2 (Menengah)",
+    "topic": "Topik 28: 사고위험 발견 시 알려주기 (Melaporkan jika menemukan bahaya kecelakaan)"
   },
   {
     "id": "safety_114",
@@ -4760,7 +5786,16 @@
         "id": "Menyadari atau menemukan bahaya yang tersembunyi.",
         "audio": "/audio/tts/k3/safety_114_s.mp3"
       }
-    ]
+    ],
+    "topic_no": 28,
+    "topic_ko": "사고위험 발견 시 알려주기",
+    "topic_id": "Melaporkan jika menemukan bahaya kecelakaan",
+    "phase_key": "emergency",
+    "phase_ko": "이상 발생 시",
+    "phase_id": "Situasi Bahaya & Darurat",
+    "level_mark": "②",
+    "level_desc": "Level 2 (Menengah)",
+    "topic": "Topik 28: 사고위험 발견 시 알려주기 (Melaporkan jika menemukan bahaya kecelakaan)"
   },
   {
     "id": "safety_115",
@@ -4793,7 +5828,16 @@
         "id": "Jika tidak dilaporkan, bahaya tetap ada dan mengancam semua.",
         "audio": "/audio/tts/k3/safety_115_s.mp3"
       }
-    ]
+    ],
+    "topic_no": 28,
+    "topic_ko": "사고위험 발견 시 알려주기",
+    "topic_id": "Melaporkan jika menemukan bahaya kecelakaan",
+    "phase_key": "emergency",
+    "phase_ko": "이상 발생 시",
+    "phase_id": "Situasi Bahaya & Darurat",
+    "level_mark": "③",
+    "level_desc": "Level 3 (Lanjutan)",
+    "topic": "Topik 28: 사고위험 발견 시 알려주기 (Melaporkan jika menemukan bahaya kecelakaan)"
   },
   {
     "id": "safety_116",
@@ -4826,7 +5870,16 @@
         "id": "Cuaca sangat panas yang berlangsung terus.",
         "audio": "/audio/tts/k3/safety_116_s.mp3"
       }
-    ]
+    ],
+    "topic_no": 29,
+    "topic_ko": "폭염 시 물, 그늘, 휴식",
+    "topic_id": "Saat cuaca panas ekstrem: air, tempat teduh, istirahat",
+    "phase_key": "emergency",
+    "phase_ko": "이상 발생 시",
+    "phase_id": "Situasi Bahaya & Darurat",
+    "level_mark": "②",
+    "level_desc": "Level 2 (Menengah)",
+    "topic": "Topik 29: 폭염 시 물, 그늘, 휴식 (Saat cuaca panas ekstrem: air, tempat teduh, istirahat)"
   },
   {
     "id": "safety_117",
@@ -4859,7 +5912,16 @@
         "id": "Suhu tubuh naik dan cairan hilang, nyawa bisa terancam.",
         "audio": "/audio/tts/k3/safety_117_s.mp3"
       }
-    ]
+    ],
+    "topic_no": 29,
+    "topic_ko": "폭염 시 물, 그늘, 휴식",
+    "topic_id": "Saat cuaca panas ekstrem: air, tempat teduh, istirahat",
+    "phase_key": "emergency",
+    "phase_ko": "이상 발생 시",
+    "phase_id": "Situasi Bahaya & Darurat",
+    "level_mark": "②",
+    "level_desc": "Level 2 (Menengah)",
+    "topic": "Topik 29: 폭염 시 물, 그늘, 휴식 (Saat cuaca panas ekstrem: air, tempat teduh, istirahat)"
   },
   {
     "id": "safety_118",
@@ -4892,7 +5954,16 @@
         "id": "Sering minum air dan istirahat di tempat teduh.",
         "audio": "/audio/tts/k3/safety_118_s.mp3"
       }
-    ]
+    ],
+    "topic_no": 29,
+    "topic_ko": "폭염 시 물, 그늘, 휴식",
+    "topic_id": "Saat cuaca panas ekstrem: air, tempat teduh, istirahat",
+    "phase_key": "emergency",
+    "phase_ko": "이상 발생 시",
+    "phase_id": "Situasi Bahaya & Darurat",
+    "level_mark": "③",
+    "level_desc": "Level 3 (Lanjutan)",
+    "topic": "Topik 29: 폭염 시 물, 그늘, 휴식 (Saat cuaca panas ekstrem: air, tempat teduh, istirahat)"
   },
   {
     "id": "safety_119",
@@ -4925,7 +5996,16 @@
         "id": "Segera berhenti bekerja saat bahaya.",
         "audio": "/audio/tts/k3/safety_119_s.mp3"
       }
-    ]
+    ],
+    "topic_no": 30,
+    "topic_ko": "사고 위험 시 작업 중지 및 대피",
+    "topic_id": "Hentikan pekerjaan dan evakuasi saat ada bahaya kecelakaan",
+    "phase_key": "emergency",
+    "phase_ko": "이상 발생 시",
+    "phase_id": "Situasi Bahaya & Darurat",
+    "level_mark": "②",
+    "level_desc": "Level 2 (Menengah)",
+    "topic": "Topik 30: 사고 위험 시 작업 중지 및 대피 (Hentikan pekerjaan dan evakuasi saat ada bahaya kecelakaan)"
   },
   {
     "id": "safety_120",
@@ -4958,7 +6038,16 @@
         "id": "Segera pindah ke tempat aman saat bahaya.",
         "audio": "/audio/tts/k3/safety_120_s.mp3"
       }
-    ]
+    ],
+    "topic_no": 30,
+    "topic_ko": "사고 위험 시 작업 중지 및 대피",
+    "topic_id": "Hentikan pekerjaan dan evakuasi saat ada bahaya kecelakaan",
+    "phase_key": "emergency",
+    "phase_ko": "이상 발생 시",
+    "phase_id": "Situasi Bahaya & Darurat",
+    "level_mark": "②",
+    "level_desc": "Level 2 (Menengah)",
+    "topic": "Topik 30: 사고 위험 시 작업 중지 및 대피 (Hentikan pekerjaan dan evakuasi saat ada bahaya kecelakaan)"
   },
   {
     "id": "safety_121",
@@ -4991,7 +6080,16 @@
         "id": "Nyawa manusia lebih berharga daripada mesin.",
         "audio": "/audio/tts/k3/safety_121_s.mp3"
       }
-    ]
+    ],
+    "topic_no": 30,
+    "topic_ko": "사고 위험 시 작업 중지 및 대피",
+    "topic_id": "Hentikan pekerjaan dan evakuasi saat ada bahaya kecelakaan",
+    "phase_key": "emergency",
+    "phase_ko": "이상 발생 시",
+    "phase_id": "Situasi Bahaya & Darurat",
+    "level_mark": "③",
+    "level_desc": "Level 3 (Lanjutan)",
+    "topic": "Topik 30: 사고 위험 시 작업 중지 및 대피 (Hentikan pekerjaan dan evakuasi saat ada bahaya kecelakaan)"
   },
   {
     "id": "safety_122",
@@ -5024,7 +6122,16 @@
         "id": "Hentikan pekerjaan dan pergi ke tempat aman.",
         "audio": "/audio/tts/k3/safety_122_s.mp3"
       }
-    ]
+    ],
+    "topic_no": 30,
+    "topic_ko": "사고 위험 시 작업 중지 및 대피",
+    "topic_id": "Hentikan pekerjaan dan evakuasi saat ada bahaya kecelakaan",
+    "phase_key": "emergency",
+    "phase_ko": "이상 발생 시",
+    "phase_id": "Situasi Bahaya & Darurat",
+    "level_mark": "③",
+    "level_desc": "Level 3 (Lanjutan)",
+    "topic": "Topik 30: 사고 위험 시 작업 중지 및 대피 (Hentikan pekerjaan dan evakuasi saat ada bahaya kecelakaan)"
   },
   {
     "id": "math_001",

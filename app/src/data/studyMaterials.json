@@ -2462,7 +2462,7 @@
   "k3_safety": [
     {
       "id": "safety_01",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 1: 보호구 착용 (Memakai alat pelindung diri)",
       "question_ko": "보호구가 무엇인가요?",
       "question_ro": "Bohoguga mueosingayo?",
       "question_id": "Apakah yang dimaksud dengan Alat Pelindung Diri (APD)?",
@@ -2489,11 +2489,19 @@
           "id": "Perlengkapan keselamatan untuk menjaga pekerja.",
           "audio": "/audio/tts/options/safety_01_opt_2.mp3"
         }
-      ]
+      ],
+      "topic_no": 1,
+      "topic_ko": "보호구 착용",
+      "topic_id": "Memakai alat pelindung diri",
+      "phase_key": "before",
+      "phase_ko": "작업 전",
+      "phase_id": "Sebelum Bekerja",
+      "level_mark": "①",
+      "level_desc": "Level 1 (Dasar)"
     },
     {
       "id": "safety_02",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 1: 보호구 착용 (Memakai alat pelindung diri)",
       "question_ko": "보호구에는 어떤 종류가 있나요?",
       "question_ro": "Bohogueneun eotteon jongnyuga innayo?",
       "question_id": "Apa saja jenis-jenis Alat Pelindung Diri (APD)?",
@@ -2520,11 +2528,19 @@
           "id": "Ada helm pengaman, sepatu pengaman, kacamata pelindung, dan earplug.",
           "audio": "/audio/tts/options/safety_02_opt_2.mp3"
         }
-      ]
+      ],
+      "topic_no": 1,
+      "topic_ko": "보호구 착용",
+      "topic_id": "Memakai alat pelindung diri",
+      "phase_key": "before",
+      "phase_ko": "작업 전",
+      "phase_id": "Sebelum Bekerja",
+      "level_mark": "②",
+      "level_desc": "Level 2 (Menengah)"
     },
     {
       "id": "safety_12",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 1: 보호구 착용 (Memakai alat pelindung diri)",
       "question_ko": "보호구를 왜 착용하여야 할까요?",
       "question_ro": "Bohogureul wae chak-yonghayeoya halkkayo?",
       "question_id": "Mengapa pekerja wajib memakai Alat Pelindung Diri (APD)?",
@@ -2551,11 +2567,19 @@
           "id": "Untuk mencegah kecelakaan kerja.",
           "audio": "/audio/tts/options/safety_12_opt_2.mp3"
         }
-      ]
+      ],
+      "topic_no": 1,
+      "topic_ko": "보호구 착용",
+      "topic_id": "Memakai alat pelindung diri",
+      "phase_key": "before",
+      "phase_ko": "작업 전",
+      "phase_id": "Sebelum Bekerja",
+      "level_mark": "②",
+      "level_desc": "Level 2 (Menengah)"
     },
     {
       "id": "safety_13",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 1: 보호구 착용 (Memakai alat pelindung diri)",
       "question_ko": "머리를 보호하기 위해 착용하는 보호구는 무엇인가요?",
       "question_ro": "Meorireul bohohagi wihae chak-yonghaneun bohoguneun mueosingayo?",
       "question_id": "APD apa yang dikenakan untuk melindungi kepala?",
@@ -2582,11 +2606,19 @@
           "id": "Memakai helm safety dan memasang tali dagunya.",
           "audio": "/audio/tts/options/safety_13_opt_2.mp3"
         }
-      ]
+      ],
+      "topic_no": 1,
+      "topic_ko": "보호구 착용",
+      "topic_id": "Memakai alat pelindung diri",
+      "phase_key": "before",
+      "phase_ko": "작업 전",
+      "phase_id": "Sebelum Bekerja",
+      "level_mark": "①",
+      "level_desc": "Level 1 (Dasar)"
     },
     {
       "id": "safety_14",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 1: 보호구 착용 (Memakai alat pelindung diri)",
       "question_ko": "높은 장소에서 작업 시 안전모 외에 착용해야 하는 보호구는 무엇인가요?",
       "question_ro": "Nop-eun jangsodeseo jageop si anjeonmo oe-e chak-yonghaeya haneun bohoguneun mueosingayo?",
       "question_id": "Saat bekerja di ketinggian, selain helm keselamatan, APD apa yang wajib dipakai?",
@@ -2613,11 +2645,19 @@
           "id": "Memakai tali pengaman dan memasang kaitannya.",
           "audio": "/audio/tts/options/safety_14_opt_2.mp3"
         }
-      ]
+      ],
+      "topic_no": 1,
+      "topic_ko": "보호구 착용",
+      "topic_id": "Memakai alat pelindung diri",
+      "phase_key": "before",
+      "phase_ko": "작업 전",
+      "phase_id": "Sebelum Bekerja",
+      "level_mark": "③",
+      "level_desc": "Level 3 (Lanjutan)"
     },
     {
       "id": "safety_03",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 1: 보호구 착용 (Pengenalan Jenis APD)",
       "question_ko": "안전모는 무엇입니까?",
       "question_ro": "Anjeonmoneun mueosimnikka?",
       "question_id": "Apakah itu helm keselamatan (safety helmet)?",
@@ -2644,11 +2684,19 @@
           "id": "Topi untuk melindungi kepala dari benda jatuh.",
           "audio": "/audio/tts/options/safety_03_opt_2.mp3"
         }
-      ]
+      ],
+      "topic_no": 1,
+      "topic_ko": "보호구 착용 (종류별 정의)",
+      "topic_id": "Memakai APD (Definisi Jenis APD)",
+      "phase_key": "before",
+      "phase_ko": "작업 전",
+      "phase_id": "Sebelum Bekerja",
+      "level_mark": "①",
+      "level_desc": "Level 1 (Dasar)"
     },
     {
       "id": "safety_04",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 1: 보호구 착용 (Pengenalan Jenis APD)",
       "question_ko": "안전화는 무엇입니까?",
       "question_ro": "Anjeonhwaneun mueosimnikka?",
       "question_id": "Apakah itu sepatu keselamatan (safety shoes)?",
@@ -2675,11 +2723,19 @@
           "id": "Sepatu yang melindungi kaki dari beban berat dan paku.",
           "audio": "/audio/tts/options/safety_04_opt_2.mp3"
         }
-      ]
+      ],
+      "topic_no": 1,
+      "topic_ko": "보호구 착용 (종류별 정의)",
+      "topic_id": "Memakai APD (Definisi Jenis APD)",
+      "phase_key": "before",
+      "phase_ko": "작업 전",
+      "phase_id": "Sebelum Bekerja",
+      "level_mark": "①",
+      "level_desc": "Level 1 (Dasar)"
     },
     {
       "id": "safety_05",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 1: 보호구 착용 (Pengenalan Jenis APD)",
       "question_ko": "안전대는 무엇입니까?",
       "question_ro": "Anjeondaeneun mueosimnikka?",
       "question_id": "Apakah itu tali pengaman keselamatan (safety harness)?",
@@ -2706,11 +2762,19 @@
           "id": "Tali pengaman untuk mencegah jatuh di tempat tinggi.",
           "audio": "/audio/tts/options/safety_05_opt_2.mp3"
         }
-      ]
+      ],
+      "topic_no": 1,
+      "topic_ko": "보호구 착용 (종류별 정의)",
+      "topic_id": "Memakai APD (Definisi Jenis APD)",
+      "phase_key": "before",
+      "phase_ko": "작업 전",
+      "phase_id": "Sebelum Bekerja",
+      "level_mark": "①",
+      "level_desc": "Level 1 (Dasar)"
     },
     {
       "id": "safety_06",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 1: 보호구 착용 (Pengenalan Jenis APD)",
       "question_ko": "보안면은 무엇입니까?",
       "question_ro": "Boanmyeoneun mueosimnikka?",
       "question_id": "Apakah itu pelindung muka/wajah (face shield)?",
@@ -2737,11 +2801,19 @@
           "id": "Melindungi wajah dari percikan bunga api.",
           "audio": "/audio/tts/options/safety_06_opt_2.mp3"
         }
-      ]
+      ],
+      "topic_no": 1,
+      "topic_ko": "보호구 착용 (종류별 정의)",
+      "topic_id": "Memakai APD (Definisi Jenis APD)",
+      "phase_key": "before",
+      "phase_ko": "작업 전",
+      "phase_id": "Sebelum Bekerja",
+      "level_mark": "①",
+      "level_desc": "Level 1 (Dasar)"
     },
     {
       "id": "safety_07",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 1: 보호구 착용 (Pengenalan Jenis APD)",
       "question_ko": "귀마개는 무엇입니까?",
       "question_ro": "Gwimagaeneun mueosimnikka?",
       "question_id": "Apakah itu penyumbat telinga (earplugs)?",
@@ -2768,11 +2840,19 @@
           "id": "Melindungi telinga dari kebisingan suara pabrik.",
           "audio": "/audio/tts/options/safety_07_opt_2.mp3"
         }
-      ]
+      ],
+      "topic_no": 1,
+      "topic_ko": "보호구 착용 (종류별 정의)",
+      "topic_id": "Memakai APD (Definisi Jenis APD)",
+      "phase_key": "before",
+      "phase_ko": "작업 전",
+      "phase_id": "Sebelum Bekerja",
+      "level_mark": "①",
+      "level_desc": "Level 1 (Dasar)"
     },
     {
       "id": "safety_08",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 1: 보호구 착용 (Pengenalan Jenis APD)",
       "question_ko": "방진마스크는 무엇입니까?",
       "question_ro": "Bangjinmaseukeuneun mueosimnikka?",
       "question_id": "Apakah itu masker debu (dust mask)?",
@@ -2799,11 +2879,19 @@
           "id": "Melindungi saluran pernapasan dari partikel debu.",
           "audio": "/audio/tts/options/safety_08_opt_2.mp3"
         }
-      ]
+      ],
+      "topic_no": 1,
+      "topic_ko": "보호구 착용 (종류별 정의)",
+      "topic_id": "Memakai APD (Definisi Jenis APD)",
+      "phase_key": "before",
+      "phase_ko": "작업 전",
+      "phase_id": "Sebelum Bekerja",
+      "level_mark": "①",
+      "level_desc": "Level 1 (Dasar)"
     },
     {
       "id": "safety_09",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 1: 보호구 착용 (Pengenalan Jenis APD)",
       "question_ko": "방독마스크는 무엇입니까?",
       "question_ro": "Bangdongmaseukeuneun mueosimnikka?",
       "question_id": "Apakah itu masker respirator gas (gas mask)?",
@@ -2830,11 +2918,19 @@
           "id": "Menyaring bau dan gas kimia beracun.",
           "audio": "/audio/tts/options/safety_09_opt_2.mp3"
         }
-      ]
+      ],
+      "topic_no": 1,
+      "topic_ko": "보호구 착용 (종류별 정의)",
+      "topic_id": "Memakai APD (Definisi Jenis APD)",
+      "phase_key": "before",
+      "phase_ko": "작업 전",
+      "phase_id": "Sebelum Bekerja",
+      "level_mark": "①",
+      "level_desc": "Level 1 (Dasar)"
     },
     {
       "id": "safety_10",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 1: 보호구 착용 (Pengenalan Jenis APD)",
       "question_ko": "방열복은 무엇입니까?",
       "question_ro": "Bang-yeolbogeun mueosimnikka?",
       "question_id": "Apakah itu pakaian tahan panas (heat-resistant suit)?",
@@ -2861,11 +2957,19 @@
           "id": "Pakaian kerja yang melindungi badan dari panas dan api.",
           "audio": "/audio/tts/options/safety_10_opt_2.mp3"
         }
-      ]
+      ],
+      "topic_no": 1,
+      "topic_ko": "보호구 착용 (종류별 정의)",
+      "topic_id": "Memakai APD (Definisi Jenis APD)",
+      "phase_key": "before",
+      "phase_ko": "작업 전",
+      "phase_id": "Sebelum Bekerja",
+      "level_mark": "①",
+      "level_desc": "Level 1 (Dasar)"
     },
     {
       "id": "safety_11",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 1: 보호구 착용 (Pengenalan Jenis APD)",
       "question_ko": "방한복은 무엇입니까?",
       "question_ro": "Banghanbogeun mueosimnikka?",
       "question_id": "Apakah itu pakaian dingin (cold storage workwear)?",
@@ -2892,11 +2996,19 @@
           "id": "Pakaian kerja untuk area dingin seperti gudang beku.",
           "audio": "/audio/tts/options/safety_11_opt_2.mp3"
         }
-      ]
+      ],
+      "topic_no": 1,
+      "topic_ko": "보호구 착용 (종류별 정의)",
+      "topic_id": "Memakai APD (Definisi Jenis APD)",
+      "phase_key": "before",
+      "phase_ko": "작업 전",
+      "phase_id": "Sebelum Bekerja",
+      "level_mark": "①",
+      "level_desc": "Level 1 (Dasar)"
     },
     {
       "id": "safety_19",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 1: 보호구 착용 (Pengenalan Jenis APD)",
       "question_ko": "안전보건표지는 무엇인가요?",
       "question_ro": "Anjeonbogeon pyojineun mueosingayo?",
       "question_id": "Apakah yang dimaksud dengan rambu K3 (keselamatan & kesehatan kerja)?",
@@ -2923,11 +3035,19 @@
           "id": "Rambu peringatan untuk keselamatan kerja.",
           "audio": "/audio/tts/options/safety_19_opt_2.mp3"
         }
-      ]
+      ],
+      "topic_no": 1,
+      "topic_ko": "보호구 착용 (종류별 정의)",
+      "topic_id": "Memakai APD (Definisi Jenis APD)",
+      "phase_key": "before",
+      "phase_ko": "작업 전",
+      "phase_id": "Sebelum Bekerja",
+      "level_mark": "①",
+      "level_desc": "Level 1 (Dasar)"
     },
     {
       "id": "safety_30",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 1: 보호구 착용 (Pengenalan Jenis APD)",
       "question_ko": "화학물질을 다룰 때 어떤 보호구를 착용해야 하나요?",
       "question_ro": "Hwahangmuljireul darul ttae eotteon bohogureul chak-yonghaeya hanayo?",
       "question_id": "APD apa yang harus dipakai saat menangani bahan kimia di pabrik?",
@@ -2954,11 +3074,19 @@
           "id": "Memakai masker gas dan sarung tangan tahan kimia.",
           "audio": "/audio/tts/options/safety_30_opt_2.mp3"
         }
-      ]
+      ],
+      "topic_no": 1,
+      "topic_ko": "보호구 착용 (종류별 정의)",
+      "topic_id": "Memakai APD (Definisi Jenis APD)",
+      "phase_key": "before",
+      "phase_ko": "작업 전",
+      "phase_id": "Sebelum Bekerja",
+      "level_mark": "①",
+      "level_desc": "Level 1 (Dasar)"
     },
     {
       "id": "safety_15",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 2: 비상구 등 대피로 확인 (Memeriksa pintu darurat dan jalur evakuasi)",
       "question_ko": "비상구가 무엇인가요?",
       "question_ro": "Bisangguga mueosingayo?",
       "question_id": "Apakah yang dimaksud dengan pintu darurat (emergency exit)?",
@@ -2985,11 +3113,19 @@
           "id": "Pintu keluar saat terjadi kecelakaan atau kebakaran.",
           "audio": "/audio/tts/options/safety_15_opt_2.mp3"
         }
-      ]
+      ],
+      "topic_no": 2,
+      "topic_ko": "비상구 등 대피로 확인",
+      "topic_id": "Memeriksa pintu darurat dan jalur evakuasi",
+      "phase_key": "before",
+      "phase_ko": "작업 전",
+      "phase_id": "Sebelum Bekerja",
+      "level_mark": "①",
+      "level_desc": "Level 1 (Dasar)"
     },
     {
       "id": "safety_16",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 2: 비상구 등 대피로 확인 (Memeriksa pintu darurat dan jalur evakuasi)",
       "question_ko": "대피로는 무엇인가요?",
       "question_ro": "Daepironeun mueosingayo?",
       "question_id": "Apakah yang dimaksud dengan jalur evakuasi (evacuation route)?",
@@ -3016,11 +3152,19 @@
           "id": "Jalur evakuasi saat darurat.",
           "audio": "/audio/tts/options/safety_16_opt_2.mp3"
         }
-      ]
+      ],
+      "topic_no": 2,
+      "topic_ko": "비상구 등 대피로 확인",
+      "topic_id": "Memeriksa pintu darurat dan jalur evakuasi",
+      "phase_key": "before",
+      "phase_ko": "작업 전",
+      "phase_id": "Sebelum Bekerja",
+      "level_mark": "①",
+      "level_desc": "Level 1 (Dasar)"
     },
     {
       "id": "safety_17",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 2: 비상구 등 대피로 확인 (Memeriksa pintu darurat dan jalur evakuasi)",
       "question_ko": "비상구 등 대피로는 왜 확인해야 할까요?",
       "question_ro": "Bisanggu deung daepironeun wae hwaginhaeya halkkayo?",
       "question_id": "Mengapa kita harus mengetahui letak pintu darurat dan jalur evakuasi?",
@@ -3047,11 +3191,19 @@
           "id": "Agar bisa segera evakuasi saat keadaan darurat.",
           "audio": "/audio/tts/options/safety_17_opt_2.mp3"
         }
-      ]
+      ],
+      "topic_no": 2,
+      "topic_ko": "비상구 등 대피로 확인",
+      "topic_id": "Memeriksa pintu darurat dan jalur evakuasi",
+      "phase_key": "before",
+      "phase_ko": "작업 전",
+      "phase_id": "Sebelum Bekerja",
+      "level_mark": "②",
+      "level_desc": "Level 2 (Menengah)"
     },
     {
       "id": "safety_18",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 2: 비상구 등 대피로 확인 (Memeriksa pintu darurat dan jalur evakuasi)",
       "question_ko": "소화기란 무엇이며 소화기의 색상은 어떻게 되나요?",
       "question_ro": "Sohwagiran mueosimyeo sohwagieui saeksang-eun eotteoke doenayo?",
       "question_id": "Apakah itu APAR (alat pemadam api ringan) dan apa warnanya?",
@@ -3078,11 +3230,19 @@
           "id": "Alat memadamkan kebakaran dan berwarna merah.",
           "audio": "/audio/tts/options/safety_18_opt_2.mp3"
         }
-      ]
+      ],
+      "topic_no": 2,
+      "topic_ko": "비상구 등 대피로 확인",
+      "topic_id": "Memeriksa pintu darurat dan jalur evakuasi",
+      "phase_key": "before",
+      "phase_ko": "작업 전",
+      "phase_id": "Sebelum Bekerja",
+      "level_mark": "②",
+      "level_desc": "Level 2 (Menengah)"
     },
     {
       "id": "safety_31",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 3: 안전보건표지 확인 (Memeriksa rambu keselamatan dan kesehatan)",
       "question_ko": "안전보건표지가 무엇인가요?",
       "question_ro": "Anjeonbogeonpyojiga mueosingayo?",
       "question_id": "Apa itu rambu keselamatan dan kesehatan?",
@@ -3103,11 +3263,19 @@
           "id": "Tanda visual yang memberi tahu bahaya.",
           "audio": "/audio/tts/k3/safety_31_s.mp3"
         }
-      ]
+      ],
+      "topic_no": 3,
+      "topic_ko": "안전보건표지 확인",
+      "topic_id": "Memeriksa rambu keselamatan dan kesehatan",
+      "phase_key": "before",
+      "phase_ko": "작업 전",
+      "phase_id": "Sebelum Bekerja",
+      "level_mark": "①",
+      "level_desc": "Level 1 (Dasar)"
     },
     {
       "id": "safety_20",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 3: 안전보건표지 확인 (Memeriksa rambu keselamatan dan kesehatan)",
       "question_ko": "안전보건표지에는 어떤 종류가 있을까요?",
       "question_ro": "Anjeonbogeon pyojieneun eotteon jongnyuga isseulkkayo?",
       "question_id": "Apa saja jenis-jenis rambu keselamatan dan kesehatan kerja (K3)?",
@@ -3134,11 +3302,19 @@
           "id": "Ada rambu larangan, peringatan, dan instruksi APD.",
           "audio": "/audio/tts/options/safety_20_opt_2.mp3"
         }
-      ]
+      ],
+      "topic_no": 3,
+      "topic_ko": "안전보건표지 확인",
+      "topic_id": "Memeriksa rambu keselamatan dan kesehatan",
+      "phase_key": "before",
+      "phase_ko": "작업 전",
+      "phase_id": "Sebelum Bekerja",
+      "level_mark": "②",
+      "level_desc": "Level 2 (Menengah)"
     },
     {
       "id": "safety_21",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 3: 안전보건표지 확인 (Memeriksa rambu keselamatan dan kesehatan)",
       "question_ko": "안전보건표지를 왜 확인해야 할까요?",
       "question_ro": "Anjeonbogeon pyojireul wae hwaginhaeya halkkayo?",
       "question_id": "Mengapa kita harus memeriksa rambu keselamatan dan kesehatan kerja (K3)?",
@@ -3165,11 +3341,19 @@
           "id": "Untuk memahami faktor bahaya tempat kerja.",
           "audio": "/audio/tts/options/safety_21_opt_2.mp3"
         }
-      ]
+      ],
+      "topic_no": 3,
+      "topic_ko": "안전보건표지 확인",
+      "topic_id": "Memeriksa rambu keselamatan dan kesehatan",
+      "phase_key": "before",
+      "phase_ko": "작업 전",
+      "phase_id": "Sebelum Bekerja",
+      "level_mark": "②",
+      "level_desc": "Level 2 (Menengah)"
     },
     {
       "id": "safety_22",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 3: 안전보건표지 확인 (Memeriksa rambu keselamatan dan kesehatan)",
       "question_ko": "위험장소 출입금지 등 금지표지는 무슨 색인가요?",
       "question_ro": "Wiheomjangso churipgeumji deung geumjipyojineun museun saekingayo?",
       "question_id": "Rambu larangan seperti dilarang masuk ke tempat berbahaya itu berwarna apa?",
@@ -3196,11 +3380,19 @@
           "id": "Lingkaran merah dan garis silang merah.",
           "audio": "/audio/tts/options/safety_22_opt_2.mp3"
         }
-      ]
+      ],
+      "topic_no": 3,
+      "topic_ko": "안전보건표지 확인",
+      "topic_id": "Memeriksa rambu keselamatan dan kesehatan",
+      "phase_key": "before",
+      "phase_ko": "작업 전",
+      "phase_id": "Sebelum Bekerja",
+      "level_mark": "③",
+      "level_desc": "Level 3 (Lanjutan)"
     },
     {
       "id": "safety_23",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 4: 방호장치 정상 작동 여부 확인 (Memeriksa alat pengaman berfungsi normal)",
       "question_ko": "방호장치가 무엇인가요?",
       "question_ro": "Banghojangchiga mueosingayo?",
       "question_id": "Apakah yang dimaksud dengan alat pengaman mesin (safety guard)?",
@@ -3227,11 +3419,19 @@
           "id": "Penutup atau sensor mesin pelindung pekerja.",
           "audio": "/audio/tts/options/safety_23_opt_2.mp3"
         }
-      ]
+      ],
+      "topic_no": 4,
+      "topic_ko": "방호장치 정상 작동 여부 확인",
+      "topic_id": "Memeriksa alat pengaman berfungsi normal",
+      "phase_key": "before",
+      "phase_ko": "작업 전",
+      "phase_id": "Sebelum Bekerja",
+      "level_mark": "①",
+      "level_desc": "Level 1 (Dasar)"
     },
     {
       "id": "safety_24",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 4: 방호장치 정상 작동 여부 확인 (Memeriksa alat pengaman berfungsi normal)",
       "question_ko": "정상 작동이 무슨 뜻인가요?",
       "question_ro": "Jeongsang jakdong-i museun tteusingayo?",
       "question_id": "Apakah arti dari operasi normal (bekerja dengan normal)?",
@@ -3258,11 +3458,19 @@
           "id": "Beroperasi dengan benar tanpa masalah.",
           "audio": "/audio/tts/options/safety_24_opt_2.mp3"
         }
-      ]
+      ],
+      "topic_no": 4,
+      "topic_ko": "방호장치 정상 작동 여부 확인",
+      "topic_id": "Memeriksa alat pengaman berfungsi normal",
+      "phase_key": "before",
+      "phase_ko": "작업 전",
+      "phase_id": "Sebelum Bekerja",
+      "level_mark": "②",
+      "level_desc": "Level 2 (Menengah)"
     },
     {
       "id": "safety_25",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 4: 방호장치 정상 작동 여부 확인 (Memeriksa alat pengaman berfungsi normal)",
       "question_ko": "방호장치 정상 작동 여부를 왜 확인하여야 하나요?",
       "question_ro": "Banghojangchi jeongsang jakdong yeobureul wae hwaginhayeoya hanayo?",
       "question_id": "Mengapa kita harus memeriksa apakah alat pengaman mesin berfungsi normal?",
@@ -3289,11 +3497,19 @@
           "id": "Untuk mencegah kecelakaan terjepit atau tersengat listrik.",
           "audio": "/audio/tts/options/safety_25_opt_2.mp3"
         }
-      ]
+      ],
+      "topic_no": 4,
+      "topic_ko": "방호장치 정상 작동 여부 확인",
+      "topic_id": "Memeriksa alat pengaman berfungsi normal",
+      "phase_key": "before",
+      "phase_ko": "작업 전",
+      "phase_id": "Sebelum Bekerja",
+      "level_mark": "②",
+      "level_desc": "Level 2 (Menengah)"
     },
     {
       "id": "safety_26",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 4: 방호장치 정상 작동 여부 확인 (Memeriksa alat pengaman berfungsi normal)",
       "question_ko": "작업 전 안전점검이 무엇인가요?",
       "question_ro": "Jageop jeon anjeonjeomgeom-i mueosingayo?",
       "question_id": "Apakah yang dimaksud dengan inspeksi keselamatan sebelum bekerja?",
@@ -3320,11 +3536,19 @@
           "id": "Memeriksa keselamatan mesin dan alat sebelum kerja.",
           "audio": "/audio/tts/options/safety_26_opt_2.mp3"
         }
-      ]
+      ],
+      "topic_no": 4,
+      "topic_ko": "방호장치 정상 작동 여부 확인",
+      "topic_id": "Memeriksa alat pengaman berfungsi normal",
+      "phase_key": "before",
+      "phase_ko": "작업 전",
+      "phase_id": "Sebelum Bekerja",
+      "level_mark": "③",
+      "level_desc": "Level 3 (Lanjutan)"
     },
     {
       "id": "safety_27",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 15: 화학물질 작업 시 환기장치 가동 (Menyalakan ventilasi saat bekerja dengan bahan kimia)",
       "question_ko": "화학물질이 무엇인가요?",
       "question_ro": "Hwahangmuljiri mueosingayo?",
       "question_id": "Apakah yang dimaksud dengan bahan kimia berbahaya di pabrik?",
@@ -3351,11 +3575,19 @@
           "id": "Cairan atau gas berbahaya yang dipakai di pabrik.",
           "audio": "/audio/tts/options/safety_27_opt_2.mp3"
         }
-      ]
+      ],
+      "topic_no": 15,
+      "topic_ko": "화학물질 작업 시 환기장치 가동",
+      "topic_id": "Menyalakan ventilasi saat bekerja dengan bahan kimia",
+      "phase_key": "during",
+      "phase_ko": "작업 중",
+      "phase_id": "Saat Bekerja",
+      "level_mark": "②",
+      "level_desc": "Level 2 (Menengah)"
     },
     {
       "id": "safety_28",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 5: 화학물질 MSDS(물질안전보건자료) 확인 (Memeriksa MSDS (lembar data keselamatan bahan) bahan kimia)",
       "question_ko": "MSDS(물질안전보건자료)가 무엇인가요?",
       "question_ro": "MSDS(muljil-anjeon-bogeon-jaryo)ga mueosingayo?",
       "question_id": "Apakah yang dimaksud dengan MSDS (Lembar Data Keselamatan Bahan)?",
@@ -3382,11 +3614,19 @@
           "id": "Panduan berisi bahaya bahan kimia dan P3K-nya.",
           "audio": "/audio/tts/options/safety_28_opt_2.mp3"
         }
-      ]
+      ],
+      "topic_no": 5,
+      "topic_ko": "화학물질 MSDS(물질안전보건자료) 확인",
+      "topic_id": "Memeriksa MSDS (lembar data keselamatan bahan) bahan kimia",
+      "phase_key": "before",
+      "phase_ko": "작업 전",
+      "phase_id": "Sebelum Bekerja",
+      "level_mark": "①",
+      "level_desc": "Level 1 (Dasar)"
     },
     {
       "id": "safety_29",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 5: 화학물질 MSDS(물질안전보건자료) 확인 (Memeriksa MSDS (lembar data keselamatan bahan) bahan kimia)",
       "question_ko": "화학물질 MSDS(물질안전보건자료)를 왜 확인해야 할까요?",
       "question_ro": "Hwahangmuljil MSDSreul wae hwaginhaeya halkkayo?",
       "question_id": "Mengapa kita harus memeriksa lembar MSDS bahan kimia?",
@@ -3413,11 +3653,19 @@
           "id": "Agar bisa menangani bahan kimia dengan aman.",
           "audio": "/audio/tts/options/safety_29_opt_2.mp3"
         }
-      ]
+      ],
+      "topic_no": 5,
+      "topic_ko": "화학물질 MSDS(물질안전보건자료) 확인",
+      "topic_id": "Memeriksa MSDS (lembar data keselamatan bahan) bahan kimia",
+      "phase_key": "before",
+      "phase_ko": "작업 전",
+      "phase_id": "Sebelum Bekerja",
+      "level_mark": "②",
+      "level_desc": "Level 2 (Menengah)"
     },
     {
       "id": "safety_32",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 5: 화학물질 MSDS(물질안전보건자료) 확인 (Memeriksa MSDS (lembar data keselamatan bahan) bahan kimia)",
       "question_ko": "화학물질을 사용하는 작업 전에는 어떤 보호구를 준비해야 하나요?",
       "question_ro": "Hwahakmuljireul sayonghaneun jageop jeoneneun eotteon bohogureul junbihaeya haenayo?",
       "question_id": "Alat pelindung apa yang harus disiapkan sebelum bekerja dengan bahan kimia?",
@@ -3438,11 +3686,19 @@
           "id": "Siapkan masker gas dan sarung tangan pelindung.",
           "audio": "/audio/tts/k3/safety_32_s.mp3"
         }
-      ]
+      ],
+      "topic_no": 5,
+      "topic_ko": "화학물질 MSDS(물질안전보건자료) 확인",
+      "topic_id": "Memeriksa MSDS (lembar data keselamatan bahan) bahan kimia",
+      "phase_key": "before",
+      "phase_ko": "작업 전",
+      "phase_id": "Sebelum Bekerja",
+      "level_mark": "②",
+      "level_desc": "Level 2 (Menengah)"
     },
     {
       "id": "safety_33",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 6: 밀폐공간 작업 전 환기 (Ventilasi sebelum bekerja di ruang tertutup)",
       "question_ko": "밀폐공간이 무엇인가요?",
       "question_ro": "Milpyegonggani mueosingayo?",
       "question_id": "Apa itu ruang tertutup?",
@@ -3463,11 +3719,19 @@
           "id": "Ruang dengan udara kurang dan berbahaya.",
           "audio": "/audio/tts/k3/safety_33_s.mp3"
         }
-      ]
+      ],
+      "topic_no": 6,
+      "topic_ko": "밀폐공간 작업 전 환기",
+      "topic_id": "Ventilasi sebelum bekerja di ruang tertutup",
+      "phase_key": "before",
+      "phase_ko": "작업 전",
+      "phase_id": "Sebelum Bekerja",
+      "level_mark": "①",
+      "level_desc": "Level 1 (Dasar)"
     },
     {
       "id": "safety_34",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 6: 밀폐공간 작업 전 환기 (Ventilasi sebelum bekerja di ruang tertutup)",
       "question_ko": "환기가 무슨 뜻인가요?",
       "question_ro": "Hwangiga museun tteushingayo?",
       "question_id": "Apa arti ventilasi?",
@@ -3488,11 +3752,19 @@
           "id": "Mengganti udara kotor dengan udara bersih.",
           "audio": "/audio/tts/k3/safety_34_s.mp3"
         }
-      ]
+      ],
+      "topic_no": 6,
+      "topic_ko": "밀폐공간 작업 전 환기",
+      "topic_id": "Ventilasi sebelum bekerja di ruang tertutup",
+      "phase_key": "before",
+      "phase_ko": "작업 전",
+      "phase_id": "Sebelum Bekerja",
+      "level_mark": "①",
+      "level_desc": "Level 1 (Dasar)"
     },
     {
       "id": "safety_35",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 6: 밀폐공간 작업 전 환기 (Ventilasi sebelum bekerja di ruang tertutup)",
       "question_ko": "밀폐공간 작업 전 왜 환기를 해야 할까요?",
       "question_ro": "Milpyegongan jageop jeon wae hwangireul haeya halkkayo?",
       "question_id": "Mengapa harus ventilasi sebelum bekerja di ruang tertutup?",
@@ -3513,11 +3785,19 @@
           "id": "Pekerja bisa meninggal karena gas atau kurang oksigen.",
           "audio": "/audio/tts/k3/safety_35_s.mp3"
         }
-      ]
+      ],
+      "topic_no": 6,
+      "topic_ko": "밀폐공간 작업 전 환기",
+      "topic_id": "Ventilasi sebelum bekerja di ruang tertutup",
+      "phase_key": "before",
+      "phase_ko": "작업 전",
+      "phase_id": "Sebelum Bekerja",
+      "level_mark": "②",
+      "level_desc": "Level 2 (Menengah)"
     },
     {
       "id": "safety_36",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 7: 가동 중인 기계 정비 금지 (Dilarang memperbaiki mesin yang sedang beroperasi)",
       "question_ko": "가동이 무슨 뜻인가요?",
       "question_ro": "Gadongi museun tteushingayo?",
       "question_id": "Apa arti beroperasi?",
@@ -3538,11 +3818,19 @@
           "id": "Menjalankan mesin secara nyata.",
           "audio": "/audio/tts/k3/safety_36_s.mp3"
         }
-      ]
+      ],
+      "topic_no": 7,
+      "topic_ko": "가동 중인 기계 정비 금지",
+      "topic_id": "Dilarang memperbaiki mesin yang sedang beroperasi",
+      "phase_key": "during",
+      "phase_ko": "작업 중",
+      "phase_id": "Saat Bekerja",
+      "level_mark": "②",
+      "level_desc": "Level 2 (Menengah)"
     },
     {
       "id": "safety_37",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 7: 가동 중인 기계 정비 금지 (Dilarang memperbaiki mesin yang sedang beroperasi)",
       "question_ko": "정비가 무슨 뜻인가요?",
       "question_ro": "Jeongbiga museun tteushingayo?",
       "question_id": "Apa arti perbaikan atau perawatan?",
@@ -3563,11 +3851,19 @@
           "id": "Pekerjaan memperbaiki mesin dan mengganti komponen.",
           "audio": "/audio/tts/k3/safety_37_s.mp3"
         }
-      ]
+      ],
+      "topic_no": 7,
+      "topic_ko": "가동 중인 기계 정비 금지",
+      "topic_id": "Dilarang memperbaiki mesin yang sedang beroperasi",
+      "phase_key": "during",
+      "phase_ko": "작업 중",
+      "phase_id": "Saat Bekerja",
+      "level_mark": "②",
+      "level_desc": "Level 2 (Menengah)"
     },
     {
       "id": "safety_38",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 7: 가동 중인 기계 정비 금지 (Dilarang memperbaiki mesin yang sedang beroperasi)",
       "question_ko": "가동 중인 기계를 왜 정비하면 안 될까요?",
       "question_ro": "Gadong jungin gigyereul wae jeongbihamyeon an doelkkayo?",
       "question_id": "Mengapa mesin yang sedang beroperasi tidak boleh diperbaiki?",
@@ -3588,11 +3884,19 @@
           "id": "Jika mesin tiba-tiba bekerja, bisa terjadi kecelakaan.",
           "audio": "/audio/tts/k3/safety_38_s.mp3"
         }
-      ]
+      ],
+      "topic_no": 7,
+      "topic_ko": "가동 중인 기계 정비 금지",
+      "topic_id": "Dilarang memperbaiki mesin yang sedang beroperasi",
+      "phase_key": "during",
+      "phase_ko": "작업 중",
+      "phase_id": "Saat Bekerja",
+      "level_mark": "②",
+      "level_desc": "Level 2 (Menengah)"
     },
     {
       "id": "safety_39",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 7: 가동 중인 기계 정비 금지 (Dilarang memperbaiki mesin yang sedang beroperasi)",
       "question_ko": "기계가 알 수 없는 이유로 멈추면 어떻게 해야 하나요?",
       "question_ro": "Gigyega al su eomneun iyuro meomchumyeon eotteoke haeya haenayo?",
       "question_id": "Apa yang harus dilakukan jika mesin berhenti karena alasan yang tidak diketahui?",
@@ -3613,11 +3917,19 @@
           "id": "Jangan disentuh sembarangan, lapor ke atasan.",
           "audio": "/audio/tts/k3/safety_39_s.mp3"
         }
-      ]
+      ],
+      "topic_no": 7,
+      "topic_ko": "가동 중인 기계 정비 금지",
+      "topic_id": "Dilarang memperbaiki mesin yang sedang beroperasi",
+      "phase_key": "during",
+      "phase_ko": "작업 중",
+      "phase_id": "Saat Bekerja",
+      "level_mark": "③",
+      "level_desc": "Level 3 (Lanjutan)"
     },
     {
       "id": "safety_40",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 8: 모르는 기계 임의 조작 금지 (Dilarang mengoperasikan mesin yang tidak dikenal sembarangan)",
       "question_ko": "모르는 기계가 무슨 뜻인가요?",
       "question_ro": "Moreuneun gigyega museun tteushingayo?",
       "question_id": "Apa arti mesin yang tidak dikenal?",
@@ -3638,11 +3950,19 @@
           "id": "Peralatan yang cara pakainya tidak diketahui.",
           "audio": "/audio/tts/k3/safety_40_s.mp3"
         }
-      ]
+      ],
+      "topic_no": 8,
+      "topic_ko": "모르는 기계 임의 조작 금지",
+      "topic_id": "Dilarang mengoperasikan mesin yang tidak dikenal sembarangan",
+      "phase_key": "during",
+      "phase_ko": "작업 중",
+      "phase_id": "Saat Bekerja",
+      "level_mark": "②",
+      "level_desc": "Level 2 (Menengah)"
     },
     {
       "id": "safety_41",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 8: 모르는 기계 임의 조작 금지 (Dilarang mengoperasikan mesin yang tidak dikenal sembarangan)",
       "question_ko": "임의 조작이 무슨 뜻인가요?",
       "question_ro": "Imui jojagi museun tteushingayo?",
       "question_id": "Apa arti mengoperasikan sembarangan?",
@@ -3663,11 +3983,19 @@
           "id": "Mengoperasikan sesuka hati tanpa izin.",
           "audio": "/audio/tts/k3/safety_41_s.mp3"
         }
-      ]
+      ],
+      "topic_no": 8,
+      "topic_ko": "모르는 기계 임의 조작 금지",
+      "topic_id": "Dilarang mengoperasikan mesin yang tidak dikenal sembarangan",
+      "phase_key": "during",
+      "phase_ko": "작업 중",
+      "phase_id": "Saat Bekerja",
+      "level_mark": "②",
+      "level_desc": "Level 2 (Menengah)"
     },
     {
       "id": "safety_42",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 8: 모르는 기계 임의 조작 금지 (Dilarang mengoperasikan mesin yang tidak dikenal sembarangan)",
       "question_ko": "모르는 기계를 왜 임의로 조작하면 안 될까요?",
       "question_ro": "Moreuneun gigyereul wae imuiro jojakhamyeon an doelkkayo?",
       "question_id": "Mengapa mesin yang tidak dikenal tidak boleh dioperasikan sembarangan?",
@@ -3688,11 +4016,19 @@
           "id": "Jika mesin tiba-tiba bergerak, bisa terjadi kecelakaan.",
           "audio": "/audio/tts/k3/safety_42_s.mp3"
         }
-      ]
+      ],
+      "topic_no": 8,
+      "topic_ko": "모르는 기계 임의 조작 금지",
+      "topic_id": "Dilarang mengoperasikan mesin yang tidak dikenal sembarangan",
+      "phase_key": "during",
+      "phase_ko": "작업 중",
+      "phase_id": "Saat Bekerja",
+      "level_mark": "③",
+      "level_desc": "Level 3 (Lanjutan)"
     },
     {
       "id": "safety_43",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 8: 모르는 기계 임의 조작 금지 (Dilarang mengoperasikan mesin yang tidak dikenal sembarangan)",
       "question_ko": "비상정지장치가 무엇인지 아나요?",
       "question_ro": "Bisangjeongji jangchiga mueoshinji anayo?",
       "question_id": "Tahukah kamu apa itu alat henti darurat?",
@@ -3713,11 +4049,19 @@
           "id": "Tombol untuk menghentikan mesin dengan cepat.",
           "audio": "/audio/tts/k3/safety_43_s.mp3"
         }
-      ]
+      ],
+      "topic_no": 8,
+      "topic_ko": "모르는 기계 임의 조작 금지",
+      "topic_id": "Dilarang mengoperasikan mesin yang tidak dikenal sembarangan",
+      "phase_key": "during",
+      "phase_ko": "작업 중",
+      "phase_id": "Saat Bekerja",
+      "level_mark": "③",
+      "level_desc": "Level 3 (Lanjutan)"
     },
     {
       "id": "safety_44",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 9: 안전장치·시설 해체·해지 금지 (Dilarang membongkar atau menonaktifkan alat dan fasilitas pengaman)",
       "question_ko": "안전장치·시설이 무엇인지 알고 있나요?",
       "question_ro": "Anjeon jangchi siseori mueoshinji algo itnayo?",
       "question_id": "Tahukah kamu apa itu alat dan fasilitas pengaman?",
@@ -3738,11 +4082,19 @@
           "id": "Perlengkapan pelindung yang dipasang untuk pekerja.",
           "audio": "/audio/tts/k3/safety_44_s.mp3"
         }
-      ]
+      ],
+      "topic_no": 9,
+      "topic_ko": "안전장치·시설 해체·해지 금지",
+      "topic_id": "Dilarang membongkar atau menonaktifkan alat dan fasilitas pengaman",
+      "phase_key": "during",
+      "phase_ko": "작업 중",
+      "phase_id": "Saat Bekerja",
+      "level_mark": "①",
+      "level_desc": "Level 1 (Dasar)"
     },
     {
       "id": "safety_45",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 9: 안전장치·시설 해체·해지 금지 (Dilarang membongkar atau menonaktifkan alat dan fasilitas pengaman)",
       "question_ko": "해체·해지가 무슨 뜻인지 알고 있나요?",
       "question_ro": "Haeche haejiga museun tteushinji algo itnayo?",
       "question_id": "Tahukah kamu arti membongkar atau menonaktifkan?",
@@ -3763,11 +4115,19 @@
           "id": "Melepas atau menghentikan fungsi pengaman.",
           "audio": "/audio/tts/k3/safety_45_s.mp3"
         }
-      ]
+      ],
+      "topic_no": 9,
+      "topic_ko": "안전장치·시설 해체·해지 금지",
+      "topic_id": "Dilarang membongkar atau menonaktifkan alat dan fasilitas pengaman",
+      "phase_key": "during",
+      "phase_ko": "작업 중",
+      "phase_id": "Saat Bekerja",
+      "level_mark": "①",
+      "level_desc": "Level 1 (Dasar)"
     },
     {
       "id": "safety_46",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 9: 안전장치·시설 해체·해지 금지 (Dilarang membongkar atau menonaktifkan alat dan fasilitas pengaman)",
       "question_ko": "안전장치·시설을 왜 해체·해지하면 안될까요?",
       "question_ro": "Anjeon jangchi siseoreul wae haeche haejihamyeon andoelkkayo?",
       "question_id": "Mengapa alat dan fasilitas pengaman tidak boleh dibongkar atau dinonaktifkan?",
@@ -3788,11 +4148,19 @@
           "id": "Karena tidak bisa lagi mencegah kecelakaan.",
           "audio": "/audio/tts/k3/safety_46_s.mp3"
         }
-      ]
+      ],
+      "topic_no": 9,
+      "topic_ko": "안전장치·시설 해체·해지 금지",
+      "topic_id": "Dilarang membongkar atau menonaktifkan alat dan fasilitas pengaman",
+      "phase_key": "during",
+      "phase_ko": "작업 중",
+      "phase_id": "Saat Bekerja",
+      "level_mark": "③",
+      "level_desc": "Level 3 (Lanjutan)"
     },
     {
       "id": "safety_47",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 9: 안전장치·시설 해체·해지 금지 (Dilarang membongkar atau menonaktifkan alat dan fasilitas pengaman)",
       "question_ko": "기계의 안전장치를 해체하고 작업하면 어떤 위험이 있나요?",
       "question_ro": "Gigyeui anjeon jangchireul haechehago jageophamyeon eotteon wiheomi innayo?",
       "question_id": "Apa bahayanya bekerja setelah membongkar alat pengaman mesin?",
@@ -3813,11 +4181,19 @@
           "id": "Bisa terjepit mesin.",
           "audio": "/audio/tts/k3/safety_47_s.mp3"
         }
-      ]
+      ],
+      "topic_no": 9,
+      "topic_ko": "안전장치·시설 해체·해지 금지",
+      "topic_id": "Dilarang membongkar atau menonaktifkan alat dan fasilitas pengaman",
+      "phase_key": "during",
+      "phase_ko": "작업 중",
+      "phase_id": "Saat Bekerja",
+      "level_mark": "③",
+      "level_desc": "Level 3 (Lanjutan)"
     },
     {
       "id": "safety_48",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 10: 지정된 보조 도구·공구 사용 (Menggunakan alat bantu dan perkakas yang ditentukan)",
       "question_ko": "지정이 무슨 뜻인지 알고 있나요?",
       "question_ro": "Jijeongi museun tteushinji algo itnayo?",
       "question_id": "Tahukah kamu arti ditentukan?",
@@ -3838,11 +4214,19 @@
           "id": "Menetapkan secara resmi untuk mencegah kecelakaan.",
           "audio": "/audio/tts/k3/safety_48_s.mp3"
         }
-      ]
+      ],
+      "topic_no": 10,
+      "topic_ko": "지정된 보조 도구·공구 사용",
+      "topic_id": "Menggunakan alat bantu dan perkakas yang ditentukan",
+      "phase_key": "during",
+      "phase_ko": "작업 중",
+      "phase_id": "Saat Bekerja",
+      "level_mark": "②",
+      "level_desc": "Level 2 (Menengah)"
     },
     {
       "id": "safety_49",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 10: 지정된 보조 도구·공구 사용 (Menggunakan alat bantu dan perkakas yang ditentukan)",
       "question_ko": "보조 도구·공구가 무엇인가요?",
       "question_ro": "Bojo dogu gonggoga mueosingayo?",
       "question_id": "Apa itu alat bantu dan perkakas?",
@@ -3863,11 +4247,19 @@
           "id": "Peralatan pelengkap untuk mencegah kecelakaan.",
           "audio": "/audio/tts/k3/safety_49_s.mp3"
         }
-      ]
+      ],
+      "topic_no": 10,
+      "topic_ko": "지정된 보조 도구·공구 사용",
+      "topic_id": "Menggunakan alat bantu dan perkakas yang ditentukan",
+      "phase_key": "during",
+      "phase_ko": "작업 중",
+      "phase_id": "Saat Bekerja",
+      "level_mark": "②",
+      "level_desc": "Level 2 (Menengah)"
     },
     {
       "id": "safety_50",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 10: 지정된 보조 도구·공구 사용 (Menggunakan alat bantu dan perkakas yang ditentukan)",
       "question_ko": "작업 시 왜 지정된 보조 도구·공구를 사용해야 할까요?",
       "question_ro": "Jageop si wae jijeongdoen bojo dogu gonggoreul sayonghaeya halkkayo?",
       "question_id": "Mengapa harus menggunakan alat bantu dan perkakas yang ditentukan saat bekerja?",
@@ -3888,11 +4280,19 @@
           "id": "Karena memakai tidak sesuai kegunaan itu berbahaya.",
           "audio": "/audio/tts/k3/safety_50_s.mp3"
         }
-      ]
+      ],
+      "topic_no": 10,
+      "topic_ko": "지정된 보조 도구·공구 사용",
+      "topic_id": "Menggunakan alat bantu dan perkakas yang ditentukan",
+      "phase_key": "during",
+      "phase_ko": "작업 중",
+      "phase_id": "Saat Bekerja",
+      "level_mark": "③",
+      "level_desc": "Level 3 (Lanjutan)"
     },
     {
       "id": "safety_51",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 10: 지정된 보조 도구·공구 사용 (Menggunakan alat bantu dan perkakas yang ditentukan)",
       "question_ko": "기계 작업 시 보조 도구를 사용하는 이유를 알고 있나요?",
       "question_ro": "Gigye jageop si bojo dogureul sayonghaneun iyureul algo innayo?",
       "question_id": "Tahukah kamu mengapa memakai alat bantu saat mengoperasikan mesin?",
@@ -3913,11 +4313,19 @@
           "id": "Untuk mencegah tangan terjepit.",
           "audio": "/audio/tts/k3/safety_51_s.mp3"
         }
-      ]
+      ],
+      "topic_no": 10,
+      "topic_ko": "지정된 보조 도구·공구 사용",
+      "topic_id": "Menggunakan alat bantu dan perkakas yang ditentukan",
+      "phase_key": "during",
+      "phase_ko": "작업 중",
+      "phase_id": "Saat Bekerja",
+      "level_mark": "③",
+      "level_desc": "Level 3 (Lanjutan)"
     },
     {
       "id": "safety_52",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 11: 지게차 운전 시 안전벨트 착용 및 시야 확보 (Memakai sabuk pengaman dan menjaga pandangan saat mengemudi forklift)",
       "question_ko": "지게차가 무엇인가요?",
       "question_ro": "Jigechaga mueosingayo?",
       "question_id": "Apa itu forklift?",
@@ -3938,11 +4346,19 @@
           "id": "Mesin untuk memindahkan barang berat.",
           "audio": "/audio/tts/k3/safety_52_s.mp3"
         }
-      ]
+      ],
+      "topic_no": 11,
+      "topic_ko": "지게차 운전 시 안전벨트 착용 및 시야 확보",
+      "topic_id": "Memakai sabuk pengaman dan menjaga pandangan saat mengemudi forklift",
+      "phase_key": "during",
+      "phase_ko": "작업 중",
+      "phase_id": "Saat Bekerja",
+      "level_mark": "①",
+      "level_desc": "Level 1 (Dasar)"
     },
     {
       "id": "safety_53",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 11: 지게차 운전 시 안전벨트 착용 및 시야 확보 (Memakai sabuk pengaman dan menjaga pandangan saat mengemudi forklift)",
       "question_ko": "안전벨트가 무엇인가요?",
       "question_ro": "Anjeonbelteuga mueosingayo?",
       "question_id": "Apa itu sabuk pengaman?",
@@ -3963,11 +4379,19 @@
           "id": "Pelindung agar tubuh tidak terlempar.",
           "audio": "/audio/tts/k3/safety_53_s.mp3"
         }
-      ]
+      ],
+      "topic_no": 11,
+      "topic_ko": "지게차 운전 시 안전벨트 착용 및 시야 확보",
+      "topic_id": "Memakai sabuk pengaman dan menjaga pandangan saat mengemudi forklift",
+      "phase_key": "during",
+      "phase_ko": "작업 중",
+      "phase_id": "Saat Bekerja",
+      "level_mark": "①",
+      "level_desc": "Level 1 (Dasar)"
     },
     {
       "id": "safety_54",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 11: 지게차 운전 시 안전벨트 착용 및 시야 확보 (Memakai sabuk pengaman dan menjaga pandangan saat mengemudi forklift)",
       "question_ko": "시야 확보는 무슨 뜻일까요?",
       "question_ro": "Siya hwakboneun museun tteusilkkayo?",
       "question_id": "Apa arti menjaga pandangan?",
@@ -3988,11 +4412,19 @@
           "id": "Mengemudi sambil melihat jelas ke segala arah.",
           "audio": "/audio/tts/k3/safety_54_s.mp3"
         }
-      ]
+      ],
+      "topic_no": 11,
+      "topic_ko": "지게차 운전 시 안전벨트 착용 및 시야 확보",
+      "topic_id": "Memakai sabuk pengaman dan menjaga pandangan saat mengemudi forklift",
+      "phase_key": "during",
+      "phase_ko": "작업 중",
+      "phase_id": "Saat Bekerja",
+      "level_mark": "②",
+      "level_desc": "Level 2 (Menengah)"
     },
     {
       "id": "safety_55",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 11: 지게차 운전 시 안전벨트 착용 및 시야 확보 (Memakai sabuk pengaman dan menjaga pandangan saat mengemudi forklift)",
       "question_ko": "지게차 운전 시 왜 안전벨트를 착용하고 시야를 확보 해야 할까요?",
       "question_ro": "Jigecha unjeon si wae anjeonbelteu chakyong mit siya hwakboreul haeya halkkayo?",
       "question_id": "Mengapa harus memakai sabuk pengaman dan menjaga pandangan saat mengemudi forklift?",
@@ -4013,11 +4445,19 @@
           "id": "Bisa mencegah kecelakaan pengemudi dan rekan.",
           "audio": "/audio/tts/k3/safety_55_s.mp3"
         }
-      ]
+      ],
+      "topic_no": 11,
+      "topic_ko": "지게차 운전 시 안전벨트 착용 및 시야 확보",
+      "topic_id": "Memakai sabuk pengaman dan menjaga pandangan saat mengemudi forklift",
+      "phase_key": "during",
+      "phase_ko": "작업 중",
+      "phase_id": "Saat Bekerja",
+      "level_mark": "②",
+      "level_desc": "Level 2 (Menengah)"
     },
     {
       "id": "safety_56",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 11: 지게차 운전 시 안전벨트 착용 및 시야 확보 (Memakai sabuk pengaman dan menjaga pandangan saat mengemudi forklift)",
       "question_ko": "지게차를 운전할 수 있나요? 지게차는 누가 운전할 수 있나요?",
       "question_ro": "Jigechareul unjeonhal su innayo? Jigechaneun nuga unjeonhal su innayo?",
       "question_id": "Bolehkah mengemudikan forklift? Siapa yang boleh mengemudikan forklift?",
@@ -4038,11 +4478,19 @@
           "id": "Hanya orang berkualifikasi yang boleh mengemudi.",
           "audio": "/audio/tts/k3/safety_56_s.mp3"
         }
-      ]
+      ],
+      "topic_no": 11,
+      "topic_ko": "지게차 운전 시 안전벨트 착용 및 시야 확보",
+      "topic_id": "Memakai sabuk pengaman dan menjaga pandangan saat mengemudi forklift",
+      "phase_key": "during",
+      "phase_ko": "작업 중",
+      "phase_id": "Saat Bekerja",
+      "level_mark": "③",
+      "level_desc": "Level 3 (Lanjutan)"
     },
     {
       "id": "safety_57",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 12: 위험작업은 2인1조 작업 (Pekerjaan berbahaya dilakukan berdua)",
       "question_ko": "위험작업이 무엇인가요?",
       "question_ro": "Wiheomjageobi mueosingayo?",
       "question_id": "Apa itu pekerjaan berbahaya?",
@@ -4063,11 +4511,19 @@
           "id": "Pekerjaan yang kemungkinan kecelakaannya tinggi.",
           "audio": "/audio/tts/k3/safety_57_s.mp3"
         }
-      ]
+      ],
+      "topic_no": 12,
+      "topic_ko": "위험작업은 2인1조 작업",
+      "topic_id": "Pekerjaan berbahaya dilakukan berdua",
+      "phase_key": "during",
+      "phase_ko": "작업 중",
+      "phase_id": "Saat Bekerja",
+      "level_mark": "②",
+      "level_desc": "Level 2 (Menengah)"
     },
     {
       "id": "safety_58",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 12: 위험작업은 2인1조 작업 (Pekerjaan berbahaya dilakukan berdua)",
       "question_ko": "2인1조 작업이 무엇인가요?",
       "question_ro": "2in1jo jageobi mueosingayo?",
       "question_id": "Apa itu kerja berdua (regu dua orang)?",
@@ -4088,11 +4544,19 @@
           "id": "Satu orang bekerja, satu orang mengawasi.",
           "audio": "/audio/tts/k3/safety_58_s.mp3"
         }
-      ]
+      ],
+      "topic_no": 12,
+      "topic_ko": "위험작업은 2인1조 작업",
+      "topic_id": "Pekerjaan berbahaya dilakukan berdua",
+      "phase_key": "during",
+      "phase_ko": "작업 중",
+      "phase_id": "Saat Bekerja",
+      "level_mark": "②",
+      "level_desc": "Level 2 (Menengah)"
     },
     {
       "id": "safety_59",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 12: 위험작업은 2인1조 작업 (Pekerjaan berbahaya dilakukan berdua)",
       "question_ko": "위험작업은 왜 2인1조로 해야 할까요?",
       "question_ro": "Wiheomjageobeun wae 2in1joro haeya halkkayo?",
       "question_id": "Mengapa pekerjaan berbahaya harus dilakukan berdua?",
@@ -4113,11 +4577,19 @@
           "id": "Karena bisa langsung menolong dan menangani.",
           "audio": "/audio/tts/k3/safety_59_s.mp3"
         }
-      ]
+      ],
+      "topic_no": 12,
+      "topic_ko": "위험작업은 2인1조 작업",
+      "topic_id": "Pekerjaan berbahaya dilakukan berdua",
+      "phase_key": "during",
+      "phase_ko": "작업 중",
+      "phase_id": "Saat Bekerja",
+      "level_mark": "③",
+      "level_desc": "Level 3 (Lanjutan)"
     },
     {
       "id": "safety_60",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 12: 위험작업은 2인1조 작업 (Pekerjaan berbahaya dilakukan berdua)",
       "question_ko": "사다리 위에서 혼자 작업할 수 있나요?",
       "question_ro": "Sadari wieseo honja jageophal su innayo?",
       "question_id": "Bolehkah bekerja sendirian di atas tangga?",
@@ -4138,11 +4610,19 @@
           "id": "Hanya pekerjaan ringan, satu orang memegang tangga.",
           "audio": "/audio/tts/k3/safety_60_s.mp3"
         }
-      ]
+      ],
+      "topic_no": 12,
+      "topic_ko": "위험작업은 2인1조 작업",
+      "topic_id": "Pekerjaan berbahaya dilakukan berdua",
+      "phase_key": "during",
+      "phase_ko": "작업 중",
+      "phase_id": "Saat Bekerja",
+      "level_mark": "③",
+      "level_desc": "Level 3 (Lanjutan)"
     },
     {
       "id": "safety_61",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 13: 중장비 작업구역 접근 금지 (Dilarang mendekati area kerja alat berat)",
       "question_ko": "중장비가 무엇인가요?",
       "question_ro": "Jungjangbiga mueosingayo?",
       "question_id": "Apa itu alat berat?",
@@ -4163,11 +4643,19 @@
           "id": "Mesin besar dan berat untuk pekerjaan besar.",
           "audio": "/audio/tts/k3/safety_61_s.mp3"
         }
-      ]
+      ],
+      "topic_no": 13,
+      "topic_ko": "중장비 작업구역 접근 금지",
+      "topic_id": "Dilarang mendekati area kerja alat berat",
+      "phase_key": "during",
+      "phase_ko": "작업 중",
+      "phase_id": "Saat Bekerja",
+      "level_mark": "②",
+      "level_desc": "Level 2 (Menengah)"
     },
     {
       "id": "safety_62",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 13: 중장비 작업구역 접근 금지 (Dilarang mendekati area kerja alat berat)",
       "question_ko": "작업구역이 무엇인가요?",
       "question_ro": "Jageopguyeogi mueosingayo?",
       "question_id": "Apa itu area kerja?",
@@ -4188,11 +4676,19 @@
           "id": "Area kerja yang berisiko terjadi kecelakaan.",
           "audio": "/audio/tts/k3/safety_62_s.mp3"
         }
-      ]
+      ],
+      "topic_no": 13,
+      "topic_ko": "중장비 작업구역 접근 금지",
+      "topic_id": "Dilarang mendekati area kerja alat berat",
+      "phase_key": "during",
+      "phase_ko": "작업 중",
+      "phase_id": "Saat Bekerja",
+      "level_mark": "②",
+      "level_desc": "Level 2 (Menengah)"
     },
     {
       "id": "safety_63",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 13: 중장비 작업구역 접근 금지 (Dilarang mendekati area kerja alat berat)",
       "question_ko": "중장비 작업구역은 왜 접근 금지 할까요?",
       "question_ro": "Jungjangbi jageopguyeogeun wae jeopgeun geumji halkkayo?",
       "question_id": "Mengapa area kerja alat berat dilarang didekati?",
@@ -4213,11 +4709,19 @@
           "id": "Karena banyak titik buta, risikonya sangat tinggi.",
           "audio": "/audio/tts/k3/safety_63_s.mp3"
         }
-      ]
+      ],
+      "topic_no": 13,
+      "topic_ko": "중장비 작업구역 접근 금지",
+      "topic_id": "Dilarang mendekati area kerja alat berat",
+      "phase_key": "during",
+      "phase_ko": "작업 중",
+      "phase_id": "Saat Bekerja",
+      "level_mark": "③",
+      "level_desc": "Level 3 (Lanjutan)"
     },
     {
       "id": "safety_64",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 13: 중장비 작업구역 접근 금지 (Dilarang mendekati area kerja alat berat)",
       "question_ko": "근처에서 중장비가 작업을 하고 있으면 어떻게 해야 하나요?",
       "question_ro": "Geuncheoeseo jungjangbiga jageobeul hago isseumyeon eotteoke haeya hanayo?",
       "question_id": "Apa yang harus dilakukan jika alat berat bekerja di dekat kita?",
@@ -4238,11 +4742,19 @@
           "id": "Jangan mendekati area kerja alat berat.",
           "audio": "/audio/tts/k3/safety_64_s.mp3"
         }
-      ]
+      ],
+      "topic_no": 13,
+      "topic_ko": "중장비 작업구역 접근 금지",
+      "topic_id": "Dilarang mendekati area kerja alat berat",
+      "phase_key": "during",
+      "phase_ko": "작업 중",
+      "phase_id": "Saat Bekerja",
+      "level_mark": "③",
+      "level_desc": "Level 3 (Lanjutan)"
     },
     {
       "id": "safety_65",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 14: 화재 가능 물질 주변 화기 금지 (Dilarang membawa api dekat bahan yang mudah terbakar)",
       "question_ko": "화재가 무엇인지 알고 있나요?",
       "question_ro": "Hwajaega mueosinji algo innayo?",
       "question_id": "Tahukah kamu apa itu kebakaran?",
@@ -4263,11 +4775,19 @@
           "id": "Bahan mudah terbakar bertemu api lalu terbakar.",
           "audio": "/audio/tts/k3/safety_65_s.mp3"
         }
-      ]
+      ],
+      "topic_no": 14,
+      "topic_ko": "화재 가능 물질 주변 화기 금지",
+      "topic_id": "Dilarang membawa api dekat bahan yang mudah terbakar",
+      "phase_key": "during",
+      "phase_ko": "작업 중",
+      "phase_id": "Saat Bekerja",
+      "level_mark": "①",
+      "level_desc": "Level 1 (Dasar)"
     },
     {
       "id": "safety_66",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 14: 화재 가능 물질 주변 화기 금지 (Dilarang membawa api dekat bahan yang mudah terbakar)",
       "question_ko": "화기가 무엇인지 알고 있나요?",
       "question_ro": "Hwagiga mueosinji algo innayo?",
       "question_id": "Tahukah kamu apa itu alat api?",
@@ -4288,11 +4808,19 @@
           "id": "Semua alat yang bisa menimbulkan api atau panas.",
           "audio": "/audio/tts/k3/safety_66_s.mp3"
         }
-      ]
+      ],
+      "topic_no": 14,
+      "topic_ko": "화재 가능 물질 주변 화기 금지",
+      "topic_id": "Dilarang membawa api dekat bahan yang mudah terbakar",
+      "phase_key": "during",
+      "phase_ko": "작업 중",
+      "phase_id": "Saat Bekerja",
+      "level_mark": "②",
+      "level_desc": "Level 2 (Menengah)"
     },
     {
       "id": "safety_67",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 14: 화재 가능 물질 주변 화기 금지 (Dilarang membawa api dekat bahan yang mudah terbakar)",
       "question_ko": "화재 가능 물질 주변에서 왜 화기를 금지 할까요?",
       "question_ro": "Hwaje ganeung mulljil jubyeoneseo wae hwagireul geumji halkkayo?",
       "question_id": "Mengapa alat api dilarang di dekat bahan yang mudah terbakar?",
@@ -4313,11 +4841,19 @@
           "id": "Karena risiko kebakaran sangat besar.",
           "audio": "/audio/tts/k3/safety_67_s.mp3"
         }
-      ]
+      ],
+      "topic_no": 14,
+      "topic_ko": "화재 가능 물질 주변 화기 금지",
+      "topic_id": "Dilarang membawa api dekat bahan yang mudah terbakar",
+      "phase_key": "during",
+      "phase_ko": "작업 중",
+      "phase_id": "Saat Bekerja",
+      "level_mark": "②",
+      "level_desc": "Level 2 (Menengah)"
     },
     {
       "id": "safety_68",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 14: 화재 가능 물질 주변 화기 금지 (Dilarang membawa api dekat bahan yang mudah terbakar)",
       "question_ko": "불에 잘 타는 물건이 근처에 있으면 용접작업 전에 어떻게 해야 하나요?",
       "question_ro": "Bure jal taneun mulgeoni geuncheoe isseumyeon yonggeopjageop jeone eotteoke haeya hanayo?",
       "question_id": "Apa yang harus dilakukan sebelum mengelas jika ada benda mudah terbakar di dekat?",
@@ -4338,11 +4874,19 @@
           "id": "Singkirkan benda mudah terbakar dulu.",
           "audio": "/audio/tts/k3/safety_68_s.mp3"
         }
-      ]
+      ],
+      "topic_no": 14,
+      "topic_ko": "화재 가능 물질 주변 화기 금지",
+      "topic_id": "Dilarang membawa api dekat bahan yang mudah terbakar",
+      "phase_key": "during",
+      "phase_ko": "작업 중",
+      "phase_id": "Saat Bekerja",
+      "level_mark": "③",
+      "level_desc": "Level 3 (Lanjutan)"
     },
     {
       "id": "safety_69",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 14: 화재 가능 물질 주변 화기 금지 (Dilarang membawa api dekat bahan yang mudah terbakar)",
       "question_ko": "불이 났을 때는 어떻게 해야 하나요?",
       "question_ro": "Buri nasseul ttaeneun eotteoke haeya hanayo?",
       "question_id": "Apa yang harus dilakukan saat terjadi kebakaran?",
@@ -4363,11 +4907,19 @@
           "id": "Padamkan dengan alat pemadam, jika tidak bisa, evakuasi.",
           "audio": "/audio/tts/k3/safety_69_s.mp3"
         }
-      ]
+      ],
+      "topic_no": 14,
+      "topic_ko": "화재 가능 물질 주변 화기 금지",
+      "topic_id": "Dilarang membawa api dekat bahan yang mudah terbakar",
+      "phase_key": "during",
+      "phase_ko": "작업 중",
+      "phase_id": "Saat Bekerja",
+      "level_mark": "③",
+      "level_desc": "Level 3 (Lanjutan)"
     },
     {
       "id": "safety_123",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 15: 화학물질 작업 시 환기장치 가동 (Menyalakan ventilasi saat bekerja dengan bahan kimia)",
       "question_ko": "화학물질이 무엇인가요?",
       "question_ro": "Hwahangmuljiri mueosingayo?",
       "question_id": "Apakah yang dimaksud dengan bahan kimia berbahaya di pabrik?",
@@ -4394,11 +4946,19 @@
           "id": "Cairan atau gas berbahaya yang dipakai di pabrik.",
           "audio": "/audio/tts/options/safety_27_opt_2.mp3"
         }
-      ]
+      ],
+      "topic_no": 15,
+      "topic_ko": "화학물질 작업 시 환기장치 가동",
+      "topic_id": "Menyalakan ventilasi saat bekerja dengan bahan kimia",
+      "phase_key": "during",
+      "phase_ko": "작업 중",
+      "phase_id": "Saat Bekerja",
+      "level_mark": "②",
+      "level_desc": "Level 2 (Menengah)"
     },
     {
       "id": "safety_70",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 15: 화학물질 작업 시 환기장치 가동 (Menyalakan ventilasi saat bekerja dengan bahan kimia)",
       "question_ko": "환기장치가 무엇인가요?",
       "question_ro": "Hwangijangchiga mueosingayo?",
       "question_id": "Apa itu alat ventilasi?",
@@ -4419,11 +4979,19 @@
           "id": "Perlengkapan yang mengganti udara kotor dengan udara segar.",
           "audio": "/audio/tts/k3/safety_70_s.mp3"
         }
-      ]
+      ],
+      "topic_no": 15,
+      "topic_ko": "화학물질 작업 시 환기장치 가동",
+      "topic_id": "Menyalakan ventilasi saat bekerja dengan bahan kimia",
+      "phase_key": "during",
+      "phase_ko": "작업 중",
+      "phase_id": "Saat Bekerja",
+      "level_mark": "②",
+      "level_desc": "Level 2 (Menengah)"
     },
     {
       "id": "safety_71",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 15: 화학물질 작업 시 환기장치 가동 (Menyalakan ventilasi saat bekerja dengan bahan kimia)",
       "question_ko": "화학물질 취급 시 왜 환기장치를 가동해야 할까요?",
       "question_ro": "Hwahakmuljil chwigeup si wae hwangijangchireul gadonghaeya halkkayo?",
       "question_id": "Mengapa ventilasi harus dinyalakan saat menangani bahan kimia?",
@@ -4444,11 +5012,19 @@
           "id": "Gas berbahaya yang tak terlihat harus dibuang keluar.",
           "audio": "/audio/tts/k3/safety_71_s.mp3"
         }
-      ]
+      ],
+      "topic_no": 15,
+      "topic_ko": "화학물질 작업 시 환기장치 가동",
+      "topic_id": "Menyalakan ventilasi saat bekerja dengan bahan kimia",
+      "phase_key": "during",
+      "phase_ko": "작업 중",
+      "phase_id": "Saat Bekerja",
+      "level_mark": "③",
+      "level_desc": "Level 3 (Lanjutan)"
     },
     {
       "id": "safety_72",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 15: 화학물질 작업 시 환기장치 가동 (Menyalakan ventilasi saat bekerja dengan bahan kimia)",
       "question_ko": "화학물질을 다룰 때는 어떻게 해야 하나요?",
       "question_ro": "Hwahakmuljireul dalrul ttaeneun eotteoke haeya hanayo?",
       "question_id": "Apa yang harus dilakukan saat menangani bahan kimia?",
@@ -4469,11 +5045,19 @@
           "id": "Nyalakan ventilasi dan pakai alat pelindung.",
           "audio": "/audio/tts/k3/safety_72_s.mp3"
         }
-      ]
+      ],
+      "topic_no": 15,
+      "topic_ko": "화학물질 작업 시 환기장치 가동",
+      "topic_id": "Menyalakan ventilasi saat bekerja dengan bahan kimia",
+      "phase_key": "during",
+      "phase_ko": "작업 중",
+      "phase_id": "Saat Bekerja",
+      "level_mark": "③",
+      "level_desc": "Level 3 (Lanjutan)"
     },
     {
       "id": "safety_73",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 16: 통제구역 허가 없이 출입 금지 (Dilarang masuk ke area terkontrol tanpa izin)",
       "question_ko": "통제 구역이 무엇인가요?",
       "question_ro": "Tongje guyeogi mueosingayo?",
       "question_id": "Apa itu area terkontrol?",
@@ -4494,11 +5078,19 @@
           "id": "Ruang yang masuknya dibatasi karena berbahaya.",
           "audio": "/audio/tts/k3/safety_73_s.mp3"
         }
-      ]
+      ],
+      "topic_no": 16,
+      "topic_ko": "통제구역 허가 없이 출입 금지",
+      "topic_id": "Dilarang masuk ke area terkontrol tanpa izin",
+      "phase_key": "during",
+      "phase_ko": "작업 중",
+      "phase_id": "Saat Bekerja",
+      "level_mark": "②",
+      "level_desc": "Level 2 (Menengah)"
     },
     {
       "id": "safety_74",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 16: 통제구역 허가 없이 출입 금지 (Dilarang masuk ke area terkontrol tanpa izin)",
       "question_ko": "허가가 무슨 뜻인가요?",
       "question_ro": "Heogaga museun tteusingayo?",
       "question_id": "Apa arti \"heoga\" (izin)?",
@@ -4519,11 +5111,19 @@
           "id": "Persetujuan untuk bekerja setelah kondisi keselamatan diperiksa.",
           "audio": "/audio/tts/k3/safety_74_s.mp3"
         }
-      ]
+      ],
+      "topic_no": 16,
+      "topic_ko": "통제구역 허가 없이 출입 금지",
+      "topic_id": "Dilarang masuk ke area terkontrol tanpa izin",
+      "phase_key": "during",
+      "phase_ko": "작업 중",
+      "phase_id": "Saat Bekerja",
+      "level_mark": "②",
+      "level_desc": "Level 2 (Menengah)"
     },
     {
       "id": "safety_75",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 16: 통제구역 허가 없이 출입 금지 (Dilarang masuk ke area terkontrol tanpa izin)",
       "question_ko": "통제구역은 왜 허가 없이 출입 금지 할까요?",
       "question_ro": "Tongjeguyeogeun wae heoga eopsi churip geumji halkkayo?",
       "question_id": "Mengapa area terkontrol dilarang dimasuki tanpa izin?",
@@ -4544,11 +5144,19 @@
           "id": "Area ini lebih berbahaya dari area biasa, jadi jangan masuk tanpa izin.",
           "audio": "/audio/tts/k3/safety_75_s.mp3"
         }
-      ]
+      ],
+      "topic_no": 16,
+      "topic_ko": "통제구역 허가 없이 출입 금지",
+      "topic_id": "Dilarang masuk ke area terkontrol tanpa izin",
+      "phase_key": "during",
+      "phase_ko": "작업 중",
+      "phase_id": "Saat Bekerja",
+      "level_mark": "③",
+      "level_desc": "Level 3 (Lanjutan)"
     },
     {
       "id": "safety_76",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 16: 통제구역 허가 없이 출입 금지 (Dilarang masuk ke area terkontrol tanpa izin)",
       "question_ko": "출입 금지라는 뜻을 알고 있나요?",
       "question_ro": "Churip geumjiraneun tteuseul algo innayo?",
       "question_id": "Tahukah kamu arti \"larangan masuk\"?",
@@ -4569,11 +5177,19 @@
           "id": "Tempat berbahaya yang tidak boleh dimasuki sembarang orang.",
           "audio": "/audio/tts/k3/safety_76_s.mp3"
         }
-      ]
+      ],
+      "topic_no": 16,
+      "topic_ko": "통제구역 허가 없이 출입 금지",
+      "topic_id": "Dilarang masuk ke area terkontrol tanpa izin",
+      "phase_key": "during",
+      "phase_ko": "작업 중",
+      "phase_id": "Saat Bekerja",
+      "level_mark": "③",
+      "level_desc": "Level 3 (Lanjutan)"
     },
     {
       "id": "safety_77",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 17: 중량물 들기는 허리 펴고 다리 힘을 이용 (Mengangkat beban berat: luruskan pinggang, gunakan kekuatan kaki)",
       "question_ko": "중량물이 무엇인지 알고 있나요?",
       "question_ro": "Jungnyangmuri mueonji algo innayo?",
       "question_id": "Tahukah kamu apa itu beban berat?",
@@ -4594,11 +5210,19 @@
           "id": "Benda yang berat dan sulit dipindahkan.",
           "audio": "/audio/tts/k3/safety_77_s.mp3"
         }
-      ]
+      ],
+      "topic_no": 17,
+      "topic_ko": "중량물 들기는 허리 펴고 다리 힘을 이용",
+      "topic_id": "Mengangkat beban berat: luruskan pinggang, gunakan kekuatan kaki",
+      "phase_key": "during",
+      "phase_ko": "작업 중",
+      "phase_id": "Saat Bekerja",
+      "level_mark": "②",
+      "level_desc": "Level 2 (Menengah)"
     },
     {
       "id": "safety_78",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 17: 중량물 들기는 허리 펴고 다리 힘을 이용 (Mengangkat beban berat: luruskan pinggang, gunakan kekuatan kaki)",
       "question_ko": "중량물 들기는 왜 허리 펴고 다리 힘을 이용해야 할까요?",
       "question_ro": "Jungnyangmul deulgineun wae heori pyeogo dari himeul iyonghaeya halkkayo?",
       "question_id": "Mengapa saat mengangkat beban berat harus meluruskan pinggang dan memakai kekuatan kaki?",
@@ -4619,11 +5243,19 @@
           "id": "Karena memakai kekuatan kaki, pinggang tidak cedera.",
           "audio": "/audio/tts/k3/safety_78_s.mp3"
         }
-      ]
+      ],
+      "topic_no": 17,
+      "topic_ko": "중량물 들기는 허리 펴고 다리 힘을 이용",
+      "topic_id": "Mengangkat beban berat: luruskan pinggang, gunakan kekuatan kaki",
+      "phase_key": "during",
+      "phase_ko": "작업 중",
+      "phase_id": "Saat Bekerja",
+      "level_mark": "②",
+      "level_desc": "Level 2 (Menengah)"
     },
     {
       "id": "safety_79",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 17: 중량물 들기는 허리 펴고 다리 힘을 이용 (Mengangkat beban berat: luruskan pinggang, gunakan kekuatan kaki)",
       "question_ko": "무거운 물건은 어떻게 들어야 하나요?",
       "question_ro": "Mugeoun mulgeoneun eotteoke deureoya hanayo?",
       "question_id": "Bagaimana cara mengangkat benda berat?",
@@ -4644,11 +5276,19 @@
           "id": "Angkat berdua atau pakai alat. Jika sendiri, pinggang lurus, pakai kaki.",
           "audio": "/audio/tts/k3/safety_79_s.mp3"
         }
-      ]
+      ],
+      "topic_no": 17,
+      "topic_ko": "중량물 들기는 허리 펴고 다리 힘을 이용",
+      "topic_id": "Mengangkat beban berat: luruskan pinggang, gunakan kekuatan kaki",
+      "phase_key": "during",
+      "phase_ko": "작업 중",
+      "phase_id": "Saat Bekerja",
+      "level_mark": "③",
+      "level_desc": "Level 3 (Lanjutan)"
     },
     {
       "id": "safety_80",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 18: 중량물 운반 시 운반기구 활용 (Memakai alat angkut saat mengangkut beban berat)",
       "question_ko": "운반이 무엇인가요?",
       "question_ro": "Unbani mueosingayo?",
       "question_id": "Apa itu pengangkutan?",
@@ -4669,11 +5309,19 @@
           "id": "Memindahkan barang dari satu tempat ke tempat lain.",
           "audio": "/audio/tts/k3/safety_80_s.mp3"
         }
-      ]
+      ],
+      "topic_no": 18,
+      "topic_ko": "중량물 운반 시 운반기구 활용",
+      "topic_id": "Memakai alat angkut saat mengangkut beban berat",
+      "phase_key": "during",
+      "phase_ko": "작업 중",
+      "phase_id": "Saat Bekerja",
+      "level_mark": "①",
+      "level_desc": "Level 1 (Dasar)"
     },
     {
       "id": "safety_81",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 18: 중량물 운반 시 운반기구 활용 (Memakai alat angkut saat mengangkut beban berat)",
       "question_ko": "운반 기구가 무엇인기요?",
       "question_ro": "Unban giguga mueosingiyo?",
       "question_id": "Apa itu alat angkut?",
@@ -4694,11 +5342,19 @@
           "id": "Alat untuk memindahkan barang dengan aman.",
           "audio": "/audio/tts/k3/safety_81_s.mp3"
         }
-      ]
+      ],
+      "topic_no": 18,
+      "topic_ko": "중량물 운반 시 운반기구 활용",
+      "topic_id": "Memakai alat angkut saat mengangkut beban berat",
+      "phase_key": "during",
+      "phase_ko": "작업 중",
+      "phase_id": "Saat Bekerja",
+      "level_mark": "②",
+      "level_desc": "Level 2 (Menengah)"
     },
     {
       "id": "safety_82",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 18: 중량물 운반 시 운반기구 활용 (Memakai alat angkut saat mengangkut beban berat)",
       "question_ko": "중량물 운반 시 왜 운반기구를 활용해야 할까요?",
       "question_ro": "Jungnyangmul unban si wae unban gigureul hwaryonghaeya halkkayo?",
       "question_id": "Mengapa harus memakai alat angkut saat mengangkut beban berat?",
@@ -4719,11 +5375,19 @@
           "id": "Mengangkat dengan tubuh berisiko membuat pinggang cedera.",
           "audio": "/audio/tts/k3/safety_82_s.mp3"
         }
-      ]
+      ],
+      "topic_no": 18,
+      "topic_ko": "중량물 운반 시 운반기구 활용",
+      "topic_id": "Memakai alat angkut saat mengangkut beban berat",
+      "phase_key": "during",
+      "phase_ko": "작업 중",
+      "phase_id": "Saat Bekerja",
+      "level_mark": "②",
+      "level_desc": "Level 2 (Menengah)"
     },
     {
       "id": "safety_83",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 18: 중량물 운반 시 운반기구 활용 (Memakai alat angkut saat mengangkut beban berat)",
       "question_ko": "무거운 물건을 옮길 때에는 어떻게 해야 하나요?",
       "question_ro": "Mugeoun mulgeoneul omgil ttaeneun eotteoke haeya hanayo?",
       "question_id": "Apa yang harus dilakukan saat memindahkan barang berat?",
@@ -4744,11 +5408,19 @@
           "id": "Gunakan alat angkut.",
           "audio": "/audio/tts/k3/safety_83_s.mp3"
         }
-      ]
+      ],
+      "topic_no": 18,
+      "topic_ko": "중량물 운반 시 운반기구 활용",
+      "topic_id": "Memakai alat angkut saat mengangkut beban berat",
+      "phase_key": "during",
+      "phase_ko": "작업 중",
+      "phase_id": "Saat Bekerja",
+      "level_mark": "③",
+      "level_desc": "Level 3 (Lanjutan)"
     },
     {
       "id": "safety_84",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 19: 이동 시 안전통로 이용 (Memakai jalur aman saat berpindah)",
       "question_ko": "이동이 무엇 뜻인가요?",
       "question_ro": "Idongi mueot tteusingayo?",
       "question_id": "Apa arti \"idong\" (berpindah)?",
@@ -4769,11 +5441,19 @@
           "id": "Pindah posisi dari satu tempat ke tempat lain.",
           "audio": "/audio/tts/k3/safety_84_s.mp3"
         }
-      ]
+      ],
+      "topic_no": 19,
+      "topic_ko": "이동 시 안전통로 이용",
+      "topic_id": "Memakai jalur aman saat berpindah",
+      "phase_key": "during",
+      "phase_ko": "작업 중",
+      "phase_id": "Saat Bekerja",
+      "level_mark": "①",
+      "level_desc": "Level 1 (Dasar)"
     },
     {
       "id": "safety_85",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 19: 이동 시 안전통로 이용 (Memakai jalur aman saat berpindah)",
       "question_ko": "안전 통로가 무엇인가요?",
       "question_ro": "Anjeon tongroga mueosingayo?",
       "question_id": "Apa itu jalur aman?",
@@ -4794,11 +5474,19 @@
           "id": "Jalan yang dibuat agar bisa lewat dengan aman.",
           "audio": "/audio/tts/k3/safety_85_s.mp3"
         }
-      ]
+      ],
+      "topic_no": 19,
+      "topic_ko": "이동 시 안전통로 이용",
+      "topic_id": "Memakai jalur aman saat berpindah",
+      "phase_key": "during",
+      "phase_ko": "작업 중",
+      "phase_id": "Saat Bekerja",
+      "level_mark": "①",
+      "level_desc": "Level 1 (Dasar)"
     },
     {
       "id": "safety_86",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 19: 이동 시 안전통로 이용 (Memakai jalur aman saat berpindah)",
       "question_ko": "이동 시 왜 안전통로를 이용해야 할까요?",
       "question_ro": "Idong si wae anjeontongroreul iyonghaeya halkkayo?",
       "question_id": "Mengapa harus memakai jalur aman saat berpindah?",
@@ -4819,11 +5507,19 @@
           "id": "Karena jalur aman bebas rintangan dan mesin.",
           "audio": "/audio/tts/k3/safety_86_s.mp3"
         }
-      ]
+      ],
+      "topic_no": 19,
+      "topic_ko": "이동 시 안전통로 이용",
+      "topic_id": "Memakai jalur aman saat berpindah",
+      "phase_key": "during",
+      "phase_ko": "작업 중",
+      "phase_id": "Saat Bekerja",
+      "level_mark": "②",
+      "level_desc": "Level 2 (Menengah)"
     },
     {
       "id": "safety_87",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 20: 작업 중 휴대폰 사용 금지 (Dilarang memakai ponsel saat bekerja)",
       "question_ko": "작업 중이란 무슨 뜻인가요?",
       "question_ro": "Jageop jungiran museun tteusingayo?",
       "question_id": "Apa arti \"saat bekerja\"?",
@@ -4844,11 +5540,19 @@
           "id": "Waktu ketika melakukan pekerjaan.",
           "audio": "/audio/tts/k3/safety_87_s.mp3"
         }
-      ]
+      ],
+      "topic_no": 20,
+      "topic_ko": "작업 중 휴대폰 사용 금지",
+      "topic_id": "Dilarang memakai ponsel saat bekerja",
+      "phase_key": "during",
+      "phase_ko": "작업 중",
+      "phase_id": "Saat Bekerja",
+      "level_mark": "①",
+      "level_desc": "Level 1 (Dasar)"
     },
     {
       "id": "safety_88",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 20: 작업 중 휴대폰 사용 금지 (Dilarang memakai ponsel saat bekerja)",
       "question_ko": "작업 중 왜 휴대폰을 사용하면 안 될까요?",
       "question_ro": "Jageop jung wae hyudaeponeul sayonghamyeon an doelkkayo?",
       "question_id": "Mengapa tidak boleh memakai ponsel saat bekerja?",
@@ -4869,11 +5573,19 @@
           "id": "Perhatian terpecah dan risiko kecelakaan naik.",
           "audio": "/audio/tts/k3/safety_88_s.mp3"
         }
-      ]
+      ],
+      "topic_no": 20,
+      "topic_ko": "작업 중 휴대폰 사용 금지",
+      "topic_id": "Dilarang memakai ponsel saat bekerja",
+      "phase_key": "during",
+      "phase_ko": "작업 중",
+      "phase_id": "Saat Bekerja",
+      "level_mark": "②",
+      "level_desc": "Level 2 (Menengah)"
     },
     {
       "id": "safety_89",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 21: 정리정돈 및 청소 (Merapikan dan membersihkan)",
       "question_ko": "정리 정돈이 무슨 뜻인가요?",
       "question_ro": "Jeongni jeongdoni museun tteusingayo?",
       "question_id": "Apa arti \"jeongni jeongdon\" (merapikan)?",
@@ -4894,11 +5606,19 @@
           "id": "Menaruh barang di tempatnya dan menjaga kebersihan.",
           "audio": "/audio/tts/k3/safety_89_s.mp3"
         }
-      ]
+      ],
+      "topic_no": 21,
+      "topic_ko": "정리정돈 및 청소",
+      "topic_id": "Merapikan dan membersihkan",
+      "phase_key": "after",
+      "phase_ko": "작업 후",
+      "phase_id": "Setelah Bekerja",
+      "level_mark": "①",
+      "level_desc": "Level 1 (Dasar)"
     },
     {
       "id": "safety_90",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 21: 정리정돈 및 청소 (Merapikan dan membersihkan)",
       "question_ko": "청소가 무슨 뜻인가요?",
       "question_ro": "Cheongsoga museun tteusingayo?",
       "question_id": "Apa arti \"cheongso\" (membersihkan)?",
@@ -4919,11 +5639,19 @@
           "id": "Menghilangkan debu dan sampah agar bersih.",
           "audio": "/audio/tts/k3/safety_90_s.mp3"
         }
-      ]
+      ],
+      "topic_no": 21,
+      "topic_ko": "정리정돈 및 청소",
+      "topic_id": "Merapikan dan membersihkan",
+      "phase_key": "after",
+      "phase_ko": "작업 후",
+      "phase_id": "Setelah Bekerja",
+      "level_mark": "①",
+      "level_desc": "Level 1 (Dasar)"
     },
     {
       "id": "safety_91",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 21: 정리정돈 및 청소 (Merapikan dan membersihkan)",
       "question_ko": "작업장에서 정리 정돈 및 청소 왜 해야 할까요?",
       "question_ro": "Jageopjangeseo jeongni jeongdon mit cheongso wae haeya halkkayo?",
       "question_id": "Mengapa harus merapikan dan membersihkan di tempat kerja?",
@@ -4944,11 +5672,19 @@
           "id": "Barang cepat ditemukan dan benda berserakan bisa menyebabkan kecelakaan.",
           "audio": "/audio/tts/k3/safety_91_s.mp3"
         }
-      ]
+      ],
+      "topic_no": 21,
+      "topic_ko": "정리정돈 및 청소",
+      "topic_id": "Merapikan dan membersihkan",
+      "phase_key": "after",
+      "phase_ko": "작업 후",
+      "phase_id": "Setelah Bekerja",
+      "level_mark": "②",
+      "level_desc": "Level 2 (Menengah)"
     },
     {
       "id": "safety_92",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 22: 공구는 지정된 자리에 두기 (Menaruh perkakas di tempat yang ditentukan)",
       "question_ko": "공구가 무엇인가요?",
       "question_ro": "Gongguga mueosingayo?",
       "question_id": "Apa itu perkakas?",
@@ -4969,11 +5705,19 @@
           "id": "Alat yang membantu pekerjaan.",
           "audio": "/audio/tts/k3/safety_92_s.mp3"
         }
-      ]
+      ],
+      "topic_no": 22,
+      "topic_ko": "공구는 지정된 자리에 두기",
+      "topic_id": "Menaruh perkakas di tempat yang ditentukan",
+      "phase_key": "after",
+      "phase_ko": "작업 후",
+      "phase_id": "Setelah Bekerja",
+      "level_mark": "②",
+      "level_desc": "Level 2 (Menengah)"
     },
     {
       "id": "safety_93",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 22: 공구는 지정된 자리에 두기 (Menaruh perkakas di tempat yang ditentukan)",
       "question_ko": "지정된 자리는 무슨 뜻인가요?",
       "question_ro": "Jijeongdoen jarineun museun tteusingayo?",
       "question_id": "Apa arti \"tempat yang ditentukan\"?",
@@ -4994,11 +5738,19 @@
           "id": "Tempat yang sudah ditetapkan untuk suatu benda.",
           "audio": "/audio/tts/k3/safety_93_s.mp3"
         }
-      ]
+      ],
+      "topic_no": 22,
+      "topic_ko": "공구는 지정된 자리에 두기",
+      "topic_id": "Menaruh perkakas di tempat yang ditentukan",
+      "phase_key": "after",
+      "phase_ko": "작업 후",
+      "phase_id": "Setelah Bekerja",
+      "level_mark": "②",
+      "level_desc": "Level 2 (Menengah)"
     },
     {
       "id": "safety_94",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 22: 공구는 지정된 자리에 두기 (Menaruh perkakas di tempat yang ditentukan)",
       "question_ko": "공구를 왜 지정된 자리에 두어야 할까요?",
       "question_ro": "Gonggureul wae jijeongdoen jarie dueoya halkkayo?",
       "question_id": "Mengapa perkakas harus ditaruh di tempat yang ditentukan?",
@@ -5019,11 +5771,19 @@
           "id": "Perkakas bisa hilang atau rusak, dan berbahaya jika di lantai.",
           "audio": "/audio/tts/k3/safety_94_s.mp3"
         }
-      ]
+      ],
+      "topic_no": 22,
+      "topic_ko": "공구는 지정된 자리에 두기",
+      "topic_id": "Menaruh perkakas di tempat yang ditentukan",
+      "phase_key": "after",
+      "phase_ko": "작업 후",
+      "phase_id": "Setelah Bekerja",
+      "level_mark": "②",
+      "level_desc": "Level 2 (Menengah)"
     },
     {
       "id": "safety_95",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 23: 손 씻기 등 위생관리 철저 (Menjaga kebersihan diri seperti mencuci tangan)",
       "question_ko": "위생관리가 무슨 뜻인가요?",
       "question_ro": "Wisaeng gwanriga museun tteusingayo?",
       "question_id": "Apa arti \"wisaeng gwanri\" (manajemen kebersihan)?",
@@ -5044,11 +5804,19 @@
           "id": "Kegiatan menjaga kebersihan dan kesehatan.",
           "audio": "/audio/tts/k3/safety_95_s.mp3"
         }
-      ]
+      ],
+      "topic_no": 23,
+      "topic_ko": "손 씻기 등 위생관리 철저",
+      "topic_id": "Menjaga kebersihan diri seperti mencuci tangan",
+      "phase_key": "after",
+      "phase_ko": "작업 후",
+      "phase_id": "Setelah Bekerja",
+      "level_mark": "②",
+      "level_desc": "Level 2 (Menengah)"
     },
     {
       "id": "safety_96",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 23: 손 씻기 등 위생관리 철저 (Menjaga kebersihan diri seperti mencuci tangan)",
       "question_ko": "손 씻기 등 위생관리를 왜 해야 할까요?",
       "question_ro": "Son ssitgi deung wisaeng gwanrireul wae haeya halkkayo?",
       "question_id": "Mengapa harus menjaga kebersihan seperti mencuci tangan?",
@@ -5069,11 +5837,19 @@
           "id": "Bahan kimia bisa masuk ke tubuh dan menyebabkan penyakit.",
           "audio": "/audio/tts/k3/safety_96_s.mp3"
         }
-      ]
+      ],
+      "topic_no": 23,
+      "topic_ko": "손 씻기 등 위생관리 철저",
+      "topic_id": "Menjaga kebersihan diri seperti mencuci tangan",
+      "phase_key": "after",
+      "phase_ko": "작업 후",
+      "phase_id": "Setelah Bekerja",
+      "level_mark": "②",
+      "level_desc": "Level 2 (Menengah)"
     },
     {
       "id": "safety_97",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 23: 손 씻기 등 위생관리 철저 (Menjaga kebersihan diri seperti mencuci tangan)",
       "question_ko": "작업 후 밥 먹기 전에 무엇을 해야 하나요?",
       "question_ro": "Jageop hu bap meokgi jeone mueoseul haeya hanayo?",
       "question_id": "Apa yang harus dilakukan setelah bekerja sebelum makan?",
@@ -5094,11 +5870,19 @@
           "id": "Cuci tangan sebelum makan.",
           "audio": "/audio/tts/k3/safety_97_s.mp3"
         }
-      ]
+      ],
+      "topic_no": 23,
+      "topic_ko": "손 씻기 등 위생관리 철저",
+      "topic_id": "Menjaga kebersihan diri seperti mencuci tangan",
+      "phase_key": "after",
+      "phase_ko": "작업 후",
+      "phase_id": "Setelah Bekerja",
+      "level_mark": "②",
+      "level_desc": "Level 2 (Menengah)"
     },
     {
       "id": "safety_98",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 24: 청소·수리 작업 시 기계 전원 차단 (Memutus daya mesin saat membersihkan atau memperbaiki)",
       "question_ko": "청소·수리 작업이 무엇인가요?",
       "question_ro": "Cheongso suri jageobi mueosingayo?",
       "question_id": "Apa itu pekerjaan pembersihan dan perbaikan?",
@@ -5119,11 +5903,19 @@
           "id": "Pekerjaan membersihkan dan memperbaiki mesin.",
           "audio": "/audio/tts/k3/safety_98_s.mp3"
         }
-      ]
+      ],
+      "topic_no": 24,
+      "topic_ko": "청소·수리 작업 시 기계 전원 차단",
+      "topic_id": "Memutus daya mesin saat membersihkan atau memperbaiki",
+      "phase_key": "after",
+      "phase_ko": "작업 후",
+      "phase_id": "Setelah Bekerja",
+      "level_mark": "②",
+      "level_desc": "Level 2 (Menengah)"
     },
     {
       "id": "safety_99",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 24: 청소·수리 작업 시 기계 전원 차단 (Memutus daya mesin saat membersihkan atau memperbaiki)",
       "question_ko": "전원 차단이 무슨 뜻인가요?",
       "question_ro": "Jeonwon chadani museun tteusingayo?",
       "question_id": "Apa arti \"memutus daya\"?",
@@ -5144,11 +5936,19 @@
           "id": "Memutus listrik sepenuhnya.",
           "audio": "/audio/tts/k3/safety_99_s.mp3"
         }
-      ]
+      ],
+      "topic_no": 24,
+      "topic_ko": "청소·수리 작업 시 기계 전원 차단",
+      "topic_id": "Memutus daya mesin saat membersihkan atau memperbaiki",
+      "phase_key": "after",
+      "phase_ko": "작업 후",
+      "phase_id": "Setelah Bekerja",
+      "level_mark": "②",
+      "level_desc": "Level 2 (Menengah)"
     },
     {
       "id": "safety_100",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 24: 청소·수리 작업 시 기계 전원 차단 (Memutus daya mesin saat membersihkan atau memperbaiki)",
       "question_ko": "청소·수리 작업 시 왜 기계 전원을 차단 해야 할까요?",
       "question_ro": "Cheongso suri jageop si wae gigye jeonwoneul chadan haeya halkkayo?",
       "question_id": "Mengapa daya mesin harus diputus saat membersihkan atau memperbaiki?",
@@ -5169,11 +5969,19 @@
           "id": "Karena pekerja harus mendekati bagian dalam mesin yang berbahaya.",
           "audio": "/audio/tts/k3/safety_100_s.mp3"
         }
-      ]
+      ],
+      "topic_no": 24,
+      "topic_ko": "청소·수리 작업 시 기계 전원 차단",
+      "topic_id": "Memutus daya mesin saat membersihkan atau memperbaiki",
+      "phase_key": "after",
+      "phase_ko": "작업 후",
+      "phase_id": "Setelah Bekerja",
+      "level_mark": "②",
+      "level_desc": "Level 2 (Menengah)"
     },
     {
       "id": "safety_101",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 24: 청소·수리 작업 시 기계 전원 차단 (Memutus daya mesin saat membersihkan atau memperbaiki)",
       "question_ko": "기계의 청소·수리 작업 전에는 무엇을 해야 하나요?",
       "question_ro": "Gigyeui cheongso suri jeoneneun mueoseul haeya hanayo?",
       "question_id": "Apa yang harus dilakukan sebelum membersihkan atau memperbaiki mesin?",
@@ -5194,11 +6002,19 @@
           "id": "Putus daya sebelum bekerja.",
           "audio": "/audio/tts/k3/safety_101_s.mp3"
         }
-      ]
+      ],
+      "topic_no": 24,
+      "topic_ko": "청소·수리 작업 시 기계 전원 차단",
+      "topic_id": "Memutus daya mesin saat membersihkan atau memperbaiki",
+      "phase_key": "after",
+      "phase_ko": "작업 후",
+      "phase_id": "Setelah Bekerja",
+      "level_mark": "③",
+      "level_desc": "Level 3 (Lanjutan)"
     },
     {
       "id": "safety_102",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 25: 화기(⽕) 취급 시 불씨·불티 확인 (Memeriksa bara dan percikan api saat menangani alat api)",
       "question_ko": "화기 취급이 무엇인가요?",
       "question_ro": "Hwagi chwigeubi mueosingayo?",
       "question_id": "Apa itu menangani alat api?",
@@ -5219,11 +6035,19 @@
           "id": "Semua alat yang menghasilkan api atau panas.",
           "audio": "/audio/tts/k3/safety_102_s.mp3"
         }
-      ]
+      ],
+      "topic_no": 25,
+      "topic_ko": "화기(⽕) 취급 시 불씨·불티 확인",
+      "topic_id": "Memeriksa bara dan percikan api saat menangani alat api",
+      "phase_key": "after",
+      "phase_ko": "작업 후",
+      "phase_id": "Setelah Bekerja",
+      "level_mark": "①",
+      "level_desc": "Level 1 (Dasar)"
     },
     {
       "id": "safety_103",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 25: 화기(⽕) 취급 시 불씨·불티 확인 (Memeriksa bara dan percikan api saat menangani alat api)",
       "question_ko": "불씨·불티가 무엇인가요?",
       "question_ro": "Bulssi bultiga mueosingayo?",
       "question_id": "Apa itu bara dan percikan api?",
@@ -5244,11 +6068,19 @@
           "id": "Bola api kecil yang belum padam.",
           "audio": "/audio/tts/k3/safety_103_s.mp3"
         }
-      ]
+      ],
+      "topic_no": 25,
+      "topic_ko": "화기(⽕) 취급 시 불씨·불티 확인",
+      "topic_id": "Memeriksa bara dan percikan api saat menangani alat api",
+      "phase_key": "after",
+      "phase_ko": "작업 후",
+      "phase_id": "Setelah Bekerja",
+      "level_mark": "②",
+      "level_desc": "Level 2 (Menengah)"
     },
     {
       "id": "safety_104",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 25: 화기(⽕) 취급 시 불씨·불티 확인 (Memeriksa bara dan percikan api saat menangani alat api)",
       "question_ko": "화기 취급 시 왜 불씨·불티를 확인해야 할까요?",
       "question_ro": "Hwagi chwigeup si wae bulssi bultireul hwaginhaeya halkkayo?",
       "question_id": "Mengapa harus memeriksa bara dan percikan api saat menangani alat api?",
@@ -5269,11 +6101,19 @@
           "id": "Sisa bara bisa menyebabkan kebakaran di tempat lain nanti.",
           "audio": "/audio/tts/k3/safety_104_s.mp3"
         }
-      ]
+      ],
+      "topic_no": 25,
+      "topic_ko": "화기(⽕) 취급 시 불씨·불티 확인",
+      "topic_id": "Memeriksa bara dan percikan api saat menangani alat api",
+      "phase_key": "after",
+      "phase_ko": "작업 후",
+      "phase_id": "Setelah Bekerja",
+      "level_mark": "②",
+      "level_desc": "Level 2 (Menengah)"
     },
     {
       "id": "safety_105",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 25: 화기(⽕) 취급 시 불씨·불티 확인 (Memeriksa bara dan percikan api saat menangani alat api)",
       "question_ko": "소화기를 사용할 줄 아나요? 소화기 사용 시 제일 먼저 해야 하는 것은?",
       "question_ro": "Sohwagireul sayonghal jul aranayo? Sohwagi sayong si jeil meonjeo haeya haneun geoseun?",
       "question_id": "Tahukah kamu cara memakai alat pemadam? Apa yang pertama dilakukan?",
@@ -5294,11 +6134,19 @@
           "id": "Cabut pin pengaman dulu.",
           "audio": "/audio/tts/k3/safety_105_s.mp3"
         }
-      ]
+      ],
+      "topic_no": 25,
+      "topic_ko": "화기(⽕) 취급 시 불씨·불티 확인",
+      "topic_id": "Memeriksa bara dan percikan api saat menangani alat api",
+      "phase_key": "after",
+      "phase_ko": "작업 후",
+      "phase_id": "Setelah Bekerja",
+      "level_mark": "②",
+      "level_desc": "Level 2 (Menengah)"
     },
     {
       "id": "safety_106",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 26: 화재 시 대피 우선 (Evakuasi diutamakan saat kebakaran)",
       "question_ko": "화재가 무엇인가요?",
       "question_ro": "Hwajaega mueosingayo?",
       "question_id": "Apa itu kebakaran?",
@@ -5319,11 +6167,19 @@
           "id": "Bahan terbakar dan menghasilkan panas dan cahaya.",
           "audio": "/audio/tts/k3/safety_106_s.mp3"
         }
-      ]
+      ],
+      "topic_no": 26,
+      "topic_ko": "화재 시 대피 우선",
+      "topic_id": "Evakuasi diutamakan saat kebakaran",
+      "phase_key": "emergency",
+      "phase_ko": "이상 발생 시",
+      "phase_id": "Situasi Bahaya & Darurat",
+      "level_mark": "①",
+      "level_desc": "Level 1 (Dasar)"
     },
     {
       "id": "safety_107",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 26: 화재 시 대피 우선 (Evakuasi diutamakan saat kebakaran)",
       "question_ko": "대피가 무엇인가요?",
       "question_ro": "Daepiga mueosingayo?",
       "question_id": "Apa itu evakuasi?",
@@ -5344,11 +6200,19 @@
           "id": "Segera pindah ke tempat aman saat bahaya.",
           "audio": "/audio/tts/k3/safety_107_s.mp3"
         }
-      ]
+      ],
+      "topic_no": 26,
+      "topic_ko": "화재 시 대피 우선",
+      "topic_id": "Evakuasi diutamakan saat kebakaran",
+      "phase_key": "emergency",
+      "phase_ko": "이상 발생 시",
+      "phase_id": "Situasi Bahaya & Darurat",
+      "level_mark": "②",
+      "level_desc": "Level 2 (Menengah)"
     },
     {
       "id": "safety_108",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 26: 화재 시 대피 우선 (Evakuasi diutamakan saat kebakaran)",
       "question_ko": "화재 시 왜 대피가 우선일까요?",
       "question_ro": "Hwajae si wae daepiga useonilkkayo?",
       "question_id": "Mengapa evakuasi diutamakan saat kebakaran?",
@@ -5369,11 +6233,19 @@
           "id": "Asap berbahaya dan nyawa lebih penting daripada harta.",
           "audio": "/audio/tts/k3/safety_108_s.mp3"
         }
-      ]
+      ],
+      "topic_no": 26,
+      "topic_ko": "화재 시 대피 우선",
+      "topic_id": "Evakuasi diutamakan saat kebakaran",
+      "phase_key": "emergency",
+      "phase_ko": "이상 발생 시",
+      "phase_id": "Situasi Bahaya & Darurat",
+      "level_mark": "②",
+      "level_desc": "Level 2 (Menengah)"
     },
     {
       "id": "safety_109",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 26: 화재 시 대피 우선 (Evakuasi diutamakan saat kebakaran)",
       "question_ko": "119 전화번호를 알고 있나요?",
       "question_ro": "119 jeonhwa beonhoreul algo innayo?",
       "question_id": "Tahukah kamu nomor telepon 119?",
@@ -5394,11 +6266,19 @@
           "id": "Nomor ke pemadam saat kebakaran atau darurat.",
           "audio": "/audio/tts/k3/safety_109_s.mp3"
         }
-      ]
+      ],
+      "topic_no": 26,
+      "topic_ko": "화재 시 대피 우선",
+      "topic_id": "Evakuasi diutamakan saat kebakaran",
+      "phase_key": "emergency",
+      "phase_ko": "이상 발생 시",
+      "phase_id": "Situasi Bahaya & Darurat",
+      "level_mark": "②",
+      "level_desc": "Level 2 (Menengah)"
     },
     {
       "id": "safety_110",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 27: 모르는 작업은 물어보기 (Tanyakan jika tidak tahu pekerjaannya)",
       "question_ko": "모르는 작업 무슨 뜻인가요?",
       "question_ro": "Moreuneun jageop museun tteusingayo?",
       "question_id": "Apa arti \"pekerjaan yang tidak diketahui\"?",
@@ -5419,11 +6299,19 @@
           "id": "Pekerjaan yang caranya tidak diketahui dengan pasti.",
           "audio": "/audio/tts/k3/safety_110_s.mp3"
         }
-      ]
+      ],
+      "topic_no": 27,
+      "topic_ko": "모르는 작업은 물어보기",
+      "topic_id": "Tanyakan jika tidak tahu pekerjaannya",
+      "phase_key": "emergency",
+      "phase_ko": "이상 발생 시",
+      "phase_id": "Situasi Bahaya & Darurat",
+      "level_mark": "②",
+      "level_desc": "Level 2 (Menengah)"
     },
     {
       "id": "safety_111",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 27: 모르는 작업은 물어보기 (Tanyakan jika tidak tahu pekerjaannya)",
       "question_ko": "물어보기가 무슨 뜻인가요?",
       "question_ro": "Mureobogiga museun tteusingayo?",
       "question_id": "Apa arti \"bertanya\"?",
@@ -5444,11 +6332,19 @@
           "id": "Bertanya kepada orang lain tentang hal yang tidak diketahui.",
           "audio": "/audio/tts/k3/safety_111_s.mp3"
         }
-      ]
+      ],
+      "topic_no": 27,
+      "topic_ko": "모르는 작업은 물어보기",
+      "topic_id": "Tanyakan jika tidak tahu pekerjaannya",
+      "phase_key": "emergency",
+      "phase_ko": "이상 발생 시",
+      "phase_id": "Situasi Bahaya & Darurat",
+      "level_mark": "②",
+      "level_desc": "Level 2 (Menengah)"
     },
     {
       "id": "safety_112",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 27: 모르는 작업은 물어보기 (Tanyakan jika tidak tahu pekerjaannya)",
       "question_ko": "모르는 작업은 왜 물어봐야 할까요?",
       "question_ro": "Moreuneun jageobeun wae mureobwaya halkkayo?",
       "question_id": "Mengapa harus bertanya jika tidak tahu pekerjaannya?",
@@ -5469,11 +6365,19 @@
           "id": "Bekerja tanpa tahu bisa mengancam nyawa diri dan rekan.",
           "audio": "/audio/tts/k3/safety_112_s.mp3"
         }
-      ]
+      ],
+      "topic_no": 27,
+      "topic_ko": "모르는 작업은 물어보기",
+      "topic_id": "Tanyakan jika tidak tahu pekerjaannya",
+      "phase_key": "emergency",
+      "phase_ko": "이상 발생 시",
+      "phase_id": "Situasi Bahaya & Darurat",
+      "level_mark": "③",
+      "level_desc": "Level 3 (Lanjutan)"
     },
     {
       "id": "safety_113",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 28: 사고위험 발견 시 알려주기 (Melaporkan jika menemukan bahaya kecelakaan)",
       "question_ko": "사고 위험이 무엇인가요?",
       "question_ro": "Sago wiheomi mueosingayo?",
       "question_id": "Apa itu bahaya kecelakaan?",
@@ -5494,11 +6398,19 @@
           "id": "Faktor bahaya yang bisa membuat orang terluka.",
           "audio": "/audio/tts/k3/safety_113_s.mp3"
         }
-      ]
+      ],
+      "topic_no": 28,
+      "topic_ko": "사고위험 발견 시 알려주기",
+      "topic_id": "Melaporkan jika menemukan bahaya kecelakaan",
+      "phase_key": "emergency",
+      "phase_ko": "이상 발생 시",
+      "phase_id": "Situasi Bahaya & Darurat",
+      "level_mark": "②",
+      "level_desc": "Level 2 (Menengah)"
     },
     {
       "id": "safety_114",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 28: 사고위험 발견 시 알려주기 (Melaporkan jika menemukan bahaya kecelakaan)",
       "question_ko": "발견이 무슨 뜻인가요?",
       "question_ro": "Balgyeoni museun tteusingayo?",
       "question_id": "Apa arti \"menemukan\"?",
@@ -5519,11 +6431,19 @@
           "id": "Menyadari atau menemukan bahaya yang tersembunyi.",
           "audio": "/audio/tts/k3/safety_114_s.mp3"
         }
-      ]
+      ],
+      "topic_no": 28,
+      "topic_ko": "사고위험 발견 시 알려주기",
+      "topic_id": "Melaporkan jika menemukan bahaya kecelakaan",
+      "phase_key": "emergency",
+      "phase_ko": "이상 발생 시",
+      "phase_id": "Situasi Bahaya & Darurat",
+      "level_mark": "②",
+      "level_desc": "Level 2 (Menengah)"
     },
     {
       "id": "safety_115",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 28: 사고위험 발견 시 알려주기 (Melaporkan jika menemukan bahaya kecelakaan)",
       "question_ko": "사고위험 발견 시 왜 알려줘야 할까요?",
       "question_ro": "Sago wiheom balgyeon si wae allyeojwoya halkkayo?",
       "question_id": "Mengapa bahaya kecelakaan harus dilaporkan saat ditemukan?",
@@ -5544,11 +6464,19 @@
           "id": "Jika tidak dilaporkan, bahaya tetap ada dan mengancam semua.",
           "audio": "/audio/tts/k3/safety_115_s.mp3"
         }
-      ]
+      ],
+      "topic_no": 28,
+      "topic_ko": "사고위험 발견 시 알려주기",
+      "topic_id": "Melaporkan jika menemukan bahaya kecelakaan",
+      "phase_key": "emergency",
+      "phase_ko": "이상 발생 시",
+      "phase_id": "Situasi Bahaya & Darurat",
+      "level_mark": "③",
+      "level_desc": "Level 3 (Lanjutan)"
     },
     {
       "id": "safety_116",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 29: 폭염 시 물, 그늘, 휴식 (Saat cuaca panas ekstrem: air, tempat teduh, istirahat)",
       "question_ko": "폭염이 무엇인가요?",
       "question_ro": "Pokyeomi mueosingayo?",
       "question_id": "Apa itu cuaca panas ekstrem?",
@@ -5569,11 +6497,19 @@
           "id": "Cuaca sangat panas yang berlangsung terus.",
           "audio": "/audio/tts/k3/safety_116_s.mp3"
         }
-      ]
+      ],
+      "topic_no": 29,
+      "topic_ko": "폭염 시 물, 그늘, 휴식",
+      "topic_id": "Saat cuaca panas ekstrem: air, tempat teduh, istirahat",
+      "phase_key": "emergency",
+      "phase_ko": "이상 발생 시",
+      "phase_id": "Situasi Bahaya & Darurat",
+      "level_mark": "②",
+      "level_desc": "Level 2 (Menengah)"
     },
     {
       "id": "safety_117",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 29: 폭염 시 물, 그늘, 휴식 (Saat cuaca panas ekstrem: air, tempat teduh, istirahat)",
       "question_ko": "폭염 시 왜 물, 그늘, 휴식을 해야 할까요?",
       "question_ro": "Pokyeom si wae mul, geuneul, hyusikeul haeya halkkayo?",
       "question_id": "Mengapa saat cuaca panas ekstrem harus minum air, berteduh, dan istirahat?",
@@ -5594,11 +6530,19 @@
           "id": "Suhu tubuh naik dan cairan hilang, nyawa bisa terancam.",
           "audio": "/audio/tts/k3/safety_117_s.mp3"
         }
-      ]
+      ],
+      "topic_no": 29,
+      "topic_ko": "폭염 시 물, 그늘, 휴식",
+      "topic_id": "Saat cuaca panas ekstrem: air, tempat teduh, istirahat",
+      "phase_key": "emergency",
+      "phase_ko": "이상 발생 시",
+      "phase_id": "Situasi Bahaya & Darurat",
+      "level_mark": "②",
+      "level_desc": "Level 2 (Menengah)"
     },
     {
       "id": "safety_118",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 29: 폭염 시 물, 그늘, 휴식 (Saat cuaca panas ekstrem: air, tempat teduh, istirahat)",
       "question_ko": "날씨가 너무 더우면 어떻게 해야 하나요?",
       "question_ro": "Nalssiga neomu deoumyeon eotteoke haeya hanayo?",
       "question_id": "Apa yang harus dilakukan jika cuaca terlalu panas?",
@@ -5619,11 +6563,19 @@
           "id": "Sering minum air dan istirahat di tempat teduh.",
           "audio": "/audio/tts/k3/safety_118_s.mp3"
         }
-      ]
+      ],
+      "topic_no": 29,
+      "topic_ko": "폭염 시 물, 그늘, 휴식",
+      "topic_id": "Saat cuaca panas ekstrem: air, tempat teduh, istirahat",
+      "phase_key": "emergency",
+      "phase_ko": "이상 발생 시",
+      "phase_id": "Situasi Bahaya & Darurat",
+      "level_mark": "③",
+      "level_desc": "Level 3 (Lanjutan)"
     },
     {
       "id": "safety_119",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 30: 사고 위험 시 작업 중지 및 대피 (Hentikan pekerjaan dan evakuasi saat ada bahaya kecelakaan)",
       "question_ko": "작업 중지가 무엇인가요?",
       "question_ro": "Jageop jungjiga mueosingayo?",
       "question_id": "Apa itu menghentikan pekerjaan?",
@@ -5644,11 +6596,19 @@
           "id": "Segera berhenti bekerja saat bahaya.",
           "audio": "/audio/tts/k3/safety_119_s.mp3"
         }
-      ]
+      ],
+      "topic_no": 30,
+      "topic_ko": "사고 위험 시 작업 중지 및 대피",
+      "topic_id": "Hentikan pekerjaan dan evakuasi saat ada bahaya kecelakaan",
+      "phase_key": "emergency",
+      "phase_ko": "이상 발생 시",
+      "phase_id": "Situasi Bahaya & Darurat",
+      "level_mark": "②",
+      "level_desc": "Level 2 (Menengah)"
     },
     {
       "id": "safety_120",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 30: 사고 위험 시 작업 중지 및 대피 (Hentikan pekerjaan dan evakuasi saat ada bahaya kecelakaan)",
       "question_ko": "대피가 무슨 뜻인가요?",
       "question_ro": "Daepiga museun tteusingayo?",
       "question_id": "Apa arti \"daepi\" (evakuasi)?",
@@ -5669,11 +6629,19 @@
           "id": "Segera pindah ke tempat aman saat bahaya.",
           "audio": "/audio/tts/k3/safety_120_s.mp3"
         }
-      ]
+      ],
+      "topic_no": 30,
+      "topic_ko": "사고 위험 시 작업 중지 및 대피",
+      "topic_id": "Hentikan pekerjaan dan evakuasi saat ada bahaya kecelakaan",
+      "phase_key": "emergency",
+      "phase_ko": "이상 발생 시",
+      "phase_id": "Situasi Bahaya & Darurat",
+      "level_mark": "②",
+      "level_desc": "Level 2 (Menengah)"
     },
     {
       "id": "safety_121",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 30: 사고 위험 시 작업 중지 및 대피 (Hentikan pekerjaan dan evakuasi saat ada bahaya kecelakaan)",
       "question_ko": "사고 위험 시 왜 작업을 중지하고 대피해야 할까요?",
       "question_ro": "Sago wiheom si wae jageobeul jungjihago daepihaeya halkkayo?",
       "question_id": "Mengapa harus menghentikan pekerjaan dan evakuasi saat ada bahaya kecelakaan?",
@@ -5694,11 +6662,19 @@
           "id": "Nyawa manusia lebih berharga daripada mesin.",
           "audio": "/audio/tts/k3/safety_121_s.mp3"
         }
-      ]
+      ],
+      "topic_no": 30,
+      "topic_ko": "사고 위험 시 작업 중지 및 대피",
+      "topic_id": "Hentikan pekerjaan dan evakuasi saat ada bahaya kecelakaan",
+      "phase_key": "emergency",
+      "phase_ko": "이상 발생 시",
+      "phase_id": "Situasi Bahaya & Darurat",
+      "level_mark": "③",
+      "level_desc": "Level 3 (Lanjutan)"
     },
     {
       "id": "safety_122",
-      "topic": "K3 & Keselamatan Pabrik (Pertanyaan Mendalam HRDK 2026)",
+      "topic": "Topik 30: 사고 위험 시 작업 중지 및 대피 (Hentikan pekerjaan dan evakuasi saat ada bahaya kecelakaan)",
       "question_ko": "사고의 위험이 있으면 어떻게 해야 하나요?",
       "question_ro": "Sagoui wiheomi isseumyeon eotteoke haeya hanayo?",
       "question_id": "Apa yang harus dilakukan jika ada bahaya kecelakaan?",
@@ -5719,7 +6695,15 @@
           "id": "Hentikan pekerjaan dan pergi ke tempat aman.",
           "audio": "/audio/tts/k3/safety_122_s.mp3"
         }
-      ]
+      ],
+      "topic_no": 30,
+      "topic_ko": "사고 위험 시 작업 중지 및 대피",
+      "topic_id": "Hentikan pekerjaan dan evakuasi saat ada bahaya kecelakaan",
+      "phase_key": "emergency",
+      "phase_ko": "이상 발생 시",
+      "phase_id": "Situasi Bahaya & Darurat",
+      "level_mark": "③",
+      "level_desc": "Level 3 (Lanjutan)"
     }
   ],
   "interview": [
