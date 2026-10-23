@@ -5,7 +5,8 @@ import {
   Volume2, Eye, EyeOff, Search, Sparkles, BookOpen,
   Calendar, Clock, Hash, Palette, Users, UserCheck,
   Factory, Wrench, CheckCircle2, ArrowRight, RotateCcw, AlertTriangle,
-  Activity, ChevronRight, ChevronDown, ChevronUp, Check, ShieldAlert, Image, Headphones, Copy, Play
+  Activity, ChevronRight, ChevronDown, ChevronUp, Check, ShieldAlert, Image, Headphones, Copy, Play,
+  X, Maximize2
 } from 'lucide-react';
 import { getAssetUrl } from '../utils/assetHelper.js';
 import { HRDK_MODULES, MODULE_COLORS } from '../utils/categoryGroups.js';
@@ -77,10 +78,43 @@ const JAGISOGE_SAMPLES = [
   },
 ];
 
+const JAGI_FOKUS_OPTIONS = [
+  {
+    id: 'manufaktur',
+    label: 'Pabrik & Manufaktur (제조업)',
+    desc: 'Pengalaman kerja pabrik, rajin, disiplin',
+    ko: '저는 공장에서 성실하게 일한 경험이 있습니다.',
+    idText: 'Saya memiliki pengalaman bekerja dengan rajin di pabrik.',
+  },
+  {
+    id: 'pertanian',
+    label: 'Pertanian & Nelayan (농축산업/어업)',
+    desc: 'Pekerjaan luar ruangan, fisik tangguh',
+    ko: '저는 농업과 야외 작업에 익숙하고 힘든 일도 잘 해낼 수 있습니다.',
+    idText: 'Saya terbiasa dengan pertanian dan kerja lapangan, serta mampu bekerja berat.',
+  },
+  {
+    id: 'konstruksi',
+    label: 'Konstruksi & Pertukangan (건설업)',
+    desc: 'Pengalaman proyek bangunan, taat K3',
+    ko: '저는 건설 현장에서 일한 경험이 있고 안전 수칙을 철저히 지킵니다.',
+    idText: 'Saya berpengalaman di lapangan konstruksi dan taat pada aturan K3.',
+  },
+  {
+    id: 'rajin',
+    label: 'Fisik Sehat & Cepat Belajar (성실/체력)',
+    desc: 'Format umum terbaik untuk fresh graduate',
+    ko: '저는 몸이 건강하고 부지런하며 새로운 기술을 빨리 배울 수 있습니다.',
+    idText: 'Tubuh saya sehat, rajin, dan mampu mempelajari hal baru dengan cepat.',
+  },
+];
+
 export function StudyGuide({ onStartPracticeCategory }) {
   const [activeModule, setActiveModule] = useState('interview');
   const [activeTab, setActiveTab] = useState('interview');
   const [activeSampleIdx, setActiveSampleIdx] = useState(0);
+  const [jagiSubTab, setJagiSubTab] = useState('generator');
+  const [inspectRambu, setInspectRambu] = useState(null);
   const [hideAllAnswers, setHideAllAnswers] = useState(true);
   const [revealedCardAnswers, setRevealedCardAnswers] = useState({});
   const [searchQuery, setSearchQuery] = useState('');
@@ -117,29 +151,13 @@ export function StudyGuide({ onStartPracticeCategory }) {
     ],
   };
   const [jagiForm, setJagiForm] = useState({
-    nama: '', namaPanggilan: '', umur: '', tahunLahir: '', bulanLahir: '',
-    keluarga: '', anggota: '', asal: '인도네시아', hobi: '운동',
-    pengalaman: '선택한 분야(서비스/제조)의 경력이 없지만 최선을 다하겠습니다',
-    kelebihan: '부지런한 사람이고 빨리 적응할 수 있습니다',
-    tutup: '열심히 일하겠습니다. 잘 부탁드립니다. 감사합니다',
+    nama: 'BAMBANG SUTEJO',
+    umur: '25',
+    keluarga: '4',
+    nikah: '아직 결혼하지 않았습니다',
+    fokus: 'manufaktur',
   });
-  const [jagiTemplate, setJagiTemplate] = useState('standar');
   const [jagiCopied, setJagiCopied] = useState(false);
-  const [jagiStep, setJagiStep] = useState(0);
-  const JAGI_STEPS = ['Data Wajib', 'Opsional', 'Slot Bebas'];
-  const wajibIsi = [jagiForm.nama.trim(), jagiForm.umur, jagiForm.asal, jagiForm.hobi].filter(Boolean).length;
-
-  const optText = (key, val) => {
-    const hit = (SLOT_OPTS[key] || []).find(o => o.id === val);
-    return hit ? hit.text : val;
-  };
-
-  const PENGALAMAN_ID = {
-    '저는 2년 동안 자동차 공장에서 일한 적이 있습니다': 'Saya pernah bekerja di pabrik mobil selama 2 tahun',
-    '선택한 분야(서비스/제조)의 경력이 없지만 최선을 다하겠습니다': 'Saya belum punya pengalaman di bidang yang dipilih, tapi akan berusaha sebaik mungkin',
-    '지금은 직업이 없습니다. 그래서 한국에 가서 일을 하고 싶습니다': 'Saat ini saya tidak bekerja, jadi ingin bekerja di Korea',
-    '고향에서 사업을 시작하고 싶지만 돈이 없습니다. 그래서 한국에 가서 돈을 많이 벌고 싶습니다': 'Saya ingin membuka usaha di kampung halaman tapi tidak punya modal, jadi ingin mencari uang di Korea',
-  };
 
   // Angka asli Korea 1-99 (umur, jumlah keluarga)
   const nativeKo = (n) => {
@@ -152,86 +170,60 @@ export function StudyGuide({ onStartPracticeCategory }) {
     return TENS[t] + (o ? ONE[o] : '');
   };
 
-  // Angka Sino-Korea (bulan)
-  const sinoKo = (n) => {
-    n = parseInt(n, 10);
-    if (!n || n < 1) return '';
-    const D = ['', '일', '이', '삼', '사', '오', '육', '칠', '팔', '구'];
-    if (n <= 9) return D[n];
-    if (n < 100) {
-      const t = Math.floor(n / 10), o = n % 10;
-      return (t === 1 ? '십' : D[t] + '십') + (o ? D[o] : '');
-    }
-    return '';
-  };
-
-  // Tahun lahir -> sino (1990 = 천구백구십)
-  const yearKo = (y) => {
-    y = parseInt(y, 10);
-    if (!y || y < 1000 || y > 2100) return '';
-    const D = ['공', '일', '이', '삼', '사', '오', '육', '칠', '팔', '구'];
-    const th = Math.floor(y / 1000), h = Math.floor((y % 1000) / 100);
-    const t = Math.floor((y % 100) / 10), o = y % 10;
-    let out = '';
-    if (th) out += (th === 1 ? '' : D[th]) + '천';
-    if (h) out += (h === 1 ? '' : D[h]) + '백';
-    if (t) out += (t === 1 ? '' : D[t]) + '십';
-    if (o) out += D[o];
-    return out;
-  };
-
-  // (이)라고 rule untuk nama panggilan latin
-  const ragoKo = (name) => {
-    name = (name || '').trim();
-    if (!name) return '';
-    const last = name.slice(-1).toLowerCase();
-    const particle = 'aiueo'.includes(last) ? '라고' : '이라고';
-    return `${name}${particle} 불러 주시면 됩니다`;
-  };
-
-  const fillJagi = (tpl) => {
+  const jagiSentences = () => {
     const f = jagiForm;
-    const yKo = yearKo(f.tahunLahir);
-    const bKo = sinoKo(f.bulanLahir);
-    const map = {
-      nama: (f.nama || '').trim() || '[Nama]',
-      namaPanggilKo: ragoKo(f.namaPanggil),
-      namaPanggilId: f.namaPanggil ? `Bisa dipanggil ${f.namaPanggil.trim()}` : '',
-      umur: f.umur || '[Umur]',
-      umurKo: nativeKo(f.umur) || '[Usia]',
-      lahirKo: [yKo ? `${yKo}년` : '', bKo ? `${bKo}월` : ''].filter(Boolean).join(' ') || '[Tanggal]',
-      lahir: [f.tahunLahir ? `tahun ${f.tahunLahir}` : '', f.bulanLahir ? `bulan ${f.bulanLahir}` : ''].filter(Boolean).join(', ') || '[Tanggal]',
-      nikah: f.nikah || '',
-      nikahId: optText('nikah', f.nikah),
-      keluarga: f.keluarga || '[Jumlah]',
-      keluargaKo: nativeKo(f.keluarga) || '[Jumlah]',
-      anggotaKo: f.anggota ? `${f.anggota.trim()} 그리고 저 있습니다` : '',
-      anggotaId: f.anggota ? `${f.anggota.trim()}, dan saya` : '',
-      hobi: f.hobi,
-      hobiId: optText('hobi', f.hobi),
-      asal: f.asal,
-      pengalaman: f.pengalaman,
-      pengalamanId: PENGALAMAN_ID[f.pengalaman] || f.pengalaman,
-      kelebihan: f.kelebihan,
-      kelebihanId: optText('kelebihan', f.kelebihan),
-      tutup: f.tutup,
-      tutupId: optText('tutup', f.tutup),
-    };
-    let s = tpl || '';
-    for (const [k, v] of Object.entries(map)) {
-      s = s.split(`{${k}}`).join(v ?? '');
-    }
-    return s.replace(/\s+/g, ' ').replace(/\s+([.,!?])/g, '$1').trim();
+    const nama = (f.nama || '').trim() || 'OOO';
+    const umurKo = nativeKo(f.umur) || '스물다섯';
+    const keluargaKo = nativeKo(f.keluarga) || '네';
+    const nikahText = f.nikah === '결혼했습니다' ? '결혼했습니다' : '아직 결혼하지 않았습니다';
+    const nikahId = f.nikah === '결혼했습니다' ? 'sudah menikah' : 'belum menikah';
+    const fokusObj = JAGI_FOKUS_OPTIONS.find(o => o.id === f.fokus) || JAGI_FOKUS_OPTIONS[0];
+
+    return [
+      {
+        no: 1,
+        title: 'Salam & Izin Perkenalan',
+        ko: '안녕하십니까! 지금부터 자기소개를 하겠습니다.',
+        id: 'Selamat pagi / siang! Mulai sekarang saya akan memperkenalkan diri.',
+        durasi: '3s',
+      },
+      {
+        no: 2,
+        title: 'Nama Lengkap',
+        ko: `제 이름은 ${nama}입니다.`,
+        id: `Nama saya adalah ${nama}.`,
+        durasi: '3s',
+      },
+      {
+        no: 3,
+        title: 'Asal & Usia Resmi Korea',
+        ko: `인도네시아에서 왔고, 나이는 ${umurKo} 살입니다.`,
+        id: `Saya berasal dari Indonesia, dan usia saya ${f.umur || '25'} tahun.`,
+        durasi: '5s',
+      },
+      {
+        no: 4,
+        title: 'Jumlah Keluarga & Status',
+        ko: `우리 가족은 ${keluargaKo} 명이고, 저는 ${nikahText}.`,
+        id: `Keluarga kami berjumlah ${f.keluarga || '4'} orang, dan saya ${nikahId}.`,
+        durasi: '6s',
+      },
+      {
+        no: 5,
+        title: 'Pengalaman & Keunggulan',
+        ko: fokusObj.ko,
+        id: fokusObj.idText,
+        durasi: '7s',
+      },
+      {
+        no: 6,
+        title: 'Komitmen Kerja & Penutup',
+        ko: '한국에 가면 성실하고 열심히 일하겠습니다. 잘 부탁드립니다. 감사합니다!',
+        id: 'Jika bekerja di Korea saya akan bekerja dengan rajin dan jujur. Mohon bimbingannya. Terima kasih!',
+        durasi: '8s',
+      },
+    ];
   };
-
-  const activeTpl =
-    ((studyData.jagisoge || {}).templates || []).find(t => t.id === jagiTemplate) ||
-    ((studyData.jagisoge || {}).templates || [])[0] || { sentences: [] };
-
-  const jagiSentences = () =>
-    (activeTpl.sentences || [])
-      .map(s => ({ ko: fillJagi(s.ko), id: fillJagi(s.id) }))
-      .filter(s => s.ko && s.ko.length > 1);
 
   const copyJagi = async () => {
     const text = jagiSentences().map(s => s.ko).join(' ');
@@ -1416,418 +1408,402 @@ export function StudyGuide({ onStartPracticeCategory }) {
       {/* Jagisoge Tab */}
       {activeTab === 'jagisoge' && (
         <div className="space-y-4">
-          {/* 4 Contoh Resmi Perkenalan Diri (자기 소개 샘플) ala EPSTOPIK HUB */}
-          <Card className="p-4 md:p-5 space-y-3.5 border-l-4 border-l-primary bg-primary/5">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-              <div>
-                <p className="text-xs font-semibold text-primary">Part 1 · Self-introduction</p>
-                <h3 className="text-base sm:text-lg font-bold font-kr text-foreground mt-0.5">
-                  {JAGISOGE_SAMPLES[activeSampleIdx].koTitle}
-                </h3>
-                <p className="text-xs text-muted-foreground mt-0.5">
-                  {JAGISOGE_SAMPLES[activeSampleIdx].desc}
-                </p>
-              </div>
+          {/* Sub Navigation Bar */}
+          <div className="flex items-center gap-2 border-b border-border pb-3 overflow-x-auto no-scrollbar">
+            <button
+              type="button"
+              onClick={() => setJagiSubTab('generator')}
+              className={cn(
+                'px-4 py-2 rounded-lg text-xs sm:text-sm font-bold transition-all flex items-center gap-2 shrink-0',
+                jagiSubTab === 'generator'
+                  ? 'bg-primary text-primary-foreground shadow-xs'
+                  : 'bg-secondary text-muted-foreground hover:text-foreground'
+              )}
+            >
+              <Sparkles className="h-4 w-4" />
+              <span>Buat Naskah Saya (~35 Detik)</span>
+            </button>
+            <button
+              type="button"
+              onClick={() => setJagiSubTab('samples')}
+              className={cn(
+                'px-4 py-2 rounded-lg text-xs sm:text-sm font-bold transition-all flex items-center gap-2 shrink-0',
+                jagiSubTab === 'samples'
+                  ? 'bg-primary text-primary-foreground shadow-xs'
+                  : 'bg-secondary text-muted-foreground hover:text-foreground'
+              )}
+            >
+              <Volume2 className="h-4 w-4" />
+              <span>4 Contoh Audio Penguji & Tips HRDK</span>
+            </button>
+          </div>
 
-              <div className="flex items-center gap-2 shrink-0">
-                <Button
-                  type="button"
-                  onClick={() => {
-                    const text = JAGISOGE_SAMPLES[activeSampleIdx].sentences.map(s => s.ko).join(' ');
-                    if (playingAudio === text) {
-                      stopAudioOnly();
-                    } else {
-                      playAudio(null, text);
-                    }
-                  }}
-                  className="font-bold gap-2 shadow-xs"
-                >
-                  {playingAudio === JAGISOGE_SAMPLES[activeSampleIdx].sentences.map(s => s.ko).join(' ') ? (
-                    <>
-                      <Pause className="h-4 w-4" />
-                      <span>Jeda Contoh</span>
-                    </>
-                  ) : (
-                    <>
-                      <Volume2 className="h-4 w-4" />
-                      <span>Putar Contoh (Play sample)</span>
-                    </>
-                  )}
-                </Button>
-              </div>
-            </div>
-
-            {/* Sample Selector Tabs */}
-            <div className="flex gap-1.5 overflow-x-auto no-scrollbar pb-1">
-              {JAGISOGE_SAMPLES.map((s, idx) => (
-                <button
-                  key={s.id}
-                  type="button"
-                  onClick={() => {
-                    stopAudioOnly();
-                    setActiveSampleIdx(idx);
-                  }}
-                  className={cn(
-                    'px-3 py-1.5 rounded-lg text-xs font-bold border transition-all shrink-0 min-h-[36px]',
-                    activeSampleIdx === idx
-                      ? 'bg-primary text-primary-foreground border-primary shadow-xs'
-                      : 'bg-card text-muted-foreground border-border hover:bg-secondary hover:text-foreground'
-                  )}
-                >
-                  Sample {s.id}
-                </button>
-              ))}
-            </div>
-
-            {/* Sample Content */}
-            <div className="rounded-xl border border-border bg-card p-3.5 space-y-2">
-              {JAGISOGE_SAMPLES[activeSampleIdx].sentences.map((st, i) => (
-                <div key={i} className="text-sm">
-                  <p className="font-kr font-bold text-foreground">{st.ko}</p>
-                  <p className="text-xs text-muted-foreground mt-0.5 italic">{st.id}</p>
-                </div>
-              ))}
-            </div>
-          </Card>
-
-          {/* Form */}
-          <Card className="p-4 md:p-5 space-y-4">
-            <div>
-              <h3 className="font-bold text-sm md:text-base flex items-center gap-2">
-                <Sparkles className="h-4 w-4 text-primary shrink-0" />
-                <span>Buat Jagisoge-mu (자기소개 생성기)</span>
-              </h3>
-              <p className="text-xs text-muted-foreground mt-0.5">
-                Isi data diri, pilih versi template, teks perkenalan jadi otomatis. Umur & jumlah keluarga langsung dikonversi ke angka Korea.
-              </p>
-            </div>
-
-            {/* Stepper */}
-            <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-1">
-              {JAGI_STEPS.map((s, i) => {
-                const done = i === 0 ? (wajibIsi >= 4) : i < jagiStep;
-                const active = jagiStep === i;
-                return (
-                  <React.Fragment key={s}>
-                    {i > 0 && <div className={cn('hidden sm:block flex-1 h-0.5 rounded-full transition-colors min-w-[12px]', jagiStep >= i ? 'bg-primary' : 'bg-border')} />}
-                    <button onClick={() => setJagiStep(i)}
-                      className={cn('shrink-0 flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11px] font-medium transition-all active:scale-95 border min-h-[32px]',
-                        active ? 'bg-primary text-primary-foreground border-primary shadow-xs'
-                        : done ? 'bg-emerald-50 text-emerald-800 border-emerald-300'
-                        : 'bg-card text-muted-foreground border-border hover:border-foreground/30')}>
-                      {done && !active
-                        ? <Check className="h-3 w-3 text-emerald-700" />
-                        : <span className="w-4 h-4 rounded-full bg-black/10 flex items-center justify-center text-[10px]">{i + 1}</span>}
-                      <span>{s}</span>
-                    </button>
-                  </React.Fragment>
-                );
-              })}
-            </div>
-
-            {/* Progress */}
-            <div>
-              <div className="flex items-center justify-between mb-1">
-                <span className="text-[10px] font-bold text-muted-foreground">Kelengkapan data wajib</span>
-                <span className={cn('text-[10px] font-mono font-bold', wajibIsi >= 4 ? 'text-emerald-700' : 'text-amber-700')}>{wajibIsi}/4</span>
-              </div>
-              <div className="h-1.5 bg-secondary rounded-full overflow-hidden">
-                <div className={cn('h-full rounded-full transition-all duration-300', wajibIsi >= 4 ? 'bg-emerald-500' : 'bg-primary')} style={{ width: `${(wajibIsi / 4) * 100}%` }} />
-              </div>
-            </div>
-
-            {/* Step 1: Wajib */}
-            {jagiStep === 0 && (
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5 animate-fade-in">
-                <label className="block md:col-span-2">
-                  <span className="text-[11px] font-bold text-muted-foreground">Nama Lengkap <span className="text-destructive">*</span></span>
-                  <input type="text" placeholder="cth: BAMBANG SUTEJO"
-                    value={jagiForm.nama}
-                    onChange={(e) => setJagiForm({ ...jagiForm, nama: e.target.value })}
-                    className={cn('mt-1 w-full px-3 py-2.5 border rounded-md text-sm font-medium text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 transition-all',
-                      jagiForm.nama.trim() ? 'bg-emerald-50/50 border-emerald-200 focus:ring-emerald-600/20 focus:border-emerald-500' : 'bg-muted border-input focus:ring-ring/30 focus:border-ring')} />
-                </label>
-                <div>
-                  <span className="text-[11px] font-bold text-muted-foreground">Umur (tahun) <span className="text-destructive">*</span></span>
-                  <div className="mt-1 flex items-stretch gap-1.5">
-                    <button onClick={() => setJagiForm(f => ({ ...f, umur: String(Math.max(0, (parseInt(f.umur || '0', 10) || 0) - 1)) }))}
-                      className="px-3 rounded-md bg-secondary hover:bg-secondary/70 border border-border font-bold text-muted-foreground transition-all active:scale-90">−</button>
-                    <input type="number" min="1" max="99" placeholder="35"
-                      value={jagiForm.umur}
-                      onChange={(e) => setJagiForm({ ...jagiForm, umur: e.target.value })}
-                      className="w-full px-3 py-2.5 bg-muted border border-input rounded-md text-sm font-bold text-center text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring/30 focus:border-ring" />
-                    <button onClick={() => setJagiForm(f => ({ ...f, umur: String(Math.min(99, (parseInt(f.umur || '0', 10) || 0) + 1)) }))}
-                      className="px-3 rounded-md bg-secondary hover:bg-secondary/70 border border-border font-bold text-muted-foreground transition-all active:scale-90">+</button>
-                  </div>
-                  {nativeKo(jagiForm.umur) && (
-                    <span className="inline-block mt-1 text-[11px] font-mono text-emerald-700 font-bold bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded-md">= {nativeKo(jagiForm.umur)} 살</span>
-                  )}
-                </div>
-                <div>
-                  <span className="text-[11px] font-bold text-muted-foreground">Asal <span className="text-destructive">*</span></span>
-                  <select value={jagiForm.asal}
-                    onChange={(e) => setJagiForm({ ...jagiForm, asal: e.target.value })}
-                    className="mt-1 w-full px-3 py-2.5 bg-muted border border-input rounded-md text-sm font-medium text-foreground focus:outline-none focus:ring-2 focus:ring-ring/30 focus:border-ring">
-                    {SLOT_OPTS.asal.map(o => <option key={o.id} value={o.id}>{o.id} ({o.text})</option>)}
-                  </select>
-                </div>
-                <div>
-                  <span className="text-[11px] font-bold text-muted-foreground">Hobi <span className="text-destructive">*</span></span>
-                  <select value={jagiForm.hobi}
-                    onChange={(e) => setJagiForm({ ...jagiForm, hobi: e.target.value })}
-                    className="mt-1 w-full px-3 py-2.5 bg-muted border border-input rounded-md text-sm font-medium text-foreground focus:outline-none focus:ring-2 focus:ring-ring/30 focus:border-ring">
-                    {SLOT_OPTS.hobi.map(o => <option key={o.id} value={o.id}>{o.id} ({o.text})</option>)}
-                  </select>
-                </div>
-              </div>
-            )}
-
-            {/* Step 2: Opsional */}
-            {jagiStep === 1 && (
-              <div className="space-y-2.5 animate-fade-in">
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-2.5">
-                  <label className="block">
-                    <span className="text-[11px] font-bold text-muted-foreground">Nama Panggilan</span>
-                    <input type="text" placeholder="cth: BUDI"
-                      value={jagiForm.namaPanggil}
-                      onChange={(e) => setJagiForm({ ...jagiForm, namaPanggil: e.target.value })}
-                      className="mt-1 w-full px-3 py-2 bg-muted border border-input rounded-md text-sm font-medium text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring/30 focus:border-ring" />
-                  </label>
-                  <label className="block">
-                    <span className="text-[11px] font-bold text-muted-foreground">Tahun Lahir</span>
-                    <input type="number" min="1900" max="2099" placeholder="cth: 1990"
-                      value={jagiForm.tahunLahir}
-                      onChange={(e) => setJagiForm({ ...jagiForm, tahunLahir: e.target.value })}
-                      className="mt-1 w-full px-3 py-2 bg-muted border border-input rounded-md text-sm font-medium text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring/30 focus:border-ring" />
-                    {yearKo(jagiForm.tahunLahir) && (
-                      <span className="text-[10px] font-mono text-emerald-700 font-bold">= {yearKo(jagiForm.tahunLahir)}년</span>
-                    )}
-                  </label>
-                  <label className="block">
-                    <span className="text-[11px] font-bold text-muted-foreground">Bulan Lahir</span>
-                    <input type="number" min="1" max="12" placeholder="cth: 4 (April)"
-                      value={jagiForm.bulanLahir}
-                      onChange={(e) => setJagiForm({ ...jagiForm, bulanLahir: e.target.value })}
-                      className="mt-1 w-full px-3 py-2 bg-muted border border-input rounded-md text-sm font-medium text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring/30 focus:border-ring" />
-                    {sinoKo(jagiForm.bulanLahir) && (
-                      <span className="text-[10px] font-mono text-emerald-700 font-bold">= {sinoKo(jagiForm.bulanLahir)}월</span>
-                    )}
-                  </label>
+          {/* SubTab 1: Generator Naskah 35 Detik */}
+          {jagiSubTab === 'generator' && (
+            <div className="space-y-4">
+              {/* Header Box */}
+              <div className="rounded-xl border border-border bg-card p-4 sm:p-5">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                   <div>
-                    <span className="text-[11px] font-bold text-muted-foreground">Jumlah Keluarga</span>
-                    <div className="mt-1 flex items-stretch gap-1.5">
-                      <button onClick={() => setJagiForm(f => ({ ...f, keluarga: String(Math.max(0, (parseInt(f.keluarga || '0', 10) || 0) - 1)) }))}
-                        className="px-3 rounded-md bg-secondary hover:bg-secondary/70 border border-border font-bold text-muted-foreground transition-all active:scale-90">−</button>
-                      <input type="number" min="1" max="99" placeholder="4"
+                    <h3 className="text-base sm:text-lg font-bold font-kr text-foreground flex items-center gap-2">
+                      <Sparkles className="h-4 w-4 text-primary shrink-0" />
+                      <span>Generator Jagisoge Resmi (Standar Emas 35 Detik)</span>
+                    </h3>
+                    <p className="text-xs text-muted-foreground mt-0.5">
+                      Batas ujian resmi HRD Korea adalah <strong>maksimal 40 detik</strong>. Seluruh data yang Anda isi di bawah 100% otomatis masuk ke naskah 6 kalimat standar ujian.
+                    </p>
+                  </div>
+                  <span className="font-mono text-xs font-bold px-2.5 py-1 rounded-md bg-emerald-100 text-emerald-800 dark:bg-emerald-950/60 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-700 shrink-0 self-start sm:self-auto">
+                    Target: 30 - 35 Detik
+                  </span>
+                </div>
+
+                {/* Form Input 1 Halaman Tanpa Stepper Ribet */}
+                <div className="mt-4 pt-4 border-t border-border grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+                  {/* 1. Nama Lengkap */}
+                  <div className="sm:col-span-2">
+                    <label className="text-[11px] font-bold text-muted-foreground block mb-1">
+                      Nama Lengkap Anda
+                    </label>
+                    <input
+                      type="text"
+                      placeholder="cth: BAMBANG SUTEJO"
+                      value={jagiForm.nama}
+                      onChange={(e) => setJagiForm({ ...jagiForm, nama: e.target.value })}
+                      className="w-full px-3 py-2 bg-muted border border-input rounded-md text-sm font-bold text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring/30 focus:border-ring"
+                    />
+                  </div>
+
+                  {/* 2. Usia */}
+                  <div>
+                    <div className="flex items-center justify-between mb-1">
+                      <span className="text-[11px] font-bold text-muted-foreground">Usia (Tahun)</span>
+                      <span className="text-[10px] font-mono font-bold text-emerald-700 dark:text-emerald-400">
+                        = {nativeKo(jagiForm.umur) || '스물다섯'} 살
+                      </span>
+                    </div>
+                    <div className="flex items-stretch gap-1">
+                      <button
+                        type="button"
+                        onClick={() => setJagiForm(f => ({ ...f, umur: String(Math.max(18, (parseInt(f.umur || '25', 10) || 25) - 1)) }))}
+                        className="px-3 rounded-md bg-secondary hover:bg-secondary/70 border border-border font-bold text-muted-foreground active:scale-95"
+                      >
+                        -
+                      </button>
+                      <input
+                        type="number"
+                        min="18"
+                        max="60"
+                        value={jagiForm.umur}
+                        onChange={(e) => setJagiForm({ ...jagiForm, umur: e.target.value })}
+                        className="w-full px-2 py-2 bg-muted border border-input rounded-md text-sm font-bold text-center text-foreground focus:outline-none focus:ring-2 focus:ring-ring/30"
+                      />
+                      <button
+                        type="button"
+                        onClick={() => setJagiForm(f => ({ ...f, umur: String(Math.min(60, (parseInt(f.umur || '25', 10) || 25) + 1)) }))}
+                        className="px-3 rounded-md bg-secondary hover:bg-secondary/70 border border-border font-bold text-muted-foreground active:scale-95"
+                      >
+                        +
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* 3. Jumlah Keluarga */}
+                  <div>
+                    <div className="flex items-center justify-between mb-1">
+                      <span className="text-[11px] font-bold text-muted-foreground">Jumlah Keluarga</span>
+                      <span className="text-[10px] font-mono font-bold text-emerald-700 dark:text-emerald-400">
+                        = {nativeKo(jagiForm.keluarga) || '네'} 명
+                      </span>
+                    </div>
+                    <div className="flex items-stretch gap-1">
+                      <button
+                        type="button"
+                        onClick={() => setJagiForm(f => ({ ...f, keluarga: String(Math.max(1, (parseInt(f.keluarga || '4', 10) || 4) - 1)) }))}
+                        className="px-3 rounded-md bg-secondary hover:bg-secondary/70 border border-border font-bold text-muted-foreground active:scale-95"
+                      >
+                        -
+                      </button>
+                      <input
+                        type="number"
+                        min="1"
+                        max="20"
                         value={jagiForm.keluarga}
                         onChange={(e) => setJagiForm({ ...jagiForm, keluarga: e.target.value })}
-                        className="w-full px-3 py-2 bg-muted border border-input rounded-md text-sm font-bold text-center text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring/30 focus:border-ring" />
-                      <button onClick={() => setJagiForm(f => ({ ...f, keluarga: String(Math.min(99, (parseInt(f.keluarga || '0', 10) || 0) + 1)) }))}
-                        className="px-3 rounded-md bg-secondary hover:bg-secondary/70 border border-border font-bold text-muted-foreground transition-all active:scale-90">+</button>
+                        className="w-full px-2 py-2 bg-muted border border-input rounded-md text-sm font-bold text-center text-foreground focus:outline-none focus:ring-2 focus:ring-ring/30"
+                      />
+                      <button
+                        type="button"
+                        onClick={() => setJagiForm(f => ({ ...f, keluarga: String(Math.min(20, (parseInt(f.keluarga || '4', 10) || 4) + 1)) }))}
+                        className="px-3 rounded-md bg-secondary hover:bg-secondary/70 border border-border font-bold text-muted-foreground active:scale-95"
+                      >
+                        +
+                      </button>
                     </div>
-                    {nativeKo(jagiForm.keluarga) && (
-                      <span className="inline-block mt-1 text-[10px] font-mono text-emerald-700 font-bold bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded-md">= {nativeKo(jagiForm.keluarga)} 명</span>
-                    )}
+                  </div>
+
+                  {/* 4. Status Pernikahan */}
+                  <div className="sm:col-span-2">
+                    <span className="text-[11px] font-bold text-muted-foreground block mb-1">
+                      Status Pernikahan
+                    </span>
+                    <div className="grid grid-cols-2 gap-2">
+                      <button
+                        type="button"
+                        onClick={() => setJagiForm({ ...jagiForm, nikah: '아직 결혼하지 않았습니다' })}
+                        className={cn(
+                          'px-3 py-2 rounded-md text-xs font-bold border transition-all text-center',
+                          jagiForm.nikah === '아직 결혼하지 않았습니다'
+                            ? 'bg-primary text-primary-foreground border-primary shadow-xs'
+                            : 'bg-muted text-muted-foreground border-border hover:text-foreground'
+                        )}
+                      >
+                        Belum Menikah (미혼)
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => setJagiForm({ ...jagiForm, nikah: '결혼했습니다' })}
+                        className={cn(
+                          'px-3 py-2 rounded-md text-xs font-bold border transition-all text-center',
+                          jagiForm.nikah === '결혼했습니다'
+                            ? 'bg-primary text-primary-foreground border-primary shadow-xs'
+                            : 'bg-muted text-muted-foreground border-border hover:text-foreground'
+                        )}
+                      >
+                        Sudah Menikah (기혼)
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* 5. Fokus Bidang / Kelebihan */}
+                  <div className="sm:col-span-2">
+                    <span className="text-[11px] font-bold text-muted-foreground block mb-1">
+                      Fokus Bidang Pengalaman / Kelebihan
+                    </span>
+                    <select
+                      value={jagiForm.fokus}
+                      onChange={(e) => setJagiForm({ ...jagiForm, fokus: e.target.value })}
+                      className="w-full px-3 py-2 bg-muted border border-input rounded-md text-xs sm:text-sm font-semibold text-foreground focus:outline-none focus:ring-2 focus:ring-ring/30"
+                    >
+                      {JAGI_FOKUS_OPTIONS.map((opt) => (
+                        <option key={opt.id} value={opt.id}>
+                          {opt.label}
+                        </option>
+                      ))}
+                    </select>
                   </div>
                 </div>
-                <label className="block md:col-span-2">
-                  <span className="text-[11px] font-bold text-muted-foreground">Sebut Anggota Keluarga <span className="font-medium">(opsional)</span></span>
-                  <input type="text" placeholder="cth: 아버지, 어머니, 누나"
-                    value={jagiForm.anggota}
-                    onChange={(e) => setJagiForm({ ...jagiForm, anggota: e.target.value })}
-                    className="mt-1 w-full px-3 py-2 bg-muted border border-input rounded-md text-sm font-medium text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring/30 focus:border-ring" />
-                </label>
-                <div>
-                  <span className="text-[11px] font-bold text-muted-foreground">Status Pernikahan</span>
-                  <div className="mt-1 flex flex-wrap gap-1.5">
-                    {SLOT_OPTS.nikah.map(o => (
-                      <button key={o.id} onClick={() => setJagiForm({ ...jagiForm, nikah: o.id })}
-                        className={cn('px-3 py-2 rounded-sm text-xs font-medium transition-all',
-                          jagiForm.nikah === o.id
-                            ? 'bg-foreground text-background'
-                            : 'bg-card text-muted-foreground border-border hover:bg-secondary')}>
-                        {optText('nikah', o.id)}
-                      </button>
+              </div>
+
+              {/* Live Preview Hasil Naskah (Clean Dark/Contrast Showcase) */}
+              <div className="rounded-xl border border-border bg-foreground text-background p-4 sm:p-5 space-y-4">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-background/20 pb-3">
+                  <div>
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground">
+                      Hasil Naskah Siap Hafal (6 Kalimat Emas)
+                    </span>
+                    <div className="flex items-center gap-2 mt-0.5">
+                      <span className="text-xs font-bold text-emerald-400">
+                        Durasi Bicara: ~32 Detik
+                      </span>
+                      <span className="text-xs text-muted-foreground">·</span>
+                      <span className="text-xs text-muted-foreground">
+                        Standar HRD Korea (Maks. 40 Detik)
+                      </span>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center gap-2 shrink-0">
+                    <Button
+                      type="button"
+                      variant="secondary"
+                      size="sm"
+                      onClick={() => {
+                        const fullKo = getJagiSentences().map(s => s.ko).join(' ');
+                        playAudio(null, fullKo);
+                      }}
+                      className="font-bold gap-1.5"
+                    >
+                      <Volume2 className="h-4 w-4" />
+                      <span>Dengar Naskah Penuh</span>
+                    </Button>
+
+                    <Button
+                      type="button"
+                      variant="secondary"
+                      size="sm"
+                      onClick={copyJagi}
+                      className="font-bold gap-1.5"
+                    >
+                      <Copy className="h-4 w-4" />
+                      <span>{jagiCopied ? 'Tersalin!' : 'Salin Naskah'}</span>
+                    </Button>
+                  </div>
+                </div>
+
+                {/* Teks Lengkap Hangeul & Terjemahan */}
+                <div className="space-y-2">
+                  <p className="font-kr font-bold text-base sm:text-lg leading-relaxed text-background">
+                    {getJagiSentences().map(s => s.ko).join(' ')}
+                  </p>
+                  <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed italic">
+                    {getJagiSentences().map(s => s.id).join(' ')}
+                  </p>
+                </div>
+
+                {/* Rincian Kalimat Per Kalimat */}
+                <div className="pt-2 border-t border-background/20 space-y-2">
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground block">
+                    Pelajari Per Kalimat:
+                  </span>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                    {getJagiSentences().map((st) => (
+                      <div
+                        key={st.no}
+                        className="rounded-lg bg-background/10 border border-background/15 p-2.5 flex items-start justify-between gap-2"
+                      >
+                        <div className="min-w-0">
+                          <div className="flex items-center gap-1.5">
+                            <span className="text-[10px] font-bold text-emerald-400">
+                              #{st.no}
+                            </span>
+                            <span className="text-[10px] font-semibold text-muted-foreground">
+                              {st.title} (~{st.durasi})
+                            </span>
+                          </div>
+                          <p className="font-kr font-bold text-xs sm:text-sm text-background mt-0.5">
+                            {st.ko}
+                          </p>
+                          <p className="text-[11px] text-muted-foreground mt-0.5">
+                            {st.id}
+                          </p>
+                        </div>
+                        <button
+                          type="button"
+                          onClick={() => playAudio(null, st.ko)}
+                          title="Dengar pelafalan kalimat ini"
+                          className="p-1.5 rounded-md hover:bg-background/20 text-background shrink-0 mt-0.5"
+                        >
+                          <Volume2 className="h-4 w-4" />
+                        </button>
+                      </div>
                     ))}
                   </div>
                 </div>
               </div>
-            )}
-
-            {/* Step 3: Slot Bebas */}
-            {jagiStep === 2 && (
-              <div className="space-y-3 animate-fade-in">
-                <div className="p-2.5 rounded-md bg-warn/5 border border-warn/30 text-xs text-warn leading-relaxed">
-                  Aturan 40 detik: <strong>pilih tepat 1 per slot</strong>. Kebanyakan slot = kepotong penguji.
-                </div>
-                <div>
-                  <span className="text-[11px] font-bold text-muted-foreground">Pengalaman Kerja</span>
-                  <select value={jagiForm.pengalaman}
-                    onChange={(e) => setJagiForm({ ...jagiForm, pengalaman: e.target.value })}
-                    className="mt-1 w-full px-3 py-2 bg-warn/5 border border-warn/30 rounded-md text-sm font-medium text-foreground focus:outline-none focus:ring-2 focus:ring-warn/30 focus:border-warn">
-                    {SLOT_OPTS.pengalaman.map((o, i) => <option key={o} value={o}>{i + 1}. {o}</option>)}
-                  </select>
-                </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5">
-                  <div>
-                    <span className="text-[11px] font-bold text-muted-foreground">Kelebihan</span>
-                    <select value={jagiForm.kelebihan}
-                      onChange={(e) => setJagiForm({ ...jagiForm, kelebihan: e.target.value })}
-                      className="mt-1 w-full px-3 py-2 bg-warn/5 border border-warn/30 rounded-md text-sm font-medium text-foreground focus:outline-none focus:ring-2 focus:ring-warn/30 focus:border-warn">
-                      {SLOT_OPTS.kelebihan.map(o => <option key={o.id} value={o.id}>{o.id}</option>)}
-                    </select>
-                  </div>
-                  <div>
-                    <span className="text-[11px] font-bold text-muted-foreground">Penutup</span>
-                    <select value={jagiForm.tutup}
-                      onChange={(e) => setJagiForm({ ...jagiForm, tutup: e.target.value })}
-                      className="mt-1 w-full px-3 py-2 bg-warn/5 border border-warn/30 rounded-md text-sm font-medium text-foreground focus:outline-none focus:ring-2 focus:ring-warn/30 focus:border-warn">
-                      {SLOT_OPTS.tutup.map(o => <option key={o.id} value={o.id}>{o.id}</option>)}
-                    </select>
-                  </div>
-                </div>
-              </div>
-            )}
-
-            {/* Navigasi langkah */}
-            <div className="flex items-center justify-between pt-1">
-              {jagiStep > 0 ? (
-                <Button variant="outline" size="sm" onClick={() => setJagiStep(s => s - 1)}>
-                  <span>Kembali</span>
-                </Button>
-              ) : <span />}
-              {jagiStep < 2 ? (
-                <Button size="sm" onClick={() => setJagiStep(s => s + 1)}>
-                  <span>Lanjut: {JAGI_STEPS[jagiStep + 1]}</span>
-                  <ChevronRight className="h-3.5 w-3.5" />
-                </Button>
-              ) : (
-                <Button size="sm" onClick={() => document.getElementById('jagi-hasil')?.scrollIntoView({ behavior: 'smooth', block: 'start' })}>
-                  <span>Lihat Hasil</span>
-                </Button>
-              )}
             </div>
+          )}
 
-            {/* Template picker */}
-            <div>
-              <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider mr-0.5">Template:</span>
-              <div className="mt-1.5 grid grid-cols-1 sm:grid-cols-3 gap-2">
-                {(studyData.jagisoge?.templates || []).map(t => {
-                  const sel = jagiTemplate === t.id;
-                  const n = (t.sentences || []).length;
-                  return (
-                    <button key={t.id} onClick={() => setJagiTemplate(t.id)} title={t.desc}
-                      className={cn('text-left p-3 rounded-md border transition-all',
-                        sel ? 'bg-primary text-primary-foreground border-primary'
-                          : 'bg-card text-foreground border-border hover:border-primary/40')}>
-                      <div className="flex items-center justify-between gap-1">
-                        <span className={cn('text-xs font-bold truncate', sel ? 'text-white' : 'text-foreground')}>{t.label}</span>
-                        {sel && <Check className="h-4 w-4 shrink-0" />}
-                      </div>
-                      <div className={cn('mt-1 flex items-center gap-1.5 text-[10px] font-mono font-bold',
-                        sel ? 'text-white/80' : 'text-muted-foreground')}>
-                        <span className={cn('px-1.5 py-0.5 rounded-sm', sel ? 'bg-white/20' : 'bg-secondary')}>{n} kalimat</span>
-                        {t.duration && <span className={cn('px-1.5 py-0.5 rounded-sm', sel ? 'bg-white/20' : 'bg-secondary')}>{t.duration}</span>}
-                      </div>
-                      <p className={cn('mt-1.5 text-[11px] leading-snug line-clamp-2', sel ? 'text-white/80' : 'text-muted-foreground')}>{t.desc}</p>
+          {/* SubTab 2: 4 Contoh Resmi & Tips HRDK */}
+          {jagiSubTab === 'samples' && (
+            <div className="space-y-4">
+              {/* 4 Contoh Resmi Audio Penguji */}
+              <div className="rounded-xl border border-border bg-card p-4 sm:p-5 space-y-3.5">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                  <div>
+                    <span className="text-xs font-semibold text-primary">HRD Korea Sample · Wawancara Resmi</span>
+                    <h3 className="text-base sm:text-lg font-bold font-kr text-foreground mt-0.5">
+                      {JAGISOGE_SAMPLES[activeSampleIdx].koTitle}
+                    </h3>
+                    <p className="text-xs text-muted-foreground mt-0.5">
+                      {JAGISOGE_SAMPLES[activeSampleIdx].desc}
+                    </p>
+                  </div>
+
+                  <Button
+                    type="button"
+                    onClick={() => {
+                      const text = JAGISOGE_SAMPLES[activeSampleIdx].sentences.map(s => s.ko).join(' ');
+                      if (playingAudio === text) stopAudioOnly();
+                      else playAudio(null, text);
+                    }}
+                    className="font-bold gap-2 shrink-0 shadow-xs"
+                  >
+                    {playingAudio === JAGISOGE_SAMPLES[activeSampleIdx].sentences.map(s => s.ko).join(' ') ? (
+                      <>
+                        <Pause className="h-4 w-4" />
+                        <span>Jeda Contoh</span>
+                      </>
+                    ) : (
+                      <>
+                        <Volume2 className="h-4 w-4" />
+                        <span>Putar Contoh Audio</span>
+                      </>
+                    )}
+                  </Button>
+                </div>
+
+                {/* Selector Sample */}
+                <div className="flex gap-1.5 overflow-x-auto no-scrollbar pb-1">
+                  {JAGISOGE_SAMPLES.map((s, idx) => (
+                    <button
+                      key={s.id}
+                      type="button"
+                      onClick={() => {
+                        stopAudioOnly();
+                        setActiveSampleIdx(idx);
+                      }}
+                      className={cn(
+                        'px-3.5 py-1.5 rounded-lg text-xs font-bold border transition-all shrink-0 min-h-[34px]',
+                        activeSampleIdx === idx
+                          ? 'bg-primary text-primary-foreground border-primary shadow-xs'
+                          : 'bg-muted text-muted-foreground border-border hover:text-foreground'
+                      )}
+                    >
+                      {s.title}
                     </button>
-                  );
-                })}
-              </div>
-            </div>
+                  ))}
+                </div>
 
-            {/* Hasil */}
-            <div id="jagi-hasil" className="p-4 rounded-md bg-foreground text-background space-y-3 scroll-mt-24">
-              <div className="flex items-center justify-between gap-2 flex-wrap">
-                <span className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground">
-                  Hasil: {(studyData.jagisoge?.templates || []).find(t => t.id === jagiTemplate)?.label} · {jagiSentences().length} kalimat
-                </span>
-                <div className="flex items-center gap-1.5">
-                  <Button type="button" variant="secondary" size="sm"
-                    onClick={() => playAudio(null, jagiSentences().map(s => s.ko).join(' '))}>
-                    <Volume2 className="h-3.5 w-3.5" />
-                    <span>Dengar Semua</span>
-                  </Button>
-                  <Button type="button" variant="secondary" size="sm" onClick={copyJagi}>
-                    <Copy className="h-3.5 w-3.5" />
-                    <span>{jagiCopied ? 'Tersalin!' : 'Salin'}</span>
-                  </Button>
+                {/* Konten Sample */}
+                <div className="rounded-xl border border-border bg-muted/40 p-3.5 space-y-2">
+                  {JAGISOGE_SAMPLES[activeSampleIdx].sentences.map((st, i) => (
+                    <div key={i} className="text-xs sm:text-sm">
+                      <p className="font-kr font-bold text-foreground">{st.ko}</p>
+                      <p className="text-muted-foreground mt-0.5 italic">{st.id}</p>
+                    </div>
+                  ))}
                 </div>
               </div>
-              <p className="font-kr font-bold text-base md:text-lg leading-relaxed">
-                {jagiSentences().map(s => s.ko).join(' ')}
-              </p>
-              <p className="text-xs text-muted-foreground leading-relaxed">
-                {jagiSentences().map(s => s.id).filter(Boolean).join(' ')}
-              </p>
-              <div className="pt-1 space-y-1.5">
-                {jagiSentences().map((s, idx) => (
-                  <div key={idx} className="flex items-center justify-between gap-2 bg-white/5 rounded-sm px-2.5 py-1.5">
-                    <span className="font-kr text-xs font-bold truncate">{s.ko}</span>
-                    <Button type="button" variant="ghost" size="icon"
-                      onClick={() => playAudio(null, s.ko)}
-                      title="Dengar kalimat ini"
-                      className={cn('shrink-0', playingAudio === s.ko && 'text-emerald-400 animate-pulse-dot')}>
-                      <Volume2 className="h-3.5 w-3.5" />
-                    </Button>
+
+              {/* Naskah Baku HRD Korea */}
+              <div className="rounded-xl border border-border bg-card p-4 sm:p-5 space-y-3">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <span className="text-xs font-mono font-bold text-primary uppercase">Standar Baku Ujian</span>
+                    <h3 className="text-base sm:text-lg font-bold text-foreground">Naskah Baku HRD Korea (Batas 40 Detik)</h3>
                   </div>
-                ))}
-              </div>
-            </div>
-          </Card>
+                  <Button variant="outline" size="sm" onClick={() => playAudio('/audio/examiner_jagisoge.mp3')}>
+                    <Volume2 className="h-3.5 w-3.5 mr-1" />
+                    <span>Audio Penguji</span>
+                  </Button>
+                </div>
 
-          {/* Naskah Baku */}
-          <Card className="p-5 md:p-6">
-            <div className="flex items-center justify-between mb-4">
-              <div>
-                <span className="text-xs font-mono font-bold text-primary uppercase">Tahap 1 Ujian Resmi</span>
-                <h3 className="text-lg md:text-xl font-bold text-foreground">Naskah Baku Jagisoge (Batas Resmi 40 Detik)</h3>
-              </div>
-              <Button variant="outline" size="sm" onClick={() => playAudio('/audio/examiner_jagisoge.mp3')}>
-                <Volume2 className="h-3.5 w-3.5" />
-                <span className="hidden sm:inline">Audio Penguji</span>
-              </Button>
-            </div>
+                <div className="p-3.5 rounded-lg bg-muted border border-border text-sm font-kr font-bold text-foreground leading-relaxed">
+                  {(studyData.jagisoge.sentences || []).map(s => s.ko).join(' ')}
+                </div>
 
-            <div className="p-4 rounded-md bg-muted border border-border text-sm md:text-base font-kr font-bold text-foreground leading-relaxed">
-              {(studyData.jagisoge.sentences || []).map(s => s.ko).join(' ')}
-            </div>
+                <div className="p-3.5 rounded-lg bg-primary/5 border border-primary/20 text-xs text-foreground/80 leading-relaxed">
+                  <strong>Terjemahan Bahasa Indonesia:</strong><br />
+                  {(studyData.jagisoge.sentences || []).map(s => s.id).join(' ')}
+                </div>
 
-            <div className="mt-4 p-4 rounded-md bg-warn/5 border border-warn/30 text-xs text-warn leading-relaxed">
-              <strong>Terjemahan Bahasa Indonesia:</strong><br />
-              {(studyData.jagisoge.sentences || []).map(s => s.id).join(' ')}
-            </div>
-
-            <div className="mt-5 space-y-3">
-              <h4 className="font-bold text-xs text-muted-foreground uppercase tracking-wider">
-                Struktur Per Kalimat & Tips Skor Maksimal:
-              </h4>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                {(studyData.jagisoge.sentences || []).map((st, idx) => (
-                  <div key={idx} className="p-3.5 rounded-md border border-border bg-card">
-                    <span className="text-[10px] font-bold text-primary uppercase">Langkah {idx + 1}: {st.step}</span>
-                    <div className="font-kr font-bold text-sm text-foreground mt-1">{st.ko}</div>
-                    {st.ro && <div className="text-[11px] text-muted-foreground font-mono">{st.ro}</div>}
-                    <div className="text-xs text-muted-foreground mt-0.5">{st.id}</div>
-                    <div className="mt-2 text-[11px] text-warn bg-warn/8 px-2.5 py-1 rounded-md border border-warn/20">
-                      <strong>Tips Penguji:</strong> {st.tips}
-                    </div>
+                {/* Checklist Etika Ujian */}
+                <div className="pt-2 border-t border-border">
+                  <h4 className="font-bold text-xs text-muted-foreground uppercase tracking-wider mb-2">
+                    Checklist Kelulusan Sesi Jagisoge:
+                  </h4>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-muted-foreground">
+                    {studyData.jagisoge.examiner_checklist.map((item, idx) => (
+                      <div key={idx} className="p-2 rounded-md bg-muted/50 border border-border">
+                        {item}
+                      </div>
+                    ))}
                   </div>
-                ))}
+                </div>
               </div>
             </div>
-
-            <div className="mt-5 p-4 rounded-md bg-emerald-50/60 border border-emerald-200">
-              <h4 className="font-bold text-xs text-emerald-950 uppercase tracking-wider mb-2">
-                Checklist Kelulusan Sesi Jagisoge:
-              </h4>
-              <div className="space-y-1 text-xs text-emerald-900">
-                {studyData.jagisoge.examiner_checklist.map((item, idx) => (
-                  <div key={idx}>{item}</div>
-                ))}
-              </div>
-            </div>
-          </Card>
+          )}
         </div>
       )}
 
@@ -2059,9 +2035,6 @@ export function StudyGuide({ onStartPracticeCategory }) {
       {/* Piktogram Tab */}
       {activeTab === 'piktogram' && (() => {
         const piktogramList = allQuestions.filter(q => q.category === 'piktogram');
-        // 3 rambu nyasar di grup generik "Piktogram & Rambu Keselamatan K3", title_id-nya
-        // sudah memuat tag standar (지시표지/경고표지/금지표지/안내표지), jadi gabungkan ke grup standar tsb.
-        // Grup standar lain dipertahankan apa adanya dari data.
         const GENERIC_GROUP = 'Piktogram & Rambu Keselamatan K3';
         const remapGeneric = (item) => {
           if (item.category_title !== GENERIC_GROUP) return item.category_title || 'Lainnya';
@@ -2090,24 +2063,25 @@ export function StudyGuide({ onStartPracticeCategory }) {
         const pikFound = Object.values(groups).reduce((s, arr) => s + arr.filter(pikMatch).length, 0);
         return (
           <div className="space-y-4">
-            <Card className="p-4 md:p-5">
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-                <div>
-                  <h3 className="font-bold text-sm md:text-base flex items-center gap-2 mb-1">
-                    <ShieldAlert className="h-4 w-4 text-warn shrink-0" />
-                    <span>{piktogramList.length} Piktogram & Rambu Keselamatan Kerja (안전 표지)</span>
-                  </h3>
-                  <p className="text-xs text-muted-foreground">
-                    Pertanyaan penguji: <em>"이 안전 표지는 무슨 뜻입니까?"</em> (Hafal arti setiap rambu beserta nama Koreanya).
-                  </p>
-                </div>
-
-                <Button onClick={() => onStartPracticeCategory && onStartPracticeCategory('safety')}>
-                  <span>Latih Rambu K3 di Kuis / Flashcard</span>
-                  <ChevronRight className="h-3.5 w-3.5" />
-                </Button>
+            {/* Header Bersih */}
+            <div className="rounded-xl border border-border bg-card p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+              <div>
+                <h3 className="font-bold text-sm md:text-base flex items-center gap-2 mb-1">
+                  <ShieldAlert className="h-4 w-4 text-warn shrink-0" />
+                  <span>{piktogramList.length} Piktogram & Rambu Keselamatan K3 (안전 표지)</span>
+                </h3>
+                <p className="text-xs text-muted-foreground">
+                  Pertanyaan penguji: <em>"이 안전 표지는 무슨 뜻입니까?"</em> (Ketuk kartu untuk memperbesar gambar).
+                </p>
               </div>
-            </Card>
+
+              <Button onClick={() => onStartPracticeCategory && onStartPracticeCategory('safety')} className="shrink-0 font-bold gap-1.5 shadow-xs">
+                <span>Latih di Flashcard</span>
+                <ChevronRight className="h-3.5 w-3.5" />
+              </Button>
+            </div>
+
+            {/* Kolom Pencarian */}
             <div className="relative">
               <Search className="h-4 w-4 absolute left-3 top-3 text-muted-foreground" />
               <input
@@ -2118,77 +2092,127 @@ export function StudyGuide({ onStartPracticeCategory }) {
                 className="w-full pl-9 pr-4 py-2 bg-muted border border-input rounded-md text-sm font-medium text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring/30 focus:border-ring"
               />
             </div>
+
+            {/* Filter Chips Horizontal Ringkas */}
             <div className="flex flex-wrap items-center gap-1.5 text-xs">
               <button
+                type="button"
                 onClick={() => setPikGroup('all')}
-                className={cn('px-3 py-1.5 rounded-md font-bold transition-all border',
+                className={cn('px-3 py-1.5 rounded-lg font-bold transition-all border min-h-[34px]',
                   pikGroup === 'all'
-                    ? 'bg-slate-800 text-white border-slate-800'
-                    : 'bg-white text-slate-600 border-slate-200 hover:border-slate-400'
+                    ? 'bg-primary text-primary-foreground border-primary shadow-xs'
+                    : 'bg-card text-muted-foreground border-border hover:text-foreground'
                 )}>
                 Semua ({piktogramList.length})
               </button>
               {Object.entries(groups).map(([n, arr]) => (
                 <button
                   key={n}
+                  type="button"
                   onClick={() => setPikGroup(n)}
-                  className={cn('px-3 py-1.5 rounded-md font-bold transition-all border',
+                  className={cn('px-3 py-1.5 rounded-lg font-bold transition-all border min-h-[34px]',
                     pikGroup === n
-                      ? 'bg-slate-800 text-white border-slate-800'
-                      : 'bg-white text-slate-600 border-slate-200 hover:border-slate-400'
+                      ? 'bg-primary text-primary-foreground border-primary shadow-xs'
+                      : 'bg-card text-muted-foreground border-border hover:text-foreground'
                   )}>
                   {n} ({arr.length})
                 </button>
               ))}
             </div>
+
             {pikQ ? (
-              <p className="text-xs text-slate-600 font-medium">Hasil pencarian "{searchQuery.trim()}"{pikGroup !== 'all' ? ` di ${pikGroup}` : ''}: <strong>{pikFound} rambu</strong></p>
+              <p className="text-xs text-muted-foreground font-medium">Hasil pencarian "{searchQuery.trim()}"{pikGroup !== 'all' ? ` di ${pikGroup}` : ''}: <strong>{pikFound} rambu</strong></p>
             ) : pikGroup !== 'all' ? (
-              <p className="text-xs text-slate-600 font-medium">Menampilkan: <strong>{pikGroup}</strong> ({(groups[pikGroup] || []).length} rambu)</p>
+              <p className="text-xs text-muted-foreground font-medium">Kategori: <strong>{pikGroup}</strong> ({(groups[pikGroup] || []).length} rambu)</p>
             ) : null}
+
             {pikShown.length === 0 && (
-              <p className="text-xs text-slate-500 py-4 text-center">Tidak ada rambu yang cocok dengan pencarian.</p>
+              <p className="text-xs text-muted-foreground py-6 text-center">Tidak ada rambu yang cocok dengan pencarian.</p>
             )}
+
+            {/* Grid Kartu Rambu: 2 Kolom Mobile, Gambar Besar & Jelas */}
             {pikShown.map(([groupName, items]) => (
-              <div key={groupName} className="space-y-2">
-                <h4 className="font-bold text-sm text-slate-700">{groupName} ({items.length})</h4>
-                <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-2">
-                  {getPagedItems(items, 'pik_' + groupName).map((p, idx) => {
+              <div key={groupName} className="space-y-2.5">
+                <h4 className="font-bold text-xs sm:text-sm text-foreground uppercase tracking-wider flex items-center gap-1.5">
+                  <span className="w-1.5 h-3 bg-primary rounded-full" />
+                  <span>{groupName} ({items.length})</span>
+                </h4>
+
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2.5 sm:gap-3">
+                  {items.map((p, idx) => {
                     const cardId = `pik_${p.id || idx}`;
                     const hidden = isAnswerHidden(cardId);
                     return (
-                      <div key={cardId} className="rounded-xl border border-slate-200 bg-white overflow-hidden flex flex-col shadow-sm">
-                        <div className="bg-slate-50 p-2 flex items-center justify-center min-h-[70px]">
+                      <div
+                        key={cardId}
+                        onClick={() => setInspectRambu(p)}
+                        className="rounded-xl border border-border bg-card overflow-hidden flex flex-col shadow-xs hover:border-primary/50 transition-all cursor-pointer group"
+                      >
+                        {/* Container Gambar Besar & Bersih */}
+                        <div className="bg-muted/40 p-3 flex items-center justify-center min-h-[96px] sm:min-h-[110px] border-b border-border/50 relative">
                           <img
                             src={getAssetUrl(p.image_url)}
                             alt={p.title_id || p.title_ko}
-                            className="max-h-16 w-auto object-contain"
+                            className="max-h-20 sm:max-h-24 w-auto object-contain transition-transform group-hover:scale-105"
                             loading="lazy"
                           />
+                          <button
+                            type="button"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              setInspectRambu(p);
+                            }}
+                            title="Perbesar gambar"
+                            className="absolute top-1.5 right-1.5 p-1 rounded-md bg-background/80 text-muted-foreground hover:text-foreground opacity-0 group-hover:opacity-100 transition-opacity"
+                          >
+                            <Maximize2 className="h-3 w-3" />
+                          </button>
                         </div>
-                        <div className="p-2.5 flex flex-col gap-1 flex-1">
+
+                        {/* Teks & Kontrol */}
+                        <div className="p-2.5 flex flex-col gap-1.5 flex-1">
                           {hidden ? (
                             <div
-                              onClick={() => toggleCardAnswer(cardId)}
-                              className="cursor-pointer text-center py-1.5 px-2 rounded-lg bg-amber-50 border border-amber-200"
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                toggleCardAnswer(cardId);
+                              }}
+                              className="cursor-pointer text-center py-1.5 px-2 rounded-lg bg-amber-500/10 border border-dashed border-amber-500/30"
                             >
-                              <EyeOff className="h-3 w-3 text-amber-600 mx-auto mb-0.5" />
-                              <span className="text-[10px] font-bold text-amber-700">Tebak</span>
+                              <EyeOff className="h-3 w-3 text-amber-600 dark:text-amber-400 mx-auto mb-0.5" />
+                              <span className="text-[10px] font-bold text-amber-700 dark:text-amber-300">Tebak Arti</span>
                             </div>
                           ) : (
                             <div>
-                              <div className="font-kr font-bold text-xs text-slate-800 leading-tight">{p.title_ko}</div>
-                              <div className="text-[10px] text-slate-500 font-medium">{p.title_id}</div>
+                              <div className="font-kr font-bold text-xs sm:text-sm text-foreground leading-snug line-clamp-1">{p.title_ko}</div>
+                              <div className="text-[11px] text-muted-foreground font-medium line-clamp-1 mt-0.5">{p.title_id}</div>
                             </div>
                           )}
-                          <div className="flex items-center gap-0.5 mt-auto">
+
+                          <div className="flex items-center justify-between gap-1 mt-auto pt-1 border-t border-border/40">
                             {(p.audio_a || p.title_ko) && (
-                              <button onClick={() => playAudio(p.audio_a, p.title_ko)} className="p-1 rounded-lg text-slate-500 hover:bg-slate-100" title={`Dengar: ${p.title_ko}`}>
-                                <Volume2 className="h-3 w-3" />
+                              <button
+                                type="button"
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  playAudio(p.audio_a, p.title_ko);
+                                }}
+                                className="p-1 rounded-md text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
+                                title={`Dengar: ${p.title_ko}`}
+                              >
+                                <Volume2 className="h-3.5 w-3.5" />
                               </button>
                             )}
-                            <button onClick={() => toggleCardAnswer(cardId)} className="p-1 rounded-lg text-slate-400 hover:text-slate-600 ml-auto" aria-label={hidden ? 'Tampilkan' : 'Sembunyikan'}>
-                              {hidden ? <EyeOff className="h-3 w-3 text-amber-600" /> : <Eye className="h-3 w-3" />}
+                            <button
+                              type="button"
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                toggleCardAnswer(cardId);
+                              }}
+                              className="p-1 rounded-md text-muted-foreground hover:text-foreground hover:bg-secondary ml-auto transition-colors"
+                              aria-label={hidden ? 'Tampilkan arti' : 'Sembunyikan arti'}
+                            >
+                              {hidden ? <EyeOff className="h-3.5 w-3.5 text-amber-600 dark:text-amber-400" /> : <Eye className="h-3.5 w-3.5" />}
                             </button>
                           </div>
                         </div>
@@ -2196,9 +2220,72 @@ export function StudyGuide({ onStartPracticeCategory }) {
                     );
                   })}
                 </div>
-                <Pagination items={items} pkey={'pik_' + groupName} />
               </div>
             ))}
+
+            {/* Modal Inspeksi Pratinjau Rambu Besar */}
+            {inspectRambu && (
+              <div
+                className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4 animate-fade-in"
+                onClick={() => setInspectRambu(null)}
+              >
+                <div
+                  className="bg-card text-foreground rounded-2xl border border-border shadow-xl max-w-sm w-full overflow-hidden p-5 space-y-4"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  <div className="flex items-center justify-between">
+                    <span className="text-[11px] font-bold text-muted-foreground uppercase tracking-wider">
+                      Detail Rambu K3 Resmi
+                    </span>
+                    <button
+                      type="button"
+                      onClick={() => setInspectRambu(null)}
+                      className="p-1.5 rounded-lg hover:bg-secondary text-muted-foreground hover:text-foreground"
+                    >
+                      <X className="h-5 w-5" />
+                    </button>
+                  </div>
+
+                  <div className="bg-muted/50 rounded-xl p-4 flex items-center justify-center min-h-[160px] border border-border/60">
+                    <img
+                      src={getAssetUrl(inspectRambu.image_url)}
+                      alt={inspectRambu.title_id || inspectRambu.title_ko}
+                      className="max-h-36 w-auto object-contain"
+                    />
+                  </div>
+
+                  <div className="space-y-1 text-center">
+                    <h3 className="font-kr font-bold text-lg text-foreground">
+                      {inspectRambu.title_ko}
+                    </h3>
+                    <p className="text-sm font-medium text-muted-foreground">
+                      {inspectRambu.title_id}
+                    </p>
+                    <p className="text-xs text-primary font-semibold pt-1">
+                      Pertanyaan Penguji: "이 표지는 무슨 뜻입니까?"
+                    </p>
+                  </div>
+
+                  <div className="flex items-center gap-2 pt-2">
+                    <Button
+                      type="button"
+                      onClick={() => playAudio(inspectRambu.audio_a, inspectRambu.title_ko)}
+                      className="flex-1 font-bold gap-2"
+                    >
+                      <Volume2 className="h-4 w-4" />
+                      <span>Dengar Pengucapan</span>
+                    </Button>
+                    <Button
+                      type="button"
+                      variant="outline"
+                      onClick={() => setInspectRambu(null)}
+                    >
+                      Tutup
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
         );
       })()}
@@ -2280,75 +2367,95 @@ export function StudyGuide({ onStartPracticeCategory }) {
             {alatShown.length === 0 && (
               <p className="text-xs text-slate-500 py-4 text-center">Tidak ada alat yang cocok dengan pencarian.</p>
             )}
+            {/* Grid Kartu Perkakas: 1-2 Kolom di Mobile agar Kegunaan Terbaca Jelas */}
             {alatShown.map(([groupName, items]) => (
-              <div key={groupName} className="space-y-2">
-                <h4 className="font-bold text-sm text-slate-700">{groupName} ({items.length})</h4>
-                <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-2">
-                  {getPagedItems(items, 'alat_' + groupName).map((a, idx) => {
+              <div key={groupName} className="space-y-2.5">
+                <h4 className="font-bold text-xs sm:text-sm text-foreground uppercase tracking-wider flex items-center gap-1.5">
+                  <span className="w-1.5 h-3 bg-primary rounded-full" />
+                  <span>{groupName} ({items.length})</span>
+                </h4>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+                  {items.map((a, idx) => {
                     const cardId = `alat_${a.id || idx}`;
                     const hidden = isAnswerHidden(cardId);
                     return (
-                      <div key={cardId} className="rounded-xl border border-slate-200 bg-white overflow-hidden flex flex-col shadow-sm">
-                        <div className="bg-slate-50 p-2 flex items-center justify-center min-h-[80px] border-b border-slate-200">
+                      <div key={cardId} className="rounded-xl border border-border bg-card overflow-hidden flex flex-col shadow-xs hover:border-primary/50 transition-all">
+                        <div className="bg-muted/40 p-3 flex items-center justify-center min-h-[96px] sm:min-h-[110px] border-b border-border/50">
                           <img
                             src={getAssetUrl(a.image_url)}
                             alt={a.title_id || a.title_ko}
-                            className="max-h-20 w-auto object-contain"
+                            className="max-h-20 sm:max-h-24 w-auto object-contain"
                             loading="lazy"
                           />
                         </div>
-                        <div className="p-2.5 flex flex-col gap-1 flex-1">
+                        <div className="p-3 flex flex-col gap-2 flex-1">
                           {a.level && (
-                            <span className="text-[10px] font-mono font-bold text-slate-600 bg-slate-100 px-1.5 py-0.5 rounded">
+                            <span className="text-[10px] font-mono font-bold text-muted-foreground bg-secondary px-2 py-0.5 rounded-md self-start border border-border">
                               Tingkat {a.level}
                             </span>
                           )}
                           {hidden ? (
                             <div
                               onClick={() => toggleCardAnswer(cardId)}
-                              className="cursor-pointer text-center py-1.5 px-2 rounded-lg bg-amber-50 border border-amber-200"
+                              className="cursor-pointer text-center py-2 px-3 rounded-lg bg-amber-500/10 border border-dashed border-amber-500/30"
                             >
-                              <EyeOff className="h-3 w-3 text-amber-600 mx-auto mb-0.5" />
-                              <span className="text-[10px] font-bold text-amber-700">Tebak</span>
+                              <EyeOff className="h-3.5 w-3.5 text-amber-600 dark:text-amber-400 mx-auto mb-0.5" />
+                              <span className="text-[11px] font-bold text-amber-700 dark:text-amber-300">Tebak Nama & Fungsi Alat</span>
                             </div>
                           ) : (
-                            <div className="space-y-1">
+                            <div className="space-y-1.5">
                               <div>
-                                <div className="font-kr font-bold text-xs text-slate-800 leading-tight">{a.title_ko}</div>
-                                <div className="text-[10px] text-slate-500 font-medium">{a.title_id}</div>
+                                <div className="font-kr font-bold text-sm text-foreground leading-snug">{a.title_ko}</div>
+                                <div className="text-xs text-muted-foreground font-medium">{a.title_id}</div>
                               </div>
 
                               {(a.usage_short_ko || a.usage_full_ko) && (
-                                <div className="p-2 rounded-lg bg-slate-50 border border-slate-200 text-left space-y-0.5">
+                                <div className="p-2 rounded-lg bg-secondary/50 border border-border/70 text-left space-y-1">
                                   <div className="flex items-center justify-between">
-                                    <span className="text-[10px] font-bold text-slate-600 uppercase tracking-wider">
-                                      Kegunaan:
+                                    <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider">
+                                      Fungsi / Kegunaan:
                                     </span>
                                     <button
                                       type="button"
                                       onClick={() => playAudio(null, a.usage_short_ko || a.usage_full_ko)}
-                                      className="text-[10px] text-slate-600 hover:text-slate-800 font-bold flex items-center gap-0.5"
+                                      className="text-[10px] text-primary hover:underline font-bold flex items-center gap-0.5"
                                       title="Dengar pelafalan fungsi alat"
                                     >
-                                      <Volume2 className="w-2.5 h-2.5" />
+                                      <Volume2 className="w-3 h-3" />
                                       <span>Dengar</span>
                                     </button>
                                   </div>
-                                  <p className="font-kr font-bold text-[11px] text-slate-800 leading-snug">
+                                  <p className="font-kr font-bold text-xs text-foreground leading-snug">
                                     {a.usage_short_ko || a.usage_full_ko}
                                   </p>
+                                  {a.usage_short_id && (
+                                    <p className="text-[11px] text-muted-foreground">
+                                      {a.usage_short_id}
+                                    </p>
+                                  )}
                                 </div>
                               )}
                             </div>
                           )}
-                          <div className="flex items-center gap-0.5 mt-auto">
+                          <div className="flex items-center justify-between gap-1 mt-auto pt-2 border-t border-border/40">
                             {(a.audio_a || a.title_ko) && (
-                              <button onClick={() => playAudio(a.audio_a, a.title_ko)} className="p-1 rounded-lg text-slate-500 hover:bg-slate-100" title={`Dengar: ${a.title_ko}`}>
-                                <Volume2 className="h-3 w-3" />
+                              <button
+                                type="button"
+                                onClick={() => playAudio(a.audio_a, a.title_ko)}
+                                className="p-1.5 rounded-md text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
+                                title={`Dengar: ${a.title_ko}`}
+                              >
+                                <Volume2 className="h-4 w-4" />
                               </button>
                             )}
-                            <button onClick={() => toggleCardAnswer(cardId)} className="p-1 rounded-lg text-slate-400 hover:text-slate-600 ml-auto" aria-label={hidden ? 'Tampilkan' : 'Sembunyikan'}>
-                              {hidden ? <EyeOff className="h-3 w-3 text-amber-600" /> : <Eye className="h-3 w-3" />}
+                            <button
+                              type="button"
+                              onClick={() => toggleCardAnswer(cardId)}
+                              className="p-1.5 rounded-md text-muted-foreground hover:text-foreground hover:bg-secondary ml-auto transition-colors"
+                              aria-label={hidden ? 'Tampilkan arti' : 'Sembunyikan arti'}
+                            >
+                              {hidden ? <EyeOff className="h-4 w-4 text-amber-600 dark:text-amber-400" /> : <Eye className="h-4 w-4" />}
                             </button>
                           </div>
                         </div>
@@ -2356,7 +2463,6 @@ export function StudyGuide({ onStartPracticeCategory }) {
                     );
                   })}
                 </div>
-                <Pagination items={items} pkey={'alat_' + groupName} />
               </div>
             ))}
           </div>
