@@ -77,34 +77,121 @@ const JAGISOGE_SAMPLES = [
   },
 ];
 
-const JAGI_FOKUS_OPTIONS = [
+const JAGI_ASAL_OPTIONS = [
+  { id: '인도네시아', label: 'Indonesia (인도네시아)', ko: '인도네시아', idText: 'Indonesia' },
+  { id: '인도네시아 자바', label: 'Jawa, Indonesia (인도네시아 자바)', ko: '인도네시아 자바', idText: 'Jawa, Indonesia' },
+  { id: '인도네시아 반둥', label: 'Bandung, Indonesia (인도네시아 반둥)', ko: '인도네시아 반둥', idText: 'Bandung, Indonesia' },
+  { id: '인도네시아 자카르타', label: 'Jakarta, Indonesia (인도네시아 자카르타)', ko: '인도네시아 자카르타', idText: 'Jakarta, Indonesia' },
+  { id: '인도네시아 수라바야', label: 'Surabaya, Indonesia (인도네시아 수라바야)', ko: '인도네시아 수라바야', idText: 'Surabaya, Indonesia' },
+  { id: '인도네시아 수마트라', label: 'Sumatera, Indonesia (인도네시아 수마트라)', ko: '인도네시아 수마트라', idText: 'Sumatera, Indonesia' },
+  { id: 'custom', label: 'Ketik Kota / Daerah Sendiri...', ko: '', idText: '' },
+  { id: 'none', label: '-- Kosongkan / Tidak Disebutkan --', ko: '', idText: '' },
+];
+
+const JAGI_PENGALAMAN_OPTIONS = [
   {
-    id: 'manufaktur',
-    label: 'Pabrik & Manufaktur (제조업)',
-    desc: 'Pengalaman kerja pabrik, rajin, disiplin',
-    ko: '저는 공장에서 성실하게 일한 경험이 있습니다.',
-    idText: 'Saya memiliki pengalaman bekerja dengan rajin di pabrik.',
+    id: 'none',
+    label: '-- Kosongkan / Tidak Disebutkan --',
+    ko: '',
+    idText: '',
   },
   {
-    id: 'pertanian',
-    label: 'Pertanian & Nelayan (농축산업/어업)',
-    desc: 'Pekerjaan luar ruangan, fisik tangguh',
-    ko: '저는 농업과 야외 작업에 익숙하고 힘든 일도 잘 해낼 수 있습니다.',
-    idText: 'Saya terbiasa dengan pertanian dan kerja lapangan, serta mampu bekerja berat.',
+    id: 'belum',
+    label: 'Belum Ada Pengalaman Kerja (Siap Belajar Cepat)',
+    ko: '아직 공장 경험은 없지만 새로운 일을 빨리 배우고 열심히 일할 자신이 있습니다.',
+    idText: 'Meskipun belum memiliki pengalaman pabrik, saya yakin bisa cepat belajar hal baru dan bekerja keras.',
+  },
+  {
+    id: 'pabrik',
+    label: 'Pernah Kerja di Pabrik / Manufaktur (제조업 공장)',
+    koWithYears: (yrKo, yrNum) => `전에는 제조업 공장에서 ${yrKo} 년 동안 성실하게 일한 경험이 있습니다.`,
+    ko: '전에는 제조업 공장에서 성실하게 일한 경험이 있습니다.',
+    idWithYears: (yrNum) => `Sebelumnya saya memiliki pengalaman bekerja dengan rajin di pabrik manufaktur selama ${yrNum} tahun.`,
+    idText: 'Sebelumnya saya memiliki pengalaman bekerja dengan rajin di pabrik manufaktur.',
+  },
+  {
+    id: 'elektronik',
+    label: 'Pernah Kerja Perakitan / Elektronik (전자 제품 조립)',
+    koWithYears: (yrKo, yrNum) => `전에는 전자 제품 조립 작업을 ${yrKo} 년 동안 했습니다.`,
+    ko: '전에는 전자 제품 조립 및 포장 작업을 한 경험이 있습니다.',
+    idWithYears: (yrNum) => `Sebelumnya saya bekerja di bagian perakitan produk elektronik selama ${yrNum} tahun.`,
+    idText: 'Sebelumnya saya berpengalaman di bagian perakitan dan pengemasan produk elektronik.',
+  },
+  {
+    id: 'las_mesin',
+    label: 'Pernah Kerja Las & Mesin (용접 및 기계 조작)',
+    koWithYears: (yrKo, yrNum) => `전에는 기계 조작과 용접 일을 ${yrKo} 년 동안 했습니다.`,
+    ko: '전에는 공장에서 기계 조작과 용접 일을 한 경험이 있습니다.',
+    idWithYears: (yrNum) => `Sebelumnya saya bekerja mengoperasikan mesin dan mengelas selama ${yrNum} tahun.`,
+    idText: 'Sebelumnya saya berpengalaman mengoperasikan mesin dan mengelas di pabrik.',
   },
   {
     id: 'konstruksi',
-    label: 'Konstruksi & Pertukangan (건설업)',
-    desc: 'Pengalaman proyek bangunan, taat K3',
-    ko: '저는 건설 현장에서 일한 경험이 있고 안전 수칙을 철저히 지킵니다.',
-    idText: 'Saya berpengalaman di lapangan konstruksi dan taat pada aturan K3.',
+    label: 'Pernah Kerja Konstruksi / Bangunan (건설 현장)',
+    koWithYears: (yrKo, yrNum) => `전에는 건설 현장에서 ${yrKo} 년 동안 일한 경험이 있습니다.`,
+    ko: '전에는 건설 현장에서 성실하게 일한 경험이 있습니다.',
+    idWithYears: (yrNum) => `Sebelumnya saya berpengalaman bekerja di proyek konstruksi selama ${yrNum} tahun.`,
+    idText: 'Sebelumnya saya berpengalaman bekerja dengan rajin di lapangan konstruksi.',
+  },
+  {
+    id: 'pertanian',
+    label: 'Pernah Kerja Pertanian / Perkebunan (농장 작업)',
+    koWithYears: (yrKo, yrNum) => `전에는 농장에서 ${yrKo} 년 동안 부지런히 일했습니다.`,
+    ko: '전에는 농업과 야외 작업에서 부지런히 일한 경험이 있습니다.',
+    idWithYears: (yrNum) => `Sebelumnya saya bekerja dengan giat di perkebunan/pertanian selama ${yrNum} tahun.`,
+    idText: 'Sebelumnya saya berpengalaman bekerja giat di bidang pertanian dan pekerjaan lapangan.',
+  },
+  {
+    id: 'otomotif',
+    label: 'Pernah Kerja Bengkel / Otomotif (자동차 정비)',
+    koWithYears: (yrKo, yrNum) => `전에는 자동차 정비소에서 ${yrKo} 년 동안 일했습니다.`,
+    ko: '전에는 자동차 정비와 부품 수리 일을 한 경험이 있습니다.',
+    idWithYears: (yrNum) => `Sebelumnya saya bekerja di bengkel otomotif selama ${yrNum} tahun.`,
+    idText: 'Sebelumnya saya berpengalaman di bidang perawatan otomotif dan perbaikan suku cadang.',
+  },
+];
+
+const JAGI_HOBI_OPTIONS = [
+  { id: 'none', label: '-- Kosongkan / Tidak Disebutkan --', ko: '', idText: '' },
+  { id: '운동', label: 'Olahraga / Kebugaran (운동)', ko: '운동', idText: 'berolahraga' },
+  { id: '축구', label: 'Sepak Bola / Futsal (축구)', ko: '축구', idText: 'bermain sepak bola' },
+  { id: '배드민턴', label: 'Bulu Tangkis (배드민턴)', ko: '배드민턴', idText: 'bermain bulu tangkis' },
+  { id: '달리기', label: 'Lari / Jogging (달리기)', ko: '달리기', idText: 'lari pagi / jogging' },
+  { id: '요리', label: 'Memasak (요리)', ko: '요리', idText: 'memasak' },
+  { id: '한국어 공부', label: 'Belajar Bahasa Korea (한국어 공부)', ko: '한국어 공부', idText: 'belajar bahasa Korea' },
+  { id: '독서', label: 'Membaca Buku (독서)', ko: '독서', idText: 'membaca buku' },
+];
+
+const JAGI_KELEBIHAN_OPTIONS = [
+  {
+    id: 'none',
+    label: '-- Kosongkan / Tidak Disebutkan --',
+    ko: '',
+    idText: '',
+  },
+  {
+    id: 'fisik',
+    label: 'Fisik Sehat, Kuat & Siap Kerja Lembur (체력/잔업)',
+    ko: '저는 몸이 건강하고 체력이 좋으며 야근이나 잔업도 문제없습니다.',
+    idText: 'Tubuh saya sehat, stamina saya kuat, dan kerja malam maupun lembur tidak masalah.',
   },
   {
     id: 'rajin',
-    label: 'Fisik Sehat & Cepat Belajar (성실/체력)',
-    desc: 'Format umum terbaik untuk fresh graduate',
-    ko: '저는 몸이 건강하고 부지런하며 새로운 기술을 빨리 배울 수 있습니다.',
-    idText: 'Tubuh saya sehat, rajin, dan mampu mempelajari hal baru dengan cepat.',
+    label: 'Rajin, Jujur & Sangat Tepat Waktu (성실/시간 약속)',
+    ko: '저는 성격이 성실하고 부지런하며 시간 약속을 철저히 지킵니다.',
+    idText: 'Saya berkepribadian jujur, rajin, dan sangat disiplin menepati waktu.',
+  },
+  {
+    id: 'cepat',
+    label: 'Cepat Belajar & Patuh Instruksi Atasan (적응력/순종)',
+    ko: '저는 새로운 기술을 빨리 배우고 상사님의 지시를 잘 따릅니다.',
+    idText: 'Saya cepat mempelajari keterampilan baru dan mematuhi arahan atasan dengan baik.',
+  },
+  {
+    id: 'k3',
+    label: 'Taat Aturan K3 & Kompak Bekerja Tim (안전 수칙/협동)',
+    ko: '저는 안전 수칙을 철저히 지키고 동료들과 협동을 잘합니다.',
+    idText: 'Saya mematuhi peraturan K3 dengan ketat dan bekerja sama dengan baik bersama rekan kerja.',
   },
 ];
 
@@ -152,12 +239,21 @@ export function StudyGuide({ onStartPracticeCategory }) {
 
   const [jagiForm, setJagiForm] = useState({
     nama: 'BAMBANG SUTEJO',
+    tglTahun: '',
+    tglBulan: '',
+    tglHari: '',
     umur: '25',
-    keluarga: '4',
+    asal: '인도네시아',
+    asalCustom: '',
     nikah: '아직 결혼하지 않았습니다',
-    fokus: 'manufaktur',
+    keluarga: '4',
+    pengalaman: 'pabrik',
+    lamaKerja: '2',
+    hobi: '운동',
+    kelebihan: 'fisik',
   });
-  const [jagiCopied, setJagiCopied] = useState(false);
+  const [jagiActiveVariant, setJagiActiveVariant] = useState('ringkas');
+  const [jagiCopiedKey, setJagiCopiedKey] = useState(null);
 
   const nativeKo = (n) => {
     n = parseInt(n, 10);
@@ -169,69 +265,442 @@ export function StudyGuide({ onStartPracticeCategory }) {
     return TENS[t] + (o ? ONE[o] : '');
   };
 
-  const getJagiSentences = () => {
+  const sinoKoNumber = (num) => {
+    const n = parseInt(num, 10);
+    if (isNaN(n) || n < 1) return '';
+    const DIGITS = ['', '일', '이', '삼', '사', '오', '육', '칠', '팔', '구'];
+    if (n >= 1000 && n <= 9999) {
+      const th = Math.floor(n / 1000);
+      const hu = Math.floor((n % 1000) / 100);
+      const te = Math.floor((n % 100) / 10);
+      const on = n % 10;
+      return (
+        (th === 1 ? '천' : DIGITS[th] + '천') +
+        (hu > 0 ? (hu === 1 ? '백' : DIGITS[hu] + '백') : '') +
+        (te > 0 ? (te === 1 ? '십' : DIGITS[te] + '십') : '') +
+        (on > 0 ? DIGITS[on] : '')
+      );
+    }
+    if (n <= 99) {
+      const te = Math.floor(n / 10);
+      const on = n % 10;
+      const monthStr = (te > 0 ? (te === 1 ? '십' : DIGITS[te] + '십') : '') + (on > 0 ? DIGITS[on] : '');
+      return monthStr;
+    }
+    return String(n);
+  };
+
+  const sinoKoMonth = (m) => {
+    const n = parseInt(m, 10);
+    if (!n || n < 1 || n > 12) return '';
+    if (n === 6) return '유';
+    if (n === 10) return '시';
+    return sinoKoNumber(n);
+  };
+
+  const BULAN_ID_NAMES = [
+    '', 'Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni',
+    'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'
+  ];
+
+  const buildJagiVariants = () => {
     const f = jagiForm;
     const nama = (f.nama || '').trim() || 'OOO';
-    const umurKo = nativeKo(f.umur) || '스물다섯';
-    const keluargaKo = nativeKo(f.keluarga) || '네';
-    const nikahText = f.nikah === '결혼했습니다' ? '결혼했습니다' : '아직 결혼하지 않았습니다';
-    const nikahId = f.nikah === '결혼했습니다' ? 'sudah menikah' : 'belum menikah';
-    const fokusObj = JAGI_FOKUS_OPTIONS.find(o => o.id === f.fokus) || JAGI_FOKUS_OPTIONS[0];
+    const umurKo = nativeKo(f.umur);
+    const keluargaKo = nativeKo(f.keluarga);
+
+    // Tanggal lahir (opsional: bisa tahun saja, atau tahun+bulan+hari)
+    const yr = parseInt(f.tglTahun, 10);
+    const mo = parseInt(f.tglBulan, 10);
+    const dy = parseInt(f.tglHari, 10);
+    const hasFullDate = yr >= 1960 && yr <= 2015 && mo >= 1 && mo <= 12 && dy >= 1 && dy <= 31;
+    const hasYearOnly = yr >= 1960 && yr <= 2015 && !hasFullDate;
+
+    const tglKoPart = hasFullDate
+      ? `${yr}년(${sinoKoNumber(yr)}년) ${mo}월(${sinoKoMonth(mo)}월) ${dy}일(${sinoKoNumber(dy)}일)에 태어났습니다.`
+      : hasYearOnly
+      ? `${yr}년(${sinoKoNumber(yr)}년)에 태어났습니다.`
+      : '';
+    const tglSpeechKo = hasFullDate
+      ? `저는 ${yr}년 ${mo}월 ${dy}일에 태어났습니다.`
+      : hasYearOnly
+      ? `저는 ${yr}년에 태어났습니다.`
+      : '';
+    const tglIdPart = hasFullDate
+      ? `Saya lahir pada tanggal ${dy} ${BULAN_ID_NAMES[mo]} ${yr}.`
+      : hasYearOnly
+      ? `Saya lahir pada tahun ${yr}.`
+      : '';
+
+    // Asal daerah (opsional)
+    const asalOpt = JAGI_ASAL_OPTIONS.find((o) => o.id === f.asal);
+    const asalKoVal = f.asal === 'custom' ? (f.asalCustom || '').trim() : (asalOpt?.ko || '');
+    const asalIdVal = f.asal === 'custom' ? (f.asalCustom || '').trim() : (asalOpt?.idText || '');
+
+    // Status pernikahan (opsional)
+    const hasNikah = f.nikah && f.nikah !== 'none';
+    const nikahKoVal = f.nikah === '결혼했습니다' ? '결혼했습니다' : '아직 결혼하지 않았습니다';
+    const nikahIdVal = f.nikah === '결혼했습니다' ? 'sudah menikah' : 'belum menikah';
+
+    // Pengalaman kerja (opsional)
+    const pengOpt = JAGI_PENGALAMAN_OPTIONS.find((o) => o.id === f.pengalaman);
+    const hasPengalaman = pengOpt && pengOpt.id !== 'none';
+    const lamaNum = parseInt(f.lamaKerja, 10);
+    const lamaKo = nativeKo(lamaNum);
+    const pengKo = hasPengalaman
+      ? (lamaKo && pengOpt.koWithYears ? pengOpt.koWithYears(lamaKo, lamaNum) : pengOpt.ko)
+      : '';
+    const pengId = hasPengalaman
+      ? (lamaKo && pengOpt.idWithYears ? pengOpt.idWithYears(lamaNum) : pengOpt.idText)
+      : '';
+
+    // Hobi (opsional)
+    const hobiOpt = JAGI_HOBI_OPTIONS.find((o) => o.id === f.hobi);
+    const hasHobi = hobiOpt && hobiOpt.id !== 'none' && hobiOpt.ko;
+
+    // Kelebihan (opsional)
+    const kelOpt = JAGI_KELEBIHAN_OPTIONS.find((o) => o.id === f.kelebihan);
+    const hasKelebihan = kelOpt && kelOpt.id !== 'none' && kelOpt.ko;
+
+    // ==========================================
+    // VARIASI 1: STANDAR & LUGAS (Per Kalimat Jelas)
+    // ==========================================
+    const v1 = [];
+    v1.push({
+      title: 'Salam & Pembuka',
+      ko: '안녕하십니까! 지금부터 자기소개를 하겠습니다.',
+      id: 'Selamat pagi/siang! Mulai sekarang saya akan memperkenalkan diri.',
+      sec: 3,
+    });
+    v1.push({
+      title: 'Nama Lengkap',
+      ko: `제 이름은 ${nama}입니다.`,
+      id: `Nama saya adalah ${nama}.`,
+      sec: 3,
+    });
+    if (tglSpeechKo) {
+      v1.push({
+        title: 'Tanggal Lahir',
+        ko: tglSpeechKo,
+        note: tglKoPart,
+        id: tglIdPart,
+        sec: 4,
+      });
+    }
+    if (umurKo) {
+      v1.push({
+        title: 'Usia / Umur',
+        ko: `제 나이는 ${umurKo} 살입니다.`,
+        id: `Usia saya ${f.umur} tahun.`,
+        sec: 3,
+      });
+    }
+    if (asalKoVal) {
+      v1.push({
+        title: 'Asal Daerah',
+        ko: `저는 ${asalKoVal}에서 왔습니다.`,
+        id: `Saya berasal dari ${asalIdVal}.`,
+        sec: 3,
+      });
+    }
+    if (hasNikah) {
+      v1.push({
+        title: 'Status Pernikahan',
+        ko: `저는 ${nikahKoVal}.`,
+        id: `Saya ${nikahIdVal}.`,
+        sec: 3,
+      });
+    }
+    if (keluargaKo) {
+      v1.push({
+        title: 'Jumlah Keluarga',
+        ko: `우리 가족은 모두 ${keluargaKo} 명입니다.`,
+        id: `Keluarga kami semuanya berjumlah ${f.keluarga} orang.`,
+        sec: 4,
+      });
+    }
+    if (hasPengalaman) {
+      v1.push({
+        title: 'Pengalaman Kerja',
+        ko: pengKo,
+        id: pengId,
+        sec: 5,
+      });
+    }
+    if (hasHobi) {
+      v1.push({
+        title: 'Hobi & Kebugaran',
+        ko: `제 취미는 ${hobiOpt.ko}입니다.`,
+        id: `Hobi saya adalah ${hobiOpt.idText}.`,
+        sec: 3,
+      });
+    }
+    if (hasKelebihan) {
+      v1.push({
+        title: 'Kelebihan Diri',
+        ko: kelOpt.ko,
+        id: kelOpt.idText,
+        sec: 5,
+      });
+    }
+    v1.push({
+      title: 'Komitmen & Penutup',
+      ko: '한국에 가면 성실하고 열심히 일하겠습니다. 잘 부탁드립니다. 감사합니다!',
+      id: 'Jika bekerja di Korea saya akan bekerja dengan rajin dan sungguh-sungguh. Mohon bimbingannya. Terima kasih!',
+      sec: 6,
+    });
+
+    // ==========================================
+    // VARIASI 2: MENGALIR & RINGKAS (Kalimat Digabung Natural)
+    // ==========================================
+    const v2 = [];
+    v2.push({
+      title: 'Salam & Nama Lengkap',
+      ko: `안녕하십니까! 지금부터 자기소개를 하겠습니다. 제 이름은 ${nama}입니다.`,
+      id: `Selamat pagi/siang! Mulai sekarang saya akan memperkenalkan diri. Nama saya adalah ${nama}.`,
+      sec: 5,
+    });
+
+    // Gabungkan Tanggal Lahir / Asal / Umur secara adaptif
+    if (tglSpeechKo && umurKo && asalKoVal) {
+      v2.push({
+        title: 'Kelahiran, Asal & Usia',
+        ko: `${tglSpeechKo} ${asalKoVal}에서 왔고, 나이는 ${umurKo} 살입니다.`,
+        note: tglKoPart,
+        id: `${tglIdPart} Saya berasal dari ${asalIdVal}, dan usia saya ${f.umur} tahun.`,
+        sec: 7,
+      });
+    } else if (asalKoVal && umurKo) {
+      v2.push({
+        title: 'Asal Daerah & Usia',
+        ko: `저는 ${asalKoVal}에서 왔고, 나이는 ${umurKo} 살입니다.`,
+        id: `Saya berasal dari ${asalIdVal}, dan usia saya ${f.umur} tahun.`,
+        sec: 5,
+      });
+    } else if (tglSpeechKo && umurKo) {
+      v2.push({
+        title: 'Tanggal Lahir & Usia',
+        ko: `${tglSpeechKo} 제 나이는 ${umurKo} 살입니다.`,
+        note: tglKoPart,
+        id: `${tglIdPart} Usia saya ${f.umur} tahun.`,
+        sec: 6,
+      });
+    } else if (tglSpeechKo && asalKoVal) {
+      v2.push({
+        title: 'Tanggal Lahir & Asal',
+        ko: `${tglSpeechKo} 저는 ${asalKoVal}에서 왔습니다.`,
+        note: tglKoPart,
+        id: `${tglIdPart} Saya berasal dari ${asalIdVal}.`,
+        sec: 6,
+      });
+    } else if (tglSpeechKo) {
+      v2.push({ title: 'Tanggal Lahir', ko: tglSpeechKo, note: tglKoPart, id: tglIdPart, sec: 4 });
+    } else if (umurKo) {
+      v2.push({ title: 'Usia / Umur', ko: `제 나이는 ${umurKo} 살입니다.`, id: `Usia saya ${f.umur} tahun.`, sec: 3 });
+    } else if (asalKoVal) {
+      v2.push({ title: 'Asal Daerah', ko: `저는 ${asalKoVal}에서 왔습니다.`, id: `Saya berasal dari ${asalIdVal}.`, sec: 3 });
+    }
+
+    // Gabungkan Keluarga & Status Nikah secara adaptif
+    if (keluargaKo && hasNikah) {
+      v2.push({
+        title: 'Keluarga & Status Pernikahan',
+        ko: `우리 가족은 ${keluargaKo} 명이고, 저는 ${nikahKoVal}.`,
+        id: `Keluarga kami berjumlah ${f.keluarga} orang, dan saya ${nikahIdVal}.`,
+        sec: 5,
+      });
+    } else if (keluargaKo) {
+      v2.push({
+        title: 'Jumlah Keluarga',
+        ko: `우리 가족은 모두 ${keluargaKo} 명입니다.`,
+        id: `Keluarga kami semuanya berjumlah ${f.keluarga} orang.`,
+        sec: 4,
+      });
+    } else if (hasNikah) {
+      v2.push({
+        title: 'Status Pernikahan',
+        ko: `저는 ${nikahKoVal}.`,
+        id: `Saya ${nikahIdVal}.`,
+        sec: 3,
+      });
+    }
+
+    if (hasPengalaman) {
+      v2.push({
+        title: 'Pengalaman Kerja',
+        ko: pengKo,
+        id: pengId,
+        sec: 5,
+      });
+    }
+
+    // Gabungkan Hobi & Kelebihan jika keduanya diisi
+    if (hasHobi && hasKelebihan) {
+      v2.push({
+        title: 'Hobi & Keunggulan Diri',
+        ko: `제 취미는 ${hobiOpt.ko}이고, ${kelOpt.ko.replace(/^저는\s*/, '')}`,
+        id: `Hobi saya adalah ${hobiOpt.idText}, dan ${kelOpt.idText.charAt(0).toLowerCase() + kelOpt.idText.slice(1)}`,
+        sec: 6,
+      });
+    } else if (hasHobi) {
+      v2.push({
+        title: 'Hobi & Kebugaran',
+        ko: `제 취미는 ${hobiOpt.ko}이라서 항상 건강을 유지하고 있습니다.`,
+        id: `Hobi saya adalah ${hobiOpt.idText} sehingga saya selalu menjaga kesehatan.`,
+        sec: 4,
+      });
+    } else if (hasKelebihan) {
+      v2.push({
+        title: 'Keunggulan Diri',
+        ko: kelOpt.ko,
+        id: kelOpt.idText,
+        sec: 5,
+      });
+    }
+
+    v2.push({
+      title: 'Komitmen & Penutup',
+      ko: '한국에 가면 성실하고 열심히 일하겠습니다. 잘 부탁드립니다. 감사합니다!',
+      id: 'Jika bekerja di Korea saya akan bekerja dengan rajin dan sungguh-sungguh. Mohon bimbingannya. Terima kasih!',
+      sec: 6,
+    });
+
+    // ==========================================
+    // VARIASI 3: FOKUS ETOS KERJA & K3 PABRIK (Sopan & Tegas)
+    // ==========================================
+    const v3 = [];
+    v3.push({
+      title: 'Salam Hormat Penguji',
+      ko: `안녕하십니까, 면접관님! 반갑습니다. 제 이름은 ${nama}입니다.`,
+      id: `Selamat pagi/siang, Bapak/Ibu Penguji! Senang bertemu Anda. Nama saya adalah ${nama}.`,
+      sec: 5,
+    });
+
+    const bioKoParts = [];
+    const bioIdParts = [];
+    if (tglSpeechKo) {
+      bioKoParts.push(tglSpeechKo);
+      bioIdParts.push(tglIdPart);
+    }
+    if (asalKoVal && umurKo) {
+      bioKoParts.push(`저는 ${asalKoVal}에서 왔으며 올해 ${umurKo} 살입니다.`);
+      bioIdParts.push(`Saya berasal dari ${asalIdVal} dan tahun ini berusia ${f.umur} tahun.`);
+    } else if (umurKo) {
+      bioKoParts.push(`제 나이는 올해 ${umurKo} 살입니다.`);
+      bioIdParts.push(`Usia saya tahun ini ${f.umur} tahun.`);
+    } else if (asalKoVal) {
+      bioKoParts.push(`저는 ${asalKoVal}에서 왔습니다.`);
+      bioIdParts.push(`Saya berasal dari ${asalIdVal}.`);
+    }
+    if (bioKoParts.length > 0) {
+      v3.push({
+        title: 'Profil & Identitas Diri',
+        ko: bioKoParts.join(' '),
+        note: tglKoPart || undefined,
+        id: bioIdParts.join(' '),
+        sec: bioKoParts.length * 4,
+      });
+    }
+
+    if (hasNikah || keluargaKo) {
+      const famKo = keluargaKo && hasNikah
+        ? `저는 ${nikahKoVal === '결혼했습니다' ? '결혼했고' : '아직 미혼이고'}, 가족은 모두 ${keluargaKo} 명입니다.`
+        : hasNikah
+        ? `저는 ${nikahKoVal}.`
+        : `우리 가족은 모두 ${keluargaKo} 명입니다.`;
+      const famId = keluargaKo && hasNikah
+        ? `Saya ${nikahIdVal}, dan keluarga kami semuanya berjumlah ${f.keluarga} orang.`
+        : hasNikah
+        ? `Saya ${nikahIdVal}.`
+        : `Keluarga kami semuanya berjumlah ${f.keluarga} orang.`;
+      v3.push({
+        title: 'Status & Keluarga',
+        ko: famKo,
+        id: famId,
+        sec: 4,
+      });
+    }
+
+    if (hasPengalaman) {
+      v3.push({
+        title: 'Pengalaman Kerja',
+        ko: pengKo,
+        id: pengId,
+        sec: 5,
+      });
+    }
+
+    if (hasKelebihan || hasHobi) {
+      const etosKo = [];
+      const etosId = [];
+      if (hasHobi) {
+        etosKo.push(`평소에 ${hobiOpt.ko}을(를) 좋아해서 체력이 아주 좋습니다.`);
+        etosId.push(`Sehari-hari saya menyukai ${hobiOpt.idText} sehingga fisik saya sangat prima.`);
+      }
+      if (hasKelebihan) {
+        etosKo.push(kelOpt.ko);
+        etosId.push(kelOpt.idText);
+      }
+      v3.push({
+        title: 'Kesiapan Fisik & Keunggulan',
+        ko: etosKo.join(' '),
+        id: etosId.join(' '),
+        sec: etosKo.length * 4,
+      });
+    }
+
+    v3.push({
+      title: 'Janji Disiplin K3 & Penutup',
+      ko: '한국 회사에 들어가면 안전 수칙을 잘 지키고 성실하게 일하겠습니다. 감사합니다!',
+      id: 'Jika masuk perusahaan Korea, saya akan mematuhi aturan keselamatan kerja dan bekerja dengan jujur. Terima kasih!',
+      sec: 6,
+    });
+
+    const formatVariant = (id, label, badge, desc, list) => {
+      const numbered = list.map((item, idx) => ({
+        ...item,
+        no: idx + 1,
+        durasi: `${item.sec}s`,
+      }));
+      const totalSec = list.reduce((acc, cur) => acc + (cur.sec || 4), 0);
+      const fullKo = numbered.map((s) => s.ko).join(' ');
+      const fullWithId = numbered.map((s) => `${s.no}. ${s.ko}\n   (${s.id})`).join('\n\n');
+      return { id, label, badge, desc, sentences: numbered, totalSec, fullKo, fullWithId };
+    };
 
     return [
-      {
-        no: 1,
-        title: 'Salam & Izin Perkenalan',
-        ko: '안녕하십니까! 지금부터 자기소개를 하겠습니다.',
-        id: 'Selamat pagi / siang! Mulai sekarang saya akan memperkenalkan diri.',
-        durasi: '3s',
-      },
-      {
-        no: 2,
-        title: 'Nama Lengkap',
-        ko: `제 이름은 ${nama}입니다.`,
-        id: `Nama saya adalah ${nama}.`,
-        durasi: '3s',
-      },
-      {
-        no: 3,
-        title: 'Asal & Usia Resmi Korea',
-        ko: `인도네시아에서 왔고, 나이는 ${umurKo} 살입니다.`,
-        id: `Saya berasal dari Indonesia, dan usia saya ${f.umur || '25'} tahun.`,
-        durasi: '5s',
-      },
-      {
-        no: 4,
-        title: 'Jumlah Keluarga & Status',
-        ko: `우리 가족은 ${keluargaKo} 명이고, 저는 ${nikahText}.`,
-        id: `Keluarga kami berjumlah ${f.keluarga || '4'} orang, dan saya ${nikahId}.`,
-        durasi: '6s',
-      },
-      {
-        no: 5,
-        title: 'Pengalaman & Keunggulan',
-        ko: fokusObj.ko,
-        id: fokusObj.idText,
-        durasi: '7s',
-      },
-      {
-        no: 6,
-        title: 'Komitmen Kerja & Penutup',
-        ko: '한국에 가면 성실하고 열심히 일하겠습니다. 잘 부탁드립니다. 감사합니다!',
-        id: 'Jika bekerja di Korea saya akan bekerja dengan rajin dan jujur. Mohon bimbingannya. Terima kasih!',
-        durasi: '8s',
-      },
+      formatVariant(
+        'ringkas',
+        'Variasi 1: Mengalir & Natural',
+        'Rekomendasi Ujian',
+        'Menggabungkan poin yang Anda isi menjadi kalimat luwes dan hemat waktu (< 35 detik).',
+        v2
+      ),
+      formatVariant(
+        'lugas',
+        'Variasi 2: Kalimat Pendek & Lugas',
+        'Mudah Dihafal',
+        'Setiap poin dipisah menjadi kalimat pendek tersendiri agar jeda napas lebih santai.',
+        v1
+      ),
+      formatVariant(
+        'k3',
+        'Variasi 3: Fokus Sikap & K3 Pabrik',
+        'Kesan Tegas',
+        'Pembuka dan penutup formal dengan penekanan kesiapan fisik serta disiplin keselamatan kerja.',
+        v3
+      ),
     ];
   };
-  const jagiSentences = getJagiSentences;
 
-  const copyJagi = async () => {
-    const text = getJagiSentences().map(s => s.ko).join(' ');
+  const copyJagiText = async (text, keyName) => {
     try {
       await navigator.clipboard.writeText(text);
-      setJagiCopied(true);
-      setTimeout(() => setJagiCopied(false), 2000);
-    } catch { setJagiCopied(false); }
+      setJagiCopiedKey(keyName);
+      setTimeout(() => setJagiCopiedKey(null), 2000);
+    } catch {
+      setJagiCopiedKey(null);
+    }
   };
 
   // Gabungkan dan deduplikasi seluruh perintah gerak fisik dari studyData.physical_commands & allQuestions (gerak_fisik)
@@ -1464,23 +1933,74 @@ export function StudyGuide({ onStartPracticeCategory }) {
 
           {jagiSubTab === 'generator' ? (
             <div className="space-y-6">
-              {/* Form Input Data Diri - Single Flat Container */}
+              {/* Form Input Data Diri Adaptif - Single Flat Container */}
               <div className="rounded-xl border border-border bg-card p-4 sm:p-5 space-y-4">
-                <div className="flex items-center justify-between border-b border-border pb-3">
+                <div className="flex flex-wrap items-start justify-between gap-3 border-b border-border pb-3">
                   <div>
-                    <h3 className="text-sm font-bold text-foreground">Isi Data Diri Anda</h3>
-                    <p className="text-xs text-muted-foreground">
-                      Angka usia dan jumlah keluarga otomatis dikonversi ke Angka Asli Korea (고유어 수).
+                    <h3 className="text-sm font-bold text-foreground">
+                      Isi Data Diri Sesuai Kebutuhan (Kolom Opsional Bisa Dikosongkan)
+                    </h3>
+                    <p className="text-xs text-muted-foreground mt-0.5">
+                      Kosongkan atau pilih "Tidak Disebutkan" pada bagian yang tidak ingin diucapkan. Teks Jagisoge otomatis menyesuaikan kalimatnya.
                     </p>
                   </div>
-                  <Badge variant="secondary" className="text-[10px]">Auto-Convert</Badge>
+                  <div className="flex flex-wrap items-center gap-1.5">
+                    <button
+                      type="button"
+                      onClick={() =>
+                        setJagiForm({
+                          ...jagiForm,
+                          tglTahun: '',
+                          tglBulan: '',
+                          tglHari: '',
+                          umur: '25',
+                          asal: '인도네시아',
+                          nikah: '아직 결혼하지 않았습니다',
+                          keluarga: '',
+                          pengalaman: 'none',
+                          lamaKerja: '',
+                          hobi: 'none',
+                          kelebihan: 'fisik',
+                        })
+                      }
+                      className="px-2.5 py-1 rounded-md border border-border bg-secondary hover:bg-secondary/80 text-[11px] font-semibold text-foreground cursor-pointer transition-colors"
+                    >
+                      Mode Singkat (Inti Saja)
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() =>
+                        setJagiForm({
+                          ...jagiForm,
+                          tglTahun: '1999',
+                          tglBulan: '8',
+                          tglHari: '17',
+                          umur: '25',
+                          asal: '인도네시아 자바',
+                          nikah: '아직 결혼하지 않았습니다',
+                          keluarga: '4',
+                          pengalaman: 'pabrik',
+                          lamaKerja: '2',
+                          hobi: '운동',
+                          kelebihan: 'fisik',
+                        })
+                      }
+                      className="px-2.5 py-1 rounded-md border border-border bg-secondary hover:bg-secondary/80 text-[11px] font-semibold text-foreground cursor-pointer transition-colors"
+                    >
+                      Isi Semua Lengkap
+                    </button>
+                  </div>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5">
+                  {/* 1. Nama Lengkap */}
                   <div className="space-y-1">
-                    <label className="text-[11px] font-bold text-muted-foreground uppercase">
-                      Nama Lengkap
-                    </label>
+                    <div className="flex items-center justify-between">
+                      <label className="text-[11px] font-bold text-muted-foreground uppercase">
+                        1. Nama Lengkap
+                      </label>
+                      <span className="text-[10px] font-semibold text-primary">Wajib</span>
+                    </div>
                     <input
                       type="text"
                       value={jagiForm.nama}
@@ -1490,38 +2010,127 @@ export function StudyGuide({ onStartPracticeCategory }) {
                     />
                   </div>
 
+                  {/* 2. Tanggal Lahir (Opsional) */}
                   <div className="space-y-1">
-                    <label className="text-[11px] font-bold text-muted-foreground uppercase">
-                      Usia (Tahun)
-                    </label>
+                    <div className="flex items-center justify-between">
+                      <label className="text-[11px] font-bold text-muted-foreground uppercase">
+                        2. Tanggal Lahir
+                      </label>
+                      {jagiForm.tglTahun ? (
+                        <button
+                          type="button"
+                          onClick={() => setJagiForm({ ...jagiForm, tglTahun: '', tglBulan: '', tglHari: '' })}
+                          className="text-[10px] font-semibold text-rose-600 dark:text-rose-400 hover:underline cursor-pointer"
+                        >
+                          Kosongkan
+                        </button>
+                      ) : (
+                        <span className="text-[10px] text-muted-foreground">Opsional</span>
+                      )}
+                    </div>
+                    <div className="grid grid-cols-3 gap-1.5">
+                      <input
+                        type="number"
+                        min={1970}
+                        max={2010}
+                        value={jagiForm.tglTahun}
+                        onChange={(e) => setJagiForm({ ...jagiForm, tglTahun: e.target.value })}
+                        placeholder="Tahun (1999)"
+                        className="w-full px-2.5 py-2 text-xs bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/30 text-foreground"
+                      />
+                      <select
+                        value={jagiForm.tglBulan}
+                        onChange={(e) => setJagiForm({ ...jagiForm, tglBulan: e.target.value })}
+                        className="w-full px-2 py-2 text-xs bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/30 text-foreground"
+                      >
+                        <option value="">Bulan</option>
+                        {BULAN_ID_NAMES.slice(1).map((bln, idx) => (
+                          <option key={bln} value={String(idx + 1)}>
+                            {idx + 1} - {bln}
+                          </option>
+                        ))}
+                      </select>
+                      <input
+                        type="number"
+                        min={1}
+                        max={31}
+                        value={jagiForm.tglHari}
+                        onChange={(e) => setJagiForm({ ...jagiForm, tglHari: e.target.value })}
+                        placeholder="Tgl (17)"
+                        className="w-full px-2.5 py-2 text-xs bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/30 text-foreground"
+                      />
+                    </div>
+                  </div>
+
+                  {/* 3. Usia / Umur (Opsional) */}
+                  <div className="space-y-1">
+                    <div className="flex items-center justify-between">
+                      <label className="text-[11px] font-bold text-muted-foreground uppercase">
+                        3. Usia / Umur (Tahun)
+                      </label>
+                      {jagiForm.umur ? (
+                        <button
+                          type="button"
+                          onClick={() => setJagiForm({ ...jagiForm, umur: '' })}
+                          className="text-[10px] font-semibold text-rose-600 dark:text-rose-400 hover:underline cursor-pointer"
+                        >
+                          Kosongkan ({nativeKo(jagiForm.umur)} 살)
+                        </button>
+                      ) : (
+                        <span className="text-[10px] text-muted-foreground">Dikosongkan</span>
+                      )}
+                    </div>
                     <input
                       type="number"
                       min={18}
                       max={50}
                       value={jagiForm.umur}
                       onChange={(e) => setJagiForm({ ...jagiForm, umur: e.target.value })}
+                      placeholder="Kosongkan jika tidak disebut"
                       className="w-full px-3 py-2 text-xs sm:text-sm bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/30 text-foreground"
                     />
                   </div>
 
+                  {/* 4. Asal Daerah (Opsional) */}
                   <div className="space-y-1">
-                    <label className="text-[11px] font-bold text-muted-foreground uppercase">
-                      Jumlah Keluarga (Orang)
-                    </label>
-                    <input
-                      type="number"
-                      min={1}
-                      max={15}
-                      value={jagiForm.keluarga}
-                      onChange={(e) => setJagiForm({ ...jagiForm, keluarga: e.target.value })}
-                      className="w-full px-3 py-2 text-xs sm:text-sm bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/30 text-foreground"
-                    />
+                    <div className="flex items-center justify-between">
+                      <label className="text-[11px] font-bold text-muted-foreground uppercase">
+                        4. Asal Negara / Daerah
+                      </label>
+                      <span className="text-[10px] text-muted-foreground">Opsional</span>
+                    </div>
+                    <div className="space-y-1.5">
+                      <select
+                        value={jagiForm.asal}
+                        onChange={(e) => setJagiForm({ ...jagiForm, asal: e.target.value })}
+                        className="w-full px-3 py-2 text-xs sm:text-sm bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/30 text-foreground"
+                      >
+                        {JAGI_ASAL_OPTIONS.map((opt) => (
+                          <option key={opt.id} value={opt.id}>
+                            {opt.label}
+                          </option>
+                        ))}
+                      </select>
+                      {jagiForm.asal === 'custom' && (
+                        <input
+                          type="text"
+                          value={jagiForm.asalCustom}
+                          onChange={(e) => setJagiForm({ ...jagiForm, asalCustom: e.target.value })}
+                          placeholder="Ketik kota (misal: 인도네시아 말랑)"
+                          className="w-full px-3 py-1.5 text-xs bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/30 text-foreground"
+                        />
+                      )}
+                    </div>
                   </div>
 
+                  {/* 5. Status Pernikahan (Opsional) */}
                   <div className="space-y-1">
-                    <label className="text-[11px] font-bold text-muted-foreground uppercase">
-                      Status Pernikahan
-                    </label>
+                    <div className="flex items-center justify-between">
+                      <label className="text-[11px] font-bold text-muted-foreground uppercase">
+                        5. Status Pernikahan
+                      </label>
+                      <span className="text-[10px] text-muted-foreground">Opsional</span>
+                    </div>
                     <select
                       value={jagiForm.nikah}
                       onChange={(e) => setJagiForm({ ...jagiForm, nikah: e.target.value })}
@@ -1529,99 +2138,277 @@ export function StudyGuide({ onStartPracticeCategory }) {
                     >
                       <option value="아직 결혼하지 않았습니다">Belum Menikah (아직 결혼하지 않았습니다)</option>
                       <option value="결혼했습니다">Sudah Menikah (결혼했습니다)</option>
+                      <option value="none">-- Kosongkan / Tidak Disebutkan --</option>
                     </select>
                   </div>
 
-                  <div className="space-y-1 sm:col-span-2 lg:col-span-4">
-                    <label className="text-[11px] font-bold text-muted-foreground uppercase">
-                      Pengalaman & Fokus Sektor
-                    </label>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 pt-0.5">
-                      {JAGI_FOKUS_OPTIONS.map((opt) => (
+                  {/* 6. Jumlah Anggota Keluarga (Opsional) */}
+                  <div className="space-y-1">
+                    <div className="flex items-center justify-between">
+                      <label className="text-[11px] font-bold text-muted-foreground uppercase">
+                        6. Jumlah Keluarga (Orang)
+                      </label>
+                      {jagiForm.keluarga ? (
                         <button
-                          key={opt.id}
                           type="button"
-                          onClick={() => setJagiForm({ ...jagiForm, fokus: opt.id })}
-                          className={cn(
-                            'text-left p-2.5 rounded-lg border transition-all cursor-pointer',
-                            jagiForm.fokus === opt.id
-                              ? 'border-primary bg-primary/5 text-foreground'
-                              : 'border-border bg-background text-muted-foreground hover:text-foreground'
-                          )}
+                          onClick={() => setJagiForm({ ...jagiForm, keluarga: '' })}
+                          className="text-[10px] font-semibold text-rose-600 dark:text-rose-400 hover:underline cursor-pointer"
                         >
-                          <p className="text-xs font-bold">{opt.label}</p>
-                          <p className="text-[11px] text-muted-foreground mt-0.5">{opt.desc}</p>
+                          Kosongkan ({nativeKo(jagiForm.keluarga)} 명)
                         </button>
-                      ))}
+                      ) : (
+                        <span className="text-[10px] text-muted-foreground">Dikosongkan</span>
+                      )}
                     </div>
+                    <input
+                      type="number"
+                      min={1}
+                      max={15}
+                      value={jagiForm.keluarga}
+                      onChange={(e) => setJagiForm({ ...jagiForm, keluarga: e.target.value })}
+                      placeholder="Kosongkan jika tidak disebut"
+                      className="w-full px-3 py-2 text-xs sm:text-sm bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/30 text-foreground"
+                    />
+                  </div>
+
+                  {/* 7. Pengalaman Kerja & Lama Tahun (Opsional) */}
+                  <div className="space-y-1">
+                    <div className="flex items-center justify-between">
+                      <label className="text-[11px] font-bold text-muted-foreground uppercase">
+                        7. Pengalaman Kerja
+                      </label>
+                      <span className="text-[10px] text-muted-foreground">Opsional</span>
+                    </div>
+                    <div className="flex gap-1.5">
+                      <select
+                        value={jagiForm.pengalaman}
+                        onChange={(e) => setJagiForm({ ...jagiForm, pengalaman: e.target.value })}
+                        className="flex-1 min-w-0 px-3 py-2 text-xs sm:text-sm bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/30 text-foreground"
+                      >
+                        {JAGI_PENGALAMAN_OPTIONS.map((opt) => (
+                          <option key={opt.id} value={opt.id}>
+                            {opt.label}
+                          </option>
+                        ))}
+                      </select>
+                      {jagiForm.pengalaman !== 'none' && jagiForm.pengalaman !== 'belum' && (
+                        <input
+                          type="number"
+                          min={1}
+                          max={20}
+                          value={jagiForm.lamaKerja}
+                          onChange={(e) => setJagiForm({ ...jagiForm, lamaKerja: e.target.value })}
+                          placeholder="Thn"
+                          title="Lama pengalaman kerja (tahun) - boleh dikosongkan"
+                          className="w-16 px-2 py-2 text-xs bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/30 text-foreground text-center shrink-0"
+                        />
+                      )}
+                    </div>
+                  </div>
+
+                  {/* 8. Hobi / Kegemaran (Opsional) */}
+                  <div className="space-y-1">
+                    <div className="flex items-center justify-between">
+                      <label className="text-[11px] font-bold text-muted-foreground uppercase">
+                        8. Hobi / Olahraga
+                      </label>
+                      <span className="text-[10px] text-muted-foreground">Opsional</span>
+                    </div>
+                    <select
+                      value={jagiForm.hobi}
+                      onChange={(e) => setJagiForm({ ...jagiForm, hobi: e.target.value })}
+                      className="w-full px-3 py-2 text-xs sm:text-sm bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/30 text-foreground"
+                    >
+                      {JAGI_HOBI_OPTIONS.map((opt) => (
+                        <option key={opt.id} value={opt.id}>
+                          {opt.label}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+
+                  {/* 9. Kelebihan / Keunggulan Diri (Opsional) */}
+                  <div className="space-y-1">
+                    <div className="flex items-center justify-between">
+                      <label className="text-[11px] font-bold text-muted-foreground uppercase">
+                        9. Kelebihan / Keunggulan
+                      </label>
+                      <span className="text-[10px] text-muted-foreground">Opsional</span>
+                    </div>
+                    <select
+                      value={jagiForm.kelebihan}
+                      onChange={(e) => setJagiForm({ ...jagiForm, kelebihan: e.target.value })}
+                      className="w-full px-3 py-2 text-xs sm:text-sm bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/30 text-foreground"
+                    >
+                      {JAGI_KELEBIHAN_OPTIONS.map((opt) => (
+                        <option key={opt.id} value={opt.id}>
+                          {opt.label}
+                        </option>
+                      ))}
+                    </select>
                   </div>
                 </div>
               </div>
 
-              {/* Script Naskah Utuh Kustom */}
+              {/* 3 Variasi Output Naskah Jagisoge yang Menyesuaikan Input */}
               {(() => {
-                const customSentences = getJagiSentences();
-                const fullScriptKo = customSentences.map((s) => s.ko).join(' ');
+                const variants = buildJagiVariants();
+                const activeVar = variants.find((v) => v.id === jagiActiveVariant) || variants[0];
+                const isSafeDuration = activeVar.totalSec <= 40;
+
                 return (
-                  <div className="rounded-xl border border-border bg-card p-4 sm:p-5 space-y-4">
-                    <div className="flex flex-wrap items-center justify-between gap-2 border-b border-border pb-3">
-                      <div>
-                        <span className="text-[10px] font-bold uppercase tracking-wider text-primary">
-                          Naskah Lengkap Siap Ucap
-                        </span>
-                        <h3 className="text-sm sm:text-base font-bold text-foreground">
-                          Urutan Kalimat Perkenalan Diri ({customSentences.length} Bagian)
-                        </h3>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <button
-                          type="button"
-                          onClick={copyJagi}
-                          className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-border bg-secondary hover:bg-secondary/80 text-foreground text-xs font-semibold transition-colors cursor-pointer"
-                        >
-                          <Copy className="w-3.5 h-3.5" />
-                          {jagiCopied ? 'Tersalin!' : 'Salin Teks'}
-                        </button>
-                        <button
-                          type="button"
-                          onClick={() => playAudio(null, fullScriptKo)}
-                          className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-primary text-primary-foreground text-xs font-bold hover:opacity-90 transition-opacity cursor-pointer"
-                        >
-                          <Volume2 className="w-3.5 h-3.5" />
-                          Putar Seluruh Naskah
-                        </button>
-                      </div>
+                  <div className="space-y-4">
+                    {/* Pilihan 3 Gaya Output */}
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-2.5">
+                      {variants.map((v) => {
+                        const isSelected = v.id === activeVar.id;
+                        return (
+                          <button
+                            key={v.id}
+                            type="button"
+                            onClick={() => setJagiActiveVariant(v.id)}
+                            className={cn(
+                              'text-left p-3.5 rounded-xl border transition-all cursor-pointer flex flex-col justify-between gap-2',
+                              isSelected
+                                ? 'border-primary bg-primary/5 text-foreground shadow-sm'
+                                : 'border-border bg-card text-muted-foreground hover:text-foreground hover:bg-secondary/40'
+                            )}
+                          >
+                            <div className="space-y-1">
+                              <div className="flex items-center justify-between gap-2">
+                                <span className="text-xs font-bold text-foreground">{v.label}</span>
+                                <span
+                                  className={cn(
+                                    'text-[10px] font-bold px-2 py-0.5 rounded-full',
+                                    isSelected
+                                      ? 'bg-primary text-primary-foreground'
+                                      : 'bg-secondary text-muted-foreground'
+                                  )}
+                                >
+                                  ~{v.totalSec} dtk
+                                </span>
+                              </div>
+                              <p className="text-[11px] text-muted-foreground leading-snug">{v.desc}</p>
+                            </div>
+                            <div className="flex items-center justify-between pt-1 border-t border-border/60 text-[10px] font-semibold">
+                              <span className="text-primary">{v.badge}</span>
+                              <span>{v.sentences.length} Kalimat</span>
+                            </div>
+                          </button>
+                        );
+                      })}
                     </div>
 
-                    <div className="divide-y divide-border">
-                      {customSentences.map((item) => (
-                        <div key={item.no} className="py-3.5 first:pt-0 last:pb-0 flex items-start gap-3">
-                          <span className="w-6 h-6 rounded-full bg-primary/10 text-primary text-xs font-bold flex items-center justify-center shrink-0 mt-0.5">
-                            {item.no}
-                          </span>
-                          <div className="flex-1 min-w-0 space-y-1">
-                            <div className="flex items-center justify-between gap-2">
-                              <span className="text-[11px] font-bold uppercase tracking-wider text-muted-foreground">
-                                {item.title} · {item.durasi}
-                              </span>
-                              <button
-                                type="button"
-                                onClick={() => playAudio(null, item.ko)}
-                                className="flex items-center gap-1 px-2 py-1 rounded-md bg-secondary hover:bg-primary hover:text-primary-foreground text-foreground text-[11px] font-semibold transition-colors cursor-pointer"
-                              >
-                                <Volume2 className="w-3 h-3" />
-                                Dengarkan
-                              </button>
-                            </div>
-                            <p className="text-base sm:text-lg font-black text-foreground leading-snug break-keep">
-                              {item.ko}
-                            </p>
-                            <p className="text-xs sm:text-sm font-semibold text-emerald-700 dark:text-emerald-400">
-                              "{item.id}"
-                            </p>
+                    {/* Kotak Hasil Naskah Utuh + Rincian Kalimat */}
+                    <div className="rounded-xl border border-border bg-card p-4 sm:p-5 space-y-4">
+                      <div className="flex flex-wrap items-center justify-between gap-3 border-b border-border pb-3">
+                        <div className="space-y-0.5">
+                          <div className="flex flex-wrap items-center gap-2">
+                            <span className="text-[10px] font-bold uppercase tracking-wider text-primary">
+                              {activeVar.label}
+                            </span>
+                            <span
+                              className={cn(
+                                'text-[10px] font-bold px-2 py-0.5 rounded-full',
+                                isSafeDuration
+                                  ? 'bg-emerald-500/15 text-emerald-700 dark:text-emerald-400'
+                                  : 'bg-amber-500/15 text-amber-700 dark:text-amber-400'
+                              )}
+                            >
+                              Estimasi Baca: ~{activeVar.totalSec} Detik ({isSafeDuration ? 'Aman ≤ 40 Detik' : 'Cukup Panjang'})
+                            </span>
                           </div>
+                          <h3 className="text-sm sm:text-base font-bold text-foreground">
+                            Hasil Teks Jagisoge Siap Salin & Ucap ({activeVar.sentences.length} Kalimat)
+                          </h3>
                         </div>
-                      ))}
+
+                        <div className="flex flex-wrap items-center gap-2">
+                          <button
+                            type="button"
+                            onClick={() => copyJagiText(activeVar.fullKo, `ko_${activeVar.id}`)}
+                            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-border bg-secondary hover:bg-secondary/80 text-foreground text-xs font-semibold transition-colors cursor-pointer"
+                          >
+                            <Copy className="w-3.5 h-3.5" />
+                            {jagiCopiedKey === `ko_${activeVar.id}` ? 'Hangeul Tersalin!' : 'Salin Hangeul'}
+                          </button>
+                          <button
+                            type="button"
+                            onClick={() => copyJagiText(activeVar.fullWithId, `full_${activeVar.id}`)}
+                            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-border bg-secondary hover:bg-secondary/80 text-foreground text-xs font-semibold transition-colors cursor-pointer"
+                          >
+                            <Copy className="w-3.5 h-3.5" />
+                            {jagiCopiedKey === `full_${activeVar.id}` ? 'Lengkap Tersalin!' : 'Salin + Arti'}
+                          </button>
+                          <button
+                            type="button"
+                            onClick={() => playAudio(null, activeVar.fullKo)}
+                            className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-primary text-primary-foreground text-xs font-bold hover:opacity-90 transition-opacity cursor-pointer"
+                          >
+                            <Volume2 className="w-3.5 h-3.5" />
+                            Putar Audio Utuh
+                          </button>
+                        </div>
+                      </div>
+
+                      {/* Paragraf Utuh Siap Baca / Copy */}
+                      <div className="p-3.5 rounded-lg bg-secondary/40 border border-border space-y-2">
+                        <div className="flex items-center justify-between">
+                          <span className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground">
+                            Paragraf Gabungan Utuh (Klik Salin Hangeul untuk menyalin teks ini)
+                          </span>
+                        </div>
+                        <p className="text-base sm:text-lg font-black text-foreground leading-relaxed break-keep select-all">
+                          {activeVar.fullKo}
+                        </p>
+                      </div>
+
+                      {/* Rincian Per Kalimat */}
+                      <div className="divide-y divide-border pt-1">
+                        {activeVar.sentences.map((item) => (
+                          <div key={item.no} className="py-3.5 first:pt-0 last:pb-0 flex items-start gap-3">
+                            <span className="w-6 h-6 rounded-full bg-primary/10 text-primary text-xs font-bold flex items-center justify-center shrink-0 mt-0.5">
+                              {item.no}
+                            </span>
+                            <div className="flex-1 min-w-0 space-y-1">
+                              <div className="flex flex-wrap items-center justify-between gap-2">
+                                <span className="text-[11px] font-bold uppercase tracking-wider text-muted-foreground">
+                                  {item.title} · {item.durasi}
+                                </span>
+                                <div className="flex items-center gap-1.5">
+                                  <button
+                                    type="button"
+                                    onClick={() => copyJagiText(item.ko, `sent_${activeVar.id}_${item.no}`)}
+                                    className="flex items-center gap-1 px-2 py-1 rounded-md border border-border bg-background hover:bg-secondary text-muted-foreground hover:text-foreground text-[11px] font-semibold transition-colors cursor-pointer"
+                                  >
+                                    <Copy className="w-3 h-3" />
+                                    {jagiCopiedKey === `sent_${activeVar.id}_${item.no}` ? 'Tersalin' : 'Salin'}
+                                  </button>
+                                  <button
+                                    type="button"
+                                    onClick={() => playAudio(null, item.ko)}
+                                    className="flex items-center gap-1 px-2 py-1 rounded-md bg-secondary hover:bg-primary hover:text-primary-foreground text-foreground text-[11px] font-semibold transition-colors cursor-pointer"
+                                  >
+                                    <Volume2 className="w-3 h-3" />
+                                    Dengarkan
+                                  </button>
+                                </div>
+                              </div>
+                              <p className="text-base sm:text-lg font-black text-foreground leading-snug break-keep">
+                                {item.ko}
+                              </p>
+                              {item.note && (
+                                <p className="text-xs font-semibold text-primary">
+                                  Cara baca angka: {item.note}
+                                </p>
+                              )}
+                              <p className="text-xs sm:text-sm font-semibold text-emerald-700 dark:text-emerald-400">
+                                "{item.id}"
+                              </p>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 );
