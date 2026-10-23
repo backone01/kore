@@ -242,31 +242,50 @@ export function QAPlayerDeck({
               )}
             </div>
 
-            {includeAnswers && (currentQ?.answer_ko || activeOpt?.ko) && (
-              <div className="pt-2 border-t border-border/70 mt-2">
-                <div className="flex items-center justify-between gap-2">
-                  <p className="text-[10px] font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">
-                    Kunci Jawaban Peserta (답변)
+            {includeAnswers ? (
+              (currentQ?.answer_ko || activeOpt?.ko) && (
+                <div className="pt-2 border-t border-border/70 mt-2">
+                  <div className="flex items-center justify-between gap-2">
+                    <p className="text-[10px] font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">
+                      Kunci Jawaban Peserta (답변)
+                    </p>
+                    {onPlayAnswer && (
+                      <button
+                        type="button"
+                        onClick={onPlayAnswer}
+                        title="Dengar jawaban ini saja"
+                        className="inline-flex items-center gap-1 text-[11px] font-bold text-emerald-700 dark:text-emerald-300 hover:underline"
+                      >
+                        <Volume2 className="h-3 w-3" />
+                        <span>Dengar Jawaban</span>
+                      </button>
+                    )}
+                  </div>
+                  <p className="text-sm sm:text-base font-bold font-kr text-emerald-800 dark:text-emerald-200 mt-0.5">
+                    {activeOpt?.ko || currentQ?.answer_ko}
                   </p>
-                  {onPlayAnswer && (
-                    <button
-                      type="button"
-                      onClick={onPlayAnswer}
-                      title="Dengar jawaban ini saja"
-                      className="inline-flex items-center gap-1 text-[11px] font-bold text-emerald-700 dark:text-emerald-300 hover:underline"
-                    >
-                      <Volume2 className="h-3 w-3" />
-                      <span>Dengar Jawaban</span>
-                    </button>
+                  {(activeOpt?.id || currentQ?.answer_id) && (
+                    <p className="text-xs text-muted-foreground mt-0.5">
+                      {activeOpt?.id || currentQ?.answer_id}
+                    </p>
                   )}
                 </div>
-                <p className="text-sm sm:text-base font-bold font-kr text-emerald-800 dark:text-emerald-200 mt-0.5">
-                  {activeOpt?.ko || currentQ?.answer_ko}
-                </p>
-                {(activeOpt?.id || currentQ?.answer_id) && (
-                  <p className="text-xs text-muted-foreground mt-0.5">
-                    {activeOpt?.id || currentQ?.answer_id}
-                  </p>
+              )
+            ) : (
+              <div className="pt-2 border-t border-border/70 mt-2 flex items-center justify-between gap-2">
+                <span className="text-[11px] text-muted-foreground">
+                  Mode: Hanya membaca pertanyaan penguji (Jawaban tidak bersuara)
+                </span>
+                {onPlayAnswer && (
+                  <button
+                    type="button"
+                    onClick={onPlayAnswer}
+                    title="Dengar kunci jawaban secara mandiri"
+                    className="inline-flex items-center gap-1 text-[11px] font-bold text-emerald-600 dark:text-emerald-400 hover:underline"
+                  >
+                    <Volume2 className="h-3 w-3" />
+                    <span>Dengar Jawaban</span>
+                  </button>
                 )}
               </div>
             )}
@@ -732,13 +751,13 @@ export function QAViewBar({
           </button>
         </div>
 
-        {/* Toggle Audio Mode: Sertakan jawaban vs Hanya pertanyaan */}
+        {/* Toggle Audio Mode: Hanya soal vs Sertakan jawaban */}
         <div className="inline-flex rounded-lg border border-border bg-card p-0.5 gap-0.5 shadow-xs">
           <button type="button" onClick={onOnlyQ} className={segBtn(hideAnswers)}>
-            Hanya pertanyaan
+            Hanya Soal (Standar)
           </button>
           <button type="button" onClick={onWithA} className={segBtn(!hideAnswers)}>
-            Sertakan jawaban
+            Sertakan Jawaban
           </button>
         </div>
 

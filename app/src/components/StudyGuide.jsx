@@ -81,7 +81,7 @@ export function StudyGuide({ onStartPracticeCategory }) {
   const [activeModule, setActiveModule] = useState('interview');
   const [activeTab, setActiveTab] = useState('interview');
   const [activeSampleIdx, setActiveSampleIdx] = useState(0);
-  const [hideAllAnswers, setHideAllAnswers] = useState(false);
+  const [hideAllAnswers, setHideAllAnswers] = useState(true);
   const [revealedCardAnswers, setRevealedCardAnswers] = useState({});
   const [searchQuery, setSearchQuery] = useState('');
   const [playingAudio, setPlayingAudio] = useState(null);
@@ -97,7 +97,7 @@ export function StudyGuide({ onStartPracticeCategory }) {
   const [playerMode, setPlayerMode] = useState('sequential');
   const [gapCountdown, setGapCountdown] = useState(0);
   const [hideText, setHideText] = useState(false);
-  const [includeAnswers, setIncludeAnswers] = useState(true);
+  const [includeAnswers, setIncludeAnswers] = useState(false);
   const [playRate, setPlayRate] = useState(1);
   const [playDelay, setPlayDelay] = useState(2);
   const [audioProg, setAudioProg] = useState({ t: 0, d: 0 });
@@ -392,8 +392,6 @@ export function StudyGuide({ onStartPracticeCategory }) {
     if (r.tab && r.order.length) {
       const idx = r.order[r.pos] ?? 0;
       if (r.tab === 'k3') setSelK3(idx); else setSelInt(idx);
-      const el = document.getElementById(`qarow-${r.tab}-${idx}`);
-      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     }
   };
 
@@ -1101,9 +1099,11 @@ export function StudyGuide({ onStartPracticeCategory }) {
               setSelK3(i === selK3 ? -1 : i);
               const q = filteredK3[i];
               if (q && i !== selK3) playAudio(q.audio_q, q.question_ko);
-              document.getElementById(`qarow-k3-${i}`)?.scrollIntoView({ block: 'nearest' });
             }}
-            onPlayRow={(i) => startPlayer('k3', filteredK3, i)}
+            onPlayRow={(i) => {
+              setSelK3(i);
+              startPlayer('k3', filteredK3, i, 'sequential');
+            }}
           />
 
         </div>
@@ -1287,7 +1287,6 @@ export function StudyGuide({ onStartPracticeCategory }) {
               setSelInt(i === selInt ? -1 : i);
               const q = filteredInterview[i];
               if (q && i !== selInt) playAudio(q.audio_q, q.question_ko);
-              document.getElementById(`qarow-interview-${i}`)?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
             }}
             onPlayRow={(i) => {
               setSelInt(i);
