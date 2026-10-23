@@ -1559,7 +1559,7 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
               Kisi-kisi resmi HRD Korea: wawancara, gerak fisik, K3, alat, dan hitungan.
             </p>
           </div>
-          <div className="shrink-0">
+          <div className="shrink-0 flex items-center gap-2">
             <Button
               size="sm"
               variant={hideAllAnswers ? 'default' : 'outline'}
@@ -1567,10 +1567,11 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
                 setHideAllAnswers(prev => !prev);
                 setRevealedCardAnswers({});
               }}
-              title="Sembunyikan seluruh kunci jawaban untuk menguji daya ingat Anda"
+              className="gap-1.5 h-8 sm:h-9 text-xs font-semibold"
+              title="Klik untuk membuka atau menyembunyikan seluruh kunci jawaban di semua kartu"
             >
-              {hideAllAnswers ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
-              <span>{hideAllAnswers ? 'Mode Hafal' : 'Sembunyikan Jawaban'}</span>
+              {hideAllAnswers ? <Eye className="h-4 w-4" /> : <EyeOff className="h-4 w-4" />}
+              <span>{hideAllAnswers ? '👁️ Buka Semua Jawaban' : '🙈 Sembunyikan Semua Jawaban'}</span>
             </Button>
           </div>
         </div>
@@ -2094,10 +2095,26 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
                 </p>
               </div>
 
-              <Button size="sm" onClick={() => onStartPracticeCategory && onStartPracticeCategory('physical')} className="shrink-0">
-                <span>Latih di Flashcard</span>
-                <ChevronRight className="h-3.5 w-3.5" />
-              </Button>
+              <div className="flex items-center gap-2 flex-wrap">
+                <Button
+                  variant={hideAllAnswers ? 'default' : 'outline'}
+                  size="sm"
+                  onClick={() => {
+                    setHideAllAnswers(prev => !prev);
+                    setRevealedCardAnswers({});
+                  }}
+                  className="text-xs gap-1.5 h-8 shrink-0"
+                  title="Klik untuk membuka atau menyembunyikan semua arti perintah fisik"
+                >
+                  {hideAllAnswers ? <Eye className="w-3.5 h-3.5" /> : <EyeOff className="w-3.5 h-3.5" />}
+                  <span>{hideAllAnswers ? 'Buka Semua Refleks' : 'Tutup Semua Refleks'}</span>
+                </Button>
+
+                <Button size="sm" onClick={() => onStartPracticeCategory && onStartPracticeCategory('physical')} className="shrink-0 h-8 text-xs">
+                  <span>Latih di Flashcard</span>
+                  <ChevronRight className="h-3.5 w-3.5" />
+                </Button>
+              </div>
             </div>
 
             <div className="flex flex-wrap items-center gap-1.5 text-xs">
@@ -3695,21 +3712,37 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
 
         return (
           <div className="space-y-5 animate-fade-in">
-            <div className="border-b border-border pb-3">
-              <div className="flex items-center gap-2 mb-1">
-                <Badge variant="outline" className="border-amber-500/30 text-amber-600 dark:text-amber-400 text-[10px]">
-                  TES VISUAL GAMBAR K3
-                </Badge>
-                <span className="text-[11px] font-bold text-muted-foreground uppercase tracking-wider">
-                  {allPik.length} Rambu Resmi
-                </span>
+            <div className="border-b border-border pb-3 flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
+              <div>
+                <div className="flex items-center gap-2 mb-1">
+                  <Badge variant="outline" className="border-amber-500/30 text-amber-600 dark:text-amber-400 text-[10px]">
+                    TES VISUAL GAMBAR K3
+                  </Badge>
+                  <span className="text-[11px] font-bold text-muted-foreground uppercase tracking-wider">
+                    {allPik.length} Rambu Resmi
+                  </span>
+                </div>
+                <h2 className="text-lg sm:text-xl font-bold text-foreground">
+                  Katalog Rambu Keselamatan Kerja (안전 표지판)
+                </h2>
+                <p className="text-xs sm:text-sm text-muted-foreground mt-0.5 leading-relaxed">
+                  Ketuk gambar rambu untuk memperbesar dan dengarkan pelafalan resminya.
+                </p>
               </div>
-              <h2 className="text-lg sm:text-xl font-bold text-foreground">
-                Katalog Rambu Keselamatan Kerja (안전 표지판)
-              </h2>
-              <p className="text-xs sm:text-sm text-muted-foreground mt-0.5 leading-relaxed">
-                Ketuk gambar rambu untuk memperbesar dan dengarkan pelafalan resminya.
-              </p>
+
+              <Button
+                variant={hideAllAnswers ? 'default' : 'outline'}
+                size="sm"
+                onClick={() => {
+                  setHideAllAnswers(prev => !prev);
+                  setRevealedCardAnswers({});
+                }}
+                className="text-xs gap-1.5 h-8 shrink-0"
+                title="Klik untuk membuka atau menyembunyikan semua arti rambu"
+              >
+                {hideAllAnswers ? <Eye className="w-3.5 h-3.5" /> : <EyeOff className="w-3.5 h-3.5" />}
+                <span>{hideAllAnswers ? 'Buka Semua Arti Rambu' : 'Tutup Semua Arti Rambu'}</span>
+              </Button>
             </div>
 
             <div className="flex flex-col sm:flex-row gap-2.5 items-stretch sm:items-center justify-between">
@@ -3875,17 +3908,33 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
                 </p>
               </div>
 
-              {onOpenRevisionModal && (
+              <div className="flex items-center gap-2 flex-wrap">
                 <Button
-                  variant="outline"
+                  variant={hideAllAnswers ? 'default' : 'outline'}
                   size="sm"
-                  onClick={onOpenRevisionModal}
-                  className="text-xs gap-1.5 h-8 shrink-0 border-amber-500/30 text-amber-600 dark:text-amber-400 hover:bg-amber-500/10"
+                  onClick={() => {
+                    setHideAllAnswers(prev => !prev);
+                    setRevealedCardAnswers({});
+                  }}
+                  className="text-xs gap-1.5 h-8 shrink-0"
+                  title="Klik untuk membuka atau menyembunyikan semua jawaban kartu perkakas"
                 >
-                  <Award className="h-3.5 w-3.5" />
-                  <span>Ketentuan 3 Pos Praktik Meja (20 Poin)</span>
+                  {hideAllAnswers ? <Eye className="w-3.5 h-3.5" /> : <EyeOff className="w-3.5 h-3.5" />}
+                  <span>{hideAllAnswers ? 'Buka Semua Jawaban Alat' : 'Tutup Semua Jawaban Alat'}</span>
                 </Button>
-              )}
+
+                {onOpenRevisionModal && (
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={onOpenRevisionModal}
+                    className="text-xs gap-1.5 h-8 shrink-0 border-amber-500/30 text-amber-600 dark:text-amber-400 hover:bg-amber-500/10"
+                  >
+                    <Award className="h-3.5 w-3.5" />
+                    <span>Ketentuan 3 Pos Praktik Meja (20 Poin)</span>
+                  </Button>
+                )}
+              </div>
             </div>
 
             <div className="flex flex-col sm:flex-row gap-2.5 items-stretch sm:items-center justify-between">
@@ -3948,7 +3997,13 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
                   <button
                     key={opt.id}
                     type="button"
-                    onClick={() => setGlobalAlatUsageOption(opt.id)}
+                    onClick={() => {
+                      setGlobalAlatUsageOption(opt.id);
+                      if (opt.id === 'all') {
+                        setHideAllAnswers(false);
+                        setRevealedCardAnswers({});
+                      }
+                    }}
                     title={opt.title}
                     className={cn(
                       'px-2.5 py-1.5 rounded-lg text-xs font-semibold border transition-all cursor-pointer',

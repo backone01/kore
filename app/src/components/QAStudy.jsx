@@ -773,10 +773,10 @@ export function QAViewBar({
 
         <div className="inline-flex rounded-lg border border-border bg-card p-0.5 gap-0.5">
           <button type="button" onClick={onOnlyQ} className={segBtn(hideAnswers)}>
-            Hanya Soal (Standar)
+            Hanya Soal (Tutup Jawaban)
           </button>
           <button type="button" onClick={onWithA} className={segBtn(!hideAnswers)}>
-            Sertakan Jawaban
+            Tampilkan Semua Jawaban
           </button>
         </div>
 
