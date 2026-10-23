@@ -447,7 +447,7 @@ export function QAPlayerDeck({
 
 // --- Baris List Tanya Jawab (Unified Accordion Tanpa Card-in-Card) ---
 export function QAList({
-  items,
+  items = [],
   selIdx,
   playIdx,
   onPick,
@@ -458,6 +458,8 @@ export function QAList({
   renderDetail = null,
   mode = 'list',
   isPlaying = false,
+  hideAnswers = false,
+  showAllOptions = false,
 }) {
   if (!items.length) {
     return <p className="text-xs text-muted-foreground py-6 text-center">Tidak ada soal yang cocok dengan filter pencarian.</p>;
@@ -475,7 +477,8 @@ export function QAList({
       {items.map((q, idx) => {
         const isSelected = idx === selIdx;
         const isCurrentPlaying = idx === playIdx;
-        const isExpanded = idx === expandedIdx && !!renderDetail;
+        // Jika hideAnswers = false (Tampilkan Semua Jawaban), semua nomor langsung terbuka
+        const isExpanded = (!hideAnswers || idx === expandedIdx) && !!renderDetail;
         const detailNode = isExpanded ? renderDetail(q, idx) : null;
 
         return (
@@ -597,6 +600,7 @@ export function QADetail({
   posLabel,
   ansFallback = 'Kunci Resmi',
   embedded = false,
+  showAllOptions = false,
 }) {
   const A = ACCENTS[accent] || ACCENTS.blue;
   if (!q) return null;
@@ -661,7 +665,7 @@ export function QADetail({
       <div className="border-t border-border/70 pt-3 space-y-2">
         <div className="flex flex-wrap items-center justify-between gap-2">
           <span className="text-[11px] font-bold uppercase tracking-wider text-emerald-700 dark:text-emerald-400">
-            {A.ansLabel}{activeOpt.label || ansFallback}
+            {A.ansLabel}{showAllOptions && q.answer_options?.length > 1 ? `Semua Pilihan Jawaban (${q.answer_options.length})` : (activeOpt.label || ansFallback)}
           </span>
 
           {!hidden && (
@@ -678,7 +682,7 @@ export function QADetail({
           )}
         </div>
 
-        {q.answer_options && q.answer_options.length > 1 && !hidden && (
+        {q.answer_options && q.answer_options.length > 1 && !hidden && !showAllOptions && (
           <div className="flex flex-wrap gap-1.5">
             {q.answer_options.map((opt, optIdx) => {
               const isSelected = (selOptIdx ?? 0) === optIdx;
@@ -710,6 +714,33 @@ export function QADetail({
               <EyeOff className="h-3.5 w-3.5 text-warn" />
               <span>Jawaban disembunyikan untuk hafalan. Ketuk untuk melihat</span>
             </span>
+          </div>
+        ) : showAllOptions && q.answer_options && q.answer_options.length > 1 ? (
+          <div className="space-y-2 pt-1">
+            {q.answer_options.map((opt, oi) => (
+              <div
+                key={oi}
+                onClick={() => onSelectOpt(oi)}
+                className={cn(
+                  'p-2.5 rounded-lg border transition-all cursor-pointer space-y-0.5',
+                  (selOptIdx ?? 0) === oi
+                    ? 'bg-emerald-500/10 border-emerald-500/40 dark:bg-emerald-950/20'
+                    : 'bg-secondary/40 border-border hover:border-border/80'
+                )}
+              >
+                <div className="flex items-center justify-between gap-1">
+                  <span className="text-[10px] font-bold text-primary">{opt.badge || opt.label}</span>
+                  {(selOptIdx ?? 0) === oi && (
+                    <span className="text-[10px] font-bold text-emerald-600 dark:text-emerald-400">✓ Dipilih</span>
+                  )}
+                </div>
+                <p className="text-sm sm:text-base font-bold font-kr text-foreground leading-snug break-keep">
+                  {opt.ko}
+                </p>
+                {opt.ro && <p className="text-xs text-muted-foreground font-mono">{opt.ro}</p>}
+                <p className="text-xs text-muted-foreground">{opt.id}</p>
+              </div>
+            ))}
           </div>
         ) : (
           <div className="space-y-1">
@@ -748,12 +779,14 @@ export function QAViewBar({
   onWithA,
   hideText = false,
   onToggleHideText,
+  showAllOptions = false,
+  onToggleShowAllOptions,
   visible,
   total,
 }) {
   const segBtn = (active) =>
     cn(
-      'px-3 py-1.5 rounded-md text-[11px] font-bold transition-all min-h-[30px]',
+      'px-3 py-1.5 rounded-md text-[11px] font-bold transition-all min-h-[30px] cursor-pointer',
       active
         ? 'bg-foreground text-background shadow-xs'
         : 'text-muted-foreground hover:text-foreground'
@@ -773,12 +806,25 @@ export function QAViewBar({
 
         <div className="inline-flex rounded-lg border border-border bg-card p-0.5 gap-0.5">
           <button type="button" onClick={onOnlyQ} className={segBtn(hideAnswers)}>
-            Hanya Soal (Tutup Jawaban)
+            🙈 Tutup Semua Jawaban
           </button>
           <button type="button" onClick={onWithA} className={segBtn(!hideAnswers)}>
-            Tampilkan Semua Jawaban
+            👁️ Buka Semua Jawaban
           </button>
         </div>
+
+        {onToggleShowAllOptions && (
+          <div className="inline-flex rounded-lg border border-border bg-card p-0.5 gap-0.5">
+            <button
+              type="button"
+              onClick={onToggleShowAllOptions}
+              className={segBtn(showAllOptions)}
+              title="Tampilkan seluruh variasi jawaban sekaligus (Mudah, Standar, Lengkap)"
+            >
+              {showAllOptions ? '👁️ Semua Opsi Terbuka' : '⚡ 1 Opsi Ringkas'}
+            </button>
+          </div>
+        )}
 
         {onToggleHideText && (
           <div className="inline-flex rounded-lg border border-border bg-card p-0.5 gap-0.5">

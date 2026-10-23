@@ -275,8 +275,9 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
   const [activeSampleIdx, setActiveSampleIdx] = useState(0);
   const [jagiSubTab, setJagiSubTab] = useState('generator');
   const [inspectRambu, setInspectRambu] = useState(null);
-  const [hideAllAnswers, setHideAllAnswers] = useState(true);
-  const [revealedCardAnswers, setRevealedCardAnswers] = useState({});
+  const [hideAllAnswers, setHideAllAnswers] = useState(false);
+  const [cardAnswerOverrides, setCardAnswerOverrides] = useState({});
+  const [showAllQAOptions, setShowAllQAOptions] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [playingAudio, setPlayingAudio] = useState(null);
   const [selectedOptionByCard, setSelectedOptionByCard] = useState({});
@@ -1377,17 +1378,24 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
   }, []);
 
   const isAnswerHidden = (cardId) => {
-    if (hideAllAnswers) {
-      return !revealedCardAnswers[cardId];
+    if (cardAnswerOverrides[cardId] !== undefined) {
+      return !cardAnswerOverrides[cardId]; // true means shown
     }
-    return revealedCardAnswers[cardId] === true;
+    return hideAllAnswers;
   };
 
   const toggleCardAnswer = (cardId) => {
-    setRevealedCardAnswers(prev => ({
+    const currentlyHidden = isAnswerHidden(cardId);
+    setCardAnswerOverrides(prev => ({
       ...prev,
-      [cardId]: !prev[cardId]
+      [cardId]: currentlyHidden // jika tadinya tersembunyi, jadikan terbuka (true)
     }));
+  };
+
+  const handleSetGlobalHideAll = (shouldHide) => {
+    setHideAllAnswers(shouldHide);
+    setCardAnswerOverrides({});
+    setIncludeAnswers(!shouldHide);
   };
 
   const subTabs = [
@@ -1562,12 +1570,9 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
           <div className="shrink-0 flex items-center gap-2">
             <Button
               size="sm"
-              variant={hideAllAnswers ? 'default' : 'outline'}
-              onClick={() => {
-                setHideAllAnswers(prev => !prev);
-                setRevealedCardAnswers({});
-              }}
-              className="gap-1.5 h-8 sm:h-9 text-xs font-semibold"
+              variant={hideAllAnswers ? 'outline' : 'default'}
+              onClick={() => handleSetGlobalHideAll(!hideAllAnswers)}
+              className="gap-1.5 h-8 sm:h-9 text-xs font-semibold cursor-pointer"
               title="Klik untuk membuka atau menyembunyikan seluruh kunci jawaban di semua kartu"
             >
               {hideAllAnswers ? <Eye className="h-4 w-4" /> : <EyeOff className="h-4 w-4" />}
@@ -1842,8 +1847,10 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
               if (v === 'single' && selK3 < 0) setSelK3(0);
             }}
             hideAnswers={!includeAnswers}
-            onOnlyQ={() => { setIncludeAnswers(false); setHideAllAnswers(true); setRevealedCardAnswers({}); }}
-            onWithA={() => { setIncludeAnswers(true); setHideAllAnswers(false); setRevealedCardAnswers({}); }}
+            onOnlyQ={() => handleSetGlobalHideAll(true)}
+            onWithA={() => handleSetGlobalHideAll(false)}
+            showAllOptions={showAllQAOptions}
+            onToggleShowAllOptions={() => setShowAllQAOptions(p => !p)}
             hideText={hideText}
             onToggleHideText={() => setHideText(p => !p)}
             visible={filteredK3.length}
@@ -1861,6 +1868,7 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
             subOf={(q) => q.topic || 'K3 Industri Pabrik'}
             expandedIdx={selK3Eff}
             hideAnswers={!includeAnswers}
+            showAllOptions={showAllQAOptions}
             renderDetail={(q, idx) => {
               const cardId = `k3_${q.id ?? idx}`;
               const activeOpt = getActiveOption(cardId, q.answer_options, q.answer_ko, q.answer_id);
@@ -1870,6 +1878,7 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
                   num={idx + 1}
                   cardId={cardId}
                   hidden={isAnswerHidden(cardId)}
+                  showAllOptions={showAllQAOptions}
                   activeOpt={activeOpt}
                   selOptIdx={selectedOptionByCard[cardId] ?? 0}
                   onSelectOpt={(oi) => setSelectedOptionByCard(prev => ({ ...prev, [cardId]: oi }))}
@@ -2020,8 +2029,10 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
               if (v === 'single' && selInt < 0) setSelInt(0);
             }}
             hideAnswers={!includeAnswers}
-            onOnlyQ={() => { setIncludeAnswers(false); setHideAllAnswers(true); setRevealedCardAnswers({}); }}
-            onWithA={() => { setIncludeAnswers(true); setHideAllAnswers(false); setRevealedCardAnswers({}); }}
+            onOnlyQ={() => handleSetGlobalHideAll(true)}
+            onWithA={() => handleSetGlobalHideAll(false)}
+            showAllOptions={showAllQAOptions}
+            onToggleShowAllOptions={() => setShowAllQAOptions(p => !p)}
             hideText={hideText}
             onToggleHideText={() => setHideText(p => !p)}
             visible={filteredInterview.length}
@@ -2039,6 +2050,7 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
             subOf={(q) => q.category_title || q.category}
             expandedIdx={selIntEff}
             hideAnswers={!includeAnswers}
+            showAllOptions={showAllQAOptions}
             renderDetail={(q, idx) => {
               const cardId = `int_${q.id ?? idx}`;
               const activeOpt = getActiveOption(cardId, q.answer_options, q.answer_ko, q.answer_id);
@@ -2048,6 +2060,7 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
                   num={idx + 1}
                   cardId={cardId}
                   hidden={isAnswerHidden(cardId)}
+                  showAllOptions={showAllQAOptions}
                   activeOpt={activeOpt}
                   selOptIdx={selectedOptionByCard[cardId] ?? 0}
                   onSelectOpt={(oi) => setSelectedOptionByCard(prev => ({ ...prev, [cardId]: oi }))}
@@ -3978,43 +3991,78 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
               </div>
             </div>
 
-            {/* Toolbar Opsi Jawaban Fungsi Alat */}
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 p-3 rounded-xl border border-border bg-secondary/30 text-xs">
-              <div className="flex items-center gap-2">
-                <Sparkles className="w-4 h-4 text-amber-500 shrink-0" />
-                <div>
-                  <span className="font-bold text-foreground">Pilihan Jawaban Fungsi Alat:</span>
-                  <p className="text-[11px] text-muted-foreground">Pilih tingkatan kalimat yang paling mudah & nyaman dihafalkan saat ujian</p>
+            {/* Toolbar Opsi Jawaban Fungsi Alat & Status Buka/Tutup Jawaban */}
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 p-3.5 rounded-xl border border-border bg-secondary/40 text-xs">
+              <div className="space-y-1">
+                <div className="flex items-center gap-2">
+                  <Sparkles className="w-4 h-4 text-amber-500 shrink-0" />
+                  <span className="font-bold text-foreground text-sm">Pilihan & Tampilan Jawaban Alat:</span>
                 </div>
+                <p className="text-[11px] text-muted-foreground">
+                  Buka/tutup seluruh jawaban untuk latihan uji mandiri atau tampilkan variasi jawaban yang paling mudah
+                </p>
               </div>
-              <div className="flex flex-wrap gap-1.5 shrink-0">
-                {[
-                  { id: 'mudah', label: '⚡ Super Mudah (2-3 Kata)', title: 'Pola kalimat pendek yang paling mudah diucapkan' },
-                  { id: 'standar', label: '⭐ Standar HRDK', title: 'Kalimat standar buku panduan HRD Korea' },
-                  { id: 'noun', label: '🔹 Bentuk 도구', title: 'Pola langsung menyebut jenis alat' },
-                  { id: 'all', label: '👁️ Tampilkan Semua', title: 'Tampilkan semua opsi sekaligus pada setiap kartu' },
-                ].map((opt) => (
+
+              <div className="flex flex-wrap items-center gap-2 shrink-0">
+                {/* Tombol Global Buka / Sembunyikan Semua Jawaban */}
+                <div className="inline-flex rounded-lg border border-border bg-card p-0.5 gap-0.5">
                   <button
-                    key={opt.id}
                     type="button"
-                    onClick={() => {
-                      setGlobalAlatUsageOption(opt.id);
-                      if (opt.id === 'all') {
-                        setHideAllAnswers(false);
-                        setRevealedCardAnswers({});
-                      }
-                    }}
-                    title={opt.title}
+                    onClick={() => handleSetGlobalHideAll(false)}
                     className={cn(
-                      'px-2.5 py-1.5 rounded-lg text-xs font-semibold border transition-all cursor-pointer',
-                      globalAlatUsageOption === opt.id
-                        ? 'bg-primary text-primary-foreground border-primary shadow-xs'
-                        : 'bg-card text-muted-foreground border-border hover:text-foreground hover:bg-secondary'
+                      'px-2.5 py-1.5 rounded-md text-[11px] font-bold transition-all cursor-pointer',
+                      !hideAllAnswers
+                        ? 'bg-foreground text-background shadow-xs'
+                        : 'text-muted-foreground hover:text-foreground'
                     )}
+                    title="Buka seluruh nama dan kegunaan pada 90 kartu alat"
                   >
-                    {opt.label}
+                    👁️ Buka Semua Jawaban
                   </button>
-                ))}
+                  <button
+                    type="button"
+                    onClick={() => handleSetGlobalHideAll(true)}
+                    className={cn(
+                      'px-2.5 py-1.5 rounded-md text-[11px] font-bold transition-all cursor-pointer',
+                      hideAllAnswers
+                        ? 'bg-foreground text-background shadow-xs'
+                        : 'text-muted-foreground hover:text-foreground'
+                    )}
+                    title="Tutup seluruh jawaban untuk latihan tebak nama & fungsi alat"
+                  >
+                    🙈 Tutup Semua Jawaban
+                  </button>
+                </div>
+
+                {/* Tombol Pilihan Format Jawaban */}
+                <div className="flex flex-wrap gap-1">
+                  {[
+                    { id: 'mudah', label: '⚡ Super Mudah', title: 'Pola kalimat pendek yang paling mudah diucapkan' },
+                    { id: 'standar', label: '⭐ Standar HRDK', title: 'Kalimat standar buku panduan HRD Korea' },
+                    { id: 'noun', label: '🔹 Bentuk 도구', title: 'Pola langsung menyebut jenis alat' },
+                    { id: 'all', label: '👁️ Semua Opsi', title: 'Tampilkan semua opsi sekaligus pada setiap kartu' },
+                  ].map((opt) => (
+                    <button
+                      key={opt.id}
+                      type="button"
+                      onClick={() => {
+                        setGlobalAlatUsageOption(opt.id);
+                        // Saat user memilih format opsi, langsung buka jawaban agar terlihat
+                        setHideAllAnswers(false);
+                        setCardAnswerOverrides({});
+                      }}
+                      title={opt.title}
+                      className={cn(
+                        'px-2.5 py-1.5 rounded-lg text-[11px] font-bold border transition-all cursor-pointer',
+                        globalAlatUsageOption === opt.id && !hideAllAnswers
+                          ? 'bg-primary text-primary-foreground border-primary shadow-xs'
+                          : 'bg-card text-muted-foreground border-border hover:text-foreground hover:bg-secondary'
+                      )}
+                    >
+                      {opt.label}
+                    </button>
+                  ))}
+                </div>
               </div>
             </div>
 
@@ -4090,9 +4138,20 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
                         </button>
                       ) : (
                         <div className="space-y-2">
-                          <p className="text-xs sm:text-sm font-bold text-emerald-700 dark:text-emerald-400">
-                            {item.title_id || item.answer_short_id}
-                          </p>
+                          <div className="flex items-center justify-between gap-1">
+                            <p className="text-xs sm:text-sm font-bold text-emerald-700 dark:text-emerald-400">
+                              {item.title_id || item.answer_short_id}
+                            </p>
+                            <button
+                              type="button"
+                              onClick={() => toggleCardAnswer(cardId)}
+                              className="text-[10px] text-muted-foreground hover:text-foreground flex items-center gap-0.5 cursor-pointer py-0.5 px-1.5 rounded hover:bg-secondary"
+                              title="Tutup jawaban kartu ini"
+                            >
+                              <EyeOff className="w-3 h-3" />
+                              <span>Tutup</span>
+                            </button>
+                          </div>
 
                           {currentOptKey === 'all' ? (
                             <div className="pt-1.5 border-t border-border/40 space-y-1.5">
