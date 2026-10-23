@@ -96,14 +96,36 @@ const JAGI_PENGALAMAN_OPTIONS = [
     idText: '',
   },
   {
-    id: 'belum',
-    label: 'Belum Ada Pengalaman Kerja (Siap Belajar Cepat)',
+    id: 'belum_cepat',
+    isBelum: true,
+    label: 'Belum Kerja 1: Siap Belajar Cepat & Semangat Tinggi',
     ko: '아직 공장 경험은 없지만 새로운 일을 빨리 배우고 열심히 일할 자신이 있습니다.',
     idText: 'Meskipun belum memiliki pengalaman pabrik, saya yakin bisa cepat belajar hal baru dan bekerja keras.',
   },
   {
+    id: 'belum_lulus',
+    isBelum: true,
+    label: 'Belum Kerja 2: Baru Lulus Sekolah & Fisik Prima',
+    ko: '학교를 졸업한 후에 아직 회사 경험은 없지만, 젊고 체력이 좋아서 어떤 일이든 잘할 수 있습니다.',
+    idText: 'Setelah lulus sekolah saya belum memiliki pengalaman perusahaan, tetapi karena muda dan fisik kuat saya bisa melakukan pekerjaan apa pun dengan baik.',
+  },
+  {
+    id: 'belum_ortu',
+    isBelum: true,
+    label: 'Belum Kerja 3: Terbiasa Membantu Orang Tua & Pekerja Keras',
+    ko: '공장 경험은 아직 없지만 집에서 부모님 일을 도우며 성실하고 부지런하게 일하는 습관을 길렀습니다.',
+    idText: 'Pengalaman pabrik memang belum ada, tetapi di rumah saya terbiasa membantu pekerjaan orang tua sehingga terbiasa bekerja rajin dan giat.',
+  },
+  {
+    id: 'belum_siap',
+    isBelum: true,
+    label: 'Belum Kerja 4: Sudah Persiapan Fisik & Bahasa Korea',
+    ko: '아직 공장 근무 경험은 없지만 한국에서 일하기 위해 한국어와 체력 운동을 열심히 준비했습니다.',
+    idText: 'Meskipun belum berpengalaman kerja di pabrik, demi bekerja di Korea saya telah mempersiapkan bahasa Korea dan latihan fisik dengan sungguh-sungguh.',
+  },
+  {
     id: 'pabrik',
-    label: 'Pernah Kerja di Pabrik / Manufaktur (제조업 공장)',
+    label: 'Pernah Kerja: Pabrik / Manufaktur (제조업 공장)',
     koWithYears: (yrKo, yrNum) => `전에는 제조업 공장에서 ${yrKo} 년 동안 성실하게 일한 경험이 있습니다.`,
     ko: '전에는 제조업 공장에서 성실하게 일한 경험이 있습니다.',
     idWithYears: (yrNum) => `Sebelumnya saya memiliki pengalaman bekerja dengan rajin di pabrik manufaktur selama ${yrNum} tahun.`,
@@ -111,7 +133,7 @@ const JAGI_PENGALAMAN_OPTIONS = [
   },
   {
     id: 'elektronik',
-    label: 'Pernah Kerja Perakitan / Elektronik (전자 제품 조립)',
+    label: 'Pernah Kerja: Perakitan / Elektronik (전자 제품 조립)',
     koWithYears: (yrKo, yrNum) => `전에는 전자 제품 조립 작업을 ${yrKo} 년 동안 했습니다.`,
     ko: '전에는 전자 제품 조립 및 포장 작업을 한 경험이 있습니다.',
     idWithYears: (yrNum) => `Sebelumnya saya bekerja di bagian perakitan produk elektronik selama ${yrNum} tahun.`,
@@ -119,7 +141,7 @@ const JAGI_PENGALAMAN_OPTIONS = [
   },
   {
     id: 'las_mesin',
-    label: 'Pernah Kerja Las & Mesin (용접 및 기계 조작)',
+    label: 'Pernah Kerja: Las & Mesin (용접 및 기계 조작)',
     koWithYears: (yrKo, yrNum) => `전에는 기계 조작과 용접 일을 ${yrKo} 년 동안 했습니다.`,
     ko: '전에는 공장에서 기계 조작과 용접 일을 한 경험이 있습니다.',
     idWithYears: (yrNum) => `Sebelumnya saya bekerja mengoperasikan mesin dan mengelas selama ${yrNum} tahun.`,
@@ -127,7 +149,7 @@ const JAGI_PENGALAMAN_OPTIONS = [
   },
   {
     id: 'konstruksi',
-    label: 'Pernah Kerja Konstruksi / Bangunan (건설 현장)',
+    label: 'Pernah Kerja: Konstruksi / Bangunan (건설 현장)',
     koWithYears: (yrKo, yrNum) => `전에는 건설 현장에서 ${yrKo} 년 동안 일한 경험이 있습니다.`,
     ko: '전에는 건설 현장에서 성실하게 일한 경험이 있습니다.',
     idWithYears: (yrNum) => `Sebelumnya saya berpengalaman bekerja di proyek konstruksi selama ${yrNum} tahun.`,
@@ -135,7 +157,7 @@ const JAGI_PENGALAMAN_OPTIONS = [
   },
   {
     id: 'pertanian',
-    label: 'Pernah Kerja Pertanian / Perkebunan (농장 작업)',
+    label: 'Pernah Kerja: Pertanian / Perkebunan (농장 작업)',
     koWithYears: (yrKo, yrNum) => `전에는 농장에서 ${yrKo} 년 동안 부지런히 일했습니다.`,
     ko: '전에는 농업과 야외 작업에서 부지런히 일한 경험이 있습니다.',
     idWithYears: (yrNum) => `Sebelumnya saya bekerja dengan giat di perkebunan/pertanian selama ${yrNum} tahun.`,
@@ -143,7 +165,7 @@ const JAGI_PENGALAMAN_OPTIONS = [
   },
   {
     id: 'otomotif',
-    label: 'Pernah Kerja Bengkel / Otomotif (자동차 정비)',
+    label: 'Pernah Kerja: Bengkel / Otomotif (자동차 정비)',
     koWithYears: (yrKo, yrNum) => `전에는 자동차 정비소에서 ${yrKo} 년 동안 일했습니다.`,
     ko: '전에는 자동차 정비와 부품 수리 일을 한 경험이 있습니다.',
     idWithYears: (yrNum) => `Sebelumnya saya bekerja di bengkel otomotif selama ${yrNum} tahun.`,
@@ -192,6 +214,44 @@ const JAGI_KELEBIHAN_OPTIONS = [
     label: 'Taat Aturan K3 & Kompak Bekerja Tim (안전 수칙/협동)',
     ko: '저는 안전 수칙을 철저히 지키고 동료들과 협동을 잘합니다.',
     idText: 'Saya mematuhi peraturan K3 dengan ketat dan bekerja sama dengan baik bersama rekan kerja.',
+  },
+];
+
+const JAGI_PENUTUP_OPTIONS = [
+  {
+    id: 'standar',
+    label: 'Penutup 1: Standar Sopan & Rajin (Paling Umum)',
+    ko: '한국에 가면 성실하고 열심히 일하겠습니다. 잘 부탁드립니다. 감사합니다!',
+    idText: 'Jika bekerja di Korea saya akan bekerja dengan rajin dan sungguh-sungguh. Mohon bimbingannya. Terima kasih!',
+    sec: 6,
+  },
+  {
+    id: 'k3',
+    label: 'Penutup 2: Fokus Disiplin K3 & Aturan Pabrik',
+    ko: '한국 회사에 들어가면 안전 수칙을 잘 지키고 성실하게 일하겠습니다. 감사합니다!',
+    idText: 'Jika masuk perusahaan Korea, saya akan mematuhi aturan K3 dengan baik dan bekerja dengan jujur. Terima kasih!',
+    sec: 6,
+  },
+  {
+    id: 'tanggung_jawab',
+    label: 'Penutup 3: Fokus Tanggung Jawab & Kontribusi',
+    ko: '기회를 주신다면 한국 회사의 발전을 위해 끝까지 책임감을 가지고 일하겠습니다. 감사합니다!',
+    idText: 'Jika diberi kesempatan, demi kemajuan perusahaan Korea saya akan bekerja penuh tanggung jawab sampai akhir. Terima kasih!',
+    sec: 7,
+  },
+  {
+    id: 'atasan_tim',
+    label: 'Penutup 4: Fokus Patuh Instruksi Atasan & Kerja Tim',
+    ko: '상사님의 지시를 잘 따르고 동료들과 협동하며 열심히 일하겠습니다. 잘 부탁드립니다. 감사합니다!',
+    idText: 'Saya akan mematuhi instruksi atasan dengan baik dan bekerja keras kompak bersama rekan kerja. Mohon bimbingannya. Terima kasih!',
+    sec: 7,
+  },
+  {
+    id: 'singkat',
+    label: 'Penutup 5: Singkat, Padat & Tegas (Hemat Waktu)',
+    ko: '한국에서 정말 열심히 일하겠습니다. 잘 부탁드립니다. 감사합니다!',
+    idText: 'Saya akan bekerja dengan sangat giat di Korea. Mohon bimbingannya. Terima kasih!',
+    sec: 5,
   },
 ];
 
@@ -245,12 +305,23 @@ export function StudyGuide({ onStartPracticeCategory }) {
     umur: '25',
     asal: '인도네시아',
     asalCustom: '',
+    tinggi: '',
+    berat: '',
     nikah: '아직 결혼하지 않았습니다',
+    keluargaMode: 'rincian', // 'rincian' | 'jumlah_saja' | 'none'
     keluarga: '4',
+    kelOrtu: 'ayah_ibu', // 'ayah_ibu' | '부모님' | 'ayah' | 'ibu' | 'none'
+    kelPasangan: 'none', // 'none' | 'istri' | 'suami'
+    kelAnak: '0',
+    kelKakakLk: '0',
+    kelKakakPr: '0',
+    kelAdikLk: '0',
+    kelAdikPr: '1',
     pengalaman: 'pabrik',
     lamaKerja: '2',
     hobi: '운동',
     kelebihan: 'fisik',
+    penutup: 'standar',
   });
   const [jagiActiveVariant, setJagiActiveVariant] = useState('ringkas');
   const [jagiCopiedKey, setJagiCopiedKey] = useState(null);
@@ -281,6 +352,16 @@ export function StudyGuide({ onStartPracticeCategory }) {
         (on > 0 ? DIGITS[on] : '')
       );
     }
+    if (n >= 100 && n <= 999) {
+      const hu = Math.floor(n / 100);
+      const te = Math.floor((n % 100) / 10);
+      const on = n % 10;
+      return (
+        (hu === 1 ? '백' : DIGITS[hu] + '백') +
+        (te > 0 ? (te === 1 ? '십' : DIGITS[te] + '십') : '') +
+        (on > 0 ? DIGITS[on] : '')
+      );
+    }
     if (n <= 99) {
       const te = Math.floor(n / 10);
       const on = n % 10;
@@ -303,11 +384,112 @@ export function StudyGuide({ onStartPracticeCategory }) {
     'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'
   ];
 
+  // Helper rincian keluarga (otomatis hitung jumlah & susun daftar anggota)
+  const buildFamilyInfo = (f) => {
+    if (f.keluargaMode === 'none') {
+      return { hasFamily: false, countNum: 0, countKo: '', membersKo: '', membersId: '', fullSeparateKo: '', fullSeparateId: '', fullCombinedKo: '', fullCombinedId: '' };
+    }
+    if (f.keluargaMode === 'jumlah_saja') {
+      const kNum = parseInt(f.keluarga, 10);
+      const kKo = nativeKo(kNum);
+      if (!kKo) return { hasFamily: false };
+      return {
+        hasFamily: true,
+        isDetailed: false,
+        countNum: kNum,
+        countKo: kKo,
+        fullSeparateKo: `우리 가족은 모두 ${kKo} 명입니다.`,
+        fullSeparateId: `Keluarga kami semuanya berjumlah ${kNum} orang.`,
+        fullCombinedKo: `우리 가족은 모두 ${kKo} 명입니다.`,
+        fullCombinedId: `Keluarga kami semuanya berjumlah ${kNum} orang.`,
+      };
+    }
+
+    // Mode 'rincian': susun daftar anggota keluarga + hitung total otomatis
+    const partsKo = [];
+    const partsId = [];
+    let total = 1; // diri sendiri (저)
+
+    if (f.kelOrtu === 'ayah_ibu') {
+      partsKo.push('아버지, 어머니');
+      partsId.push('Ayah, Ibu');
+      total += 2;
+    } else if (f.kelOrtu === '부모님') {
+      partsKo.push('부모님');
+      partsId.push('kedua orang tua');
+      total += 2;
+    } else if (f.kelOrtu === 'ayah') {
+      partsKo.push('아버지');
+      partsId.push('Ayah');
+      total += 1;
+    } else if (f.kelOrtu === 'ibu') {
+      partsKo.push('어머니');
+      partsId.push('Ibu');
+      total += 1;
+    }
+
+    if (f.kelPasangan === 'istri') {
+      partsKo.push('아내');
+      partsId.push('istri');
+      total += 1;
+    } else if (f.kelPasangan === 'suami') {
+      partsKo.push('남편');
+      partsId.push('suami');
+      total += 1;
+    }
+
+    const addMemberCount = (countStr, koWord, idWord) => {
+      const n = parseInt(countStr, 10);
+      if (n > 0) {
+        const nKo = nativeKo(n);
+        partsKo.push(`${koWord} ${nKo} 명`);
+        partsId.push(`${n} ${idWord}`);
+        total += n;
+      }
+    };
+
+    addMemberCount(f.kelKakakLk, '형', 'kakak laki-laki');
+    addMemberCount(f.kelKakakPr, '누나', 'kakak perempuan');
+    addMemberCount(f.kelAdikLk, '남동생', 'adik laki-laki');
+    addMemberCount(f.kelAdikPr, '여동생', 'adik perempuan');
+    addMemberCount(f.kelAnak, '아이', 'anak');
+
+    const totalKo = nativeKo(total) || '한';
+    if (partsKo.length === 0) {
+      return {
+        hasFamily: true,
+        isDetailed: false,
+        countNum: 1,
+        countKo: '한',
+        fullSeparateKo: '우리 가족은 저 한 명입니다.',
+        fullSeparateId: 'Keluarga saya hanya saya sendiri (1 orang).',
+        fullCombinedKo: '우리 가족은 저 한 명입니다.',
+        fullCombinedId: 'Keluarga saya hanya saya sendiri (1 orang).',
+      };
+    }
+
+    const listKo = `${partsKo.join(', ')}, 그리고 저`;
+    const listId = `${partsId.join(', ')}, dan saya`;
+
+    return {
+      hasFamily: true,
+      isDetailed: true,
+      countNum: total,
+      countKo: totalKo,
+      membersKo: listKo,
+      membersId: listId,
+      fullSeparateKo: `우리 가족은 모두 ${totalKo} 명입니다. ${listKo}입니다.`,
+      fullSeparateId: `Keluarga kami semuanya berjumlah ${total} orang. Terdiri dari ${listId}.`,
+      fullCombinedKo: `우리 가족은 ${listKo}까지 모두 ${totalKo} 명입니다.`,
+      fullCombinedId: `Keluarga kami terdiri dari ${listId}, semuanya berjumlah ${total} orang.`,
+    };
+  };
+
   const buildJagiVariants = () => {
     const f = jagiForm;
     const nama = (f.nama || '').trim() || 'OOO';
     const umurKo = nativeKo(f.umur);
-    const keluargaKo = nativeKo(f.keluarga);
+    const famInfo = buildFamilyInfo(f);
 
     // Tanggal lahir (opsional: bisa tahun saja, atau tahun+bulan+hari)
     const yr = parseInt(f.tglTahun, 10);
@@ -337,6 +519,28 @@ export function StudyGuide({ onStartPracticeCategory }) {
     const asalKoVal = f.asal === 'custom' ? (f.asalCustom || '').trim() : (asalOpt?.ko || '');
     const asalIdVal = f.asal === 'custom' ? (f.asalCustom || '').trim() : (asalOpt?.idText || '');
 
+    // Tinggi & Berat Badan (opsional)
+    const tbNum = parseInt(f.tinggi, 10);
+    const bbNum = parseInt(f.berat, 10);
+    const hasTb = tbNum >= 130 && tbNum <= 220;
+    const hasBb = bbNum >= 35 && bbNum <= 150;
+    let fisikBodyKo = '';
+    let fisikBodyNote = '';
+    let fisikBodyId = '';
+    if (hasTb && hasBb) {
+      fisikBodyKo = `제 키는 ${tbNum} 센티미터이고, 몸무게는 ${bbNum} 킬로그램입니다.`;
+      fisikBodyNote = `${tbNum}cm(${sinoKoNumber(tbNum)} 센티미터) / ${bbNum}kg(${sinoKoNumber(bbNum)} 킬로그램)`;
+      fisikBodyId = `Tinggi badan saya ${tbNum} cm, dan berat badan saya ${bbNum} kg.`;
+    } else if (hasTb) {
+      fisikBodyKo = `제 키는 ${tbNum} 센티미터입니다.`;
+      fisikBodyNote = `${tbNum}cm(${sinoKoNumber(tbNum)} 센티미터)`;
+      fisikBodyId = `Tinggi badan saya ${tbNum} cm.`;
+    } else if (hasBb) {
+      fisikBodyKo = `제 몸무게는 ${bbNum} 킬로그램입니다.`;
+      fisikBodyNote = `${bbNum}kg(${sinoKoNumber(bbNum)} 킬로그램)`;
+      fisikBodyId = `Berat badan saya ${bbNum} kg.`;
+    }
+
     // Status pernikahan (opsional)
     const hasNikah = f.nikah && f.nikah !== 'none';
     const nikahKoVal = f.nikah === '결혼했습니다' ? '결혼했습니다' : '아직 결혼하지 않았습니다';
@@ -348,10 +552,10 @@ export function StudyGuide({ onStartPracticeCategory }) {
     const lamaNum = parseInt(f.lamaKerja, 10);
     const lamaKo = nativeKo(lamaNum);
     const pengKo = hasPengalaman
-      ? (lamaKo && pengOpt.koWithYears ? pengOpt.koWithYears(lamaKo, lamaNum) : pengOpt.ko)
+      ? (!pengOpt.isBelum && lamaKo && pengOpt.koWithYears ? pengOpt.koWithYears(lamaKo, lamaNum) : pengOpt.ko)
       : '';
     const pengId = hasPengalaman
-      ? (lamaKo && pengOpt.idWithYears ? pengOpt.idWithYears(lamaNum) : pengOpt.idText)
+      ? (!pengOpt.isBelum && lamaKo && pengOpt.idWithYears ? pengOpt.idWithYears(lamaNum) : pengOpt.idText)
       : '';
 
     // Hobi (opsional)
@@ -361,6 +565,9 @@ export function StudyGuide({ onStartPracticeCategory }) {
     // Kelebihan (opsional)
     const kelOpt = JAGI_KELEBIHAN_OPTIONS.find((o) => o.id === f.kelebihan);
     const hasKelebihan = kelOpt && kelOpt.id !== 'none' && kelOpt.ko;
+
+    // Kalimat Penutup (pilihan)
+    const penutupOpt = JAGI_PENUTUP_OPTIONS.find((o) => o.id === f.penutup) || JAGI_PENUTUP_OPTIONS[0];
 
     // ==========================================
     // VARIASI 1: STANDAR & LUGAS (Per Kalimat Jelas)
@@ -403,6 +610,15 @@ export function StudyGuide({ onStartPracticeCategory }) {
         sec: 3,
       });
     }
+    if (fisikBodyKo) {
+      v1.push({
+        title: 'Tinggi & Berat Badan',
+        ko: fisikBodyKo,
+        note: fisikBodyNote,
+        id: fisikBodyId,
+        sec: 4,
+      });
+    }
     if (hasNikah) {
       v1.push({
         title: 'Status Pernikahan',
@@ -411,12 +627,12 @@ export function StudyGuide({ onStartPracticeCategory }) {
         sec: 3,
       });
     }
-    if (keluargaKo) {
+    if (famInfo.hasFamily) {
       v1.push({
-        title: 'Jumlah Keluarga',
-        ko: `우리 가족은 모두 ${keluargaKo} 명입니다.`,
-        id: `Keluarga kami semuanya berjumlah ${f.keluarga} orang.`,
-        sec: 4,
+        title: famInfo.isDetailed ? 'Jumlah & Rincian Keluarga' : 'Jumlah Keluarga',
+        ko: famInfo.fullSeparateKo,
+        id: famInfo.fullSeparateId,
+        sec: famInfo.isDetailed ? 6 : 4,
       });
     }
     if (hasPengalaman) {
@@ -445,9 +661,9 @@ export function StudyGuide({ onStartPracticeCategory }) {
     }
     v1.push({
       title: 'Komitmen & Penutup',
-      ko: '한국에 가면 성실하고 열심히 일하겠습니다. 잘 부탁드립니다. 감사합니다!',
-      id: 'Jika bekerja di Korea saya akan bekerja dengan rajin dan sungguh-sungguh. Mohon bimbingannya. Terima kasih!',
-      sec: 6,
+      ko: penutupOpt.ko,
+      id: penutupOpt.idText,
+      sec: penutupOpt.sec,
     });
 
     // ==========================================
@@ -501,20 +717,39 @@ export function StudyGuide({ onStartPracticeCategory }) {
       v2.push({ title: 'Asal Daerah', ko: `저는 ${asalKoVal}에서 왔습니다.`, id: `Saya berasal dari ${asalIdVal}.`, sec: 3 });
     }
 
-    // Gabungkan Keluarga & Status Nikah secara adaptif
-    if (keluargaKo && hasNikah) {
+    if (fisikBodyKo) {
       v2.push({
-        title: 'Keluarga & Status Pernikahan',
-        ko: `우리 가족은 ${keluargaKo} 명이고, 저는 ${nikahKoVal}.`,
-        id: `Keluarga kami berjumlah ${f.keluarga} orang, dan saya ${nikahIdVal}.`,
-        sec: 5,
-      });
-    } else if (keluargaKo) {
-      v2.push({
-        title: 'Jumlah Keluarga',
-        ko: `우리 가족은 모두 ${keluargaKo} 명입니다.`,
-        id: `Keluarga kami semuanya berjumlah ${f.keluarga} orang.`,
+        title: 'Postur Tinggi & Berat Badan',
+        ko: fisikBodyKo,
+        note: fisikBodyNote,
+        id: fisikBodyId,
         sec: 4,
+      });
+    }
+
+    // Gabungkan Keluarga & Status Nikah secara adaptif
+    if (famInfo.hasFamily && hasNikah) {
+      if (famInfo.isDetailed) {
+        v2.push({
+          title: 'Status Pernikahan & Rincian Keluarga',
+          ko: `저는 ${nikahKoVal}. ${famInfo.fullCombinedKo}`,
+          id: `Saya ${nikahIdVal}. ${famInfo.fullCombinedId}`,
+          sec: 7,
+        });
+      } else {
+        v2.push({
+          title: 'Keluarga & Status Pernikahan',
+          ko: `우리 가족은 ${famInfo.countKo} 명이고, 저는 ${nikahKoVal}.`,
+          id: `Keluarga kami berjumlah ${famInfo.countNum} orang, dan saya ${nikahIdVal}.`,
+          sec: 5,
+        });
+      }
+    } else if (famInfo.hasFamily) {
+      v2.push({
+        title: famInfo.isDetailed ? 'Rincian Anggota Keluarga' : 'Jumlah Keluarga',
+        ko: famInfo.fullCombinedKo,
+        id: famInfo.fullCombinedId,
+        sec: famInfo.isDetailed ? 6 : 4,
       });
     } else if (hasNikah) {
       v2.push({
@@ -560,9 +795,9 @@ export function StudyGuide({ onStartPracticeCategory }) {
 
     v2.push({
       title: 'Komitmen & Penutup',
-      ko: '한국에 가면 성실하고 열심히 일하겠습니다. 잘 부탁드립니다. 감사합니다!',
-      id: 'Jika bekerja di Korea saya akan bekerja dengan rajin dan sungguh-sungguh. Mohon bimbingannya. Terima kasih!',
-      sec: 6,
+      ko: penutupOpt.ko,
+      id: penutupOpt.idText,
+      sec: penutupOpt.sec,
     });
 
     // ==========================================
@@ -592,32 +827,44 @@ export function StudyGuide({ onStartPracticeCategory }) {
       bioKoParts.push(`저는 ${asalKoVal}에서 왔습니다.`);
       bioIdParts.push(`Saya berasal dari ${asalIdVal}.`);
     }
+    if (fisikBodyKo) {
+      bioKoParts.push(fisikBodyKo);
+      bioIdParts.push(fisikBodyId);
+    }
+    const combinedBioNotes = [tglKoPart, fisikBodyNote].filter(Boolean).join(' | ');
     if (bioKoParts.length > 0) {
       v3.push({
-        title: 'Profil & Identitas Diri',
+        title: 'Profil & Postur Tubuh',
         ko: bioKoParts.join(' '),
-        note: tglKoPart || undefined,
+        note: combinedBioNotes || undefined,
         id: bioIdParts.join(' '),
         sec: bioKoParts.length * 4,
       });
     }
 
-    if (hasNikah || keluargaKo) {
-      const famKo = keluargaKo && hasNikah
-        ? `저는 ${nikahKoVal === '결혼했습니다' ? '결혼했고' : '아직 미혼이고'}, 가족은 모두 ${keluargaKo} 명입니다.`
-        : hasNikah
-        ? `저는 ${nikahKoVal}.`
-        : `우리 가족은 모두 ${keluargaKo} 명입니다.`;
-      const famId = keluargaKo && hasNikah
-        ? `Saya ${nikahIdVal}, dan keluarga kami semuanya berjumlah ${f.keluarga} orang.`
-        : hasNikah
-        ? `Saya ${nikahIdVal}.`
-        : `Keluarga kami semuanya berjumlah ${f.keluarga} orang.`;
+    if (hasNikah || famInfo.hasFamily) {
+      let famKo = '';
+      let famId = '';
+      if (famInfo.hasFamily && hasNikah) {
+        if (famInfo.isDetailed) {
+          famKo = `저는 ${nikahKoVal === '결혼했습니다' ? '결혼했고' : '아직 미혼이고'}, 가족은 ${famInfo.membersKo}까지 모두 ${famInfo.countKo} 명입니다.`;
+          famId = `Saya ${nikahIdVal}, dan keluarga kami terdiri dari ${famInfo.membersId}, semuanya ${famInfo.countNum} orang.`;
+        } else {
+          famKo = `저는 ${nikahKoVal === '결혼했습니다' ? '결혼했고' : '아직 미혼이고'}, 가족은 모두 ${famInfo.countKo} 명입니다.`;
+          famId = `Saya ${nikahIdVal}, dan keluarga kami semuanya berjumlah ${famInfo.countNum} orang.`;
+        }
+      } else if (hasNikah) {
+        famKo = `저는 ${nikahKoVal}.`;
+        famId = `Saya ${nikahIdVal}.`;
+      } else {
+        famKo = famInfo.fullCombinedKo;
+        famId = famInfo.fullCombinedId;
+      }
       v3.push({
         title: 'Status & Keluarga',
         ko: famKo,
         id: famId,
-        sec: 4,
+        sec: famInfo.isDetailed ? 6 : 4,
       });
     }
 
@@ -650,10 +897,10 @@ export function StudyGuide({ onStartPracticeCategory }) {
     }
 
     v3.push({
-      title: 'Janji Disiplin K3 & Penutup',
-      ko: '한국 회사에 들어가면 안전 수칙을 잘 지키고 성실하게 일하겠습니다. 감사합니다!',
-      id: 'Jika masuk perusahaan Korea, saya akan mematuhi aturan keselamatan kerja dan bekerja dengan jujur. Terima kasih!',
-      sec: 6,
+      title: 'Komitmen & Penutup',
+      ko: penutupOpt.ko,
+      id: penutupOpt.idText,
+      sec: penutupOpt.sec,
     });
 
     const formatVariant = (id, label, badge, desc, list) => {
@@ -1955,12 +2202,15 @@ export function StudyGuide({ onStartPracticeCategory }) {
                           tglHari: '',
                           umur: '25',
                           asal: '인도네시아',
+                          tinggi: '',
+                          berat: '',
                           nikah: '아직 결혼하지 않았습니다',
-                          keluarga: '',
+                          keluargaMode: 'none',
                           pengalaman: 'none',
                           lamaKerja: '',
                           hobi: 'none',
                           kelebihan: 'fisik',
+                          penutup: 'singkat',
                         })
                       }
                       className="px-2.5 py-1 rounded-md border border-border bg-secondary hover:bg-secondary/80 text-[11px] font-semibold text-foreground cursor-pointer transition-colors"
@@ -1972,17 +2222,59 @@ export function StudyGuide({ onStartPracticeCategory }) {
                       onClick={() =>
                         setJagiForm({
                           ...jagiForm,
+                          tglTahun: '',
+                          tglBulan: '',
+                          tglHari: '',
+                          umur: '22',
+                          asal: '인도네시아',
+                          tinggi: '170',
+                          berat: '62',
+                          nikah: '아직 결혼하지 않았습니다',
+                          keluargaMode: 'rincian',
+                          kelOrtu: 'ayah_ibu',
+                          kelPasangan: 'none',
+                          kelAnak: '0',
+                          kelKakakLk: '0',
+                          kelKakakPr: '0',
+                          kelAdikLk: '0',
+                          kelAdikPr: '1',
+                          pengalaman: 'belum_cepat',
+                          lamaKerja: '',
+                          hobi: '운동',
+                          kelebihan: 'cepat',
+                          penutup: 'standar',
+                        })
+                      }
+                      className="px-2.5 py-1 rounded-md border border-border bg-secondary hover:bg-secondary/80 text-[11px] font-semibold text-foreground cursor-pointer transition-colors"
+                    >
+                      Preset Belum Kerja
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() =>
+                        setJagiForm({
+                          ...jagiForm,
                           tglTahun: '1999',
                           tglBulan: '8',
                           tglHari: '17',
                           umur: '25',
                           asal: '인도네시아 자바',
+                          tinggi: '170',
+                          berat: '65',
                           nikah: '아직 결혼하지 않았습니다',
-                          keluarga: '4',
+                          keluargaMode: 'rincian',
+                          kelOrtu: 'ayah_ibu',
+                          kelPasangan: 'none',
+                          kelAnak: '0',
+                          kelKakakLk: '0',
+                          kelKakakPr: '0',
+                          kelAdikLk: '1',
+                          kelAdikPr: '1',
                           pengalaman: 'pabrik',
                           lamaKerja: '2',
                           hobi: '운동',
                           kelebihan: 'fisik',
+                          penutup: 'k3',
                         })
                       }
                       className="px-2.5 py-1 rounded-md border border-border bg-secondary hover:bg-secondary/80 text-[11px] font-semibold text-foreground cursor-pointer transition-colors"
@@ -2123,11 +2415,51 @@ export function StudyGuide({ onStartPracticeCategory }) {
                     </div>
                   </div>
 
-                  {/* 5. Status Pernikahan (Opsional) */}
+                  {/* 5. Tinggi & Berat Badan (Opsional) */}
                   <div className="space-y-1">
                     <div className="flex items-center justify-between">
                       <label className="text-[11px] font-bold text-muted-foreground uppercase">
-                        5. Status Pernikahan
+                        5. Tinggi (cm) & Berat (kg)
+                      </label>
+                      {jagiForm.tinggi || jagiForm.berat ? (
+                        <button
+                          type="button"
+                          onClick={() => setJagiForm({ ...jagiForm, tinggi: '', berat: '' })}
+                          className="text-[10px] font-semibold text-rose-600 dark:text-rose-400 hover:underline cursor-pointer"
+                        >
+                          Kosongkan
+                        </button>
+                      ) : (
+                        <span className="text-[10px] text-muted-foreground">Opsional</span>
+                      )}
+                    </div>
+                    <div className="grid grid-cols-2 gap-1.5">
+                      <input
+                        type="number"
+                        min={130}
+                        max={210}
+                        value={jagiForm.tinggi}
+                        onChange={(e) => setJagiForm({ ...jagiForm, tinggi: e.target.value })}
+                        placeholder="Tinggi cm (170)"
+                        className="w-full px-2.5 py-2 text-xs sm:text-sm bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/30 text-foreground"
+                      />
+                      <input
+                        type="number"
+                        min={35}
+                        max={130}
+                        value={jagiForm.berat}
+                        onChange={(e) => setJagiForm({ ...jagiForm, berat: e.target.value })}
+                        placeholder="Berat kg (65)"
+                        className="w-full px-2.5 py-2 text-xs sm:text-sm bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/30 text-foreground"
+                      />
+                    </div>
+                  </div>
+
+                  {/* 6. Status Pernikahan (Opsional) */}
+                  <div className="space-y-1">
+                    <div className="flex items-center justify-between">
+                      <label className="text-[11px] font-bold text-muted-foreground uppercase">
+                        6. Status Pernikahan
                       </label>
                       <span className="text-[10px] text-muted-foreground">Opsional</span>
                     </div>
@@ -2142,42 +2474,13 @@ export function StudyGuide({ onStartPracticeCategory }) {
                     </select>
                   </div>
 
-                  {/* 6. Jumlah Anggota Keluarga (Opsional) */}
+                  {/* 7. Pengalaman Kerja / Belum Bekerja (Opsional) */}
                   <div className="space-y-1">
                     <div className="flex items-center justify-between">
                       <label className="text-[11px] font-bold text-muted-foreground uppercase">
-                        6. Jumlah Keluarga (Orang)
+                        7. Pengalaman / Belum Kerja
                       </label>
-                      {jagiForm.keluarga ? (
-                        <button
-                          type="button"
-                          onClick={() => setJagiForm({ ...jagiForm, keluarga: '' })}
-                          className="text-[10px] font-semibold text-rose-600 dark:text-rose-400 hover:underline cursor-pointer"
-                        >
-                          Kosongkan ({nativeKo(jagiForm.keluarga)} 명)
-                        </button>
-                      ) : (
-                        <span className="text-[10px] text-muted-foreground">Dikosongkan</span>
-                      )}
-                    </div>
-                    <input
-                      type="number"
-                      min={1}
-                      max={15}
-                      value={jagiForm.keluarga}
-                      onChange={(e) => setJagiForm({ ...jagiForm, keluarga: e.target.value })}
-                      placeholder="Kosongkan jika tidak disebut"
-                      className="w-full px-3 py-2 text-xs sm:text-sm bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/30 text-foreground"
-                    />
-                  </div>
-
-                  {/* 7. Pengalaman Kerja & Lama Tahun (Opsional) */}
-                  <div className="space-y-1">
-                    <div className="flex items-center justify-between">
-                      <label className="text-[11px] font-bold text-muted-foreground uppercase">
-                        7. Pengalaman Kerja
-                      </label>
-                      <span className="text-[10px] text-muted-foreground">Opsional</span>
+                      <span className="text-[10px] text-muted-foreground">4 Opsi Belum + 6 Pernah</span>
                     </div>
                     <div className="flex gap-1.5">
                       <select
@@ -2191,7 +2494,7 @@ export function StudyGuide({ onStartPracticeCategory }) {
                           </option>
                         ))}
                       </select>
-                      {jagiForm.pengalaman !== 'none' && jagiForm.pengalaman !== 'belum' && (
+                      {jagiForm.pengalaman !== 'none' && !jagiForm.pengalaman.startsWith('belum') && (
                         <input
                           type="number"
                           min={1}
@@ -2246,6 +2549,202 @@ export function StudyGuide({ onStartPracticeCategory }) {
                         </option>
                       ))}
                     </select>
+                  </div>
+
+                  {/* 10. Pilihan Kalimat Penutup */}
+                  <div className="space-y-1 sm:col-span-2 lg:col-span-3">
+                    <div className="flex items-center justify-between">
+                      <label className="text-[11px] font-bold text-muted-foreground uppercase">
+                        10. Pilihan Kalimat Penutup & Janji Komitmen (마무리 인사)
+                      </label>
+                      <span className="text-[10px] font-semibold text-primary">5 Variasi Penutup</span>
+                    </div>
+                    <select
+                      value={jagiForm.penutup}
+                      onChange={(e) => setJagiForm({ ...jagiForm, penutup: e.target.value })}
+                      className="w-full px-3 py-2 text-xs sm:text-sm bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/30 text-foreground"
+                    >
+                      {JAGI_PENUTUP_OPTIONS.map((opt) => (
+                        <option key={opt.id} value={opt.id}>
+                          {opt.label} ({opt.ko})
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+
+                  {/* 11. Jumlah & Rincian Anggota Keluarga (Opsional) */}
+                  <div className="space-y-2.5 sm:col-span-2 lg:col-span-3 pt-2 border-t border-border">
+                    <div className="flex flex-wrap items-center justify-between gap-2">
+                      <div>
+                        <label className="text-[11px] font-bold text-muted-foreground uppercase">
+                          11. Jumlah & Susunan Anggota Keluarga (가족 관계)
+                        </label>
+                        <p className="text-[11px] text-muted-foreground">
+                          Bisa sebut rincian siapa saja (Ayah, Ibu, Kakak, Adik, Pasangan, Anak, dan Saya), sebut total orangnya saja, atau dikosongkan.
+                        </p>
+                      </div>
+                      <select
+                        value={jagiForm.keluargaMode}
+                        onChange={(e) => setJagiForm({ ...jagiForm, keluargaMode: e.target.value })}
+                        className="px-3 py-1.5 text-xs font-semibold bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/30 text-foreground"
+                      >
+                        <option value="rincian">Sebut Jumlah + Rincian Anggota (Ayah, Ibu, Adik, dll)</option>
+                        <option value="jumlah_saja">Sebut Jumlah Total Saja (Tanpa Rincian)</option>
+                        <option value="none">-- Kosongkan / Tidak Disebutkan --</option>
+                      </select>
+                    </div>
+
+                    {jagiForm.keluargaMode === 'jumlah_saja' && (
+                      <div className="flex flex-wrap items-center gap-3 pt-1">
+                        <span className="text-xs font-semibold text-foreground">Total Anggota Keluarga (Orang):</span>
+                        <input
+                          type="number"
+                          min={1}
+                          max={15}
+                          value={jagiForm.keluarga}
+                          onChange={(e) => setJagiForm({ ...jagiForm, keluarga: e.target.value })}
+                          className="w-24 px-3 py-1.5 text-xs sm:text-sm bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/30 text-foreground"
+                        />
+                        {jagiForm.keluarga && (
+                          <span className="text-xs font-bold text-primary">
+                            우리 가족은 모두 {nativeKo(jagiForm.keluarga)} 명입니다 ({jagiForm.keluarga} orang)
+                          </span>
+                        )}
+                      </div>
+                    )}
+
+                    {jagiForm.keluargaMode === 'rincian' && (
+                      <div className="space-y-2.5 pt-1">
+                        <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-2">
+                          <div className="space-y-1 col-span-2 sm:col-span-2 lg:col-span-2">
+                            <label className="text-[10px] font-bold text-muted-foreground uppercase">
+                              Orang Tua
+                            </label>
+                            <select
+                              value={jagiForm.kelOrtu}
+                              onChange={(e) => setJagiForm({ ...jagiForm, kelOrtu: e.target.value })}
+                              className="w-full px-2.5 py-1.5 text-xs bg-background border border-border rounded-lg text-foreground"
+                            >
+                              <option value="ayah_ibu">Ayah & Ibu (아버지, 어머니)</option>
+                              <option value="부모님">Kedua Ortu (부모님)</option>
+                              <option value="ayah">Ayah Saja (아버지)</option>
+                              <option value="ibu">Ibu Saja (어머니)</option>
+                              <option value="none">Tidak Disebut</option>
+                            </select>
+                          </div>
+
+                          <div className="space-y-1">
+                            <label className="text-[10px] font-bold text-muted-foreground uppercase">
+                              Pasangan
+                            </label>
+                            <select
+                              value={jagiForm.kelPasangan}
+                              onChange={(e) => setJagiForm({ ...jagiForm, kelPasangan: e.target.value })}
+                              className="w-full px-2.5 py-1.5 text-xs bg-background border border-border rounded-lg text-foreground"
+                            >
+                              <option value="none">Tidak Ada</option>
+                              <option value="istri">Istri (아내)</option>
+                              <option value="suami">Suami (남편)</option>
+                            </select>
+                          </div>
+
+                          <div className="space-y-1">
+                            <label className="text-[10px] font-bold text-muted-foreground uppercase">
+                              Kakak Lk (형)
+                            </label>
+                            <select
+                              value={jagiForm.kelKakakLk}
+                              onChange={(e) => setJagiForm({ ...jagiForm, kelKakakLk: e.target.value })}
+                              className="w-full px-2.5 py-1.5 text-xs bg-background border border-border rounded-lg text-foreground"
+                            >
+                              {[0, 1, 2, 3, 4].map((n) => (
+                                <option key={n} value={String(n)}>
+                                  {n === 0 ? '0 (Tidak ada)' : `${n} orang (${nativeKo(n)} 명)`}
+                                </option>
+                              ))}
+                            </select>
+                          </div>
+
+                          <div className="space-y-1">
+                            <label className="text-[10px] font-bold text-muted-foreground uppercase">
+                              Kakak Pr (누나)
+                            </label>
+                            <select
+                              value={jagiForm.kelKakakPr}
+                              onChange={(e) => setJagiForm({ ...jagiForm, kelKakakPr: e.target.value })}
+                              className="w-full px-2.5 py-1.5 text-xs bg-background border border-border rounded-lg text-foreground"
+                            >
+                              {[0, 1, 2, 3, 4].map((n) => (
+                                <option key={n} value={String(n)}>
+                                  {n === 0 ? '0 (Tidak ada)' : `${n} orang (${nativeKo(n)} 명)`}
+                                </option>
+                              ))}
+                            </select>
+                          </div>
+
+                          <div className="space-y-1">
+                            <label className="text-[10px] font-bold text-muted-foreground uppercase">
+                              Adik Lk (남동생)
+                            </label>
+                            <select
+                              value={jagiForm.kelAdikLk}
+                              onChange={(e) => setJagiForm({ ...jagiForm, kelAdikLk: e.target.value })}
+                              className="w-full px-2.5 py-1.5 text-xs bg-background border border-border rounded-lg text-foreground"
+                            >
+                              {[0, 1, 2, 3, 4].map((n) => (
+                                <option key={n} value={String(n)}>
+                                  {n === 0 ? '0 (Tidak ada)' : `${n} orang (${nativeKo(n)} 명)`}
+                                </option>
+                              ))}
+                            </select>
+                          </div>
+
+                          <div className="space-y-1">
+                            <label className="text-[10px] font-bold text-muted-foreground uppercase">
+                              Adik Pr (여동생)
+                            </label>
+                            <select
+                              value={jagiForm.kelAdikPr}
+                              onChange={(e) => setJagiForm({ ...jagiForm, kelAdikPr: e.target.value })}
+                              className="w-full px-2.5 py-1.5 text-xs bg-background border border-border rounded-lg text-foreground"
+                            >
+                              {[0, 1, 2, 3, 4].map((n) => (
+                                <option key={n} value={String(n)}>
+                                  {n === 0 ? '0 (Tidak ada)' : `${n} orang (${nativeKo(n)} 명)`}
+                                </option>
+                              ))}
+                            </select>
+                          </div>
+                        </div>
+
+                        <div className="flex flex-wrap items-center justify-between gap-2 pt-1">
+                          <div className="flex items-center gap-2">
+                            <label className="text-[10px] font-bold text-muted-foreground uppercase">
+                              Anak (아이):
+                            </label>
+                            <select
+                              value={jagiForm.kelAnak}
+                              onChange={(e) => setJagiForm({ ...jagiForm, kelAnak: e.target.value })}
+                              className="px-2.5 py-1 text-xs bg-background border border-border rounded-lg text-foreground"
+                            >
+                              {[0, 1, 2, 3, 4].map((n) => (
+                                <option key={n} value={String(n)}>
+                                  {n === 0 ? '0 (Belum/Tidak ada)' : `${n} anak (아이 ${nativeKo(n)} 명)`}
+                                </option>
+                              ))}
+                            </select>
+                          </div>
+                          {(() => {
+                            const previewFam = buildFamilyInfo(jagiForm);
+                            return (
+                              <span className="text-xs font-bold text-primary">
+                                Otomatis Dihitung (+ Saya): Total {previewFam.countNum} Orang ({previewFam.countKo} 명) → {previewFam.fullCombinedKo}
+                              </span>
+                            );
+                          })()}
+                        </div>
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>
