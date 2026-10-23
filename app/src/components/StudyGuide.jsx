@@ -6,7 +6,7 @@ import {
   Calendar, Clock, Hash, Palette, Users, UserCheck,
   Factory, Wrench, AlertTriangle,
   Activity, ChevronRight, ShieldAlert, Image, Copy, Play, Pause,
-  X, Maximize2
+  X, Maximize2, Award
 } from 'lucide-react';
 import { getAssetUrl } from '../utils/assetHelper.js';
 import { HRDK_MODULES } from '../utils/categoryGroups.js';
