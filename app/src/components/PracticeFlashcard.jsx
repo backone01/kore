@@ -205,8 +205,8 @@ export function PracticeFlashcard({
             (() => {
               const hasOptions = currentQ?.answer_options && currentQ.answer_options.length > 1;
               const activeOpt = hasOptions ? currentQ.answer_options[selectedOptionIndex] || currentQ.answer_options[0] : null;
-              const displayKo = activeOpt ? activeOpt.ko : answerKo;
-              const displayId = activeOpt ? activeOpt.id : answerId;
+              const displayKo = activeOpt ? (activeOpt.ko || activeOpt.answer_ko) : answerKo;
+              const displayId = activeOpt ? (activeOpt.id || activeOpt.answer_id) : answerId;
 
               return (
                 <div className="space-y-3 w-full max-w-md mx-auto animate-fade-in">

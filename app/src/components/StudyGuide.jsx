@@ -287,6 +287,8 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
   const [cmdFilter, setCmdFilter] = useState('all');
   const [pikGroup, setPikGroup] = useState('all');
   const [alatGroup, setAlatGroup] = useState('all');
+  const [globalAlatUsageOption, setGlobalAlatUsageOption] = useState('mudah');
+  const [cardUsageOptions, setCardUsageOptions] = useState({});
   const [selK3, setSelK3] = useState(0);
   const [selInt, setSelInt] = useState(0);
   const [qaView, setQaView] = useState({});
@@ -3847,7 +3849,8 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
           if (alatGroup === 'apd' && !(item.level === 'Wajib' || item.category === 'alat_klasik')) return false;
           if (searchQuery.trim()) {
             const q = searchQuery.toLowerCase();
-            return `${item.title_ko || ''} ${item.title_id || ''} ${item.answer_short_ko || ''} ${item.answer_short_id || ''} ${item.usage_short_ko || ''} ${item.usage_short_id || ''}`.toLowerCase().includes(q);
+            const optTexts = (item.usage_options || []).map((o) => `${o.ko} ${o.id}`).join(' ');
+            return `${item.title_ko || ''} ${item.title_id || ''} ${item.answer_short_ko || ''} ${item.answer_short_id || ''} ${item.usage_short_ko || ''} ${item.usage_short_id || ''} ${optTexts}`.toLowerCase().includes(q);
           }
           return true;
         });
@@ -3926,13 +3929,52 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
               </div>
             </div>
 
+            {/* Toolbar Opsi Jawaban Fungsi Alat */}
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 p-3 rounded-xl border border-border bg-secondary/30 text-xs">
+              <div className="flex items-center gap-2">
+                <Sparkles className="w-4 h-4 text-amber-500 shrink-0" />
+                <div>
+                  <span className="font-bold text-foreground">Pilihan Jawaban Fungsi Alat:</span>
+                  <p className="text-[11px] text-muted-foreground">Pilih tingkatan kalimat yang paling mudah & nyaman dihafalkan saat ujian</p>
+                </div>
+              </div>
+              <div className="flex flex-wrap gap-1.5 shrink-0">
+                {[
+                  { id: 'mudah', label: '⚡ Super Mudah (2-3 Kata)', title: 'Pola kalimat pendek yang paling mudah diucapkan' },
+                  { id: 'standar', label: '⭐ Standar HRDK', title: 'Kalimat standar buku panduan HRD Korea' },
+                  { id: 'noun', label: '🔹 Bentuk 도구', title: 'Pola langsung menyebut jenis alat' },
+                  { id: 'all', label: '👁️ Tampilkan Semua', title: 'Tampilkan semua opsi sekaligus pada setiap kartu' },
+                ].map((opt) => (
+                  <button
+                    key={opt.id}
+                    type="button"
+                    onClick={() => setGlobalAlatUsageOption(opt.id)}
+                    title={opt.title}
+                    className={cn(
+                      'px-2.5 py-1.5 rounded-lg text-xs font-semibold border transition-all cursor-pointer',
+                      globalAlatUsageOption === opt.id
+                        ? 'bg-primary text-primary-foreground border-primary shadow-xs'
+                        : 'bg-card text-muted-foreground border-border hover:text-foreground hover:bg-secondary'
+                    )}
+                  >
+                    {opt.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
               {filteredAlatList.map((item) => {
                 const cardId = `alat_${item.id}`;
                 const hidden = isAnswerHidden(cardId);
                 const usageObj = studyData.manufacturing?.tool_usages_catalog?.[item.id];
-                const usageKo = item.usage_short_ko || usageObj?.usage_short_ko;
-                const usageId = item.usage_short_id || usageObj?.usage_short_id;
+                const usageOptions = item.usage_options || usageObj?.usage_options || [
+                  { key: 'mudah', badge: '⚡ Super Mudah', label: 'Paling Mudah', ko: item.usage_short_ko || usageObj?.usage_short_ko, id: item.usage_short_id || usageObj?.usage_short_id },
+                  { key: 'standar', badge: '⭐ Standar HRDK', label: 'Standar', ko: item.usage_short_ko || usageObj?.usage_short_ko, id: item.usage_short_id || usageObj?.usage_short_id },
+                  { key: 'noun', badge: '🔹 Bentuk 도구', label: 'Bentuk Alat', ko: `${item.title_ko || item.answer_short_ko}입니다.`, id: item.title_id || item.answer_short_id }
+                ];
+                const currentOptKey = cardUsageOptions[cardId] || (globalAlatUsageOption === 'all' ? 'all' : globalAlatUsageOption);
+                const activeUsageOpt = usageOptions.find((o) => o.key === currentOptKey) || usageOptions[0];
 
                 return (
                   <div
@@ -3992,26 +4034,85 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
                           <span>Tampilkan Nama & Kegunaan</span>
                         </button>
                       ) : (
-                        <div className="space-y-1">
+                        <div className="space-y-2">
                           <p className="text-xs sm:text-sm font-bold text-emerald-700 dark:text-emerald-400">
                             {item.title_id || item.answer_short_id}
                           </p>
-                          {usageKo && (
-                            <div className="pt-1 border-t border-border/40 space-y-0.5">
-                              <div className="flex items-center justify-between gap-1">
-                                <span className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground">
-                                  Fungsi (용도):
-                                </span>
+
+                          {currentOptKey === 'all' ? (
+                            <div className="pt-1.5 border-t border-border/40 space-y-1.5">
+                              <div className="flex items-center justify-between text-[10px] font-bold text-muted-foreground uppercase">
+                                <span>Opsi Jawaban Fungsi ({usageOptions.length}):</span>
                                 <button
                                   type="button"
-                                  onClick={() => playAudio(null, usageKo)}
-                                  className="text-[10px] font-semibold text-primary hover:underline cursor-pointer"
+                                  onClick={() => setCardUsageOptions((prev) => ({ ...prev, [cardId]: 'mudah' }))}
+                                  className="text-primary hover:underline cursor-pointer"
                                 >
-                                  Putar Fungsi
+                                  Ringkas
                                 </button>
                               </div>
-                              <p className="text-xs font-bold text-foreground break-keep">{usageKo}</p>
-                              <p className="text-[11px] text-muted-foreground">{usageId}</p>
+                              <div className="space-y-1.5">
+                                {usageOptions.map((opt) => (
+                                  <div
+                                    key={opt.key}
+                                    className="p-2 rounded-lg bg-secondary/40 border border-border/50 space-y-0.5"
+                                  >
+                                    <div className="flex items-center justify-between gap-1">
+                                      <span className="text-[10px] font-bold text-primary">{opt.badge}</span>
+                                      <button
+                                        type="button"
+                                        onClick={() => playAudio(null, opt.ko)}
+                                        className="text-[10px] font-semibold text-emerald-600 dark:text-emerald-400 hover:underline flex items-center gap-0.5 cursor-pointer"
+                                      >
+                                        <Volume2 className="w-3 h-3" /> Putar
+                                      </button>
+                                    </div>
+                                    <p className="text-xs font-bold text-foreground break-keep">{opt.ko}</p>
+                                    <p className="text-[11px] text-muted-foreground">{opt.id}</p>
+                                  </div>
+                                ))}
+                              </div>
+                            </div>
+                          ) : (
+                            <div className="pt-1.5 border-t border-border/40 space-y-1.5">
+                              <div className="flex items-center justify-between gap-1">
+                                <div className="flex flex-wrap gap-1">
+                                  {usageOptions.map((opt) => (
+                                    <button
+                                      key={opt.key}
+                                      type="button"
+                                      onClick={() => setCardUsageOptions((prev) => ({ ...prev, [cardId]: opt.key }))}
+                                      className={cn(
+                                        'px-1.5 py-0.5 rounded text-[10px] font-bold transition-all cursor-pointer border',
+                                        activeUsageOpt.key === opt.key
+                                          ? 'bg-primary text-primary-foreground border-primary shadow-xs'
+                                          : 'bg-secondary/70 text-muted-foreground border-border/60 hover:text-foreground'
+                                      )}
+                                      title={opt.desc}
+                                    >
+                                      {opt.badge.split(' ')[0]} {opt.label}
+                                    </button>
+                                  ))}
+                                </div>
+                                <button
+                                  type="button"
+                                  onClick={() => playAudio(null, activeUsageOpt.ko)}
+                                  className="p-1 rounded bg-secondary hover:bg-primary hover:text-primary-foreground text-foreground flex items-center justify-center shrink-0 transition-colors cursor-pointer"
+                                  title="Putar Suara Opsi Ini"
+                                >
+                                  <Volume2 className="w-3.5 h-3.5" />
+                                </button>
+                              </div>
+                              <div className="bg-secondary/30 rounded-lg p-2 border border-border/40 space-y-0.5">
+                                <div className="flex items-center justify-between">
+                                  <span className="text-[10px] font-bold text-primary">{activeUsageOpt.badge}</span>
+                                  <span className="text-[10px] text-muted-foreground">Opsi Jawaban Lisan</span>
+                                </div>
+                                <p className="text-xs sm:text-sm font-bold text-foreground break-keep">
+                                  {activeUsageOpt.ko}
+                                </p>
+                                <p className="text-[11px] text-muted-foreground">{activeUsageOpt.id}</p>
+                              </div>
                             </div>
                           )}
                         </div>

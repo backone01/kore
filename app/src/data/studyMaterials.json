@@ -1921,541 +1921,3961 @@
         "usage_short_ko": "쇠를 갈거나 자를 때 씁니다.",
         "usage_short_id": "Dipakai untuk mengasah atau memotong besi.",
         "usage_full_ko": "금속을 연마하거나 절단할 때 사용합니다.",
-        "usage_full_id": "Digunakan saat mengasah permukaan atau memotong logam."
+        "usage_full_id": "Digunakan saat mengasah permukaan atau memotong logam.",
+        "usage_options": [
+          {
+            "key": "mudah",
+            "badge": "⚡ Super Mudah",
+            "label": "Paling Mudah",
+            "desc": "Jawaban 2-3 kata paling simpel & mudah diucapkan saat ujian",
+            "ko": "쇠를 자를 때 씁니다.",
+            "id": "Dipakai saat memotong besi."
+          },
+          {
+            "key": "standar",
+            "badge": "⭐ Standar HRDK",
+            "label": "Standar",
+            "desc": "Jawaban standar resmi kisi-kisi HRD Korea",
+            "ko": "쇠를 갈거나 자를 때 씁니다.",
+            "id": "Dipakai untuk mengasah atau memotong besi."
+          },
+          {
+            "key": "noun",
+            "badge": "🔹 Bentuk 도구",
+            "label": "Bentuk Alat",
+            "desc": "Jawaban langsung menyebut fungsi jenis alat",
+            "ko": "쇠를 자르는 공구입니다.",
+            "id": "Alat untuk memotong besi."
+          },
+          {
+            "key": "formal",
+            "badge": "📘 Lengkap / Formal",
+            "label": "Lengkap",
+            "desc": "Jawaban kalimat formal dan mendalam",
+            "ko": "금속을 연마하거나 절단할 때 사용합니다.",
+            "id": "Digunakan saat mengasah permukaan atau memotong logam."
+          }
+        ],
+        "usage_easy_ko": "쇠를 자를 때 씁니다.",
+        "usage_easy_id": "Dipakai saat memotong besi.",
+        "usage_noun_ko": "쇠를 자르는 공구입니다.",
+        "usage_noun_id": "Alat untuk memotong besi."
       },
       "mfg2026_002": {
         "usage_short_ko": "파편을 막아 작업자를 보호합니다.",
         "usage_short_id": "Mencegah serpihan untuk melindungi pekerja.",
         "usage_full_ko": "기계 작동 중 파편 튀김과 끼임 사고를 방지합니다.",
-        "usage_full_id": "Mencegah serpihan beterbangan dan kecelakaan terjepit saat mesin beroperasi."
+        "usage_full_id": "Mencegah serpihan beterbangan dan kecelakaan terjepit saat mesin beroperasi.",
+        "usage_options": [
+          {
+            "key": "mudah",
+            "badge": "⚡ Super Mudah",
+            "label": "Paling Mudah",
+            "desc": "Jawaban 2-3 kata paling simpel & mudah diucapkan saat ujian",
+            "ko": "몸을 보호할 때 씁니다.",
+            "id": "Dipakai untuk melindungi tubuh."
+          },
+          {
+            "key": "standar",
+            "badge": "⭐ Standar HRDK",
+            "label": "Standar",
+            "desc": "Jawaban standar resmi kisi-kisi HRD Korea",
+            "ko": "파편을 막아 작업자를 보호합니다.",
+            "id": "Mencegah serpihan untuk melindungi pekerja."
+          },
+          {
+            "key": "noun",
+            "badge": "🔹 Bentuk 도구",
+            "label": "Bentuk Alat",
+            "desc": "Jawaban langsung menyebut fungsi jenis alat",
+            "ko": "안전 보호 덮개입니다.",
+            "id": "Penutup pelindung keamanan."
+          },
+          {
+            "key": "formal",
+            "badge": "📘 Lengkap / Formal",
+            "label": "Lengkap",
+            "desc": "Jawaban kalimat formal dan mendalam",
+            "ko": "기계 작동 중 파편 튀김과 끼임 사고를 방지합니다.",
+            "id": "Mencegah serpihan beterbangan dan kecelakaan terjepit saat mesin beroperasi."
+          }
+        ],
+        "usage_easy_ko": "몸을 보호할 때 씁니다.",
+        "usage_easy_id": "Dipakai untuk melindungi tubuh.",
+        "usage_noun_ko": "안전 보호 덮개입니다.",
+        "usage_noun_id": "Penutup pelindung keamanan."
       },
       "mfg2026_003": {
         "usage_short_ko": "먼지나 찌꺼기를 털어낼 때 씁니다.",
         "usage_short_id": "Dipakai untuk menyemprot dan membersihkan debu.",
         "usage_full_ko": "압축 공기로 작업물의 먼지와 이물질을 청소할 때 사용합니다.",
-        "usage_full_id": "Digunakan untuk membersihkan debu dan kotoran benda kerja dengan angin bertekanan."
+        "usage_full_id": "Digunakan untuk membersihkan debu dan kotoran benda kerja dengan angin bertekanan.",
+        "usage_options": [
+          {
+            "key": "mudah",
+            "badge": "⚡ Super Mudah",
+            "label": "Paling Mudah",
+            "desc": "Jawaban 2-3 kata paling simpel & mudah diucapkan saat ujian",
+            "ko": "먼지를 털 때 씁니다.",
+            "id": "Dipakai saat membersihkan debu."
+          },
+          {
+            "key": "standar",
+            "badge": "⭐ Standar HRDK",
+            "label": "Standar",
+            "desc": "Jawaban standar resmi kisi-kisi HRD Korea",
+            "ko": "먼지나 찌꺼기를 털어낼 때 씁니다.",
+            "id": "Dipakai untuk menyemprot dan membersihkan debu."
+          },
+          {
+            "key": "noun",
+            "badge": "🔹 Bentuk 도구",
+            "label": "Bentuk Alat",
+            "desc": "Jawaban langsung menyebut fungsi jenis alat",
+            "ko": "먼지를 청소하는 공구입니다.",
+            "id": "Alat pembersih debu."
+          },
+          {
+            "key": "formal",
+            "badge": "📘 Lengkap / Formal",
+            "label": "Lengkap",
+            "desc": "Jawaban kalimat formal dan mendalam",
+            "ko": "압축 공기로 작업물의 먼지와 이물질을 청소할 때 사용합니다.",
+            "id": "Digunakan untuk membersihkan debu dan kotoran benda kerja dengan angin bertekanan."
+          }
+        ],
+        "usage_easy_ko": "먼지를 털 때 씁니다.",
+        "usage_easy_id": "Dipakai saat membersihkan debu.",
+        "usage_noun_ko": "먼지를 청소하는 공구입니다.",
+        "usage_noun_id": "Alat pembersih debu."
       },
       "mfg2026_004": {
         "usage_short_ko": "기계에 기름 압력을 보낼 때 씁니다.",
         "usage_short_id": "Dipakai untuk menyalurkan tekanan oli ke mesin.",
         "usage_full_ko": "유압 실린더나 기계 장치에 기름 압력을 공급할 때 사용합니다.",
-        "usage_full_id": "Digunakan untuk menyuplai tekanan oli hidrolik ke silinder mesin."
+        "usage_full_id": "Digunakan untuk menyuplai tekanan oli hidrolik ke silinder mesin.",
+        "usage_options": [
+          {
+            "key": "mudah",
+            "badge": "⚡ Super Mudah",
+            "label": "Paling Mudah",
+            "desc": "Jawaban 2-3 kata paling simpel & mudah diucapkan saat ujian",
+            "ko": "기름 압력을 넣을 때 씁니다.",
+            "id": "Dipakai saat memasukkan tekanan oli."
+          },
+          {
+            "key": "standar",
+            "badge": "⭐ Standar HRDK",
+            "label": "Standar",
+            "desc": "Jawaban standar resmi kisi-kisi HRD Korea",
+            "ko": "기계에 기름 압력을 보낼 때 씁니다.",
+            "id": "Dipakai untuk menyalurkan tekanan oli ke mesin."
+          },
+          {
+            "key": "noun",
+            "badge": "🔹 Bentuk 도구",
+            "label": "Bentuk Alat",
+            "desc": "Jawaban langsung menyebut fungsi jenis alat",
+            "ko": "유압을 공급하는 펌프입니다.",
+            "id": "Pompa penyalur tekanan oli."
+          },
+          {
+            "key": "formal",
+            "badge": "📘 Lengkap / Formal",
+            "label": "Lengkap",
+            "desc": "Jawaban kalimat formal dan mendalam",
+            "ko": "유압 실린더나 기계 장치에 기름 압력을 공급할 때 사용합니다.",
+            "id": "Digunakan untuk menyuplai tekanan oli hidrolik ke silinder mesin."
+          }
+        ],
+        "usage_easy_ko": "기름 압력을 넣을 때 씁니다.",
+        "usage_easy_id": "Dipakai saat memasukkan tekanan oli.",
+        "usage_noun_ko": "유압을 공급하는 펌프입니다.",
+        "usage_noun_id": "Pompa penyalur tekanan oli."
       },
       "mfg2026_005": {
         "usage_short_ko": "전선을 납땜할 때 씁니다.",
         "usage_short_id": "Dipakai untuk menyolder kabel atau komponen.",
         "usage_full_ko": "전자 부품이나 전선을 납땜하여 연결할 때 사용합니다.",
-        "usage_full_id": "Digunakan saat menyolder dan menghubungkan komponen elektronik atau kabel."
+        "usage_full_id": "Digunakan saat menyolder dan menghubungkan komponen elektronik atau kabel.",
+        "usage_options": [
+          {
+            "key": "mudah",
+            "badge": "⚡ Super Mudah",
+            "label": "Paling Mudah",
+            "desc": "Jawaban 2-3 kata paling simpel & mudah diucapkan saat ujian",
+            "ko": "납땜할 때 씁니다.",
+            "id": "Dipakai saat menyolder."
+          },
+          {
+            "key": "standar",
+            "badge": "⭐ Standar HRDK",
+            "label": "Standar",
+            "desc": "Jawaban standar resmi kisi-kisi HRD Korea",
+            "ko": "전선을 납땜할 때 씁니다.",
+            "id": "Dipakai untuk menyolder kabel atau komponen."
+          },
+          {
+            "key": "noun",
+            "badge": "🔹 Bentuk 도구",
+            "label": "Bentuk Alat",
+            "desc": "Jawaban langsung menyebut fungsi jenis alat",
+            "ko": "전선을 납땜하는 도구입니다.",
+            "id": "Alat untuk menyolder kabel."
+          },
+          {
+            "key": "formal",
+            "badge": "📘 Lengkap / Formal",
+            "label": "Lengkap",
+            "desc": "Jawaban kalimat formal dan mendalam",
+            "ko": "전자 부품이나 전선을 납땜하여 연결할 때 사용합니다.",
+            "id": "Digunakan saat menyolder dan menghubungkan komponen elektronik atau kabel."
+          }
+        ],
+        "usage_easy_ko": "납땜할 때 씁니다.",
+        "usage_easy_id": "Dipakai saat menyolder.",
+        "usage_noun_ko": "전선을 납땜하는 도구입니다.",
+        "usage_noun_id": "Alat untuk menyolder kabel."
       },
       "mfg2026_006": {
         "usage_short_ko": "재료를 골고루 섞을 때 씁니다.",
         "usage_short_id": "Dipakai untuk mencampur bahan secara merata.",
         "usage_full_ko": "원료나 약품을 균일하게 섞을 때 사용합니다.",
-        "usage_full_id": "Digunakan saat mencampur bahan baku atau zat kimia secara seragam."
+        "usage_full_id": "Digunakan saat mencampur bahan baku atau zat kimia secara seragam.",
+        "usage_options": [
+          {
+            "key": "mudah",
+            "badge": "⚡ Super Mudah",
+            "label": "Paling Mudah",
+            "desc": "Jawaban 2-3 kata paling simpel & mudah diucapkan saat ujian",
+            "ko": "재료를 섞을 때 씁니다.",
+            "id": "Dipakai saat mencampur bahan."
+          },
+          {
+            "key": "standar",
+            "badge": "⭐ Standar HRDK",
+            "label": "Standar",
+            "desc": "Jawaban standar resmi kisi-kisi HRD Korea",
+            "ko": "재료를 골고루 섞을 때 씁니다.",
+            "id": "Dipakai untuk mencampur bahan secara merata."
+          },
+          {
+            "key": "noun",
+            "badge": "🔹 Bentuk 도구",
+            "label": "Bentuk Alat",
+            "desc": "Jawaban langsung menyebut fungsi jenis alat",
+            "ko": "재료를 섞는 기계입니다.",
+            "id": "Mesin pencampur bahan."
+          },
+          {
+            "key": "formal",
+            "badge": "📘 Lengkap / Formal",
+            "label": "Lengkap",
+            "desc": "Jawaban kalimat formal dan mendalam",
+            "ko": "원료나 약품을 균일하게 섞을 때 사용합니다.",
+            "id": "Digunakan saat mencampur bahan baku atau zat kimia secara seragam."
+          }
+        ],
+        "usage_easy_ko": "재료를 섞을 때 씁니다.",
+        "usage_easy_id": "Dipakai saat mencampur bahan.",
+        "usage_noun_ko": "재료를 섞는 기계입니다.",
+        "usage_noun_id": "Mesin pencampur bahan."
       },
       "mfg2026_007": {
         "usage_short_ko": "기름이나 가스가 새지 않게 막습니다.",
         "usage_short_id": "Mencegah agar oli atau gas tidak bocor.",
         "usage_full_ko": "배관이나 기계 접합부에서 액체나 기체의 누출을 방지합니다.",
-        "usage_full_id": "Mencegah kebocoran cairan atau gas pada sambungan mesin."
+        "usage_full_id": "Mencegah kebocoran cairan atau gas pada sambungan mesin.",
+        "usage_options": [
+          {
+            "key": "mudah",
+            "badge": "⚡ Super Mudah",
+            "label": "Paling Mudah",
+            "desc": "Jawaban 2-3 kata paling simpel & mudah diucapkan saat ujian",
+            "ko": "기름이 새지 않게 막습니다.",
+            "id": "Mencegah agar oli tidak bocor."
+          },
+          {
+            "key": "standar",
+            "badge": "⭐ Standar HRDK",
+            "label": "Standar",
+            "desc": "Jawaban standar resmi kisi-kisi HRD Korea",
+            "ko": "기름이나 가스가 새지 않게 막습니다.",
+            "id": "Mencegah agar oli atau gas tidak bocor."
+          },
+          {
+            "key": "noun",
+            "badge": "🔹 Bentuk 도구",
+            "label": "Bentuk Alat",
+            "desc": "Jawaban langsung menyebut fungsi jenis alat",
+            "ko": "누수를 막는 부품입니다.",
+            "id": "Komponen pencegah kebocoran."
+          },
+          {
+            "key": "formal",
+            "badge": "📘 Lengkap / Formal",
+            "label": "Lengkap",
+            "desc": "Jawaban kalimat formal dan mendalam",
+            "ko": "배관이나 기계 접합부에서 액체나 기체의 누출을 방지합니다.",
+            "id": "Mencegah kebocoran cairan atau gas pada sambungan mesin."
+          }
+        ],
+        "usage_easy_ko": "기름이 새지 않게 막습니다.",
+        "usage_easy_id": "Mencegah agar oli tidak bocor.",
+        "usage_noun_ko": "누수를 막는 부품입니다.",
+        "usage_noun_id": "Komponen pencegah kebocoran."
       },
       "mfg2026_008": {
         "usage_short_ko": "작업물을 단단히 고정할 때 씁니다.",
         "usage_short_id": "Dipakai untuk menjepit benda kerja agar tidak bergerak.",
         "usage_full_ko": "가공할 물건을 움직이지 않게 꽉 잡아 고정할 때 사용합니다.",
-        "usage_full_id": "Digunakan saat mencengkeram dan mengencangkan benda kerja pada meja kerja."
+        "usage_full_id": "Digunakan saat mencengkeram dan mengencangkan benda kerja pada meja kerja.",
+        "usage_options": [
+          {
+            "key": "mudah",
+            "badge": "⚡ Super Mudah",
+            "label": "Paling Mudah",
+            "desc": "Jawaban 2-3 kata paling simpel & mudah diucapkan saat ujian",
+            "ko": "물건을 고정할 때 씁니다.",
+            "id": "Dipakai saat menjepit benda."
+          },
+          {
+            "key": "standar",
+            "badge": "⭐ Standar HRDK",
+            "label": "Standar",
+            "desc": "Jawaban standar resmi kisi-kisi HRD Korea",
+            "ko": "작업물을 단단히 고정할 때 씁니다.",
+            "id": "Dipakai untuk menjepit benda kerja agar tidak bergerak."
+          },
+          {
+            "key": "noun",
+            "badge": "🔹 Bentuk 도구",
+            "label": "Bentuk Alat",
+            "desc": "Jawaban langsung menyebut fungsi jenis alat",
+            "ko": "작업물을 고정하는 공구입니다.",
+            "id": "Alat penjepit benda kerja."
+          },
+          {
+            "key": "formal",
+            "badge": "📘 Lengkap / Formal",
+            "label": "Lengkap",
+            "desc": "Jawaban kalimat formal dan mendalam",
+            "ko": "가공할 물건을 움직이지 않게 꽉 잡아 고정할 때 사용합니다.",
+            "id": "Digunakan saat mencengkeram dan mengencangkan benda kerja pada meja kerja."
+          }
+        ],
+        "usage_easy_ko": "물건을 고정할 때 씁니다.",
+        "usage_easy_id": "Dipakai saat menjepit benda.",
+        "usage_noun_ko": "작업물을 고정하는 공구입니다.",
+        "usage_noun_id": "Alat penjepit benda kerja."
       },
       "mfg2026_009": {
         "usage_short_ko": "바닥이 평평한지 확인할 때 씁니다.",
         "usage_short_id": "Dipakai untuk mengecek kedataran permukaan.",
         "usage_full_ko": "구조물이나 기계의 수평과 수직 상태를 측정할 때 사용합니다.",
-        "usage_full_id": "Digunakan saat mengukur kerataan horizontal dan vertikal mesin."
+        "usage_full_id": "Digunakan saat mengukur kerataan horizontal dan vertikal mesin.",
+        "usage_options": [
+          {
+            "key": "mudah",
+            "badge": "⚡ Super Mudah",
+            "label": "Paling Mudah",
+            "desc": "Jawaban 2-3 kata paling simpel & mudah diucapkan saat ujian",
+            "ko": "수평을 볼 때 씁니다.",
+            "id": "Dipakai saat melihat kerataan."
+          },
+          {
+            "key": "standar",
+            "badge": "⭐ Standar HRDK",
+            "label": "Standar",
+            "desc": "Jawaban standar resmi kisi-kisi HRD Korea",
+            "ko": "바닥이 평평한지 확인할 때 씁니다.",
+            "id": "Dipakai untuk mengecek kedataran permukaan."
+          },
+          {
+            "key": "noun",
+            "badge": "🔹 Bentuk 도구",
+            "label": "Bentuk Alat",
+            "desc": "Jawaban langsung menyebut fungsi jenis alat",
+            "ko": "수평을 재는 도구입니다.",
+            "id": "Alat pengukur kerataan."
+          },
+          {
+            "key": "formal",
+            "badge": "📘 Lengkap / Formal",
+            "label": "Lengkap",
+            "desc": "Jawaban kalimat formal dan mendalam",
+            "ko": "구조물이나 기계의 수평과 수직 상태를 측정할 때 사용합니다.",
+            "id": "Digunakan saat mengukur kerataan horizontal dan vertikal mesin."
+          }
+        ],
+        "usage_easy_ko": "수평을 볼 때 씁니다.",
+        "usage_easy_id": "Dipakai saat melihat kerataan.",
+        "usage_noun_ko": "수평을 재는 도구입니다.",
+        "usage_noun_id": "Alat pengukur kerataan."
       },
       "mfg2026_010": {
         "usage_short_ko": "닿지 않고 온도를 잴 때 씁니다.",
         "usage_short_id": "Dipakai untuk mengukur suhu tanpa menyentuh.",
         "usage_full_ko": "뜨거운 물체나 기계의 온도를 비접촉으로 측정할 때 사용합니다.",
-        "usage_full_id": "Digunakan untuk mengukur suhu benda panas atau mesin tanpa kontak fisik."
+        "usage_full_id": "Digunakan untuk mengukur suhu benda panas atau mesin tanpa kontak fisik.",
+        "usage_options": [
+          {
+            "key": "mudah",
+            "badge": "⚡ Super Mudah",
+            "label": "Paling Mudah",
+            "desc": "Jawaban 2-3 kata paling simpel & mudah diucapkan saat ujian",
+            "ko": "온도를 잴 때 씁니다.",
+            "id": "Dipakai saat mengukur suhu."
+          },
+          {
+            "key": "standar",
+            "badge": "⭐ Standar HRDK",
+            "label": "Standar",
+            "desc": "Jawaban standar resmi kisi-kisi HRD Korea",
+            "ko": "닿지 않고 온도를 잴 때 씁니다.",
+            "id": "Dipakai untuk mengukur suhu tanpa menyentuh."
+          },
+          {
+            "key": "noun",
+            "badge": "🔹 Bentuk 도구",
+            "label": "Bentuk Alat",
+            "desc": "Jawaban langsung menyebut fungsi jenis alat",
+            "ko": "온도를 재는 기계입니다.",
+            "id": "Alat pengukur suhu."
+          },
+          {
+            "key": "formal",
+            "badge": "📘 Lengkap / Formal",
+            "label": "Lengkap",
+            "desc": "Jawaban kalimat formal dan mendalam",
+            "ko": "뜨거운 물체나 기계의 온도를 비접촉으로 측정할 때 사용합니다.",
+            "id": "Digunakan untuk mengukur suhu benda panas atau mesin tanpa kontak fisik."
+          }
+        ],
+        "usage_easy_ko": "온도를 잴 때 씁니다.",
+        "usage_easy_id": "Dipakai saat mengukur suhu.",
+        "usage_noun_ko": "온도를 재는 기계입니다.",
+        "usage_noun_id": "Alat pengukur suhu."
       },
       "mfg2026_011": {
         "usage_short_ko": "두 물건을 꽉 잡아 붙들 때 씁니다.",
         "usage_short_id": "Dipakai untuk menjepit dua benda bersamaan.",
         "usage_full_ko": "작업물을 작업대나 다른 부품에 단단히 고정할 때 사용합니다.",
-        "usage_full_id": "Digunakan untuk menjepit benda kerja ke meja kerja dengan kuat."
+        "usage_full_id": "Digunakan untuk menjepit benda kerja ke meja kerja dengan kuat.",
+        "usage_options": [
+          {
+            "key": "mudah",
+            "badge": "⚡ Super Mudah",
+            "label": "Paling Mudah",
+            "desc": "Jawaban 2-3 kata paling simpel & mudah diucapkan saat ujian",
+            "ko": "물건을 꽉 잡을 때 씁니다.",
+            "id": "Dipakai saat menjepit benda kuat-kuat."
+          },
+          {
+            "key": "standar",
+            "badge": "⭐ Standar HRDK",
+            "label": "Standar",
+            "desc": "Jawaban standar resmi kisi-kisi HRD Korea",
+            "ko": "두 물건을 꽉 잡아 붙들 때 씁니다.",
+            "id": "Dipakai untuk menjepit dua benda bersamaan."
+          },
+          {
+            "key": "noun",
+            "badge": "🔹 Bentuk 도구",
+            "label": "Bentuk Alat",
+            "desc": "Jawaban langsung menyebut fungsi jenis alat",
+            "ko": "물건을 붙드는 클램프입니다.",
+            "id": "Klem pengikat/penjepit benda."
+          },
+          {
+            "key": "formal",
+            "badge": "📘 Lengkap / Formal",
+            "label": "Lengkap",
+            "desc": "Jawaban kalimat formal dan mendalam",
+            "ko": "작업물을 작업대나 다른 부품에 단단히 고정할 때 사용합니다.",
+            "id": "Digunakan untuk menjepit benda kerja ke meja kerja dengan kuat."
+          }
+        ],
+        "usage_easy_ko": "물건을 꽉 잡을 때 씁니다.",
+        "usage_easy_id": "Dipakai saat menjepit benda kuat-kuat.",
+        "usage_noun_ko": "물건을 붙드는 클램프입니다.",
+        "usage_noun_id": "Klem pengikat/penjepit benda."
       },
       "mfg2026_012": {
         "usage_short_ko": "전원을 켜고 끌 때 씁니다.",
         "usage_short_id": "Dipakai untuk menyalakan dan mematikan daya listrik.",
         "usage_full_ko": "전기 회로를 연결하거나 차단하여 전원을 제어합니다.",
-        "usage_full_id": "Mengontrol daya dengan menyambung atau memutus arus listrik."
+        "usage_full_id": "Mengontrol daya dengan menyambung atau memutus arus listrik.",
+        "usage_options": [
+          {
+            "key": "mudah",
+            "badge": "⚡ Super Mudah",
+            "label": "Paling Mudah",
+            "desc": "Jawaban 2-3 kata paling simpel & mudah diucapkan saat ujian",
+            "ko": "전기를 켤 때 씁니다.",
+            "id": "Dipakai saat menyalakan listrik."
+          },
+          {
+            "key": "standar",
+            "badge": "⭐ Standar HRDK",
+            "label": "Standar",
+            "desc": "Jawaban standar resmi kisi-kisi HRD Korea",
+            "ko": "전원을 켜고 끌 때 씁니다.",
+            "id": "Dipakai untuk menyalakan dan mematikan daya listrik."
+          },
+          {
+            "key": "noun",
+            "badge": "🔹 Bentuk 도구",
+            "label": "Bentuk Alat",
+            "desc": "Jawaban langsung menyebut fungsi jenis alat",
+            "ko": "전원을 켜고 끄는 스위치입니다.",
+            "id": "Saklar on/off daya listrik."
+          },
+          {
+            "key": "formal",
+            "badge": "📘 Lengkap / Formal",
+            "label": "Lengkap",
+            "desc": "Jawaban kalimat formal dan mendalam",
+            "ko": "전기 회로를 연결하거나 차단하여 전원을 제어합니다.",
+            "id": "Mengontrol daya dengan menyambung atau memutus arus listrik."
+          }
+        ],
+        "usage_easy_ko": "전기를 켤 때 씁니다.",
+        "usage_easy_id": "Dipakai saat menyalakan listrik.",
+        "usage_noun_ko": "전원을 켜고 끄는 스위치입니다.",
+        "usage_noun_id": "Saklar on/off daya listrik."
       },
       "mfg2026_015": {
         "usage_short_ko": "전선을 감아 감전을 막습니다.",
         "usage_short_id": "Membalut kabel listrik untuk mencegah korsleting.",
         "usage_full_ko": "노출된 전선을 감싸서 감전과 누전을 예방합니다.",
-        "usage_full_id": "Membungkus kabel terbuka untuk mencegah sengatan listrik dan korsleting."
+        "usage_full_id": "Membungkus kabel terbuka untuk mencegah sengatan listrik dan korsleting.",
+        "usage_options": [
+          {
+            "key": "mudah",
+            "badge": "⚡ Super Mudah",
+            "label": "Paling Mudah",
+            "desc": "Jawaban 2-3 kata paling simpel & mudah diucapkan saat ujian",
+            "ko": "전선을 감을 때 씁니다.",
+            "id": "Dipakai saat membalut kabel."
+          },
+          {
+            "key": "standar",
+            "badge": "⭐ Standar HRDK",
+            "label": "Standar",
+            "desc": "Jawaban standar resmi kisi-kisi HRD Korea",
+            "ko": "전선을 감아 감전을 막습니다.",
+            "id": "Membalut kabel listrik untuk mencegah korsleting."
+          },
+          {
+            "key": "noun",
+            "badge": "🔹 Bentuk 도구",
+            "label": "Bentuk Alat",
+            "desc": "Jawaban langsung menyebut fungsi jenis alat",
+            "ko": "감전을 막는 테이프입니다.",
+            "id": "Selotip pencegah sengatan listrik."
+          },
+          {
+            "key": "formal",
+            "badge": "📘 Lengkap / Formal",
+            "label": "Lengkap",
+            "desc": "Jawaban kalimat formal dan mendalam",
+            "ko": "노출된 전선을 감싸서 감전과 누전을 예방합니다.",
+            "id": "Membungkus kabel terbuka untuk mencegah sengatan listrik dan korsleting."
+          }
+        ],
+        "usage_easy_ko": "전선을 감을 때 씁니다.",
+        "usage_easy_id": "Dipakai saat membalut kabel.",
+        "usage_noun_ko": "감전을 막는 테이프입니다.",
+        "usage_noun_id": "Selotip pencegah sengatan listrik."
       },
       "mfg2026_016": {
         "usage_short_ko": "전선을 깔끔하게 묶을 때 씁니다.",
         "usage_short_id": "Dipakai untuk mengikat kabel dengan rapi.",
         "usage_full_ko": "복잡한 전선이나 호스를 하나로 묶어 정리할 때 사용합니다.",
-        "usage_full_id": "Digunakan untuk mengikat dan merapikan kabel atau selang yang rumit."
+        "usage_full_id": "Digunakan untuk mengikat dan merapikan kabel atau selang yang rumit.",
+        "usage_options": [
+          {
+            "key": "mudah",
+            "badge": "⚡ Super Mudah",
+            "label": "Paling Mudah",
+            "desc": "Jawaban 2-3 kata paling simpel & mudah diucapkan saat ujian",
+            "ko": "전선을 묶을 때 씁니다.",
+            "id": "Dipakai saat mengikat kabel."
+          },
+          {
+            "key": "standar",
+            "badge": "⭐ Standar HRDK",
+            "label": "Standar",
+            "desc": "Jawaban standar resmi kisi-kisi HRD Korea",
+            "ko": "전선을 깔끔하게 묶을 때 씁니다.",
+            "id": "Dipakai untuk mengikat kabel dengan rapi."
+          },
+          {
+            "key": "noun",
+            "badge": "🔹 Bentuk 도구",
+            "label": "Bentuk Alat",
+            "desc": "Jawaban langsung menyebut fungsi jenis alat",
+            "ko": "전선을 묶는 타이입니다.",
+            "id": "Tali pengikat kabel."
+          },
+          {
+            "key": "formal",
+            "badge": "📘 Lengkap / Formal",
+            "label": "Lengkap",
+            "desc": "Jawaban kalimat formal dan mendalam",
+            "ko": "복잡한 전선이나 호스를 하나로 묶어 정리할 때 사용합니다.",
+            "id": "Digunakan untuk mengikat dan merapikan kabel atau selang yang rumit."
+          }
+        ],
+        "usage_easy_ko": "전선을 묶을 때 씁니다.",
+        "usage_easy_id": "Dipakai saat mengikat kabel.",
+        "usage_noun_ko": "전선을 묶는 타이입니다.",
+        "usage_noun_id": "Tali pengikat kabel."
       },
       "mfg2026_017": {
         "usage_short_ko": "파이프 틈에서 물이 새지 않게 감습니다.",
         "usage_short_id": "Dibalutkan pada drat pipa agar air tidak bocor.",
         "usage_full_ko": "파이프 나사산에 감아서 물이나 가스의 누수를 막습니다.",
-        "usage_full_id": "Dibalutkan pada ulir sekrup pipa untuk mencegah kebocoran air atau gas."
+        "usage_full_id": "Dibalutkan pada ulir sekrup pipa untuk mencegah kebocoran air atau gas.",
+        "usage_options": [
+          {
+            "key": "mudah",
+            "badge": "⚡ Super Mudah",
+            "label": "Paling Mudah",
+            "desc": "Jawaban 2-3 kata paling simpel & mudah diucapkan saat ujian",
+            "ko": "물이 새지 않게 감습니다.",
+            "id": "Dibalutkan agar air tidak bocor."
+          },
+          {
+            "key": "standar",
+            "badge": "⭐ Standar HRDK",
+            "label": "Standar",
+            "desc": "Jawaban standar resmi kisi-kisi HRD Korea",
+            "ko": "파이프 틈에서 물이 새지 않게 감습니다.",
+            "id": "Dibalutkan pada drat pipa agar air tidak bocor."
+          },
+          {
+            "key": "noun",
+            "badge": "🔹 Bentuk 도구",
+            "label": "Bentuk Alat",
+            "desc": "Jawaban langsung menyebut fungsi jenis alat",
+            "ko": "누수를 막는 배관 테이프입니다.",
+            "id": "Selotip pipa pencegah bocor."
+          },
+          {
+            "key": "formal",
+            "badge": "📘 Lengkap / Formal",
+            "label": "Lengkap",
+            "desc": "Jawaban kalimat formal dan mendalam",
+            "ko": "파이프 나사산에 감아서 물이나 가스의 누수를 막습니다.",
+            "id": "Dibalutkan pada ulir sekrup pipa untuk mencegah kebocoran air atau gas."
+          }
+        ],
+        "usage_easy_ko": "물이 새지 않게 감습니다.",
+        "usage_easy_id": "Dibalutkan agar air tidak bocor.",
+        "usage_noun_ko": "누수를 막는 배관 테이프입니다.",
+        "usage_noun_id": "Selotip pipa pencegah bocor."
       },
       "mfg_g_019": {
         "usage_short_ko": "쇠와 쇠를 붙여 용접할 때 씁니다.",
         "usage_short_id": "Dipakai untuk menyambung besi dengan las.",
         "usage_full_ko": "이산화탄소 가스를 이용해 철판이나 금속을 용접하여 접합합니다.",
-        "usage_full_id": "Menyambung plat besi atau logam dengan pengelasan gas CO2."
+        "usage_full_id": "Menyambung plat besi atau logam dengan pengelasan gas CO2.",
+        "usage_options": [
+          {
+            "key": "mudah",
+            "badge": "⚡ Super Mudah",
+            "label": "Paling Mudah",
+            "desc": "Jawaban 2-3 kata paling simpel & mudah diucapkan saat ujian",
+            "ko": "쇠를 붙일 때 씁니다.",
+            "id": "Dipakai saat menyambung besi."
+          },
+          {
+            "key": "standar",
+            "badge": "⭐ Standar HRDK",
+            "label": "Standar",
+            "desc": "Jawaban standar resmi kisi-kisi HRD Korea",
+            "ko": "쇠와 쇠를 붙여 용접할 때 씁니다.",
+            "id": "Dipakai untuk menyambung besi dengan las."
+          },
+          {
+            "key": "noun",
+            "badge": "🔹 Bentuk 도구",
+            "label": "Bentuk Alat",
+            "desc": "Jawaban langsung menyebut fungsi jenis alat",
+            "ko": "쇠를 용접하는 기계입니다.",
+            "id": "Mesin las penyambung besi."
+          },
+          {
+            "key": "formal",
+            "badge": "📘 Lengkap / Formal",
+            "label": "Lengkap",
+            "desc": "Jawaban kalimat formal dan mendalam",
+            "ko": "이산화탄소 가스를 이용해 철판이나 금속을 용접하여 접합합니다.",
+            "id": "Menyambung plat besi atau logam dengan pengelasan gas CO2."
+          }
+        ],
+        "usage_easy_ko": "쇠를 붙일 때 씁니다.",
+        "usage_easy_id": "Dipakai saat menyambung besi.",
+        "usage_noun_ko": "쇠를 용접하는 기계입니다.",
+        "usage_noun_id": "Mesin las penyambung besi."
       },
       "mfg_g_020": {
         "usage_short_ko": "전기가 샐 때 자동으로 전원을 끊습니다.",
         "usage_short_id": "Memutus aliran listrik saat terjadi kebocoran listrik.",
         "usage_full_ko": "누전이나 과전류 발생 시 전기를 자동으로 차단하여 화재를 예방합니다.",
-        "usage_full_id": "Secara otomatis memutus aliran listrik saat terjadi kebocoran arus untuk mencegah kebakaran."
+        "usage_full_id": "Secara otomatis memutus aliran listrik saat terjadi kebocoran arus untuk mencegah kebakaran.",
+        "usage_options": [
+          {
+            "key": "mudah",
+            "badge": "⚡ Super Mudah",
+            "label": "Paling Mudah",
+            "desc": "Jawaban 2-3 kata paling simpel & mudah diucapkan saat ujian",
+            "ko": "전기를 끊을 때 씁니다.",
+            "id": "Dipakai saat memutus arus listrik."
+          },
+          {
+            "key": "standar",
+            "badge": "⭐ Standar HRDK",
+            "label": "Standar",
+            "desc": "Jawaban standar resmi kisi-kisi HRD Korea",
+            "ko": "전기가 샐 때 자동으로 전원을 끊습니다.",
+            "id": "Memutus aliran listrik saat terjadi kebocoran listrik."
+          },
+          {
+            "key": "noun",
+            "badge": "🔹 Bentuk 도구",
+            "label": "Bentuk Alat",
+            "desc": "Jawaban langsung menyebut fungsi jenis alat",
+            "ko": "전기를 차단하는 장치입니다.",
+            "id": "Alat pemutus arus listrik."
+          },
+          {
+            "key": "formal",
+            "badge": "📘 Lengkap / Formal",
+            "label": "Lengkap",
+            "desc": "Jawaban kalimat formal dan mendalam",
+            "ko": "누전이나 과전류 발생 시 전기를 자동으로 차단하여 화재를 예방합니다.",
+            "id": "Secara otomatis memutus aliran listrik saat terjadi kebocoran arus untuk mencegah kebakaran."
+          }
+        ],
+        "usage_easy_ko": "전기를 끊을 때 씁니다.",
+        "usage_easy_id": "Dipakai saat memutus arus listrik.",
+        "usage_noun_ko": "전기를 차단하는 장치입니다.",
+        "usage_noun_id": "Alat pemutus arus listrik."
       },
       "mfg_g_021": {
         "usage_short_ko": "쇠에 녹이 슬지 않게 바릅니다.",
         "usage_short_id": "Dioleskan agar besi tidak berkarat.",
         "usage_full_ko": "금속 표면에 도포하여 녹과 부식을 방지하고 윤활합니다.",
-        "usage_full_id": "Dioleskan pada permukaan logam untuk mencegah karat dan memberi pelumasan."
+        "usage_full_id": "Dioleskan pada permukaan logam untuk mencegah karat dan memberi pelumasan.",
+        "usage_options": [
+          {
+            "key": "mudah",
+            "badge": "⚡ Super Mudah",
+            "label": "Paling Mudah",
+            "desc": "Jawaban 2-3 kata paling simpel & mudah diucapkan saat ujian",
+            "ko": "녹을 막을 때 바릅니다.",
+            "id": "Dioleskan untuk mencegah karat."
+          },
+          {
+            "key": "standar",
+            "badge": "⭐ Standar HRDK",
+            "label": "Standar",
+            "desc": "Jawaban standar resmi kisi-kisi HRD Korea",
+            "ko": "쇠에 녹이 슬지 않게 바릅니다.",
+            "id": "Dioleskan agar besi tidak berkarat."
+          },
+          {
+            "key": "noun",
+            "badge": "🔹 Bentuk 도구",
+            "label": "Bentuk Alat",
+            "desc": "Jawaban langsung menyebut fungsi jenis alat",
+            "ko": "녹을 방지하는 기름입니다.",
+            "id": "Minyak pelindung anti karat."
+          },
+          {
+            "key": "formal",
+            "badge": "📘 Lengkap / Formal",
+            "label": "Lengkap",
+            "desc": "Jawaban kalimat formal dan mendalam",
+            "ko": "금속 표면에 도포하여 녹과 부식을 방지하고 윤활합니다.",
+            "id": "Dioleskan pada permukaan logam untuk mencegah karat dan memberi pelumasan."
+          }
+        ],
+        "usage_easy_ko": "녹을 막을 때 바릅니다.",
+        "usage_easy_id": "Dioleskan untuk mencegah karat.",
+        "usage_noun_ko": "녹을 방지하는 기름입니다.",
+        "usage_noun_id": "Minyak pelindung anti karat."
       },
       "mfg_g_022": {
         "usage_short_ko": "두께와 지름을 정밀하게 잴 때 씁니다.",
         "usage_short_id": "Dipakai untuk mengukur ketebalan dan diameter secara presisi.",
         "usage_full_ko": "작업물의 외경, 내경, 깊이를 정밀하게 측정할 때 사용합니다.",
-        "usage_full_id": "Digunakan untuk mengukur diameter luar, dalam, dan kedalaman benda kerja secara akurat."
+        "usage_full_id": "Digunakan untuk mengukur diameter luar, dalam, dan kedalaman benda kerja secara akurat.",
+        "usage_options": [
+          {
+            "key": "mudah",
+            "badge": "⚡ Super Mudah",
+            "label": "Paling Mudah",
+            "desc": "Jawaban 2-3 kata paling simpel & mudah diucapkan saat ujian",
+            "ko": "두께를 잴 때 씁니다.",
+            "id": "Dipakai saat mengukur ketebalan."
+          },
+          {
+            "key": "standar",
+            "badge": "⭐ Standar HRDK",
+            "label": "Standar",
+            "desc": "Jawaban standar resmi kisi-kisi HRD Korea",
+            "ko": "두께와 지름을 정밀하게 잴 때 씁니다.",
+            "id": "Dipakai untuk mengukur ketebalan dan diameter secara presisi."
+          },
+          {
+            "key": "noun",
+            "badge": "🔹 Bentuk 도구",
+            "label": "Bentuk Alat",
+            "desc": "Jawaban langsung menyebut fungsi jenis alat",
+            "ko": "두께와 지름을 재는 공구입니다.",
+            "id": "Alat pengukur tebal dan diameter."
+          },
+          {
+            "key": "formal",
+            "badge": "📘 Lengkap / Formal",
+            "label": "Lengkap",
+            "desc": "Jawaban kalimat formal dan mendalam",
+            "ko": "작업물의 외경, 내경, 깊이를 정밀하게 측정할 때 사용합니다.",
+            "id": "Digunakan untuk mengukur diameter luar, dalam, dan kedalaman benda kerja secara akurat."
+          }
+        ],
+        "usage_easy_ko": "두께를 잴 때 씁니다.",
+        "usage_easy_id": "Dipakai saat mengukur ketebalan.",
+        "usage_noun_ko": "두께와 지름을 재는 공구입니다.",
+        "usage_noun_id": "Alat pengukur tebal dan diameter."
       },
       "mfg_g_023": {
         "usage_short_ko": "철판이나 파이프를 구부릴 때 씁니다.",
         "usage_short_id": "Dipakai untuk membengkokkan plat besi atau pipa.",
         "usage_full_ko": "금속 판재나 파이프를 원하는 각도로 구부릴 때 사용합니다.",
-        "usage_full_id": "Digunakan saat menekuk plat logam atau pipa ke sudut yang diinginkan."
+        "usage_full_id": "Digunakan saat menekuk plat logam atau pipa ke sudut yang diinginkan.",
+        "usage_options": [
+          {
+            "key": "mudah",
+            "badge": "⚡ Super Mudah",
+            "label": "Paling Mudah",
+            "desc": "Jawaban 2-3 kata paling simpel & mudah diucapkan saat ujian",
+            "ko": "철판을 구부릴 때 씁니다.",
+            "id": "Dipakai saat membengkokkan plat."
+          },
+          {
+            "key": "standar",
+            "badge": "⭐ Standar HRDK",
+            "label": "Standar",
+            "desc": "Jawaban standar resmi kisi-kisi HRD Korea",
+            "ko": "철판이나 파이프를 구부릴 때 씁니다.",
+            "id": "Dipakai untuk membengkokkan plat besi atau pipa."
+          },
+          {
+            "key": "noun",
+            "badge": "🔹 Bentuk 도구",
+            "label": "Bentuk Alat",
+            "desc": "Jawaban langsung menyebut fungsi jenis alat",
+            "ko": "파이프나 철판을 구부리는 기계입니다.",
+            "id": "Mesin penekuk plat/pipa."
+          },
+          {
+            "key": "formal",
+            "badge": "📘 Lengkap / Formal",
+            "label": "Lengkap",
+            "desc": "Jawaban kalimat formal dan mendalam",
+            "ko": "금속 판재나 파이프를 원하는 각도로 구부릴 때 사용합니다.",
+            "id": "Digunakan saat menekuk plat logam atau pipa ke sudut yang diinginkan."
+          }
+        ],
+        "usage_easy_ko": "철판을 구부릴 때 씁니다.",
+        "usage_easy_id": "Dipakai saat membengkokkan plat.",
+        "usage_noun_ko": "파이프나 철판을 구부리는 기계입니다.",
+        "usage_noun_id": "Mesin penekuk plat/pipa."
       },
       "mfg_g_024": {
         "usage_short_ko": "압축 공기를 만들 때 씁니다.",
         "usage_short_id": "Dipakai untuk menghasilkan angin bertekanan.",
         "usage_full_ko": "공기를 압축하여 공압 공구에 동력을 공급할 때 사용합니다.",
-        "usage_full_id": "Mengompresi udara untuk menyuplai daya ke perkakas angin/pneumatik."
+        "usage_full_id": "Mengompresi udara untuk menyuplai daya ke perkakas angin/pneumatik.",
+        "usage_options": [
+          {
+            "key": "mudah",
+            "badge": "⚡ Super Mudah",
+            "label": "Paling Mudah",
+            "desc": "Jawaban 2-3 kata paling simpel & mudah diucapkan saat ujian",
+            "ko": "공기 압력을 만들 때 씁니다.",
+            "id": "Dipakai saat membuat tekanan angin."
+          },
+          {
+            "key": "standar",
+            "badge": "⭐ Standar HRDK",
+            "label": "Standar",
+            "desc": "Jawaban standar resmi kisi-kisi HRD Korea",
+            "ko": "압축 공기를 만들 때 씁니다.",
+            "id": "Dipakai untuk menghasilkan angin bertekanan."
+          },
+          {
+            "key": "noun",
+            "badge": "🔹 Bentuk 도구",
+            "label": "Bentuk Alat",
+            "desc": "Jawaban langsung menyebut fungsi jenis alat",
+            "ko": "압축 공기를 만드는 기계입니다.",
+            "id": "Mesin penghasil angin bertekanan."
+          },
+          {
+            "key": "formal",
+            "badge": "📘 Lengkap / Formal",
+            "label": "Lengkap",
+            "desc": "Jawaban kalimat formal dan mendalam",
+            "ko": "공기를 압축하여 공압 공구에 동력을 공급할 때 사용합니다.",
+            "id": "Mengompresi udara untuk menyuplai daya ke perkakas angin/pneumatik."
+          }
+        ],
+        "usage_easy_ko": "공기 압력을 만들 때 씁니다.",
+        "usage_easy_id": "Dipakai saat membuat tekanan angin.",
+        "usage_noun_ko": "압축 공기를 만드는 기계입니다.",
+        "usage_noun_id": "Mesin penghasil angin bertekanan."
       },
       "mfg_g_025": {
         "usage_short_ko": "나무나 판자를 빠르게 자를 때 씁니다.",
         "usage_short_id": "Dipakai untuk memotong kayu atau papan dengan cepat.",
         "usage_full_ko": "회전하는 원형 날로 목재나 판재를 직선으로 절단할 때 사용합니다.",
-        "usage_full_id": "Digunakan untuk memotong kayu atau lembaran papan secara lurus."
+        "usage_full_id": "Digunakan untuk memotong kayu atau lembaran papan secara lurus.",
+        "usage_options": [
+          {
+            "key": "mudah",
+            "badge": "⚡ Super Mudah",
+            "label": "Paling Mudah",
+            "desc": "Jawaban 2-3 kata paling simpel & mudah diucapkan saat ujian",
+            "ko": "나무를 자를 때 씁니다.",
+            "id": "Dipakai saat memotong kayu."
+          },
+          {
+            "key": "standar",
+            "badge": "⭐ Standar HRDK",
+            "label": "Standar",
+            "desc": "Jawaban standar resmi kisi-kisi HRD Korea",
+            "ko": "나무나 판자를 빠르게 자를 때 씁니다.",
+            "id": "Dipakai untuk memotong kayu atau papan dengan cepat."
+          },
+          {
+            "key": "noun",
+            "badge": "🔹 Bentuk 도구",
+            "label": "Bentuk Alat",
+            "desc": "Jawaban langsung menyebut fungsi jenis alat",
+            "ko": "판자를 자르는 톱입니다.",
+            "id": "Gergaji pemotong kayu."
+          },
+          {
+            "key": "formal",
+            "badge": "📘 Lengkap / Formal",
+            "label": "Lengkap",
+            "desc": "Jawaban kalimat formal dan mendalam",
+            "ko": "회전하는 원형 날로 목재나 판재를 직선으로 절단할 때 사용합니다.",
+            "id": "Digunakan untuk memotong kayu atau lembaran papan secara lurus."
+          }
+        ],
+        "usage_easy_ko": "나무를 자를 때 씁니다.",
+        "usage_easy_id": "Dipakai saat memotong kayu.",
+        "usage_noun_ko": "판자를 자르는 톱입니다.",
+        "usage_noun_id": "Gergaji pemotong kayu."
       },
       "mfg_g_026": {
         "usage_short_ko": "무거운 짐을 들어 나를 때 씁니다.",
         "usage_short_id": "Dipakai untuk mengangkat dan mengangkut barang berat.",
         "usage_full_ko": "파렛트에 실린 무거운 화물을 들어 올려 운반하고 적재합니다.",
-        "usage_full_id": "Mengangkat, mengangkut, dan menyusun muatan berat di atas palet."
+        "usage_full_id": "Mengangkat, mengangkut, dan menyusun muatan berat di atas palet.",
+        "usage_options": [
+          {
+            "key": "mudah",
+            "badge": "⚡ Super Mudah",
+            "label": "Paling Mudah",
+            "desc": "Jawaban 2-3 kata paling simpel & mudah diucapkan saat ujian",
+            "ko": "짐을 나를 때 씁니다.",
+            "id": "Dipakai saat mengangkut barang."
+          },
+          {
+            "key": "standar",
+            "badge": "⭐ Standar HRDK",
+            "label": "Standar",
+            "desc": "Jawaban standar resmi kisi-kisi HRD Korea",
+            "ko": "무거운 짐을 들어 나를 때 씁니다.",
+            "id": "Dipakai untuk mengangkat dan mengangkut barang berat."
+          },
+          {
+            "key": "noun",
+            "badge": "🔹 Bentuk 도구",
+            "label": "Bentuk Alat",
+            "desc": "Jawaban langsung menyebut fungsi jenis alat",
+            "ko": "무거운 짐을 옮기는 차입니다.",
+            "id": "Kendaraan pengangkut beban berat."
+          },
+          {
+            "key": "formal",
+            "badge": "📘 Lengkap / Formal",
+            "label": "Lengkap",
+            "desc": "Jawaban kalimat formal dan mendalam",
+            "ko": "파렛트에 실린 무거운 화물을 들어 올려 운반하고 적재합니다.",
+            "id": "Mengangkat, mengangkut, dan menyusun muatan berat di atas palet."
+          }
+        ],
+        "usage_easy_ko": "짐을 나를 때 씁니다.",
+        "usage_easy_id": "Dipakai saat mengangkut barang.",
+        "usage_noun_ko": "무거운 짐을 옮기는 차입니다.",
+        "usage_noun_id": "Kendaraan pengangkut beban berat."
       },
       "mfg_g_027": {
         "usage_short_ko": "공장 기계를 조작하고 상태를 볼 때 씁니다.",
         "usage_short_id": "Dipakai untuk mengontrol mesin pabrik dan memantau status.",
         "usage_full_ko": "각종 계기와 스위치로 공장 설비와 기계 작동을 제어합니다.",
-        "usage_full_id": "Mengendalikan operasional fasilitas dan mesin pabrik dengan sakelar dan indikator."
+        "usage_full_id": "Mengendalikan operasional fasilitas dan mesin pabrik dengan sakelar dan indikator.",
+        "usage_options": [
+          {
+            "key": "mudah",
+            "badge": "⚡ Super Mudah",
+            "label": "Paling Mudah",
+            "desc": "Jawaban 2-3 kata paling simpel & mudah diucapkan saat ujian",
+            "ko": "기계를 움직일 때 씁니다.",
+            "id": "Dipakai saat mengoperasikan mesin."
+          },
+          {
+            "key": "standar",
+            "badge": "⭐ Standar HRDK",
+            "label": "Standar",
+            "desc": "Jawaban standar resmi kisi-kisi HRD Korea",
+            "ko": "공장 기계를 조작하고 상태를 볼 때 씁니다.",
+            "id": "Dipakai untuk mengontrol mesin pabrik dan memantau status."
+          },
+          {
+            "key": "noun",
+            "badge": "🔹 Bentuk 도구",
+            "label": "Bentuk Alat",
+            "desc": "Jawaban langsung menyebut fungsi jenis alat",
+            "ko": "기계를 조작하는 판넬입니다.",
+            "id": "Panel pengoperasian mesin."
+          },
+          {
+            "key": "formal",
+            "badge": "📘 Lengkap / Formal",
+            "label": "Lengkap",
+            "desc": "Jawaban kalimat formal dan mendalam",
+            "ko": "각종 계기와 스위치로 공장 설비와 기계 작동을 제어합니다.",
+            "id": "Mengendalikan operasional fasilitas dan mesin pabrik dengan sakelar dan indikator."
+          }
+        ],
+        "usage_easy_ko": "기계를 움직일 때 씁니다.",
+        "usage_easy_id": "Dipakai saat mengoperasikan mesin.",
+        "usage_noun_ko": "기계를 조작하는 판넬입니다.",
+        "usage_noun_id": "Panel pengoperasian mesin."
       },
       "mfg_g_028": {
         "usage_short_ko": "무거운 물건을 위로 들어 올릴 때 씁니다.",
         "usage_short_id": "Dipakai untuk mengangkat barang berat ke atas.",
         "usage_full_ko": "전동 체인이나 와이어로 무거운 기계 부품을 수직으로 들어 올려 이동합니다.",
-        "usage_full_id": "Mengangkat dan memindahkan benda berat secara vertikal dengan katrol listrik."
+        "usage_full_id": "Mengangkat dan memindahkan benda berat secara vertikal dengan katrol listrik.",
+        "usage_options": [
+          {
+            "key": "mudah",
+            "badge": "⚡ Super Mudah",
+            "label": "Paling Mudah",
+            "desc": "Jawaban 2-3 kata paling simpel & mudah diucapkan saat ujian",
+            "ko": "물건을 올릴 때 씁니다.",
+            "id": "Dipakai saat mengangkat barang ke atas."
+          },
+          {
+            "key": "standar",
+            "badge": "⭐ Standar HRDK",
+            "label": "Standar",
+            "desc": "Jawaban standar resmi kisi-kisi HRD Korea",
+            "ko": "무거운 물건을 위로 들어 올릴 때 씁니다.",
+            "id": "Dipakai untuk mengangkat barang berat ke atas."
+          },
+          {
+            "key": "noun",
+            "badge": "🔹 Bentuk 도구",
+            "label": "Bentuk Alat",
+            "desc": "Jawaban langsung menyebut fungsi jenis alat",
+            "ko": "물건을 들어 올리는 장치입니다.",
+            "id": "Alat pengangkat barang ke atas."
+          },
+          {
+            "key": "formal",
+            "badge": "📘 Lengkap / Formal",
+            "label": "Lengkap",
+            "desc": "Jawaban kalimat formal dan mendalam",
+            "ko": "전동 체인이나 와이어로 무거운 기계 부품을 수직으로 들어 올려 이동합니다.",
+            "id": "Mengangkat dan memindahkan benda berat secara vertikal dengan katrol listrik."
+          }
+        ],
+        "usage_easy_ko": "물건을 올릴 때 씁니다.",
+        "usage_easy_id": "Dipakai saat mengangkat barang ke atas.",
+        "usage_noun_ko": "물건을 들어 올리는 장치입니다.",
+        "usage_noun_id": "Alat pengangkat barang ke atas."
       },
       "mfg_g_029": {
         "usage_short_ko": "전압이나 전류를 측정할 때 씁니다.",
         "usage_short_id": "Dipakai untuk mengukur tegangan atau arus listrik.",
         "usage_full_ko": "전기 회로의 전압, 전류, 저항을 측정하고 단선 여부를 점검합니다.",
-        "usage_full_id": "Mengukur tegangan, arus, dan hambatan sirkuit listrik serta mengecek kabel putus."
+        "usage_full_id": "Mengukur tegangan, arus, dan hambatan sirkuit listrik serta mengecek kabel putus.",
+        "usage_options": [
+          {
+            "key": "mudah",
+            "badge": "⚡ Super Mudah",
+            "label": "Paling Mudah",
+            "desc": "Jawaban 2-3 kata paling simpel & mudah diucapkan saat ujian",
+            "ko": "전기를 잴 때 씁니다.",
+            "id": "Dipakai saat mengukur listrik."
+          },
+          {
+            "key": "standar",
+            "badge": "⭐ Standar HRDK",
+            "label": "Standar",
+            "desc": "Jawaban standar resmi kisi-kisi HRD Korea",
+            "ko": "전압이나 전류를 측정할 때 씁니다.",
+            "id": "Dipakai untuk mengukur tegangan atau arus listrik."
+          },
+          {
+            "key": "noun",
+            "badge": "🔹 Bentuk 도구",
+            "label": "Bentuk Alat",
+            "desc": "Jawaban langsung menyebut fungsi jenis alat",
+            "ko": "전압을 측정하는 테스터기입니다.",
+            "id": "Alat tester voltase listrik."
+          },
+          {
+            "key": "formal",
+            "badge": "📘 Lengkap / Formal",
+            "label": "Lengkap",
+            "desc": "Jawaban kalimat formal dan mendalam",
+            "ko": "전기 회로의 전압, 전류, 저항을 측정하고 단선 여부를 점검합니다.",
+            "id": "Mengukur tegangan, arus, dan hambatan sirkuit listrik serta mengecek kabel putus."
+          }
+        ],
+        "usage_easy_ko": "전기를 잴 때 씁니다.",
+        "usage_easy_id": "Dipakai saat mengukur listrik.",
+        "usage_noun_ko": "전압을 측정하는 테스터기입니다.",
+        "usage_noun_id": "Alat tester voltase listrik."
       },
       "mfg_g_030": {
         "usage_short_ko": "물건을 싣고 밀어서 옮길 때 씁니다.",
         "usage_short_id": "Dipakai untuk memuat dan mendorong barang saat memindahkan.",
         "usage_full_ko": "작업장 내에서 부품이나 완제품을 싣고 손으로 밀어 운반합니다.",
-        "usage_full_id": "Mengangkut barang di dalam area kerja dengan memuatnya di kereta dorong."
+        "usage_full_id": "Mengangkut barang di dalam area kerja dengan memuatnya di kereta dorong.",
+        "usage_options": [
+          {
+            "key": "mudah",
+            "badge": "⚡ Super Mudah",
+            "label": "Paling Mudah",
+            "desc": "Jawaban 2-3 kata paling simpel & mudah diucapkan saat ujian",
+            "ko": "물건을 밀 때 씁니다.",
+            "id": "Dipakai saat memindahkan barang dengan dorongan."
+          },
+          {
+            "key": "standar",
+            "badge": "⭐ Standar HRDK",
+            "label": "Standar",
+            "desc": "Jawaban standar resmi kisi-kisi HRD Korea",
+            "ko": "물건을 싣고 밀어서 옮길 때 씁니다.",
+            "id": "Dipakai untuk memuat dan mendorong barang saat memindahkan."
+          },
+          {
+            "key": "noun",
+            "badge": "🔹 Bentuk 도구",
+            "label": "Bentuk Alat",
+            "desc": "Jawaban langsung menyebut fungsi jenis alat",
+            "ko": "짐을 나르는 대차입니다.",
+            "id": "Gerobak dorong pengangkut muatan."
+          },
+          {
+            "key": "formal",
+            "badge": "📘 Lengkap / Formal",
+            "label": "Lengkap",
+            "desc": "Jawaban kalimat formal dan mendalam",
+            "ko": "작업장 내에서 부품이나 완제품을 싣고 손으로 밀어 운반합니다.",
+            "id": "Mengangkut barang di dalam area kerja dengan memuatnya di kereta dorong."
+          }
+        ],
+        "usage_easy_ko": "물건을 밀 때 씁니다.",
+        "usage_easy_id": "Dipakai saat memindahkan barang dengan dorongan.",
+        "usage_noun_ko": "짐을 나르는 대차입니다.",
+        "usage_noun_id": "Gerobak dorong pengangkut muatan."
       },
       "mfg_g_031": {
         "usage_short_ko": "볼트나 너트를 빠르게 조이고 풀 때 씁니다.",
         "usage_short_id": "Dipakai untuk mengencangkan dan melonggarkan baut dengan cepat.",
         "usage_full_ko": "라쳇 핸들에 소켓을 끼워 볼트와 너트를 효율적으로 체결합니다.",
-        "usage_full_id": "Mengencangkan dan mengendurkan baut/mur dengan cepat menggunakan gagang rachet."
+        "usage_full_id": "Mengencangkan dan mengendurkan baut/mur dengan cepat menggunakan gagang rachet.",
+        "usage_options": [
+          {
+            "key": "mudah",
+            "badge": "⚡ Super Mudah",
+            "label": "Paling Mudah",
+            "desc": "Jawaban 2-3 kata paling simpel & mudah diucapkan saat ujian",
+            "ko": "볼트를 조일 때 씁니다.",
+            "id": "Dipakai saat mengencangkan baut."
+          },
+          {
+            "key": "standar",
+            "badge": "⭐ Standar HRDK",
+            "label": "Standar",
+            "desc": "Jawaban standar resmi kisi-kisi HRD Korea",
+            "ko": "볼트나 너트를 빠르게 조이고 풀 때 씁니다.",
+            "id": "Dipakai untuk mengencangkan dan melonggarkan baut dengan cepat."
+          },
+          {
+            "key": "noun",
+            "badge": "🔹 Bentuk 도구",
+            "label": "Bentuk Alat",
+            "desc": "Jawaban langsung menyebut fungsi jenis alat",
+            "ko": "볼트를 빠르게 조이는 렌치입니다.",
+            "id": "Kunci pengencang baut cepat."
+          },
+          {
+            "key": "formal",
+            "badge": "📘 Lengkap / Formal",
+            "label": "Lengkap",
+            "desc": "Jawaban kalimat formal dan mendalam",
+            "ko": "라쳇 핸들에 소켓을 끼워 볼트와 너트를 효율적으로 체결합니다.",
+            "id": "Mengencangkan dan mengendurkan baut/mur dengan cepat menggunakan gagang rachet."
+          }
+        ],
+        "usage_easy_ko": "볼트를 조일 때 씁니다.",
+        "usage_easy_id": "Dipakai saat mengencangkan baut.",
+        "usage_noun_ko": "볼트를 빠르게 조이는 렌치입니다.",
+        "usage_noun_id": "Kunci pengencang baut cepat."
       },
       "mfg_g_032": {
         "usage_short_ko": "볼트나 너트를 조이고 풀 때 씁니다.",
         "usage_short_id": "Dipakai untuk mengencangkan atau melonggarkan baut dan mur.",
         "usage_full_ko": "육각 볼트나 너트의 양옆을 잡아 회전시켜 조이거나 풉니다.",
-        "usage_full_id": "Memegang kedua sisi baut heksagonal atau mur untuk memutarnya."
+        "usage_full_id": "Memegang kedua sisi baut heksagonal atau mur untuk memutarnya.",
+        "usage_options": [
+          {
+            "key": "mudah",
+            "badge": "⚡ Super Mudah",
+            "label": "Paling Mudah",
+            "desc": "Jawaban 2-3 kata paling simpel & mudah diucapkan saat ujian",
+            "ko": "너트를 조일 때 씁니다.",
+            "id": "Dipakai saat mengencangkan mur."
+          },
+          {
+            "key": "standar",
+            "badge": "⭐ Standar HRDK",
+            "label": "Standar",
+            "desc": "Jawaban standar resmi kisi-kisi HRD Korea",
+            "ko": "볼트나 너트를 조이고 풀 때 씁니다.",
+            "id": "Dipakai untuk mengencangkan atau melonggarkan baut dan mur."
+          },
+          {
+            "key": "noun",
+            "badge": "🔹 Bentuk 도구",
+            "label": "Bentuk Alat",
+            "desc": "Jawaban langsung menyebut fungsi jenis alat",
+            "ko": "볼트와 너트를 조이는 공구입니다.",
+            "id": "Alat pengencang baut dan mur."
+          },
+          {
+            "key": "formal",
+            "badge": "📘 Lengkap / Formal",
+            "label": "Lengkap",
+            "desc": "Jawaban kalimat formal dan mendalam",
+            "ko": "육각 볼트나 너트의 양옆을 잡아 회전시켜 조이거나 풉니다.",
+            "id": "Memegang kedua sisi baut heksagonal atau mur untuk memutarnya."
+          }
+        ],
+        "usage_easy_ko": "너트를 조일 때 씁니다.",
+        "usage_easy_id": "Dipakai saat mengencangkan mur.",
+        "usage_noun_ko": "볼트와 너트를 조이는 공구입니다.",
+        "usage_noun_id": "Alat pengencang baut dan mur."
       },
       "mfg_g_033": {
         "usage_short_ko": "육각 구멍 볼트를 돌릴 때 씁니다.",
         "usage_short_id": "Dipakai untuk memutar baut segi enam (kunci L).",
         "usage_full_ko": "머리에 육각형 홈이 파인 볼트를 조이거나 풀 때 사용합니다.",
-        "usage_full_id": "Digunakan untuk mengencangkan atau melonggarkan baut berkepala lubang heksagonal."
+        "usage_full_id": "Digunakan untuk mengencangkan atau melonggarkan baut berkepala lubang heksagonal.",
+        "usage_options": [
+          {
+            "key": "mudah",
+            "badge": "⚡ Super Mudah",
+            "label": "Paling Mudah",
+            "desc": "Jawaban 2-3 kata paling simpel & mudah diucapkan saat ujian",
+            "ko": "육각 볼트를 돌릴 때 씁니다.",
+            "id": "Dipakai saat memutar baut segi enam."
+          },
+          {
+            "key": "standar",
+            "badge": "⭐ Standar HRDK",
+            "label": "Standar",
+            "desc": "Jawaban standar resmi kisi-kisi HRD Korea",
+            "ko": "육각 구멍 볼트를 돌릴 때 씁니다.",
+            "id": "Dipakai untuk memutar baut segi enam (kunci L)."
+          },
+          {
+            "key": "noun",
+            "badge": "🔹 Bentuk 도구",
+            "label": "Bentuk Alat",
+            "desc": "Jawaban langsung menyebut fungsi jenis alat",
+            "ko": "육각 볼트용 렌치입니다.",
+            "id": "Kunci khusus baut segi enam."
+          },
+          {
+            "key": "formal",
+            "badge": "📘 Lengkap / Formal",
+            "label": "Lengkap",
+            "desc": "Jawaban kalimat formal dan mendalam",
+            "ko": "머리에 육각형 홈이 파인 볼트를 조이거나 풀 때 사용합니다.",
+            "id": "Digunakan untuk mengencangkan atau melonggarkan baut berkepala lubang heksagonal."
+          }
+        ],
+        "usage_easy_ko": "육각 볼트를 돌릴 때 씁니다.",
+        "usage_easy_id": "Dipakai saat memutar baut segi enam.",
+        "usage_noun_ko": "육각 볼트용 렌치입니다.",
+        "usage_noun_id": "Kunci khusus baut segi enam."
       },
       "mfg_g_034": {
         "usage_short_ko": "어두운 작업장을 밝힐 때 씁니다.",
         "usage_short_id": "Dipakai untuk menerangi area kerja yang gelap.",
         "usage_full_ko": "조명이 부족한 기계 내부나 어두운 작업 공간을 비춥니다.",
-        "usage_full_id": "Menerangi bagian dalam mesin atau area kerja yang minim pencahayaan."
+        "usage_full_id": "Menerangi bagian dalam mesin atau area kerja yang minim pencahayaan.",
+        "usage_options": [
+          {
+            "key": "mudah",
+            "badge": "⚡ Super Mudah",
+            "label": "Paling Mudah",
+            "desc": "Jawaban 2-3 kata paling simpel & mudah diucapkan saat ujian",
+            "ko": "불을 밝힐 때 씁니다.",
+            "id": "Dipakai saat menerangi area kerja."
+          },
+          {
+            "key": "standar",
+            "badge": "⭐ Standar HRDK",
+            "label": "Standar",
+            "desc": "Jawaban standar resmi kisi-kisi HRD Korea",
+            "ko": "어두운 작업장을 밝힐 때 씁니다.",
+            "id": "Dipakai untuk menerangi area kerja yang gelap."
+          },
+          {
+            "key": "noun",
+            "badge": "🔹 Bentuk 도구",
+            "label": "Bentuk Alat",
+            "desc": "Jawaban langsung menyebut fungsi jenis alat",
+            "ko": "작업장을 비추는 전등입니다.",
+            "id": "Lampu penerang tempat kerja."
+          },
+          {
+            "key": "formal",
+            "badge": "📘 Lengkap / Formal",
+            "label": "Lengkap",
+            "desc": "Jawaban kalimat formal dan mendalam",
+            "ko": "조명이 부족한 기계 내부나 어두운 작업 공간을 비춥니다.",
+            "id": "Menerangi bagian dalam mesin atau area kerja yang minim pencahayaan."
+          }
+        ],
+        "usage_easy_ko": "불을 밝힐 때 씁니다.",
+        "usage_easy_id": "Dipakai saat menerangi area kerja.",
+        "usage_noun_ko": "작업장을 비추는 전등입니다.",
+        "usage_noun_id": "Lampu penerang tempat kerja."
       },
       "mfg_g_035": {
         "usage_short_ko": "구멍을 뚫을 때 씁니다.",
         "usage_short_id": "Dipakai untuk membuat lubang pada besi atau kayu.",
         "usage_full_ko": "회전력을 이용해 철판, 목재, 콘크리트에 구멍을 뚫습니다.",
-        "usage_full_id": "Membuat lubang pada plat besi, kayu, atau beton menggunakan tenaga bor listrik."
+        "usage_full_id": "Membuat lubang pada plat besi, kayu, atau beton menggunakan tenaga bor listrik.",
+        "usage_options": [
+          {
+            "key": "mudah",
+            "badge": "⚡ Super Mudah",
+            "label": "Paling Mudah",
+            "desc": "Jawaban 2-3 kata paling simpel & mudah diucapkan saat ujian",
+            "ko": "구멍을 뚫을 때 씁니다.",
+            "id": "Dipakai saat membuat lubang."
+          },
+          {
+            "key": "standar",
+            "badge": "⭐ Standar HRDK",
+            "label": "Standar",
+            "desc": "Jawaban standar resmi kisi-kisi HRD Korea",
+            "ko": "구멍을 뚫을 때 씁니다.",
+            "id": "Dipakai untuk membuat lubang pada besi atau kayu."
+          },
+          {
+            "key": "noun",
+            "badge": "🔹 Bentuk 도구",
+            "label": "Bentuk Alat",
+            "desc": "Jawaban langsung menyebut fungsi jenis alat",
+            "ko": "구멍을 뚫는 공구입니다.",
+            "id": "Alat pelubang."
+          },
+          {
+            "key": "formal",
+            "badge": "📘 Lengkap / Formal",
+            "label": "Lengkap",
+            "desc": "Jawaban kalimat formal dan mendalam",
+            "ko": "회전력을 이용해 철판, 목재, 콘크리트에 구멍을 뚫습니다.",
+            "id": "Membuat lubang pada plat besi, kayu, atau beton menggunakan tenaga bor listrik."
+          }
+        ],
+        "usage_easy_ko": "구멍을 뚫을 때 씁니다.",
+        "usage_easy_id": "Dipakai saat membuat lubang.",
+        "usage_noun_ko": "구멍을 뚫는 공구입니다.",
+        "usage_noun_id": "Alat pelubang."
       },
       "mfg_g_036": {
         "usage_short_ko": "전기를 멀리 끌어올 때 씁니다.",
         "usage_short_id": "Dipakai untuk menyalurkan listrik ke tempat yang jauh.",
         "usage_full_ko": "콘센트가 먼 작업 장소까지 전기를 안전하게 연장하여 공급합니다.",
-        "usage_full_id": "Menyalurkan listrik dengan aman ke area kerja yang jauh dari colokan."
+        "usage_full_id": "Menyalurkan listrik dengan aman ke area kerja yang jauh dari colokan.",
+        "usage_options": [
+          {
+            "key": "mudah",
+            "badge": "⚡ Super Mudah",
+            "label": "Paling Mudah",
+            "desc": "Jawaban 2-3 kata paling simpel & mudah diucapkan saat ujian",
+            "ko": "전기를 끌어올 때 씁니다.",
+            "id": "Dipakai saat menarik aliran listrik."
+          },
+          {
+            "key": "standar",
+            "badge": "⭐ Standar HRDK",
+            "label": "Standar",
+            "desc": "Jawaban standar resmi kisi-kisi HRD Korea",
+            "ko": "전기를 멀리 끌어올 때 씁니다.",
+            "id": "Dipakai untuk menyalurkan listrik ke tempat yang jauh."
+          },
+          {
+            "key": "noun",
+            "badge": "🔹 Bentuk 도구",
+            "label": "Bentuk Alat",
+            "desc": "Jawaban langsung menyebut fungsi jenis alat",
+            "ko": "전선을 감아둔 릴입니다.",
+            "id": "Gulungan kabel listrik panjang."
+          },
+          {
+            "key": "formal",
+            "badge": "📘 Lengkap / Formal",
+            "label": "Lengkap",
+            "desc": "Jawaban kalimat formal dan mendalam",
+            "ko": "콘센트가 먼 작업 장소까지 전기를 안전하게 연장하여 공급합니다.",
+            "id": "Menyalurkan listrik dengan aman ke area kerja yang jauh dari colokan."
+          }
+        ],
+        "usage_easy_ko": "전기를 끌어올 때 씁니다.",
+        "usage_easy_id": "Dipakai saat menarik aliran listrik.",
+        "usage_noun_ko": "전선을 감아둔 릴입니다.",
+        "usage_noun_id": "Gulungan kabel listrik panjang."
       },
       "mfg_g_037": {
         "usage_short_ko": "둥근 파이프를 꽉 잡아 돌릴 때 씁니다.",
         "usage_short_id": "Dipakai untuk memegang dan memutar pipa bulat.",
         "usage_full_ko": "둥근 강관이나 배관 파이프를 단단히 물어 조이거나 풀 때 사용합니다.",
-        "usage_full_id": "Mencengkeram pipa besi bulat dengan kuat saat mengencangkan atau melepas sambungan."
+        "usage_full_id": "Mencengkeram pipa besi bulat dengan kuat saat mengencangkan atau melepas sambungan.",
+        "usage_options": [
+          {
+            "key": "mudah",
+            "badge": "⚡ Super Mudah",
+            "label": "Paling Mudah",
+            "desc": "Jawaban 2-3 kata paling simpel & mudah diucapkan saat ujian",
+            "ko": "파이프를 돌릴 때 씁니다.",
+            "id": "Dipakai saat memutar pipa."
+          },
+          {
+            "key": "standar",
+            "badge": "⭐ Standar HRDK",
+            "label": "Standar",
+            "desc": "Jawaban standar resmi kisi-kisi HRD Korea",
+            "ko": "둥근 파이프를 꽉 잡아 돌릴 때 씁니다.",
+            "id": "Dipakai untuk memegang dan memutar pipa bulat."
+          },
+          {
+            "key": "noun",
+            "badge": "🔹 Bentuk 도구",
+            "label": "Bentuk Alat",
+            "desc": "Jawaban langsung menyebut fungsi jenis alat",
+            "ko": "파이프를 조이는 렌치입니다.",
+            "id": "Kunci pemutar pipa."
+          },
+          {
+            "key": "formal",
+            "badge": "📘 Lengkap / Formal",
+            "label": "Lengkap",
+            "desc": "Jawaban kalimat formal dan mendalam",
+            "ko": "둥근 강관이나 배관 파이프를 단단히 물어 조이거나 풀 때 사용합니다.",
+            "id": "Mencengkeram pipa besi bulat dengan kuat saat mengencangkan atau melepas sambungan."
+          }
+        ],
+        "usage_easy_ko": "파이프를 돌릴 때 씁니다.",
+        "usage_easy_id": "Dipakai saat memutar pipa.",
+        "usage_noun_ko": "파이프를 조이는 렌치입니다.",
+        "usage_noun_id": "Kunci pemutar pipa."
       },
       "mfg_g_038": {
         "usage_short_ko": "박스나 상자를 세워 나를 때 씁니다.",
         "usage_short_id": "Dipakai untuk memindahkan tumpukan kardus barang.",
         "usage_full_ko": "바퀴 두 개가 달린 운반차로 상자나 포대를 세워 이동시킵니다.",
-        "usage_full_id": "Mengangkut kardus atau karung barang dalam posisi berdiri menggunakan gerobak dorong."
+        "usage_full_id": "Mengangkut kardus atau karung barang dalam posisi berdiri menggunakan gerobak dorong.",
+        "usage_options": [
+          {
+            "key": "mudah",
+            "badge": "⚡ Super Mudah",
+            "label": "Paling Mudah",
+            "desc": "Jawaban 2-3 kata paling simpel & mudah diucapkan saat ujian",
+            "ko": "박스를 나를 때 씁니다.",
+            "id": "Dipakai saat mengangkut kardus."
+          },
+          {
+            "key": "standar",
+            "badge": "⭐ Standar HRDK",
+            "label": "Standar",
+            "desc": "Jawaban standar resmi kisi-kisi HRD Korea",
+            "ko": "박스나 상자를 세워 나를 때 씁니다.",
+            "id": "Dipakai untuk memindahkan tumpukan kardus barang."
+          },
+          {
+            "key": "noun",
+            "badge": "🔹 Bentuk 도구",
+            "label": "Bentuk Alat",
+            "desc": "Jawaban langsung menyebut fungsi jenis alat",
+            "ko": "상자를 옮기는 핸드카입니다.",
+            "id": "Gerobak dorong pemindah kardus."
+          },
+          {
+            "key": "formal",
+            "badge": "📘 Lengkap / Formal",
+            "label": "Lengkap",
+            "desc": "Jawaban kalimat formal dan mendalam",
+            "ko": "바퀴 두 개가 달린 운반차로 상자나 포대를 세워 이동시킵니다.",
+            "id": "Mengangkut kardus atau karung barang dalam posisi berdiri menggunakan gerobak dorong."
+          }
+        ],
+        "usage_easy_ko": "박스를 나를 때 씁니다.",
+        "usage_easy_id": "Dipakai saat mengangkut kardus.",
+        "usage_noun_ko": "상자를 옮기는 핸드카입니다.",
+        "usage_noun_id": "Gerobak dorong pemindah kardus."
       },
       "mfg_g_039": {
         "usage_short_ko": "파렛트 짐을 끌어서 옮길 때 씁니다.",
         "usage_short_id": "Dipakai untuk menarik dan memindahkan muatan palet.",
         "usage_full_ko": "파렛트 밑에 포크를 넣어 유압으로 들어 올려 수동으로 운반합니다.",
-        "usage_full_id": "Memasukkan garpu di bawah palet lalu mengangkat dan menarik muatan secara manual."
+        "usage_full_id": "Memasukkan garpu di bawah palet lalu mengangkat dan menarik muatan secara manual.",
+        "usage_options": [
+          {
+            "key": "mudah",
+            "badge": "⚡ Super Mudah",
+            "label": "Paling Mudah",
+            "desc": "Jawaban 2-3 kata paling simpel & mudah diucapkan saat ujian",
+            "ko": "파렛트를 끌 때 씁니다.",
+            "id": "Dipakai saat menarik palet barang."
+          },
+          {
+            "key": "standar",
+            "badge": "⭐ Standar HRDK",
+            "label": "Standar",
+            "desc": "Jawaban standar resmi kisi-kisi HRD Korea",
+            "ko": "파렛트 짐을 끌어서 옮길 때 씁니다.",
+            "id": "Dipakai untuk menarik dan memindahkan muatan palet."
+          },
+          {
+            "key": "noun",
+            "badge": "🔹 Bentuk 도구",
+            "label": "Bentuk Alat",
+            "desc": "Jawaban langsung menyebut fungsi jenis alat",
+            "ko": "파렛트 짐을 옮기는 트럭입니다.",
+            "id": "Alat pengangkut palet."
+          },
+          {
+            "key": "formal",
+            "badge": "📘 Lengkap / Formal",
+            "label": "Lengkap",
+            "desc": "Jawaban kalimat formal dan mendalam",
+            "ko": "파렛트 밑에 포크를 넣어 유압으로 들어 올려 수동으로 운반합니다.",
+            "id": "Memasukkan garpu di bawah palet lalu mengangkat dan menarik muatan secara manual."
+          }
+        ],
+        "usage_easy_ko": "파렛트를 끌 때 씁니다.",
+        "usage_easy_id": "Dipakai saat menarik palet barang.",
+        "usage_noun_ko": "파렛트 짐을 옮기는 트럭입니다.",
+        "usage_noun_id": "Alat pengangkut palet."
       },
       "mfg_g_040": {
         "usage_short_ko": "공구를 정리하고 보관할 때 씁니다.",
         "usage_short_id": "Dipakai untuk menyimpan dan merapikan perkakas kerja.",
         "usage_full_ko": "작업에 필요한 여러 가지 공구를 안전하고 깔끔하게 수납합니다.",
-        "usage_full_id": "Menyimpan berbagai perkakas kerja dengan rapi dan aman."
+        "usage_full_id": "Menyimpan berbagai perkakas kerja dengan rapi dan aman.",
+        "usage_options": [
+          {
+            "key": "mudah",
+            "badge": "⚡ Super Mudah",
+            "label": "Paling Mudah",
+            "desc": "Jawaban 2-3 kata paling simpel & mudah diucapkan saat ujian",
+            "ko": "공구를 넣을 때 씁니다.",
+            "id": "Dipakai saat menaruh perkakas."
+          },
+          {
+            "key": "standar",
+            "badge": "⭐ Standar HRDK",
+            "label": "Standar",
+            "desc": "Jawaban standar resmi kisi-kisi HRD Korea",
+            "ko": "공구를 정리하고 보관할 때 씁니다.",
+            "id": "Dipakai untuk menyimpan dan merapikan perkakas kerja."
+          },
+          {
+            "key": "noun",
+            "badge": "🔹 Bentuk 도구",
+            "label": "Bentuk Alat",
+            "desc": "Jawaban langsung menyebut fungsi jenis alat",
+            "ko": "공구를 보관하는 상자입니다.",
+            "id": "Kotak penyimpanan perkakas."
+          },
+          {
+            "key": "formal",
+            "badge": "📘 Lengkap / Formal",
+            "label": "Lengkap",
+            "desc": "Jawaban kalimat formal dan mendalam",
+            "ko": "작업에 필요한 여러 가지 공구를 안전하고 깔끔하게 수납합니다.",
+            "id": "Menyimpan berbagai perkakas kerja dengan rapi dan aman."
+          }
+        ],
+        "usage_easy_ko": "공구를 넣을 때 씁니다.",
+        "usage_easy_id": "Dipakai saat menaruh perkakas.",
+        "usage_noun_ko": "공구를 보관하는 상자입니다.",
+        "usage_noun_id": "Kotak penyimpanan perkakas."
       },
       "mfg_g_041": {
         "usage_short_ko": "물건을 단단히 고정할 때 씁니다.",
         "usage_short_id": "Dipakai untuk menyatukan dan mengikat benda dengan kuat.",
         "usage_full_ko": "목재나 얇은 철판에 돌려 박아 두 물체를 결합합니다.",
-        "usage_full_id": "Disekrupkan ke kayu atau plat besi untuk menyatukan dua benda."
+        "usage_full_id": "Disekrupkan ke kayu atau plat besi untuk menyatukan dua benda.",
+        "usage_options": [
+          {
+            "key": "mudah",
+            "badge": "⚡ Super Mudah",
+            "label": "Paling Mudah",
+            "desc": "Jawaban 2-3 kata paling simpel & mudah diucapkan saat ujian",
+            "ko": "물건을 붙일 때 씁니다.",
+            "id": "Dipakai saat menyatukan benda."
+          },
+          {
+            "key": "standar",
+            "badge": "⭐ Standar HRDK",
+            "label": "Standar",
+            "desc": "Jawaban standar resmi kisi-kisi HRD Korea",
+            "ko": "물건을 단단히 고정할 때 씁니다.",
+            "id": "Dipakai untuk menyatukan dan mengikat benda dengan kuat."
+          },
+          {
+            "key": "noun",
+            "badge": "🔹 Bentuk 도구",
+            "label": "Bentuk Alat",
+            "desc": "Jawaban langsung menyebut fungsi jenis alat",
+            "ko": "물건을 고정하는 나사입니다.",
+            "id": "Sekrup pengikat benda."
+          },
+          {
+            "key": "formal",
+            "badge": "📘 Lengkap / Formal",
+            "label": "Lengkap",
+            "desc": "Jawaban kalimat formal dan mendalam",
+            "ko": "목재나 얇은 철판에 돌려 박아 두 물체를 결합합니다.",
+            "id": "Disekrupkan ke kayu atau plat besi untuk menyatukan dua benda."
+          }
+        ],
+        "usage_easy_ko": "물건을 붙일 때 씁니다.",
+        "usage_easy_id": "Dipakai saat menyatukan benda.",
+        "usage_noun_ko": "물건을 고정하는 나사입니다.",
+        "usage_noun_id": "Sekrup pengikat benda."
       },
       "mfg_g_042": {
         "usage_short_ko": "폐기물이나 곡물을 담을 때 씁니다.",
         "usage_short_id": "Dipakai untuk menampung sampah pabrik atau hasil panen.",
         "usage_full_ko": "모래, 곡물, 공장 쓰레기나 폐자재를 대량으로 담아 운반합니다.",
-        "usage_full_id": "Menampung dan mengangkut pasir, biji-bijian, atau sampah pabrik dalam jumlah besar."
+        "usage_full_id": "Menampung dan mengangkut pasir, biji-bijian, atau sampah pabrik dalam jumlah besar.",
+        "usage_options": [
+          {
+            "key": "mudah",
+            "badge": "⚡ Super Mudah",
+            "label": "Paling Mudah",
+            "desc": "Jawaban 2-3 kata paling simpel & mudah diucapkan saat ujian",
+            "ko": "쓰레기를 담을 때 씁니다.",
+            "id": "Dipakai saat menaruh sampah."
+          },
+          {
+            "key": "standar",
+            "badge": "⭐ Standar HRDK",
+            "label": "Standar",
+            "desc": "Jawaban standar resmi kisi-kisi HRD Korea",
+            "ko": "폐기물이나 곡물을 담을 때 씁니다.",
+            "id": "Dipakai untuk menampung sampah pabrik atau hasil panen."
+          },
+          {
+            "key": "noun",
+            "badge": "🔹 Bentuk 도구",
+            "label": "Bentuk Alat",
+            "desc": "Jawaban langsung menyebut fungsi jenis alat",
+            "ko": "폐기물을 담는 포대입니다.",
+            "id": "Karung wadah sampah/limbah."
+          },
+          {
+            "key": "formal",
+            "badge": "📘 Lengkap / Formal",
+            "label": "Lengkap",
+            "desc": "Jawaban kalimat formal dan mendalam",
+            "ko": "모래, 곡물, 공장 쓰레기나 폐자재를 대량으로 담아 운반합니다.",
+            "id": "Menampung dan mengangkut pasir, biji-bijian, atau sampah pabrik dalam jumlah besar."
+          }
+        ],
+        "usage_easy_ko": "쓰레기를 담을 때 씁니다.",
+        "usage_easy_id": "Dipakai saat menaruh sampah.",
+        "usage_noun_ko": "폐기물을 담는 포대입니다.",
+        "usage_noun_id": "Karung wadah sampah/limbah."
       },
       "mfg_g_043": {
         "usage_short_ko": "작은 부품을 담아둘 때 씁니다.",
         "usage_short_id": "Dipakai untuk menaruh baut atau komponen kecil.",
         "usage_full_ko": "생산 라인에서 작은 금속 부품이나 나사를 분류하여 보관합니다.",
-        "usage_full_id": "Menyimpan dan mengelompokkan komponen kecil atau baut di lini produksi."
+        "usage_full_id": "Menyimpan dan mengelompokkan komponen kecil atau baut di lini produksi.",
+        "usage_options": [
+          {
+            "key": "mudah",
+            "badge": "⚡ Super Mudah",
+            "label": "Paling Mudah",
+            "desc": "Jawaban 2-3 kata paling simpel & mudah diucapkan saat ujian",
+            "ko": "부품을 담을 때 씁니다.",
+            "id": "Dipakai saat menaruh suku cadang."
+          },
+          {
+            "key": "standar",
+            "badge": "⭐ Standar HRDK",
+            "label": "Standar",
+            "desc": "Jawaban standar resmi kisi-kisi HRD Korea",
+            "ko": "작은 부품을 담아둘 때 씁니다.",
+            "id": "Dipakai untuk menaruh baut atau komponen kecil."
+          },
+          {
+            "key": "noun",
+            "badge": "🔹 Bentuk 도구",
+            "label": "Bentuk Alat",
+            "desc": "Jawaban langsung menyebut fungsi jenis alat",
+            "ko": "부품을 담는 바구니입니다.",
+            "id": "Keranjang wadah komponen."
+          },
+          {
+            "key": "formal",
+            "badge": "📘 Lengkap / Formal",
+            "label": "Lengkap",
+            "desc": "Jawaban kalimat formal dan mendalam",
+            "ko": "생산 라인에서 작은 금속 부품이나 나사를 분류하여 보관합니다.",
+            "id": "Menyimpan dan mengelompokkan komponen kecil atau baut di lini produksi."
+          }
+        ],
+        "usage_easy_ko": "부품을 담을 때 씁니다.",
+        "usage_easy_id": "Dipakai saat menaruh suku cadang.",
+        "usage_noun_ko": "부품을 담는 바구니입니다.",
+        "usage_noun_id": "Keranjang wadah komponen."
       },
       "mfg_g_044": {
         "usage_short_ko": "높은 곳에 올라갈 때 씁니다.",
         "usage_short_id": "Dipakai saat memanjat ke tempat tinggi.",
         "usage_full_ko": "사람 손이 닿지 않는 높은 위치에서 작업할 때 밟고 올라갑니다.",
-        "usage_full_id": "Dipakai untuk memanjat saat harus bekerja di tempat yang tinggi."
+        "usage_full_id": "Dipakai untuk memanjat saat harus bekerja di tempat yang tinggi.",
+        "usage_options": [
+          {
+            "key": "mudah",
+            "badge": "⚡ Super Mudah",
+            "label": "Paling Mudah",
+            "desc": "Jawaban 2-3 kata paling simpel & mudah diucapkan saat ujian",
+            "ko": "높은 데 갈 때 씁니다.",
+            "id": "Dipakai saat naik ke tempat tinggi."
+          },
+          {
+            "key": "standar",
+            "badge": "⭐ Standar HRDK",
+            "label": "Standar",
+            "desc": "Jawaban standar resmi kisi-kisi HRD Korea",
+            "ko": "높은 곳에 올라갈 때 씁니다.",
+            "id": "Dipakai saat memanjat ke tempat tinggi."
+          },
+          {
+            "key": "noun",
+            "badge": "🔹 Bentuk 도구",
+            "label": "Bentuk Alat",
+            "desc": "Jawaban langsung menyebut fungsi jenis alat",
+            "ko": "높은 곳에 오르는 사다리입니다.",
+            "id": "Tangga panjat ke tempat tinggi."
+          },
+          {
+            "key": "formal",
+            "badge": "📘 Lengkap / Formal",
+            "label": "Lengkap",
+            "desc": "Jawaban kalimat formal dan mendalam",
+            "ko": "사람 손이 닿지 않는 높은 위치에서 작업할 때 밟고 올라갑니다.",
+            "id": "Dipakai untuk memanjat saat harus bekerja di tempat yang tinggi."
+          }
+        ],
+        "usage_easy_ko": "높은 데 갈 때 씁니다.",
+        "usage_easy_id": "Dipakai saat naik ke tempat tinggi.",
+        "usage_noun_ko": "높은 곳에 오르는 사다리입니다.",
+        "usage_noun_id": "Tangga panjat ke tempat tinggi."
       },
       "mfg_g_045": {
         "usage_short_ko": "전원을 켜고 끌 때 씁니다.",
         "usage_short_id": "Dipakai untuk menyalakan dan mematikan daya.",
         "usage_full_ko": "전기 회로를 연결하거나 차단하여 전원을 제어합니다.",
-        "usage_full_id": "Mengontrol daya dengan menyambung atau memutus sirkuit listrik."
+        "usage_full_id": "Mengontrol daya dengan menyambung atau memutus sirkuit listrik.",
+        "usage_options": [
+          {
+            "key": "mudah",
+            "badge": "⚡ Super Mudah",
+            "label": "Paling Mudah",
+            "desc": "Jawaban 2-3 kata paling simpel & mudah diucapkan saat ujian",
+            "ko": "전원을 켤 때 씁니다.",
+            "id": "Dipakai saat menyalakan daya."
+          },
+          {
+            "key": "standar",
+            "badge": "⭐ Standar HRDK",
+            "label": "Standar",
+            "desc": "Jawaban standar resmi kisi-kisi HRD Korea",
+            "ko": "전원을 켜고 끌 때 씁니다.",
+            "id": "Dipakai untuk menyalakan dan mematikan daya."
+          },
+          {
+            "key": "noun",
+            "badge": "🔹 Bentuk 도구",
+            "label": "Bentuk Alat",
+            "desc": "Jawaban langsung menyebut fungsi jenis alat",
+            "ko": "전기 스위치입니다.",
+            "id": "Saklar pemutus/penghubung listrik."
+          },
+          {
+            "key": "formal",
+            "badge": "📘 Lengkap / Formal",
+            "label": "Lengkap",
+            "desc": "Jawaban kalimat formal dan mendalam",
+            "ko": "전기 회로를 연결하거나 차단하여 전원을 제어합니다.",
+            "id": "Mengontrol daya dengan menyambung atau memutus sirkuit listrik."
+          }
+        ],
+        "usage_easy_ko": "전원을 켤 때 씁니다.",
+        "usage_easy_id": "Dipakai saat menyalakan daya.",
+        "usage_noun_ko": "전기 스위치입니다.",
+        "usage_noun_id": "Saklar pemutus/penghubung listrik."
       },
       "mfg_g_046": {
         "usage_short_ko": "부품을 서로 조여 결합할 때 씁니다.",
         "usage_short_id": "Dipakai untuk mengikat dan merakit komponen mesin.",
         "usage_full_ko": "볼트와 너트를 체결하여 기계 부품이나 구조물을 단단히 조립합니다.",
-        "usage_full_id": "Mengencangkan baut dan mur untuk merakit bagian-bagian mesin dengan kuat."
+        "usage_full_id": "Mengencangkan baut dan mur untuk merakit bagian-bagian mesin dengan kuat.",
+        "usage_options": [
+          {
+            "key": "mudah",
+            "badge": "⚡ Super Mudah",
+            "label": "Paling Mudah",
+            "desc": "Jawaban 2-3 kata paling simpel & mudah diucapkan saat ujian",
+            "ko": "부품을 조일 때 씁니다.",
+            "id": "Dipakai saat mengencangkan suku cadang."
+          },
+          {
+            "key": "standar",
+            "badge": "⭐ Standar HRDK",
+            "label": "Standar",
+            "desc": "Jawaban standar resmi kisi-kisi HRD Korea",
+            "ko": "부품을 서로 조여 결합할 때 씁니다.",
+            "id": "Dipakai untuk mengikat dan merakit komponen mesin."
+          },
+          {
+            "key": "noun",
+            "badge": "🔹 Bentuk 도구",
+            "label": "Bentuk Alat",
+            "desc": "Jawaban langsung menyebut fungsi jenis alat",
+            "ko": "부품을 결합하는 볼트와 너트입니다.",
+            "id": "Baut dan mur pengikat komponen."
+          },
+          {
+            "key": "formal",
+            "badge": "📘 Lengkap / Formal",
+            "label": "Lengkap",
+            "desc": "Jawaban kalimat formal dan mendalam",
+            "ko": "볼트와 너트를 체결하여 기계 부품이나 구조물을 단단히 조립합니다.",
+            "id": "Mengencangkan baut dan mur untuk merakit bagian-bagian mesin dengan kuat."
+          }
+        ],
+        "usage_easy_ko": "부품을 조일 때 씁니다.",
+        "usage_easy_id": "Dipakai saat mengencangkan suku cadang.",
+        "usage_noun_ko": "부품을 결합하는 볼트와 너트입니다.",
+        "usage_noun_id": "Baut dan mur pengikat komponen."
       },
       "mfg_g_047": {
         "usage_short_ko": "물건의 무게를 잴 때 씁니다.",
         "usage_short_id": "Dipakai untuk mengukur berat barang.",
         "usage_full_ko": "제품이나 원자재의 무게를 정확히 계량할 때 사용합니다.",
-        "usage_full_id": "Digunakan untuk menimbang berat produk atau bahan baku secara presisi."
+        "usage_full_id": "Digunakan untuk menimbang berat produk atau bahan baku secara presisi.",
+        "usage_options": [
+          {
+            "key": "mudah",
+            "badge": "⚡ Super Mudah",
+            "label": "Paling Mudah",
+            "desc": "Jawaban 2-3 kata paling simpel & mudah diucapkan saat ujian",
+            "ko": "무게를 잴 때 씁니다.",
+            "id": "Dipakai saat menimbang berat."
+          },
+          {
+            "key": "standar",
+            "badge": "⭐ Standar HRDK",
+            "label": "Standar",
+            "desc": "Jawaban standar resmi kisi-kisi HRD Korea",
+            "ko": "물건의 무게를 잴 때 씁니다.",
+            "id": "Dipakai untuk mengukur berat barang."
+          },
+          {
+            "key": "noun",
+            "badge": "🔹 Bentuk 도구",
+            "label": "Bentuk Alat",
+            "desc": "Jawaban langsung menyebut fungsi jenis alat",
+            "ko": "무게를 측정하는 저울입니다.",
+            "id": "Timbangan pengukur bobot."
+          },
+          {
+            "key": "formal",
+            "badge": "📘 Lengkap / Formal",
+            "label": "Lengkap",
+            "desc": "Jawaban kalimat formal dan mendalam",
+            "ko": "제품이나 원자재의 무게를 정확히 계량할 때 사용합니다.",
+            "id": "Digunakan untuk menimbang berat produk atau bahan baku secara presisi."
+          }
+        ],
+        "usage_easy_ko": "무게를 잴 때 씁니다.",
+        "usage_easy_id": "Dipakai saat menimbang berat.",
+        "usage_noun_ko": "무게를 측정하는 저울입니다.",
+        "usage_noun_id": "Timbangan pengukur bobot."
       },
       "mfg_g_048": {
         "usage_short_ko": "길이나 거리를 잴 때 씁니다.",
         "usage_short_id": "Dipakai untuk mengukur panjang material.",
         "usage_full_ko": "자재의 길이, 폭, 높이를 빠르고 간편하게 측정합니다.",
-        "usage_full_id": "Mengukur panjang, lebar, dan tinggi material dengan praktis."
+        "usage_full_id": "Mengukur panjang, lebar, dan tinggi material dengan praktis.",
+        "usage_options": [
+          {
+            "key": "mudah",
+            "badge": "⚡ Super Mudah",
+            "label": "Paling Mudah",
+            "desc": "Jawaban 2-3 kata paling simpel & mudah diucapkan saat ujian",
+            "ko": "길이를 잴 때 씁니다.",
+            "id": "Dipakai saat mengukur panjang."
+          },
+          {
+            "key": "standar",
+            "badge": "⭐ Standar HRDK",
+            "label": "Standar",
+            "desc": "Jawaban standar resmi kisi-kisi HRD Korea",
+            "ko": "길이나 거리를 잴 때 씁니다.",
+            "id": "Dipakai untuk mengukur panjang material."
+          },
+          {
+            "key": "noun",
+            "badge": "🔹 Bentuk 도구",
+            "label": "Bentuk Alat",
+            "desc": "Jawaban langsung menyebut fungsi jenis alat",
+            "ko": "길이를 재는 줄자입니다.",
+            "id": "Meteran pengukur panjang."
+          },
+          {
+            "key": "formal",
+            "badge": "📘 Lengkap / Formal",
+            "label": "Lengkap",
+            "desc": "Jawaban kalimat formal dan mendalam",
+            "ko": "자재의 길이, 폭, 높이를 빠르고 간편하게 측정합니다.",
+            "id": "Mengukur panjang, lebar, dan tinggi material dengan praktis."
+          }
+        ],
+        "usage_easy_ko": "길이를 잴 때 씁니다.",
+        "usage_easy_id": "Dipakai saat mengukur panjang.",
+        "usage_noun_ko": "길이를 재는 줄자입니다.",
+        "usage_noun_id": "Meteran pengukur panjang."
       },
       "mfg_g_049": {
         "usage_short_ko": "물건을 올려놓고 지게차로 뜰 때 씁니다.",
         "usage_short_id": "Dipakai sebagai alas barang agar mudah diangkat forklift.",
         "usage_full_ko": "화물을 적재하여 지게차나 핸드파렛트로 쉽게 운반하도록 받쳐줍니다.",
-        "usage_full_id": "Tatakan untuk menumpuk muatan agar mudah dipindahkan dengan forklift."
+        "usage_full_id": "Tatakan untuk menumpuk muatan agar mudah dipindahkan dengan forklift.",
+        "usage_options": [
+          {
+            "key": "mudah",
+            "badge": "⚡ Super Mudah",
+            "label": "Paling Mudah",
+            "desc": "Jawaban 2-3 kata paling simpel & mudah diucapkan saat ujian",
+            "ko": "짐을 올릴 때 씁니다.",
+            "id": "Dipakai saat menaruh muatan barang."
+          },
+          {
+            "key": "standar",
+            "badge": "⭐ Standar HRDK",
+            "label": "Standar",
+            "desc": "Jawaban standar resmi kisi-kisi HRD Korea",
+            "ko": "물건을 올려놓고 지게차로 뜰 때 씁니다.",
+            "id": "Dipakai sebagai alas barang agar mudah diangkat forklift."
+          },
+          {
+            "key": "noun",
+            "badge": "🔹 Bentuk 도구",
+            "label": "Bentuk Alat",
+            "desc": "Jawaban langsung menyebut fungsi jenis alat",
+            "ko": "짐을 받치는 받침대입니다.",
+            "id": "Papan alas muatan barang."
+          },
+          {
+            "key": "formal",
+            "badge": "📘 Lengkap / Formal",
+            "label": "Lengkap",
+            "desc": "Jawaban kalimat formal dan mendalam",
+            "ko": "화물을 적재하여 지게차나 핸드파렛트로 쉽게 운반하도록 받쳐줍니다.",
+            "id": "Tatakan untuk menumpuk muatan agar mudah dipindahkan dengan forklift."
+          }
+        ],
+        "usage_easy_ko": "짐을 올릴 때 씁니다.",
+        "usage_easy_id": "Dipakai saat menaruh muatan barang.",
+        "usage_noun_ko": "짐을 받치는 받침대입니다.",
+        "usage_noun_id": "Papan alas muatan barang."
       },
       "mfg_g_050": {
         "usage_short_ko": "나쁜 공기를 밖으로 뺄 때 씁니다.",
         "usage_short_id": "Dipakai untuk membuang udara kotor keluar pabrik.",
         "usage_full_ko": "작업장 내부의 분진, 유해가스, 열기를 외부로 배출하여 환기합니다.",
-        "usage_full_id": "Membuang debu, gas berbahaya, dan hawa panas dari dalam tempat kerja."
+        "usage_full_id": "Membuang debu, gas berbahaya, dan hawa panas dari dalam tempat kerja.",
+        "usage_options": [
+          {
+            "key": "mudah",
+            "badge": "⚡ Super Mudah",
+            "label": "Paling Mudah",
+            "desc": "Jawaban 2-3 kata paling simpel & mudah diucapkan saat ujian",
+            "ko": "공기를 뺄 때 씁니다.",
+            "id": "Dipakai saat membuang udara kotor."
+          },
+          {
+            "key": "standar",
+            "badge": "⭐ Standar HRDK",
+            "label": "Standar",
+            "desc": "Jawaban standar resmi kisi-kisi HRD Korea",
+            "ko": "나쁜 공기를 밖으로 뺄 때 씁니다.",
+            "id": "Dipakai untuk membuang udara kotor keluar pabrik."
+          },
+          {
+            "key": "noun",
+            "badge": "🔹 Bentuk 도구",
+            "label": "Bentuk Alat",
+            "desc": "Jawaban langsung menyebut fungsi jenis alat",
+            "ko": "환기를 시키는 팬입니다.",
+            "id": "Kipas ventilasi udara."
+          },
+          {
+            "key": "formal",
+            "badge": "📘 Lengkap / Formal",
+            "label": "Lengkap",
+            "desc": "Jawaban kalimat formal dan mendalam",
+            "ko": "작업장 내부의 분진, 유해가스, 열기를 외부로 배출하여 환기합니다.",
+            "id": "Membuang debu, gas berbahaya, dan hawa panas dari dalam tempat kerja."
+          }
+        ],
+        "usage_easy_ko": "공기를 뺄 때 씁니다.",
+        "usage_easy_id": "Dipakai saat membuang udara kotor.",
+        "usage_noun_ko": "환기를 시키는 팬입니다.",
+        "usage_noun_id": "Kipas ventilasi udara."
       },
       "apd_051": {
         "usage_short_ko": "물이나 기름이 옷에 튀지 않게 막습니다.",
         "usage_short_id": "Melindungi pakaian dari cipratan air atau minyak.",
         "usage_full_ko": "세척이나 액체 취급 작업 시 옷이 젖거나 오염되는 것을 방지합니다.",
-        "usage_full_id": "Mencegah pakaian basah atau kotor saat mencuci atau menangani cairan."
+        "usage_full_id": "Mencegah pakaian basah atau kotor saat mencuci atau menangani cairan.",
+        "usage_options": [
+          {
+            "key": "mudah",
+            "badge": "⚡ Super Mudah",
+            "label": "Paling Mudah",
+            "desc": "Jawaban 2-3 kata paling simpel & mudah diucapkan saat ujian",
+            "ko": "옷을 보호할 때 씁니다.",
+            "id": "Dipakai untuk melindungi baju."
+          },
+          {
+            "key": "standar",
+            "badge": "⭐ Standar HRDK",
+            "label": "Standar",
+            "desc": "Jawaban standar resmi kisi-kisi HRD Korea",
+            "ko": "물이나 기름이 옷에 튀지 않게 막습니다.",
+            "id": "Melindungi pakaian dari cipratan air atau minyak."
+          },
+          {
+            "key": "noun",
+            "badge": "🔹 Bentuk 도구",
+            "label": "Bentuk Alat",
+            "desc": "Jawaban langsung menyebut fungsi jenis alat",
+            "ko": "물을 막는 앞치마입니다.",
+            "id": "Celemek penahan air."
+          },
+          {
+            "key": "formal",
+            "badge": "📘 Lengkap / Formal",
+            "label": "Lengkap",
+            "desc": "Jawaban kalimat formal dan mendalam",
+            "ko": "세척이나 액체 취급 작업 시 옷이 젖거나 오염되는 것을 방지합니다.",
+            "id": "Mencegah pakaian basah atau kotor saat mencuci atau menangani cairan."
+          }
+        ],
+        "usage_easy_ko": "옷을 보호할 때 씁니다.",
+        "usage_easy_id": "Dipakai untuk melindungi baju.",
+        "usage_noun_ko": "물을 막는 앞치마입니다.",
+        "usage_noun_id": "Celemek penahan air."
       },
       "apd_052": {
         "usage_short_ko": "먼지를 들이마시지 않게 막습니다.",
         "usage_short_id": "Mencegah agar tidak menghirup debu pabrik.",
         "usage_full_ko": "분진이 많은 작업장에서 먼지가 호흡기로 들어오는 것을 차단합니다.",
-        "usage_full_id": "Menyaring debu agar tidak masuk ke pernapasan di area kerja berdebu."
+        "usage_full_id": "Menyaring debu agar tidak masuk ke pernapasan di area kerja berdebu.",
+        "usage_options": [
+          {
+            "key": "mudah",
+            "badge": "⚡ Super Mudah",
+            "label": "Paling Mudah",
+            "desc": "Jawaban 2-3 kata paling simpel & mudah diucapkan saat ujian",
+            "ko": "먼지를 막을 때 씁니다.",
+            "id": "Dipakai untuk menahan debu."
+          },
+          {
+            "key": "standar",
+            "badge": "⭐ Standar HRDK",
+            "label": "Standar",
+            "desc": "Jawaban standar resmi kisi-kisi HRD Korea",
+            "ko": "먼지를 들이마시지 않게 막습니다.",
+            "id": "Mencegah agar tidak menghirup debu pabrik."
+          },
+          {
+            "key": "noun",
+            "badge": "🔹 Bentuk 도구",
+            "label": "Bentuk Alat",
+            "desc": "Jawaban langsung menyebut fungsi jenis alat",
+            "ko": "먼지를 막는 마스크입니다.",
+            "id": "Masker pelindung debu."
+          },
+          {
+            "key": "formal",
+            "badge": "📘 Lengkap / Formal",
+            "label": "Lengkap",
+            "desc": "Jawaban kalimat formal dan mendalam",
+            "ko": "분진이 많은 작업장에서 먼지가 호흡기로 들어오는 것을 차단합니다.",
+            "id": "Menyaring debu agar tidak masuk ke pernapasan di area kerja berdebu."
+          }
+        ],
+        "usage_easy_ko": "먼지를 막을 때 씁니다.",
+        "usage_easy_id": "Dipakai untuk menahan debu.",
+        "usage_noun_ko": "먼지를 막는 마스크입니다.",
+        "usage_noun_id": "Masker pelindung debu."
       },
       "apd_053": {
         "usage_short_ko": "눈에 파편이 튀지 않게 보호합니다.",
         "usage_short_id": "Melindungi mata dari serpihan atau percikan api.",
         "usage_full_ko": "연마나 절단 작업 시 튀는 불꽃과 파편으로부터 눈을 보호합니다.",
-        "usage_full_id": "Melindungi mata dari percikan bunga api dan serpihan saat mengasah atau memotong."
+        "usage_full_id": "Melindungi mata dari percikan bunga api dan serpihan saat mengasah atau memotong.",
+        "usage_options": [
+          {
+            "key": "mudah",
+            "badge": "⚡ Super Mudah",
+            "label": "Paling Mudah",
+            "desc": "Jawaban 2-3 kata paling simpel & mudah diucapkan saat ujian",
+            "ko": "눈을 보호할 때 씁니다.",
+            "id": "Dipakai untuk melindungi mata."
+          },
+          {
+            "key": "standar",
+            "badge": "⭐ Standar HRDK",
+            "label": "Standar",
+            "desc": "Jawaban standar resmi kisi-kisi HRD Korea",
+            "ko": "눈에 파편이 튀지 않게 보호합니다.",
+            "id": "Melindungi mata dari serpihan atau percikan api."
+          },
+          {
+            "key": "noun",
+            "badge": "🔹 Bentuk 도구",
+            "label": "Bentuk Alat",
+            "desc": "Jawaban langsung menyebut fungsi jenis alat",
+            "ko": "눈을 지키는 안경입니다.",
+            "id": "Kacamata pelindung mata."
+          },
+          {
+            "key": "formal",
+            "badge": "📘 Lengkap / Formal",
+            "label": "Lengkap",
+            "desc": "Jawaban kalimat formal dan mendalam",
+            "ko": "연마나 절단 작업 시 튀는 불꽃과 파편으로부터 눈을 보호합니다.",
+            "id": "Melindungi mata dari percikan bunga api dan serpihan saat mengasah atau memotong."
+          }
+        ],
+        "usage_easy_ko": "눈을 보호할 때 씁니다.",
+        "usage_easy_id": "Dipakai untuk melindungi mata.",
+        "usage_noun_ko": "눈을 지키는 안경입니다.",
+        "usage_noun_id": "Kacamata pelindung mata."
       },
       "apd_054": {
         "usage_short_ko": "높은 곳에서 떨어지지 않게 몸을 묶습니다.",
         "usage_short_id": "Mengikat tubuh agar tidak jatuh dari ketinggian.",
         "usage_full_ko": "2미터 이상 고소 작업 시 추락 사고를 방지하기 위해 착용합니다.",
-        "usage_full_id": "Dikenakan saat bekerja di tempat tinggi untuk mencegah kecelakaan terjatuh."
+        "usage_full_id": "Dikenakan saat bekerja di tempat tinggi untuk mencegah kecelakaan terjatuh.",
+        "usage_options": [
+          {
+            "key": "mudah",
+            "badge": "⚡ Super Mudah",
+            "label": "Paling Mudah",
+            "desc": "Jawaban 2-3 kata paling simpel & mudah diucapkan saat ujian",
+            "ko": "떨어지지 않게 맵니다.",
+            "id": "Dipakai agar tidak jatuh."
+          },
+          {
+            "key": "standar",
+            "badge": "⭐ Standar HRDK",
+            "label": "Standar",
+            "desc": "Jawaban standar resmi kisi-kisi HRD Korea",
+            "ko": "높은 곳에서 떨어지지 않게 몸을 묶습니다.",
+            "id": "Mengikat tubuh agar tidak jatuh dari ketinggian."
+          },
+          {
+            "key": "noun",
+            "badge": "🔹 Bentuk 도구",
+            "label": "Bentuk Alat",
+            "desc": "Jawaban langsung menyebut fungsi jenis alat",
+            "ko": "추락을 막는 안전 벨트입니다.",
+            "id": "Sabuk keselamatan anti jatuh."
+          },
+          {
+            "key": "formal",
+            "badge": "📘 Lengkap / Formal",
+            "label": "Lengkap",
+            "desc": "Jawaban kalimat formal dan mendalam",
+            "ko": "2미터 이상 고소 작업 시 추락 사고를 방지하기 위해 착용합니다.",
+            "id": "Dikenakan saat bekerja di tempat tinggi untuk mencegah kecelakaan terjatuh."
+          }
+        ],
+        "usage_easy_ko": "떨어지지 않게 맵니다.",
+        "usage_easy_id": "Dipakai agar tidak jatuh.",
+        "usage_noun_ko": "추락을 막는 안전 벨트입니다.",
+        "usage_noun_id": "Sabuk keselamatan anti jatuh."
       },
       "apd_055": {
         "usage_short_ko": "머리를 다치지 않게 보호합니다.",
         "usage_short_id": "Melindungi kepala dari benturan dan benda jatuh.",
         "usage_full_ko": "위에서 떨어지는 물체나 충격으로부터 머리를 보호합니다.",
-        "usage_full_id": "Melindungi kepala dari kejatuhan benda atau benturan keras."
+        "usage_full_id": "Melindungi kepala dari kejatuhan benda atau benturan keras.",
+        "usage_options": [
+          {
+            "key": "mudah",
+            "badge": "⚡ Super Mudah",
+            "label": "Paling Mudah",
+            "desc": "Jawaban 2-3 kata paling simpel & mudah diucapkan saat ujian",
+            "ko": "머리를 보호할 때 씁니다.",
+            "id": "Dipakai untuk melindungi kepala."
+          },
+          {
+            "key": "standar",
+            "badge": "⭐ Standar HRDK",
+            "label": "Standar",
+            "desc": "Jawaban standar resmi kisi-kisi HRD Korea",
+            "ko": "머리를 다치지 않게 보호합니다.",
+            "id": "Melindungi kepala dari benturan dan benda jatuh."
+          },
+          {
+            "key": "noun",
+            "badge": "🔹 Bentuk 도구",
+            "label": "Bentuk Alat",
+            "desc": "Jawaban langsung menyebut fungsi jenis alat",
+            "ko": "머리를 지키는 헬멧입니다.",
+            "id": "Helm pelindung kepala."
+          },
+          {
+            "key": "formal",
+            "badge": "📘 Lengkap / Formal",
+            "label": "Lengkap",
+            "desc": "Jawaban kalimat formal dan mendalam",
+            "ko": "위에서 떨어지는 물체나 충격으로부터 머리를 보호합니다.",
+            "id": "Melindungi kepala dari kejatuhan benda atau benturan keras."
+          }
+        ],
+        "usage_easy_ko": "머리를 보호할 때 씁니다.",
+        "usage_easy_id": "Dipakai untuk melindungi kepala.",
+        "usage_noun_ko": "머리를 지키는 헬멧입니다.",
+        "usage_noun_id": "Helm pelindung kepala."
       },
       "apd_056": {
         "usage_short_ko": "손을 베이거나 다치지 않게 보호합니다.",
         "usage_short_id": "Melindungi tangan dari luka gores atau bahaya kerja.",
         "usage_full_ko": "날카로운 자재를 다룰 때 손의 베임, 찔림, 마찰 부상을 방지합니다.",
-        "usage_full_id": "Mencegah luka gores dan tertusuk pada tangan saat memegang material tajam."
+        "usage_full_id": "Mencegah luka gores dan tertusuk pada tangan saat memegang material tajam.",
+        "usage_options": [
+          {
+            "key": "mudah",
+            "badge": "⚡ Super Mudah",
+            "label": "Paling Mudah",
+            "desc": "Jawaban 2-3 kata paling simpel & mudah diucapkan saat ujian",
+            "ko": "손을 보호할 때 낍니다.",
+            "id": "Dipakai untuk melindungi tangan."
+          },
+          {
+            "key": "standar",
+            "badge": "⭐ Standar HRDK",
+            "label": "Standar",
+            "desc": "Jawaban standar resmi kisi-kisi HRD Korea",
+            "ko": "손을 베이거나 다치지 않게 보호합니다.",
+            "id": "Melindungi tangan dari luka gores atau bahaya kerja."
+          },
+          {
+            "key": "noun",
+            "badge": "🔹 Bentuk 도구",
+            "label": "Bentuk Alat",
+            "desc": "Jawaban langsung menyebut fungsi jenis alat",
+            "ko": "손을 다치지 않게 하는 장갑입니다.",
+            "id": "Sarung tangan pelindung tangan."
+          },
+          {
+            "key": "formal",
+            "badge": "📘 Lengkap / Formal",
+            "label": "Lengkap",
+            "desc": "Jawaban kalimat formal dan mendalam",
+            "ko": "날카로운 자재를 다룰 때 손의 베임, 찔림, 마찰 부상을 방지합니다.",
+            "id": "Mencegah luka gores dan tertusuk pada tangan saat memegang material tajam."
+          }
+        ],
+        "usage_easy_ko": "손을 보호할 때 낍니다.",
+        "usage_easy_id": "Dipakai untuk melindungi tangan.",
+        "usage_noun_ko": "손을 다치지 않게 하는 장갑입니다.",
+        "usage_noun_id": "Sarung tangan pelindung tangan."
       },
       "apd_057": {
         "usage_short_ko": "발에 무거운 것이 떨어져도 발을 보호합니다.",
         "usage_short_id": "Melindungi kaki saat tertimpa beban berat atau paku.",
         "usage_full_ko": "앞코 철판과 방탄 바닥으로 낙하물과 못 찔림으로부터 발을 보호합니다.",
-        "usage_full_id": "Melindungi kaki dari benda jatuh dan tusukan paku berkat pelindung baja di ujung sepatu."
+        "usage_full_id": "Melindungi kaki dari benda jatuh dan tusukan paku berkat pelindung baja di ujung sepatu.",
+        "usage_options": [
+          {
+            "key": "mudah",
+            "badge": "⚡ Super Mudah",
+            "label": "Paling Mudah",
+            "desc": "Jawaban 2-3 kata paling simpel & mudah diucapkan saat ujian",
+            "ko": "발을 보호할 때 신습니다.",
+            "id": "Dipakai untuk melindungi kaki."
+          },
+          {
+            "key": "standar",
+            "badge": "⭐ Standar HRDK",
+            "label": "Standar",
+            "desc": "Jawaban standar resmi kisi-kisi HRD Korea",
+            "ko": "발에 무거운 것이 떨어져도 발을 보호합니다.",
+            "id": "Melindungi kaki saat tertimpa beban berat atau paku."
+          },
+          {
+            "key": "noun",
+            "badge": "🔹 Bentuk 도구",
+            "label": "Bentuk Alat",
+            "desc": "Jawaban langsung menyebut fungsi jenis alat",
+            "ko": "발을 지키는 안전 신발입니다.",
+            "id": "Sepatu pelindung kaki."
+          },
+          {
+            "key": "formal",
+            "badge": "📘 Lengkap / Formal",
+            "label": "Lengkap",
+            "desc": "Jawaban kalimat formal dan mendalam",
+            "ko": "앞코 철판과 방탄 바닥으로 낙하물과 못 찔림으로부터 발을 보호합니다.",
+            "id": "Melindungi kaki dari benda jatuh dan tusukan paku berkat pelindung baja di ujung sepatu."
+          }
+        ],
+        "usage_easy_ko": "발을 보호할 때 신습니다.",
+        "usage_easy_id": "Dipakai untuk melindungi kaki.",
+        "usage_noun_ko": "발을 지키는 안전 신발입니다.",
+        "usage_noun_id": "Sepatu pelindung kaki."
       },
       "apd_058": {
         "usage_short_ko": "강한 불빛과 불꽃으로부터 얼굴을 보호합니다.",
         "usage_short_id": "Melindungi wajah dan mata dari percikan api las.",
         "usage_full_ko": "용접 시 발생하는 강한 유해 광선과 불꽃으로부터 눈과 얼굴을 보호합니다.",
-        "usage_full_id": "Melindungi mata dan wajah dari sinar berbahaya dan percikan api las."
+        "usage_full_id": "Melindungi mata dan wajah dari sinar berbahaya dan percikan api las.",
+        "usage_options": [
+          {
+            "key": "mudah",
+            "badge": "⚡ Super Mudah",
+            "label": "Paling Mudah",
+            "desc": "Jawaban 2-3 kata paling simpel & mudah diucapkan saat ujian",
+            "ko": "얼굴을 보호할 때 씁니다.",
+            "id": "Dipakai untuk melindungi wajah."
+          },
+          {
+            "key": "standar",
+            "badge": "⭐ Standar HRDK",
+            "label": "Standar",
+            "desc": "Jawaban standar resmi kisi-kisi HRD Korea",
+            "ko": "강한 불빛과 불꽃으로부터 얼굴을 보호합니다.",
+            "id": "Melindungi wajah dan mata dari percikan api las."
+          },
+          {
+            "key": "noun",
+            "badge": "🔹 Bentuk 도구",
+            "label": "Bentuk Alat",
+            "desc": "Jawaban langsung menyebut fungsi jenis alat",
+            "ko": "불꽃을 막는 용접 마스크입니다.",
+            "id": "Topeng pelindung api las."
+          },
+          {
+            "key": "formal",
+            "badge": "📘 Lengkap / Formal",
+            "label": "Lengkap",
+            "desc": "Jawaban kalimat formal dan mendalam",
+            "ko": "용접 시 발생하는 강한 유해 광선과 불꽃으로부터 눈과 얼굴을 보호합니다.",
+            "id": "Melindungi mata dan wajah dari sinar berbahaya dan percikan api las."
+          }
+        ],
+        "usage_easy_ko": "얼굴을 보호할 때 씁니다.",
+        "usage_easy_id": "Dipakai untuk melindungi wajah.",
+        "usage_noun_ko": "불꽃을 막는 용접 마스크입니다.",
+        "usage_noun_id": "Topeng pelindung api las."
       },
       "apd_059": {
         "usage_short_ko": "침이나 입김이 제품에 닿지 않게 막습니다.",
         "usage_short_id": "Mencegah droplet air liur mengotori produk.",
         "usage_full_ko": "식품이나 정밀 부품 포장 시 작업자의 침방울로 인한 오염을 방지합니다.",
-        "usage_full_id": "Mencegah kontaminasi air liur pekerja saat mengemas makanan atau produk higienis."
+        "usage_full_id": "Mencegah kontaminasi air liur pekerja saat mengemas makanan atau produk higienis.",
+        "usage_options": [
+          {
+            "key": "mudah",
+            "badge": "⚡ Super Mudah",
+            "label": "Paling Mudah",
+            "desc": "Jawaban 2-3 kata paling simpel & mudah diucapkan saat ujian",
+            "ko": "침을 막을 때 씁니다.",
+            "id": "Dipakai untuk menahan droplet liur."
+          },
+          {
+            "key": "standar",
+            "badge": "⭐ Standar HRDK",
+            "label": "Standar",
+            "desc": "Jawaban standar resmi kisi-kisi HRD Korea",
+            "ko": "침이나 입김이 제품에 닿지 않게 막습니다.",
+            "id": "Mencegah droplet air liur mengotori produk."
+          },
+          {
+            "key": "noun",
+            "badge": "🔹 Bentuk 도구",
+            "label": "Bentuk Alat",
+            "desc": "Jawaban langsung menyebut fungsi jenis alat",
+            "ko": "위생용 마스크입니다.",
+            "id": "Masker sanitasi higienis."
+          },
+          {
+            "key": "formal",
+            "badge": "📘 Lengkap / Formal",
+            "label": "Lengkap",
+            "desc": "Jawaban kalimat formal dan mendalam",
+            "ko": "식품이나 정밀 부품 포장 시 작업자의 침방울로 인한 오염을 방지합니다.",
+            "id": "Mencegah kontaminasi air liur pekerja saat mengemas makanan atau produk higienis."
+          }
+        ],
+        "usage_easy_ko": "침을 막을 때 씁니다.",
+        "usage_easy_id": "Dipakai untuk menahan droplet liur.",
+        "usage_noun_ko": "위생용 마스크입니다.",
+        "usage_noun_id": "Masker sanitasi higienis."
       },
       "apd_060": {
         "usage_short_ko": "머리카락이 제품에 떨어지지 않게 감쌉니다.",
         "usage_short_id": "Membungkus rambut agar tidak jatuh ke produk.",
         "usage_full_ko": "식품 가공 시 머리카락이 제품에 들어가지 않도록 머리를 완전히 덮습니다.",
-        "usage_full_id": "Menutup seluruh rambut agar tidak rontok ke produk saat pengolahan makanan."
+        "usage_full_id": "Menutup seluruh rambut agar tidak rontok ke produk saat pengolahan makanan.",
+        "usage_options": [
+          {
+            "key": "mudah",
+            "badge": "⚡ Super Mudah",
+            "label": "Paling Mudah",
+            "desc": "Jawaban 2-3 kata paling simpel & mudah diucapkan saat ujian",
+            "ko": "머리카락을 막을 때 씁니다.",
+            "id": "Dipakai agar rambut tidak rontok ke produk."
+          },
+          {
+            "key": "standar",
+            "badge": "⭐ Standar HRDK",
+            "label": "Standar",
+            "desc": "Jawaban standar resmi kisi-kisi HRD Korea",
+            "ko": "머리카락이 제품에 떨어지지 않게 감쌉니다.",
+            "id": "Membungkus rambut agar tidak jatuh ke produk."
+          },
+          {
+            "key": "noun",
+            "badge": "🔹 Bentuk 도구",
+            "label": "Bentuk Alat",
+            "desc": "Jawaban langsung menyebut fungsi jenis alat",
+            "ko": "머리를 감싸는 위생 모자입니다.",
+            "id": "Topi higienis penutup rambut."
+          },
+          {
+            "key": "formal",
+            "badge": "📘 Lengkap / Formal",
+            "label": "Lengkap",
+            "desc": "Jawaban kalimat formal dan mendalam",
+            "ko": "식품 가공 시 머리카락이 제품에 들어가지 않도록 머리를 완전히 덮습니다.",
+            "id": "Menutup seluruh rambut agar tidak rontok ke produk saat pengolahan makanan."
+          }
+        ],
+        "usage_easy_ko": "머리카락을 막을 때 씁니다.",
+        "usage_easy_id": "Dipakai agar rambut tidak rontok ke produk.",
+        "usage_noun_ko": "머리를 감싸는 위생 모자입니다.",
+        "usage_noun_id": "Topi higienis penutup rambut."
       },
       "apd_061": {
         "usage_short_ko": "먼지와 오염물질이 제품에 묻지 않게 입습니다.",
         "usage_short_id": "Dipakai agar kotoran luar tidak mencemari produk.",
         "usage_full_ko": "청결한 환경에서 외부 먼지나 이물질이 제품으로 전파되는 것을 차단합니다.",
-        "usage_full_id": "Mencegah debu luar mengotori produk di lingkungan kerja higienis."
+        "usage_full_id": "Mencegah debu luar mengotori produk di lingkungan kerja higienis.",
+        "usage_options": [
+          {
+            "key": "mudah",
+            "badge": "⚡ Super Mudah",
+            "label": "Paling Mudah",
+            "desc": "Jawaban 2-3 kata paling simpel & mudah diucapkan saat ujian",
+            "ko": "깨끗하게 일할 때 입습니다.",
+            "id": "Dipakai saat bekerja bersih."
+          },
+          {
+            "key": "standar",
+            "badge": "⭐ Standar HRDK",
+            "label": "Standar",
+            "desc": "Jawaban standar resmi kisi-kisi HRD Korea",
+            "ko": "먼지와 오염물질이 제품에 묻지 않게 입습니다.",
+            "id": "Dipakai agar kotoran luar tidak mencemari produk."
+          },
+          {
+            "key": "noun",
+            "badge": "🔹 Bentuk 도구",
+            "label": "Bentuk Alat",
+            "desc": "Jawaban langsung menyebut fungsi jenis alat",
+            "ko": "오염을 막는 작업복입니다.",
+            "id": "Baju kerja pencegah kontaminasi."
+          },
+          {
+            "key": "formal",
+            "badge": "📘 Lengkap / Formal",
+            "label": "Lengkap",
+            "desc": "Jawaban kalimat formal dan mendalam",
+            "ko": "청결한 환경에서 외부 먼지나 이물질이 제품으로 전파되는 것을 차단합니다.",
+            "id": "Mencegah debu luar mengotori produk di lingkungan kerja higienis."
+          }
+        ],
+        "usage_easy_ko": "깨끗하게 일할 때 입습니다.",
+        "usage_easy_id": "Dipakai saat bekerja bersih.",
+        "usage_noun_ko": "오염을 막는 작업복입니다.",
+        "usage_noun_id": "Baju kerja pencegah kontaminasi."
       },
       "apd_062": {
         "usage_short_ko": "음식을 직접 만지지 않고 위생적으로 다룹니다.",
         "usage_short_id": "Menjaga kebersihan tangan saat menyentuh produk/makanan.",
         "usage_full_ko": "식품 제조 시 손의 세균이 음식물로 전염되는 것을 방지합니다.",
-        "usage_full_id": "Mencegah perpindahan bakteri tangan ke makanan saat pengolahan pangan."
+        "usage_full_id": "Mencegah perpindahan bakteri tangan ke makanan saat pengolahan pangan.",
+        "usage_options": [
+          {
+            "key": "mudah",
+            "badge": "⚡ Super Mudah",
+            "label": "Paling Mudah",
+            "desc": "Jawaban 2-3 kata paling simpel & mudah diucapkan saat ujian",
+            "ko": "음식을 만질 때 낍니다.",
+            "id": "Dipakai saat memegang makanan."
+          },
+          {
+            "key": "standar",
+            "badge": "⭐ Standar HRDK",
+            "label": "Standar",
+            "desc": "Jawaban standar resmi kisi-kisi HRD Korea",
+            "ko": "음식을 직접 만지지 않고 위생적으로 다룹니다.",
+            "id": "Menjaga kebersihan tangan saat menyentuh produk/makanan."
+          },
+          {
+            "key": "noun",
+            "badge": "🔹 Bentuk 도구",
+            "label": "Bentuk Alat",
+            "desc": "Jawaban langsung menyebut fungsi jenis alat",
+            "ko": "위생용 장갑입니다.",
+            "id": "Sarung tangan higienis makanan."
+          },
+          {
+            "key": "formal",
+            "badge": "📘 Lengkap / Formal",
+            "label": "Lengkap",
+            "desc": "Jawaban kalimat formal dan mendalam",
+            "ko": "식품 제조 시 손의 세균이 음식물로 전염되는 것을 방지합니다.",
+            "id": "Mencegah perpindahan bakteri tangan ke makanan saat pengolahan pangan."
+          }
+        ],
+        "usage_easy_ko": "음식을 만질 때 낍니다.",
+        "usage_easy_id": "Dipakai saat memegang makanan.",
+        "usage_noun_ko": "위생용 장갑입니다.",
+        "usage_noun_id": "Sarung tangan higienis makanan."
       },
       "apd_063": {
         "usage_short_ko": "물과 세균이 많은 바닥에서 발을 지킵니다.",
         "usage_short_id": "Melindungi kaki di lantai basah dan menjaga higienitas.",
         "usage_full_ko": "식품 공장이나 축산 시설의 물기 있는 바닥에서 미끄러짐과 오염을 방지합니다.",
-        "usage_full_id": "Mencegah terpeleset dan kontaminasi di lantai basah pabrik makanan."
+        "usage_full_id": "Mencegah terpeleset dan kontaminasi di lantai basah pabrik makanan.",
+        "usage_options": [
+          {
+            "key": "mudah",
+            "badge": "⚡ Super Mudah",
+            "label": "Paling Mudah",
+            "desc": "Jawaban 2-3 kata paling simpel & mudah diucapkan saat ujian",
+            "ko": "물이 많을 때 신습니다.",
+            "id": "Dipakai saat area becek/berair."
+          },
+          {
+            "key": "standar",
+            "badge": "⭐ Standar HRDK",
+            "label": "Standar",
+            "desc": "Jawaban standar resmi kisi-kisi HRD Korea",
+            "ko": "물과 세균이 많은 바닥에서 발을 지킵니다.",
+            "id": "Melindungi kaki di lantai basah dan menjaga higienitas."
+          },
+          {
+            "key": "noun",
+            "badge": "🔹 Bentuk 도구",
+            "label": "Bentuk Alat",
+            "desc": "Jawaban langsung menyebut fungsi jenis alat",
+            "ko": "방수용 위생 장화입니다.",
+            "id": "Sepatu bot anti air higienis."
+          },
+          {
+            "key": "formal",
+            "badge": "📘 Lengkap / Formal",
+            "label": "Lengkap",
+            "desc": "Jawaban kalimat formal dan mendalam",
+            "ko": "식품 공장이나 축산 시설의 물기 있는 바닥에서 미끄러짐과 오염을 방지합니다.",
+            "id": "Mencegah terpeleset dan kontaminasi di lantai basah pabrik makanan."
+          }
+        ],
+        "usage_easy_ko": "물이 많을 때 신습니다.",
+        "usage_easy_id": "Dipakai saat area becek/berair.",
+        "usage_noun_ko": "방수용 위생 장화입니다.",
+        "usage_noun_id": "Sepatu bot anti air higienis."
       },
       "apd_064": {
         "usage_short_ko": "몸을 보호하고 편하게 일하기 위해 입습니다.",
         "usage_short_id": "Dipakai untuk melindungi badan dan bekerja dengan nyaman.",
         "usage_full_ko": "작업 활동에 적합하도록 내구성이 좋고 기계 끼임 위험을 줄여줍니다.",
-        "usage_full_id": "Pakaian berdaya tahan tinggi yang mengurangi risiko tersangkut mesin."
+        "usage_full_id": "Pakaian berdaya tahan tinggi yang mengurangi risiko tersangkut mesin.",
+        "usage_options": [
+          {
+            "key": "mudah",
+            "badge": "⚡ Super Mudah",
+            "label": "Paling Mudah",
+            "desc": "Jawaban 2-3 kata paling simpel & mudah diucapkan saat ujian",
+            "ko": "일할 때 편하게 입습니다.",
+            "id": "Dipakai nyaman saat bekerja."
+          },
+          {
+            "key": "standar",
+            "badge": "⭐ Standar HRDK",
+            "label": "Standar",
+            "desc": "Jawaban standar resmi kisi-kisi HRD Korea",
+            "ko": "몸을 보호하고 편하게 일하기 위해 입습니다.",
+            "id": "Dipakai untuk melindungi badan dan bekerja dengan nyaman."
+          },
+          {
+            "key": "noun",
+            "badge": "🔹 Bentuk 도구",
+            "label": "Bentuk Alat",
+            "desc": "Jawaban langsung menyebut fungsi jenis alat",
+            "ko": "공장에서 입는 옷입니다.",
+            "id": "Pakaian seragam kerja pabrik."
+          },
+          {
+            "key": "formal",
+            "badge": "📘 Lengkap / Formal",
+            "label": "Lengkap",
+            "desc": "Jawaban kalimat formal dan mendalam",
+            "ko": "작업 활동에 적합하도록 내구성이 좋고 기계 끼임 위험을 줄여줍니다.",
+            "id": "Pakaian berdaya tahan tinggi yang mengurangi risiko tersangkut mesin."
+          }
+        ],
+        "usage_easy_ko": "일할 때 편하게 입습니다.",
+        "usage_easy_id": "Dipakai nyaman saat bekerja.",
+        "usage_noun_ko": "공장에서 입는 옷입니다.",
+        "usage_noun_id": "Pakaian seragam kerja pabrik."
       },
       "apd_065": {
         "usage_short_ko": "큰 소음으로부터 귀를 보호합니다.",
         "usage_short_id": "Melindungi telinga dari kebisingan keras di pabrik.",
         "usage_full_ko": "소음이 심한 작업장에서 청력 손실과 난청을 예방합니다.",
-        "usage_full_id": "Mencegah kerusakan pendengaran dan tuli akibat kebisingan mesin pabrik."
+        "usage_full_id": "Mencegah kerusakan pendengaran dan tuli akibat kebisingan mesin pabrik.",
+        "usage_options": [
+          {
+            "key": "mudah",
+            "badge": "⚡ Super Mudah",
+            "label": "Paling Mudah",
+            "desc": "Jawaban 2-3 kata paling simpel & mudah diucapkan saat ujian",
+            "ko": "귀를 보호할 때 씁니다.",
+            "id": "Dipakai untuk melindungi telinga."
+          },
+          {
+            "key": "standar",
+            "badge": "⭐ Standar HRDK",
+            "label": "Standar",
+            "desc": "Jawaban standar resmi kisi-kisi HRD Korea",
+            "ko": "큰 소음으로부터 귀를 보호합니다.",
+            "id": "Melindungi telinga dari kebisingan keras di pabrik."
+          },
+          {
+            "key": "noun",
+            "badge": "🔹 Bentuk 도구",
+            "label": "Bentuk Alat",
+            "desc": "Jawaban langsung menyebut fungsi jenis alat",
+            "ko": "소음을 막는 귀마개입니다.",
+            "id": "Penyumbat telinga penahan bising."
+          },
+          {
+            "key": "formal",
+            "badge": "📘 Lengkap / Formal",
+            "label": "Lengkap",
+            "desc": "Jawaban kalimat formal dan mendalam",
+            "ko": "소음이 심한 작업장에서 청력 손실과 난청을 예방합니다.",
+            "id": "Mencegah kerusakan pendengaran dan tuli akibat kebisingan mesin pabrik."
+          }
+        ],
+        "usage_easy_ko": "귀를 보호할 때 씁니다.",
+        "usage_easy_id": "Dipakai untuk melindungi telinga.",
+        "usage_noun_ko": "소음을 막는 귀마개입니다.",
+        "usage_noun_id": "Penyumbat telinga penahan bising."
       },
       "jagi_01": {
         "usage_short_ko": "손을 다치지 않게 끼웁니다.",
         "usage_short_id": "Dikenakan agar tangan tidak terluka.",
         "usage_full_ko": "날카롭거나 뜨거운 물건을 만질 때 손을 보호하려고 낍니다.",
-        "usage_full_id": "Dikenakan untuk melindungi tangan saat memegang benda tajam atau panas."
+        "usage_full_id": "Dikenakan untuk melindungi tangan saat memegang benda tajam atau panas.",
+        "usage_options": [
+          {
+            "key": "mudah",
+            "badge": "⚡ Super Mudah",
+            "label": "Paling Mudah",
+            "desc": "Jawaban 2-3 kata paling simpel & mudah diucapkan saat ujian",
+            "ko": "손을 보호할 때 낍니다.",
+            "id": "Dipakai untuk melindungi tangan."
+          },
+          {
+            "key": "standar",
+            "badge": "⭐ Standar HRDK",
+            "label": "Standar",
+            "desc": "Jawaban standar resmi kisi-kisi HRD Korea",
+            "ko": "손을 다치지 않게 끼웁니다.",
+            "id": "Dikenakan agar tangan tidak terluka."
+          },
+          {
+            "key": "noun",
+            "badge": "🔹 Bentuk 도구",
+            "label": "Bentuk Alat",
+            "desc": "Jawaban langsung menyebut fungsi jenis alat",
+            "ko": "일반 작업용 장갑입니다.",
+            "id": "Sarung tangan kerja biasa."
+          },
+          {
+            "key": "formal",
+            "badge": "📘 Lengkap / Formal",
+            "label": "Lengkap",
+            "desc": "Jawaban kalimat formal dan mendalam",
+            "ko": "날카롭거나 뜨거운 물건을 만질 때 손을 보호하려고 낍니다.",
+            "id": "Dikenakan untuk melindungi tangan saat memegang benda tajam atau panas."
+          }
+        ],
+        "usage_easy_ko": "손을 보호할 때 낍니다.",
+        "usage_easy_id": "Dipakai untuk melindungi tangan.",
+        "usage_noun_ko": "일반 작업용 장갑입니다.",
+        "usage_noun_id": "Sarung tangan kerja biasa."
       },
       "jagi_02": {
         "usage_short_ko": "나사를 조이거나 풀 때 씁니다.",
         "usage_short_id": "Dipakai untuk mengencangkan atau melepas sekrup.",
         "usage_full_ko": "나사를 조이거나 풀 때 사용합니다. 일자형과 십자형이 있습니다.",
-        "usage_full_id": "Digunakan untuk sekrup. Ada model minus (-) dan plus (+)."
+        "usage_full_id": "Digunakan untuk sekrup. Ada model minus (-) dan plus (+).",
+        "usage_options": [
+          {
+            "key": "mudah",
+            "badge": "⚡ Super Mudah",
+            "label": "Paling Mudah",
+            "desc": "Jawaban 2-3 kata paling simpel & mudah diucapkan saat ujian",
+            "ko": "나사를 조일 때 씁니다.",
+            "id": "Dipakai saat mengencangkan sekrup."
+          },
+          {
+            "key": "standar",
+            "badge": "⭐ Standar HRDK",
+            "label": "Standar",
+            "desc": "Jawaban standar resmi kisi-kisi HRD Korea",
+            "ko": "나사를 조이거나 풀 때 씁니다.",
+            "id": "Dipakai untuk mengencangkan atau melepas sekrup."
+          },
+          {
+            "key": "noun",
+            "badge": "🔹 Bentuk 도구",
+            "label": "Bentuk Alat",
+            "desc": "Jawaban langsung menyebut fungsi jenis alat",
+            "ko": "나사를 돌리는 공구입니다.",
+            "id": "Alat pemutar sekrup."
+          },
+          {
+            "key": "formal",
+            "badge": "📘 Lengkap / Formal",
+            "label": "Lengkap",
+            "desc": "Jawaban kalimat formal dan mendalam",
+            "ko": "나사를 조이거나 풀 때 사용합니다. 일자형과 십자형이 있습니다.",
+            "id": "Digunakan untuk sekrup. Ada model minus (-) dan plus (+)."
+          }
+        ],
+        "usage_easy_ko": "나사를 조일 때 씁니다.",
+        "usage_easy_id": "Dipakai saat mengencangkan sekrup.",
+        "usage_noun_ko": "나사를 돌리는 공구입니다.",
+        "usage_noun_id": "Alat pemutar sekrup."
       },
       "jagi_03": {
         "usage_short_ko": "전선이나 철사를 자를 때 씁니다.",
         "usage_short_id": "Dipakai untuk memotong kabel atau kawat.",
         "usage_full_ko": "가는 전선이나 철사를 자르거나 껍질을 벗길 때 사용합니다.",
-        "usage_full_id": "Digunakan untuk memotong atau mengupas kabel dan kawat kecil."
+        "usage_full_id": "Digunakan untuk memotong atau mengupas kabel dan kawat kecil.",
+        "usage_options": [
+          {
+            "key": "mudah",
+            "badge": "⚡ Super Mudah",
+            "label": "Paling Mudah",
+            "desc": "Jawaban 2-3 kata paling simpel & mudah diucapkan saat ujian",
+            "ko": "전선을 자를 때 씁니다.",
+            "id": "Dipakai saat memotong kabel."
+          },
+          {
+            "key": "standar",
+            "badge": "⭐ Standar HRDK",
+            "label": "Standar",
+            "desc": "Jawaban standar resmi kisi-kisi HRD Korea",
+            "ko": "전선이나 철사를 자를 때 씁니다.",
+            "id": "Dipakai untuk memotong kabel atau kawat."
+          },
+          {
+            "key": "noun",
+            "badge": "🔹 Bentuk 도구",
+            "label": "Bentuk Alat",
+            "desc": "Jawaban langsung menyebut fungsi jenis alat",
+            "ko": "철사를 자르는 공구입니다.",
+            "id": "Alat pemotong kawat."
+          },
+          {
+            "key": "formal",
+            "badge": "📘 Lengkap / Formal",
+            "label": "Lengkap",
+            "desc": "Jawaban kalimat formal dan mendalam",
+            "ko": "가는 전선이나 철사를 자르거나 껍질을 벗길 때 사용합니다.",
+            "id": "Digunakan untuk memotong atau mengupas kabel dan kawat kecil."
+          }
+        ],
+        "usage_easy_ko": "전선을 자를 때 씁니다.",
+        "usage_easy_id": "Dipakai saat memotong kabel.",
+        "usage_noun_ko": "철사를 자르는 공구입니다.",
+        "usage_noun_id": "Alat pemotong kawat."
       },
       "jagi_04": {
         "usage_short_ko": "좁은 곳의 물건을 집거나 철사를 구부릴 때 씁니다.",
         "usage_short_id": "Dipakai untuk menjepit barang di tempat sempit atau membengkokkan kawat.",
         "usage_full_ko": "코가 길고 가늘어서 좁은 곳의 부품을 집거나 철사를 구부릴 때 사용합니다.",
-        "usage_full_id": "Moncongnya panjang dan runcing, dipakai menjepit komponen di celah sempit atau membengkokkan kawat."
+        "usage_full_id": "Moncongnya panjang dan runcing, dipakai menjepit komponen di celah sempit atau membengkokkan kawat.",
+        "usage_options": [
+          {
+            "key": "mudah",
+            "badge": "⚡ Super Mudah",
+            "label": "Paling Mudah",
+            "desc": "Jawaban 2-3 kata paling simpel & mudah diucapkan saat ujian",
+            "ko": "물건을 집을 때 씁니다.",
+            "id": "Dipakai saat menjepit benda."
+          },
+          {
+            "key": "standar",
+            "badge": "⭐ Standar HRDK",
+            "label": "Standar",
+            "desc": "Jawaban standar resmi kisi-kisi HRD Korea",
+            "ko": "좁은 곳의 물건을 집거나 철사를 구부릴 때 씁니다.",
+            "id": "Dipakai untuk menjepit barang di tempat sempit atau membengkokkan kawat."
+          },
+          {
+            "key": "noun",
+            "badge": "🔹 Bentuk 도구",
+            "label": "Bentuk Alat",
+            "desc": "Jawaban langsung menyebut fungsi jenis alat",
+            "ko": "좁은 곳을 잡는 집게입니다.",
+            "id": "Tang penjepit celah sempit."
+          },
+          {
+            "key": "formal",
+            "badge": "📘 Lengkap / Formal",
+            "label": "Lengkap",
+            "desc": "Jawaban kalimat formal dan mendalam",
+            "ko": "코가 길고 가늘어서 좁은 곳의 부품을 집거나 철사를 구부릴 때 사용합니다.",
+            "id": "Moncongnya panjang dan runcing, dipakai menjepit komponen di celah sempit atau membengkokkan kawat."
+          }
+        ],
+        "usage_easy_ko": "물건을 집을 때 씁니다.",
+        "usage_easy_id": "Dipakai saat menjepit benda.",
+        "usage_noun_ko": "좁은 곳을 잡는 집게입니다.",
+        "usage_noun_id": "Tang penjepit celah sempit."
       },
       "jagi_05": {
         "usage_short_ko": "물건을 꽉 잡거나 철사를 자를 때 씁니다.",
         "usage_short_id": "Dipakai untuk menjepit kuat atau memotong kawat.",
         "usage_full_ko": "물건을 세게 잡거나 구부리거나 자를 때 쓰는 만능 수공구입니다.",
-        "usage_full_id": "Perkakas serbaguna untuk menjepit, membengkokkan, atau memotong."
+        "usage_full_id": "Perkakas serbaguna untuk menjepit, membengkokkan, atau memotong.",
+        "usage_options": [
+          {
+            "key": "mudah",
+            "badge": "⚡ Super Mudah",
+            "label": "Paling Mudah",
+            "desc": "Jawaban 2-3 kata paling simpel & mudah diucapkan saat ujian",
+            "ko": "철사를 잡을 때 씁니다.",
+            "id": "Dipakai saat memegang kawat."
+          },
+          {
+            "key": "standar",
+            "badge": "⭐ Standar HRDK",
+            "label": "Standar",
+            "desc": "Jawaban standar resmi kisi-kisi HRD Korea",
+            "ko": "물건을 꽉 잡거나 철사를 자를 때 씁니다.",
+            "id": "Dipakai untuk menjepit kuat atau memotong kawat."
+          },
+          {
+            "key": "noun",
+            "badge": "🔹 Bentuk 도구",
+            "label": "Bentuk Alat",
+            "desc": "Jawaban langsung menyebut fungsi jenis alat",
+            "ko": "철사를 꽉 잡는 공구입니다.",
+            "id": "Alat pencengkeram kawat."
+          },
+          {
+            "key": "formal",
+            "badge": "📘 Lengkap / Formal",
+            "label": "Lengkap",
+            "desc": "Jawaban kalimat formal dan mendalam",
+            "ko": "물건을 세게 잡거나 구부리거나 자를 때 쓰는 만능 수공구입니다.",
+            "id": "Perkakas serbaguna untuk menjepit, membengkokkan, atau memotong."
+          }
+        ],
+        "usage_easy_ko": "철사를 잡을 때 씁니다.",
+        "usage_easy_id": "Dipakai saat memegang kawat.",
+        "usage_noun_ko": "철사를 꽉 잡는 공구입니다.",
+        "usage_noun_id": "Alat pencengkeram kawat."
       },
       "jagi_06": {
         "usage_short_ko": "나무를 자를 때 씁니다.",
         "usage_short_id": "Dipakai untuk menggergaji kayu.",
         "usage_full_ko": "목재나 얇은 금속을 자를 때 사용합니다. 자르는 선을 따라 밀고 당깁니다.",
-        "usage_full_id": "Digunakan menggergaji kayu atau logam tipis dengan cara didorong-ditarik mengikuti garis."
+        "usage_full_id": "Digunakan menggergaji kayu atau logam tipis dengan cara didorong-ditarik mengikuti garis.",
+        "usage_options": [
+          {
+            "key": "mudah",
+            "badge": "⚡ Super Mudah",
+            "label": "Paling Mudah",
+            "desc": "Jawaban 2-3 kata paling simpel & mudah diucapkan saat ujian",
+            "ko": "나무를 자를 때 씁니다.",
+            "id": "Dipakai saat memotong kayu."
+          },
+          {
+            "key": "standar",
+            "badge": "⭐ Standar HRDK",
+            "label": "Standar",
+            "desc": "Jawaban standar resmi kisi-kisi HRD Korea",
+            "ko": "나무를 자를 때 씁니다.",
+            "id": "Dipakai untuk menggergaji kayu."
+          },
+          {
+            "key": "noun",
+            "badge": "🔹 Bentuk 도구",
+            "label": "Bentuk Alat",
+            "desc": "Jawaban langsung menyebut fungsi jenis alat",
+            "ko": "나무를 자르는 톱입니다.",
+            "id": "Gergaji pemotong kayu."
+          },
+          {
+            "key": "formal",
+            "badge": "📘 Lengkap / Formal",
+            "label": "Lengkap",
+            "desc": "Jawaban kalimat formal dan mendalam",
+            "ko": "목재나 얇은 금속을 자를 때 사용합니다. 자르는 선을 따라 밀고 당깁니다.",
+            "id": "Digunakan menggergaji kayu atau logam tipis dengan cara didorong-ditarik mengikuti garis."
+          }
+        ],
+        "usage_easy_ko": "나무를 자를 때 씁니다.",
+        "usage_easy_id": "Dipakai saat memotong kayu.",
+        "usage_noun_ko": "나무를 자르는 톱입니다.",
+        "usage_noun_id": "Gergaji pemotong kayu."
       },
       "jagi_07": {
         "usage_short_ko": "못을 박거나 빼낼 때 씁니다.",
         "usage_short_id": "Dipakai untuk memaku atau mencabut paku.",
         "usage_full_ko": "못을 박거나 빼내고 물건을 두드려 맞출 때 사용합니다.",
-        "usage_full_id": "Digunakan untuk memaku, mencabut paku, dan memukul benda."
+        "usage_full_id": "Digunakan untuk memaku, mencabut paku, dan memukul benda.",
+        "usage_options": [
+          {
+            "key": "mudah",
+            "badge": "⚡ Super Mudah",
+            "label": "Paling Mudah",
+            "desc": "Jawaban 2-3 kata paling simpel & mudah diucapkan saat ujian",
+            "ko": "못을 박을 때 씁니다.",
+            "id": "Dipakai saat memaku."
+          },
+          {
+            "key": "standar",
+            "badge": "⭐ Standar HRDK",
+            "label": "Standar",
+            "desc": "Jawaban standar resmi kisi-kisi HRD Korea",
+            "ko": "못을 박거나 빼낼 때 씁니다.",
+            "id": "Dipakai untuk memaku atau mencabut paku."
+          },
+          {
+            "key": "noun",
+            "badge": "🔹 Bentuk 도구",
+            "label": "Bentuk Alat",
+            "desc": "Jawaban langsung menyebut fungsi jenis alat",
+            "ko": "못을 박는 공구입니다.",
+            "id": "Alat pemukul paku."
+          },
+          {
+            "key": "formal",
+            "badge": "📘 Lengkap / Formal",
+            "label": "Lengkap",
+            "desc": "Jawaban kalimat formal dan mendalam",
+            "ko": "못을 박거나 빼내고 물건을 두드려 맞출 때 사용합니다.",
+            "id": "Digunakan untuk memaku, mencabut paku, dan memukul benda."
+          }
+        ],
+        "usage_easy_ko": "못을 박을 때 씁니다.",
+        "usage_easy_id": "Dipakai saat memaku.",
+        "usage_noun_ko": "못을 박는 공구입니다.",
+        "usage_noun_id": "Alat pemukul paku."
       },
       "jagi_08": {
         "usage_short_ko": "박스나 끈을 자를 때 씁니다.",
         "usage_short_id": "Dipakai untuk memotong kardus atau tali.",
         "usage_full_ko": "포장 박스를 뜯거나 끈을 자르는 등 절단 작업에 사용합니다.",
-        "usage_full_id": "Digunakan untuk membuka kardus dan memotong tali dan bahan kemasan."
+        "usage_full_id": "Digunakan untuk membuka kardus dan memotong tali dan bahan kemasan.",
+        "usage_options": [
+          {
+            "key": "mudah",
+            "badge": "⚡ Super Mudah",
+            "label": "Paling Mudah",
+            "desc": "Jawaban 2-3 kata paling simpel & mudah diucapkan saat ujian",
+            "ko": "박스를 자를 때 씁니다.",
+            "id": "Dipakai saat memotong kardus."
+          },
+          {
+            "key": "standar",
+            "badge": "⭐ Standar HRDK",
+            "label": "Standar",
+            "desc": "Jawaban standar resmi kisi-kisi HRD Korea",
+            "ko": "박스나 끈을 자를 때 씁니다.",
+            "id": "Dipakai untuk memotong kardus atau tali."
+          },
+          {
+            "key": "noun",
+            "badge": "🔹 Bentuk 도구",
+            "label": "Bentuk Alat",
+            "desc": "Jawaban langsung menyebut fungsi jenis alat",
+            "ko": "물건을 자르는 칼입니다.",
+            "id": "Pisau pemotong barang."
+          },
+          {
+            "key": "formal",
+            "badge": "📘 Lengkap / Formal",
+            "label": "Lengkap",
+            "desc": "Jawaban kalimat formal dan mendalam",
+            "ko": "포장 박스를 뜯거나 끈을 자르는 등 절단 작업에 사용합니다.",
+            "id": "Digunakan untuk membuka kardus dan memotong tali dan bahan kemasan."
+          }
+        ],
+        "usage_easy_ko": "박스를 자를 때 씁니다.",
+        "usage_easy_id": "Dipakai saat memotong kardus.",
+        "usage_noun_ko": "물건을 자르는 칼입니다.",
+        "usage_noun_id": "Pisau pemotong barang."
       },
       "jagi_09": {
         "usage_short_ko": "종이나 천을 자를 때 씁니다.",
         "usage_short_id": "Dipakai untuk menggunting kertas atau kain.",
         "usage_full_ko": "종이, 천, 비닐 끈 등을 자를 때 사용합니다.",
-        "usage_full_id": "Digunakan untuk menggunting kertas, kain, dan tali plastik."
+        "usage_full_id": "Digunakan untuk menggunting kertas, kain, dan tali plastik.",
+        "usage_options": [
+          {
+            "key": "mudah",
+            "badge": "⚡ Super Mudah",
+            "label": "Paling Mudah",
+            "desc": "Jawaban 2-3 kata paling simpel & mudah diucapkan saat ujian",
+            "ko": "종이를 자를 때 씁니다.",
+            "id": "Dipakai saat memotong kertas."
+          },
+          {
+            "key": "standar",
+            "badge": "⭐ Standar HRDK",
+            "label": "Standar",
+            "desc": "Jawaban standar resmi kisi-kisi HRD Korea",
+            "ko": "종이나 천을 자를 때 씁니다.",
+            "id": "Dipakai untuk menggunting kertas atau kain."
+          },
+          {
+            "key": "noun",
+            "badge": "🔹 Bentuk 도구",
+            "label": "Bentuk Alat",
+            "desc": "Jawaban langsung menyebut fungsi jenis alat",
+            "ko": "물건을 자르는 가위입니다.",
+            "id": "Gunting pemotong benda."
+          },
+          {
+            "key": "formal",
+            "badge": "📘 Lengkap / Formal",
+            "label": "Lengkap",
+            "desc": "Jawaban kalimat formal dan mendalam",
+            "ko": "종이, 천, 비닐 끈 등을 자를 때 사용합니다.",
+            "id": "Digunakan untuk menggunting kertas, kain, dan tali plastik."
+          }
+        ],
+        "usage_easy_ko": "종이를 자를 때 씁니다.",
+        "usage_easy_id": "Dipakai saat memotong kertas.",
+        "usage_noun_ko": "물건을 자르는 가위입니다.",
+        "usage_noun_id": "Gunting pemotong benda."
       },
       "jagi_10": {
         "usage_short_ko": "무거운 물건을 싣고 옮길 때 씁니다.",
         "usage_short_id": "Dipakai untuk mengangkut barang berat.",
         "usage_full_ko": "무거운 상자나 자재를 싣고 밀어서 운반할 때 사용합니다.",
-        "usage_full_id": "Digunakan untuk memuat dan mendorong kotak atau material berat."
+        "usage_full_id": "Digunakan untuk memuat dan mendorong kotak atau material berat.",
+        "usage_options": [
+          {
+            "key": "mudah",
+            "badge": "⚡ Super Mudah",
+            "label": "Paling Mudah",
+            "desc": "Jawaban 2-3 kata paling simpel & mudah diucapkan saat ujian",
+            "ko": "짐을 옮길 때 씁니다.",
+            "id": "Dipakai saat memindahkan muatan."
+          },
+          {
+            "key": "standar",
+            "badge": "⭐ Standar HRDK",
+            "label": "Standar",
+            "desc": "Jawaban standar resmi kisi-kisi HRD Korea",
+            "ko": "무거운 물건을 싣고 옮길 때 씁니다.",
+            "id": "Dipakai untuk mengangkut barang berat."
+          },
+          {
+            "key": "noun",
+            "badge": "🔹 Bentuk 도구",
+            "label": "Bentuk Alat",
+            "desc": "Jawaban langsung menyebut fungsi jenis alat",
+            "ko": "상자를 나르는 수레입니다.",
+            "id": "Gerobak pemindah kotak."
+          },
+          {
+            "key": "formal",
+            "badge": "📘 Lengkap / Formal",
+            "label": "Lengkap",
+            "desc": "Jawaban kalimat formal dan mendalam",
+            "ko": "무거운 상자나 자재를 싣고 밀어서 운반할 때 사용합니다.",
+            "id": "Digunakan untuk memuat dan mendorong kotak atau material berat."
+          }
+        ],
+        "usage_easy_ko": "짐을 옮길 때 씁니다.",
+        "usage_easy_id": "Dipakai saat memindahkan muatan.",
+        "usage_noun_ko": "상자를 나르는 수레입니다.",
+        "usage_noun_id": "Gerobak pemindah kotak."
       },
       "jagi_11": {
         "usage_short_ko": "물건을 싣고 밀어서 옮길 때 씁니다.",
         "usage_short_id": "Dipakai untuk memuat dan memindahkan barang.",
         "usage_full_ko": "공장 안에서 자재나 제품을 싣고 이동할 때 사용합니다.",
-        "usage_full_id": "Troli untuk memindahkan material atau produk di dalam pabrik."
+        "usage_full_id": "Troli untuk memindahkan material atau produk di dalam pabrik.",
+        "usage_options": [
+          {
+            "key": "mudah",
+            "badge": "⚡ Super Mudah",
+            "label": "Paling Mudah",
+            "desc": "Jawaban 2-3 kata paling simpel & mudah diucapkan saat ujian",
+            "ko": "물건을 밀 때 씁니다.",
+            "id": "Dipakai saat mendorong barang."
+          },
+          {
+            "key": "standar",
+            "badge": "⭐ Standar HRDK",
+            "label": "Standar",
+            "desc": "Jawaban standar resmi kisi-kisi HRD Korea",
+            "ko": "물건을 싣고 밀어서 옮길 때 씁니다.",
+            "id": "Dipakai untuk memuat dan memindahkan barang."
+          },
+          {
+            "key": "noun",
+            "badge": "🔹 Bentuk 도구",
+            "label": "Bentuk Alat",
+            "desc": "Jawaban langsung menyebut fungsi jenis alat",
+            "ko": "짐을 싣는 대차입니다.",
+            "id": "Gerobak dorong muatan."
+          },
+          {
+            "key": "formal",
+            "badge": "📘 Lengkap / Formal",
+            "label": "Lengkap",
+            "desc": "Jawaban kalimat formal dan mendalam",
+            "ko": "공장 안에서 자재나 제품을 싣고 이동할 때 사용합니다.",
+            "id": "Troli untuk memindahkan material atau produk di dalam pabrik."
+          }
+        ],
+        "usage_easy_ko": "물건을 밀 때 씁니다.",
+        "usage_easy_id": "Dipakai saat mendorong barang.",
+        "usage_noun_ko": "짐을 싣는 대차입니다.",
+        "usage_noun_id": "Gerobak dorong muatan."
       },
       "jagi_12": {
         "usage_short_ko": "물건을 담거나 보관할 때 씁니다.",
         "usage_short_id": "Dipakai untuk mewadahi atau menyimpan barang.",
         "usage_full_ko": "부품이나 제품을 담아 보관하고 운반할 때 사용합니다.",
-        "usage_full_id": "Digunakan untuk menyimpan dan mengangkut komponen atau produk."
+        "usage_full_id": "Digunakan untuk menyimpan dan mengangkut komponen atau produk.",
+        "usage_options": [
+          {
+            "key": "mudah",
+            "badge": "⚡ Super Mudah",
+            "label": "Paling Mudah",
+            "desc": "Jawaban 2-3 kata paling simpel & mudah diucapkan saat ujian",
+            "ko": "물건을 담을 때 씁니다.",
+            "id": "Dipakai saat menaruh barang."
+          },
+          {
+            "key": "standar",
+            "badge": "⭐ Standar HRDK",
+            "label": "Standar",
+            "desc": "Jawaban standar resmi kisi-kisi HRD Korea",
+            "ko": "물건을 담거나 보관할 때 씁니다.",
+            "id": "Dipakai untuk mewadahi atau menyimpan barang."
+          },
+          {
+            "key": "noun",
+            "badge": "🔹 Bentuk 도구",
+            "label": "Bentuk Alat",
+            "desc": "Jawaban langsung menyebut fungsi jenis alat",
+            "ko": "포장용 상자입니다.",
+            "id": "Kotak kemasan barang."
+          },
+          {
+            "key": "formal",
+            "badge": "📘 Lengkap / Formal",
+            "label": "Lengkap",
+            "desc": "Jawaban kalimat formal dan mendalam",
+            "ko": "부품이나 제품을 담아 보관하고 운반할 때 사용합니다.",
+            "id": "Digunakan untuk menyimpan dan mengangkut komponen atau produk."
+          }
+        ],
+        "usage_easy_ko": "물건을 담을 때 씁니다.",
+        "usage_easy_id": "Dipakai saat menaruh barang.",
+        "usage_noun_ko": "포장용 상자입니다.",
+        "usage_noun_id": "Kotak kemasan barang."
       },
       "jagi_13": {
         "usage_short_ko": "공구를 정리해서 보관할 때 씁니다.",
         "usage_short_id": "Dipakai untuk menyimpan perkakas dengan rapi.",
         "usage_full_ko": "공구와 측정기를 종류별로 정리해 보관하는 수납장입니다.",
-        "usage_full_id": "Lemari untuk menyimpan perkakas dan alat ukur sesuai jenisnya."
+        "usage_full_id": "Lemari untuk menyimpan perkakas dan alat ukur sesuai jenisnya.",
+        "usage_options": [
+          {
+            "key": "mudah",
+            "badge": "⚡ Super Mudah",
+            "label": "Paling Mudah",
+            "desc": "Jawaban 2-3 kata paling simpel & mudah diucapkan saat ujian",
+            "ko": "공구를 보관할 때 씁니다.",
+            "id": "Dipakai saat menyimpan alat."
+          },
+          {
+            "key": "standar",
+            "badge": "⭐ Standar HRDK",
+            "label": "Standar",
+            "desc": "Jawaban standar resmi kisi-kisi HRD Korea",
+            "ko": "공구를 정리해서 보관할 때 씁니다.",
+            "id": "Dipakai untuk menyimpan perkakas dengan rapi."
+          },
+          {
+            "key": "noun",
+            "badge": "🔹 Bentuk 도구",
+            "label": "Bentuk Alat",
+            "desc": "Jawaban langsung menyebut fungsi jenis alat",
+            "ko": "공구를 정리하는 캐비닛입니다.",
+            "id": "Lemari penyimpanan perkakas."
+          },
+          {
+            "key": "formal",
+            "badge": "📘 Lengkap / Formal",
+            "label": "Lengkap",
+            "desc": "Jawaban kalimat formal dan mendalam",
+            "ko": "공구와 측정기를 종류별로 정리해 보관하는 수납장입니다.",
+            "id": "Lemari untuk menyimpan perkakas dan alat ukur sesuai jenisnya."
+          }
+        ],
+        "usage_easy_ko": "공구를 보관할 때 씁니다.",
+        "usage_easy_id": "Dipakai saat menyimpan alat.",
+        "usage_noun_ko": "공구를 정리하는 캐비닛입니다.",
+        "usage_noun_id": "Lemari penyimpanan perkakas."
       },
       "jagi_14": {
         "usage_short_ko": "흙을 파거나 뜰 때 씁니다.",
         "usage_short_id": "Dipakai untuk menggali atau menyendok tanah.",
         "usage_full_ko": "흙이나 모래를 파고 뜨는 작업에 사용합니다.",
-        "usage_full_id": "Digunakan untuk menggali dan menyendok tanah atau pasir."
+        "usage_full_id": "Digunakan untuk menggali dan menyendok tanah atau pasir.",
+        "usage_options": [
+          {
+            "key": "mudah",
+            "badge": "⚡ Super Mudah",
+            "label": "Paling Mudah",
+            "desc": "Jawaban 2-3 kata paling simpel & mudah diucapkan saat ujian",
+            "ko": "흙을 팔 때 씁니다.",
+            "id": "Dipakai saat menggali tanah."
+          },
+          {
+            "key": "standar",
+            "badge": "⭐ Standar HRDK",
+            "label": "Standar",
+            "desc": "Jawaban standar resmi kisi-kisi HRD Korea",
+            "ko": "흙을 파거나 뜰 때 씁니다.",
+            "id": "Dipakai untuk menggali atau menyendok tanah."
+          },
+          {
+            "key": "noun",
+            "badge": "🔹 Bentuk 도구",
+            "label": "Bentuk Alat",
+            "desc": "Jawaban langsung menyebut fungsi jenis alat",
+            "ko": "흙을 푸는 삽입니다.",
+            "id": "Sekop penggali/penyendok tanah."
+          },
+          {
+            "key": "formal",
+            "badge": "📘 Lengkap / Formal",
+            "label": "Lengkap",
+            "desc": "Jawaban kalimat formal dan mendalam",
+            "ko": "흙이나 모래를 파고 뜨는 작업에 사용합니다.",
+            "id": "Digunakan untuk menggali dan menyendok tanah atau pasir."
+          }
+        ],
+        "usage_easy_ko": "흙을 팔 때 씁니다.",
+        "usage_easy_id": "Dipakai saat menggali tanah.",
+        "usage_noun_ko": "흙을 푸는 삽입니다.",
+        "usage_noun_id": "Sekop penggali/penyendok tanah."
       },
       "jagi_15": {
         "usage_short_ko": "바닥을 쓸 때 씁니다.",
         "usage_short_id": "Dipakai untuk menyapu lantai.",
         "usage_full_ko": "작업장 바닥의 먼지와 쓰레기를 쓸어낼 때 사용합니다.",
-        "usage_full_id": "Digunakan untuk menyapu debu dan sampah di lantai area kerja."
+        "usage_full_id": "Digunakan untuk menyapu debu dan sampah di lantai area kerja.",
+        "usage_options": [
+          {
+            "key": "mudah",
+            "badge": "⚡ Super Mudah",
+            "label": "Paling Mudah",
+            "desc": "Jawaban 2-3 kata paling simpel & mudah diucapkan saat ujian",
+            "ko": "바닥을 쓸 때 씁니다.",
+            "id": "Dipakai saat menyapu lantai."
+          },
+          {
+            "key": "standar",
+            "badge": "⭐ Standar HRDK",
+            "label": "Standar",
+            "desc": "Jawaban standar resmi kisi-kisi HRD Korea",
+            "ko": "바닥을 쓸 때 씁니다.",
+            "id": "Dipakai untuk menyapu lantai."
+          },
+          {
+            "key": "noun",
+            "badge": "🔹 Bentuk 도구",
+            "label": "Bentuk Alat",
+            "desc": "Jawaban langsung menyebut fungsi jenis alat",
+            "ko": "청소하는 빗자루입니다.",
+            "id": "Sapu pembersih lantai."
+          },
+          {
+            "key": "formal",
+            "badge": "📘 Lengkap / Formal",
+            "label": "Lengkap",
+            "desc": "Jawaban kalimat formal dan mendalam",
+            "ko": "작업장 바닥의 먼지와 쓰레기를 쓸어낼 때 사용합니다.",
+            "id": "Digunakan untuk menyapu debu dan sampah di lantai area kerja."
+          }
+        ],
+        "usage_easy_ko": "바닥을 쓸 때 씁니다.",
+        "usage_easy_id": "Dipakai saat menyapu lantai.",
+        "usage_noun_ko": "청소하는 빗자루입니다.",
+        "usage_noun_id": "Sapu pembersih lantai."
       },
       "jagi_16": {
         "usage_short_ko": "쓴 쓰레기를 담을 때 씁니다.",
         "usage_short_id": "Dipakai untuk menampung sampah sapuan.",
         "usage_full_ko": "빗자루로 쓸어 모은 쓰레기를 담아 버릴 때 사용합니다.",
-        "usage_full_id": "Digunakan bersama sapu untuk menampung lalu membuang sampah."
+        "usage_full_id": "Digunakan bersama sapu untuk menampung lalu membuang sampah.",
+        "usage_options": [
+          {
+            "key": "mudah",
+            "badge": "⚡ Super Mudah",
+            "label": "Paling Mudah",
+            "desc": "Jawaban 2-3 kata paling simpel & mudah diucapkan saat ujian",
+            "ko": "쓰레기를 담을 때 씁니다.",
+            "id": "Dipakai saat menampung sampah."
+          },
+          {
+            "key": "standar",
+            "badge": "⭐ Standar HRDK",
+            "label": "Standar",
+            "desc": "Jawaban standar resmi kisi-kisi HRD Korea",
+            "ko": "쓴 쓰레기를 담을 때 씁니다.",
+            "id": "Dipakai untuk menampung sampah sapuan."
+          },
+          {
+            "key": "noun",
+            "badge": "🔹 Bentuk 도구",
+            "label": "Bentuk Alat",
+            "desc": "Jawaban langsung menyebut fungsi jenis alat",
+            "ko": "쓰레기를 모으는 쓰레받기입니다.",
+            "id": "Pengki pengumpul sampah."
+          },
+          {
+            "key": "formal",
+            "badge": "📘 Lengkap / Formal",
+            "label": "Lengkap",
+            "desc": "Jawaban kalimat formal dan mendalam",
+            "ko": "빗자루로 쓸어 모은 쓰레기를 담아 버릴 때 사용합니다.",
+            "id": "Digunakan bersama sapu untuk menampung lalu membuang sampah."
+          }
+        ],
+        "usage_easy_ko": "쓰레기를 담을 때 씁니다.",
+        "usage_easy_id": "Dipakai saat menampung sampah.",
+        "usage_noun_ko": "쓰레기를 모으는 쓰레받기입니다.",
+        "usage_noun_id": "Pengki pengumpul sampah."
       },
       "jagi_17": {
         "usage_short_ko": "불이 났을 때 끄려고 씁니다.",
         "usage_short_id": "Dipakai untuk memadamkan api saat kebakaran.",
         "usage_full_ko": "화재가 발생했을 때 초기 진화를 위해 사용합니다. 안전핀을 뽑고 손잡이를 누릅니다.",
-        "usage_full_id": "Alat pemadam api ringan untuk kebakaran awal. Cabut pin pengaman lalu tekan tuasnya."
+        "usage_full_id": "Alat pemadam api ringan untuk kebakaran awal. Cabut pin pengaman lalu tekan tuasnya.",
+        "usage_options": [
+          {
+            "key": "mudah",
+            "badge": "⚡ Super Mudah",
+            "label": "Paling Mudah",
+            "desc": "Jawaban 2-3 kata paling simpel & mudah diucapkan saat ujian",
+            "ko": "불을 끌 때 씁니다.",
+            "id": "Dipakai saat memadamkan api."
+          },
+          {
+            "key": "standar",
+            "badge": "⭐ Standar HRDK",
+            "label": "Standar",
+            "desc": "Jawaban standar resmi kisi-kisi HRD Korea",
+            "ko": "불이 났을 때 끄려고 씁니다.",
+            "id": "Dipakai untuk memadamkan api saat kebakaran."
+          },
+          {
+            "key": "noun",
+            "badge": "🔹 Bentuk 도구",
+            "label": "Bentuk Alat",
+            "desc": "Jawaban langsung menyebut fungsi jenis alat",
+            "ko": "불을 끄는 소화 기구입니다.",
+            "id": "Alat pemadam api."
+          },
+          {
+            "key": "formal",
+            "badge": "📘 Lengkap / Formal",
+            "label": "Lengkap",
+            "desc": "Jawaban kalimat formal dan mendalam",
+            "ko": "화재가 발생했을 때 초기 진화를 위해 사용합니다. 안전핀을 뽑고 손잡이를 누릅니다.",
+            "id": "Alat pemadam api ringan untuk kebakaran awal. Cabut pin pengaman lalu tekan tuasnya."
+          }
+        ],
+        "usage_easy_ko": "불을 끌 때 씁니다.",
+        "usage_easy_id": "Dipakai saat memadamkan api.",
+        "usage_noun_ko": "불을 끄는 소화 기구입니다.",
+        "usage_noun_id": "Alat pemadam api."
       },
       "jagi_18": {
         "usage_short_ko": "물건을 묶을 때 씁니다.",
         "usage_short_id": "Dipakai untuk mengikat barang.",
         "usage_full_ko": "상자나 자재를 묶어 고정할 때 사용합니다.",
-        "usage_full_id": "Digunakan untuk mengikat dan menahan kotak atau material."
+        "usage_full_id": "Digunakan untuk mengikat dan menahan kotak atau material.",
+        "usage_options": [
+          {
+            "key": "mudah",
+            "badge": "⚡ Super Mudah",
+            "label": "Paling Mudah",
+            "desc": "Jawaban 2-3 kata paling simpel & mudah diucapkan saat ujian",
+            "ko": "물건을 묶을 때 씁니다.",
+            "id": "Dipakai saat mengikat barang."
+          },
+          {
+            "key": "standar",
+            "badge": "⭐ Standar HRDK",
+            "label": "Standar",
+            "desc": "Jawaban standar resmi kisi-kisi HRD Korea",
+            "ko": "물건을 묶을 때 씁니다.",
+            "id": "Dipakai untuk mengikat barang."
+          },
+          {
+            "key": "noun",
+            "badge": "🔹 Bentuk 도구",
+            "label": "Bentuk Alat",
+            "desc": "Jawaban langsung menyebut fungsi jenis alat",
+            "ko": "물건을 묶는 끈입니다.",
+            "id": "Tali pengikat barang."
+          },
+          {
+            "key": "formal",
+            "badge": "📘 Lengkap / Formal",
+            "label": "Lengkap",
+            "desc": "Jawaban kalimat formal dan mendalam",
+            "ko": "상자나 자재를 묶어 고정할 때 사용합니다.",
+            "id": "Digunakan untuk mengikat dan menahan kotak atau material."
+          }
+        ],
+        "usage_easy_ko": "물건을 묶을 때 씁니다.",
+        "usage_easy_id": "Dipakai saat mengikat barang.",
+        "usage_noun_ko": "물건을 묶는 끈입니다.",
+        "usage_noun_id": "Tali pengikat barang."
       },
       "jagi_19": {
         "usage_short_ko": "박스를 포장하거나 고정할 때 씁니다.",
         "usage_short_id": "Dipakai untuk mengepak kardus atau merekatkan.",
         "usage_full_ko": "상자를 밀봉하거나 물건을 고정할 때 사용합니다.",
-        "usage_full_id": "Digunakan untuk menyegel kardus dan merekatkan barang."
+        "usage_full_id": "Digunakan untuk menyegel kardus dan merekatkan barang.",
+        "usage_options": [
+          {
+            "key": "mudah",
+            "badge": "⚡ Super Mudah",
+            "label": "Paling Mudah",
+            "desc": "Jawaban 2-3 kata paling simpel & mudah diucapkan saat ujian",
+            "ko": "박스를 붙일 때 씁니다.",
+            "id": "Dipakai saat merekatkan kardus."
+          },
+          {
+            "key": "standar",
+            "badge": "⭐ Standar HRDK",
+            "label": "Standar",
+            "desc": "Jawaban standar resmi kisi-kisi HRD Korea",
+            "ko": "박스를 포장하거나 고정할 때 씁니다.",
+            "id": "Dipakai untuk mengepak kardus atau merekatkan."
+          },
+          {
+            "key": "noun",
+            "badge": "🔹 Bentuk 도구",
+            "label": "Bentuk Alat",
+            "desc": "Jawaban langsung menyebut fungsi jenis alat",
+            "ko": "포장용 테이프입니다.",
+            "id": "Selotip kemasan kardus."
+          },
+          {
+            "key": "formal",
+            "badge": "📘 Lengkap / Formal",
+            "label": "Lengkap",
+            "desc": "Jawaban kalimat formal dan mendalam",
+            "ko": "상자를 밀봉하거나 물건을 고정할 때 사용합니다.",
+            "id": "Digunakan untuk menyegel kardus dan merekatkan barang."
+          }
+        ],
+        "usage_easy_ko": "박스를 붙일 때 씁니다.",
+        "usage_easy_id": "Dipakai saat merekatkan kardus.",
+        "usage_noun_ko": "포장용 테이프입니다.",
+        "usage_noun_id": "Selotip kemasan kardus."
       },
       "jagi_20": {
         "usage_short_ko": "전기 코드를 여러 개 꽂을 때 씁니다.",
         "usage_short_id": "Dipakai untuk mencolokkan beberapa kabel listrik.",
         "usage_full_ko": "콘센트 하나에서 여러 전기 제품을 동시에 쓸 수 있게 해 줍니다.",
-        "usage_full_id": "Terminal listrik agar beberapa perangkat bisa dipakai dari satu stopkontak."
+        "usage_full_id": "Terminal listrik agar beberapa perangkat bisa dipakai dari satu stopkontak.",
+        "usage_options": [
+          {
+            "key": "mudah",
+            "badge": "⚡ Super Mudah",
+            "label": "Paling Mudah",
+            "desc": "Jawaban 2-3 kata paling simpel & mudah diucapkan saat ujian",
+            "ko": "코드를 꽂을 때 씁니다.",
+            "id": "Dipakai saat mencolokkan kabel daya."
+          },
+          {
+            "key": "standar",
+            "badge": "⭐ Standar HRDK",
+            "label": "Standar",
+            "desc": "Jawaban standar resmi kisi-kisi HRD Korea",
+            "ko": "전기 코드를 여러 개 꽂을 때 씁니다.",
+            "id": "Dipakai untuk mencolokkan beberapa kabel listrik."
+          },
+          {
+            "key": "noun",
+            "badge": "🔹 Bentuk 도구",
+            "label": "Bentuk Alat",
+            "desc": "Jawaban langsung menyebut fungsi jenis alat",
+            "ko": "전기를 연결하는 콘센트입니다.",
+            "id": "Stopkontak perpanjangan kabel."
+          },
+          {
+            "key": "formal",
+            "badge": "📘 Lengkap / Formal",
+            "label": "Lengkap",
+            "desc": "Jawaban kalimat formal dan mendalam",
+            "ko": "콘센트 하나에서 여러 전기 제품을 동시에 쓸 수 있게 해 줍니다.",
+            "id": "Terminal listrik agar beberapa perangkat bisa dipakai dari satu stopkontak."
+          }
+        ],
+        "usage_easy_ko": "코드를 꽂을 때 씁니다.",
+        "usage_easy_id": "Dipakai saat mencolokkan kabel daya.",
+        "usage_noun_ko": "전기를 연결하는 콘센트입니다.",
+        "usage_noun_id": "Stopkontak perpanjangan kabel."
       },
       "jagi_21": {
         "usage_short_ko": "어두운 곳을 비출 때 씁니다.",
         "usage_short_id": "Dipakai untuk menerangi tempat gelap.",
         "usage_full_ko": "어두운 작업장이나 기계 안을 비춰 확인할 때 사용합니다.",
-        "usage_full_id": "Senter untuk memeriksa bagian dalam mesin atau area kerja yang gelap."
+        "usage_full_id": "Senter untuk memeriksa bagian dalam mesin atau area kerja yang gelap.",
+        "usage_options": [
+          {
+            "key": "mudah",
+            "badge": "⚡ Super Mudah",
+            "label": "Paling Mudah",
+            "desc": "Jawaban 2-3 kata paling simpel & mudah diucapkan saat ujian",
+            "ko": "어두울 때 비춥니다.",
+            "id": "Disorotkan saat gelap."
+          },
+          {
+            "key": "standar",
+            "badge": "⭐ Standar HRDK",
+            "label": "Standar",
+            "desc": "Jawaban standar resmi kisi-kisi HRD Korea",
+            "ko": "어두운 곳을 비출 때 씁니다.",
+            "id": "Dipakai untuk menerangi tempat gelap."
+          },
+          {
+            "key": "noun",
+            "badge": "🔹 Bentuk 도구",
+            "label": "Bentuk Alat",
+            "desc": "Jawaban langsung menyebut fungsi jenis alat",
+            "ko": "어두운 곳을 밝히는 플래시입니다.",
+            "id": "Lampu senter penerang tempat gelap."
+          },
+          {
+            "key": "formal",
+            "badge": "📘 Lengkap / Formal",
+            "label": "Lengkap",
+            "desc": "Jawaban kalimat formal dan mendalam",
+            "ko": "어두운 작업장이나 기계 안을 비춰 확인할 때 사용합니다.",
+            "id": "Senter untuk memeriksa bagian dalam mesin atau area kerja yang gelap."
+          }
+        ],
+        "usage_easy_ko": "어두울 때 비춥니다.",
+        "usage_easy_id": "Disorotkan saat gelap.",
+        "usage_noun_ko": "어두운 곳을 밝히는 플래시입니다.",
+        "usage_noun_id": "Lampu senter penerang tempat gelap."
       },
       "jagi_22": {
         "usage_short_ko": "기름이나 액체를 담을 때 씁니다.",
         "usage_short_id": "Dipakai untuk menampung minyak atau cairan.",
         "usage_full_ko": "기름이나 화학 약품 같은 액체를 담아 보관하는 통입니다.",
-        "usage_full_id": "Drum untuk menyimpan cairan seperti minyak atau bahan kimia."
+        "usage_full_id": "Drum untuk menyimpan cairan seperti minyak atau bahan kimia.",
+        "usage_options": [
+          {
+            "key": "mudah",
+            "badge": "⚡ Super Mudah",
+            "label": "Paling Mudah",
+            "desc": "Jawaban 2-3 kata paling simpel & mudah diucapkan saat ujian",
+            "ko": "기름을 담을 때 씁니다.",
+            "id": "Dipakai saat menampung oli/cairan."
+          },
+          {
+            "key": "standar",
+            "badge": "⭐ Standar HRDK",
+            "label": "Standar",
+            "desc": "Jawaban standar resmi kisi-kisi HRD Korea",
+            "ko": "기름이나 액체를 담을 때 씁니다.",
+            "id": "Dipakai untuk menampung minyak atau cairan."
+          },
+          {
+            "key": "noun",
+            "badge": "🔹 Bentuk 도구",
+            "label": "Bentuk Alat",
+            "desc": "Jawaban langsung menyebut fungsi jenis alat",
+            "ko": "액체를 담는 큰 통입니다.",
+            "id": "Tong besar wadah cairan/minyak."
+          },
+          {
+            "key": "formal",
+            "badge": "📘 Lengkap / Formal",
+            "label": "Lengkap",
+            "desc": "Jawaban kalimat formal dan mendalam",
+            "ko": "기름이나 화학 약품 같은 액체를 담아 보관하는 통입니다.",
+            "id": "Drum untuk menyimpan cairan seperti minyak atau bahan kimia."
+          }
+        ],
+        "usage_easy_ko": "기름을 담을 때 씁니다.",
+        "usage_easy_id": "Dipakai saat menampung oli/cairan.",
+        "usage_noun_ko": "액체를 담는 큰 통입니다.",
+        "usage_noun_id": "Tong besar wadah cairan/minyak."
       },
       "jagi_23": {
         "usage_short_ko": "쇠를 전기로 자를 때 씁니다.",
         "usage_short_id": "Dipakai untuk memotong besi dengan listrik.",
         "usage_full_ko": "전동으로 금속을 절단할 때 사용합니다. 보안경과 장갑을 꼭 착용합니다.",
-        "usage_full_id": "Mesin potong listrik untuk logam. Wajib pakai kacamata pengaman dan sarung tangan."
+        "usage_full_id": "Mesin potong listrik untuk logam. Wajib pakai kacamata pengaman dan sarung tangan.",
+        "usage_options": [
+          {
+            "key": "mudah",
+            "badge": "⚡ Super Mudah",
+            "label": "Paling Mudah",
+            "desc": "Jawaban 2-3 kata paling simpel & mudah diucapkan saat ujian",
+            "ko": "쇠를 자를 때 씁니다.",
+            "id": "Dipakai saat memotong besi."
+          },
+          {
+            "key": "standar",
+            "badge": "⭐ Standar HRDK",
+            "label": "Standar",
+            "desc": "Jawaban standar resmi kisi-kisi HRD Korea",
+            "ko": "쇠를 전기로 자를 때 씁니다.",
+            "id": "Dipakai untuk memotong besi dengan listrik."
+          },
+          {
+            "key": "noun",
+            "badge": "🔹 Bentuk 도구",
+            "label": "Bentuk Alat",
+            "desc": "Jawaban langsung menyebut fungsi jenis alat",
+            "ko": "전기로 자르는 절단기입니다.",
+            "id": "Mesin pemotong listrik."
+          },
+          {
+            "key": "formal",
+            "badge": "📘 Lengkap / Formal",
+            "label": "Lengkap",
+            "desc": "Jawaban kalimat formal dan mendalam",
+            "ko": "전동으로 금속을 절단할 때 사용합니다. 보안경과 장갑을 꼭 착용합니다.",
+            "id": "Mesin potong listrik untuk logam. Wajib pakai kacamata pengaman dan sarung tangan."
+          }
+        ],
+        "usage_easy_ko": "쇠를 자를 때 씁니다.",
+        "usage_easy_id": "Dipakai saat memotong besi.",
+        "usage_noun_ko": "전기로 자르는 절단기입니다.",
+        "usage_noun_id": "Mesin pemotong listrik."
       },
       "jagi_24": {
         "usage_short_ko": "쇠를 전기로 붙일 때 씁니다.",
         "usage_short_id": "Dipakai untuk menyambung besi dengan las listrik.",
         "usage_full_ko": "전기로 쇠를 녹여 붙이는 용접 작업에 사용합니다. 용접 마스크를 꼭 씁니다.",
-        "usage_full_id": "Mesin las listrik untuk menyambung logam. Wajib pakai masker las."
+        "usage_full_id": "Mesin las listrik untuk menyambung logam. Wajib pakai masker las.",
+        "usage_options": [
+          {
+            "key": "mudah",
+            "badge": "⚡ Super Mudah",
+            "label": "Paling Mudah",
+            "desc": "Jawaban 2-3 kata paling simpel & mudah diucapkan saat ujian",
+            "ko": "쇠를 붙일 때 씁니다.",
+            "id": "Dipakai saat menyambung besi."
+          },
+          {
+            "key": "standar",
+            "badge": "⭐ Standar HRDK",
+            "label": "Standar",
+            "desc": "Jawaban standar resmi kisi-kisi HRD Korea",
+            "ko": "쇠를 전기로 붙일 때 씁니다.",
+            "id": "Dipakai untuk menyambung besi dengan las listrik."
+          },
+          {
+            "key": "noun",
+            "badge": "🔹 Bentuk 도구",
+            "label": "Bentuk Alat",
+            "desc": "Jawaban langsung menyebut fungsi jenis alat",
+            "ko": "전기 용접 기계입니다.",
+            "id": "Mesin pengelas listrik."
+          },
+          {
+            "key": "formal",
+            "badge": "📘 Lengkap / Formal",
+            "label": "Lengkap",
+            "desc": "Jawaban kalimat formal dan mendalam",
+            "ko": "전기로 쇠를 녹여 붙이는 용접 작업에 사용합니다. 용접 마스크를 꼭 씁니다.",
+            "id": "Mesin las listrik untuk menyambung logam. Wajib pakai masker las."
+          }
+        ],
+        "usage_easy_ko": "쇠를 붙일 때 씁니다.",
+        "usage_easy_id": "Dipakai saat menyambung besi.",
+        "usage_noun_ko": "전기 용접 기계입니다.",
+        "usage_noun_id": "Mesin pengelas listrik."
       },
       "jagi_25": {
         "usage_short_ko": "가스로 쇠를 붙이거나 자를 때 씁니다.",
         "usage_short_id": "Dipakai untuk menyambung atau memotong besi dengan las gas.",
         "usage_full_ko": "가스 불꽃으로 금속을 붙이거나 자를 때 사용합니다. 가스 누출을 점검합니다.",
-        "usage_full_id": "Las gas untuk menyambung atau memotong logam. Periksa kebocoran gas sebelumnya."
+        "usage_full_id": "Las gas untuk menyambung atau memotong logam. Periksa kebocoran gas sebelumnya.",
+        "usage_options": [
+          {
+            "key": "mudah",
+            "badge": "⚡ Super Mudah",
+            "label": "Paling Mudah",
+            "desc": "Jawaban 2-3 kata paling simpel & mudah diucapkan saat ujian",
+            "ko": "가스로 붙일 때 씁니다.",
+            "id": "Dipakai saat menyambung dengan gas."
+          },
+          {
+            "key": "standar",
+            "badge": "⭐ Standar HRDK",
+            "label": "Standar",
+            "desc": "Jawaban standar resmi kisi-kisi HRD Korea",
+            "ko": "가스로 쇠를 붙이거나 자를 때 씁니다.",
+            "id": "Dipakai untuk menyambung atau memotong besi dengan las gas."
+          },
+          {
+            "key": "noun",
+            "badge": "🔹 Bentuk 도구",
+            "label": "Bentuk Alat",
+            "desc": "Jawaban langsung menyebut fungsi jenis alat",
+            "ko": "가스 용접 기구입니다.",
+            "id": "Alat las gas."
+          },
+          {
+            "key": "formal",
+            "badge": "📘 Lengkap / Formal",
+            "label": "Lengkap",
+            "desc": "Jawaban kalimat formal dan mendalam",
+            "ko": "가스 불꽃으로 금속을 붙이거나 자를 때 사용합니다. 가스 누출을 점검합니다.",
+            "id": "Las gas untuk menyambung atau memotong logam. Periksa kebocoran gas sebelumnya."
+          }
+        ],
+        "usage_easy_ko": "가스로 붙일 때 씁니다.",
+        "usage_easy_id": "Dipakai saat menyambung dengan gas.",
+        "usage_noun_ko": "가스 용접 기구입니다.",
+        "usage_noun_id": "Alat las gas."
       },
       "jagi_26": {
         "usage_short_ko": "용접할 때 녹여 붙이려고 씁니다.",
         "usage_short_id": "Dipakai untuk dicairkan saat mengelas.",
         "usage_full_ko": "용접할 때 열로 녹여 쇠와 쇠를 붙이는 막대입니다.",
-        "usage_full_id": "Kawat elektroda yang dicairkan untuk menyambung logam saat mengelas."
+        "usage_full_id": "Kawat elektroda yang dicairkan untuk menyambung logam saat mengelas.",
+        "usage_options": [
+          {
+            "key": "mudah",
+            "badge": "⚡ Super Mudah",
+            "label": "Paling Mudah",
+            "desc": "Jawaban 2-3 kata paling simpel & mudah diucapkan saat ujian",
+            "ko": "용접할 때 녹입니다.",
+            "id": "Dilelehkan saat mengelas."
+          },
+          {
+            "key": "standar",
+            "badge": "⭐ Standar HRDK",
+            "label": "Standar",
+            "desc": "Jawaban standar resmi kisi-kisi HRD Korea",
+            "ko": "용접할 때 녹여 붙이려고 씁니다.",
+            "id": "Dipakai untuk dicairkan saat mengelas."
+          },
+          {
+            "key": "noun",
+            "badge": "🔹 Bentuk 도구",
+            "label": "Bentuk Alat",
+            "desc": "Jawaban langsung menyebut fungsi jenis alat",
+            "ko": "용접용 금속 봉입니다.",
+            "id": "Kawat elektroda las."
+          },
+          {
+            "key": "formal",
+            "badge": "📘 Lengkap / Formal",
+            "label": "Lengkap",
+            "desc": "Jawaban kalimat formal dan mendalam",
+            "ko": "용접할 때 열로 녹여 쇠와 쇠를 붙이는 막대입니다.",
+            "id": "Kawat elektroda yang dicairkan untuk menyambung logam saat mengelas."
+          }
+        ],
+        "usage_easy_ko": "용접할 때 녹입니다.",
+        "usage_easy_id": "Dilelehkan saat mengelas.",
+        "usage_noun_ko": "용접용 금속 봉입니다.",
+        "usage_noun_id": "Kawat elektroda las."
       },
       "jagi_27": {
         "usage_short_ko": "밴드를 조여 물건을 묶을 때 씁니다.",
         "usage_short_id": "Dipakai untuk mengencangkan tali band pengikat barang.",
         "usage_full_ko": "포장 밴드를 팽팽하게 조여 화물을 고정할 때 사용하는 손잡이 도구입니다.",
-        "usage_full_id": "Gagang pengikat untuk mengencangkan strapping band agar muatan terkunci."
+        "usage_full_id": "Gagang pengikat untuk mengencangkan strapping band agar muatan terkunci.",
+        "usage_options": [
+          {
+            "key": "mudah",
+            "badge": "⚡ Super Mudah",
+            "label": "Paling Mudah",
+            "desc": "Jawaban 2-3 kata paling simpel & mudah diucapkan saat ujian",
+            "ko": "철사를 묶을 때 씁니다.",
+            "id": "Dipakai saat mengikat kawat."
+          },
+          {
+            "key": "standar",
+            "badge": "⭐ Standar HRDK",
+            "label": "Standar",
+            "desc": "Jawaban standar resmi kisi-kisi HRD Korea",
+            "ko": "밴드를 조여 물건을 묶을 때 씁니다.",
+            "id": "Dipakai untuk mengencangkan tali band pengikat barang."
+          },
+          {
+            "key": "noun",
+            "badge": "🔹 Bentuk 도구",
+            "label": "Bentuk Alat",
+            "desc": "Jawaban langsung menyebut fungsi jenis alat",
+            "ko": "철근을 묶는 도구입니다.",
+            "id": "Alat pengikat kawat baja/besi."
+          },
+          {
+            "key": "formal",
+            "badge": "📘 Lengkap / Formal",
+            "label": "Lengkap",
+            "desc": "Jawaban kalimat formal dan mendalam",
+            "ko": "포장 밴드를 팽팽하게 조여 화물을 고정할 때 사용하는 손잡이 도구입니다.",
+            "id": "Gagang pengikat untuk mengencangkan strapping band agar muatan terkunci."
+          }
+        ],
+        "usage_easy_ko": "철사를 묶을 때 씁니다.",
+        "usage_easy_id": "Dipakai saat mengikat kawat.",
+        "usage_noun_ko": "철근을 묶는 도구입니다.",
+        "usage_noun_id": "Alat pengikat kawat baja/besi."
       },
       "jagi_28": {
         "usage_short_ko": "못을 빼거나 무거운 것을 들 때 씁니다.",
         "usage_short_id": "Dipakai untuk mencabut paku atau mengungkit barang berat.",
         "usage_full_ko": "못을 빼내거나 무거운 물건을 지렛대 원리로 들어 올릴 때 사용합니다.",
-        "usage_full_id": "Linggis untuk mencabut paku dan mengungkit benda berat dengan prinsip tuas."
+        "usage_full_id": "Linggis untuk mencabut paku dan mengungkit benda berat dengan prinsip tuas.",
+        "usage_options": [
+          {
+            "key": "mudah",
+            "badge": "⚡ Super Mudah",
+            "label": "Paling Mudah",
+            "desc": "Jawaban 2-3 kata paling simpel & mudah diucapkan saat ujian",
+            "ko": "못을 뺄 때 씁니다.",
+            "id": "Dipakai saat mencabut paku."
+          },
+          {
+            "key": "standar",
+            "badge": "⭐ Standar HRDK",
+            "label": "Standar",
+            "desc": "Jawaban standar resmi kisi-kisi HRD Korea",
+            "ko": "못을 빼거나 무거운 것을 들 때 씁니다.",
+            "id": "Dipakai untuk mencabut paku atau mengungkit barang berat."
+          },
+          {
+            "key": "noun",
+            "badge": "🔹 Bentuk 도구",
+            "label": "Bentuk Alat",
+            "desc": "Jawaban langsung menyebut fungsi jenis alat",
+            "ko": "물건을 들어 올리는 지렛대입니다.",
+            "id": "Bilah besi pengungkit beban/paku."
+          },
+          {
+            "key": "formal",
+            "badge": "📘 Lengkap / Formal",
+            "label": "Lengkap",
+            "desc": "Jawaban kalimat formal dan mendalam",
+            "ko": "못을 빼내거나 무거운 물건을 지렛대 원리로 들어 올릴 때 사용합니다.",
+            "id": "Linggis untuk mencabut paku dan mengungkit benda berat dengan prinsip tuas."
+          }
+        ],
+        "usage_easy_ko": "못을 뺄 때 씁니다.",
+        "usage_easy_id": "Dipakai saat mencabut paku.",
+        "usage_noun_ko": "물건을 들어 올리는 지렛대입니다.",
+        "usage_noun_id": "Bilah besi pengungkit beban/paku."
       }
     }
   },
