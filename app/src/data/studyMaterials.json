@@ -5898,13 +5898,13 @@
         },
         {
           "label": "Versi 1 (Super Ringkas)",
-          "ko": "작업자의 몸을 지키는 장비입니다.",
-          "id": "Peralatan untuk melindungi tubuh pekerja."
+          "ko": "신체 보호 장비입니다.",
+          "id": "Perlengkapan pelindung tubuh."
         },
         {
-          "label": "Versi 2 (Standar Ringkas)",
-          "ko": "작업자의 몸을 지키는 장비이어야 합니다.",
-          "id": "Peralatan untuk melindungi tubuh pekerja."
+          "label": "Versi 2 (Standar Percakapan)",
+          "ko": "일할 때 다치지 않도록 몸을 안전하게 지켜 주는 필수 장비입니다.",
+          "id": "Perlengkapan wajib yang melindungi tubuh kita agar tidak terluka saat bekerja."
         }
       ],
       "topic_no": 1,
@@ -5934,13 +5934,13 @@
         },
         {
           "label": "Versi 1 (Super Ringkas)",
-          "ko": "안전모, 안전화, 안전대, 귀마개 등이 있습니다.",
-          "id": "Ada helm, sepatu, sabuk pengaman, penyumbat telinga, dan lain-lain."
+          "ko": "안전모, 안전화, 안전대 등이 있습니다.",
+          "id": "Helm, sepatu safety, tali pengaman."
         },
         {
-          "label": "Versi 2 (Standar Ringkas)",
-          "ko": "안전모, 안전화, 안전대, 귀마개 등이 있고 주의해야 합니다.",
-          "id": "Ada helm, sepatu, sabuk pengaman, penyumbat telinga, dan lain-lain."
+          "label": "Versi 2 (Standar Percakapan)",
+          "ko": "머리를 보호하는 안전모, 발을 지키는 안전화, 그리고 높은 곳에서 쓰는 안전대 등이 있습니다.",
+          "id": "Ada helm pengaman untuk melindungi kepala, sepatu safety untuk menjaga kaki, dan sabuk pengaman untuk bekerja di ketinggian."
         }
       ],
       "topic_no": 1,
@@ -5970,13 +5970,13 @@
         },
         {
           "label": "Versi 1 (Super Ringkas)",
-          "ko": "생명과 건강을 지키는 기본 조치이기 때문입니다.",
-          "id": "Karena itu langkah dasar untuk menjaga nyawa dan kesehatan."
+          "ko": "생명과 건강을 지키기 위해서입니다.",
+          "id": "Untuk menjaga nyawa dan kesehatan."
         },
         {
-          "label": "Versi 2 (Standar Ringkas)",
-          "ko": "생명과 건강을 지키는 기본 조치이기 때문이어야 합니다.",
-          "id": "Karena itu langkah dasar untuk menjaga nyawa dan kesehatan."
+          "label": "Versi 2 (Standar Percakapan)",
+          "ko": "현장은 항상 위험이 따르기 때문에, 사고를 막고 제 몸을 안전하게 보호하려면 꼭 착용해야 합니다.",
+          "id": "Karena di tempat kerja selalu ada bahaya, kita wajib memakainya untuk mencegah kecelakaan dan melindungi diri sendiri."
         }
       ],
       "topic_no": 1,
@@ -6006,13 +6006,13 @@
         },
         {
           "label": "Versi 1 (Super Ringkas)",
-          "ko": "안전모를 쓰고 턱끈을 조여야 합니다.",
-          "id": "Pakai helm dan kencangkan tali dagu."
+          "ko": "턱끈을 조인 안전모입니다.",
+          "id": "Helm pengaman bertali dagu kencang."
         },
         {
-          "label": "Versi 2 (Standar Ringkas)",
-          "ko": "네, 안전모를 쓰고 턱끈을 조여야 합니다.",
-          "id": "Ya, Pakai helm dan kencangkan tali dagu."
+          "label": "Versi 2 (Standar Percakapan)",
+          "ko": "안전모를 써야 하며, 벗겨지지 않도록 턱끈까지 단단히 매는 것이 중요합니다.",
+          "id": "Kita harus memakai helm keselamatan, dan penting untuk mengikat tali dagunya dengan kencang agar tidak terlepas."
         }
       ],
       "topic_no": 1,
@@ -6042,13 +6042,13 @@
         },
         {
           "label": "Versi 1 (Super Ringkas)",
-          "ko": "안전대를 착용하고 고리를 체결해야 합니다.",
-          "id": "Pakai sabuk pengaman dan kaitkan pengaitnya."
+          "ko": "고리를 체결하는 안전대입니다.",
+          "id": "Sabuk pengaman yang dikaitkan pengaitnya."
         },
         {
-          "label": "Versi 2 (Standar Ringkas)",
-          "ko": "네, 안전대를 착용하고 고리를 체결해야 합니다.",
-          "id": "Ya, Pakai sabuk pengaman dan kaitkan pengaitnya."
+          "label": "Versi 2 (Standar Percakapan)",
+          "ko": "추락 사고를 막아주는 안전대를 착용하고, 안전고리를 단단한 곳에 확실하게 걸어야 합니다.",
+          "id": "Kita harus mengenakan sabuk pengaman penahan jatuh dan mengaitkan pengaitnya dengan kuat di tempat yang kokoh."
         }
       ],
       "topic_no": 1,
@@ -6078,13 +6078,13 @@
         },
         {
           "label": "Versi 1 (Super Ringkas)",
-          "ko": "급할 때 빨리 나가는 출입구입니다.",
-          "id": "Pintu keluar untuk menyelamatkan diri dengan cepat."
+          "ko": "비상시 대피 출입구입니다.",
+          "id": "Pintu keluar evakuasi darurat."
         },
         {
-          "label": "Versi 2 (Standar Ringkas)",
-          "ko": "급할 때 빨리 나가는 출입구이어야 합니다.",
-          "id": "Pintu keluar untuk menyelamatkan diri dengan cepat."
+          "label": "Versi 2 (Standar Percakapan)",
+          "ko": "불이 나거나 지진이 났을 때 건물 밖으로 빠르게 빠져나갈 수 있게 만든 비상 출입문입니다.",
+          "id": "Pintu keluar darurat yang dibuat agar kita bisa segera keluar gedung saat terjadi kebakaran atau gempa bumi."
         }
       ],
       "topic_no": 2,
@@ -6114,13 +6114,13 @@
         },
         {
           "label": "Versi 1 (Super Ringkas)",
-          "ko": "미리 정해 둔 안전한 대피 길입니다.",
-          "id": "Jalur aman yang sudah disiapkan untuk menyelamatkan diri."
+          "ko": "안전한 탈출 경로입니다.",
+          "id": "Jalur penyelamatan diri yang aman."
         },
         {
-          "label": "Versi 2 (Standar Ringkas)",
-          "ko": "미리 정해 둔 안전한 대피 길이어야 합니다.",
-          "id": "Jalur aman yang sudah disiapkan untuk menyelamatkan diri."
+          "label": "Versi 2 (Standar Percakapan)",
+          "ko": "위험한 일이 생겼을 때 안전한 곳으로 신속하게 피할 수 있도록 미리 정해 놓은 길입니다.",
+          "id": "Jalur yang sudah ditentukan sejak awal agar kita bisa segera berpindah ke tempat aman saat situasi berbahaya."
         }
       ],
       "topic_no": 2,
@@ -6150,13 +6150,13 @@
         },
         {
           "label": "Versi 1 (Super Ringkas)",
-          "ko": "사고 때 생명을 지키려고 확인합니다.",
-          "id": "Diperiksa untuk menjaga nyawa saat kecelakaan."
+          "ko": "신속히 대피하기 위해서입니다.",
+          "id": "Agar bisa segera mengevakuasi diri."
         },
         {
-          "label": "Versi 2 (Standar Ringkas)",
-          "ko": "네, 사고 때 생명을 지키려고 확인합니다.",
-          "id": "Ya, Diperiksa untuk menjaga nyawa saat kecelakaan."
+          "label": "Versi 2 (Standar Percakapan)",
+          "ko": "위급한 상황이 닥치면 당황하기 쉬우므로, 헤매지 않고 바로 탈출할 수 있도록 평소에 위치를 알아둬야 합니다.",
+          "id": "Saat situasi genting kita mudah panik, jadi kita harus tahu letaknya sejak awal agar bisa langsung keluar tanpa tersesat."
         }
       ],
       "topic_no": 2,
@@ -6186,13 +6186,13 @@
         },
         {
           "label": "Versi 1 (Super Ringkas)",
-          "ko": "불을 끄는 도구이고 보통 붉은색입니다.",
-          "id": "Alat pemadam api, biasanya berwarna merah."
+          "ko": "불 끄는 빨간색 도구입니다.",
+          "id": "Alat pemadam api berwarna merah."
         },
         {
-          "label": "Versi 2 (Standar Ringkas)",
-          "ko": "불을 끄는 도구이고 보통 붉은색이어야 합니다.",
-          "id": "Alat pemadam api, biasanya berwarna merah."
+          "label": "Versi 2 (Standar Percakapan)",
+          "ko": "초기 화재를 진압하는 빨간색 소화 기구이며, 평소 위치를 정확히 파악해 두어야 합니다.",
+          "id": "Perangkat pemadam berwarna merah untuk memadamkan api awal, dan letaknya harus selalu kita ketahui dengan pasti."
         }
       ],
       "topic_no": 2,
@@ -6222,13 +6222,13 @@
         },
         {
           "label": "Versi 1 (Super Ringkas)",
-          "ko": "위험을 알리는 눈에 보이는 표지입니다.",
-          "id": "Tanda visual yang memberi tahu bahaya."
+          "ko": "위험을 알리는 시각 표지입니다.",
+          "id": "Tanda visual pemberitahu bahaya."
         },
         {
-          "label": "Versi 2 (Standar Ringkas)",
-          "ko": "위험을 알리는 눈에 보이는 표지이어야 합니다.",
-          "id": "Tanda visual yang memberi tahu bahaya."
+          "label": "Versi 2 (Standar Percakapan)",
+          "ko": "작업장 곳곳의 위험을 경고하고 어떻게 행동해야 하는지 그림과 색으로 알려주는 안내판입니다.",
+          "id": "Papan petunjuk yang memperingatkan bahaya di tempat kerja dan memberi tahu tindakan aman lewat gambar dan warna."
         }
       ],
       "topic_no": 3,
@@ -6258,13 +6258,13 @@
         },
         {
           "label": "Versi 1 (Super Ringkas)",
-          "ko": "금지, 경고, 지시, 안내 표지가 있습니다.",
-          "id": "Ada rambu larangan, peringatan, perintah, dan informasi."
+          "ko": "금지, 경고, 지시, 안내표지입니다.",
+          "id": "Rambu larangan, peringatan, perintah, petunjuk."
         },
         {
-          "label": "Versi 2 (Standar Ringkas)",
-          "ko": "금지, 경고, 지시, 안내 표지가 있고 주의해야 합니다.",
-          "id": "Ada rambu larangan, peringatan, perintah, dan informasi."
+          "label": "Versi 2 (Standar Percakapan)",
+          "ko": "하지 말라는 금지표지, 조심하라는 경고표지, 꼭 지켜야 하는 지시표지와 길을 알려주는 안내표지가 있습니다.",
+          "id": "Ada rambu larangan yang melarang tindakan, rambu peringatan untuk berhati-hati, rambu perintah yang wajib dipatuhi, serta rambu petunjuk arah."
         }
       ],
       "topic_no": 3,
@@ -6294,13 +6294,13 @@
         },
         {
           "label": "Versi 1 (Super Ringkas)",
-          "ko": "안 보이는 위험을 빨리 알 수 있습니다.",
-          "id": "Bahaya yang tak terlihat bisa dipahami dengan cepat."
+          "ko": "위험을 즉시 파악하기 위해서입니다.",
+          "id": "Untuk segera mengetahui bahaya."
         },
         {
-          "label": "Versi 2 (Standar Ringkas)",
-          "ko": "안 보이는 위험을 빨리 알 수 있고 주의해야 합니다.",
-          "id": "Bahaya yang tak terlihat bisa dipahami dengan cepat."
+          "label": "Versi 2 (Standar Percakapan)",
+          "ko": "표시를 보고 작업장의 숨은 위험을 한눈에 알아차려 조심해서 일할 수 있기 때문입니다.",
+          "id": "Karena dengan melihat rambu tersebut, kita bisa langsung mengenali potensi bahaya di area kerja dan bekerja lebih waspada."
         }
       ],
       "topic_no": 3,
@@ -6330,13 +6330,13 @@
         },
         {
           "label": "Versi 1 (Super Ringkas)",
-          "ko": "붉은색 원에 붉은색 사선입니다.",
-          "id": "Lingkaran merah dengan garis diagonal merah."
+          "ko": "빨간 원에 사선입니다.",
+          "id": "Lingkaran merah bergaris miring."
         },
         {
-          "label": "Versi 2 (Standar Ringkas)",
-          "ko": "붉은색 원에 붉은색 사선이어야 합니다.",
-          "id": "Lingkaran merah dengan garis diagonal merah."
+          "label": "Versi 2 (Standar Percakapan)",
+          "ko": "빨간색 동그라미에 대각선이 그어져 있어 들어오지 말라는 강력한 금지를 나타냅니다.",
+          "id": "Berbentuk lingkaran merah dengan garis diagonal yang menandakan larangan keras untuk memasuki area tersebut."
         }
       ],
       "topic_no": 3,
@@ -6366,13 +6366,13 @@
         },
         {
           "label": "Versi 1 (Super Ringkas)",
-          "ko": "위험에서 작업자를 지키는 설비입니다.",
-          "id": "Perlengkapan yang melindungi pekerja dari bahaya."
+          "ko": "기계 위험을 차단하는 장치입니다.",
+          "id": "Alat pemutus bahaya mesin."
         },
         {
-          "label": "Versi 2 (Standar Ringkas)",
-          "ko": "위험에서 작업자를 지키는 설비이어야 합니다.",
-          "id": "Perlengkapan yang melindungi pekerja dari bahaya."
+          "label": "Versi 2 (Standar Percakapan)",
+          "ko": "기계를 다룰 때 사람 손이 말려들거나 다치지 않도록 위험을 물리적으로 막아주는 안전 장치입니다.",
+          "id": "Perangkat keselamatan yang secara fisik menghalangi bahaya agar tangan tidak terseret atau terluka saat mengoperasikan mesin."
         }
       ],
       "topic_no": 4,
@@ -6402,13 +6402,13 @@
         },
         {
           "label": "Versi 1 (Super Ringkas)",
-          "ko": "정해진 대로 안전하게 작동하는 상태입니다.",
-          "id": "Keadaan bekerja aman sesuai standar."
+          "ko": "안전하고 바르게 움직이는 상태입니다.",
+          "id": "Kondisi bergerak aman dan benar."
         },
         {
-          "label": "Versi 2 (Standar Ringkas)",
-          "ko": "정해진 대로 안전하게 작동하는 상태이어야 합니다.",
-          "id": "Keadaan bekerja aman sesuai standar."
+          "label": "Versi 2 (Standar Percakapan)",
+          "ko": "기계나 장치가 고장 없이 원래 정해진 기능대로 안전하게 잘 작동하는 것을 뜻합니다.",
+          "id": "Artinya mesin atau perangkat beroperasi dengan aman dan lancar sesuai fungsi semestinya tanpa gangguan kerusakan."
         }
       ],
       "topic_no": 4,
@@ -6438,13 +6438,13 @@
         },
         {
           "label": "Versi 1 (Super Ringkas)",
-          "ko": "정상 작동해야 실제로 보호되기 때문입니다.",
-          "id": "Karena perlindungan nyata hanya ada bila alat bekerja normal."
+          "ko": "실수로 다치는 것을 막기 위해서입니다.",
+          "id": "Mencegah cedera akibat kelalaian."
         },
         {
-          "label": "Versi 2 (Standar Ringkas)",
-          "ko": "정상 작동해야 실제로 보호되기 때문이어야 합니다.",
-          "id": "Karena perlindungan nyata hanya ada bila alat bekerja normal."
+          "label": "Versi 2 (Standar Percakapan)",
+          "ko": "작업 중에 순간적으로 실수하더라도 장치가 제대로 멈춰주어야 크게 다치는 사고를 막을 수 있기 때문입니다.",
+          "id": "Karena meski sewaktu-waktu kita berbuat kelalaian, alat yang berfungsi normal akan langsung menghentikan bahaya sehingga kita tidak terluka parah."
         }
       ],
       "topic_no": 4,
@@ -6474,13 +6474,13 @@
         },
         {
           "label": "Versi 1 (Super Ringkas)",
-          "ko": "작업 전에 기계를 점검하고 이상하면 보고합니다.",
-          "id": "Periksa mesin sebelum kerja, lapor jika ada yang aneh."
+          "ko": "작업 전 기계점검입니다.",
+          "id": "Pemeriksaan mesin sebelum bekerja."
         },
         {
-          "label": "Versi 2 (Standar Ringkas)",
-          "ko": "네, 작업 전에 기계를 점검하고 이상하면 보고합니다.",
-          "id": "Ya, Periksa mesin sebelum kerja, lapor jika ada yang aneh."
+          "label": "Versi 2 (Standar Percakapan)",
+          "ko": "일을 시작하기 전에 기계 소리나 진동에 이상이 없는지 먼저 살피고, 문제가 있으면 관리자에게 알리는 절차입니다.",
+          "id": "Prosedur mengecek apakah ada suara atau getaran aneh pada mesin sebelum mulai bekerja, dan melaporkannya ke pengawas jika ada masalah."
         }
       ],
       "topic_no": 4,
@@ -6510,13 +6510,13 @@
         },
         {
           "label": "Versi 1 (Super Ringkas)",
-          "ko": "사람에게 위험한 고체, 액체, 기체입니다.",
-          "id": "Zat padat, cair, atau gas yang berbahaya."
+          "ko": "유해하거나 폭발 위험물질입니다.",
+          "id": "Bahan beracun atau mudah meledak."
         },
         {
-          "label": "Versi 2 (Standar Ringkas)",
-          "ko": "사람에게 위험한 고체, 액체, 기체이어야 합니다.",
-          "id": "Zat padat, cair, atau gas yang berbahaya."
+          "label": "Versi 2 (Standar Percakapan)",
+          "ko": "공장에서 제품을 만들 때 쓰는 약품이나 신나처럼, 인체에 해롭거나 불이 붙기 쉬운 위험한 물질입니다.",
+          "id": "Zat berbahaya seperti obat kimia atau tiner yang digunakan di pabrik, yang beracun bagi tubuh atau berpotensi meledak."
         }
       ],
       "topic_no": 5,
@@ -6546,13 +6546,13 @@
         },
         {
           "label": "Versi 1 (Super Ringkas)",
-          "ko": "화학물질 정보가 담긴 설명서입니다.",
-          "id": "Dokumen berisi informasi tentang bahan kimia."
+          "ko": "화학물질 안전 설명서입니다.",
+          "id": "Buku petunjuk keselamatan zat kimia."
         },
         {
-          "label": "Versi 2 (Standar Ringkas)",
-          "ko": "화학물질 정보가 담긴 설명서이어야 합니다.",
-          "id": "Dokumen berisi informasi tentang bahan kimia."
+          "label": "Versi 2 (Standar Percakapan)",
+          "ko": "화학약품의 위험성과 안전한 취급 요령, 그리고 사고 났을 때 응급조치 방법이 담겨 있는 설명서입니다.",
+          "id": "Buku panduan yang memuat bahaya zat kimia, kiat penanganan yang aman, serta tindakan pertolongan pertama saat terjadi insiden."
         }
       ],
       "topic_no": 5,
@@ -6582,13 +6582,13 @@
         },
         {
           "label": "Versi 1 (Super Ringkas)",
-          "ko": "안전하게 다루려고 꼭 확인합니다.",
-          "id": "Diperiksa agar bahan kimia ditangani dengan aman."
+          "ko": "안전하게 다루기 위해서입니다.",
+          "id": "Agar menanganinya dengan aman."
         },
         {
-          "label": "Versi 2 (Standar Ringkas)",
-          "ko": "네, 안전하게 다루려고 꼭 확인합니다.",
-          "id": "Ya, Diperiksa agar bahan kimia ditangani dengan aman."
+          "label": "Versi 2 (Standar Percakapan)",
+          "ko": "약품의 유해성을 미리 알아야 올바른 보호구를 챙겨 입고 중독이나 화재 사고 없이 작업할 수 있기 때문입니다.",
+          "id": "Karena kita harus mengetahui tingkat racunnya terlebih dahulu agar bisa mengenakan APD yang tepat dan terhindar dari keracunan atau kebakaran."
         }
       ],
       "topic_no": 5,
@@ -6618,13 +6618,13 @@
         },
         {
           "label": "Versi 1 (Super Ringkas)",
-          "ko": "방독마스크와 보호장갑을 준비합니다.",
-          "id": "Siapkan masker gas dan sarung tangan pelindung."
+          "ko": "방독마스크와 화학용 장갑입니다.",
+          "id": "Masker gas dan sarung tangan tahan kimia."
         },
         {
-          "label": "Versi 2 (Standar Ringkas)",
-          "ko": "네, 방독마스크와 보호장갑을 준비합니다.",
-          "id": "Ya, Siapkan masker gas dan sarung tangan pelindung."
+          "label": "Versi 2 (Standar Percakapan)",
+          "ko": "유독가스를 마시지 않도록 방독마스크를 쓰고, 피부에 닿지 않게 전용 보호장갑을 착용해야 합니다.",
+          "id": "Kita harus mengenakan masker gas agar tidak menghirup uap beracun, serta sarung tangan khusus agar tidak menyentuh kulit."
         }
       ],
       "topic_no": 5,
@@ -6654,13 +6654,13 @@
         },
         {
           "label": "Versi 1 (Super Ringkas)",
-          "ko": "공기가 잘 안 통하는 위험한 공간입니다.",
-          "id": "Ruang dengan udara kurang dan berbahaya."
+          "ko": "산소부족 환기불량 공간입니다.",
+          "id": "Ruang minim sirkulasi rawan hipoksia."
         },
         {
-          "label": "Versi 2 (Standar Ringkas)",
-          "ko": "공기가 잘 안 통하는 위험한 공간이어야 합니다.",
-          "id": "Ruang dengan udara kurang dan berbahaya."
+          "label": "Versi 2 (Standar Percakapan)",
+          "ko": "탱크나 맨홀 안처럼 바람이 통하지 않아 숨 쉴 산소가 부족하거나 유독가스가 고이기 쉬운 장소입니다.",
+          "id": "Area seperti bagian dalam tangki atau gorong-gorong yang udaranya tidak mengalir sehingga minim oksigen atau penuh gas beracun."
         }
       ],
       "topic_no": 6,
@@ -6690,13 +6690,13 @@
         },
         {
           "label": "Versi 1 (Super Ringkas)",
-          "ko": "나쁜 공기를 맑은 공기로 바꾸는 것입니다.",
-          "id": "Mengganti udara kotor dengan udara bersih."
+          "ko": "신선한 공기 교체입니다.",
+          "id": "Pertukaran udara segar."
         },
         {
-          "label": "Versi 2 (Standar Ringkas)",
-          "ko": "나쁜 공기를 맑은 공기로 바꾸는 것이어야 합니다.",
-          "id": "Mengganti udara kotor dengan udara bersih."
+          "label": "Versi 2 (Standar Percakapan)",
+          "ko": "실내의 나쁜 공기를 밖으로 빼내고 바깥의 깨끗한 공기를 불어넣어 안전하게 숨 쉴 수 있게 만드는 일입니다.",
+          "id": "Aktivitas mengeluarkan udara pengap dari dalam dan meniupkan udara bersih dari luar agar pekerja dapat bernapas dengan aman."
         }
       ],
       "topic_no": 6,
@@ -6726,13 +6726,13 @@
         },
         {
           "label": "Versi 1 (Super Ringkas)",
-          "ko": "가스나 산소 부족으로 죽을 수 있습니다.",
-          "id": "Pekerja bisa meninggal karena gas atau kurang oksigen."
+          "ko": "질식 사망을 막기 위해서입니다.",
+          "id": "Mencegah kematian akibat sesak napas."
         },
         {
-          "label": "Versi 2 (Standar Ringkas)",
-          "ko": "가스나 산소 부족으로 죽을 수 있고 주의해야 합니다.",
-          "id": "Pekerja bisa meninggal karena gas atau kurang oksigen."
+          "label": "Versi 2 (Standar Percakapan)",
+          "ko": "바람을 통하지 않고 들어가면 유독가스에 취하거나 산소가 없어 눈 깜짝할 사이에 질식사할 위험이 매우 높기 때문입니다.",
+          "id": "Karena bila masuk tanpa ventilasi, kita bisa pingsan akibat gas beracun atau mati lemas seketika karena kehabisan oksigen."
         }
       ],
       "topic_no": 6,
@@ -6762,13 +6762,13 @@
         },
         {
           "label": "Versi 1 (Super Ringkas)",
-          "ko": "기계를 실제로 움직이는 것입니다.",
-          "id": "Menjalankan mesin secara nyata."
+          "ko": "기계를 켜서 돌리는 것입니다.",
+          "id": "Menghidupkan dan memutar mesin."
         },
         {
-          "label": "Versi 2 (Standar Ringkas)",
-          "ko": "기계를 실제로 움직이는 것이어야 합니다.",
-          "id": "Menjalankan mesin secara nyata."
+          "label": "Versi 2 (Standar Percakapan)",
+          "ko": "작업을 하기 위해 기계 전원을 켜고 모터를 실제로 움직여 작동시키는 상태를 말합니다.",
+          "id": "Kondisi menyalakan daya mesin dan membiarkan motor bekerja aktif untuk memproses produksi."
         }
       ],
       "topic_no": 7,
@@ -6798,13 +6798,13 @@
         },
         {
           "label": "Versi 1 (Super Ringkas)",
-          "ko": "기계를 고치고 부품을 바꾸는 일입니다.",
-          "id": "Pekerjaan memperbaiki mesin dan mengganti komponen."
+          "ko": "기계를 점검·수리하는 작업입니다.",
+          "id": "Pekerjaan memeriksa dan memperbaiki mesin."
         },
         {
-          "label": "Versi 2 (Standar Ringkas)",
-          "ko": "기계를 고치고 부품을 바꾸는 일이어야 합니다.",
-          "id": "Pekerjaan memperbaiki mesin dan mengganti komponen."
+          "label": "Versi 2 (Standar Percakapan)",
+          "ko": "기계가 고장 없이 잘 돌아가도록 낡은 부품을 교체하고 청소하거나 수리하는 일입니다.",
+          "id": "Pekerjaan merawat, mengganti suku cadang usang, membersihkan, dan memperbaiki mesin agar tidak rusak."
         }
       ],
       "topic_no": 7,
@@ -6834,13 +6834,13 @@
         },
         {
           "label": "Versi 1 (Super Ringkas)",
-          "ko": "갑자기 작동하면 사고가 날 수 있습니다.",
-          "id": "Jika mesin tiba-tiba bekerja, bisa terjadi kecelakaan."
+          "ko": "끼임 사고가 나기 때문입니다.",
+          "id": "Karena dapat terjadi kecelakaan terjepit."
         },
         {
-          "label": "Versi 2 (Standar Ringkas)",
-          "ko": "갑자기 작동하면 사고가 날 수 있고 주의해야 합니다.",
-          "id": "Jika mesin tiba-tiba bekerja, bisa terjadi kecelakaan."
+          "label": "Versi 2 (Standar Percakapan)",
+          "ko": "기계가 돌아가는 중에 손을 대면 부품에 손이나 옷이 순식간에 빨려 들어가 큰 부상을 당하기 때문입니다.",
+          "id": "Karena menyentuh mesin yang berputar bisa membuat tangan atau pakaian terseret dalam hitungan detik hingga terluka berat."
         }
       ],
       "topic_no": 7,
@@ -6870,13 +6870,13 @@
         },
         {
           "label": "Versi 1 (Super Ringkas)",
-          "ko": "함부로 만지지 말고 관리자에게 보고합니다.",
-          "id": "Jangan disentuh sembarangan, lapor ke atasan."
+          "ko": "만지지 말고 관리자에게 알립니다.",
+          "id": "Jangan sentuh, segera lapor pengawas."
         },
         {
-          "label": "Versi 2 (Standar Ringkas)",
-          "ko": "네, 함부로 만지지 말고 관리자에게 보고합니다.",
-          "id": "Ya, Jangan disentuh sembarangan, lapor ke atasan."
+          "label": "Versi 2 (Standar Percakapan)",
+          "ko": "임의로 버튼을 누르거나 만지지 말고, 즉시 전원을 내린 뒤 반장님께 바로 보고해야 합니다.",
+          "id": "Jangan sembarangan menekan tombol; segera matikan saklar daya lalu laporkan insiden itu kepada mandor."
         }
       ],
       "topic_no": 7,
@@ -6906,13 +6906,13 @@
         },
         {
           "label": "Versi 1 (Super Ringkas)",
-          "ko": "사용법을 몰라 다룰 수 없는 설비입니다.",
-          "id": "Peralatan yang cara pakainya tidak diketahui."
+          "ko": "조작법을 모르는 기계입니다.",
+          "id": "Mesin yang tidak diketahui cara pakainya."
         },
         {
-          "label": "Versi 2 (Standar Ringkas)",
-          "ko": "사용법을 몰라 다룰 수 없는 설비이어야 합니다.",
-          "id": "Peralatan yang cara pakainya tidak diketahui."
+          "label": "Versi 2 (Standar Percakapan)",
+          "ko": "사용 방법이나 안전 교육을 제대로 받지 않아 작동 원리를 잘 알지 못하는 기계입니다.",
+          "id": "Mesin yang belum pernah kita pelajari cara pakai dan aturan keselamatannya secara resmi."
         }
       ],
       "topic_no": 8,
@@ -6942,13 +6942,13 @@
         },
         {
           "label": "Versi 1 (Super Ringkas)",
-          "ko": "허락 없이 마음대로 조작하는 것입니다.",
+          "ko": "허가 없이 마음대로 조작함입니다.",
           "id": "Mengoperasikan sesuka hati tanpa izin."
         },
         {
-          "label": "Versi 2 (Standar Ringkas)",
-          "ko": "허락 없이 마음대로 조작하는 것이어야 합니다.",
-          "id": "Mengoperasikan sesuka hati tanpa izin."
+          "label": "Versi 2 (Standar Percakapan)",
+          "ko": "정해진 작업 순서나 담당자의 허락도 없이 제멋대로 기계를 건드리고 만지는 행동입니다.",
+          "id": "Perilaku menyentuh dan mengutak-atik mesin sesuka hati tanpa mematuhi SOP atau tanpa izin mandor."
         }
       ],
       "topic_no": 8,
@@ -6978,13 +6978,13 @@
         },
         {
           "label": "Versi 1 (Super Ringkas)",
-          "ko": "갑자기 움직이면 사고가 날 수 있습니다.",
-          "id": "Jika mesin tiba-tiba bergerak, bisa terjadi kecelakaan."
+          "ko": "예상치 못한 사고가 납니다.",
+          "id": "Dapat timbul kecelakaan tak terduga."
         },
         {
-          "label": "Versi 2 (Standar Ringkas)",
-          "ko": "갑자기 움직이면 사고가 날 수 있고 주의해야 합니다.",
-          "id": "Jika mesin tiba-tiba bergerak, bisa terjadi kecelakaan."
+          "label": "Versi 2 (Standar Percakapan)",
+          "ko": "기계가 갑자기 오작동하거나 튀어 올라 본인은 물론 옆에 있는 동료까지 크게 다치게 만들 수 있습니다.",
+          "id": "Mesin bisa mendadak mengalami malafungsi atau tersentak, sehingga membahayakan diri kita maupun rekan di sekitar."
         }
       ],
       "topic_no": 8,
@@ -7014,13 +7014,13 @@
         },
         {
           "label": "Versi 1 (Super Ringkas)",
-          "ko": "기계를 급히 멈추는 버튼입니다.",
-          "id": "Tombol untuk menghentikan mesin dengan cepat."
+          "ko": "긴급 정지 빨간 버튼입니다.",
+          "id": "Tombol merah penghenti darurat."
         },
         {
-          "label": "Versi 2 (Standar Ringkas)",
-          "ko": "기계를 급히 멈추는 버튼이어야 합니다.",
-          "id": "Tombol untuk menghentikan mesin dengan cepat."
+          "label": "Versi 2 (Standar Percakapan)",
+          "ko": "작업 중에 위험한 상황이 닥쳤을 때 손으로 즉시 눌러 기계를 바로 세우는 안전 스위치입니다.",
+          "id": "Saklar pengaman darurat yang langsung ditekan dengan tangan untuk seketika mematikan mesin saat terjadi bahaya."
         }
       ],
       "topic_no": 8,
@@ -7050,13 +7050,13 @@
         },
         {
           "label": "Versi 1 (Super Ringkas)",
-          "ko": "작업자를 지키려고 설치한 보호설비입니다.",
-          "id": "Perlengkapan pelindung yang dipasang untuk pekerja."
+          "ko": "작업자를 지키는 안전설비입니다.",
+          "id": "Fasilitas keselamatan pelindung pekerja."
         },
         {
-          "label": "Versi 2 (Standar Ringkas)",
-          "ko": "작업자를 지키려고 설치한 보호설비이어야 합니다.",
-          "id": "Perlengkapan pelindung yang dipasang untuk pekerja."
+          "label": "Versi 2 (Standar Percakapan)",
+          "ko": "기계의 덮개나 방호벽처럼 작업자가 위험한 곳에 닿지 않도록 막아주는 보호 시설입니다.",
+          "id": "Fasilitas pelindung seperti penutup atau barikade mesin yang mencegah tubuh pekerja bersentuhan dengan titik berbahaya."
         }
       ],
       "topic_no": 9,
@@ -7086,13 +7086,13 @@
         },
         {
           "label": "Versi 1 (Super Ringkas)",
-          "ko": "분리하거나 안전 기능을 멈추는 것입니다.",
-          "id": "Melepas atau menghentikan fungsi pengaman."
+          "ko": "떼어내거나 기능을 끄는 것입니다.",
+          "id": "Melepas atau mematikan fungsi."
         },
         {
-          "label": "Versi 2 (Standar Ringkas)",
-          "ko": "분리하거나 안전 기능을 멈추는 것이어야 합니다.",
-          "id": "Melepas atau menghentikan fungsi pengaman."
+          "label": "Versi 2 (Standar Percakapan)",
+          "ko": "설치되어 있는 안전 가드를 분해해 없애거나 안전 센서 스위치를 강제로 꺼버리는 행동입니다.",
+          "id": "Tindakan membongkar pelindung yang terpasang atau mematikan saklar sensor keselamatan secara paksa."
         }
       ],
       "topic_no": 9,
@@ -7122,13 +7122,13 @@
         },
         {
           "label": "Versi 1 (Super Ringkas)",
-          "ko": "사고를 막아 주지 못하기 때문입니다.",
-          "id": "Karena tidak bisa lagi mencegah kecelakaan."
+          "ko": "보호벽이 없어져 위험하기 때문입니다.",
+          "id": "Sangat berbahaya karena pelindungnya hilang."
         },
         {
-          "label": "Versi 2 (Standar Ringkas)",
-          "ko": "사고를 막아 주지 못하기 때문이어야 합니다.",
-          "id": "Karena tidak bisa lagi mencegah kecelakaan."
+          "label": "Versi 2 (Standar Percakapan)",
+          "ko": "안전장치를 치워버리면 기계가 튀거나 사람이 실수했을 때 막아줄 방어막이 완전히 사라지기 때문입니다.",
+          "id": "Karena jika pengaman disingkirkan, tidak ada lagi perisai yang melindungi kita saat mesin malafungsi atau kita berbuat kelalaian."
         }
       ],
       "topic_no": 9,
@@ -7158,13 +7158,13 @@
         },
         {
           "label": "Versi 1 (Super Ringkas)",
-          "ko": "기계에 끼일 수 있습니다.",
-          "id": "Bisa terjepit mesin."
+          "ko": "기계에 끼여 절단됩니다.",
+          "id": "Terjepit mesin hingga terpotong."
         },
         {
-          "label": "Versi 2 (Standar Ringkas)",
-          "ko": "기계에 끼일 수 있고 주의해야 합니다.",
-          "id": "Bisa terjepit mesin."
+          "label": "Versi 2 (Standar Percakapan)",
+          "ko": "보호 커버 없이 작업하다가 회전체나 프레스에 신체가 직접 빨려 들어가 뼈가 부러지거나 절단될 수 있습니다.",
+          "id": "Bekerja tanpa pelindung membuat bagian tubuh rentan terseret ke bilah putar atau mesin pres hingga patah tulang atau terpotong."
         }
       ],
       "topic_no": 9,
@@ -7194,13 +7194,13 @@
         },
         {
           "label": "Versi 1 (Super Ringkas)",
-          "ko": "사고를 막으려고 공식적으로 정해 놓는 것입니다.",
-          "id": "Menetapkan secara resmi untuk mencegah kecelakaan."
+          "ko": "공식적으로 정해 놓음입니다.",
+          "id": "Penetapan secara resmi."
         },
         {
-          "label": "Versi 2 (Standar Ringkas)",
-          "ko": "사고를 막으려고 공식적으로 정해 놓는 것이어야 합니다.",
-          "id": "Menetapkan secara resmi untuk mencegah kecelakaan."
+          "label": "Versi 2 (Standar Percakapan)",
+          "ko": "안전한 작업을 위해 회사 규정으로 미리 정해 둔 사람이나 도구를 의미합니다.",
+          "id": "Artinya orang atau perkakas yang telah ditentukan secara resmi dalam aturan keselamatan kerja perusahaan."
         }
       ],
       "topic_no": 10,
@@ -7230,13 +7230,13 @@
         },
         {
           "label": "Versi 1 (Super Ringkas)",
-          "ko": "사고를 막으려고 보완해서 쓰는 장비입니다.",
-          "id": "Peralatan pelengkap untuk mencegah kecelakaan."
+          "ko": "안전을 돕는 보조기구입니다.",
+          "id": "Alat pelengkap pembantu keselamatan."
         },
         {
-          "label": "Versi 2 (Standar Ringkas)",
-          "ko": "사고를 막으려고 보완해서 쓰는 장비이어야 합니다.",
-          "id": "Peralatan pelengkap untuk mencegah kecelakaan."
+          "label": "Versi 2 (Standar Percakapan)",
+          "ko": "위험한 기계에 직접 손을 대지 않고 물건을 잡거나 밀어 넣기 위해 쓰는 집게나 푸셔 같은 도구입니다.",
+          "id": "Alat seperti tang penjepit atau pendorong yang dipakai untuk memegang material tanpa memasukkan tangan langsung ke mesin."
         }
       ],
       "topic_no": 10,
@@ -7266,13 +7266,13 @@
         },
         {
           "label": "Versi 1 (Super Ringkas)",
-          "ko": "용도에 맞지 않게 쓰면 위험하기 때문입니다.",
-          "id": "Karena memakai tidak sesuai kegunaan itu berbahaya."
+          "ko": "파손과 오작동을 막기 위해서입니다.",
+          "id": "Mencegah kerusakan dan kecelakaan kerja."
         },
         {
-          "label": "Versi 2 (Standar Ringkas)",
-          "ko": "용도에 맞지 않게 쓰면 위험하기 때문이어야 합니다.",
-          "id": "Karena memakai tidak sesuai kegunaan itu berbahaya."
+          "label": "Versi 2 (Standar Percakapan)",
+          "ko": "맞지 않는 공구를 쓰면 미끄러지거나 부러져 사람이 다치기 쉬우므로, 딱 맞는 전용 도구를 써야 합니다.",
+          "id": "Memakai alat yang tidak tepat bisa tergelincir atau patah dan melukai pekerja, sehingga harus selalu menggunakan alat peruntukannya."
         }
       ],
       "topic_no": 10,
@@ -7302,13 +7302,13 @@
         },
         {
           "label": "Versi 1 (Super Ringkas)",
-          "ko": "손이 끼이는 사고를 막기 위해서입니다.",
+          "ko": "손 끼임을 막기 위해서입니다.",
           "id": "Untuk mencegah tangan terjepit."
         },
         {
-          "label": "Versi 2 (Standar Ringkas)",
-          "ko": "손이 끼이는 사고를 막기 위해서이어야 합니다.",
-          "id": "Untuk mencegah tangan terjepit."
+          "label": "Versi 2 (Standar Percakapan)",
+          "ko": "회전하는 기계 틈새로 손이 빨려 들어가지 않도록 거리를 두고 안전하게 작업하기 위해 씁니다.",
+          "id": "Digunakan agar tangan tidak terseret ke sela-sela mesin yang berputar dengan menjaga jarak kerja yang aman."
         }
       ],
       "topic_no": 10,
@@ -7338,13 +7338,13 @@
         },
         {
           "label": "Versi 1 (Super Ringkas)",
-          "ko": "무거운 짐을 옮기는 운반 기계입니다.",
-          "id": "Mesin untuk memindahkan barang berat."
+          "ko": "화물 운반 적재 차량입니다.",
+          "id": "Kendaraan pemindah dan penyusun muatan."
         },
         {
-          "label": "Versi 2 (Standar Ringkas)",
-          "ko": "무거운 짐을 옮기는 운반 기계이어야 합니다.",
-          "id": "Mesin untuk memindahkan barang berat."
+          "label": "Versi 2 (Standar Percakapan)",
+          "ko": "무거운 팔레트나 짐을 포크로 찍어 들어 올린 다음 다른 곳으로 나르고 쌓는 작업 차량입니다.",
+          "id": "Kendaraan operasional bergarpu depan untuk mengangkat palet berat, memindahkannya, dan menyusunnya di tempat lain."
         }
       ],
       "topic_no": 11,
@@ -7374,13 +7374,13 @@
         },
         {
           "label": "Versi 1 (Super Ringkas)",
-          "ko": "몸이 튕겨 나가지 않게 하는 보호장비입니다.",
-          "id": "Pelindung agar tubuh tidak terlempar."
+          "ko": "운전자 이탈 방지 띠입니다.",
+          "id": "Sabuk pencegah pengemudi terlempar."
         },
         {
-          "label": "Versi 2 (Standar Ringkas)",
-          "ko": "몸이 튕겨 나가지 않게 하는 보호장비이어야 합니다.",
-          "id": "Pelindung agar tubuh tidak terlempar."
+          "label": "Versi 2 (Standar Percakapan)",
+          "ko": "지게차가 기울거나 급정거할 때 운전자가 차 밖으로 튕겨 나가지 않도록 좌석에 단단히 잡아주는 벨트입니다.",
+          "id": "Sabuk yang menahan tubuh pengemudi tetap di kursi agar tidak terlempar keluar saat forklift miring atau mengerem mendadak."
         }
       ],
       "topic_no": 11,
@@ -7410,13 +7410,13 @@
         },
         {
           "label": "Versi 1 (Super Ringkas)",
-          "ko": "앞, 옆, 뒤를 분명히 보며 운전하는 것입니다.",
-          "id": "Mengemudi sambil melihat jelas ke segala arah."
+          "ko": "주변을 잘 보고 운전함입니다.",
+          "id": "Mengemudi sambil mengawasi sekeliling."
         },
         {
-          "label": "Versi 2 (Standar Ringkas)",
-          "ko": "앞, 옆, 뒤를 분명히 보며 운전하는 것이어야 합니다.",
-          "id": "Mengemudi sambil melihat jelas ke segala arah."
+          "label": "Versi 2 (Standar Percakapan)",
+          "ko": "짐 때문에 앞이 가려지지 않게 주의하고, 주변 작업자나 장애물을 또렷하게 확인하며 주행하는 것입니다.",
+          "id": "Memastikan pandangan depan tidak tertutup muatan dan selalu melihat dengan jelas keberadaan rekan kerja serta rintangan di lintasan."
         }
       ],
       "topic_no": 11,
@@ -7446,13 +7446,13 @@
         },
         {
           "label": "Versi 1 (Super Ringkas)",
-          "ko": "운전자와 동료의 사고를 막을 수 있습니다.",
-          "id": "Bisa mencegah kecelakaan pengemudi dan rekan."
+          "ko": "충돌과 전복 사고 예방입니다.",
+          "id": "Pencegahan tabrakan dan terguling."
         },
         {
-          "label": "Versi 2 (Standar Ringkas)",
-          "ko": "운전자와 동료의 사고를 막을 수 있고 주의해야 합니다.",
-          "id": "Bisa mencegah kecelakaan pengemudi dan rekan."
+          "label": "Versi 2 (Standar Percakapan)",
+          "ko": "차가 넘어졌을 때 운전자가 깔리는 것을 막고, 지나가는 동료와 부딪히지 않기 위해 둘 다 철저히 지켜야 합니다.",
+          "id": "Keduanya wajib dipatuhi agar pengemudi tidak tertimpa bodi kendaraan saat terguling dan tidak menabrak rekan yang melintas."
         }
       ],
       "topic_no": 11,
@@ -7482,13 +7482,13 @@
         },
         {
           "label": "Versi 1 (Super Ringkas)",
-          "ko": "자격이 있는 사람만 운전할 수 있습니다.",
-          "id": "Hanya orang berkualifikasi yang boleh mengemudi."
+          "ko": "면허가 있는 전문가만 운전합니다.",
+          "id": "Hanya ahli berlisensi resmi."
         },
         {
-          "label": "Versi 2 (Standar Ringkas)",
-          "ko": "자격이 있는 사람만 운전할 수 있고 주의해야 합니다.",
-          "id": "Hanya orang berkualifikasi yang boleh mengemudi."
+          "label": "Versi 2 (Standar Percakapan)",
+          "ko": "지게차는 면허증이 있는 사람만 몰 수 있으며, 자격이 없는 사람은 절대 핸들을 잡으면 안 됩니다.",
+          "id": "Forklift hanya boleh dikemudikan oleh pemegang lisensi resmi, dan orang tanpa kualifikasi dilarang keras mengoperasikannya."
         }
       ],
       "topic_no": 11,
@@ -7518,13 +7518,13 @@
         },
         {
           "label": "Versi 1 (Super Ringkas)",
-          "ko": "사고 가능성이 높은 위험한 작업입니다.",
-          "id": "Pekerjaan yang kemungkinan kecelakaannya tinggi."
+          "ko": "사고 위험이 큰 작업입니다.",
+          "id": "Pekerjaan berisiko kecelakaan tinggi."
         },
         {
-          "label": "Versi 2 (Standar Ringkas)",
-          "ko": "사고 가능성이 높은 위험한 작업이어야 합니다.",
-          "id": "Pekerjaan yang kemungkinan kecelakaannya tinggi."
+          "label": "Versi 2 (Standar Percakapan)",
+          "ko": "높은 곳, 밀폐 구역, 고압 전기처럼 조금만 실수해도 생명이 위태로워지는 아주 위험한 일입니다.",
+          "id": "Pekerjaan berbahaya seperti di ketinggian, ruang tertutup, atau instalasi tegangan tinggi yang sedikit kelalaian bisa mengancam jiwa."
         }
       ],
       "topic_no": 12,
@@ -7554,13 +7554,13 @@
         },
         {
           "label": "Versi 1 (Super Ringkas)",
-          "ko": "한 명은 일하고 한 명은 지켜보는 작업입니다.",
-          "id": "Satu orang bekerja, satu orang mengawasi."
+          "ko": "둘이서 짝지어 하는 작업입니다.",
+          "id": "Pekerjaan berpasangan dua orang."
         },
         {
-          "label": "Versi 2 (Standar Ringkas)",
-          "ko": "한 명은 일하고 한 명은 지켜보는 작업이어야 합니다.",
-          "id": "Satu orang bekerja, satu orang mengawasi."
+          "label": "Versi 2 (Standar Percakapan)",
+          "ko": "한 사람은 실제 작업을 진행하고, 다른 한 사람은 주변 위험을 살피며 바로 도울 수 있게 함께 일하는 방식입니다.",
+          "id": "Metode kerja berpasangan di mana satu orang mengerjakan tugas dan rekannya mengawasi bahaya serta siap menolong."
         }
       ],
       "topic_no": 12,
@@ -7590,13 +7590,13 @@
         },
         {
           "label": "Versi 1 (Super Ringkas)",
-          "ko": "바로 구조하고 대응할 수 있기 때문입니다.",
-          "id": "Karena bisa langsung menolong dan menangani."
+          "ko": "즉각적인 구조를 위해서입니다.",
+          "id": "Agar pertolongan segera tersedia."
         },
         {
-          "label": "Versi 2 (Standar Ringkas)",
-          "ko": "바로 구조하고 대응할 수 있기 때문이어야 합니다.",
-          "id": "Karena bisa langsung menolong dan menangani."
+          "label": "Versi 2 (Standar Percakapan)",
+          "ko": "혼자 일하다가 쓰러지면 아무도 모르기 때문에, 비상시에 즉시 구출하고 119에 연락하기 위해 둘이서 해야 합니다.",
+          "id": "Karena bila pingsan saat bekerja sendirian tidak ada yang tahu, maka perlu berdua agar ada yang segera menolong dan memanggil bantuan."
         }
       ],
       "topic_no": 12,
@@ -7626,13 +7626,13 @@
         },
         {
           "label": "Versi 1 (Super Ringkas)",
-          "ko": "간단한 일만 하고 한 명이 사다리를 잡아 줍니다.",
-          "id": "Hanya pekerjaan ringan, satu orang memegang tangga."
+          "ko": "아닙니다. 밑에서 잡아줘야 합니다.",
+          "id": "Tidak boleh. Harus dipegangi bawahnya."
         },
         {
-          "label": "Versi 2 (Standar Ringkas)",
-          "ko": "네, 간단한 일만 하고 한 명이 사다리를 잡아 줍니다.",
-          "id": "Ya, Hanya pekerjaan ringan, satu orang memegang tangga."
+          "label": "Versi 2 (Standar Percakapan)",
+          "ko": "혼자 올라가면 사다리가 미끄러져 추락하므로, 밑에서 동료가 단단히 잡아줄 때만 작업할 수 있습니다.",
+          "id": "Bekerja sendirian bisa membuat tangga selip dan kita terjatuh, jadi hanya boleh dilakukan bila ada rekan yang memeganginya kuat-kuat di bawah."
         }
       ],
       "topic_no": 12,
@@ -7662,13 +7662,13 @@
         },
         {
           "label": "Versi 1 (Super Ringkas)",
-          "ko": "큰 작업을 하는 크고 무거운 기계입니다.",
-          "id": "Mesin besar dan berat untuk pekerjaan besar."
+          "ko": "굴착기 등 대형 기계장비입니다.",
+          "id": "Alat berat seperti ekskavator."
         },
         {
-          "label": "Versi 2 (Standar Ringkas)",
-          "ko": "큰 작업을 하는 크고 무거운 기계이어야 합니다.",
-          "id": "Mesin besar dan berat untuk pekerjaan besar."
+          "label": "Versi 2 (Standar Percakapan)",
+          "ko": "굴착기나 불도저처럼 덩치가 매우 크고 흙을 파거나 무거운 것을 옮기는 토목 기계입니다.",
+          "id": "Mesin konstruksi berukuran sangat besar seperti ekskavator atau buldoser untuk menggali tanah dan mengangkut beban berat."
         }
       ],
       "topic_no": 13,
@@ -7698,13 +7698,13 @@
         },
         {
           "label": "Versi 1 (Super Ringkas)",
-          "ko": "일을 하는 사고 위험이 있는 구역입니다.",
-          "id": "Area kerja yang berisiko terjadi kecelakaan."
+          "ko": "장비와 사람이 일하는 구역입니다.",
+          "id": "Area operasional alat dan pekerja."
         },
         {
-          "label": "Versi 2 (Standar Ringkas)",
-          "ko": "일을 하는 사고 위험이 있는 구역이어야 합니다.",
-          "id": "Area kerja yang berisiko terjadi kecelakaan."
+          "label": "Versi 2 (Standar Percakapan)",
+          "ko": "중장비가 회전하며 작업하고 있어서 사고 위험이 매우 높은 통제된 작업 반경입니다.",
+          "id": "Radius kerja terbatas tempat alat berat berputar dan beroperasi sehingga memiliki risiko kecelakaan sangat tinggi."
         }
       ],
       "topic_no": 13,
@@ -7734,13 +7734,13 @@
         },
         {
           "label": "Versi 1 (Super Ringkas)",
-          "ko": "운전석에서 안 보이는 곳이 넓어 위험합니다.",
-          "id": "Karena banyak titik buta, risikonya sangat tinggi."
+          "ko": "사각지대로 깔림 위험 때문입니다.",
+          "id": "Bahaya tertabrak karena titik buta."
         },
         {
-          "label": "Versi 2 (Standar Ringkas)",
-          "ko": "네, 운전석에서 안 보이는 곳이 넓어 위험합니다.",
-          "id": "Ya, Karena banyak titik buta, risikonya sangat tinggi."
+          "label": "Versi 2 (Standar Percakapan)",
+          "ko": "기사님 시야에 보이지 않는 사각지대가 넓어서 작업자가 치이거나 깔려 목숨을 잃을 수 있기 때문입니다.",
+          "id": "Karena area blind spot pengemudi sangat luas, sehingga pekerja rentan tertabrak atau terlindas fatal tanpa disadari."
         }
       ],
       "topic_no": 13,
@@ -7770,13 +7770,13 @@
         },
         {
           "label": "Versi 1 (Super Ringkas)",
-          "ko": "작업 구역에 접근하지 않아야 합니다.",
-          "id": "Jangan mendekati area kerja alat berat."
+          "ko": "작업구역 밖으로 돌아갑니다.",
+          "id": "Memutar lewat luar area kerja."
         },
         {
-          "label": "Versi 2 (Standar Ringkas)",
-          "ko": "네, 작업 구역에 접근하지 않아야 합니다.",
-          "id": "Ya, Jangan mendekati area kerja alat berat."
+          "label": "Versi 2 (Standar Percakapan)",
+          "ko": "작업 반경 근처에 절대 가지 말고, 안전거리를 유지하면서 안전통로로 크게 돌아서 지나가야 합니다.",
+          "id": "Jangan mendekati radius ayunan alat berat; jaga jarak aman dan memutarlah lewat jalur khusus pejalan kaki."
         }
       ],
       "topic_no": 13,
@@ -7806,13 +7806,13 @@
         },
         {
           "label": "Versi 1 (Super Ringkas)",
-          "ko": "탈 물질이 불꽃을 만나 타는 것입니다.",
-          "id": "Bahan mudah terbakar bertemu api lalu terbakar."
+          "ko": "불길이 번지는 재난입니다.",
+          "id": "Bencana kobaran api menyebar."
         },
         {
-          "label": "Versi 2 (Standar Ringkas)",
-          "ko": "탈 물질이 불꽃을 만나 타는 것이어야 합니다.",
-          "id": "Bahan mudah terbakar bertemu api lalu terbakar."
+          "label": "Versi 2 (Standar Percakapan)",
+          "ko": "가연성 물질에 불이 붙어 걷잡을 수 없이 번지며 사람과 건물을 태우는 심각한 재해입니다.",
+          "id": "Bencana serius akibat zat mudah terbakar tersulut api hingga berkobar menghanguskan orang dan bangunan."
         }
       ],
       "topic_no": 14,
@@ -7842,13 +7842,13 @@
         },
         {
           "label": "Versi 1 (Super Ringkas)",
-          "ko": "불꽃과 열을 내는 모든 기구입니다.",
-          "id": "Semua alat yang bisa menimbulkan api atau panas."
+          "ko": "불꽃이나 열을 내는 기구입니다.",
+          "id": "Peralatan pemercik api atau panas."
         },
         {
-          "label": "Versi 2 (Standar Ringkas)",
-          "ko": "불꽃과 열을 내는 모든 기구이어야 합니다.",
-          "id": "Semua alat yang bisa menimbulkan api atau panas."
+          "label": "Versi 2 (Standar Percakapan)",
+          "ko": "용접 토치나 그라인더, 라이터처럼 불꽃을 튀기거나 뜨거운 열을 발생시키는 모든 장비를 말합니다.",
+          "id": "Semua perlengkapan yang memancarkan percikan api atau panas tinggi, seperti obor las, gerinda, atau pemantik api."
         }
       ],
       "topic_no": 14,
@@ -7878,13 +7878,13 @@
         },
         {
           "label": "Versi 1 (Super Ringkas)",
-          "ko": "불이 날 위험이 크기 때문입니다.",
-          "id": "Karena risiko kebakaran sangat besar."
+          "ko": "화재와 폭발을 막기 위해서입니다.",
+          "id": "Mencegah kebakaran dan ledakan."
         },
         {
-          "label": "Versi 2 (Standar Ringkas)",
-          "ko": "불이 날 위험이 크기 때문이어야 합니다.",
-          "id": "Karena risiko kebakaran sangat besar."
+          "label": "Versi 2 (Standar Percakapan)",
+          "ko": "작은 불티 하나가 인화성 유증기에 닿는 순간 순식간에 공장 전체가 폭발하고 불이 번지기 때문입니다.",
+          "id": "Karena satu percikan api kecil saja dapat menyambar uap mudah terbakar dan memicu ledakan serta kebakaran pabrik dalam sekejap."
         }
       ],
       "topic_no": 14,
@@ -7914,13 +7914,13 @@
         },
         {
           "label": "Versi 1 (Super Ringkas)",
-          "ko": "타는 물건을 치운 후 작업합니다.",
-          "id": "Singkirkan benda mudah terbakar dulu."
+          "ko": "가연물을 안전하게 치웁니다.",
+          "id": "Singkirkan bahan mudah terbakar."
         },
         {
-          "label": "Versi 2 (Standar Ringkas)",
-          "ko": "네, 타는 물건을 치운 후 작업합니다.",
-          "id": "Ya, Singkirkan benda mudah terbakar dulu."
+          "label": "Versi 2 (Standar Percakapan)",
+          "ko": "용접 불티가 튀어 불이 날 수 있으므로, 인화성 물질을 미리 안전한 곳으로 치우고 소화기도 갖춰 놓습니다.",
+          "id": "Karena percikan las bisa memicu kebakaran, saya singkirkan dulu bahan mudah terbakar ke tempat aman dan siapkan alat pemadam api."
         }
       ],
       "topic_no": 14,
@@ -7950,13 +7950,13 @@
         },
         {
           "label": "Versi 1 (Super Ringkas)",
-          "ko": "소화기로 끄고 안 되면 대피합니다.",
-          "id": "Padamkan dengan alat pemadam, jika tidak bisa, evakuasi."
+          "ko": "외치고 즉시 대피합니다.",
+          "id": "Berteriak lalu segera evakuasi."
         },
         {
-          "label": "Versi 2 (Standar Ringkas)",
-          "ko": "네, 소화기로 끄고 안 되면 대피합니다.",
-          "id": "Ya, Padamkan dengan alat pemadam, jika tidak bisa, evakuasi."
+          "label": "Versi 2 (Standar Percakapan)",
+          "ko": "불이야라고 크게 외쳐 동료들에게 알리고, 젖은 수건으로 입을 막은 뒤 비상구로 신속히 대피합니다.",
+          "id": "Saya berteriak 'kebakaran' agar rekan kerja tahu, menutup hidung dan mulut dengan kain basah, lalu lekas evakuasi lewat pintu darurat."
         }
       ],
       "topic_no": 14,
@@ -7986,13 +7986,13 @@
         },
         {
           "label": "Versi 1 (Super Ringkas)",
-          "ko": "사람에게 위험한 고체, 액체, 기체입니다.",
-          "id": "Zat padat, cair, atau gas yang berbahaya."
+          "ko": "유해하거나 폭발하는 물질입니다.",
+          "id": "Zat berbahaya atau meledak."
         },
         {
-          "label": "Versi 2 (Standar Ringkas)",
-          "ko": "사람에게 위험한 고체, 액체, 기체이어야 합니다.",
-          "id": "Zat padat, cair, atau gas yang berbahaya."
+          "label": "Versi 2 (Standar Percakapan)",
+          "ko": "공장에서 제품을 만들 때 쓰는 원료나 약품으로, 중독이나 화재 위험이 있어 조심해서 다뤄야 하는 물질입니다.",
+          "id": "Bahan baku atau cairan obat yang dipakai di pabrik, yang berisiko meracuni tubuh atau memicu kebakaran sehingga harus ditangani hati-hati."
         }
       ],
       "topic_no": 15,
@@ -8022,13 +8022,13 @@
         },
         {
           "label": "Versi 1 (Super Ringkas)",
-          "ko": "나쁜 공기를 빼고 신선한 공기를 넣는 설비입니다.",
-          "id": "Perlengkapan yang mengganti udara kotor dengan udara segar."
+          "ko": "공기를 정화하는 환풍기입니다.",
+          "id": "Alat pengalir udara bersih."
         },
         {
-          "label": "Versi 2 (Standar Ringkas)",
-          "ko": "나쁜 공기를 빼고 신선한 공기를 넣는 설비이어야 합니다.",
-          "id": "Perlengkapan yang mengganti udara kotor dengan udara segar."
+          "label": "Versi 2 (Standar Percakapan)",
+          "ko": "작업장 안의 오염된 공기나 유독가스를 밖으로 빼내고, 신선한 바깥 공기를 들여오는 환풍 시설입니다.",
+          "id": "Fasilitas ventilasi yang membuang udara kotor dan gas beracun ke luar, lalu memasukkan udara segar dari luar ke dalam tempat kerja."
         }
       ],
       "topic_no": 15,
@@ -8058,13 +8058,13 @@
         },
         {
           "label": "Versi 1 (Super Ringkas)",
-          "ko": "안 보이는 유해 가스를 밖으로 내보내야 합니다.",
-          "id": "Gas berbahaya yang tak terlihat harus dibuang keluar."
+          "ko": "가스 중독을 막기 위해서입니다.",
+          "id": "Mencegah keracunan gas beracun."
         },
         {
-          "label": "Versi 2 (Standar Ringkas)",
-          "ko": "네, 안 보이는 유해 가스를 밖으로 내보내야 합니다.",
-          "id": "Ya, Gas berbahaya yang tak terlihat harus dibuang keluar."
+          "label": "Versi 2 (Standar Percakapan)",
+          "ko": "눈에 안 보이는 유독가스를 마시면 어지럽거나 중독될 수 있어서, 공기를 계속 순환시켜 빼내야 합니다.",
+          "id": "Jika menghirup gas beracun tak terlihat, kita bisa pusing atau keracunan, sehingga udara harus terus disirkulasikan dan dibuang ke luar."
         }
       ],
       "topic_no": 15,
@@ -8094,13 +8094,13 @@
         },
         {
           "label": "Versi 1 (Super Ringkas)",
-          "ko": "환기장치를 켜고 보호구를 착용합니다.",
-          "id": "Nyalakan ventilasi dan pakai alat pelindung."
+          "ko": "환풍기와 방독마스크 착용입니다.",
+          "id": "Ventilasi dan masker gas."
         },
         {
-          "label": "Versi 2 (Standar Ringkas)",
-          "ko": "네, 환기장치를 켜고 보호구를 착용합니다.",
-          "id": "Ya, Nyalakan ventilasi dan pakai alat pelindung."
+          "label": "Versi 2 (Standar Percakapan)",
+          "ko": "환풍기를 켠 상태에서 방독마스크와 고무장갑 등 전용 보호구를 빠짐없이 착용하고 작업합니다.",
+          "id": "Nyalakan blower ventilasi dan pakai seluruh APD khusus seperti masker gas serta sarung tangan tahan kimia sebelum bekerja."
         }
       ],
       "topic_no": 15,
@@ -8130,13 +8130,13 @@
         },
         {
           "label": "Versi 1 (Super Ringkas)",
-          "ko": "위험해서 들어가는 것을 막는 공간입니다.",
-          "id": "Ruang yang masuknya dibatasi karena berbahaya."
+          "ko": "출입이 금지된 위험장소입니다.",
+          "id": "Tempat berbahaya dilarang masuk."
         },
         {
-          "label": "Versi 2 (Standar Ringkas)",
-          "ko": "위험해서 들어가는 것을 막는 공간이어야 합니다.",
-          "id": "Ruang yang masuknya dibatasi karena berbahaya."
+          "label": "Versi 2 (Standar Percakapan)",
+          "ko": "감전이나 추락 같은 위험이 매우 커서, 담당자의 허가 없이는 아무나 들어갈 수 없는 특별 관리 구역입니다.",
+          "id": "Area khusus berisiko tinggi seperti sengatan listrik atau jatuh, yang tidak boleh dimasuki siapa pun tanpa izin penanggung jawab."
         }
       ],
       "topic_no": 16,
@@ -8166,13 +8166,13 @@
         },
         {
           "label": "Versi 1 (Super Ringkas)",
-          "ko": "안전 조건을 확인하고 일을 해도 된다고 승인하는 것입니다.",
-          "id": "Persetujuan untuk bekerja setelah kondisi keselamatan diperiksa."
+          "ko": "점검 후 승인받는 것입니다.",
+          "id": "Persetujuan resmi setelah diperiksa."
         },
         {
-          "label": "Versi 2 (Standar Ringkas)",
-          "ko": "안전 조건을 확인하고 일을 해도 된다고 승인하는 것이어야 합니다.",
-          "id": "Persetujuan untuk bekerja setelah kondisi keselamatan diperiksa."
+          "label": "Versi 2 (Standar Percakapan)",
+          "ko": "위험한 작업을 하기 전에 관리자가 안전 수칙과 환경을 미리 점검하고 작업을 해도 좋다고 승인해 주는 것입니다.",
+          "id": "Persetujuan dari manajer setelah memeriksa kondisi dan prosedur keselamatan, bahwa pekerjaan berbahaya boleh dijalankan."
         }
       ],
       "topic_no": 16,
@@ -8202,13 +8202,13 @@
         },
         {
           "label": "Versi 1 (Super Ringkas)",
-          "ko": "일반 구역보다 위험해서 허가 없이 들어가면 안 됩니다.",
-          "id": "Area ini lebih berbahaya dari area biasa, jadi jangan masuk tanpa izin."
+          "ko": "대형 사고를 방지하기 위해서입니다.",
+          "id": "Mencegah kecelakaan kerja fatal."
         },
         {
-          "label": "Versi 2 (Standar Ringkas)",
-          "ko": "네, 일반 구역보다 위험해서 허가 없이 들어가면 안 됩니다.",
-          "id": "Ya, Area ini lebih berbahaya dari area biasa, jadi jangan masuk tanpa izin."
+          "label": "Versi 2 (Standar Percakapan)",
+          "ko": "안전 장비나 사전 지식 없이 함부로 들어가면 생명이 위험한 대형 사고로 이어질 수 있기 때문입니다.",
+          "id": "Karena jika masuk sembarangan tanpa perlengkapan memadai atau pemahaman kerja, bisa berujung kecelakaan fatal yang mengancam nyawa."
         }
       ],
       "topic_no": 16,
@@ -8238,13 +8238,13 @@
         },
         {
           "label": "Versi 1 (Super Ringkas)",
-          "ko": "위험해서 아무나 들어가면 안 되는 곳입니다.",
-          "id": "Tempat berbahaya yang tidak boleh dimasuki sembarang orang."
+          "ko": "들어가면 안 된다는 경고입니다.",
+          "id": "Peringatan dilarang masuk."
         },
         {
-          "label": "Versi 2 (Standar Ringkas)",
-          "ko": "위험해서 아무나 들어가면 안 되는 곳이어야 합니다.",
-          "id": "Tempat berbahaya yang tidak boleh dimasuki sembarang orang."
+          "label": "Versi 2 (Standar Percakapan)",
+          "ko": "네, 위험 요소가 많아서 허가받은 관계자 외에는 절대 안으로 들어가서는 안 된다는 뜻입니다.",
+          "id": "Ya, artinya selain petugas berwenang yang memiliki izin, siapa pun dilarang keras masuk karena area tersebut berbahaya."
         }
       ],
       "topic_no": 16,
@@ -8274,13 +8274,13 @@
         },
         {
           "label": "Versi 1 (Super Ringkas)",
-          "ko": "무겁고 옮기기 어려운 물건입니다.",
-          "id": "Benda yang berat dan sulit dipindahkan."
+          "ko": "혼자 들기 힘든 짐입니다.",
+          "id": "Muatan berat sulit diangkat."
         },
         {
-          "label": "Versi 2 (Standar Ringkas)",
-          "ko": "무겁고 옮기기 어려운 물건이어야 합니다.",
-          "id": "Benda yang berat dan sulit dipindahkan."
+          "label": "Versi 2 (Standar Percakapan)",
+          "ko": "사람 혼자 들기에는 너무 무거워서 허리를 다칠 위험이 크고, 운반 장비가 필요한 자재나 물건입니다.",
+          "id": "Material atau barang yang terlalu berat jika diangkat sendirian sehingga berisiko cedera pinggang dan membutuhkan bantuan alat angkut."
         }
       ],
       "topic_no": 17,
@@ -8310,13 +8310,13 @@
         },
         {
           "label": "Versi 1 (Super Ringkas)",
-          "ko": "다리 힘을 쓰면 허리를 다치지 않기 때문입니다.",
-          "id": "Karena memakai kekuatan kaki, pinggang tidak cedera."
+          "ko": "허리 부상을 예방하기 위해서입니다.",
+          "id": "Mencegah cedera pinggang."
         },
         {
-          "label": "Versi 2 (Standar Ringkas)",
-          "ko": "다리 힘을 쓰면 허리를 다치지 않기 때문이어야 합니다.",
-          "id": "Karena memakai kekuatan kaki, pinggang tidak cedera."
+          "label": "Versi 2 (Standar Percakapan)",
+          "ko": "허리를 굽힌 채 힘을 주면 척추를 크게 다치기 때문에, 튼튼한 다리 근육의 반동을 이용해야 안전합니다.",
+          "id": "Karena membungkuk saat mengangkat barang bisa mencederai tulang punggung, sehingga harus memanfaatkan dorongan otot kaki agar tetap aman."
         }
       ],
       "topic_no": 17,
@@ -8346,13 +8346,13 @@
         },
         {
           "label": "Versi 1 (Super Ringkas)",
-          "ko": "둘이 들거나 장비를 쓰고, 혼자 들 때는 허리를 펴고 다리 힘으로 듭니다.",
-          "id": "Angkat berdua atau pakai alat. Jika sendiri, pinggang lurus, pakai kaki."
+          "ko": "무릎 굽히고 다리로 듭니다.",
+          "id": "Tekuk lutut, angkat kaki."
         },
         {
-          "label": "Versi 2 (Standar Ringkas)",
-          "ko": "네, 둘이 들거나 장비를 쓰고, 혼자 들 때는 허리를 펴고 다리 힘으로 듭니다.",
-          "id": "Ya, Angkat berdua atau pakai alat. Jika sendiri, pinggang lurus, pakai kaki."
+          "label": "Versi 2 (Standar Percakapan)",
+          "ko": "물건을 몸에 바짝 붙이고 무릎을 굽힌 뒤, 허리를 똑바로 펴고 하체 힘으로 천천히 일어납니다.",
+          "id": "Rapatkan barang ke tubuh, tekuk lutut, lalu tegakkan pinggang dan angkat perlahan menggunakan kekuatan kaki."
         }
       ],
       "topic_no": 17,
@@ -8382,13 +8382,13 @@
         },
         {
           "label": "Versi 1 (Super Ringkas)",
-          "ko": "물건을 한 곳에서 다른 곳으로 옮기는 것입니다.",
-          "id": "Memindahkan barang dari satu tempat ke tempat lain."
+          "ko": "물건을 다른 곳으로 옮김입니다.",
+          "id": "Pemindahan barang ke tempat lain."
         },
         {
-          "label": "Versi 2 (Standar Ringkas)",
-          "ko": "물건을 한 곳에서 다른 곳으로 옮기는 것이어야 합니다.",
-          "id": "Memindahkan barang dari satu tempat ke tempat lain."
+          "label": "Versi 2 (Standar Percakapan)",
+          "ko": "자재나 완제품을 작업에 필요한 위치나 창고 등으로 들거나 밀어서 이동시키는 일입니다.",
+          "id": "Pekerjaan memindahkan bahan mentah atau produk jadi ke gudang atau lokasi kerja dengan mengangkat atau mendorongnya."
         }
       ],
       "topic_no": 18,
@@ -8418,13 +8418,13 @@
         },
         {
           "label": "Versi 1 (Super Ringkas)",
-          "ko": "물건을 안전하게 옮기는 도구나 장비입니다.",
-          "id": "Alat untuk memindahkan barang dengan aman."
+          "ko": "손수레나 대차 같은 장비입니다.",
+          "id": "Alat seperti troli kargo."
         },
         {
-          "label": "Versi 2 (Standar Ringkas)",
-          "ko": "물건을 안전하게 옮기는 도구나 장비이어야 합니다.",
-          "id": "Alat untuk memindahkan barang dengan aman."
+          "label": "Versi 2 (Standar Percakapan)",
+          "ko": "핸드카, 대차, 지게차처럼 무거운 짐을 힘들이지 않고 안전하게 이동할 수 있도록 돕는 기구입니다.",
+          "id": "Peralatan seperti hand-truck, troli dorong, atau forklift yang membantu mengangkut beban berat dengan ringan dan aman."
         }
       ],
       "topic_no": 18,
@@ -8454,13 +8454,13 @@
         },
         {
           "label": "Versi 1 (Super Ringkas)",
-          "ko": "몸으로 옮기면 허리를 다칠 위험이 크기 때문입니다.",
-          "id": "Mengangkat dengan tubuh berisiko membuat pinggang cedera."
+          "ko": "신체 부담을 줄이기 위해서입니다.",
+          "id": "Mengurangi beban tubuh."
         },
         {
-          "label": "Versi 2 (Standar Ringkas)",
-          "ko": "몸으로 옮기면 허리를 다칠 위험이 크기 때문이어야 합니다.",
-          "id": "Mengangkat dengan tubuh berisiko membuat pinggang cedera."
+          "label": "Versi 2 (Standar Percakapan)",
+          "ko": "몸으로만 무거운 것을 계속 나르면 허리 디스크가 생기거나 발을 헛디뎌 넘어질 수 있기 때문입니다.",
+          "id": "Karena mengangkut barang berat hanya dengan fisik bisa memicu saraf kejepit di pinggang atau membuat kita tersandung jatuh."
         }
       ],
       "topic_no": 18,
@@ -8490,13 +8490,13 @@
         },
         {
           "label": "Versi 1 (Super Ringkas)",
-          "ko": "운반기구를 사용합니다.",
-          "id": "Gunakan alat angkut."
+          "ko": "대차나 지게차를 사용합니다.",
+          "id": "Pakai troli atau forklift."
         },
         {
-          "label": "Versi 2 (Standar Ringkas)",
-          "ko": "네, 운반기구를 사용합니다.",
-          "id": "Ya, Gunakan alat angkut."
+          "label": "Versi 2 (Standar Percakapan)",
+          "ko": "혼자 무리해서 들지 않고 대차를 사용하거나, 너무 무거우면 동료와 함께 호흡을 맞춰 듭니다.",
+          "id": "Jangan memaksakan diri mengangkat sendirian, gunakan troli barang atau ajak rekan kerja untuk mengangkat bersama dengan kompak."
         }
       ],
       "topic_no": 18,
@@ -8526,13 +8526,13 @@
         },
         {
           "label": "Versi 1 (Super Ringkas)",
-          "ko": "한 곳에서 다른 곳으로 위치를 옮기는 것입니다.",
-          "id": "Pindah posisi dari satu tempat ke tempat lain."
+          "ko": "다른 곳으로 걸어가는 것입니다.",
+          "id": "Berjalan menuju lokasi lain."
         },
         {
-          "label": "Versi 2 (Standar Ringkas)",
-          "ko": "한 곳에서 다른 곳으로 위치를 옮기는 것이어야 합니다.",
-          "id": "Pindah posisi dari satu tempat ke tempat lain."
+          "label": "Versi 2 (Standar Percakapan)",
+          "ko": "작업자가 일을 하거나 휴식을 위해 현재 자리에서 다른 작업장으로 걸어서 위치를 바꾸는 것입니다.",
+          "id": "Pergerakan pekerja yang berjalan dari tempatnya saat ini menuju area kerja lain atau ruang istirahat."
         }
       ],
       "topic_no": 19,
@@ -8562,13 +8562,13 @@
         },
         {
           "label": "Versi 1 (Super Ringkas)",
-          "ko": "위험을 피해 안전하게 다니도록 만든 길입니다.",
-          "id": "Jalan yang dibuat agar bisa lewat dengan aman."
+          "ko": "보행자 전용 안전길입니다.",
+          "id": "Jalur jalan kaki aman."
         },
         {
-          "label": "Versi 2 (Standar Ringkas)",
-          "ko": "위험을 피해 안전하게 다니도록 만든 길이어야 합니다.",
-          "id": "Jalan yang dibuat agar bisa lewat dengan aman."
+          "label": "Versi 2 (Standar Percakapan)",
+          "ko": "공장 바닥에 노란 실선으로 그려져 있어, 지게차나 장애물 걱정 없이 안전하게 다닐 수 있는 통로입니다.",
+          "id": "Lintasan bertanda garis kuning di lantai pabrik agar kita bisa lewat dengan aman tanpa khawatir rintangan atau forklift."
         }
       ],
       "topic_no": 19,
@@ -8598,13 +8598,13 @@
         },
         {
           "label": "Versi 1 (Super Ringkas)",
-          "ko": "장애물과 기계가 없는 길이어야 안전하기 때문입니다.",
-          "id": "Karena jalur aman bebas rintangan dan mesin."
+          "ko": "지게차 충돌을 막기 위해서입니다.",
+          "id": "Mencegah tabrakan forklift."
         },
         {
-          "label": "Versi 2 (Standar Ringkas)",
-          "ko": "장애물과 기계가 없는 길이어야 안전하기 때문이어야 합니다.",
-          "id": "Karena jalur aman bebas rintangan dan mesin."
+          "label": "Versi 2 (Standar Percakapan)",
+          "ko": "작업장에는 다니는 차량과 쌓아둔 자재가 많아, 정해진 안전통로로 걸어야 사고를 피할 수 있습니다.",
+          "id": "Karena di area kerja banyak kendaraan operasional dan tumpukan material, berjalan di jalur aman mencegah terjadinya kecelakaan."
         }
       ],
       "topic_no": 19,
@@ -8634,13 +8634,13 @@
         },
         {
           "label": "Versi 1 (Super Ringkas)",
-          "ko": "일과 관련된 모든 일을 하는 시간입니다.",
-          "id": "Waktu ketika melakukan pekerjaan."
+          "ko": "일을 하고 있는 시간입니다.",
+          "id": "Waktu sedang bekerja aktif."
         },
         {
-          "label": "Versi 2 (Standar Ringkas)",
-          "ko": "일과 관련된 모든 일을 하는 시간이어야 합니다.",
-          "id": "Waktu ketika melakukan pekerjaan."
+          "label": "Versi 2 (Standar Percakapan)",
+          "ko": "기계를 돌리거나 제품을 포장하는 등 사업장에서 맡은 본인의 업무를 실제로 수행하고 있는 시간입니다.",
+          "id": "Rentang waktu ketika pekerja sedang menjalankan tugas yang diberikan, seperti menjalankan mesin atau membungkus produk."
         }
       ],
       "topic_no": 20,
@@ -8670,13 +8670,13 @@
         },
         {
           "label": "Versi 1 (Super Ringkas)",
-          "ko": "주의가 흩어져 사고 위험이 크게 늘기 때문입니다.",
-          "id": "Perhatian terpecah dan risiko kecelakaan naik."
+          "ko": "한눈팔면 다치기 때문입니다.",
+          "id": "Lengah memicu kecelakaan."
         },
         {
-          "label": "Versi 2 (Standar Ringkas)",
-          "ko": "주의가 흩어져 사고 위험이 크게 늘기 때문이어야 합니다.",
-          "id": "Perhatian terpecah dan risiko kecelakaan naik."
+          "label": "Versi 2 (Standar Percakapan)",
+          "ko": "화면을 보느라 집중하지 못하면 회전하는 기계에 손이 빨려 들어가거나 자재에 부딪힐 수 있습니다.",
+          "id": "Jika mata teralihkan ke layar ponsel, tangan bisa terseret mesin yang berputar atau tertabrak tumpukan material."
         }
       ],
       "topic_no": 20,
@@ -8706,13 +8706,13 @@
         },
         {
           "label": "Versi 1 (Super Ringkas)",
-          "ko": "물건을 정해진 곳에 놓고 깨끗하게 하는 것입니다.",
-          "id": "Menaruh barang di tempatnya dan menjaga kebersihan."
+          "ko": "제자리에 바르게 정돈함입니다.",
+          "id": "Menata rapi pada tempatnya."
         },
         {
-          "label": "Versi 2 (Standar Ringkas)",
-          "ko": "물건을 정해진 곳에 놓고 깨끗하게 하는 것이어야 합니다.",
-          "id": "Menaruh barang di tempatnya dan menjaga kebersihan."
+          "label": "Versi 2 (Standar Percakapan)",
+          "ko": "안 쓰는 물건은 제때 버리고, 필요한 자재와 도구를 언제든 쓰기 쉽게 제자리에 가지런히 놓는 것입니다.",
+          "id": "Membuang barang tak terpakai dan menempatkan perkakas serta bahan pada posisinya agar rapi dan siap pakai."
         }
       ],
       "topic_no": 21,
@@ -8742,13 +8742,13 @@
         },
         {
           "label": "Versi 1 (Super Ringkas)",
-          "ko": "먼지, 쓰레기, 기름을 없애 깨끗하게 하는 것입니다.",
-          "id": "Menghilangkan debu dan sampah agar bersih."
+          "ko": "먼지와 기름을 닦아냄입니다.",
+          "id": "Membersihkan debu dan minyak."
         },
         {
-          "label": "Versi 2 (Standar Ringkas)",
-          "ko": "먼지, 쓰레기, 기름을 없애 깨끗하게 하는 것이어야 합니다.",
-          "id": "Menghilangkan debu dan sampah agar bersih."
+          "label": "Versi 2 (Standar Percakapan)",
+          "ko": "작업장 바닥이나 기계에 묻은 먼지, 찌꺼기, 미끄러운 기름을 쓸고 닦아 깨끗하게 관리하는 일입니다.",
+          "id": "Kegiatan menyapu dan mengepel debu, kotoran, serta tumpahan oli licin di lantai pabrik dan sekitar mesin."
         }
       ],
       "topic_no": 21,
@@ -8778,13 +8778,13 @@
         },
         {
           "label": "Versi 1 (Super Ringkas)",
-          "ko": "물건을 빨리 찾고, 어지러운 물건은 넘어짐 사고를 일으키기 때문입니다.",
-          "id": "Barang cepat ditemukan dan benda berserakan bisa menyebabkan kecelakaan."
+          "ko": "미끄러짐과 넘어짐을 방지합니다.",
+          "id": "Mencegah tergelincir dan tersandung."
         },
         {
-          "label": "Versi 2 (Standar Ringkas)",
-          "ko": "물건을 빨리 찾고, 어지러운 물건은 넘어짐 사고를 일으키기 때문이어야 합니다.",
-          "id": "Barang cepat ditemukan dan benda berserakan bisa menyebabkan kecelakaan."
+          "label": "Versi 2 (Standar Percakapan)",
+          "ko": "바닥에 뒹구는 부품이나 기름에 미끄러져 다치는 것을 막고, 작업 효율도 훨씬 높일 수 있기 때문입니다.",
+          "id": "Untuk mencegah pekerja terpeleset oli atau tersandung onderdil yang berserakan, sekaligus meningkatkan produktivitas kerja."
         }
       ],
       "topic_no": 21,
@@ -8814,13 +8814,13 @@
         },
         {
           "label": "Versi 1 (Super Ringkas)",
-          "ko": "일을 쉽고 정확하게 하게 돕는 도구입니다.",
-          "id": "Alat yang membantu pekerjaan."
+          "ko": "작업할 때 쓰는 도구입니다.",
+          "id": "Perkakas tangan untuk bekerja."
         },
         {
-          "label": "Versi 2 (Standar Ringkas)",
-          "ko": "일을 쉽고 정확하게 하게 돕는 도구이어야 합니다.",
-          "id": "Alat yang membantu pekerjaan."
+          "label": "Versi 2 (Standar Percakapan)",
+          "ko": "드라이버, 렌치, 망치처럼 손으로 쥐고 작업할 때 물건을 조이거나 가공하는 데 쓰는 도구입니다.",
+          "id": "Alat kerja tangan seperti obeng, kunci pas, dan palu yang digunakan untuk mengencangkan baut atau memproses benda kerja."
         }
       ],
       "topic_no": 22,
@@ -8850,13 +8850,13 @@
         },
         {
           "label": "Versi 1 (Super Ringkas)",
-          "ko": "미리 정해 둔 물건이 있어야 할 장소입니다.",
-          "id": "Tempat yang sudah ditetapkan untuk suatu benda."
+          "ko": "미리 정해진 보관함입니다.",
+          "id": "Tempat penyimpanan yang ditentukan."
         },
         {
-          "label": "Versi 2 (Standar Ringkas)",
-          "ko": "미리 정해 둔 물건이 있어야 할 장소이어야 합니다.",
-          "id": "Tempat yang sudah ditetapkan untuk suatu benda."
+          "label": "Versi 2 (Standar Percakapan)",
+          "ko": "작업을 마치고 물건을 원래대로 갖다 두기로 약속된 공구함이나 지정 선반 위치를 말합니다.",
+          "id": "Posisi rak atau kotak perkakas yang sudah disepakati bersama sebagai tempat pengembalian barang setelah selesai dipakai."
         }
       ],
       "topic_no": 22,
@@ -8886,13 +8886,13 @@
         },
         {
           "label": "Versi 1 (Super Ringkas)",
-          "ko": "공구가 없어지거나 부서지고, 바닥이나 기계 위에서는 사고 위험이 큽니다.",
-          "id": "Perkakas bisa hilang atau rusak, dan berbahaya jika di lantai."
+          "ko": "분실과 낙하사고를 막습니다.",
+          "id": "Mencegah hilang dan kejatuhan barang."
         },
         {
-          "label": "Versi 2 (Standar Ringkas)",
-          "ko": "네, 공구가 없어지거나 부서지고, 바닥이나 기계 위에서는 사고 위험이 큽니다.",
-          "id": "Ya, Perkakas bisa hilang atau rusak, dan berbahaya jika di lantai."
+          "label": "Versi 2 (Standar Percakapan)",
+          "ko": "아무 데나 두면 밟아서 다치거나 잃어버리기 쉽고, 제자리에 두어야 동료들도 바로 찾아서 쓸 수 있습니다.",
+          "id": "Jika ditaruh sembarangan bisa terinjak atau hilang, dan meletakkannya di tempat semestinya memudahkan rekan kerja mencarinya."
         }
       ],
       "topic_no": 22,
@@ -8922,13 +8922,13 @@
         },
         {
           "label": "Versi 1 (Super Ringkas)",
-          "ko": "청결을 유지하고 건강을 지키는 관리 활동입니다.",
-          "id": "Kegiatan menjaga kebersihan dan kesehatan."
+          "ko": "몸과 일터를 청결히 함입니다.",
+          "id": "Menjaga kebersihan diri dan ruang kerja."
         },
         {
-          "label": "Versi 2 (Standar Ringkas)",
-          "ko": "청결을 유지하고 건강을 지키는 관리 활동이어야 합니다.",
-          "id": "Kegiatan menjaga kebersihan dan kesehatan."
+          "label": "Versi 2 (Standar Percakapan)",
+          "ko": "손을 씻고 주변 환경을 깨끗하게 유지하여 유해 세균이나 오염물질로부터 건강을 지키는 활동입니다.",
+          "id": "Kegiatan menjaga kebersihan tubuh dan area kerja agar terlindung dari kuman berbahaya dan penyakit menular."
         }
       ],
       "topic_no": 23,
@@ -8958,13 +8958,13 @@
         },
         {
           "label": "Versi 1 (Super Ringkas)",
-          "ko": "화학약품이 몸에 들어가 병이 생길 수 있기 때문입니다.",
-          "id": "Bahan kimia bisa masuk ke tubuh dan menyebabkan penyakit."
+          "ko": "유해물질 흡입을 막기 위해서입니다.",
+          "id": "Mencegah masuknya zat beracun."
         },
         {
-          "label": "Versi 2 (Standar Ringkas)",
-          "ko": "화학약품이 몸에 들어가 병이 생길 수 있기 때문이어야 합니다.",
-          "id": "Bahan kimia bisa masuk ke tubuh dan menyebabkan penyakit."
+          "label": "Versi 2 (Standar Percakapan)",
+          "ko": "작업 중 손에 묻은 화학약품이나 중금속이 음식을 먹을 때 입으로 들어가면 큰 병이 생길 수 있기 때문입니다.",
+          "id": "Karena bahan kimia atau serbuk logam pada tangan bisa tertelan saat kita menyantap makanan dan merusak kesehatan."
         }
       ],
       "topic_no": 23,
@@ -8994,13 +8994,13 @@
         },
         {
           "label": "Versi 1 (Super Ringkas)",
-          "ko": "밥 먹기 전에 손을 씻습니다.",
-          "id": "Cuci tangan sebelum makan."
+          "ko": "비누로 손을 씻습니다.",
+          "id": "Cuci tangan dengan sabun."
         },
         {
-          "label": "Versi 2 (Standar Ringkas)",
-          "ko": "네, 밥 먹기 전에 손을 씻습니다.",
-          "id": "Ya, Cuci tangan sebelum makan."
+          "label": "Versi 2 (Standar Percakapan)",
+          "ko": "오염된 먼지를 털어내고, 흐르는 물에 비누칠을 꼼꼼히 해서 손을 깨끗하게 씻고 식사합니다.",
+          "id": "Bersihkan kotoran dari pakaian kerja, lalu cuci tangan sampai bersih memakai sabun dan air mengalir sebelum makan."
         }
       ],
       "topic_no": 23,
@@ -9030,13 +9030,13 @@
         },
         {
           "label": "Versi 1 (Super Ringkas)",
-          "ko": "기계의 이물질을 없애고 고장 난 부분을 고치는 일입니다.",
-          "id": "Pekerjaan membersihkan dan memperbaiki mesin."
+          "ko": "기계를 닦고 고치는 일입니다.",
+          "id": "Membersihkan dan mereparasi mesin."
         },
         {
-          "label": "Versi 2 (Standar Ringkas)",
-          "ko": "기계의 이물질을 없애고 고장 난 부분을 고치는 일이어야 합니다.",
-          "id": "Pekerjaan membersihkan dan memperbaiki mesin."
+          "label": "Versi 2 (Standar Percakapan)",
+          "ko": "설비의 이물질을 제거하고, 고장 나거나 낡은 부품을 새로 바꿔서 기계가 잘 돌아가게 하는 작업입니다.",
+          "id": "Pekerjaan membuang sisa kotoran dari mesin dan mengganti komponen yang rusak atau aus agar alat berfungsi optimal."
         }
       ],
       "topic_no": 24,
@@ -9066,13 +9066,13 @@
         },
         {
           "label": "Versi 1 (Super Ringkas)",
-          "ko": "전기를 완전히 끊는 조치입니다.",
-          "id": "Memutus listrik sepenuhnya."
+          "ko": "전기를 완전히 끊음입니다.",
+          "id": "Pemutusan arus listrik total."
         },
         {
-          "label": "Versi 2 (Standar Ringkas)",
-          "ko": "전기를 완전히 끊는 조치이어야 합니다.",
-          "id": "Memutus listrik sepenuhnya."
+          "label": "Versi 2 (Standar Percakapan)",
+          "ko": "기계가 갑자기 스스로 움직이지 못하도록 스위치를 끄고 플러그나 차단기를 완전히 내리는 것입니다.",
+          "id": "Tindakan mematikan saklar utama dan menurunkan sekring listrik agar mesin tidak bergerak mendadak secara tiba-tiba."
         }
       ],
       "topic_no": 24,
@@ -9102,13 +9102,13 @@
         },
         {
           "label": "Versi 1 (Super Ringkas)",
-          "ko": "기계 안쪽에 직접 다가가는 위험한 작업이기 때문입니다.",
-          "id": "Karena pekerja harus mendekati bagian dalam mesin yang berbahaya."
+          "ko": "끼임과 감전을 방지합니다.",
+          "id": "Mencegah terjepit dan tersetrum."
         },
         {
-          "label": "Versi 2 (Standar Ringkas)",
-          "ko": "기계 안쪽에 직접 다가가는 위험한 작업이기 때문이어야 합니다.",
-          "id": "Karena pekerja harus mendekati bagian dalam mesin yang berbahaya."
+          "label": "Versi 2 (Standar Percakapan)",
+          "ko": "점검 중에 다른 사람이 전원을 켜거나 오작동하면 롤러에 손이 빨려 들어가 중상을 입기 때문입니다.",
+          "id": "Karena jika orang lain tak sengaja menyalakan mesin saat kita membersihkannya, tangan bisa tergilas roller dan terluka parah."
         }
       ],
       "topic_no": 24,
@@ -9138,13 +9138,13 @@
         },
         {
           "label": "Versi 1 (Super Ringkas)",
-          "ko": "작업 전에 전원을 차단해야 합니다.",
-          "id": "Putus daya sebelum bekerja."
+          "ko": "전원 차단과 팻말 부착입니다.",
+          "id": "Putus daya dan pasang tanda."
         },
         {
-          "label": "Versi 2 (Standar Ringkas)",
-          "ko": "네, 작업 전에 전원을 차단해야 합니다.",
-          "id": "Ya, Putus daya sebelum bekerja."
+          "label": "Versi 2 (Standar Percakapan)",
+          "ko": "반드시 메인 전원을 끄고 콘센트를 뽑은 후, 조작 금지 표지판을 걸어두어야 합니다.",
+          "id": "Wajib mematikan saklar utama, mencabut kabel daya, dan memasang rambu peringatan 'Dilarang Dihidupkan'."
         }
       ],
       "topic_no": 24,
@@ -9174,13 +9174,13 @@
         },
         {
           "label": "Versi 1 (Super Ringkas)",
-          "ko": "불꽃, 불티, 열을 내는 모든 기구입니다.",
-          "id": "Semua alat yang menghasilkan api atau panas."
+          "ko": "불이나 열을 쓰는 작업입니다.",
+          "id": "Pekerjaan memakai sumber panas atau api."
         },
         {
-          "label": "Versi 2 (Standar Ringkas)",
-          "ko": "불꽃, 불티, 열을 내는 모든 기구이어야 합니다.",
-          "id": "Semua alat yang menghasilkan api atau panas."
+          "label": "Versi 2 (Standar Percakapan)",
+          "ko": "산소용접기나 토치처럼 현장에서 불꽃과 뜨거운 열기를 만들어내는 장비를 사용하는 작업입니다.",
+          "id": "Aktivitas operasional menggunakan alat yang memancarkan nyala api dan suhu panas, seperti blender las atau obor pemanas."
         }
       ],
       "topic_no": 25,
@@ -9210,13 +9210,13 @@
         },
         {
           "label": "Versi 1 (Super Ringkas)",
-          "ko": "완전히 꺼지지 않은 작고 뜨거운 불덩이입니다.",
-          "id": "Bola api kecil yang belum padam."
+          "ko": "튀는 불꽃과 잔불입니다.",
+          "id": "Percikan api dan bara sisa."
         },
         {
-          "label": "Versi 2 (Standar Ringkas)",
-          "ko": "완전히 꺼지지 않은 작고 뜨거운 불덩이이어야 합니다.",
-          "id": "Bola api kecil yang belum padam."
+          "label": "Versi 2 (Standar Percakapan)",
+          "ko": "쇠를 자르거나 용접할 때 공중으로 튀는 작은 불똥과, 다 꺼지지 않고 열기를 품고 있는 불씨를 뜻합니다.",
+          "id": "Loncatan butiran api saat memotong besi serta sisa bara panas yang belum padam sempurna dan masih membahayakan."
         }
       ],
       "topic_no": 25,
@@ -9246,13 +9246,13 @@
         },
         {
           "label": "Versi 1 (Super Ringkas)",
-          "ko": "남은 불씨가 나중에 다른 곳에서 불을 낼 수 있기 때문입니다.",
-          "id": "Sisa bara bisa menyebabkan kebakaran di tempat lain nanti."
+          "ko": "숨은 불씨 화재를 막습니다.",
+          "id": "Mencegah kobaran api tersembunyi."
         },
         {
-          "label": "Versi 2 (Standar Ringkas)",
-          "ko": "남은 불씨가 나중에 다른 곳에서 불을 낼 수 있기 때문이어야 합니다.",
-          "id": "Sisa bara bisa menyebabkan kebakaran di tempat lain nanti."
+          "label": "Versi 2 (Standar Percakapan)",
+          "ko": "미세한 불티가 틈새로 들어가 숨어 있다가 퇴근 후에 큰 화재로 번질 수 있기 때문에 철저히 확인해야 합니다.",
+          "id": "Percikan kecil bisa menyusup ke celah kayu atau kain lalu membesar menjadi kobaran api hebat setelah jam kerja usai."
         }
       ],
       "topic_no": 25,
@@ -9282,13 +9282,13 @@
         },
         {
           "label": "Versi 1 (Super Ringkas)",
-          "ko": "안전핀을 먼저 뽑아야 합니다.",
-          "id": "Cabut pin pengaman dulu."
+          "ko": "안전핀을 먼저 뽑습니다.",
+          "id": "Tarik pin pengaman terlebih dahulu."
         },
         {
-          "label": "Versi 2 (Standar Ringkas)",
-          "ko": "네, 안전핀을 먼저 뽑아야 합니다.",
-          "id": "Ya, Cabut pin pengaman dulu."
+          "label": "Versi 2 (Standar Percakapan)",
+          "ko": "네, 잘 압니다. 불이 보이면 소화기 손잡이의 안전핀을 먼저 힘껏 뽑고 노즐을 불길로 향해야 합니다.",
+          "id": "Ya, saya paham. Angkat tabung pemadam, cabut pin pengaman di pegangan terlebih dahulu, lalu arahkan corong ke pusat api."
         }
       ],
       "topic_no": 25,
@@ -9318,13 +9318,13 @@
         },
         {
           "label": "Versi 1 (Super Ringkas)",
-          "ko": "불에 타는 물질이 타며 열과 빛을 내는 것입니다.",
-          "id": "Bahan terbakar dan menghasilkan panas dan cahaya."
+          "ko": "불이 번진 재난입니다.",
+          "id": "Bencana api membakar tak terkendali."
         },
         {
-          "label": "Versi 2 (Standar Ringkas)",
-          "ko": "불에 타는 물질이 타며 열과 빛을 내는 것이어야 합니다.",
-          "id": "Bahan terbakar dan menghasilkan panas dan cahaya."
+          "label": "Versi 2 (Standar Percakapan)",
+          "ko": "사람의 뜻과 상관없이 불이 자재나 건물로 옮겨붙어 생명과 재산에 큰 피해를 입히는 사고입니다.",
+          "id": "Musibah saat api menyambar bangunan atau bahan kerja di luar kendali hingga membahayakan jiwa dan merusak fasilitas."
         }
       ],
       "topic_no": 26,
@@ -9354,13 +9354,13 @@
         },
         {
           "label": "Versi 1 (Super Ringkas)",
-          "ko": "위험할 때 안전한 곳으로 빨리 피하는 것입니다.",
-          "id": "Segera pindah ke tempat aman saat bahaya."
+          "ko": "위험에서 벗어나 몸을 피함입니다.",
+          "id": "Menyelamatkan diri ke tempat aman."
         },
         {
-          "label": "Versi 2 (Standar Ringkas)",
-          "ko": "위험할 때 안전한 곳으로 빨리 피하는 것이어야 합니다.",
-          "id": "Segera pindah ke tempat aman saat bahaya."
+          "label": "Versi 2 (Standar Percakapan)",
+          "ko": "불이나 유독가스가 발생했을 때 다치지 않도록 건물 밖 안전한 대피 장소로 빠르게 달아나는 행동입니다.",
+          "id": "Tindakan segera berlari menuju area terbuka yang aman saat terjadi kebakaran atau kebocoran gas agar selamat."
         }
       ],
       "topic_no": 26,
@@ -9390,13 +9390,13 @@
         },
         {
           "label": "Versi 1 (Super Ringkas)",
-          "ko": "연기와 유독가스가 위험하고 사람 목숨이 재산보다 먼저이기 때문입니다.",
-          "id": "Asap berbahaya dan nyawa lebih penting daripada harta."
+          "ko": "인명 보호가 최우선이기 때문입니다.",
+          "id": "Keselamatan jiwa nomor satu."
         },
         {
-          "label": "Versi 2 (Standar Ringkas)",
-          "ko": "연기와 유독가스가 위험하고 사람 목숨이 재산보다 먼저이기 때문이어야 합니다.",
-          "id": "Asap berbahaya dan nyawa lebih penting daripada harta."
+          "label": "Versi 2 (Standar Percakapan)",
+          "ko": "재산은 다시 살 수 있지만 목숨은 하나뿐이고, 연기를 몇 초만 마셔도 질식해 쓰러질 수 있기 때문입니다.",
+          "id": "Harta bisa dicari lagi namun nyawa tak tergantikan, dan menghirup asap beracun beberapa detik saja bisa membuat kita pingsan."
         }
       ],
       "topic_no": 26,
@@ -9426,13 +9426,13 @@
         },
         {
           "label": "Versi 1 (Super Ringkas)",
-          "ko": "불이 나거나 응급환자가 있을 때 소방서로 연결되는 번호입니다.",
-          "id": "Nomor ke pemadam saat kebakaran atau darurat."
+          "ko": "화재·응급구조 긴급번호입니다.",
+          "id": "Nomor darurat pemadam dan medis."
         },
         {
-          "label": "Versi 2 (Standar Ringkas)",
-          "ko": "불이 나거나 응급환자가 있을 때 소방서로 연결되는 번호이어야 합니다.",
-          "id": "Nomor ke pemadam saat kebakaran atau darurat."
+          "label": "Versi 2 (Standar Percakapan)",
+          "ko": "네, 잘 압니다. 한국에서 불이 나거나 다친 사람이 생겼을 때 소방관과 구급차를 부르는 긴급 전화번호입니다.",
+          "id": "Ya, saya tahu pasti. Itu nomor darurat di Korea Selatan untuk memanggil petugas pemadam kebakaran dan ambulans pertolongan pertama."
         }
       ],
       "topic_no": 26,
@@ -9462,13 +9462,13 @@
         },
         {
           "label": "Versi 1 (Super Ringkas)",
-          "ko": "방법을 정확히 모르고 하는 일입니다.",
-          "id": "Pekerjaan yang caranya tidak diketahui dengan pasti."
+          "ko": "해보지 않은 낯선 작업입니다.",
+          "id": "Pekerjaan baru belum dipahami."
         },
         {
-          "label": "Versi 2 (Standar Ringkas)",
-          "ko": "방법을 정확히 모르고 하는 일이어야 합니다.",
-          "id": "Pekerjaan yang caranya tidak diketahui dengan pasti."
+          "label": "Versi 2 (Standar Percakapan)",
+          "ko": "작업 순서나 안전 수칙을 아직 정확히 배우지 못해서 혼자서 다루기 조심스러운 생소한 업무입니다.",
+          "id": "Pekerjaan yang belum dipelajari alurnya atau belum pernah dilatihkan secara matang sehingga rawan jika dikerjakan sendiri."
         }
       ],
       "topic_no": 27,
@@ -9498,13 +9498,13 @@
         },
         {
           "label": "Versi 1 (Super Ringkas)",
-          "ko": "모르는 것을 다른 사람에게 질문하는 것입니다.",
-          "id": "Bertanya kepada orang lain tentang hal yang tidak diketahui."
+          "ko": "상사에게 질문해 확인하기입니다.",
+          "id": "Bertanya meminta petunjuk atasan."
         },
         {
-          "label": "Versi 2 (Standar Ringkas)",
-          "ko": "모르는 것을 다른 사람에게 질문하는 것이어야 합니다.",
-          "id": "Bertanya kepada orang lain tentang hal yang tidak diketahui."
+          "label": "Versi 2 (Standar Percakapan)",
+          "ko": "모르는 부분을 혼자 짐작하지 않고, 반장님이나 동료에게 어떻게 해야 하는지 말로 물어보는 것입니다.",
+          "id": "Sikap tidak menebak-nebak sembarangan, melainkan langsung bertanya kepada mandor atau rekan senior tentang cara kerja yang benar."
         }
       ],
       "topic_no": 27,
@@ -9534,13 +9534,13 @@
         },
         {
           "label": "Versi 1 (Super Ringkas)",
-          "ko": "모르고 일하면 나와 동료의 생명을 위협할 수 있기 때문입니다.",
-          "id": "Bekerja tanpa tahu bisa mengancam nyawa diri dan rekan."
+          "ko": "오작동과 사고를 막기 위해서입니다.",
+          "id": "Mencegah salah kerja dan kecelakaan."
         },
         {
-          "label": "Versi 2 (Standar Ringkas)",
-          "ko": "모르고 일하면 나와 동료의 생명을 위협할 수 있기 때문이어야 합니다.",
-          "id": "Bekerja tanpa tahu bisa mengancam nyawa diri dan rekan."
+          "label": "Versi 2 (Standar Percakapan)",
+          "ko": "어설프게 기계를 조작하다가는 큰 부상을 입거나 제품을 파손시킬 수 있으므로 꼭 물어보고 해야 안전합니다.",
+          "id": "Mengoperasikan mesin tanpa paham bisa berujung cacat parah atau merusak barang pabrik, jadi wajib konfirmasi terlebih dahulu."
         }
       ],
       "topic_no": 27,
@@ -9570,13 +9570,13 @@
         },
         {
           "label": "Versi 1 (Super Ringkas)",
-          "ko": "일하다 다치거나 피해를 입을 수 있는 위험 요인입니다.",
-          "id": "Faktor bahaya yang bisa membuat orang terluka."
+          "ko": "다칠 가능성이 있는 상태입니다.",
+          "id": "Kondisi berpotensi mencelakai orang."
         },
         {
-          "label": "Versi 2 (Standar Ringkas)",
-          "ko": "일하다 다치거나 피해를 입을 수 있는 위험 요인이어야 합니다.",
-          "id": "Faktor bahaya yang bisa membuat orang terluka."
+          "label": "Versi 2 (Standar Percakapan)",
+          "ko": "공장에서 작업을 하다가 사람이 베이거나 넘어지는 등 다칠 수 있는 모든 불안전한 조건과 환경입니다.",
+          "id": "Segala kondisi lingkungan atau peralatan kerja yang belum aman dan sewaktu-waktu dapat melukai fisik pekerja."
         }
       ],
       "topic_no": 28,
@@ -9606,13 +9606,13 @@
         },
         {
           "label": "Versi 1 (Super Ringkas)",
-          "ko": "숨은 위험이나 고장을 알아차리거나 찾아내는 것입니다.",
-          "id": "Menyadari atau menemukan bahaya yang tersembunyi."
+          "ko": "이상 징후를 알아채는 것입니다.",
+          "id": "Menyadari adanya kejanggalan bahaya."
         },
         {
-          "label": "Versi 2 (Standar Ringkas)",
-          "ko": "숨은 위험이나 고장을 알아차리거나 찾아내는 것이어야 합니다.",
-          "id": "Menyadari atau menemukan bahaya yang tersembunyi."
+          "label": "Versi 2 (Standar Percakapan)",
+          "ko": "그냥 지나치기 쉬운 기계 고장이나 바닥의 위험 요소를 눈과 귀로 미리 알아차리는 것입니다.",
+          "id": "Tindakan mencermati dan mengenali adanya kerusakan mesin atau bahaya di lantai kerja yang awalnya tidak disadari orang lain."
         }
       ],
       "topic_no": 28,
@@ -9642,13 +9642,13 @@
         },
         {
           "label": "Versi 1 (Super Ringkas)",
-          "ko": "알리지 않으면 위험이 그대로 남아 모두의 안전을 위협하기 때문입니다.",
-          "id": "Jika tidak dilaporkan, bahaya tetap ada dan mengancam semua."
+          "ko": "동료의 부상을 막기 위해서입니다.",
+          "id": "Menyelamatkan rekan dari bahaya."
         },
         {
-          "label": "Versi 2 (Standar Ringkas)",
-          "ko": "알리지 않으면 위험이 그대로 남아 모두의 안전을 위협하기 때문이어야 합니다.",
-          "id": "Jika tidak dilaporkan, bahaya tetap ada dan mengancam semua."
+          "label": "Versi 2 (Standar Percakapan)",
+          "ko": "위험을 나만 알고 지나치면 뒤에 오는 다른 동료가 걸려 넘어져 크게 다칠 수 있기 때문에 즉시 알려야 합니다.",
+          "id": "Bila saya diam saja, rekan lain yang lewat tanpa tahu bahaya tersebut bisa tersandung atau celaka parah, maka wajib lekas melapor."
         }
       ],
       "topic_no": 28,
@@ -9678,13 +9678,13 @@
         },
         {
           "label": "Versi 1 (Super Ringkas)",
-          "ko": "매우 더운 날씨가 계속되는 현상입니다.",
-          "id": "Cuaca sangat panas yang berlangsung terus."
+          "ko": "심한 무더위 날씨입니다.",
+          "id": "Cuaca terik luar biasa panas."
         },
         {
-          "label": "Versi 2 (Standar Ringkas)",
-          "ko": "매우 더운 날씨가 계속되는 현상이어야 합니다.",
-          "id": "Cuaca sangat panas yang berlangsung terus."
+          "label": "Versi 2 (Standar Percakapan)",
+          "ko": "기온이 33도 이상으로 올라가서 가만히 서 있기만 해도 탈진할 정도로 매우 뜨겁고 습한 날씨입니다.",
+          "id": "Kondisi cuaca luar biasa panas dengan suhu melampaui 33 derajat Celsius yang berisiko membuat tubuh dehidrasi dan pingsan."
         }
       ],
       "topic_no": 29,
@@ -9714,13 +9714,13 @@
         },
         {
           "label": "Versi 1 (Super Ringkas)",
-          "ko": "체온이 오르고 몸의 물이 빨리 빠져 생명이 위험할 수 있기 때문입니다.",
-          "id": "Suhu tubuh naik dan cairan hilang, nyawa bisa terancam."
+          "ko": "열사병과 탈진을 예방합니다.",
+          "id": "Mencegah sengatan panas dan pingsan."
         },
         {
-          "label": "Versi 2 (Standar Ringkas)",
-          "ko": "체온이 오르고 몸의 물이 빨리 빠져 생명이 위험할 수 있기 때문이어야 합니다.",
-          "id": "Suhu tubuh naik dan cairan hilang, nyawa bisa terancam."
+          "label": "Versi 2 (Standar Percakapan)",
+          "ko": "무더위에 계속 일하면 땀이 너무 많이 빠져나가 열사병으로 쓰러질 수 있으므로 몸을 식히고 수분을 보충해야 합니다.",
+          "id": "Terus bekerja di terik matahari memicu dehidrasi hebat dan pingsan terkena heatstroke, jadi kita harus istirahat berteduh dan minum."
         }
       ],
       "topic_no": 29,
@@ -9750,13 +9750,13 @@
         },
         {
           "label": "Versi 1 (Super Ringkas)",
-          "ko": "물을 자주 마시고 그늘에서 쉽니다.",
-          "id": "Sering minum air dan istirahat di tempat teduh."
+          "ko": "물을 마시고 그늘에서 쉽니다.",
+          "id": "Minum air dan berteduh."
         },
         {
-          "label": "Versi 2 (Standar Ringkas)",
-          "ko": "네, 물을 자주 마시고 그늘에서 쉽니다.",
-          "id": "Ya, Sering minum air dan istirahat di tempat teduh."
+          "label": "Versi 2 (Standar Percakapan)",
+          "ko": "시원한 물이나 식염수를 자주 마시고, 중간중간 바람이 통하는 그늘에서 땀을 식히며 휴식을 취합니다.",
+          "id": "Rajin minum air dingin serta sempatkan istirahat sejenak di tempat teduh yang sejuk dan berangin untuk menurunkan suhu tubuh."
         }
       ],
       "topic_no": 29,
@@ -9786,13 +9786,13 @@
         },
         {
           "label": "Versi 1 (Super Ringkas)",
-          "ko": "위험할 때 바로 일을 멈추는 것입니다.",
-          "id": "Segera berhenti bekerja saat bahaya."
+          "ko": "위험할 때 일을 멈춤입니다.",
+          "id": "Menyetop pekerjaan saat berbahaya."
         },
         {
-          "label": "Versi 2 (Standar Ringkas)",
-          "ko": "위험할 때 바로 일을 멈추는 것이어야 합니다.",
-          "id": "Segera berhenti bekerja saat bahaya."
+          "label": "Versi 2 (Standar Percakapan)",
+          "ko": "붕괴나 가스 누출 같은 위험 징조가 보일 때, 사고를 막기 위해 하던 모든 작업을 즉시 중단하는 것입니다.",
+          "id": "Menghentikan seketika seluruh aktivitas pekerjaan saat melihat tanda-tanda bahaya seperti runtuhan atau kebocoran gas."
         }
       ],
       "topic_no": 30,
@@ -9822,13 +9822,13 @@
         },
         {
           "label": "Versi 1 (Super Ringkas)",
-          "ko": "위험할 때 안전한 곳으로 빨리 이동하는 것입니다.",
-          "id": "Segera pindah ke tempat aman saat bahaya."
+          "ko": "안전지대로 신속히 이동함입니다.",
+          "id": "Segera lari ke zona aman."
         },
         {
-          "label": "Versi 2 (Standar Ringkas)",
-          "ko": "위험할 때 안전한 곳으로 빨리 이동하는 것이어야 합니다.",
-          "id": "Segera pindah ke tempat aman saat bahaya."
+          "label": "Versi 2 (Standar Percakapan)",
+          "ko": "사고 현장에서 더 큰 피해를 입지 않도록 지정된 안전한 장소로 동료들과 함께 빠르게 피하는 것입니다.",
+          "id": "Berlari bersama rekan kerja meninggalkan lokasi bahaya menuju titik kumpul yang aman demi menyelamatkan diri."
         }
       ],
       "topic_no": 30,
@@ -9858,13 +9858,13 @@
         },
         {
           "label": "Versi 1 (Super Ringkas)",
-          "ko": "기계보다 사람의 생명이 더 소중하기 때문입니다.",
-          "id": "Nyawa manusia lebih berharga daripada mesin."
+          "ko": "생명을 지키기 위해서입니다.",
+          "id": "Untuk menyelamatkan nyawa manusia."
         },
         {
-          "label": "Versi 2 (Standar Ringkas)",
-          "ko": "기계보다 사람의 생명이 더 소중하기 때문이어야 합니다.",
-          "id": "Nyawa manusia lebih berharga daripada mesin."
+          "label": "Versi 2 (Standar Percakapan)",
+          "ko": "기계나 일보다 사람 목숨이 가장 중요하므로, 일단 몸부터 안전하게 피해야 사고를 막을 수 있기 때문입니다.",
+          "id": "Karena nyawa manusia jauh lebih berharga daripada target pabrik, kita harus menyelamatkan diri dulu sebelum insiden fatal terjadi."
         }
       ],
       "topic_no": 30,
@@ -9894,13 +9894,13 @@
         },
         {
           "label": "Versi 1 (Super Ringkas)",
-          "ko": "먼저 작업을 멈추고 안전한 곳으로 대피합니다.",
-          "id": "Hentikan pekerjaan dan pergi ke tempat aman."
+          "ko": "작업을 멈추고 대피합니다.",
+          "id": "Hentikan kerja dan evakuasi."
         },
         {
-          "label": "Versi 2 (Standar Ringkas)",
-          "ko": "네, 먼저 작업을 멈추고 안전한 곳으로 대피합니다.",
-          "id": "Ya, Hentikan pekerjaan dan pergi ke tempat aman."
+          "label": "Versi 2 (Standar Percakapan)",
+          "ko": "하던 일을 즉시 멈추고 안전한 곳으로 몸을 피한 다음, 반장님과 관리자에게 위험 상황을 신속히 보고합니다.",
+          "id": "Lepaskan pekerjaan seketika, lekas menyingkir ke zona aman, lalu segera beri tahu mandor dan petugas keselamatan."
         }
       ],
       "topic_no": 30,
