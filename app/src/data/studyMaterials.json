@@ -5897,14 +5897,14 @@
           "id": "Peralatan atau perlengkapan yang dipakai atau digunakan untuk melindungi tubuh pekerja dari bahaya yang bisa muncul saat bekerja."
         },
         {
-          "label": "Versi 1 (Super Pendek · 1-3 Kata)",
-          "ko": "신체 보호 장비입니다.",
-          "id": "Pelindung tubuh pekerja."
+          "label": "Opsi 1 (Jawaban Inti)",
+          "ko": "몸을 보호하는 안전 장비입니다.",
+          "id": "Alat pelindung untuk keselamatan tubuh."
         },
         {
-          "label": "Versi 2 (1 Kalimat Pendek Siap Ucap)",
-          "ko": "몸을 보호하는 장비입니다.",
-          "id": "Peralatan untuk melindungi tubuh pekerja."
+          "label": "Opsi 2 (Alternatif Nyata)",
+          "ko": "안전모나 안전화 같은 것입니다.",
+          "id": "Contohnya helm atau sepatu keselamatan."
         }
       ],
       "topic_no": 1,
@@ -5933,14 +5933,14 @@
           "id": "Ada helm pengaman, sepatu pengaman, sabuk pengaman, pelindung wajah, penyumbat telinga, masker debu, masker gas, pakaian tahan panas, pakaian tahan dingin, dan lain-lain. Helm pengaman adalah topi yang melindungi kepala saat pekerja terbentur benda atau jatuh ke lantai. Sepatu pengaman adalah sepatu untuk melindungi kaki dari alat yang jatuh atau benda tajam. Sabuk pengaman adalah alat yang mencegah pekerja jatuh dari tempat tinggi ke lantai. Pelindung wajah adalah alat untuk melindungi wajah dan mata dari percikan api atau benda yang beterbangan. Penyumbat telinga adalah perlengkapan untuk melindungi telinga di tempat yang bising dan bersuara keras. Masker debu adalah perlengkapan untuk melindungi mulut dan hidung dari debu di udara. Masker gas adalah perlengkapan untuk melindungi mulut dan hidung dari bahan kimia di udara. Pakaian tahan panas adalah pakaian kerja untuk melindungi tubuh dari panas dan api di tempat yang sangat panas. Pakaian tahan dingin adalah pakaian kerja penghangat untuk menjaga suhu tubuh di tempat yang sangat dingin."
         },
         {
-          "label": "Versi 1 (Super Pendek · 1-3 Kata)",
-          "ko": "안전모와 안전화입니다.",
-          "id": "Helm dan safety-shoes."
+          "label": "Opsi 1 (Jawaban Inti)",
+          "ko": "안전모, 안전화, 안전대 등이 있습니다.",
+          "id": "Ada helm, sepatu, tali pengaman."
         },
         {
-          "label": "Versi 2 (1 Kalimat Pendek Siap Ucap)",
-          "ko": "안전모, 안전화, 안전대가 있습니다.",
-          "id": "Ada helm, sepatu safety, dan sabuk pengaman."
+          "label": "Opsi 2 (Alternatif Nyata)",
+          "ko": "보안면, 귀마개, 마스크 등이 있습니다.",
+          "id": "Ada pelindung wajah, sumbat telinga, masker."
         }
       ],
       "topic_no": 1,
@@ -5969,14 +5969,14 @@
           "id": "Karena itu adalah langkah paling dasar dan wajib untuk menjaga nyawa dan kesehatan pekerja."
         },
         {
-          "label": "Versi 1 (Super Pendek · 1-3 Kata)",
-          "ko": "안전을 위해서입니다.",
-          "id": "Demi keselamatan kerja."
+          "label": "Opsi 1 (Jawaban Inti)",
+          "ko": "생명과 건강을 지키기 위해서입니다.",
+          "id": "Untuk menjaga nyawa dan kesehatan."
         },
         {
-          "label": "Versi 2 (1 Kalimat Pendek Siap Ucap)",
-          "ko": "사고를 예방하기 위해서입니다.",
-          "id": "Untuk mencegah terjadinya kecelakaan kerja."
+          "label": "Opsi 2 (Alternatif Nyata)",
+          "ko": "작업 중 다치지 않기 위해서입니다.",
+          "id": "Agar tidak terluka saat bekerja."
         }
       ],
       "topic_no": 1,
@@ -6005,14 +6005,14 @@
           "id": "Untuk melindungi kepala, kita harus memakai helm pengaman. Saat memakai helm, tali dagu harus dikencangkan."
         },
         {
-          "label": "Versi 1 (Super Pendek · 1-3 Kata)",
-          "ko": "안전모입니다.",
-          "id": "Helm pengaman."
+          "label": "Opsi 1 (Jawaban Inti)",
+          "ko": "머리를 보호하는 안전모를 착용합니다.",
+          "id": "Memakai helm pelindung kepala pengaman."
         },
         {
-          "label": "Versi 2 (1 Kalimat Pendek Siap Ucap)",
-          "ko": "안전모를 착용해야 합니다.",
-          "id": "Harus memakai helm pengaman."
+          "label": "Opsi 2 (Alternatif Nyata)",
+          "ko": "안전모를 쓰고 턱끈을 조입니다.",
+          "id": "Memakai helm dan mengencangkan talinya."
         }
       ],
       "topic_no": 1,
@@ -6041,14 +6041,14 @@
           "id": "Saat bekerja di tempat tinggi, pakai sabuk pengaman dan kaitkan pengaitnya ke alat pemasangan sabuk pengaman."
         },
         {
-          "label": "Versi 1 (Super Pendek · 1-3 Kata)",
-          "ko": "안전대입니다.",
-          "id": "Sabuk pengaman."
+          "label": "Opsi 1 (Jawaban Inti)",
+          "ko": "추락을 방지하는 안전대를 착용합니다.",
+          "id": "Memakai tali pengaman pencegah jatuh."
         },
         {
-          "label": "Versi 2 (1 Kalimat Pendek Siap Ucap)",
-          "ko": "안전대를 착용해야 합니다.",
-          "id": "Harus memakai sabuk pengaman."
+          "label": "Opsi 2 (Alternatif Nyata)",
+          "ko": "안전대를 매고 고리를 겁니다.",
+          "id": "Memakai tali pengaman mengaitkan cincinnya."
         }
       ],
       "topic_no": 1,
@@ -6077,14 +6077,14 @@
           "id": "Pintu keluar yang disediakan agar orang bisa segera menyelamatkan diri saat terjadi kecelakaan mendadak seperti kebakaran atau gempa bumi."
         },
         {
-          "label": "Versi 1 (Super Pendek · 1-3 Kata)",
-          "ko": "대피 출입구입니다.",
-          "id": "Pintu darurat evakuasi."
+          "label": "Opsi 1 (Jawaban Inti)",
+          "ko": "비상시 신속하게 대피하는 출입구입니다.",
+          "id": "Pintu keluar evakuasi cepat darurat."
         },
         {
-          "label": "Versi 2 (1 Kalimat Pendek Siap Ucap)",
-          "ko": "비상시 대피하는 문입니다.",
-          "id": "Pintu untuk evakuasi saat darurat."
+          "label": "Opsi 2 (Alternatif Nyata)",
+          "ko": "초록색 비상 유도등이 있는 문입니다.",
+          "id": "Pintu berlampu petunjuk darurat hijau."
         }
       ],
       "topic_no": 2,
@@ -6113,14 +6113,14 @@
           "id": "Jalur perpindahan yang sudah disiapkan sebelumnya agar pekerja bisa keluar dengan cepat dan aman saat terjadi keadaan darurat seperti kebakaran."
         },
         {
-          "label": "Versi 1 (Super Pendek · 1-3 Kata)",
-          "ko": "대피 경로입니다.",
-          "id": "Jalur evakuasi darurat."
+          "label": "Opsi 1 (Jawaban Inti)",
+          "ko": "안전하게 빠져나가는 이동 경로입니다.",
+          "id": "Jalur bergerak keluar secara aman."
         },
         {
-          "label": "Versi 2 (1 Kalimat Pendek Siap Ucap)",
-          "ko": "안전하게 빠져나가는 길입니다.",
-          "id": "Jalan untuk keluar dengan aman."
+          "label": "Opsi 2 (Alternatif Nyata)",
+          "ko": "장애물이 없어야 하는 비상 통로입니다.",
+          "id": "Lorong darurat yang bebas rintangan."
         }
       ],
       "topic_no": 2,
@@ -6149,14 +6149,14 @@
           "id": "Karena itu aturan penanganan bencana yang paling dasar untuk menjaga nyawa saat terjadi kecelakaan, dan memungkinkan kita bergerak dengan cepat."
         },
         {
-          "label": "Versi 1 (Super Pendek · 1-3 Kata)",
-          "ko": "빠른 대피를 위해서입니다.",
-          "id": "Untuk evakuasi cepat."
+          "label": "Opsi 1 (Jawaban Inti)",
+          "ko": "사고 때 신속히 대피하기 위해서입니다.",
+          "id": "Untuk evakuasi cepat saat insiden."
         },
         {
-          "label": "Versi 2 (1 Kalimat Pendek Siap Ucap)",
-          "ko": "빠르게 대피하기 위해서입니다.",
-          "id": "Agar bisa segera menyelamatkan diri."
+          "label": "Opsi 2 (Alternatif Nyata)",
+          "ko": "당황하지 않고 생명을 지키기 위해서입니다.",
+          "id": "Menyelamatkan nyawa tanpa rasa panik."
         }
       ],
       "topic_no": 2,
@@ -6185,14 +6185,14 @@
           "id": "Alat pemadam api adalah alat untuk memadamkan api dan biasanya berwarna merah. Penting untuk memeriksa lokasinya sejak awal."
         },
         {
-          "label": "Versi 1 (Super Pendek · 1-3 Kata)",
-          "ko": "불 끄는 도구입니다.",
-          "id": "Alat pemadam api."
-        },
-        {
-          "label": "Versi 2 (1 Kalimat Pendek Siap Ucap)",
+          "label": "Opsi 1 (Jawaban Inti)",
           "ko": "불을 끄는 붉은색 도구입니다.",
           "id": "Alat pemadam api berwarna merah."
+        },
+        {
+          "label": "Opsi 2 (Alternatif Nyata)",
+          "ko": "소화기 위치를 평소에 미리 확인합니다.",
+          "id": "Memeriksa letak alat pemadam sebelumnya."
         }
       ],
       "topic_no": 2,
@@ -6221,14 +6221,14 @@
           "id": "Tanda visual yang dipakai untuk memberi tahu bahaya di tempat kerja dan mendorong tindakan yang aman."
         },
         {
-          "label": "Versi 1 (Super Pendek · 1-3 Kata)",
-          "ko": "위험 알림 표지입니다.",
-          "id": "Rambu peringatan bahaya."
+          "label": "Opsi 1 (Jawaban Inti)",
+          "ko": "위험을 알리는 시각적 표지입니다.",
+          "id": "Tanda visual pemberitahu bahaya kerja."
         },
         {
-          "label": "Versi 2 (1 Kalimat Pendek Siap Ucap)",
-          "ko": "위험을 알려주는 표지입니다.",
-          "id": "Tanda untuk memberi tahu bahaya."
+          "label": "Opsi 2 (Alternatif Nyata)",
+          "ko": "그림과 색깔로 된 안내판입니다.",
+          "id": "Papan petunjuk bergambar dan berwarna."
         }
       ],
       "topic_no": 3,
@@ -6257,14 +6257,14 @@
           "id": "Ada rambu larangan untuk mencegah tindakan berbahaya, rambu peringatan untuk waspada terhadap bahaya, rambu perintah untuk mendorong tindakan aman, dan rambu informasi untuk menunjukkan jalur evakuasi dan lain-lain."
         },
         {
-          "label": "Versi 1 (Super Pendek · 1-3 Kata)",
-          "ko": "금지와 경고 표지입니다.",
-          "id": "Rambu larangan peringatan."
+          "label": "Opsi 1 (Jawaban Inti)",
+          "ko": "금지표지, 경고표지, 지시표지 등이 있습니다.",
+          "id": "Ada rambu larangan, peringatan, instruksi."
         },
         {
-          "label": "Versi 2 (1 Kalimat Pendek Siap Ucap)",
-          "ko": "금지, 경고, 지시 표지가 있습니다.",
-          "id": "Ada rambu larangan, peringatan, perintah."
+          "label": "Opsi 2 (Alternatif Nyata)",
+          "ko": "안내표지, 출입금지, 착용지시 등이 있습니다.",
+          "id": "Ada rambu panduan, dilarang masuk."
         }
       ],
       "topic_no": 3,
@@ -6293,14 +6293,14 @@
           "id": "Karena lewat rambu, bahaya yang tidak terlihat bisa dipahami secara visual dengan paling cepat dan jelas."
         },
         {
-          "label": "Versi 1 (Super Pendek · 1-3 Kata)",
-          "ko": "위험을 알기 위해서입니다.",
-          "id": "Mengetahui bahaya kerja."
+          "label": "Opsi 1 (Jawaban Inti)",
+          "ko": "현장의 위험 요소를 알기 위해서입니다.",
+          "id": "Untuk mengetahui bahaya di lapangan."
         },
         {
-          "label": "Versi 2 (1 Kalimat Pendek Siap Ucap)",
-          "ko": "위험을 빠르게 알기 위해서입니다.",
-          "id": "Agar mengetahui bahaya dengan cepat."
+          "label": "Opsi 2 (Alternatif Nyata)",
+          "ko": "안전수칙을 지켜 사고를 막기 위해서입니다.",
+          "id": "Mencegah kecelakaan mematuhi aturan keselamatan."
         }
       ],
       "topic_no": 3,
@@ -6329,14 +6329,14 @@
           "id": "Rambu larangan untuk mencegah tindakan berbahaya seperti dilarang masuk berbentuk lingkaran merah dengan garis diagonal merah."
         },
         {
-          "label": "Versi 1 (Super Pendek · 1-3 Kata)",
-          "ko": "붉은색입니다.",
-          "id": "Warna merah."
+          "label": "Opsi 1 (Jawaban Inti)",
+          "ko": "붉은색 바탕 또는 테두리입니다.",
+          "id": "Berwarna dasar atau bertepi merah."
         },
         {
-          "label": "Versi 2 (1 Kalimat Pendek Siap Ucap)",
-          "ko": "붉은색 원 모양입니다.",
-          "id": "Berwarna merah berbentuk lingkaran."
+          "label": "Opsi 2 (Alternatif Nyata)",
+          "ko": "빨간 원에 사선이 그려져 있습니다.",
+          "id": "Lingkaran merah bergaris miring melintang."
         }
       ],
       "topic_no": 3,
@@ -6365,14 +6365,14 @@
           "id": "Perlengkapan yang melindungi tubuh pekerja dari faktor bahaya yang muncul pada mesin dan sejenisnya, atau memutus bahaya tersebut."
         },
         {
-          "label": "Versi 1 (Super Pendek · 1-3 Kata)",
-          "ko": "위험 차단 장치입니다.",
-          "id": "Alat pencegah bahaya."
+          "label": "Opsi 1 (Jawaban Inti)",
+          "ko": "기계 위험을 막아주는 안전설비입니다.",
+          "id": "Fasilitas keselamatan pencegah bahaya mesin."
         },
         {
-          "label": "Versi 2 (1 Kalimat Pendek Siap Ucap)",
-          "ko": "기계 위험을 막는 장치입니다.",
-          "id": "Alat untuk mencegah bahaya mesin."
+          "label": "Opsi 2 (Alternatif Nyata)",
+          "ko": "안전 덮개나 감응 센서입니다.",
+          "id": "Penutup pengaman atau sensor otomatis."
         }
       ],
       "topic_no": 4,
@@ -6401,14 +6401,14 @@
           "id": "Keadaan saat alat atau perlengkapan bekerja dengan aman dan tepat sesuai tujuan dan standar yang ditetapkan."
         },
         {
-          "label": "Versi 1 (Super Pendek · 1-3 Kata)",
-          "ko": "덮개와 비상정지장치입니다.",
-          "id": "Penutup dan tombol-darurat."
+          "label": "Opsi 1 (Jawaban Inti)",
+          "ko": "기계가 기준대로 안전하게 움직이는 것입니다.",
+          "id": "Mesin bergerak aman sesuai standar."
         },
         {
-          "label": "Versi 2 (1 Kalimat Pendek Siap Ucap)",
-          "ko": "보호 덮개와 비상정지장치가 있습니다.",
-          "id": "Ada penutup pelindung dan tombol darurat."
+          "label": "Opsi 2 (Alternatif Nyata)",
+          "ko": "고장이나 이상 소음이 없는 상태입니다.",
+          "id": "Kondisi tanpa kerusakan suara aneh."
         }
       ],
       "topic_no": 4,
@@ -6437,14 +6437,14 @@
           "id": "Karena meskipun orang berbuat salah, perlindungan nyata hanya ada bila alat pengaman bekerja dengan normal."
         },
         {
-          "label": "Versi 1 (Super Pendek · 1-3 Kata)",
-          "ko": "사고 예방을 위해서입니다.",
-          "id": "Mencegah kecelakaan kerja."
+          "label": "Opsi 1 (Jawaban Inti)",
+          "ko": "작업자의 실수를 막아주기 때문입니다.",
+          "id": "Karena mencegah kesalahan dari pekerja."
         },
         {
-          "label": "Versi 2 (1 Kalimat Pendek Siap Ucap)",
-          "ko": "사고를 막기 위해서입니다.",
-          "id": "Untuk mencegah terjadinya kecelakaan kerja."
+          "label": "Opsi 2 (Alternatif Nyata)",
+          "ko": "기계 끼임 사고를 막기 위해서입니다.",
+          "id": "Untuk mencegah kecelakaan terjepit mesin."
         }
       ],
       "topic_no": 4,
@@ -6473,14 +6473,14 @@
           "id": "Sebelum mulai bekerja, periksa apakah mesin berfungsi normal. Jika mesin mengeluarkan suara aneh atau bergetar, jangan dipakai dan laporkan kepada atasan seperti kepala regu."
         },
         {
-          "label": "Versi 1 (Super Pendek · 1-3 Kata)",
-          "ko": "기계 점검입니다.",
-          "id": "Pemeriksaan mesin kerja."
+          "label": "Opsi 1 (Jawaban Inti)",
+          "ko": "기계 이상 유무를 미리 점검합니다.",
+          "id": "Memeriksa kelainan mesin sebelum bekerja."
         },
         {
-          "label": "Versi 2 (1 Kalimat Pendek Siap Ucap)",
-          "ko": "기계의 상태를 점검하는 것입니다.",
-          "id": "Memeriksa kondisi mesin sebelum bekerja."
+          "label": "Opsi 2 (Alternatif Nyata)",
+          "ko": "이상 발견 시 관리자에게 즉시 보고합니다.",
+          "id": "Segera lapor pengawas bila janggal."
         }
       ],
       "topic_no": 4,
@@ -6509,14 +6509,14 @@
           "id": "Zat padat, cair, atau gas yang dipakai untuk membuat produk di tempat kerja, dan berbahaya bagi manusia atau berisiko meledak."
         },
         {
-          "label": "Versi 1 (Super Pendek · 1-3 Kata)",
-          "ko": "유해하고 위험한 물질입니다.",
-          "id": "Bahan kimia berbahaya."
+          "label": "Opsi 1 (Jawaban Inti)",
+          "ko": "인체에 유해하거나 폭발 위험 물질입니다.",
+          "id": "Zat berbahaya berisiko ledakan tinggi."
         },
         {
-          "label": "Versi 2 (1 Kalimat Pendek Siap Ucap)",
-          "ko": "위험성을 가진 화학 물질입니다.",
-          "id": "Zat kimia yang memiliki potensi bahaya."
+          "label": "Opsi 2 (Alternatif Nyata)",
+          "ko": "공장에서 제품 만들 때 쓰는 원료입니다.",
+          "id": "Bahan baku membuat produk pabrik."
         }
       ],
       "topic_no": 5,
@@ -6545,14 +6545,14 @@
           "id": "Dokumen penjelasan berisi informasi tentang bahan kimia (nama, komposisi, bahaya, risiko, cara penyimpanan, hal yang perlu diperhatikan saat menangani, alat pelindung yang diperlukan, pertolongan pertama, dan lain-lain)."
         },
         {
-          "label": "Versi 1 (Super Pendek · 1-3 Kata)",
-          "ko": "화학물질 설명서입니다.",
-          "id": "Buku petunjuk kimia."
+          "label": "Opsi 1 (Jawaban Inti)",
+          "ko": "화학물질 위험성과 취급법을 적은 설명서입니다.",
+          "id": "Petunjuk bahaya dan penanganan kimia."
         },
         {
-          "label": "Versi 2 (1 Kalimat Pendek Siap Ucap)",
-          "ko": "화학물질의 안전 설명서입니다.",
-          "id": "Buku panduan keselamatan bahan kimia."
+          "label": "Opsi 2 (Alternatif Nyata)",
+          "ko": "응급처치와 필수 보호구가 적힌 문서입니다.",
+          "id": "Dokumen pertolongan pertama alat pelindung."
         }
       ],
       "topic_no": 5,
@@ -6581,14 +6581,14 @@
           "id": "Karena itu informasi keselamatan paling dasar yang wajib diperiksa agar bahan kimia ditangani dengan aman dan kecelakaan dicegah."
         },
         {
-          "label": "Versi 1 (Super Pendek · 1-3 Kata)",
-          "ko": "안전한 취급을 위해서입니다.",
-          "id": "Agar aman digunakan."
+          "label": "Opsi 1 (Jawaban Inti)",
+          "ko": "화학물질을 안전하게 취급하기 위해서입니다.",
+          "id": "Untuk menangani bahan kimia aman."
         },
         {
-          "label": "Versi 2 (1 Kalimat Pendek Siap Ucap)",
-          "ko": "안전하게 다루기 위해서입니다.",
-          "id": "Agar bisa menanganinya dengan aman."
+          "label": "Opsi 2 (Alternatif Nyata)",
+          "ko": "중독이나 폭발 사고를 예방하기 위해서입니다.",
+          "id": "Mencegah kecelakaan keracunan atau ledakan."
         }
       ],
       "topic_no": 5,
@@ -6617,14 +6617,14 @@
           "id": "Sebelum bekerja dengan bahan kimia, siapkan masker gas, sarung tangan pelindung bahan kimia, dan lain-lain, lalu pakai saat bekerja."
         },
         {
-          "label": "Versi 1 (Super Pendek · 1-3 Kata)",
-          "ko": "방독마스크와 보호장갑입니다.",
-          "id": "Masker dan sarung-tangan."
+          "label": "Opsi 1 (Jawaban Inti)",
+          "ko": "유해가스를 막는 방독마스크를 준비합니다.",
+          "id": "Menyiapkan masker gas anti racun."
         },
         {
-          "label": "Versi 2 (1 Kalimat Pendek Siap Ucap)",
-          "ko": "방독마스크와 장갑을 준비해야 합니다.",
-          "id": "Harus menyiapkan masker gas dan sarung tangan."
+          "label": "Opsi 2 (Alternatif Nyata)",
+          "ko": "화학물질용 보호장갑을 착용해야 합니다.",
+          "id": "Harus memakai sarung tangan kimia."
         }
       ],
       "topic_no": 5,
@@ -6653,14 +6653,14 @@
           "id": "Ruang dengan ventilasi kurang yang kekurangan oksigen, atau ada atau mungkin timbul gas beracun, uap, atau debu."
         },
         {
-          "label": "Versi 1 (Super Pendek · 1-3 Kata)",
-          "ko": "산소가 부족한 공간입니다.",
-          "id": "Ruangan minim oksigen."
+          "label": "Opsi 1 (Jawaban Inti)",
+          "ko": "환기가 안 되어 산소가 부족한 공간입니다.",
+          "id": "Ruangan kurang ventilasi kekurangan oksigen."
         },
         {
-          "label": "Versi 2 (1 Kalimat Pendek Siap Ucap)",
-          "ko": "산소가 부족하고 위험한 공간입니다.",
-          "id": "Ruangan berbahaya yang kekurangan oksigen."
+          "label": "Opsi 2 (Alternatif Nyata)",
+          "ko": "맨홀, 탱크, 지하 저장고 같은 곳입니다.",
+          "id": "Seperti gorong-gorong, tangki, ruang bawah."
         }
       ],
       "topic_no": 6,
@@ -6689,14 +6689,14 @@
           "id": "Tindakan mengganti udara kotor di dalam ruangan dengan udara bersih dari luar untuk menjaga lingkungan kerja yang nyaman dan aman."
         },
         {
-          "label": "Versi 1 (Super Pendek · 1-3 Kata)",
-          "ko": "공기 교체입니다.",
-          "id": "Pertukaran sirkulasi udara."
+          "label": "Opsi 1 (Jawaban Inti)",
+          "ko": "오염된 공기를 신선한 공기로 바꿉니다.",
+          "id": "Mengganti udara kotor menjadi segar."
         },
         {
-          "label": "Versi 2 (1 Kalimat Pendek Siap Ucap)",
-          "ko": "깨끗한 공기로 바꾸는 것입니다.",
-          "id": "Mengganti udara kotor dengan yang bersih."
+          "label": "Opsi 2 (Alternatif Nyata)",
+          "ko": "안전하고 쾌적한 숨쉬기 환경을 만듭니다.",
+          "id": "Menciptakan lingkungan bernapas yang nyaman."
         }
       ],
       "topic_no": 6,
@@ -6725,14 +6725,14 @@
           "id": "Karena jika bekerja tanpa ventilasi, pekerja bisa meninggal akibat gas beracun atau kekurangan oksigen."
         },
         {
-          "label": "Versi 1 (Super Pendek · 1-3 Kata)",
-          "ko": "질식 방지를 위해서입니다.",
-          "id": "Mencegah mati lemas."
+          "label": "Opsi 1 (Jawaban Inti)",
+          "ko": "산소 결핍으로 질식하는 것을 막습니다.",
+          "id": "Mencegah mati lemas kekurangan oksigen."
         },
         {
-          "label": "Versi 2 (1 Kalimat Pendek Siap Ucap)",
-          "ko": "질식 사고를 막기 위해서입니다.",
-          "id": "Untuk mencegah kecelakaan mati lemas."
+          "label": "Opsi 2 (Alternatif Nyata)",
+          "ko": "밀폐공간 내 독성 가스를 배출합니다.",
+          "id": "Membuang gas beracun ruangan tertutup."
         }
       ],
       "topic_no": 6,
@@ -6761,14 +6761,14 @@
           "id": "Menjalankan atau mengoperasikan mesin atau peralatan secara nyata untuk kegiatan produksi."
         },
         {
-          "label": "Versi 1 (Super Pendek · 1-3 Kata)",
-          "ko": "기계 작동입니다.",
-          "id": "Pengoperasian mesin berjalan."
+          "label": "Opsi 1 (Jawaban Inti)",
+          "ko": "기계가 실제로 움직여 작동하는 것입니다.",
+          "id": "Mesin bergerak dan sedang beroperasi."
         },
         {
-          "label": "Versi 2 (1 Kalimat Pendek Siap Ucap)",
-          "ko": "기계를 작동시키는 것입니다.",
-          "id": "Menjalankan atau mengoperasikan mesin."
+          "label": "Opsi 2 (Alternatif Nyata)",
+          "ko": "생산 작업을 위해 전원을 켠 상태입니다.",
+          "id": "Kondisi daya menyala untuk produksi."
         }
       ],
       "topic_no": 7,
@@ -6797,14 +6797,14 @@
           "id": "Pekerjaan memeriksa kelainan mesin atau peralatan, serta memperbaiki atau mengganti komponen untuk mencegah kerusakan dan kecelakaan."
         },
         {
-          "label": "Versi 1 (Super Pendek · 1-3 Kata)",
-          "ko": "기계 수리입니다.",
-          "id": "Perbaikan mesin kerja."
+          "label": "Opsi 1 (Jawaban Inti)",
+          "ko": "고장 난 부품을 수리하거나 교체합니다.",
+          "id": "Memperbaiki atau mengganti suku cadang."
         },
         {
-          "label": "Versi 2 (1 Kalimat Pendek Siap Ucap)",
-          "ko": "기계를 수리하고 점검하는 것입니다.",
-          "id": "Memperbaiki dan memeriksa kondisi mesin."
+          "label": "Opsi 2 (Alternatif Nyata)",
+          "ko": "사고를 막기 위해 기계를 점검합니다.",
+          "id": "Memeriksa mesin untuk mencegah kecelakaan."
         }
       ],
       "topic_no": 7,
@@ -6833,14 +6833,14 @@
           "id": "Karena saat perbaikan sering kali tangan atau kepala masuk ke dalam mesin, dan jika mesin tiba-tiba bekerja, bisa terjadi kecelakaan."
         },
         {
-          "label": "Versi 1 (Super Pendek · 1-3 Kata)",
-          "ko": "끼임 사고 때문입니다.",
-          "id": "Bahaya terjepit mesin."
+          "label": "Opsi 1 (Jawaban Inti)",
+          "ko": "손이나 옷이 기계에 끼일 수 있습니다.",
+          "id": "Tangan atau baju bisa terjepit."
         },
         {
-          "label": "Versi 2 (1 Kalimat Pendek Siap Ucap)",
-          "ko": "기계에 끼일 수 있습니다.",
-          "id": "Anggota tubuh bisa terjepit mesin."
+          "label": "Opsi 2 (Alternatif Nyata)",
+          "ko": "기계가 갑자기 움직여 크게 다칩니다.",
+          "id": "Bisa terluka parah mesin mendadak gerak."
         }
       ],
       "topic_no": 7,
@@ -6869,14 +6869,14 @@
           "id": "Jika mesin berhenti karena alasan yang tidak diketahui, jangan dioperasikan sembarangan dan laporkan kepada atasan seperti kepala regu."
         },
         {
-          "label": "Versi 1 (Super Pendek · 1-3 Kata)",
-          "ko": "관리자 보고입니다.",
-          "id": "Lapor ke mandor."
+          "label": "Opsi 1 (Jawaban Inti)",
+          "ko": "손대지 말고 즉시 관리자에게 보고합니다.",
+          "id": "Jangan disentuh langsung lapor pengawas."
         },
         {
-          "label": "Versi 2 (1 Kalimat Pendek Siap Ucap)",
-          "ko": "반장님께 바로 보고해야 합니다.",
-          "id": "Harus segera melapor ke mandor."
+          "label": "Opsi 2 (Alternatif Nyata)",
+          "ko": "전원을 끄고 점검 중 표지를 붙입니다.",
+          "id": "Matikan daya pasang tanda perbaikan."
         }
       ],
       "topic_no": 7,
@@ -6905,14 +6905,14 @@
           "id": "Peralatan yang cara pakai dan prosedur pengoperasiannya tidak diketahui dengan tepat sehingga tidak bisa dijalankan dengan benar."
         },
         {
-          "label": "Versi 1 (Super Pendek · 1-3 Kata)",
-          "ko": "모르는 기계입니다.",
-          "id": "Mesin belum dipahami."
+          "label": "Opsi 1 (Jawaban Inti)",
+          "ko": "사용법과 작동 절차를 모르는 기계입니다.",
+          "id": "Mesin yang belum diketahui penggunaannya."
         },
         {
-          "label": "Versi 2 (1 Kalimat Pendek Siap Ucap)",
-          "ko": "사용법을 잘 모르는 기계입니다.",
-          "id": "Mesin yang cara kerjanya tidak diketahui."
+          "label": "Opsi 2 (Alternatif Nyata)",
+          "ko": "담당이 아니어서 허가받지 않은 기계입니다.",
+          "id": "Mesin tanpa izin di luar tugas."
         }
       ],
       "topic_no": 8,
@@ -6941,14 +6941,14 @@
           "id": "Tindakan mengoperasikan atau mengubah mesin atau peralatan sesuka hati tanpa prosedur atau izin yang ditetapkan."
         },
         {
-          "label": "Versi 1 (Super Pendek · 1-3 Kata)",
-          "ko": "마음대로 조작하는 것입니다.",
-          "id": "Mengoperasikan tanpa izin."
+          "label": "Opsi 1 (Jawaban Inti)",
+          "ko": "허락 없이 마음대로 기계를 만지는 것입니다.",
+          "id": "Menyentuh mesin sembarangan tanpa izin."
         },
         {
-          "label": "Versi 2 (1 Kalimat Pendek Siap Ucap)",
-          "ko": "허락 없이 마음대로 조작하는 것입니다.",
-          "id": "Mengoperasikan mesin sembarangan tanpa izin."
+          "label": "Opsi 2 (Alternatif Nyata)",
+          "ko": "정해진 절차를 지키지 않는 행동입니다.",
+          "id": "Tindakan tanpa mengikuti prosedur resmi."
         }
       ],
       "topic_no": 8,
@@ -6977,14 +6977,14 @@
           "id": "Karena jika mesin tiba-tiba bekerja atau muncul gerakan tak terduga, pekerja dan rekan bisa mengalami kecelakaan."
         },
         {
-          "label": "Versi 1 (Super Pendek · 1-3 Kata)",
-          "ko": "사고 위험 때문입니다.",
-          "id": "Bahaya kecelakaan fatal."
+          "label": "Opsi 1 (Jawaban Inti)",
+          "ko": "오작동으로 큰 사고를 부를 수 있습니다.",
+          "id": "Bisa memicu kecelakaan salah operasi."
         },
         {
-          "label": "Versi 2 (1 Kalimat Pendek Siap Ucap)",
-          "ko": "큰 사고가 날 수 있습니다.",
-          "id": "Bisa menimbulkan bahaya kecelakaan kerja."
+          "label": "Opsi 2 (Alternatif Nyata)",
+          "ko": "기계 파손과 고장의 원인이 됩니다.",
+          "id": "Menjadi penyebab kerusakan patah mesin."
         }
       ],
       "topic_no": 8,
@@ -7013,14 +7013,14 @@
           "id": "Saat terjadi situasi berbahaya atau mesin harus segera dihentikan, tombol yang menghentikannya disebut alat henti darurat."
         },
         {
-          "label": "Versi 1 (Super Pendek · 1-3 Kata)",
-          "ko": "긴급 정지 버튼입니다.",
-          "id": "Tombol darurat henti."
+          "label": "Opsi 1 (Jawaban Inti)",
+          "ko": "비상시 기계를 즉시 멈추는 버튼입니다.",
+          "id": "Tombol penghenti seketika saat darurat."
         },
         {
-          "label": "Versi 2 (1 Kalimat Pendek Siap Ucap)",
-          "ko": "기계를 긴급하게 멈추는 버튼입니다.",
-          "id": "Tombol untuk menghentikan mesin secara darurat."
+          "label": "Opsi 2 (Alternatif Nyata)",
+          "ko": "누르기 쉽게 만든 빨간색 스위치입니다.",
+          "id": "Sakelar merah yang mudah ditekan."
         }
       ],
       "topic_no": 8,
@@ -7049,14 +7049,14 @@
           "id": "Perlengkapan pelindung yang dipasang untuk melindungi pekerja pengguna mesin atau peralatan dari kecelakaan."
         },
         {
-          "label": "Versi 1 (Super Pendek · 1-3 Kata)",
-          "ko": "작업자 보호 설비입니다.",
-          "id": "Fasilitas keselamatan pekerja."
+          "label": "Opsi 1 (Jawaban Inti)",
+          "ko": "작업자를 사고로부터 지켜주는 보호설비입니다.",
+          "id": "Fasilitas pelindung pekerja dari celaka."
         },
         {
-          "label": "Versi 2 (1 Kalimat Pendek Siap Ucap)",
-          "ko": "작업자를 보호하는 안전 설비입니다.",
-          "id": "Fasilitas keamanan untuk melindungi pekerja."
+          "label": "Opsi 2 (Alternatif Nyata)",
+          "ko": "안전 덮개나 방호 난간 같은 장치입니다.",
+          "id": "Seperti penutup keselamatan pagar pelindung."
         }
       ],
       "topic_no": 9,
@@ -7085,14 +7085,14 @@
           "id": "Memisahkan mesin, alat, atau struktur dari kondisi aslinya atau menghentikan fungsi pengamannya."
         },
         {
-          "label": "Versi 1 (Super Pendek · 1-3 Kata)",
-          "ko": "분리하거나 끄는 것입니다.",
-          "id": "Melepas atau mematikan."
+          "label": "Opsi 1 (Jawaban Inti)",
+          "ko": "부품이나 장치를 떼어내어 분리하는 것입니다.",
+          "id": "Melepas dan memisahkan bagian perangkat."
         },
         {
-          "label": "Versi 2 (1 Kalimat Pendek Siap Ucap)",
-          "ko": "기능을 끄거나 떼어내는 것입니다.",
-          "id": "Melepas atau menonaktifkan fungsi pengaman."
+          "label": "Opsi 2 (Alternatif Nyata)",
+          "ko": "안전장치의 보호 기능을 꺼두는 것입니다.",
+          "id": "Mematikan fungsi keselamatan alat pengaman."
         }
       ],
       "topic_no": 9,
@@ -7121,14 +7121,14 @@
           "id": "Karena jika dibongkar atau dinonaktifkan, alat itu tidak bisa mencegah kecelakaan saat mesin rusak atau orang berbuat salah."
         },
         {
-          "label": "Versi 1 (Super Pendek · 1-3 Kata)",
-          "ko": "사고 방지를 위해서입니다.",
-          "id": "Mencegah kecelakaan kerja."
+          "label": "Opsi 1 (Jawaban Inti)",
+          "ko": "보호벽이 없어져 사고 위험에 노출됩니다.",
+          "id": "Terpapar bahaya karena pelindung hilang."
         },
         {
-          "label": "Versi 2 (1 Kalimat Pendek Siap Ucap)",
-          "ko": "사고를 막을 수 없기 때문입니다.",
-          "id": "Karena tidak bisa mencegah kecelakaan jika dilepas."
+          "label": "Opsi 2 (Alternatif Nyata)",
+          "ko": "사망이나 심각한 부상으로 이어집니다.",
+          "id": "Berakibat kematian atau cedera parah."
         }
       ],
       "topic_no": 9,
@@ -7157,14 +7157,14 @@
           "id": "Jika bekerja setelah membongkar alat pengaman, tubuh bisa terjepit mesin."
         },
         {
-          "label": "Versi 1 (Super Pendek · 1-3 Kata)",
-          "ko": "기계 끼임 사고입니다.",
-          "id": "Bahaya terjepit mesin."
+          "label": "Opsi 1 (Jawaban Inti)",
+          "ko": "손이나 몸이 기계에 끼일 수 있습니다.",
+          "id": "Tubuh atau tangan bisa terjepit."
         },
         {
-          "label": "Versi 2 (1 Kalimat Pendek Siap Ucap)",
-          "ko": "기계에 몸이 끼일 수 있습니다.",
-          "id": "Tubuh bisa terjepit ke dalam mesin."
+          "label": "Opsi 2 (Alternatif Nyata)",
+          "ko": "날아오는 파편에 맞아 크게 다칩니다.",
+          "id": "Terluka parah terhantam pecahan serpihan."
         }
       ],
       "topic_no": 9,
@@ -7193,14 +7193,14 @@
           "id": "Menetapkan secara resmi orang, benda, atau tempat untuk mencegah kecelakaan."
         },
         {
-          "label": "Versi 1 (Super Pendek · 1-3 Kata)",
-          "ko": "정해 놓은 것입니다.",
-          "id": "Sudah ditentukan resmi."
+          "label": "Opsi 1 (Jawaban Inti)",
+          "ko": "공식적으로 정해 놓은 규칙이나 규정입니다.",
+          "id": "Aturan resmi yang telah ditentukan."
         },
         {
-          "label": "Versi 2 (1 Kalimat Pendek Siap Ucap)",
-          "ko": "공식적으로 미리 정해 놓은 것입니다.",
-          "id": "Sesuatu yang sudah ditentukan secara resmi."
+          "label": "Opsi 2 (Alternatif Nyata)",
+          "ko": "안전을 위해 특별히 정해진 것입니다.",
+          "id": "Sesuatu yang ditetapkan khusus keselamatan."
         }
       ],
       "topic_no": 10,
@@ -7229,14 +7229,14 @@
           "id": "Peralatan atau perangkat yang dipakai sebagai pelengkap oleh pekerja untuk mencegah kecelakaan saat bekerja."
         },
         {
-          "label": "Versi 1 (Super Pendek · 1-3 Kata)",
-          "ko": "보조 작업 공구입니다.",
-          "id": "Alat bantu kerja."
+          "label": "Opsi 1 (Jawaban Inti)",
+          "ko": "안전한 작업을 돕는 추가 장비입니다.",
+          "id": "Peralatan tambahan pembantu kerja aman."
         },
         {
-          "label": "Versi 2 (1 Kalimat Pendek Siap Ucap)",
-          "ko": "사고를 막아주는 보조 도구입니다.",
-          "id": "Peralatan bantu kerja untuk mencegah kecelakaan."
+          "label": "Opsi 2 (Alternatif Nyata)",
+          "ko": "집게나 밀대 같은 보완 기구입니다.",
+          "id": "Alat pembantu seperti penjepit pendorong."
         }
       ],
       "topic_no": 10,
@@ -7265,14 +7265,14 @@
           "id": "Karena setiap alat dibuat untuk kegunaan tertentu, dan bila dipakai tidak sesuai tujuan, alat bisa rusak atau terjadi kecelakaan."
         },
         {
-          "label": "Versi 1 (Super Pendek · 1-3 Kata)",
-          "ko": "파손과 사고 예방입니다.",
-          "id": "Mencegah kerusakan alat."
+          "label": "Opsi 1 (Jawaban Inti)",
+          "ko": "도구 파손과 작업 실수를 막기 위해서입니다.",
+          "id": "Mencegah alat rusak kesalahan kerja."
         },
         {
-          "label": "Versi 2 (1 Kalimat Pendek Siap Ucap)",
-          "ko": "사고와 파손을 막기 위해서입니다.",
-          "id": "Untuk mencegah kerusakan alat dan kecelakaan."
+          "label": "Opsi 2 (Alternatif Nyata)",
+          "ko": "작업자 손을 다치지 않기 위해서입니다.",
+          "id": "Agar tangan pekerja tidak terluka."
         }
       ],
       "topic_no": 10,
@@ -7301,14 +7301,14 @@
           "id": "Alat bantu dipakai untuk mencegah kecelakaan seperti tangan terjepit saat bekerja dengan mesin."
         },
         {
-          "label": "Versi 1 (Super Pendek · 1-3 Kata)",
-          "ko": "손 끼임 방지입니다.",
-          "id": "Mencegah tangan terjepit."
+          "label": "Opsi 1 (Jawaban Inti)",
+          "ko": "기계에 손이 들어가는 것을 막아줍니다.",
+          "id": "Mencegah tangan masuk ke mesin."
         },
         {
-          "label": "Versi 2 (1 Kalimat Pendek Siap Ucap)",
-          "ko": "손 끼임 사고를 막기 위해서입니다.",
-          "id": "Untuk mencegah kecelakaan tangan terjepit mesin."
+          "label": "Opsi 2 (Alternatif Nyata)",
+          "ko": "손 끼임 사고를 확실히 예방합니다.",
+          "id": "Mencegah pasti kecelakaan tangan terjepit."
         }
       ],
       "topic_no": 10,
@@ -7337,14 +7337,14 @@
           "id": "Mesin angkut yang dipakai untuk mengangkat, membawa, dan menumpuk muatan atau bahan yang berat."
         },
         {
-          "label": "Versi 1 (Super Pendek · 1-3 Kata)",
-          "ko": "화물 운반 기계입니다.",
-          "id": "Mesin pengangkut muatan."
+          "label": "Opsi 1 (Jawaban Inti)",
+          "ko": "무거운 화물을 들어 올리는 기계입니다.",
+          "id": "Mesin pengangkat barang muatan berat."
         },
         {
-          "label": "Versi 2 (1 Kalimat Pendek Siap Ucap)",
-          "ko": "무거운 짐을 옮기는 기계입니다.",
-          "id": "Mesin untuk memindahkan barang berat."
+          "label": "Opsi 2 (Alternatif Nyata)",
+          "ko": "포크로 짐을 운반하는 차량입니다.",
+          "id": "Kendaraan pengangkut beban bergarpu depan."
         }
       ],
       "topic_no": 11,
@@ -7373,14 +7373,14 @@
           "id": "Perlengkapan pelindung yang dipakai agar pengemudi forklift tidak terlempar keluar akibat tabrakan, rem mendadak, atau terguling."
         },
         {
-          "label": "Versi 1 (Super Pendek · 1-3 Kata)",
-          "ko": "신체 고정 벨트입니다.",
-          "id": "Sabuk pengaman tubuh."
+          "label": "Opsi 1 (Jawaban Inti)",
+          "ko": "몸이 튕겨 나가지 않게 잡아주는 띠입니다.",
+          "id": "Sabuk penahan tubuh tidak terlempar."
         },
         {
-          "label": "Versi 2 (1 Kalimat Pendek Siap Ucap)",
-          "ko": "몸이 튕겨 나가는 것을 막아줍니다.",
-          "id": "Mencegah tubuh pengemudi terlempar keluar."
+          "label": "Opsi 2 (Alternatif Nyata)",
+          "ko": "충돌 사고 때 운전자를 보호합니다.",
+          "id": "Melindungi pengemudi saat insiden tabrakan."
         }
       ],
       "topic_no": 11,
@@ -7409,14 +7409,14 @@
           "id": "Mengemudi sambil memeriksa dengan jelas pekerja, rintangan, dan kemiringan di depan, samping, dan belakang."
         },
         {
-          "label": "Versi 1 (Super Pendek · 1-3 Kata)",
-          "ko": "주변 확인입니다.",
-          "id": "Memastikan pandangan jelas."
+          "label": "Opsi 1 (Jawaban Inti)",
+          "ko": "전방과 주변 장애물을 확인하는 것입니다.",
+          "id": "Memeriksa rintangan depan dan sekitar."
         },
         {
-          "label": "Versi 2 (1 Kalimat Pendek Siap Ucap)",
-          "ko": "주변을 잘 보고 운전하는 것입니다.",
-          "id": "Melihat sekitar dengan jelas saat mengemudi."
+          "label": "Opsi 2 (Alternatif Nyata)",
+          "ko": "화물을 낮게 들어 앞을 봅니다.",
+          "id": "Mengangkat muatan rendah melihat depan."
         }
       ],
       "topic_no": 11,
@@ -7445,14 +7445,14 @@
           "id": "Karena dengan memakai sabuk pengaman dan menjaga pandangan, kecelakaan pengemudi dan rekan saat bekerja dengan forklift bisa dicegah."
         },
         {
-          "label": "Versi 1 (Super Pendek · 1-3 Kata)",
-          "ko": "지게차 사고 예방입니다.",
-          "id": "Mencegah kecelakaan forklift."
+          "label": "Opsi 1 (Jawaban Inti)",
+          "ko": "지게차 전복 시 운전자를 지킵니다.",
+          "id": "Menjaga sopir saat forklift terguling."
         },
         {
-          "label": "Versi 2 (1 Kalimat Pendek Siap Ucap)",
-          "ko": "운전자와 동료의 사고를 막기 위해서입니다.",
-          "id": "Untuk mencegah kecelakaan pengemudi dan rekan."
+          "label": "Opsi 2 (Alternatif Nyata)",
+          "ko": "주변 동료와 충돌을 방지하기 위해서입니다.",
+          "id": "Mencegah tabrakan dengan rekan kerja."
         }
       ],
       "topic_no": 11,
@@ -7481,14 +7481,14 @@
           "id": "Di Korea, forklift hanya boleh dikemudikan oleh orang yang memiliki kualifikasi. Tidak boleh dikemudikan sembarang orang."
         },
         {
-          "label": "Versi 1 (Super Pendek · 1-3 Kata)",
-          "ko": "자격증이 있는 사람입니다.",
-          "id": "Orang yang bersertifikat."
+          "label": "Opsi 1 (Jawaban Inti)",
+          "ko": "공식 자격증이 있는 사람만 가능합니다.",
+          "id": "Hanya yang bersertifikat resmi boleh."
         },
         {
-          "label": "Versi 2 (1 Kalimat Pendek Siap Ucap)",
-          "ko": "자격증이 있는 사람만 운전합니다.",
-          "id": "Hanya orang bersertifikat yang boleh mengemudi."
+          "label": "Opsi 2 (Alternatif Nyata)",
+          "ko": "저는 면허가 없어서 운전할 수 없습니다.",
+          "id": "Saya tidak berlisensi dilarang mengemudi."
         }
       ],
       "topic_no": 11,
@@ -7517,14 +7517,14 @@
           "id": "Pekerjaan yang punya faktor bahaya bagi tubuh atau nyawa pekerja, atau yang kemungkinan kecelakaannya tinggi."
         },
         {
-          "label": "Versi 1 (Super Pendek · 1-3 Kata)",
-          "ko": "위험이 높은 작업입니다.",
-          "id": "Pekerjaan berisiko tinggi."
+          "label": "Opsi 1 (Jawaban Inti)",
+          "ko": "사고 위험이 높아 생명을 위협하는 작업입니다.",
+          "id": "Pekerjaan rawan celaka membahayakan nyawa."
         },
         {
-          "label": "Versi 2 (1 Kalimat Pendek Siap Ucap)",
-          "ko": "사고 위험이 매우 높은 작업입니다.",
-          "id": "Pekerjaan yang memiliki potensi bahaya tinggi."
+          "label": "Opsi 2 (Alternatif Nyata)",
+          "ko": "고소 작업이나 밀폐공간 작업입니다.",
+          "id": "Pekerjaan di ketinggian ruang tertutup."
         }
       ],
       "topic_no": 12,
@@ -7553,14 +7553,14 @@
           "id": "Bekerja bersama, ketika satu orang bekerja, orang lainnya mengawasi sekitar atau segera bertindak jika terjadi keadaan tidak biasa."
         },
         {
-          "label": "Versi 1 (Super Pendek · 1-3 Kata)",
-          "ko": "둘이 함께하는 작업입니다.",
-          "id": "Bekerja berdua bersama."
+          "label": "Opsi 1 (Jawaban Inti)",
+          "ko": "한 명은 작업하고 한 명은 감시합니다.",
+          "id": "Satu orang kerja satu mengawasi."
         },
         {
-          "label": "Versi 2 (1 Kalimat Pendek Siap Ucap)",
-          "ko": "두 사람이 함께 작업하는 것입니다.",
-          "id": "Dua orang yang bekerja bersama-sama."
+          "label": "Opsi 2 (Alternatif Nyata)",
+          "ko": "이상 상황 발생 시 즉시 조치합니다.",
+          "id": "Segera bertindak saat situasi darurat."
         }
       ],
       "topic_no": 12,
@@ -7589,14 +7589,14 @@
           "id": "Karena kondisi pekerja bisa dipantau dan dilindungi secara langsung, dan saat terjadi kecelakaan bisa segera ada pertolongan dan penanganan."
         },
         {
-          "label": "Versi 1 (Super Pendek · 1-3 Kata)",
-          "ko": "빠른 구조를 위해서입니다.",
-          "id": "Untuk penyelamatan cepat."
+          "label": "Opsi 1 (Jawaban Inti)",
+          "ko": "위급할 때 즉시 구조하기 위해서입니다.",
+          "id": "Untuk segera menolong saat darurat."
         },
         {
-          "label": "Versi 2 (1 Kalimat Pendek Siap Ucap)",
-          "ko": "즉각적인 구조와 대응을 위해서입니다.",
-          "id": "Untuk penyelamatan dan pertolongan segera."
+          "label": "Opsi 2 (Alternatif Nyata)",
+          "ko": "서로의 안전 상태를 확인하기 위해서입니다.",
+          "id": "Untuk saling mengawasi kondisi keselamatan."
         }
       ],
       "topic_no": 12,
@@ -7625,14 +7625,14 @@
           "id": "Di atas tangga hanya boleh melakukan pekerjaan ringan seperti mengganti bola lampu, dan satu orang harus memegangi tangga dari bawah."
         },
         {
-          "label": "Versi 1 (Super Pendek · 1-3 Kata)",
-          "ko": "혼자서는 안됩니다.",
-          "id": "Tidak boleh sendirian."
+          "label": "Opsi 1 (Jawaban Inti)",
+          "ko": "안 됩니다. 밑에서 사다리를 잡아줘야 합니다.",
+          "id": "Tidak boleh. Bawah tangga wajib dipegangi."
         },
         {
-          "label": "Versi 2 (1 Kalimat Pendek Siap Ucap)",
-          "ko": "아래에서 사다리를 잡아줘야 합니다.",
-          "id": "Harus ada yang memegangi tangga dari bawah."
+          "label": "Opsi 2 (Alternatif Nyata)",
+          "ko": "간단한 작업만 두 명이 함께 합니다.",
+          "id": "Hanya pekerjaan mudah dilakukan berdua."
         }
       ],
       "topic_no": 12,
@@ -7661,14 +7661,14 @@
           "id": "Mesin berukuran dan berbobot besar untuk pekerjaan besar seperti mengangkut tanah dan menggali."
         },
         {
-          "label": "Versi 1 (Super Pendek · 1-3 Kata)",
-          "ko": "대형 작업 기계입니다.",
-          "id": "Mesin konstruksi besar."
+          "label": "Opsi 1 (Jawaban Inti)",
+          "ko": "크고 무거운 대형 기계장비입니다.",
+          "id": "Peralatan mesin yang besar berat."
         },
         {
-          "label": "Versi 2 (1 Kalimat Pendek Siap Ucap)",
-          "ko": "크고 무거운 대형 기계장비입니다.",
-          "id": "Peralatan mesin yang besar dan berat."
+          "label": "Opsi 2 (Alternatif Nyata)",
+          "ko": "굴착기나 불도저 같은 건설장비입니다.",
+          "id": "Alat konstruksi ekskavator atau buldoser."
         }
       ],
       "topic_no": 13,
@@ -7697,14 +7697,14 @@
           "id": "Ruang tempat pekerjaan tertentu berlangsung, yaitu area tempat pekerja benar-benar bekerja atau alat berat beroperasi, dan berisiko terjadi kecelakaan."
         },
         {
-          "label": "Versi 1 (Super Pendek · 1-3 Kata)",
-          "ko": "일하는 공간입니다.",
-          "id": "Area tempat kerja."
+          "label": "Opsi 1 (Jawaban Inti)",
+          "ko": "기계가 작동하며 일하는 위험 공간입니다.",
+          "id": "Area berbahaya tempat mesin bekerja."
         },
         {
-          "label": "Versi 2 (1 Kalimat Pendek Siap Ucap)",
-          "ko": "작업을 진행하는 위험한 공간입니다.",
-          "id": "Tempat berlangsungnya aktivitas pekerjaan di lapangan."
+          "label": "Opsi 2 (Alternatif Nyata)",
+          "ko": "관계자 외 출입을 금지하는 구역입니다.",
+          "id": "Zona larangan masuk selain petugas."
         }
       ],
       "topic_no": 13,
@@ -7733,14 +7733,14 @@
           "id": "Karena alat berat punya ruang yang tidak terlihat dari kursi pengemudi sangat luas, sehingga jika mendekati area kerja tanpa izin, risiko kecelakaan fatal sangat tinggi."
         },
         {
-          "label": "Versi 1 (Super Pendek · 1-3 Kata)",
-          "ko": "사망사고 위험 때문입니다.",
-          "id": "Bahaya kecelakaan fatal."
+          "label": "Opsi 1 (Jawaban Inti)",
+          "ko": "운전자 사각지대로 보이지 않기 때문입니다.",
+          "id": "Karena tidak terlihat area buta."
         },
         {
-          "label": "Versi 2 (1 Kalimat Pendek Siap Ucap)",
-          "ko": "사망 사고 위험이 크기 때문입니다.",
-          "id": "Karena risiko kecelakaan fatal sangat tinggi."
+          "label": "Opsi 2 (Alternatif Nyata)",
+          "ko": "부딪히면 사망할 위험이 크기 때문입니다.",
+          "id": "Bahaya besar tertabrak berujung kematian."
         }
       ],
       "topic_no": 13,
@@ -7769,14 +7769,14 @@
           "id": "Jangan mendekati area kerja tempat alat berat bekerja. Area kerja alat berat adalah area terlarang."
         },
         {
-          "label": "Versi 1 (Super Pendek · 1-3 Kata)",
-          "ko": "접근하면 안 됩니다.",
-          "id": "Jangan mendekat."
+          "label": "Opsi 1 (Jawaban Inti)",
+          "ko": "중장비 작업구역 밖으로 멀리 떨어집니다.",
+          "id": "Menjauh ke luar area kerja."
         },
         {
-          "label": "Versi 2 (1 Kalimat Pendek Siap Ucap)",
-          "ko": "작업 구역에 접근하면 안 됩니다.",
-          "id": "Tidak boleh mendekati area kerja alat berat."
+          "label": "Opsi 2 (Alternatif Nyata)",
+          "ko": "신호수의 안내에 따라 안전하게 이동합니다.",
+          "id": "Bergerak aman mengikuti panduan petugas."
         }
       ],
       "topic_no": 13,
@@ -7805,14 +7805,14 @@
           "id": "Peristiwa ketika bahan yang bisa terbakar bertemu oksigen di udara dan percikan api, lalu terbakar menghasilkan panas dan cahaya."
         },
         {
-          "label": "Versi 1 (Super Pendek · 1-3 Kata)",
-          "ko": "불이 나는 것입니다.",
-          "id": "Peristiwa kebakaran api."
+          "label": "Opsi 1 (Jawaban Inti)",
+          "ko": "불꽃과 산소가 만나 타오르는 것입니다.",
+          "id": "Pertemuan percikan api dengan oksigen."
         },
         {
-          "label": "Versi 2 (1 Kalimat Pendek Siap Ucap)",
-          "ko": "물질이 불에 타는 현상입니다.",
-          "id": "Fenomena benda terbakar yang mengeluarkan api."
+          "label": "Opsi 2 (Alternatif Nyata)",
+          "ko": "열과 연기로 피해를 주는 재난입니다.",
+          "id": "Bencana panas asap menimbulkan kerugian."
         }
       ],
       "topic_no": 14,
@@ -7841,14 +7841,14 @@
           "id": "Semua alat dan perangkat di tempat kerja yang bisa menimbulkan api, percikan, atau panas."
         },
         {
-          "label": "Versi 1 (Super Pendek · 1-3 Kata)",
-          "ko": "불을 내는 기구입니다.",
-          "id": "Peralatan pemantik api."
+          "label": "Opsi 1 (Jawaban Inti)",
+          "ko": "불꽃이나 열을 내는 도구와 장치입니다.",
+          "id": "Peralatan yang mengeluarkan api panas."
         },
         {
-          "label": "Versi 2 (1 Kalimat Pendek Siap Ucap)",
-          "ko": "불꽃과 열을 내는 기구입니다.",
-          "id": "Peralatan yang mengeluarkan percikan api dan panas."
+          "label": "Opsi 2 (Alternatif Nyata)",
+          "ko": "라이터, 용접기, 가스버너 같은 것입니다.",
+          "id": "Contohnya korek api, las, pembakar."
         }
       ],
       "topic_no": 14,
@@ -7877,14 +7877,14 @@
           "id": "Karena jika alat api dipakai saat ada bahan yang mudah terbakar di sekitar, risiko kebakaran sangat besar."
         },
         {
-          "label": "Versi 1 (Super Pendek · 1-3 Kata)",
-          "ko": "화재 예방을 위해서입니다.",
-          "id": "Untuk mencegah kebakaran."
+          "label": "Opsi 1 (Jawaban Inti)",
+          "ko": "작은 불티에도 쉽게 불이 붙기 때문입니다.",
+          "id": "Karena percikan kecil mudah menyulut."
         },
         {
-          "label": "Versi 2 (1 Kalimat Pendek Siap Ucap)",
-          "ko": "불이 나는 것을 막기 위해서입니다.",
-          "id": "Untuk mencegah timbulnya bahaya kebakaran."
+          "label": "Opsi 2 (Alternatif Nyata)",
+          "ko": "대형 화재나 가스 폭발을 예방합니다.",
+          "id": "Mencegah kebakaran besar ledakan gas."
         }
       ],
       "topic_no": 14,
@@ -7913,14 +7913,14 @@
           "id": "Singkirkan benda yang mudah terbakar ke tempat lain, baru bekerja."
         },
         {
-          "label": "Versi 1 (Super Pendek · 1-3 Kata)",
-          "ko": "물건을 치웁니다.",
-          "id": "Singkirkan barangnya."
+          "label": "Opsi 1 (Jawaban Inti)",
+          "ko": "타는 물건을 멀리 치워 놓습니다.",
+          "id": "Menyingkirkan barang yang mudah terbakar menjauh."
         },
         {
-          "label": "Versi 2 (1 Kalimat Pendek Siap Ucap)",
-          "ko": "불타는 물건을 치우고 작업합니다.",
-          "id": "Singkirkan benda mudah terbakar sebelum bekerja."
+          "label": "Opsi 2 (Alternatif Nyata)",
+          "ko": "주변에 소화기를 먼저 준비해 둡니다.",
+          "id": "Menyiapkan alat pemadam api di sekitar terlebih dahulu."
         }
       ],
       "topic_no": 14,
@@ -7949,14 +7949,14 @@
           "id": "Pada kebakaran biasa, padamkan api dengan alat pemadam, atau jika tidak bisa dipadamkan, segera menyelamatkan diri lewat pintu darurat."
         },
         {
-          "label": "Versi 1 (Super Pendek · 1-3 Kata)",
-          "ko": "즉시 대피합니다.",
-          "id": "Segera evakuasi."
+          "label": "Opsi 1 (Jawaban Inti)",
+          "ko": "\"불이야\" 외치며 비상구로 대피합니다.",
+          "id": "Berteriak \"kebakaran\" dan evakuasi ke pintu darurat."
         },
         {
-          "label": "Versi 2 (1 Kalimat Pendek Siap Ucap)",
-          "ko": "비상구로 즉시 대피합니다.",
-          "id": "Segera evakuasi lewat pintu darurat."
+          "label": "Opsi 2 (Alternatif Nyata)",
+          "ko": "비상벨을 누르고 소화기를 사용합니다.",
+          "id": "Menekan bel darurat dan menggunakan alat pemadam."
         }
       ],
       "topic_no": 14,
@@ -7985,14 +7985,14 @@
           "id": "Zat padat, cair, atau gas yang dipakai untuk membuat barang di tempat kerja, dan berbahaya bagi manusia atau berisiko meledak."
         },
         {
-          "label": "Versi 1 (Super Pendek · 1-3 Kata)",
-          "ko": "위험한 물질입니다.",
-          "id": "Bahan berbahaya."
+          "label": "Opsi 1 (Jawaban Inti)",
+          "ko": "몸에 해롭거나 폭발 위험이 있는 물질입니다.",
+          "id": "Bahan yang berbahaya bagi tubuh atau berisiko meledak."
         },
         {
-          "label": "Versi 2 (1 Kalimat Pendek Siap Ucap)",
-          "ko": "몸에 해롭거나 위험한 물질입니다.",
-          "id": "Zat yang berbahaya bagi tubuh."
+          "label": "Opsi 2 (Alternatif Nyata)",
+          "ko": "신나, 페인트, 세척제 같은 위험한 약품입니다.",
+          "id": "Obat atau cairan berbahaya seperti thinner, cat, dan pembersih."
         }
       ],
       "topic_no": 15,
@@ -8021,14 +8021,14 @@
           "id": "Perlengkapan yang menghilangkan zat berbahaya di dalam ruangan dan memasukkan udara segar dari luar untuk menjaga lingkungan kerja tetap nyaman dan aman."
         },
         {
-          "label": "Versi 1 (Super Pendek · 1-3 Kata)",
-          "ko": "환기 설비입니다.",
-          "id": "Peralatan ventilasi udara."
+          "label": "Opsi 1 (Jawaban Inti)",
+          "ko": "나쁜 공기를 밖으로 빼내는 설비입니다.",
+          "id": "Peralatan yang membuang udara kotor ke luar."
         },
         {
-          "label": "Versi 2 (1 Kalimat Pendek Siap Ucap)",
-          "ko": "나쁜 공기를 빼내는 설비입니다.",
-          "id": "Alat penyerap udara kotor."
+          "label": "Opsi 2 (Alternatif Nyata)",
+          "ko": "공장에 달린 환풍기나 닥트 시설입니다.",
+          "id": "Fasilitas kipas ventilasi atau saluran udara di pabrik."
         }
       ],
       "topic_no": 15,
@@ -8057,14 +8057,14 @@
           "id": "Karena bahan kimia sering mengeluarkan uap, gas, dan debu berbahaya yang tidak terlihat, dan jika tidak segera dibuang ke luar, akan merusak kesehatan."
         },
         {
-          "label": "Versi 1 (Super Pendek · 1-3 Kata)",
-          "ko": "가스 배출입니다.",
-          "id": "Membuang gas beracun."
+          "label": "Opsi 1 (Jawaban Inti)",
+          "ko": "유독가스를 마시면 중독되기 때문입니다.",
+          "id": "Karena jika menghirup gas beracun bisa keracunan."
         },
         {
-          "label": "Versi 2 (1 Kalimat Pendek Siap Ucap)",
-          "ko": "유해가스를 밖으로 배출하기 위해서입니다.",
-          "id": "Untuk membuang gas beracun ke luar."
+          "label": "Opsi 2 (Alternatif Nyata)",
+          "ko": "작업장 공기를 맑고 안전하게 만들기 위해서입니다.",
+          "id": "Untuk membuat udara tempat kerja bersih dan aman."
         }
       ],
       "topic_no": 15,
@@ -8093,14 +8093,14 @@
           "id": "Saat menangani bahan kimia, ventilasi harus dinyalakan, dan alat pelindung seperti masker gas dan sarung tangan pelindung bahan kimia harus dipakai."
         },
         {
-          "label": "Versi 1 (Super Pendek · 1-3 Kata)",
-          "ko": "보호구를 착용합니다.",
-          "id": "Pakai alat pelindung."
+          "label": "Opsi 1 (Jawaban Inti)",
+          "ko": "환기장치를 켜고 창문을 열어 둡니다.",
+          "id": "Menyalakan alat ventilasi dan membiarkan jendela terbuka."
         },
         {
-          "label": "Versi 2 (1 Kalimat Pendek Siap Ucap)",
-          "ko": "환풍기를 켜고 보호구를 착용합니다.",
-          "id": "Nyalakan ventilasi dan pakai pelindung."
+          "label": "Opsi 2 (Alternatif Nyata)",
+          "ko": "방독마스크와 화학물질용 보호장갑을 착용합니다.",
+          "id": "Memakai masker gas dan sarung tangan khusus bahan kimia."
         }
       ],
       "topic_no": 15,
@@ -8129,14 +8129,14 @@
           "id": "Area yang memiliki faktor bahaya atau berisiko terjadi kecelakaan, sehingga akses masuknya dibatasi."
         },
         {
-          "label": "Versi 1 (Super Pendek · 1-3 Kata)",
-          "ko": "출입제한 구역입니다.",
-          "id": "Area terlarang masuk."
+          "label": "Opsi 1 (Jawaban Inti)",
+          "ko": "위험해서 아무나 들어갈 수 없는 장소입니다.",
+          "id": "Tempat berbahaya yang tidak boleh dimasuki sembarang orang."
         },
         {
-          "label": "Versi 2 (1 Kalimat Pendek Siap Ucap)",
-          "ko": "위험해서 출입을 제한하는 곳입니다.",
-          "id": "Tempat berbahaya yang dibatasi masuknya."
+          "label": "Opsi 2 (Alternatif Nyata)",
+          "ko": "고전압실이나 가스저장소 같은 위험 구역입니다.",
+          "id": "Area berbahaya seperti ruang tegangan tinggi atau gudang gas."
         }
       ],
       "topic_no": 16,
@@ -8165,14 +8165,14 @@
           "id": "Persetujuan untuk melakukan pekerjaan berbahaya atau yang butuh kualifikasi khusus, setelah kondisi keselamatan diperiksa sebelum kerja dan syaratnya terpenuhi."
         },
         {
-          "label": "Versi 1 (Super Pendek · 1-3 Kata)",
-          "ko": "작업 승인입니다.",
-          "id": "Persetujuan kerja."
+          "label": "Opsi 1 (Jawaban Inti)",
+          "ko": "작업해도 좋다고 관리자가 승인하는 것입니다.",
+          "id": "Persetujuan dari manajer bahwa boleh melakukan pekerjaan."
         },
         {
-          "label": "Versi 2 (1 Kalimat Pendek Siap Ucap)",
-          "ko": "작업을 해도 된다는 승인입니다.",
-          "id": "Izin boleh melakukan pekerjaan."
+          "label": "Opsi 2 (Alternatif Nyata)",
+          "ko": "안전 확인 후 받는 공식적인 허락입니다.",
+          "id": "Izin resmi yang didapat setelah pemeriksaan keselamatan."
         }
       ],
       "topic_no": 16,
@@ -8201,14 +8201,14 @@
           "id": "Alasan area terkontrol dilarang dimasuki tanpa izin: area terkontrol lebih berisiko kecelakaan daripada area biasa, jadi masuk tanpa izin sama dengan menghadapi bahaya tanpa tindakan pengamanan."
         },
         {
-          "label": "Versi 1 (Super Pendek · 1-3 Kata)",
-          "ko": "사고 예방입니다.",
-          "id": "Mencegah kecelakaan."
+          "label": "Opsi 1 (Jawaban Inti)",
+          "ko": "큰 인명 사고가 날 수 있기 때문입니다.",
+          "id": "Karena bisa terjadi kecelakaan kerja yang fatal."
         },
         {
-          "label": "Versi 2 (1 Kalimat Pendek Siap Ucap)",
-          "ko": "사고 위험이 크기 때문입니다.",
-          "id": "Karena risiko kecelakaannya besar."
+          "label": "Opsi 2 (Alternatif Nyata)",
+          "ko": "안전 조치 없이 들어가면 매우 위험하기 때문입니다.",
+          "id": "Karena masuk tanpa tindakan pengamanan sangat berbahaya."
         }
       ],
       "topic_no": 16,
@@ -8237,14 +8237,14 @@
           "id": "Tempat yang berisiko kecelakaan tinggi sehingga tidak boleh dimasuki sembarang orang diberi tanda larangan masuk."
         },
         {
-          "label": "Versi 1 (Super Pendek · 1-3 Kata)",
-          "ko": "출입 불가입니다.",
-          "id": "Dilarang masuk."
+          "label": "Opsi 1 (Jawaban Inti)",
+          "ko": "안으로 절대 들어가면 안 된다는 뜻입니다.",
+          "id": "Artinya sama sekali tidak boleh masuk ke dalam."
         },
         {
-          "label": "Versi 2 (1 Kalimat Pendek Siap Ucap)",
-          "ko": "위험해서 들어가면 안 되는 곳입니다.",
-          "id": "Tempat berbahaya yang tidak boleh dimasuki."
+          "label": "Opsi 2 (Alternatif Nyata)",
+          "ko": "허가받은 사람만 들어가는 안전 규칙입니다.",
+          "id": "Aturan keselamatan bahwa hanya orang berizin yang boleh masuk."
         }
       ],
       "topic_no": 16,
@@ -8273,14 +8273,14 @@
           "id": "Benda yang berat dan sulit diangkat atau dipindahkan dengan mudah oleh orang, sehingga butuh kehati-hatian khusus saat diangkut."
         },
         {
-          "label": "Versi 1 (Super Pendek · 1-3 Kata)",
-          "ko": "무거운 물건입니다.",
-          "id": "Barang berat."
+          "label": "Opsi 1 (Jawaban Inti)",
+          "ko": "혼자 들기 힘들 만큼 무거운 물건입니다.",
+          "id": "Barang yang begitu berat hingga sulit diangkat sendirian."
         },
         {
-          "label": "Versi 2 (1 Kalimat Pendek Siap Ucap)",
-          "ko": "혼자 들기 힘든 무거운 물건입니다.",
-          "id": "Benda berat yang sulit diangkat sendiri."
+          "label": "Opsi 2 (Alternatif Nyata)",
+          "ko": "철근이나 큰 기계 부품 같은 무거운 자재입니다.",
+          "id": "Material berat seperti besi tulangan atau suku cadang mesin besar."
         }
       ],
       "topic_no": 17,
@@ -8309,14 +8309,14 @@
           "id": "Alasan meluruskan pinggang dan memakai kekuatan kaki saat mengangkat beban berat: dengan pinggang lurus dan memakai otot kaki yang paling besar dan kuat di tubuh, pinggang tidak akan cedera."
         },
         {
-          "label": "Versi 1 (Super Pendek · 1-3 Kata)",
-          "ko": "허리 보호입니다.",
-          "id": "Melindungi pinggang."
+          "label": "Opsi 1 (Jawaban Inti)",
+          "ko": "허리 디스크와 허리 부상을 막기 위해서입니다.",
+          "id": "Untuk mencegah cedera pinggang dan saraf kejepit."
         },
         {
-          "label": "Versi 2 (1 Kalimat Pendek Siap Ucap)",
-          "ko": "허리를 다치지 않기 위해서입니다.",
-          "id": "Agar pinggang tidak cedera."
+          "label": "Opsi 2 (Alternatif Nyata)",
+          "ko": "다리 근육이 몸에서 가장 힘이 세기 때문입니다.",
+          "id": "Karena otot kaki adalah bagian tubuh yang paling kuat."
         }
       ],
       "topic_no": 17,
@@ -8345,14 +8345,14 @@
           "id": "Benda berat harus diangkat oleh dua orang atau lebih atau memakai alat. Jika bisa diangkat sendiri, luruskan pinggang dan angkat dengan kekuatan kaki."
         },
         {
-          "label": "Versi 1 (Super Pendek · 1-3 Kata)",
-          "ko": "다리 힘입니다.",
-          "id": "Kekuatan kaki."
+          "label": "Opsi 1 (Jawaban Inti)",
+          "ko": "무릎을 굽히고 허리를 펴서 듭니다.",
+          "id": "Menekuk lutut dan meluruskan pinggang saat mengangkat."
         },
         {
-          "label": "Versi 2 (1 Kalimat Pendek Siap Ucap)",
-          "ko": "허리를 펴고 다리 힘으로 듭니다.",
-          "id": "Luruskan pinggang dan angkat dengan kaki."
+          "label": "Opsi 2 (Alternatif Nyata)",
+          "ko": "너무 무거우면 동료와 함께 둘이서 듭니다.",
+          "id": "Jika terlalu berat, mengangkatnya berdua bersama rekan kerja."
         }
       ],
       "topic_no": 17,
@@ -8381,14 +8381,14 @@
           "id": "Tindakan pekerja memindahkan barang atau material dari satu tempat ke tempat lain secara langsung, dengan mengangkat, mendorong, atau menarik."
         },
         {
-          "label": "Versi 1 (Super Pendek · 1-3 Kata)",
-          "ko": "물건 옮기기입니다.",
-          "id": "Memindahkan barang."
+          "label": "Opsi 1 (Jawaban Inti)",
+          "ko": "물건을 한 곳에서 다른 곳으로 옮기는 것입니다.",
+          "id": "Memindahkan barang dari satu tempat ke tempat lain."
         },
         {
-          "label": "Versi 2 (1 Kalimat Pendek Siap Ucap)",
-          "ko": "물건을 다른 곳으로 옮기는 것입니다.",
-          "id": "Memindahkan barang ke tempat lain."
+          "label": "Opsi 2 (Alternatif Nyata)",
+          "ko": "자재를 들거나 밀어서 이동시키는 작업입니다.",
+          "id": "Pekerjaan menggeser material dengan mengangkat atau mendorongnya."
         }
       ],
       "topic_no": 18,
@@ -8417,14 +8417,14 @@
           "id": "Alat atau perlengkapan yang dipakai pekerja untuk memindahkan barang atau material dengan lebih aman dan efisien."
         },
         {
-          "label": "Versi 1 (Super Pendek · 1-3 Kata)",
-          "ko": "짐 옮기는 도구입니다.",
-          "id": "Alat pemindah barang."
+          "label": "Opsi 1 (Jawaban Inti)",
+          "ko": "짐을 쉽고 안전하게 옮겨주는 장비입니다.",
+          "id": "Peralatan yang memindahkan muatan dengan mudah dan aman."
         },
         {
-          "label": "Versi 2 (1 Kalimat Pendek Siap Ucap)",
-          "ko": "물건을 쉽게 옮기는 장비입니다.",
-          "id": "Alat untuk memindahkan barang dengan mudah."
+          "label": "Opsi 2 (Alternatif Nyata)",
+          "ko": "손수레, 대차, 지게차 같은 이동 도구입니다.",
+          "id": "Alat transportasi seperti gerobak dorong, troli, atau forklift."
         }
       ],
       "topic_no": 18,
@@ -8453,14 +8453,14 @@
           "id": "Alasan memakai alat angkut saat mengangkut beban berat: jika pekerja mengangkut barang berat dengan tubuhnya, risiko cedera pinggang dan lainnya sangat besar."
         },
         {
-          "label": "Versi 1 (Super Pendek · 1-3 Kata)",
-          "ko": "부상 예방입니다.",
-          "id": "Mencegah cedera."
+          "label": "Opsi 1 (Jawaban Inti)",
+          "ko": "몸으로 직접 나르면 허리를 다치기 때문입니다.",
+          "id": "Karena jika mengangkat langsung dengan badan bisa mencederai pinggang."
         },
         {
-          "label": "Versi 2 (1 Kalimat Pendek Siap Ucap)",
-          "ko": "몸을 다치지 않기 위해서입니다.",
-          "id": "Agar tubuh tidak cedera."
+          "label": "Opsi 2 (Alternatif Nyata)",
+          "ko": "힘을 덜 들이고 안전하게 옮기기 위해서입니다.",
+          "id": "Untuk memindahkan secara aman dan menghemat tenaga fisik."
         }
       ],
       "topic_no": 18,
@@ -8489,14 +8489,14 @@
           "id": "Saat memindahkan barang berat, gunakan alat angkut."
         },
         {
-          "label": "Versi 1 (Super Pendek · 1-3 Kata)",
-          "ko": "운반기구를 사용합니다.",
-          "id": "Pakai alat angkut."
+          "label": "Opsi 1 (Jawaban Inti)",
+          "ko": "손수레나 대차 같은 운반기구를 이용합니다.",
+          "id": "Menggunakan alat angkut seperti gerobak dorong atau troli."
         },
         {
-          "label": "Versi 2 (1 Kalimat Pendek Siap Ucap)",
-          "ko": "운반기구를 사용하여 안전하게 옮깁니다.",
-          "id": "Pindahkan dengan aman memakai alat angkut."
+          "label": "Opsi 2 (Alternatif Nyata)",
+          "ko": "혼자 무리하지 말고 동료와 같이 옮깁니다.",
+          "id": "Jangan memaksakan diri sendiri, pindahkan bersama rekan kerja."
         }
       ],
       "topic_no": 18,
@@ -8525,14 +8525,14 @@
           "id": "Tindakan pekerja memindahkan posisinya dari satu tempat ke tempat lain."
         },
         {
-          "label": "Versi 1 (Super Pendek · 1-3 Kata)",
-          "ko": "자리 옮기기입니다.",
-          "id": "Pindah tempat."
+          "label": "Opsi 1 (Jawaban Inti)",
+          "ko": "사람이나 물건의 자리를 옮기는 것입니다.",
+          "id": "Memindahkan posisi atau tempat orang maupun barang."
         },
         {
-          "label": "Versi 2 (1 Kalimat Pendek Siap Ucap)",
-          "ko": "다른 장소로 옮겨가는 것입니다.",
-          "id": "Berpindah menuju tempat lain."
+          "label": "Opsi 2 (Alternatif Nyata)",
+          "ko": "작업자가 이곳에서 저곳으로 걸어가는 행동입니다.",
+          "id": "Tindakan pekerja berjalan dari satu titik ke titik lain."
         }
       ],
       "topic_no": 19,
@@ -8561,14 +8561,14 @@
           "id": "Ruang lintasan yang disiapkan agar pekerja dapat berpindah dengan aman sambil menghindari bahaya."
         },
         {
-          "label": "Versi 1 (Super Pendek · 1-3 Kata)",
-          "ko": "안전한 길입니다.",
-          "id": "Jalan yang aman."
+          "label": "Opsi 1 (Jawaban Inti)",
+          "ko": "위험물 없이 안전하게 다닐 수 있는 길입니다.",
+          "id": "Jalan yang bisa dilewati dengan aman tanpa rintangan berbahaya."
         },
         {
-          "label": "Versi 2 (1 Kalimat Pendek Siap Ucap)",
-          "ko": "안전하게 다닐 수 있는 길입니다.",
-          "id": "Jalan untuk lewat dengan aman."
+          "label": "Opsi 2 (Alternatif Nyata)",
+          "ko": "바닥에 노란색 선으로 그려진 보행 통로입니다.",
+          "id": "Jalur pejalan kaki yang digambar garis kuning di lantai pabrik."
         }
       ],
       "topic_no": 19,
@@ -8597,14 +8597,14 @@
           "id": "Alasan memakai jalur aman saat berpindah: pekerja bisa berpindah posisi dengan aman hanya jika memakai jalur aman yang bebas dari faktor bahaya seperti rintangan dan mesin."
         },
         {
-          "label": "Versi 1 (Super Pendek · 1-3 Kata)",
-          "ko": "안전한 이동입니다.",
-          "id": "Berpindah dengan aman."
+          "label": "Opsi 1 (Jawaban Inti)",
+          "ko": "지게차나 기계와 부딪히지 않기 위해서입니다.",
+          "id": "Agar tidak tertabrak oleh forklift atau mesin."
         },
         {
-          "label": "Versi 2 (1 Kalimat Pendek Siap Ucap)",
-          "ko": "사고 없이 안전하게 이동하기 위해서입니다.",
-          "id": "Agar bisa berpindah aman tanpa kecelakaan."
+          "label": "Opsi 2 (Alternatif Nyata)",
+          "ko": "바닥 장애물에 걸려 넘어지지 않기 때문입니다.",
+          "id": "Karena agar tidak tersandung rintangan di lantai."
         }
       ],
       "topic_no": 19,
@@ -8633,14 +8633,14 @@
           "id": "Waktu atau keadaan ketika pekerja melakukan semua kegiatan yang berkaitan dengan pekerjaan."
         },
         {
-          "label": "Versi 1 (Super Pendek · 1-3 Kata)",
-          "ko": "일하는 시간입니다.",
-          "id": "Waktu bekerja."
+          "label": "Opsi 1 (Jawaban Inti)",
+          "ko": "맡은 일과 업무를 실제로 하고 있는 시간입니다.",
+          "id": "Waktu saat sedang benar-benar melakukan tugas dan pekerjaan."
         },
         {
-          "label": "Versi 2 (1 Kalimat Pendek Siap Ucap)",
-          "ko": "회사에서 일을 하고 있는 시간입니다.",
-          "id": "Waktu saat sedang bekerja di tempat kerja."
+          "label": "Opsi 2 (Alternatif Nyata)",
+          "ko": "공장에서 기계를 만지며 일하는 상태입니다.",
+          "id": "Kondisi saat sedang bekerja mengoperasikan mesin di pabrik."
         }
       ],
       "topic_no": 20,
@@ -8669,14 +8669,14 @@
           "id": "Jika memakai ponsel saat bekerja, perhatian pekerja terpecah sehingga tidak bisa fokus pada pekerjaan dan risiko kecelakaan meningkat tajam."
         },
         {
-          "label": "Versi 1 (Super Pendek · 1-3 Kata)",
-          "ko": "사고 위험입니다.",
-          "id": "Bahaya kecelakaan."
+          "label": "Opsi 1 (Jawaban Inti)",
+          "ko": "집중력이 떨어져서 기계 사고가 나기 때문입니다.",
+          "id": "Karena konsentrasi berkurang sehingga bisa terjadi kecelakaan mesin."
         },
         {
-          "label": "Versi 2 (1 Kalimat Pendek Siap Ucap)",
-          "ko": "집중하지 못해 사고가 나기 때문입니다.",
-          "id": "Karena hilang fokus bisa menyebabkan kecelakaan."
+          "label": "Opsi 2 (Alternatif Nyata)",
+          "ko": "주변을 못 보고 동료를 다치게 하기 때문입니다.",
+          "id": "Karena tidak melihat sekitar dan bisa mencelakakan rekan kerja."
         }
       ],
       "topic_no": 20,
@@ -8705,14 +8705,14 @@
           "id": "Kegiatan menata barang rapi di tempat yang ditentukan dan menjaga lingkungan sekitar tetap bersih, untuk mencegah kecelakaan dan meningkatkan efisiensi kerja."
         },
         {
-          "label": "Versi 1 (Super Pendek · 1-3 Kata)",
-          "ko": "물건 정돈입니다.",
-          "id": "Merapikan barang."
+          "label": "Opsi 1 (Jawaban Inti)",
+          "ko": "물건을 정해진 제자리에 가지런히 놓는 것입니다.",
+          "id": "Menata barang dengan rapi di tempat yang semestinya."
         },
         {
-          "label": "Versi 2 (1 Kalimat Pendek Siap Ucap)",
-          "ko": "물건을 제자리에 깔끔하게 놓는 것입니다.",
-          "id": "Menata barang di tempatnya dengan rapi."
+          "label": "Opsi 2 (Alternatif Nyata)",
+          "ko": "필요 없는 물건을 버리고 구별해 두는 일입니다.",
+          "id": "Pekerjaan membuang barang tak terpakai dan memilahnya."
         }
       ],
       "topic_no": 21,
@@ -8741,14 +8741,14 @@
           "id": "Kegiatan menghilangkan debu, sampah, minyak, dan benda asing di tempat kerja atau fasilitas agar tetap bersih."
         },
         {
-          "label": "Versi 1 (Super Pendek · 1-3 Kata)",
-          "ko": "깨끗이 닦기입니다.",
-          "id": "Membersihkan kotoran."
+          "label": "Opsi 1 (Jawaban Inti)",
+          "ko": "먼지, 쓰레기, 기름때를 닦아 깨끗이 치우는 것입니다.",
+          "id": "Membersihkan debu, sampah, dan noda minyak hingga bersih."
         },
         {
-          "label": "Versi 2 (1 Kalimat Pendek Siap Ucap)",
-          "ko": "더러운 먼지와 쓰레기를 치우는 것입니다.",
-          "id": "Membersihkan debu dan sampah kotor."
+          "label": "Opsi 2 (Alternatif Nyata)",
+          "ko": "작업장을 쾌적하고 위생적으로 유지하는 일입니다.",
+          "id": "Pekerjaan menjaga tempat kerja tetap nyaman dan higienis."
         }
       ],
       "topic_no": 21,
@@ -8777,14 +8777,14 @@
           "id": "Barang yang dibutuhkan bisa ditemukan dan dipakai dengan mudah dan cepat, sedangkan perkakas atau benda asing yang berserakan menjadi penyebab kecelakaan seperti tersandung dan terpeleset."
         },
         {
-          "label": "Versi 1 (Super Pendek · 1-3 Kata)",
-          "ko": "사고 예방입니다.",
-          "id": "Mencegah kecelakaan."
+          "label": "Opsi 1 (Jawaban Inti)",
+          "ko": "바닥에 걸려 넘어지는 사고를 막기 위해서입니다.",
+          "id": "Untuk mencegah kecelakaan tersandung atau jatuh di lantai."
         },
         {
-          "label": "Versi 2 (1 Kalimat Pendek Siap Ucap)",
-          "ko": "넘어짐 사고를 예방하기 위해서입니다.",
-          "id": "Untuk mencegah kecelakaan tersandung."
+          "label": "Opsi 2 (Alternatif Nyata)",
+          "ko": "필요한 물건을 빠르고 안전하게 찾기 위해서입니다.",
+          "id": "Untuk menemukan barang yang dibutuhkan dengan cepat dan aman."
         }
       ],
       "topic_no": 21,
@@ -8813,14 +8813,14 @@
           "id": "Alat atau perangkat yang dipakai untuk membantu pekerjaan agar dikerjakan lebih mudah dan akurat."
         },
         {
-          "label": "Versi 1 (Super Pendek · 1-3 Kata)",
-          "ko": "작업용 도구입니다.",
-          "id": "Alat kerja."
+          "label": "Opsi 1 (Jawaban Inti)",
+          "ko": "작업을 더 쉽고 편리하게 해주는 도구입니다.",
+          "id": "Alat yang membuat pekerjaan lebih mudah dan praktis."
         },
         {
-          "label": "Versi 2 (1 Kalimat Pendek Siap Ucap)",
-          "ko": "일을 도와주는 작업 도구입니다.",
-          "id": "Peralatan yang membantu pekerjaan."
+          "label": "Opsi 2 (Alternatif Nyata)",
+          "ko": "망치, 스패너, 드라이버 같은 수작업 도구입니다.",
+          "id": "Alat kerja tangan seperti palu, kunci pas, dan obeng."
         }
       ],
       "topic_no": 22,
@@ -8849,14 +8849,14 @@
           "id": "Posisi atau tempat yang sudah ditetapkan sebelumnya untuk mencegah kecelakaan dan menjaga efisiensi kerja, yaitu tempat benda atau orang seharusnya berada."
         },
         {
-          "label": "Versi 1 (Super Pendek · 1-3 Kata)",
-          "ko": "정해진 위치입니다.",
-          "id": "Posisi ditentukan."
+          "label": "Opsi 1 (Jawaban Inti)",
+          "ko": "물건을 항상 보관하기로 약속된 원래 위치입니다.",
+          "id": "Lokasi asli yang disepakati untuk selalu menyimpan barang."
         },
         {
-          "label": "Versi 2 (1 Kalimat Pendek Siap Ucap)",
-          "ko": "물건을 두기로 약속한 곳입니다.",
-          "id": "Tempat yang ditetapkan untuk menaruh barang."
+          "label": "Opsi 2 (Alternatif Nyata)",
+          "ko": "공구함이나 정리대 같이 정해진 보관함입니다.",
+          "id": "Tempat penyimpanan khusus seperti kotak perkakas atau rak."
         }
       ],
       "topic_no": 22,
@@ -8885,14 +8885,14 @@
           "id": "Perkakas berisiko hilang atau rusak, dan jika berada di lantai, jalur, atau di atas mesin, risiko kecelakaan besar."
         },
         {
-          "label": "Versi 1 (Super Pendek · 1-3 Kata)",
-          "ko": "분실 방지입니다.",
-          "id": "Mencegah hilang."
+          "label": "Opsi 1 (Jawaban Inti)",
+          "ko": "공구 분실을 막고 쉽게 찾기 위해서입니다.",
+          "id": "Untuk mencegah kehilangan alat dan mudah menemukannya."
         },
         {
-          "label": "Versi 2 (1 Kalimat Pendek Siap Ucap)",
-          "ko": "잃어버리지 않고 안전하게 쓰기 위해서입니다.",
-          "id": "Agar tidak hilang dan aman digunakan."
+          "label": "Opsi 2 (Alternatif Nyata)",
+          "ko": "발에 밟혀서 다치는 사고를 막기 위해서입니다.",
+          "id": "Untuk mencegah kecelakaan cedera akibat terinjak kaki."
         }
       ],
       "topic_no": 22,
@@ -8921,14 +8921,14 @@
           "id": "Semua kegiatan pengelolaan untuk menjaga kebersihan pekerja dan lingkungan kerja serta melindungi kesehatan dari faktor berbahaya."
         },
         {
-          "label": "Versi 1 (Super Pendek · 1-3 Kata)",
-          "ko": "청결 유지입니다.",
-          "id": "Menjaga kebersihan."
+          "label": "Opsi 1 (Jawaban Inti)",
+          "ko": "몸을 깨끗이 씻어 질병을 예방하는 것입니다.",
+          "id": "Mencuci tubuh agar bersih untuk mencegah penyakit."
         },
         {
-          "label": "Versi 2 (1 Kalimat Pendek Siap Ucap)",
-          "ko": "몸과 주변을 깨끗하게 유지하는 것입니다.",
-          "id": "Menjaga tubuh dan lingkungan tetap bersih."
+          "label": "Opsi 2 (Alternatif Nyata)",
+          "ko": "작업 환경의 세균과 오염을 막는 활동입니다.",
+          "id": "Kegiatan mencegah kuman dan pencemaran di lingkungan kerja."
         }
       ],
       "topic_no": 23,
@@ -8957,14 +8957,14 @@
           "id": "Benda asing atau bahan kimia di tempat kerja dapat masuk ke tubuh melalui tangan, mulut, mata, dan kulit sehingga menyebabkan penyakit."
         },
         {
-          "label": "Versi 1 (Super Pendek · 1-3 Kata)",
-          "ko": "질병 예방입니다.",
-          "id": "Mencegah penyakit."
+          "label": "Opsi 1 (Jawaban Inti)",
+          "ko": "유해물질이 입으로 들어가는 것을 막기 때문입니다.",
+          "id": "Karena mencegah zat berbahaya masuk ke dalam mulut."
         },
         {
-          "label": "Versi 2 (1 Kalimat Pendek Siap Ucap)",
-          "ko": "세균과 질병을 막기 위해서입니다.",
-          "id": "Untuk mencegah kuman dan penyakit."
+          "label": "Opsi 2 (Alternatif Nyata)",
+          "ko": "세균 감염과 식중독 같은 질병을 예방하기 때문입니다.",
+          "id": "Karena mencegah penyakit seperti infeksi kuman dan keracunan makanan."
         }
       ],
       "topic_no": 23,
@@ -8993,14 +8993,14 @@
           "id": "Sebelum makan, cuci tangan dengan bersih."
         },
         {
-          "label": "Versi 1 (Super Pendek · 1-3 Kata)",
-          "ko": "손을 씻습니다.",
-          "id": "Cuci tangan."
+          "label": "Opsi 1 (Jawaban Inti)",
+          "ko": "비누로 손과 얼굴을 깨끗이 씻습니다.",
+          "id": "Mencuci tangan dan muka dengan bersih memakai sabun."
         },
         {
-          "label": "Versi 2 (1 Kalimat Pendek Siap Ucap)",
-          "ko": "손을 깨끗하게 씻고 먹습니다.",
-          "id": "Cuci tangan bersih sebelum makan."
+          "label": "Opsi 2 (Alternatif Nyata)",
+          "ko": "더러워진 작업복과 장갑을 벗어 둡니다.",
+          "id": "Melepas pakaian kerja dan sarung tangan yang kotor."
         }
       ],
       "topic_no": 23,
@@ -9029,14 +9029,14 @@
           "id": "Pekerjaan untuk menghilangkan benda asing dari mesin atau peralatan, serta mengganti atau memulihkan bagian yang rusak."
         },
         {
-          "label": "Versi 1 (Super Pendek · 1-3 Kata)",
-          "ko": "기계 고치기입니다.",
-          "id": "Memperbaiki mesin."
+          "label": "Opsi 1 (Jawaban Inti)",
+          "ko": "기계 안의 찌꺼기를 치우고 닦아내는 일입니다.",
+          "id": "Pekerjaan membersihkan dan mengelap kotoran di dalam mesin."
         },
         {
-          "label": "Versi 2 (1 Kalimat Pendek Siap Ucap)",
-          "ko": "기계를 닦고 고치는 작업입니다.",
-          "id": "Pekerjaan membersihkan dan memperbaiki mesin."
+          "label": "Opsi 2 (Alternatif Nyata)",
+          "ko": "고장 난 부품을 새것으로 고치는 작업입니다.",
+          "id": "Pekerjaan memperbaiki suku cadang yang rusak dengan yang baru."
         }
       ],
       "topic_no": 24,
@@ -9065,14 +9065,14 @@
           "id": "Tindakan memutus total listrik yang disuplai agar mesin atau peralatan tidak menyala tiba-tiba."
         },
         {
-          "label": "Versi 1 (Super Pendek · 1-3 Kata)",
-          "ko": "전기 끄기입니다.",
-          "id": "Mematikan listrik."
+          "label": "Opsi 1 (Jawaban Inti)",
+          "ko": "기계로 들어가는 전기를 완전히 끄는 것입니다.",
+          "id": "Mematikan aliran listrik yang masuk ke mesin secara total."
         },
         {
-          "label": "Versi 2 (1 Kalimat Pendek Siap Ucap)",
-          "ko": "기계의 전기를 완전히 끄는 것입니다.",
-          "id": "Mematikan aliran listrik mesin sepenuhnya."
+          "label": "Opsi 2 (Alternatif Nyata)",
+          "ko": "메인 스위치를 내리고 플러그를 뽑는 일입니다.",
+          "id": "Menurunkan saklar utama dan mencabut colokan listrik."
         }
       ],
       "topic_no": 24,
@@ -9101,14 +9101,14 @@
           "id": "Karena pembersihan dan perbaikan adalah pekerjaan berisiko tinggi, di mana pekerja harus mendekati bagian dalam mesin atau bagian berbahaya secara langsung."
         },
         {
-          "label": "Versi 1 (Super Pendek · 1-3 Kata)",
-          "ko": "작동 방지입니다.",
-          "id": "Mencegah mesin menyala."
+          "label": "Opsi 1 (Jawaban Inti)",
+          "ko": "기계가 갑자기 움직여서 다치는 것을 막기 때문입니다.",
+          "id": "Karena mencegah cedera akibat mesin bergerak mendadak."
         },
         {
-          "label": "Versi 2 (1 Kalimat Pendek Siap Ucap)",
-          "ko": "감전과 끼임 사고를 막기 위해서입니다.",
-          "id": "Untuk mencegah bahaya tersetrum dan terjepit."
+          "label": "Opsi 2 (Alternatif Nyata)",
+          "ko": "감전 사고 위험으로부터 작업자를 보호하기 위해서입니다.",
+          "id": "Untuk melindungi pekerja dari bahaya sengatan listrik."
         }
       ],
       "topic_no": 24,
@@ -9137,14 +9137,14 @@
           "id": "Sebelum membersihkan atau memperbaiki mesin, daya harus diputus."
         },
         {
-          "label": "Versi 1 (Super Pendek · 1-3 Kata)",
-          "ko": "전원 차단입니다.",
-          "id": "Putus daya listrik."
+          "label": "Opsi 1 (Jawaban Inti)",
+          "ko": "기계의 전원 스위치를 끄고 플러그를 뽑습니다.",
+          "id": "Mematikan saklar daya mesin dan mencabut colokan."
         },
         {
-          "label": "Versi 2 (1 Kalimat Pendek Siap Ucap)",
-          "ko": "전원을 끄고 작업합니다.",
-          "id": "Matikan aliran listrik sebelum bekerja."
+          "label": "Opsi 2 (Alternatif Nyata)",
+          "ko": "\"점검 중\" 표지판을 걸고 자물쇠를 잠급니다.",
+          "id": "Memasang papan tanda \"Sedang Diperiksa\" dan mengunci gembok."
         }
       ],
       "topic_no": 24,
@@ -9173,14 +9173,14 @@
           "id": "Semua alat dan perangkat yang dapat menghasilkan api, percikan api, atau panas di lokasi kerja."
         },
         {
-          "label": "Versi 1 (Super Pendek · 1-3 Kata)",
-          "ko": "불 다루기입니다.",
-          "id": "Menangani api."
+          "label": "Opsi 1 (Jawaban Inti)",
+          "ko": "불꽃이나 열을 내는 장비를 다루는 일입니다.",
+          "id": "Pekerjaan menangani peralatan yang mengeluarkan percikan api atau panas."
         },
         {
-          "label": "Versi 2 (1 Kalimat Pendek Siap Ucap)",
-          "ko": "불이나 열을 사용하는 작업입니다.",
-          "id": "Pekerjaan yang memakai api atau panas."
+          "label": "Opsi 2 (Alternatif Nyata)",
+          "ko": "용접기나 가스 토치를 사용하는 작업입니다.",
+          "id": "Pekerjaan yang menggunakan mesin las atau gas torch."
         }
       ],
       "topic_no": 25,
@@ -9209,14 +9209,14 @@
           "id": "Bola api atau nyala kecil yang belum padam sepenuhnya, sulit terlihat mata tetapi mempertahankan panas lama, yaitu sumber panas kecil yang panas."
         },
         {
-          "label": "Versi 1 (Super Pendek · 1-3 Kata)",
-          "ko": "작은 불꽃입니다.",
-          "id": "Percikan api kecil."
+          "label": "Opsi 1 (Jawaban Inti)",
+          "ko": "완전히 꺼지지 않고 남아 있는 작은 불덩이입니다.",
+          "id": "Gumpalan api kecil yang tersisa dan belum padam sempurna."
         },
         {
-          "label": "Versi 2 (1 Kalimat Pendek Siap Ucap)",
-          "ko": "아직 꺼지지 않은 작은 불꽃입니다.",
-          "id": "Percikan api kecil yang belum padam."
+          "label": "Opsi 2 (Alternatif Nyata)",
+          "ko": "용접할 때 사방으로 튀는 뜨거운 불꽃 알갱이입니다.",
+          "id": "Percikan api panas yang berhamburan saat mengelas."
         }
       ],
       "topic_no": 25,
@@ -9245,14 +9245,14 @@
           "id": "Jika bara atau percikan api tertinggal, kebakaran bisa terjadi di tempat tak terduga setelah beberapa waktu."
         },
         {
-          "label": "Versi 1 (Super Pendek · 1-3 Kata)",
-          "ko": "화재 예방입니다.",
-          "id": "Mencegah kebakaran."
+          "label": "Opsi 1 (Jawaban Inti)",
+          "ko": "작은 불씨가 큰불로 번지는 것을 막기 위해서입니다.",
+          "id": "Untuk mencegah bara kecil menjalar menjadi kebakaran besar."
         },
         {
-          "label": "Versi 2 (1 Kalimat Pendek Siap Ucap)",
-          "ko": "큰 화재 발생을 막기 위해서입니다.",
-          "id": "Untuk mencegah kebakaran besar."
+          "label": "Opsi 2 (Alternatif Nyata)",
+          "ko": "주변 인화 물질에 불이 붙는 사고를 막기 위해서입니다.",
+          "id": "Untuk mencegah terbakarnya bahan mudah terbakar di sekitar."
         }
       ],
       "topic_no": 25,
@@ -9281,14 +9281,14 @@
           "id": "Saat memakai alat pemadam, cabut pin pengaman terlebih dahulu. Saat bekerja dengan api, letakkan alat pemadam di dekatnya."
         },
         {
-          "label": "Versi 1 (Super Pendek · 1-3 Kata)",
-          "ko": "안전핀 뽑기입니다.",
-          "id": "Cabut pin pengaman."
+          "label": "Opsi 1 (Jawaban Inti)",
+          "ko": "손잡이에 꽂힌 안전핀을 가장 먼저 뽑아야 합니다.",
+          "id": "Harus mencabut pin pengaman pada pegangan terlebih dahulu."
         },
         {
-          "label": "Versi 2 (1 Kalimat Pendek Siap Ucap)",
-          "ko": "안전핀을 먼저 뽑아야 합니다.",
-          "id": "Cabut pin pengaman terlebih dahulu."
+          "label": "Opsi 2 (Alternatif Nyata)",
+          "ko": "바람을 등지고 서서 호스를 불 쪽으로 향합니다.",
+          "id": "Berdiri membelakangi arah angin dan arahkan selang ke api."
         }
       ],
       "topic_no": 25,
@@ -9317,14 +9317,14 @@
           "id": "Peristiwa bahan yang mudah terbakar bertemu oksigen di udara dan api, lalu terbakar sambil mengeluarkan panas dan cahaya."
         },
         {
-          "label": "Versi 1 (Super Pendek · 1-3 Kata)",
-          "ko": "불난 사고입니다.",
-          "id": "Bencana kebakaran."
+          "label": "Opsi 1 (Jawaban Inti)",
+          "ko": "불이 번져서 사람과 건물에 피해를 주는 재난입니다.",
+          "id": "Bencana kebakaran yang merugikan manusia dan bangunan."
         },
         {
-          "label": "Versi 2 (1 Kalimat Pendek Siap Ucap)",
-          "ko": "물건이 불에 타는 재난입니다.",
-          "id": "Bencana kebakaran yang menghanguskan barang."
+          "label": "Opsi 2 (Alternatif Nyata)",
+          "ko": "통제할 수 없는 불길과 유독한 연기가 나는 현상입니다.",
+          "id": "Fenomena kobaran api tak terkendali dan asap beracun."
         }
       ],
       "topic_no": 26,
@@ -9353,14 +9353,14 @@
           "id": "Tindakan segera pindah ke tempat aman untuk melindungi nyawa dan tubuh pekerja saat terjadi keadaan berbahaya seperti kebakaran."
         },
         {
-          "label": "Versi 1 (Super Pendek · 1-3 Kata)",
-          "ko": "안전하게 피하기입니다.",
-          "id": "Menyelamatkan diri."
+          "label": "Opsi 1 (Jawaban Inti)",
+          "ko": "위험한 곳을 벗어나 안전한 장소로 피하는 행동입니다.",
+          "id": "Tindakan menghindar dari tempat bahaya menuju tempat aman."
         },
         {
-          "label": "Versi 2 (1 Kalimat Pendek Siap Ucap)",
-          "ko": "안전한 곳으로 피하는 것입니다.",
-          "id": "Pergi menyelamatkan diri ke tempat aman."
+          "label": "Opsi 2 (Alternatif Nyata)",
+          "ko": "사고로부터 목숨을 지키기 위해 신속히 빠져나오는 것입니다.",
+          "id": "Segera keluar menyelamatkan diri untuk melindungi nyawa."
         }
       ],
       "topic_no": 26,
@@ -9389,14 +9389,14 @@
           "id": "Saat kebakaran, asap dan gas beracun lebih mengancam nyawa daripada api, dan nyawa manusia lebih utama daripada harta benda."
         },
         {
-          "label": "Versi 1 (Super Pendek · 1-3 Kata)",
-          "ko": "생명 보호입니다.",
-          "id": "Melindungi nyawa."
+          "label": "Opsi 1 (Jawaban Inti)",
+          "ko": "유독가스를 마시면 몇 초 만에 질식하기 때문입니다.",
+          "id": "Karena jika menghirup gas beracun bisa mati lemas seketika."
         },
         {
-          "label": "Versi 2 (1 Kalimat Pendek Siap Ucap)",
-          "ko": "사람의 생명이 가장 소중하기 때문입니다.",
-          "id": "Karena nyawa manusia paling berharga."
+          "label": "Opsi 2 (Alternatif Nyata)",
+          "ko": "물건이나 기계보다 사람의 생명이 가장 소중하기 때문입니다.",
+          "id": "Karena nyawa manusia jauh lebih berharga daripada barang atau mesin."
         }
       ],
       "topic_no": 26,
@@ -9425,14 +9425,14 @@
           "id": "Nomor 119 adalah nomor telepon yang terhubung ke dinas pemadam kebakaran di Korea saat terjadi kebakaran atau ada pasien darurat."
         },
         {
-          "label": "Versi 1 (Super Pendek · 1-3 Kata)",
-          "ko": "소방서 번호입니다.",
-          "id": "Nomor pemadam kebakaran."
+          "label": "Opsi 1 (Jawaban Inti)",
+          "ko": "화재나 응급상황 때 소방서에 전화하는 긴급번호입니다.",
+          "id": "Nomor darurat untuk menelepon pemadam saat kebakaran atau gawat darurat."
         },
         {
-          "label": "Versi 2 (1 Kalimat Pendek Siap Ucap)",
-          "ko": "불이 나면 신고하는 소방서 번호입니다.",
-          "id": "Nomor darurat pemadam kebakaran saat kebakaran."
+          "label": "Opsi 2 (Alternatif Nyata)",
+          "ko": "위급할 때 구조대와 구급차를 부르는 전화번호입니다.",
+          "id": "Nomor telepon untuk memanggil regu penyelamat dan ambulans saat darurat."
         }
       ],
       "topic_no": 26,
@@ -9461,14 +9461,14 @@
           "id": "Pekerjaan yang dilakukan pekerja tanpa mengetahui isi atau cara kerjanya dengan pasti, atau tanpa pelatihan yang cukup."
         },
         {
-          "label": "Versi 1 (Super Pendek · 1-3 Kata)",
-          "ko": "잘 모르는 일입니다.",
-          "id": "Pekerjaan belum dipahami."
+          "label": "Opsi 1 (Jawaban Inti)",
+          "ko": "방법을 제대로 배우지 못해 생소한 일입니다.",
+          "id": "Pekerjaan yang asing karena belum dipelajari caranya dengan benar."
         },
         {
-          "label": "Versi 2 (1 Kalimat Pendek Siap Ucap)",
-          "ko": "방법을 잘 모르는 일입니다.",
-          "id": "Pekerjaan yang belum dipahami caranya."
+          "label": "Opsi 2 (Alternatif Nyata)",
+          "ko": "순서를 잘 몰라 실수하기 쉬운 작업입니다.",
+          "id": "Pekerjaan yang mudah keliru karena belum tahu urutannya."
         }
       ],
       "topic_no": 27,
@@ -9497,14 +9497,14 @@
           "id": "Tindakan bertanya kepada orang lain untuk mendapatkan informasi yang akurat tentang hal yang tidak diketahui atau tidak pasti."
         },
         {
-          "label": "Versi 1 (Super Pendek · 1-3 Kata)",
-          "ko": "질문하기입니다.",
-          "id": "Mengajukan pertanyaan."
+          "label": "Opsi 1 (Jawaban Inti)",
+          "ko": "궁금한 점을 다른 사람에게 질문하는 것입니다.",
+          "id": "Menanyakan hal yang ingin diketahui kepada orang lain."
         },
         {
-          "label": "Versi 2 (1 Kalimat Pendek Siap Ucap)",
-          "ko": "모르는 것을 질문하는 것입니다.",
-          "id": "Menanyakan hal yang belum dimengerti."
+          "label": "Opsi 2 (Alternatif Nyata)",
+          "ko": "정확한 작업 방법을 반장님께 가르쳐달라고 하는 일입니다.",
+          "id": "Meminta mandor mengajarkan metode kerja yang benar."
         }
       ],
       "topic_no": 27,
@@ -9533,14 +9533,14 @@
           "id": "Alasan harus bertanya: bekerja tanpa tahu pasti isi pekerjaan atau tanpa keyakinan dapat mengancam nyawa dan keselamatan diri sendiri dan rekan kerja."
         },
         {
-          "label": "Versi 1 (Super Pendek · 1-3 Kata)",
-          "ko": "사고 예방입니다.",
-          "id": "Mencegah kecelakaan."
+          "label": "Opsi 1 (Jawaban Inti)",
+          "ko": "마음대로 하다가 다치는 사고를 막기 위해서입니다.",
+          "id": "Untuk mencegah kecelakaan cedera akibat bekerja sembarangan."
         },
         {
-          "label": "Versi 2 (1 Kalimat Pendek Siap Ucap)",
-          "ko": "실수로 다치지 않기 위해서입니다.",
-          "id": "Agar tidak cedera karena kesalahan kerja."
+          "label": "Opsi 2 (Alternatif Nyata)",
+          "ko": "제품 불량과 기계 고장을 방지하기 위해서입니다.",
+          "id": "Untuk mencegah kecacatan produk dan kerusakan mesin."
         }
       ],
       "topic_no": 27,
@@ -9569,14 +9569,14 @@
           "id": "Faktor bahaya yang dapat membuat pekerja terluka atau mengalami kerugian harta akibat kejadian tak terduga saat bekerja."
         },
         {
-          "label": "Versi 1 (Super Pendek · 1-3 Kata)",
-          "ko": "다칠 위험입니다.",
-          "id": "Bahaya cedera."
+          "label": "Opsi 1 (Jawaban Inti)",
+          "ko": "사람이 다칠 수 있는 위험한 상태나 요인입니다.",
+          "id": "Kondisi atau faktor berbahaya yang dapat melukai orang."
         },
         {
-          "label": "Versi 2 (1 Kalimat Pendek Siap Ucap)",
-          "ko": "작업자가 다칠 수 있는 위험입니다.",
-          "id": "Bahaya yang bisa melukai pekerja."
+          "label": "Opsi 2 (Alternatif Nyata)",
+          "ko": "기계 오작동이나 바닥 기름 같은 불안전한 요소입니다.",
+          "id": "Faktor tidak aman seperti malfungsi mesin atau tumpahan minyak."
         }
       ],
       "topic_no": 28,
@@ -9605,14 +9605,14 @@
           "id": "Menyadari atau menemukan faktor bahaya, kerusakan, cacat, atau keadaan tidak normal yang tersembunyi atau sebelumnya tidak terlihat."
         },
         {
-          "label": "Versi 1 (Super Pendek · 1-3 Kata)",
-          "ko": "찾아내는 것입니다.",
-          "id": "Menemukan kejanggalan."
+          "label": "Opsi 1 (Jawaban Inti)",
+          "ko": "숨어 있던 이상이나 위험한 상태를 알아차리는 것입니다.",
+          "id": "Menyadari adanya kejanggalan atau kondisi bahaya yang tersembunyi."
         },
         {
-          "label": "Versi 2 (1 Kalimat Pendek Siap Ucap)",
-          "ko": "위험이나 이상을 찾아내는 것입니다.",
-          "id": "Menemukan bahaya atau ketidaknormalan."
+          "label": "Opsi 2 (Alternatif Nyata)",
+          "ko": "고장 나거나 잘못된 부분을 눈으로 찾아내는 일입니다.",
+          "id": "Menemukan dengan mata bagian yang rusak atau salah."
         }
       ],
       "topic_no": 28,
@@ -9641,14 +9641,14 @@
           "id": "Jika bahaya ditemukan tetapi tidak dilaporkan, bahaya itu dibiarkan dan mengancam nyawa dan keselamatan pekerja dan rekan kerja."
         },
         {
-          "label": "Versi 1 (Super Pendek · 1-3 Kata)",
-          "ko": "동료 보호입니다.",
-          "id": "Melindungi rekan."
+          "label": "Opsi 1 (Jawaban Inti)",
+          "ko": "동료들이 다치는 큰 사고를 미리 막기 위해서입니다.",
+          "id": "Untuk mencegah lebih awal kecelakaan besar yang melukai rekan kerja."
         },
         {
-          "label": "Versi 2 (1 Kalimat Pendek Siap Ucap)",
-          "ko": "동료가 다치지 않게 하기 위해서입니다.",
-          "id": "Supaya rekan kerja tidak terluka."
+          "label": "Opsi 2 (Alternatif Nyata)",
+          "ko": "위험을 신속히 고치고 안전하게 조치하기 위해서입니다.",
+          "id": "Untuk segera memperbaiki bahaya dan mengambil tindakan keselamatan."
         }
       ],
       "topic_no": 28,
@@ -9677,14 +9677,14 @@
           "id": "Fenomena suhu sangat tinggi dan pengap yang berlangsung beberapa waktu, yaitu ketika suhu tertinggi 33 derajat Celsius atau lebih berlangsung 2 hari atau lebih."
         },
         {
-          "label": "Versi 1 (Super Pendek · 1-3 Kata)",
-          "ko": "매우 더운 날씨입니다.",
-          "id": "Cuaca sangat panas."
+          "label": "Opsi 1 (Jawaban Inti)",
+          "ko": "낮 기온이 33도 이상으로 매우 무더운 날씨입니다.",
+          "id": "Cuaca sangat terik dengan suhu siang hari mencapai 33 derajat ke atas."
         },
         {
-          "label": "Versi 2 (1 Kalimat Pendek Siap Ucap)",
-          "ko": "기온이 아주 높고 더운 날씨입니다.",
-          "id": "Cuaca dengan suhu sangat panas."
+          "label": "Opsi 2 (Alternatif Nyata)",
+          "ko": "숨쉬기 힘들 정도로 뜨거운 한여름 무더위입니다.",
+          "id": "Hawa panas terik puncak musim panas sampai sulit bernapas."
         }
       ],
       "topic_no": 29,
@@ -9713,14 +9713,14 @@
           "id": "Alasan minum air, berteduh, dan istirahat saat panas ekstrem: bekerja dalam kondisi ini mempercepat kenaikan suhu tubuh dan hilangnya cairan tubuh, sehingga nyawa bisa terancam."
         },
         {
-          "label": "Versi 1 (Super Pendek · 1-3 Kata)",
-          "ko": "건강 보호입니다.",
-          "id": "Menjaga kesehatan."
+          "label": "Opsi 1 (Jawaban Inti)",
+          "ko": "열사병과 탈수로 쓰러지는 것을 막기 위해서입니다.",
+          "id": "Untuk mencegah pingsan akibat heatstroke dan dehidrasi."
         },
         {
-          "label": "Versi 2 (1 Kalimat Pendek Siap Ucap)",
-          "ko": "열사병과 탈수를 막기 위해서입니다.",
-          "id": "Untuk mencegah serangan panas dan dehidrasi."
+          "label": "Opsi 2 (Alternatif Nyata)",
+          "ko": "몸의 체온을 식히고 기운을 회복하기 위해서입니다.",
+          "id": "Untuk mendinginkan suhu tubuh dan memulihkan stamina."
         }
       ],
       "topic_no": 29,
@@ -9749,14 +9749,14 @@
           "id": "Minum air sering dan sering beristirahat di tempat teduh."
         },
         {
-          "label": "Versi 1 (Super Pendek · 1-3 Kata)",
-          "ko": "물과 휴식입니다.",
-          "id": "Air dan istirahat."
+          "label": "Opsi 1 (Jawaban Inti)",
+          "ko": "시원한 물을 자주 마시고 그늘에서 쉽니다.",
+          "id": "Sering minum air dingin dan beristirahat di tempat teduh."
         },
         {
-          "label": "Versi 2 (1 Kalimat Pendek Siap Ucap)",
-          "ko": "물과 그늘에서 휴식합니다.",
-          "id": "Minum air dan istirahat di tempat teduh."
+          "label": "Opsi 2 (Alternatif Nyata)",
+          "ko": "몸에 이상이 오면 즉시 작업을 멈추고 보고합니다.",
+          "id": "Jika tubuh terasa tidak enak, segera hentikan pekerjaan dan lapor."
         }
       ],
       "topic_no": 29,
@@ -9785,14 +9785,14 @@
           "id": "Tindakan segera berhenti bekerja ketika dinilai ada bahaya keselamatan atau ada kekhawatiran terjadi kecelakaan sungguhan di tengah pekerjaan."
         },
         {
-          "label": "Versi 1 (Super Pendek · 1-3 Kata)",
-          "ko": "일 멈추기입니다.",
-          "id": "Menghentikan kerja."
+          "label": "Opsi 1 (Jawaban Inti)",
+          "ko": "사고를 피하기 위해 하던 일을 즉시 멈추는 것입니다.",
+          "id": "Segera menghentikan pekerjaan yang dilakukan untuk menghindari celaka."
         },
         {
-          "label": "Versi 2 (1 Kalimat Pendek Siap Ucap)",
-          "ko": "위험할 때 작업을 멈추는 것입니다.",
-          "id": "Menghentikan pekerjaan saat ada bahaya."
+          "label": "Opsi 2 (Alternatif Nyata)",
+          "ko": "위험할 때 기계 스위치를 끄고 손을 떼는 일입니다.",
+          "id": "Mematikan saklar mesin dan menjauhkan tangan saat situasi bahaya."
         }
       ],
       "topic_no": 30,
@@ -9821,14 +9821,14 @@
           "id": "Tindakan segera pindah ke tempat aman untuk melindungi nyawa dan tubuh pekerja saat terjadi keadaan berbahaya."
         },
         {
-          "label": "Versi 1 (Super Pendek · 1-3 Kata)",
-          "ko": "안전하게 피하기입니다.",
-          "id": "Menyelamatkan diri."
+          "label": "Opsi 1 (Jawaban Inti)",
+          "ko": "위험 지역을 벗어나 안전지대로 이동하는 것입니다.",
+          "id": "Pindah keluar dari area berbahaya menuju zona aman."
         },
         {
-          "label": "Versi 2 (1 Kalimat Pendek Siap Ucap)",
-          "ko": "안전한 곳으로 대피하는 것입니다.",
-          "id": "Pergi menyelamatkan diri ke tempat aman."
+          "label": "Opsi 2 (Alternatif Nyata)",
+          "ko": "사고로부터 목숨을 보호하기 위해 긴급히 빠져나오는 일입니다.",
+          "id": "Segera keluar darurat untuk melindungi nyawa dari kecelakaan."
         }
       ],
       "topic_no": 30,
@@ -9857,14 +9857,14 @@
           "id": "Berhenti bekerja dan segera menjauh dari keadaan berbahaya karena nyawa manusia lebih berharga daripada mesin dan peralatan."
         },
         {
-          "label": "Versi 1 (Super Pendek · 1-3 Kata)",
-          "ko": "생명 보호입니다.",
-          "id": "Melindungi nyawa."
+          "label": "Opsi 1 (Jawaban Inti)",
+          "ko": "기계나 생산보다 사람의 생명이 훨씬 소중하기 때문입니다.",
+          "id": "Karena nyawa manusia jauh lebih berharga daripada mesin atau produksi."
         },
         {
-          "label": "Versi 2 (1 Kalimat Pendek Siap Ucap)",
-          "ko": "사람의 생명이 더 소중하기 때문입니다.",
-          "id": "Karena nyawa manusia lebih berharga."
+          "label": "Opsi 2 (Alternatif Nyata)",
+          "ko": "그 자리에 계속 있으면 크게 다칠 수 있기 때문입니다.",
+          "id": "Karena jika terus berada di tempat itu bisa terluka parah."
         }
       ],
       "topic_no": 30,
@@ -9893,14 +9893,14 @@
           "id": "Jika ada bahaya kecelakaan, pertama hentikan pekerjaan dan evakuasi ke tempat yang aman."
         },
         {
-          "label": "Versi 1 (Super Pendek · 1-3 Kata)",
-          "ko": "즉시 대피합니다.",
-          "id": "Segera evakuasi."
+          "label": "Opsi 1 (Jawaban Inti)",
+          "ko": "즉시 작업을 멈추고 안전한 장소로 대피합니다.",
+          "id": "Segera hentikan pekerjaan dan evakuasi ke tempat yang aman."
         },
         {
-          "label": "Versi 2 (1 Kalimat Pendek Siap Ucap)",
-          "ko": "작업을 멈추고 안전하게 대피합니다.",
-          "id": "Hentikan pekerjaan dan segera evakuasi aman."
+          "label": "Opsi 2 (Alternatif Nyata)",
+          "ko": "주변 동료들에게 소리쳐 알리고 관리자에게 보고합니다.",
+          "id": "Beri tahu rekan sekitar dengan berteriak dan laporkan ke pengawas."
         }
       ],
       "topic_no": 30,
