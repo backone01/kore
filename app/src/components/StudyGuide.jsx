@@ -1904,8 +1904,13 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
               setSelK3(i === selK3 ? -1 : i);
             }}
             onPlayRow={(i) => {
-              setSelK3(i);
-              startPlayer('k3', filteredK3, i, 'sequential');
+              const isThisPlaying = playerUI.on && playerUI.tab === 'k3' && (playerRef.current.order[playerUI.pos] === i);
+              if (isThisPlaying) {
+                pausePlayer();
+              } else {
+                setSelK3(i);
+                startPlayer('k3', filteredK3, i, playerMode);
+              }
             }}
           />
         </div>
@@ -2086,8 +2091,13 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
               setSelInt(i === selInt ? -1 : i);
             }}
             onPlayRow={(i) => {
-              setSelInt(i);
-              startPlayer('interview', filteredInterview, i, 'sequential');
+              const isThisPlaying = playerUI.on && playerUI.tab === 'interview' && (playerRef.current.order[playerUI.pos] === i);
+              if (isThisPlaying) {
+                pausePlayer();
+              } else {
+                setSelInt(i);
+                startPlayer('interview', filteredInterview, i, playerMode);
+              }
             }}
           />
         </div>
