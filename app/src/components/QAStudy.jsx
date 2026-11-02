@@ -593,6 +593,8 @@ export function QADetail({
   onToggle,
   onPlayQ,
   onPlayAnswer,
+  isPlayingQ = false,
+  isPlayingAnswer = false,
   accent = 'blue',
   subLabel,
   onPrev,
@@ -638,9 +640,16 @@ export function QADetail({
           )}
 
           {q.audio_q && (
-            <Button type="button" variant="outline" size="sm" onClick={onPlayQ} title={A.playTitle} className="h-8 text-xs">
-              <Volume2 className="h-3.5 w-3.5" />
-              <span>Putar Soal</span>
+            <Button
+              type="button"
+              variant={isPlayingQ ? 'default' : 'outline'}
+              size="sm"
+              onClick={onPlayQ}
+              title={isPlayingQ ? 'Jeda Audio Soal' : A.playTitle}
+              className={cn('h-8 text-xs gap-1.5', isPlayingQ && 'bg-primary text-primary-foreground')}
+            >
+              {isPlayingQ ? <Pause className="h-3.5 w-3.5" /> : <Volume2 className="h-3.5 w-3.5" />}
+              <span>{isPlayingQ ? 'Jeda Soal' : 'Putar Soal'}</span>
             </Button>
           )}
           <Button type="button" variant="outline" size="sm" onClick={onToggle} className="h-8 text-xs">
@@ -671,13 +680,14 @@ export function QADetail({
           {!hidden && (
             <Button
               type="button"
-              variant="outline"
+              variant={isPlayingAnswer ? 'default' : 'outline'}
               size="sm"
-              className="h-7 text-xs gap-1"
+              className={cn('h-7 text-xs gap-1', isPlayingAnswer && 'bg-primary text-primary-foreground')}
               onClick={onPlayAnswer}
+              title={isPlayingAnswer ? 'Jeda Audio Jawaban' : 'Dengar jawaban ini saja'}
             >
-              <Volume2 className="h-3 w-3" />
-              <span>Dengar Jawaban</span>
+              {isPlayingAnswer ? <Pause className="h-3 w-3" /> : <Volume2 className="h-3 w-3" />}
+              <span>{isPlayingAnswer ? 'Jeda Jawaban' : 'Dengar Jawaban'}</span>
             </Button>
           )}
         </div>

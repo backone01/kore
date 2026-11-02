@@ -1,6 +1,6 @@
 import React from 'react';
 import { X, Layers, UserCheck, Activity, AlertTriangle, ShieldAlert, Wrench, Hash, Palette, Check } from 'lucide-react';
-import { MAIN_MODULES } from '../utils/categoryGroups.js';
+import { MAIN_MODULES, getParentModuleId } from '../utils/categoryGroups.js';
 import { Button } from './ui/button.jsx';
 import { cn } from '../utils/cn.js';
 
@@ -61,7 +61,7 @@ export function CategoryModal({
               {MAIN_MODULES.map(mod => {
                 const IconComponent = ICON_MAP[mod.icon] || Layers;
                 const isSelected = selectedCategory === mod.id
-                  || (selectedCategory !== 'all' && mod.categories.includes(selectedCategory));
+                  || (selectedCategory !== 'all' && getParentModuleId(selectedCategory) === mod.id);
                 const count = mod.id === 'all'
                   ? questionsData.length
                   : questionsData.filter(q => mod.categories.includes(q.category)).length;

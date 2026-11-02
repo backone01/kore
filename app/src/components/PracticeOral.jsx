@@ -1,5 +1,5 @@
 import React from 'react';
-import { Eye, EyeOff, Volume2, Mic, CheckCircle2 } from 'lucide-react';
+import { Eye, EyeOff, Volume2, Mic, CheckCircle2, Turtle, Zap } from 'lucide-react';
 import { Button } from './ui/button.jsx';
 import { Card } from './ui/card.jsx';
 import { Badge } from './ui/badge.jsx';
@@ -22,7 +22,9 @@ export function PracticeOral({
   isPlayingAudio,
   isRecording,
   onToggleRecording,
-  recordedAudioUrl
+  recordedAudioUrl,
+  audioSpeed = 0.8,
+  onToggleAudioSpeed
 }) {
   return (
     <div className="w-full max-w-xl mx-auto flex flex-col items-center text-center space-y-3.5">
@@ -34,6 +36,21 @@ export function PracticeOral({
         </span>
 
         <div className="flex items-center gap-3">
+          {onToggleAudioSpeed && (
+            <button
+              type="button"
+              onClick={onToggleAudioSpeed}
+              title="Atur kecepatan audio & TTS (Normal / Lambat)"
+              className={cn(
+                "inline-flex items-center gap-1 px-2 py-0.5 rounded-md border text-[11px] font-semibold transition-colors",
+                audioSpeed < 1.0 ? "text-amber-600 dark:text-amber-400 border-amber-500/40 bg-amber-500/10 font-bold" : "text-muted-foreground border-border hover:text-foreground"
+              )}
+            >
+              {audioSpeed < 1.0 ? <Turtle className="h-3 w-3 text-amber-500" /> : <Zap className="h-3 w-3 text-primary" />}
+              <span>{audioSpeed}x</span>
+            </button>
+          )}
+
           <label className="flex items-center gap-1.5 cursor-pointer">
             <span className="text-[11px] font-medium text-foreground">Arti</span>
             <Switch

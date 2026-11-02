@@ -1,7 +1,8 @@
 import React, { useState, useMemo } from 'react';
-import { CheckCircle, XCircle, Volume2, ArrowRight, RotateCcw, Trophy, Eye, EyeOff } from 'lucide-react';
+import { CheckCircle, XCircle, Volume2, ArrowRight, RotateCcw, Trophy, Eye, EyeOff, Shuffle, Image as ImageIcon } from 'lucide-react';
 import { Button } from './ui/button.jsx';
 import { Card } from './ui/card.jsx';
+import { Badge } from './ui/badge.jsx';
 import { cn } from '../utils/cn.js';
 import { getAssetUrl } from '../utils/assetHelper.js';
 
@@ -15,22 +16,45 @@ export function PracticeQuiz({
   const [isAnswered, setIsAnswered] = useState(false);
   const [score, setScore] = useState({ correct: 0, wrong: 0 });
   const [quizFinished, setQuizFinished] = useState(false);
+  const [shuffleKey, setShuffleKey] = useState(0);
 
   const [optionLang, setOptionLang] = useState('ko');
   const [questionLang, setQuestionLang] = useState('bilingual');
   const [showOptionHint, setShowOptionHint] = useState(false);
 
+  // Fokus kuis alat: 'name' (Kuis Nama Alat) | 'usage' (Kuis Kegunaan / Fungsi Alat)
+  const [toolQuizMode, setToolQuizMode] = useState('name');
+
   const quizQuestions = useMemo(() => {
     return [...questions].sort(() => Math.random() - 0.5);
-  }, [questions]);
+  }, [questions, shuffleKey]);
 
   const currentQ = quizQuestions[currentIndex] || questions[0] || {};
+  const hasImage = !!currentQ?.image_url;
+  const isTool = currentQ?.category === 'alat_manufaktur' || currentQ?.category === 'alat_klasik' || currentQ?.category === 'fungsi_alat';
+
+  const handleShuffle = () => {
+    setShuffleKey(prev => prev + 1);
+    setCurrentIndex(0);
+    setSelectedOption(null);
+    setIsAnswered(false);
+    setScore({ correct: 0, wrong: 0 });
+    setQuizFinished(false);
+  };
 
   const getAnswerTexts = (q) => {
     if (!q) return { ko: '', id: '' };
     let ko = '';
     let id = '';
-    if (q.category === 'alat_manufaktur' || q.category === 'piktogram') {
+
+    const isQTool = q.category === 'alat_manufaktur' || q.category === 'alat_klasik' || q.category === 'fungsi_alat';
+
+    if (isQTool && toolQuizMode === 'usage') {
+      // Fokus Kegunaan / Fungsi Alat
+      ko = q.usage_short_ko || q.answer_options?.[0]?.ko || q.answer_short_ko || '';
+      id = q.usage_short_id || q.answer_options?.[0]?.id || q.answer_short_id || '';
+    } else if (isQTool || q.category === 'piktogram') {
+      // Fokus Nama Alat atau Rambu
       ko = q.title_ko || (q.answer_short_ko ? q.answer_short_ko.replace(/입니다\.$/, '').trim() : '') || q.answer_short_ko || '';
       id = q.title_id || q.answer_short_id || '';
     } else {
@@ -78,7 +102,7 @@ export function PracticeQuiz({
     ].sort(() => Math.random() - 0.5);
 
     return allOpts;
-  }, [currentQ, questions]);
+  }, [currentQ, questions, toolQuizMode]);
 
   const handleSelectOption = (option) => {
     if (isAnswered) return;
@@ -210,17 +234,62 @@ export function PracticeQuiz({
             {showOptionHint ? <Eye className="h-3 w-3" /> : <EyeOff className="h-3 w-3" />}
             <span>Arti {showOptionHint ? 'ON' : 'OFF'}</span>
           </button>
+
+          <Button
+            variant="outline"
+            size="icon"
+            onClick={handleShuffle}
+            title="Acak ulang urutan kuis"
+            className="h-7 w-7"
+          >
+            <Shuffle className="h-3.5 w-3.5" />
+          </Button>
         </div>
       </div>
 
+      {/* Fokus Pertanyaan Kuis Alat: Nama vs Kegunaan */}
+      {isTool && (
+        <div className="w-full flex items-center justify-between bg-secondary/70 border border-border/80 rounded-xl p-1 mb-2.5 gap-1">
+          <span className="text-[11px] font-bold text-muted-foreground px-2 hidden sm:inline">
+            Fokus Kuis Perkakas:
+          </span>
+          <div className="grid grid-cols-2 w-full sm:w-auto gap-1">
+            <button
+              type="button"
+              onClick={() => { setToolQuizMode('name'); setSelectedOption(null); setIsAnswered(false); }}
+              className={cn(
+                'px-3 py-1 rounded-lg text-xs font-semibold transition-all text-center',
+                toolQuizMode === 'name'
+                  ? 'bg-primary text-primary-foreground shadow-xs'
+                  : 'text-muted-foreground hover:text-foreground hover:bg-secondary'
+              )}
+            >
+              🏷️ Kuis Nama Alat (이름)
+            </button>
+            <button
+              type="button"
+              onClick={() => { setToolQuizMode('usage'); setSelectedOption(null); setIsAnswered(false); }}
+              className={cn(
+                'px-3 py-1 rounded-lg text-xs font-semibold transition-all text-center',
+                toolQuizMode === 'usage'
+                  ? 'bg-primary text-primary-foreground shadow-xs'
+                  : 'text-muted-foreground hover:text-foreground hover:bg-secondary'
+              )}
+            >
+              ⚙️ Kuis Kegunaan Alat (용도)
+            </button>
+          </div>
+        </div>
+      )}
+
       {/* Question card - clean without inner boxes */}
       <Card className="w-full p-5 mb-3.5 text-center">
-        {currentQ?.image_url && (
-          <div className="max-h-44 md:max-h-52 w-full flex items-center justify-center mb-3">
+        {hasImage && (
+          <div className="max-h-44 md:max-h-52 w-full flex items-center justify-center mb-3 p-2 bg-secondary/20 rounded-xl border border-border/40">
             <img
               src={getAssetUrl(currentQ.image_url)}
               alt="Soal Ujian"
-              className="max-h-40 md:max-h-48 w-auto object-contain"
+              className="max-h-40 md:max-h-48 w-auto object-contain rounded-lg"
             />
           </div>
         )}
@@ -228,7 +297,11 @@ export function PracticeQuiz({
         <div className="space-y-1.5">
           {(questionLang === 'bilingual' || questionLang === 'ko') && (
             <h3 className="text-xl md:text-2xl font-bold text-foreground font-kr tracking-tight leading-snug">
-              {currentQ?.question_ko || currentQ?.title_ko || '이것은 무엇입니까?'}
+              {isTool && toolQuizMode === 'usage'
+                ? `${currentQ?.title_ko || '이 공구'}는 무엇에 사용합니까?`
+                : hasImage
+                  ? (currentQ?.category === 'piktogram' ? '이 안전 표지는 무슨 뜻입니까?' : '이 공구의 이름은 무엇입니까?')
+                  : (currentQ?.question_ko || currentQ?.title_ko || '이것은 무엇입니까?')}
             </h3>
           )}
 
@@ -244,7 +317,11 @@ export function PracticeQuiz({
                   : 'text-sm text-muted-foreground mt-1'
               )}
             >
-              {currentQ?.question_id || currentQ?.title_id || 'Apakah nama benda/alat ini?'}
+              {isTool && toolQuizMode === 'usage'
+                ? `${currentQ?.title_id || 'Alat ini'} digunakan untuk apa?`
+                : hasImage
+                  ? (currentQ?.category === 'piktogram' ? 'Apakah arti rambu keselamatan kerja ini?' : 'Apakah nama alat / perkakas ini?')
+                  : (currentQ?.question_id || currentQ?.title_id || 'Apakah nama benda/alat ini?')}
             </p>
           )}
         </div>

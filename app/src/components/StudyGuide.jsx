@@ -6,7 +6,7 @@ import {
   Calendar, Clock, Hash, Palette, Users, UserCheck,
   Factory, Wrench, AlertTriangle,
   Activity, ChevronRight, ShieldAlert, Image, Copy, Play, Pause,
-  X, Maximize2, Award
+  X, Maximize2, Award, Turtle, Zap
 } from 'lucide-react';
 import { getAssetUrl } from '../utils/assetHelper.js';
 import { HRDK_MODULES } from '../utils/categoryGroups.js';
@@ -298,6 +298,14 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
   const [gapCountdown, setGapCountdown] = useState(0);
   const [hideText, setHideText] = useState(false);
   const [includeAnswers, setIncludeAnswers] = useState(false);
+  const [audioSpeed, setAudioSpeed] = useState(() => {
+    try {
+      const saved = localStorage.getItem('kore_audio_speed');
+      return saved ? parseFloat(saved) : 0.8;
+    } catch {
+      return 0.8;
+    }
+  });
   const [playRate, setPlayRate] = useState(1);
   const [playDelay, setPlayDelay] = useState(2);
   const [audioProg, setAudioProg] = useState({ t: 0, d: 0 });
@@ -1035,7 +1043,8 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
       window.speechSynthesis.cancel();
       const u = new SpeechSynthesisUtterance(text);
       u.lang = 'ko-KR';
-      u.rate = 0.85 * (liveRef.current.playRate ?? 1);
+      const speedFactor = audioSpeed ?? 0.8;
+      u.rate = Math.max(0.5, Math.min(1.4, 0.82 * speedFactor));
       setPlayingAudio(text);
       u.onend = () => { setPlayingAudio(null); if (onEnd) onEnd(); };
       u.onerror = () => { setPlayingAudio(null); if (onEnd) onEnd(); };
@@ -1047,6 +1056,20 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
   };
 
   const playAudio = (url, fallbackText, onEnd) => {
+    // If the exact same audio/text is currently playing, clicking it acts as a pause/toggle
+    const isCurrentlyPlaying = Boolean(
+      (url && (playingAudio === url || (audioRef.current && !audioRef.current.paused && audioRef.current.src && audioRef.current.src.includes(encodeURI(url))))) ||
+      (!url && fallbackText && playingAudio === fallbackText)
+    );
+
+    if (isCurrentlyPlaying) {
+      stopAudioOnly();
+      if (playerRef.current.on) {
+        pausePlayer();
+      }
+      return;
+    }
+
     if (!url) {
       if (fallbackText) speakKorean(fallbackText, onEnd);
       else if (onEnd) onEnd();
@@ -1059,7 +1082,7 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
       audioRef.current.pause();
       audioRef.current.currentTime = 0;
       audioRef.current.src = getAssetUrl(url);
-      try { audioRef.current.playbackRate = liveRef.current.playRate ?? 1; } catch { /* abaikan */ }
+      try { audioRef.current.playbackRate = audioSpeed ?? 0.8; } catch { /* abaikan */ }
       setPlayingAudio(url);
       audioRef.current.onended = () => { setPlayingAudio(null); if (onEnd) onEnd(); };
       audioRef.current.onerror = () => {
@@ -1099,7 +1122,7 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
     isFile: false,
   });
   const liveRef = useRef({});
-  liveRef.current = { selectedOptionByCard, playRate, playDelay, includeAnswers, playerMode };
+  liveRef.current = { selectedOptionByCard, playRate, playDelay, includeAnswers, playerMode, audioSpeed };
   const [playerUI, setPlayerUI] = useState({
     on: false,
     tab: null,
@@ -1347,12 +1370,21 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
     } catch { /* abaikan */ }
   };
 
+  const cycleAudioSpeed = () => {
+    setAudioSpeed(prev => {
+      let next = 1.0;
+      if (prev >= 0.95) next = 0.8;
+      else if (prev >= 0.75) next = 0.65;
+      else next = 1.0;
+      try { localStorage.setItem('kore_audio_speed', String(next)); } catch { /* abaikan */ }
+      try { audioRef.current.playbackRate = next; } catch { /* abaikan */ }
+      setPlayRate(next);
+      return next;
+    });
+  };
+
   const cycleRate = () => {
-    const steps = [1, 1.25, 1.5, 0.75];
-    const i = steps.indexOf(playRate);
-    const next = steps[(i + 1) % steps.length];
-    setPlayRate(next);
-    try { audioRef.current.playbackRate = next; } catch { /* abaikan */ }
+    cycleAudioSpeed();
   };
 
   useEffect(() => {
@@ -1406,7 +1438,7 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
     { id: 'commands', moduleId: 'physical', label: 'Refleks Gerak Fisik', icon: Activity, count: `${mergedPhysicalCommands.length} Gerak` },
 
     { id: 'k3', moduleId: 'safety', label: '30 Topik K3 Resmi', icon: AlertTriangle, count: `${(studyData.k3_safety || []).length} Soal` },
-    { id: 'piktogram', moduleId: 'safety', label: 'Piktogram & Rambu K3', icon: ShieldAlert, count: '98 Rambu' },
+    { id: 'piktogram', moduleId: 'pictogram', label: 'Piktogram & Rambu K3', icon: ShieldAlert, count: '98 Rambu' },
 
     { id: 'alat', moduleId: 'tools', label: 'Foto, Nama & Fungsi 90 Alat', icon: Wrench, count: `${alatCount} Alat` },
 
@@ -1534,6 +1566,7 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
     interview: '면접',
     physical: '신체동작',
     safety: '산업안전',
+    pictogram: '안전표지판',
     tools: '공구·기능',
     numbers: '기초연산',
     colors: '색각검사',
@@ -1568,6 +1601,19 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
             </p>
           </div>
           <div className="shrink-0 flex items-center gap-2">
+            <Button
+              size="sm"
+              variant="outline"
+              onClick={cycleAudioSpeed}
+              className={cn(
+                "gap-1.5 h-8 sm:h-9 text-xs font-semibold cursor-pointer border-border transition-colors",
+                audioSpeed < 1.0 ? "border-amber-500/50 bg-amber-500/10 text-amber-600 dark:text-amber-400 font-bold" : "text-muted-foreground hover:text-foreground"
+              )}
+              title="Klik untuk mengubah kecepatan pelafalan audio & TTS (Normal / Lambat / Sangat Lambat)"
+            >
+              {audioSpeed < 1.0 ? <Turtle className="h-4 w-4 text-amber-500" /> : <Zap className="h-4 w-4 text-primary" />}
+              <span>{audioSpeed < 1.0 ? `🐢 Lambat (${audioSpeed}x)` : `⚡ Normal (1.0x)`}</span>
+            </Button>
             <Button
               size="sm"
               variant={hideAllAnswers ? 'outline' : 'default'}
@@ -1872,6 +1918,19 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
             renderDetail={(q, idx) => {
               const cardId = `k3_${q.id ?? idx}`;
               const activeOpt = getActiveOption(cardId, q.answer_options, q.answer_ko, q.answer_id);
+              const isPlayingQ = Boolean(
+                playingAudio && (
+                  (q.audio_q && (playingAudio === q.audio_q || (audioRef.current && !audioRef.current.paused && audioRef.current.src && audioRef.current.src.includes(encodeURI(q.audio_q))))) ||
+                  (!q.audio_q && playingAudio === q.question_ko)
+                )
+              );
+              const answerUrl = activeOpt.audio || (((selectedOptionByCard[cardId] ?? 0) === 0 && q.audio_a) ? q.audio_a : null);
+              const isPlayingAnswer = Boolean(
+                playingAudio && (
+                  (answerUrl && (playingAudio === answerUrl || (audioRef.current && !audioRef.current.paused && audioRef.current.src && audioRef.current.src.includes(encodeURI(answerUrl))))) ||
+                  (!answerUrl && playingAudio === activeOpt.ko)
+                )
+              );
               return (
                 <QADetail
                   q={q}
@@ -1890,6 +1949,8 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
                     else if (si === 0 && q.audio_a) playAudio(q.audio_a, activeOpt.ko);
                     else playAudio(null, activeOpt.ko);
                   }}
+                  isPlayingQ={isPlayingQ}
+                  isPlayingAnswer={isPlayingAnswer}
                   accent="amber"
                   ansFallback="Kunci Resmi"
                   subLabel={q.topic || 'K3 Industri Pabrik'}
@@ -1904,7 +1965,8 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
               setSelK3(i === selK3 ? -1 : i);
             }}
             onPlayRow={(i) => {
-              const isThisPlaying = playerUI.on && playerUI.tab === 'k3' && (playerRef.current.order[playerUI.pos] === i);
+              const currentActiveIdx = playerRef.current.order[playerRef.current.pos];
+              const isThisPlaying = playerUI.on && playerUI.tab === 'k3' && (currentActiveIdx === i);
               if (isThisPlaying) {
                 pausePlayer();
               } else {
@@ -2059,6 +2121,19 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
             renderDetail={(q, idx) => {
               const cardId = `int_${q.id ?? idx}`;
               const activeOpt = getActiveOption(cardId, q.answer_options, q.answer_ko, q.answer_id);
+              const isPlayingQ = Boolean(
+                playingAudio && (
+                  (q.audio_q && (playingAudio === q.audio_q || (audioRef.current && !audioRef.current.paused && audioRef.current.src && audioRef.current.src.includes(encodeURI(q.audio_q))))) ||
+                  (!q.audio_q && playingAudio === q.question_ko)
+                )
+              );
+              const answerUrl = activeOpt.audio || (((selectedOptionByCard[cardId] ?? 0) === 0 && q.audio_a) ? q.audio_a : null);
+              const isPlayingAnswer = Boolean(
+                playingAudio && (
+                  (answerUrl && (playingAudio === answerUrl || (audioRef.current && !audioRef.current.paused && audioRef.current.src && audioRef.current.src.includes(encodeURI(answerUrl))))) ||
+                  (!answerUrl && playingAudio === activeOpt.ko)
+                )
+              );
               return (
                 <QADetail
                   q={q}
@@ -2077,6 +2152,8 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
                     else if (si === 0 && q.audio_a) playAudio(q.audio_a, activeOpt.ko);
                     else playAudio(null, activeOpt.ko);
                   }}
+                  isPlayingQ={isPlayingQ}
+                  isPlayingAnswer={isPlayingAnswer}
                   accent="blue"
                   ansFallback="Standar"
                   subLabel={q.category_title || q.category}
@@ -2091,7 +2168,8 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
               setSelInt(i === selInt ? -1 : i);
             }}
             onPlayRow={(i) => {
-              const isThisPlaying = playerUI.on && playerUI.tab === 'interview' && (playerRef.current.order[playerUI.pos] === i);
+              const currentActiveIdx = playerRef.current.order[playerRef.current.pos];
+              const isThisPlaying = playerUI.on && playerUI.tab === 'interview' && (currentActiveIdx === i);
               if (isThisPlaying) {
                 pausePlayer();
               } else {
@@ -2122,10 +2200,7 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
                 <Button
                   variant={hideAllAnswers ? 'default' : 'outline'}
                   size="sm"
-                  onClick={() => {
-                    setHideAllAnswers(prev => !prev);
-                    setRevealedCardAnswers({});
-                  }}
+                  onClick={() => handleSetGlobalHideAll(!hideAllAnswers)}
                   className="text-xs gap-1.5 h-8 shrink-0"
                   title="Klik untuk membuka atau menyembunyikan semua arti perintah fisik"
                 >
@@ -3756,10 +3831,7 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
               <Button
                 variant={hideAllAnswers ? 'default' : 'outline'}
                 size="sm"
-                onClick={() => {
-                  setHideAllAnswers(prev => !prev);
-                  setRevealedCardAnswers({});
-                }}
+                onClick={() => handleSetGlobalHideAll(!hideAllAnswers)}
                 className="text-xs gap-1.5 h-8 shrink-0"
                 title="Klik untuk membuka atau menyembunyikan semua arti rambu"
               >
@@ -3809,6 +3881,48 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
               </div>
             </div>
 
+            {/* Toolbar Status Buka/Tutup Jawaban Rambu (Konsisten dengan Katalog Alat) */}
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-3.5 rounded-xl border border-border bg-secondary/40 text-xs">
+              <div className="space-y-1">
+                <div className="flex items-center gap-2">
+                  <ShieldAlert className="w-4 h-4 text-amber-500 shrink-0" />
+                  <span className="font-bold text-foreground text-sm">Mode Uji Hafalan Rambu K3:</span>
+                </div>
+                <p className="text-[11px] text-muted-foreground">
+                  Buka/tutup seluruh jawaban untuk latihan uji mandiri menebak arti simbol visual keselamatan kerja.
+                </p>
+              </div>
+
+              <div className="inline-flex rounded-lg border border-border bg-card p-0.5 gap-0.5 shrink-0">
+                <button
+                  type="button"
+                  onClick={() => handleSetGlobalHideAll(false)}
+                  className={cn(
+                    'px-2.5 py-1.5 rounded-md text-[11px] font-bold transition-all cursor-pointer',
+                    !hideAllAnswers
+                      ? 'bg-foreground text-background shadow-xs'
+                      : 'text-muted-foreground hover:text-foreground'
+                  )}
+                  title="Buka seluruh nama dan arti pada 98 kartu rambu"
+                >
+                  👁️ Buka Semua Rambu
+                </button>
+                <button
+                  type="button"
+                  onClick={() => handleSetGlobalHideAll(true)}
+                  className={cn(
+                    'px-2.5 py-1.5 rounded-md text-[11px] font-bold transition-all cursor-pointer',
+                    hideAllAnswers
+                      ? 'bg-foreground text-background shadow-xs'
+                      : 'text-muted-foreground hover:text-foreground'
+                  )}
+                  title="Tutup seluruh nama dan arti rambu untuk latihan tebak visual"
+                >
+                  🙈 Tutup Semua Rambu
+                </button>
+              </div>
+            </div>
+
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
               {filteredPik.map((item) => {
                 const cardId = `pik_${item.id}`;
@@ -3823,8 +3937,8 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
                         <button
                           type="button"
                           onClick={() => setInspectRambu(item)}
-                          className="w-16 h-16 rounded-lg border border-border bg-white p-1.5 shrink-0 flex items-center justify-center relative group cursor-pointer"
-                          title="Perbesar Gambar"
+                          className="w-20 h-20 sm:w-24 sm:h-24 rounded-xl border border-border bg-white dark:bg-card p-1.5 shrink-0 flex items-center justify-center relative group cursor-pointer shadow-xs hover:border-primary/50 transition-all"
+                          title="Klik untuk memperbesar gambar rambu"
                         >
                           <img
                             src={getAssetUrl(item.image_url)}
@@ -3832,28 +3946,45 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
                             className="max-w-full max-h-full object-contain"
                             loading="lazy"
                           />
-                          <span className="absolute bottom-1 right-1 w-4 h-4 rounded bg-black/60 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                            <Maximize2 className="w-2.5 h-2.5" />
+                          <span className="absolute bottom-1 right-1 w-5 h-5 rounded-md bg-black/70 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                            <Maximize2 className="w-3 h-3" />
                           </span>
                         </button>
                       )}
-                      <div className="flex-1 min-w-0 space-y-1">
-                        <div className="flex items-start justify-between gap-1">
-                          <span className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground truncate">
+                      <div className="flex-1 min-w-0 space-y-1.5">
+                        <div className="flex items-start justify-between gap-1.5">
+                          <span className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground truncate bg-secondary/80 px-2 py-0.5 rounded-md">
                             {item.category_title || 'Rambu K3'}
                           </span>
-                          <button
-                            type="button"
-                            onClick={() => playAudio(item.audio_a, item.answer_short_ko || item.title_ko)}
-                            className="w-7 h-7 rounded-md bg-secondary hover:bg-primary hover:text-primary-foreground text-foreground flex items-center justify-center shrink-0 transition-colors cursor-pointer"
-                            title="Putar Audio Jawaban"
-                          >
-                            <Volume2 className="w-3.5 h-3.5" />
-                          </button>
+                          <div className="flex items-center gap-1 shrink-0">
+                            <button
+                              type="button"
+                              onClick={() => toggleCardAnswer(cardId)}
+                              className="w-7 h-7 rounded-md bg-secondary hover:bg-secondary/80 text-muted-foreground hover:text-foreground flex items-center justify-center transition-colors cursor-pointer"
+                              title={hidden ? "Tampilkan Arti & Nama Rambu" : "Sembunyikan Arti & Nama Rambu"}
+                            >
+                              {hidden ? <Eye className="w-3.5 h-3.5 text-primary" /> : <EyeOff className="w-3.5 h-3.5" />}
+                            </button>
+                            <button
+                              type="button"
+                              onClick={() => playAudio(item.audio_a, item.answer_short_ko || item.title_ko)}
+                              className="w-7 h-7 rounded-md bg-secondary hover:bg-primary hover:text-primary-foreground text-foreground flex items-center justify-center shrink-0 transition-colors cursor-pointer"
+                              title="Putar Audio Pelafalan Rambu"
+                            >
+                              <Volume2 className="w-3.5 h-3.5" />
+                            </button>
+                          </div>
                         </div>
-                        <p className="text-sm sm:text-base font-black text-foreground leading-snug break-keep">
-                          {item.title_ko || item.answer_short_ko}
-                        </p>
+                        {hidden ? (
+                          <div className="py-1 px-2 rounded-md bg-secondary/80 border border-dashed border-border flex items-center gap-1.5 text-xs text-muted-foreground my-1">
+                            <EyeOff className="w-3.5 h-3.5 text-amber-600 dark:text-amber-400 shrink-0" />
+                            <span className="font-bold text-foreground text-[11px]">Nama Rambu Disembunyikan</span>
+                          </div>
+                        ) : (
+                          <p className="text-sm sm:text-base font-black text-foreground leading-snug break-keep">
+                            {item.title_ko || item.answer_short_ko}
+                          </p>
+                        )}
                       </div>
                     </div>
 
@@ -3868,13 +3999,27 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
                           <span>Tampilkan Arti Rambu</span>
                         </button>
                       ) : (
-                        <div className="space-y-0.5">
-                          <p className="text-xs sm:text-sm font-bold text-emerald-700 dark:text-emerald-400">
-                            {item.title_id || item.answer_short_id}
-                          </p>
-                          <p className="text-[11px] text-muted-foreground leading-snug">
-                            Kalimat Lengkap: <strong>{item.answer_short_ko}</strong>
-                          </p>
+                        <div className="space-y-1">
+                          <div className="flex items-center justify-between gap-1">
+                            <p className="text-xs sm:text-sm font-bold text-emerald-700 dark:text-emerald-400">
+                              {item.title_id || item.answer_short_id}
+                            </p>
+                            <button
+                              type="button"
+                              onClick={() => toggleCardAnswer(cardId)}
+                              className="text-[10px] text-muted-foreground hover:text-foreground flex items-center gap-0.5 cursor-pointer py-0.5 px-1.5 rounded hover:bg-secondary shrink-0"
+                              title="Tutup jawaban kartu ini"
+                            >
+                              <EyeOff className="w-3 h-3" />
+                              <span>Tutup</span>
+                            </button>
+                          </div>
+                          {(item.answer_full_ko || item.answer_short_ko) && (
+                            <p className="text-[11px] text-muted-foreground leading-snug bg-secondary/30 p-1.5 rounded-md border border-border/40">
+                              <span className="text-[10px] uppercase font-bold text-muted-foreground block">Pola Jawaban Lisan:</span>
+                              <strong>{item.answer_full_ko || item.answer_short_ko}</strong>
+                            </p>
+                          )}
                         </div>
                       )}
                     </div>
@@ -3935,10 +4080,7 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
                 <Button
                   variant={hideAllAnswers ? 'default' : 'outline'}
                   size="sm"
-                  onClick={() => {
-                    setHideAllAnswers(prev => !prev);
-                    setRevealedCardAnswers({});
-                  }}
+                  onClick={() => handleSetGlobalHideAll(!hideAllAnswers)}
                   className="text-xs gap-1.5 h-8 shrink-0"
                   title="Klik untuk membuka atau menyembunyikan semua jawaban kartu perkakas"
                 >
@@ -4127,12 +4269,21 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
                             <Volume2 className="w-3.5 h-3.5" />
                           </button>
                         </div>
-                        <p className="text-sm sm:text-base font-black text-foreground leading-snug break-keep">
-                          {item.title_ko || item.answer_short_ko}
-                        </p>
-                        <p className="text-xs text-muted-foreground">
-                          Jawaban: <strong className="text-foreground">{item.answer_short_ko}</strong>
-                        </p>
+                        {hidden ? (
+                          <div className="py-1.5 px-2 rounded-md bg-secondary/80 border border-dashed border-border flex items-center gap-1.5 text-xs text-muted-foreground my-1">
+                            <EyeOff className="w-3.5 h-3.5 text-amber-600 dark:text-amber-400 shrink-0" />
+                            <span className="font-bold text-foreground text-[11px]">Nama Korea Disembunyikan</span>
+                          </div>
+                        ) : (
+                          <>
+                            <p className="text-sm sm:text-base font-black text-foreground leading-snug break-keep">
+                              {item.title_ko || item.answer_short_ko}
+                            </p>
+                            <p className="text-xs text-muted-foreground">
+                              Jawaban: <strong className="text-foreground">{item.answer_short_ko}</strong>
+                            </p>
+                          </>
+                        )}
                       </div>
                     </div>
 

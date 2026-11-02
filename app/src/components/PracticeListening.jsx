@@ -18,7 +18,14 @@ export function PracticeListening({
 
   const [optionLang, setOptionLang] = useState('ko');
   const [showScript, setShowScript] = useState(false);
-  const [playbackRate, setPlaybackRate] = useState(1.0);
+  const [playbackRate, setPlaybackRate] = useState(() => {
+    try {
+      const saved = localStorage.getItem('kore_audio_speed');
+      return saved ? parseFloat(saved) : 0.8;
+    } catch {
+      return 0.8;
+    }
+  });
 
   const audioQuestions = useMemo(() => {
     const list = questions.filter(q => q.audio_q);
@@ -238,14 +245,23 @@ export function PracticeListening({
 
           <button
             type="button"
-            onClick={() => setPlaybackRate(prev => prev === 1.0 ? 0.85 : 1.0)}
+            onClick={() => {
+              setPlaybackRate(prev => {
+                let next = 1.0;
+                if (prev >= 0.95) next = 0.8;
+                else if (prev >= 0.75) next = 0.65;
+                else next = 1.0;
+                try { localStorage.setItem('kore_audio_speed', String(next)); } catch {}
+                return next;
+              });
+            }}
             className={cn(
               'px-2 py-1 rounded-md border text-[11px] font-mono font-bold transition-colors',
-              playbackRate === 0.85
+              playbackRate < 1.0
                 ? 'bg-warn/10 text-warn border-warn/30'
                 : 'bg-card text-muted-foreground border-border hover:text-foreground'
             )}
-            title="Atur kecepatan audio (0.85x untuk pemula, 1.0x kecepatan asli penguji)"
+            title="Atur kecepatan audio (0.8x / 0.65x untuk pemula, 1.0x kecepatan asli penguji)"
           >
             {playbackRate}x
           </button>

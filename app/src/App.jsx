@@ -5,7 +5,8 @@ import {
   Mic, ChevronRight, ChevronLeft, CheckCircle2,
   Shuffle, X, AlertCircle, Layers,
   RefreshCw, Info, CheckCircle,
-  RotateCcw, ArrowRight, Headphones, SlidersHorizontal
+  RotateCcw, ArrowRight, Headphones, SlidersHorizontal,
+  Turtle, Zap
 } from 'lucide-react';
 import { getRandomSample, getLogicalMovementSequence } from './utils/shuffle.js';
 import { Header } from './components/Header.jsx';
@@ -18,7 +19,7 @@ import { PracticeQuiz } from './components/PracticeQuiz.jsx';
 import { PracticeListening } from './components/PracticeListening.jsx';
 import { PracticeOral } from './components/PracticeOral.jsx';
 import { getAssetUrl } from './utils/assetHelper.js';
-import { MAIN_MODULES, CATEGORY_GROUPS, filterQuestionsByCategory, MODULE_COLORS } from './utils/categoryGroups.js';
+import { MAIN_MODULES, CATEGORY_GROUPS, SUB_CATEGORIES, filterQuestionsByCategory, getParentModuleId, getCategoryMeta, MODULE_COLORS } from './utils/categoryGroups.js';
 import { cn } from './utils/cn.js';
 import { Badge } from './components/ui/badge.jsx';
 import { Button } from './components/ui/button.jsx';
@@ -69,16 +70,57 @@ export default function App() {
   // Token guard to completely prevent audio repeat/loop bugs in Exam
   const examStepTokenRef = useRef(0);
 
-  // Filtered practice questions - Mendukung modul utama maupun sub-kategori spesifik
+  // Kecepatan Audio (Slow Mode untuk Pemula & Pelafalan Jelas)
+  const [audioSpeed, setAudioSpeed] = useState(() => {
+    try {
+      const saved = localStorage.getItem('kore_audio_speed');
+      return saved ? parseFloat(saved) : 0.8;
+    } catch {
+      return 0.8;
+    }
+  });
+
+  const toggleAudioSpeed = () => {
+    setAudioSpeed(prev => {
+      let next = 1.0;
+      if (prev >= 0.95) next = 0.8;
+      else if (prev >= 0.75) next = 0.65;
+      else next = 1.0;
+      try { localStorage.setItem('kore_audio_speed', String(next)); } catch {}
+      try {
+        if (practiceAudioRef.current) practiceAudioRef.current.playbackRate = next;
+        if (practiceAnswerAudioRef.current) practiceAnswerAudioRef.current.playbackRate = next;
+      } catch {}
+      return next;
+    });
+  };
+
+  // Filter format latihan: 'all' (Semua) | 'image' (Hanya Soal Bergambar) | 'text' (Hanya Soal Wawancara/Teks)
+  const [practiceTypeFilter, setPracticeTypeFilter] = useState('all');
+  const [practiceShuffleSeed, setPracticeShuffleSeed] = useState(0);
+
+  // Filtered practice questions - Mendukung modul utama, sub-kategori, dan filter format
   const filteredQuestions = useMemo(() => {
-    return filterQuestionsByCategory(questionsData, selectedCategory);
-  }, [selectedCategory]);
+    let list = filterQuestionsByCategory(questionsData, selectedCategory);
+    if (practiceTypeFilter === 'image') {
+      list = list.filter(q => !!q.image_url);
+    } else if (practiceTypeFilter === 'text') {
+      list = list.filter(q => !q.image_url);
+    }
+    if (practiceShuffleSeed > 0) {
+      list = [...list].sort(() => Math.random() - 0.5);
+    }
+    return list;
+  }, [selectedCategory, practiceTypeFilter, practiceShuffleSeed]);
 
   const currentQ = filteredQuestions[currentIndex] || filteredQuestions[0] || {};
 
   // Stop all audio on state change
   const stopAllAudio = useCallback(() => {
     if (timerRef.current) clearInterval(timerRef.current);
+    if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
+      try { window.speechSynthesis.cancel(); } catch {}
+    }
     
     // Stop practice audio
     practiceAudioRef.current.pause();
@@ -95,6 +137,26 @@ export default function App() {
     setIsPlayingAudio(false);
   }, []);
 
+  const speakPracticeTTS = useCallback((text) => {
+    if (!text || typeof window === 'undefined' || !('speechSynthesis' in window)) {
+      setIsPlayingAudio(false);
+      return;
+    }
+    try {
+      window.speechSynthesis.cancel();
+      const u = new SpeechSynthesisUtterance(text);
+      u.lang = 'ko-KR';
+      const speedFactor = audioSpeed ?? 0.8;
+      u.rate = Math.max(0.5, Math.min(1.4, 0.82 * speedFactor));
+      setIsPlayingAudio(true);
+      u.onend = () => setIsPlayingAudio(false);
+      u.onerror = () => setIsPlayingAudio(false);
+      window.speechSynthesis.speak(u);
+    } catch {
+      setIsPlayingAudio(false);
+    }
+  }, [audioSpeed]);
+
   useEffect(() => {
     stopAllAudio();
     setShowAnswer(false);
@@ -104,34 +166,71 @@ export default function App() {
     }
   }, [currentIndex, selectedCategory, stopAllAudio]);
 
-  // Practice Audio Play - PURE NATIVE MP3 ONLY (ZERO TTS)
+  // Practice Audio Play (Mendukung MP3 Native & TTS Fallback dengan Kecepatan Sesuai Preferensi)
   const playPracticeQuestion = () => {
     stopAllAudio();
     if (currentQ?.audio_q) {
       practiceAudioRef.current.src = getAssetUrl(currentQ.audio_q);
+      try { practiceAudioRef.current.playbackRate = audioSpeed; } catch {}
       practiceAudioRef.current.onplay = () => setIsPlayingAudio(true);
       practiceAudioRef.current.onended = () => setIsPlayingAudio(false);
-      practiceAudioRef.current.onerror = () => setIsPlayingAudio(false);
-      practiceAudioRef.current.play().catch(() => setIsPlayingAudio(false));
+      practiceAudioRef.current.onerror = () => {
+        if (currentQ?.question_ko) speakPracticeTTS(currentQ.question_ko);
+        else setIsPlayingAudio(false);
+      };
+      practiceAudioRef.current.play().catch(() => {
+        if (currentQ?.question_ko) speakPracticeTTS(currentQ.question_ko);
+        else setIsPlayingAudio(false);
+      });
+    } else if (currentQ?.question_ko) {
+      speakPracticeTTS(currentQ.question_ko);
     }
   };
 
-  const playPracticeAnswer = () => {
+  const playPracticeAnswer = (specificText) => {
     stopAllAudio();
+    if (specificText && typeof specificText === 'string') {
+      speakPracticeTTS(specificText);
+      return;
+    }
     if (currentQ?.audio_a) {
       practiceAnswerAudioRef.current.src = getAssetUrl(currentQ.audio_a);
-      practiceAnswerAudioRef.current.play().catch(() => {});
+      try { practiceAnswerAudioRef.current.playbackRate = audioSpeed; } catch {}
+      practiceAnswerAudioRef.current.onplay = () => setIsPlayingAudio(true);
+      practiceAnswerAudioRef.current.onended = () => setIsPlayingAudio(false);
+      practiceAnswerAudioRef.current.onerror = () => {
+        const fb = currentQ?.answer_short_ko || currentQ?.answer_ko;
+        if (fb) speakPracticeTTS(fb);
+        else setIsPlayingAudio(false);
+      };
+      practiceAnswerAudioRef.current.play().catch(() => {
+        const fb = currentQ?.answer_short_ko || currentQ?.answer_ko;
+        if (fb) speakPracticeTTS(fb);
+      });
+    } else {
+      const fb = currentQ?.answer_short_ko || currentQ?.answer_ko;
+      if (fb) speakPracticeTTS(fb);
     }
   };
 
-  const playAudioUrl = (url) => {
+  const playAudioUrl = (url, fallbackText) => {
     stopAllAudio();
-    if (!url) return;
-    practiceAudioRef.current.src = getAssetUrl(url);
-    practiceAudioRef.current.onplay = () => setIsPlayingAudio(true);
-    practiceAudioRef.current.onended = () => setIsPlayingAudio(false);
-    practiceAudioRef.current.onerror = () => setIsPlayingAudio(false);
-    practiceAudioRef.current.play().catch(() => setIsPlayingAudio(false));
+    if (url) {
+      practiceAudioRef.current.src = getAssetUrl(url);
+      try { practiceAudioRef.current.playbackRate = audioSpeed; } catch {}
+      practiceAudioRef.current.onplay = () => setIsPlayingAudio(true);
+      practiceAudioRef.current.onended = () => setIsPlayingAudio(false);
+      practiceAudioRef.current.onerror = () => {
+        if (fallbackText) speakPracticeTTS(fallbackText);
+        else setIsPlayingAudio(false);
+      };
+      practiceAudioRef.current.play().catch(() => {
+        if (fallbackText) speakPracticeTTS(fallbackText);
+        else setIsPlayingAudio(false);
+      });
+    } else if (fallbackText) {
+      speakPracticeTTS(fallbackText);
+    }
   };
 
   // Practice Mic Recording: revoke previous blob to prevent leak
@@ -320,25 +419,28 @@ export default function App() {
       if (/날씨|계절/.test(ko)) return 'cuaca_musim';
       if (/이름|성함/.test(ko)) return 'nama_identitas';
       if (/나이|연세|몇 살/.test(ko)) return 'umur_usia';
-      if (/생일/.test(ko)) return 'tanggal_lahir';
-      if (/고향/.test(ko)) return 'kampung_halaman';
+      if (/생일|태어났|출생/.test(ko)) return 'tanggal_lahir';
+      if (/고향|나라 사람/.test(ko)) return 'kampung_halaman';
       if (/키가|몸무게/.test(ko)) return 'fisik_badan';
       if (/결혼/.test(ko)) return 'status_nikah';
       if (/부모님/.test(ko)) return 'orang_tua';
-      if (/가족|식구|누구 누구/.test(ko)) return 'anggota_keluarga';
-      if (/형제/.test(ko)) return 'saudara_kandung';
+      if (/가족|식구|누구 누구|누구랑/.test(ko)) return 'anggota_keluarga';
+      if (/형제|자매/.test(ko)) return 'saudara_kandung';
       if (/아이/.test(ko)) return 'anak_keturunan';
       if (/배웠|공부/.test(ko)) return 'belajar_bahasa';
       if (/취미/.test(ko)) return 'hobi_kegemaran';
       if (/운동/.test(ko)) return 'olahraga_kegemaran';
-      if (/색깔|음식/.test(ko)) return 'preferensi_warna_makanan';
+      if (/색깔|음식|과일|동물/.test(ko)) return 'preferensi_warna_makanan';
       if (/타고|얼마나 걸렸/.test(ko)) return 'transportasi_perjalanan';
-      if (/동료/.test(ko)) return 'rekan_kerja';
+      if (/성격|어떤 사람/.test(ko)) return 'karakter_sikap';
+      if (/동료|충돌|갈등/.test(ko)) return 'rekan_kerja';
       if (/일이 많|야근|잔업/.test(ko)) return 'tanggung_jawab_lembur';
       if (/불량품/.test(ko)) return 'kasus_cacat_produk';
-      if (/실수/.test(ko)) return 'kasus_kesalahan_kerja';
-      if (/사고/.test(ko)) return 'kasus_kecelakaan_kerja';
-      if (/상사|의견/.test(ko)) return 'hubungan_atasan';
+      if (/실수|서툴|잘 못하/.test(ko)) return 'kasus_kesalahan_kerja';
+      if (/사고|불이 나|화재/.test(ko)) return 'kasus_kecelakaan_kerja';
+      if (/상사|의견|꾸중|화를 내/.test(ko)) return 'hubungan_atasan';
+      if (/아프|피곤|졸릴|스트레스|출근/.test(ko)) return 'kesehatan_darurat';
+      if (/적성|계획|몇 년|월급|체불|히잡|의사소통|시간|규칙/.test(ko)) return 'situasi_kerja_pabrik';
       if (/한국에 왜|고용/.test(ko)) return 'motivasi_alasan_korea';
       if (/기술|다른 사람보다/.test(ko)) return 'keterampilan_keunggulan';
       if (/어떤 일|전에 무슨|요즘/.test(ko)) return 'pengalaman_bidang_kerja';
@@ -353,14 +455,13 @@ export default function App() {
       topicMap.get(t).push(q);
     });
 
-    // Pilih 12 topik berbeda dari klaster seimbang
+    // Pilih 12 topik berbeda dari klaster seimbang (menjamin variasi soal situasi kerja baru ikut teracak)
     const selectedTopics = [
       ...getRandomSample(['waktu_jam', 'hari_kalender', 'tanggal_bulan', 'cuaca_musim'], 2),
       ...getRandomSample(['umur_usia', 'tanggal_lahir', 'kampung_halaman', 'fisik_badan'], 2),
       ...getRandomSample(['status_nikah', 'orang_tua', 'anggota_keluarga', 'saudara_kandung', 'anak_keturunan'], 2),
-      ...getRandomSample(['belajar_bahasa', 'hobi_kegemaran', 'olahraga_kegemaran', 'preferensi_warna_makanan', 'transportasi_perjalanan'], 2),
-      ...getRandomSample(['rekan_kerja', 'tanggung_jawab_lembur', 'pengalaman_bidang_kerja', 'hubungan_atasan'], 1),
-      ...getRandomSample(['motivasi_alasan_korea', 'keterampilan_keunggulan', 'lainnya'], 1),
+      ...getRandomSample(['belajar_bahasa', 'hobi_kegemaran', 'olahraga_kegemaran', 'preferensi_warna_makanan', 'transportasi_perjalanan', 'karakter_sikap'], 2),
+      ...getRandomSample(['rekan_kerja', 'tanggung_jawab_lembur', 'pengalaman_bidang_kerja', 'hubungan_atasan', 'situasi_kerja_pabrik', 'kesehatan_darurat', 'motivasi_alasan_korea', 'keterampilan_keunggulan'], 2),
       ...getRandomSample(['kasus_cacat_produk', 'kasus_kesalahan_kerja', 'kasus_kecelakaan_kerja'], 2)
     ];
 
@@ -672,22 +773,23 @@ export default function App() {
   // Kelompok kategori gaya modul Hub: definisi bersama di utils/categoryGroups.js
   // (dipakai juga oleh mode Materi agar pengkategorian konsisten)
 
-  const categoriesList = [
-    { id: 'all', label: 'Semua Bank Soal', count: questionsData.length },
-    { id: 'simulasi_hrdk', group: 'interview', label: 'Simulasi Resmi HRDK', count: questionsData.filter(q=>q.category==='simulasi_hrdk').length },
-    { id: 'wawancara', group: 'interview', label: 'Wawancara Data Diri & Situasi', count: questionsData.filter(q=>q.category==='wawancara').length },
-    { id: 'wawancara_profesional', group: 'interview', label: 'Wawancara Sikap Kerja NCS', count: questionsData.filter(q=>q.category==='wawancara_profesional').length },
-    { id: 'gerak_fisik', group: 'physical', label: 'Perintah Gerak Fisik Tubuh (따라하세요)', count: questionsData.filter(q=>q.category==='gerak_fisik').length },
-    { id: 'k3_safety', group: 'safety', label: 'K3 & Keselamatan Pabrik', count: questionsData.filter(q=>q.category==='k3_safety').length },
-    { id: 'piktogram', group: 'safety', label: 'Piktogram & Rambu K3', count: questionsData.filter(q=>q.category==='piktogram').length },
-    { id: 'alat_manufaktur', group: 'tools', label: 'Perkakas Manufaktur & APD', count: questionsData.filter(q=>q.category==='alat_manufaktur').length },
-    { id: 'alat_klasik', group: 'tools', label: 'Perkakas Klasik (JAGISOSE)', count: questionsData.filter(q=>q.category==='alat_klasik').length },
-    { id: 'fungsi_alat', group: 'tools', label: 'Fungsi Perkakas Manufaktur', count: questionsData.filter(q=>q.category==='fungsi_alat').length },
-    { id: 'praktik_alat', group: 'tools', label: 'Praktik & Penggunaan Alat Kerja', count: questionsData.filter(q=>q.category==='praktik_alat').length },
-    { id: 'matematika', group: 'numbers', label: 'Dasar Berhitung Pabrik', count: questionsData.filter(q=>q.category==='matematika').length },
-    { id: 'konversi_satuan', group: 'numbers', label: 'Konversi Satuan & Waktu', count: questionsData.filter(q=>q.category==='konversi_satuan').length },
-    { id: 'hitungan_lisan', group: 'numbers', label: 'Hitungan Lisan Pabrik', count: questionsData.filter(q=>q.category==='hitungan_lisan').length },
-  ];
+  const categoriesList = useMemo(() => {
+    const list = [{ id: 'all', label: 'Semua Bank Soal', count: questionsData.length }];
+    Object.entries(SUB_CATEGORIES).forEach(([groupKey, subs]) => {
+      subs.forEach(sub => {
+        if (sub.id !== groupKey) {
+          list.push({
+            id: sub.id,
+            group: groupKey,
+            label: sub.label,
+            shortLabel: sub.shortLabel,
+            count: filterQuestionsByCategory(questionsData, sub.id).length
+          });
+        }
+      });
+    });
+    return list;
+  }, []);
 
   const practiceProgress = filteredQuestions.length ? ((currentIndex + 1) / filteredQuestions.length) * 100 : 0;
   const examProgress = examQuestions.length ? ((examIndex + 1) / examQuestions.length) * 100 : 0;
@@ -733,9 +835,12 @@ export default function App() {
             
             {/* Baris 1: 4 Tab Mode Latihan + Tombol Pemilih Kategori Aktif */}
             {(() => {
-              const activeMod = MAIN_MODULES.find(m => m.id === selectedCategory);
-              const activeSub = categoriesList.find(c => c.id === selectedCategory);
-              const activeCatLabel = activeMod ? activeMod.shortLabel : (activeSub ? activeSub.label.split('(')[0].trim() : 'Semua Soal');
+              const parentModId = getParentModuleId(selectedCategory);
+              const activeMod = MAIN_MODULES.find(m => m.id === selectedCategory || m.id === parentModId);
+              const catMeta = getCategoryMeta(selectedCategory);
+              const activeCatLabel = activeMod && activeMod.id !== 'all' && selectedCategory !== activeMod.id
+                ? `${activeMod.shortLabel} · ${catMeta.shortLabel}`
+                : (catMeta.shortLabel || 'Semua Soal');
 
               return (
                 <div className="w-full max-w-xl space-y-2">
@@ -756,7 +861,7 @@ export default function App() {
                             type="button"
                             onClick={() => { setPracticeSubMode(tab.id); stopAllAudio(); }}
                             className={cn(
-                              'flex items-center justify-center gap-1.5 px-2.5 sm:px-3.5 py-1.5 rounded-md transition-colors min-h-[36px] text-xs font-semibold',
+                              'flex items-center justify-center gap-1.5 px-2.5 sm:px-3.5 py-1.5 rounded-md transition-colors min-h-[36px] text-xs font-semibold cursor-pointer',
                               active
                                 ? 'bg-card text-foreground shadow-xs'
                                 : 'text-muted-foreground hover:text-foreground'
@@ -773,7 +878,7 @@ export default function App() {
                     <button
                       type="button"
                       onClick={() => setCategoryModalOpen(true)}
-                      className="flex items-center justify-between sm:justify-center gap-2 px-3 py-1.5 rounded-lg border border-border bg-card hover:bg-secondary/60 text-xs font-semibold text-foreground min-h-[38px] shrink-0 transition-colors"
+                      className="flex items-center justify-between sm:justify-center gap-2 px-3 py-1.5 rounded-lg border border-border bg-card hover:bg-secondary/60 text-xs font-semibold text-foreground min-h-[38px] shrink-0 transition-colors cursor-pointer"
                       title="Klik untuk memilih modul atau sub-kategori spesifik"
                     >
                       <span className="flex items-center gap-1.5 min-w-0">
@@ -789,9 +894,7 @@ export default function App() {
                   {/* Baris Chip Filter Modul Cepat Horizontal (1 Baris) */}
                   <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-0.5">
                     {MAIN_MODULES.filter(m => m.id === 'all' || m.categories.length > 0).map(mod => {
-                      const isDirect = selectedCategory === mod.id;
-                      const isIncludedSub = mod.categories.includes(selectedCategory);
-                      const isSelected = isDirect || (selectedCategory !== 'all' && isIncludedSub);
+                      const isSelected = selectedCategory === mod.id || parentModId === mod.id;
                       const count = mod.id === 'all'
                         ? questionsData.length
                         : questionsData.filter(q => mod.categories.includes(q.category)).length;
@@ -806,9 +909,9 @@ export default function App() {
                             stopAllAudio();
                           }}
                           className={cn(
-                            'shrink-0 px-2.5 py-1 rounded-md text-xs font-medium transition-colors border flex items-center gap-1.5 min-h-[32px]',
+                            'shrink-0 px-2.5 py-1 rounded-md text-xs font-medium transition-colors border flex items-center gap-1.5 min-h-[32px] cursor-pointer',
                             isSelected
-                              ? 'bg-primary text-primary-foreground border-primary'
+                              ? 'bg-primary text-primary-foreground border-primary shadow-xs'
                               : 'bg-card text-muted-foreground border-border hover:text-foreground hover:bg-secondary/60'
                           )}
                         >
@@ -820,6 +923,101 @@ export default function App() {
                       );
                     })}
                   </div>
+
+                  {/* Baris 2.5: Sub-kategori Chips jika modul aktif memiliki sub-kategori spesifik */}
+                  {(() => {
+                    if (!parentModId || parentModId === 'all') return null;
+                    const subCats = SUB_CATEGORIES[parentModId] || [];
+                    if (subCats.length <= 1) return null;
+
+                    return (
+                      <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-1 text-xs bg-secondary/30 px-2 rounded-xl border border-border/50">
+                        <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider shrink-0 mr-1">
+                          Pilihan Kategori:
+                        </span>
+                        {subCats.map(sub => {
+                          const isSubSelected = selectedCategory === sub.id;
+                          const count = filterQuestionsByCategory(questionsData, sub.id).length;
+                          return (
+                            <button
+                              key={sub.id}
+                              type="button"
+                              onClick={() => { setSelectedCategory(sub.id); setCurrentIndex(0); stopAllAudio(); }}
+                              className={cn(
+                                'px-2.5 py-1 rounded-lg border text-[11px] font-medium shrink-0 transition-all flex items-center gap-1 cursor-pointer',
+                                isSubSelected
+                                  ? 'bg-foreground text-background border-foreground font-semibold shadow-xs'
+                                  : 'bg-card text-muted-foreground border-border hover:text-foreground hover:bg-secondary'
+                              )}
+                            >
+                              <span>{sub.shortLabel}</span>
+                              <span className={cn('text-[10px] font-mono', isSubSelected ? 'text-background/80' : 'text-muted-foreground')}>
+                                ({count})
+                              </span>
+                            </button>
+                          );
+                        })}
+                      </div>
+                    );
+                  })()}
+
+                  {/* Baris 3: Filter Format Soal (Semua / Bergambar / Lisan Teks) + Tebak Acak */}
+                  <div className="flex items-center justify-between gap-2 pt-0.5 text-xs">
+                    <div className="inline-flex items-center p-0.5 bg-secondary/80 border border-border rounded-lg">
+                      <button
+                        type="button"
+                        onClick={() => { setPracticeTypeFilter('all'); setCurrentIndex(0); stopAllAudio(); }}
+                        className={cn(
+                          'px-2.5 py-1 rounded-md text-[11px] font-medium transition-colors',
+                          practiceTypeFilter === 'all'
+                            ? 'bg-card text-foreground shadow-xs font-semibold'
+                            : 'text-muted-foreground hover:text-foreground'
+                        )}
+                      >
+                        Semua
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => { setPracticeTypeFilter('image'); setCurrentIndex(0); stopAllAudio(); }}
+                        className={cn(
+                          'px-2.5 py-1 rounded-md text-[11px] font-medium transition-colors flex items-center gap-1',
+                          practiceTypeFilter === 'image'
+                            ? 'bg-card text-foreground shadow-xs font-semibold'
+                            : 'text-muted-foreground hover:text-foreground'
+                        )}
+                        title="Hanya rambu piktogram dan perkakas manufaktur bergambar"
+                      >
+                        <span>🖼️ Bergambar</span>
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => { setPracticeTypeFilter('text'); setCurrentIndex(0); stopAllAudio(); }}
+                        className={cn(
+                          'px-2.5 py-1 rounded-md text-[11px] font-medium transition-colors flex items-center gap-1',
+                          practiceTypeFilter === 'text'
+                            ? 'bg-card text-foreground shadow-xs font-semibold'
+                            : 'text-muted-foreground hover:text-foreground'
+                        )}
+                        title="Hanya pertanyaan lisan wawancara, K3, dan gerakan"
+                      >
+                        <span>💬 Tanya Jawab</span>
+                      </button>
+                    </div>
+
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setPracticeShuffleSeed(p => p + 1);
+                        setCurrentIndex(0);
+                        stopAllAudio();
+                      }}
+                      className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg border border-border bg-card hover:bg-secondary/70 text-[11px] font-semibold text-foreground transition-colors shrink-0 shadow-xs"
+                      title="Acak urutan soal untuk melatih daya ingat spontan"
+                    >
+                      <Shuffle className="w-3.5 h-3.5 text-primary" />
+                      <span>Tebak Acak</span>
+                    </button>
+                  </div>
                 </div>
               );
             })()}
@@ -830,6 +1028,8 @@ export default function App() {
                 questions={filteredQuestions}
                 onPlayAudio={playAudioUrl}
                 isPlayingAudio={isPlayingAudio}
+                audioSpeed={audioSpeed}
+                onToggleAudioSpeed={toggleAudioSpeed}
               />
             )}
 
@@ -866,6 +1066,8 @@ export default function App() {
                 isRecording={isRecording}
                 onToggleRecording={toggleRecording}
                 recordedAudioUrl={recordedAudioUrl}
+                audioSpeed={audioSpeed}
+                onToggleAudioSpeed={toggleAudioSpeed}
               />
             )}
           </div>
