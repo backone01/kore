@@ -1,8 +1,8 @@
-import React, { useState, useEffect, useRef, useMemo, useCallback } from 'react';
+import React, { useState, useEffect, useRef, useMemo, useCallback, lazy, Suspense } from 'react';
 import questionsData from './data/questions.json';
 import { 
   Play, Volume2, Eye, EyeOff, 
-  Mic, ChevronRight, ChevronLeft, CheckCircle2,
+  Mic, ChevronRight, ChevronLeft, ChevronDown, CheckCircle2,
   Shuffle, X, AlertCircle, Layers,
   RefreshCw, Info, CheckCircle,
   RotateCcw, ArrowRight, Headphones, SlidersHorizontal,
@@ -12,12 +12,15 @@ import { getRandomSample, getLogicalMovementSequence } from './utils/shuffle.js'
 import { Header } from './components/Header.jsx';
 import { CategoryModal } from './components/CategoryModal.jsx';
 import { RevisionModal } from './components/RevisionModal.jsx';
-import { StudyGuide } from './components/StudyGuide.jsx';
+import { AudioSettingsModal } from './components/AudioSettingsModal.jsx';
 import { CheckRekap } from './components/CheckRekap.jsx';
 import { PracticeFlashcard } from './components/PracticeFlashcard.jsx';
 import { PracticeQuiz } from './components/PracticeQuiz.jsx';
 import { PracticeListening } from './components/PracticeListening.jsx';
 import { PracticeOral } from './components/PracticeOral.jsx';
+
+// Lazy loading modul materi besar untuk performa inisial cepat
+const StudyGuide = lazy(() => import('./components/StudyGuide.jsx'));
 import { getAssetUrl } from './utils/assetHelper.js';
 import { MAIN_MODULES, CATEGORY_GROUPS, SUB_CATEGORIES, filterQuestionsByCategory, getParentModuleId, getCategoryMeta, MODULE_COLORS } from './utils/categoryGroups.js';
 import { cn } from './utils/cn.js';
@@ -27,17 +30,48 @@ import { Card } from './components/ui/card.jsx';
 
 export default function App() {
   // App Mode: 'study' (Materi & Hafalan) | 'practice' (Latihan Soal) | 'exam' (Simulasi Ujian Resmi)
-  const [mode, setMode] = useState('study');
-  const [practiceSubMode, setPracticeSubMode] = useState('flashcard'); // 'flashcard' | 'quiz' | 'listening' | 'oral'
+  // Auto-Save: memulihkan mode terakhir yang dibuka pengguna
+  const [mode, setMode] = useState(() => {
+    try {
+      const saved = localStorage.getItem('kore_mode');
+      if (saved && ['study', 'practice', 'exam'].includes(saved)) return saved;
+    } catch {}
+    return 'study';
+  });
+
+  const [practiceSubMode, setPracticeSubMode] = useState(() => {
+    try {
+      const saved = localStorage.getItem('kore_practice_submode');
+      if (saved && ['flashcard', 'quiz', 'listening', 'oral'].includes(saved)) return saved;
+    } catch {}
+    return 'flashcard';
+  });
 
   // Modal Informasi Regulasi Resmi Revisi HRD Korea
   const [revisionModalOpen, setRevisionModalOpen] = useState(false);
+  // Modal Pengaturan Audio & Karakter Suara TTS
+  const [audioModalOpen, setAudioModalOpen] = useState(false);
 
   // =========================================================================
   // 1. PRACTICE MODE (LATIHAN MANDIRI)
   // =========================================================================
-  const [selectedCategory, setSelectedCategory] = useState('all');
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [selectedCategory, setSelectedCategory] = useState(() => {
+    try {
+      const saved = localStorage.getItem('kore_selected_category');
+      if (saved && typeof saved === 'string') return saved;
+    } catch {}
+    return 'all';
+  });
+
+  const [currentIndex, setCurrentIndex] = useState(() => {
+    try {
+      const saved = localStorage.getItem('kore_practice_index');
+      const idx = parseInt(saved, 10);
+      if (!isNaN(idx) && idx >= 0) return idx;
+    } catch {}
+    return 0;
+  });
+
   const [showAnswer, setShowAnswer] = useState(false);
   const [showTranslate, setShowTranslate] = useState(true);
   const [blindMode, setBlindMode] = useState(false);
@@ -69,12 +103,18 @@ export default function App() {
 
   // Token guard to completely prevent audio repeat/loop bugs in Exam
   const examStepTokenRef = useRef(0);
+  const recentExamToolIdsRef = useRef(new Set());
+  const recentExamPicIdsRef = useRef(new Set());
 
-  // Kecepatan Audio (Slow Mode untuk Pemula & Pelafalan Jelas)
+  // Kecepatan Audio (Slow Mode untuk Pemula & Pelafalan Jelas dengan Validasi Aman)
   const [audioSpeed, setAudioSpeed] = useState(() => {
     try {
       const saved = localStorage.getItem('kore_audio_speed');
-      return saved ? parseFloat(saved) : 0.8;
+      const parsed = parseFloat(saved);
+      if (!isNaN(parsed) && [0.65, 0.8, 1.0].includes(parsed)) {
+        return parsed;
+      }
+      return 0.8;
     } catch {
       return 0.8;
     }
@@ -95,9 +135,159 @@ export default function App() {
     });
   };
 
+  // Suara TTS Korea (Pilih Suara Alami / Natural Voice agar tidak kaku/robotik)
+  const [koreanVoices, setKoreanVoices] = useState([]);
+  const [selectedVoiceName, setSelectedVoiceName] = useState(() => {
+    try {
+      return localStorage.getItem('kore_tts_voice_name') || '';
+    } catch {
+      return '';
+    }
+  });
+
+  useEffect(() => {
+    if (typeof window === 'undefined' || !('speechSynthesis' in window)) return;
+    const loadVoices = () => {
+      const all = window.speechSynthesis.getVoices() || [];
+      const ko = all.filter(v => v.lang === 'ko-KR' || v.lang === 'ko_KR' || (v.lang && v.lang.startsWith('ko')));
+      // Prioritaskan Suara Natural / Neural di atas
+      ko.sort((a, b) => {
+        const scoreA = (a.name.includes('Natural') || a.name.includes('Online')) ? 3 : (a.name.includes('Google') || a.name.includes('한국')) ? 2 : 1;
+        const scoreB = (b.name.includes('Natural') || b.name.includes('Online')) ? 3 : (b.name.includes('Google') || b.name.includes('한국')) ? 2 : 1;
+        return scoreB - scoreA;
+      });
+      setKoreanVoices(ko);
+    };
+    loadVoices();
+    window.speechSynthesis.onvoiceschanged = loadVoices;
+    return () => {
+      if (window.speechSynthesis) window.speechSynthesis.onvoiceschanged = null;
+    };
+  }, []);
+
+  const getBestKoreanVoice = useCallback(() => {
+    if (typeof window === 'undefined' || !('speechSynthesis' in window)) return null;
+    const voices = window.speechSynthesis.getVoices() || [];
+    const ko = voices.filter(v => v.lang === 'ko-KR' || v.lang === 'ko_KR' || (v.lang && v.lang.startsWith('ko')));
+    if (!ko.length) return null;
+    if (selectedVoiceName) {
+      const found = ko.find(v => v.name === selectedVoiceName);
+      if (found) return found;
+    }
+    // 1. Natural Neural Voice (Microsoft Edge: SunHi / InJoon)
+    const natural = ko.find(v => v.name.includes('Natural') || v.name.includes('Online') || v.name.includes('SunHi') || v.name.includes('InJoon'));
+    if (natural) return natural;
+    // 2. Google Korean Neural (Chrome)
+    const google = ko.find(v => v.name.includes('Google') || v.name.includes('한국'));
+    if (google) return google;
+    return ko[0];
+  }, [selectedVoiceName]);
+
+  const toggleTtsVoice = () => {
+    if (!koreanVoices.length) return;
+    const currentIdx = koreanVoices.findIndex(v => v.name === (getBestKoreanVoice()?.name || selectedVoiceName));
+    const nextIdx = (currentIdx + 1) % koreanVoices.length;
+    const nextVoice = koreanVoices[nextIdx];
+    if (nextVoice) {
+      setSelectedVoiceName(nextVoice.name);
+      try { localStorage.setItem('kore_tts_voice_name', nextVoice.name); } catch {}
+    }
+  };
+
+  const currentVoiceLabel = useMemo(() => {
+    const active = getBestKoreanVoice();
+    if (!active) return 'Suara Korea';
+    if (active.name.includes('SunHi')) return 'SunHi (Alami)';
+    if (active.name.includes('InJoon')) return 'InJoon (Pria)';
+    if (active.name.includes('Google') || active.name.includes('한국')) return 'Google Neural';
+    if (active.name.includes('Heami')) return 'Heami (Standar)';
+    return active.name.replace(/(Microsoft|Google|Korean|\(Korea\)|Online|\(Natural\))/gi, '').trim() || 'Korea';
+  }, [getBestKoreanVoice]);
+
+  const testTtsVoice = useCallback(() => {
+    if (typeof window === 'undefined' || !('speechSynthesis' in window)) return;
+    try {
+      window.speechSynthesis.cancel();
+      const u = new SpeechSynthesisUtterance("안녕하세요! 한국어 듣기 및 말하기 연습입니다.");
+      u.lang = 'ko-KR';
+      const voice = getBestKoreanVoice();
+      if (voice) u.voice = voice;
+      const speedFactor = audioSpeed ?? 0.8;
+      u.rate = Math.max(0.5, Math.min(1.4, 0.82 * speedFactor));
+      u.pitch = 1.02;
+      window.speechSynthesis.speak(u);
+    } catch {}
+  }, [audioSpeed, getBestKoreanVoice]);
+
   // Filter format latihan: 'all' (Semua) | 'image' (Hanya Soal Bergambar) | 'text' (Hanya Soal Wawancara/Teks)
-  const [practiceTypeFilter, setPracticeTypeFilter] = useState('all');
+  const [practiceTypeFilter, setPracticeTypeFilter] = useState(() => {
+    try {
+      const saved = localStorage.getItem('kore_practice_type_filter');
+      if (saved && ['all', 'image', 'text'].includes(saved)) return saved;
+    } catch {}
+    return 'all';
+  });
   const [practiceShuffleSeed, setPracticeShuffleSeed] = useState(0);
+
+  // =========================================================================
+  // AUTO-SAVE PERSISTENCE EFFECTS
+  // =========================================================================
+  useEffect(() => {
+    try { localStorage.setItem('kore_mode', mode); } catch {}
+  }, [mode]);
+
+  useEffect(() => {
+    try { localStorage.setItem('kore_practice_submode', practiceSubMode); } catch {}
+  }, [practiceSubMode]);
+
+  useEffect(() => {
+    try { localStorage.setItem('kore_selected_category', selectedCategory); } catch {}
+  }, [selectedCategory]);
+
+  useEffect(() => {
+    try { localStorage.setItem('kore_practice_index', String(currentIndex)); } catch {}
+  }, [currentIndex]);
+
+  useEffect(() => {
+    try { localStorage.setItem('kore_practice_type_filter', practiceTypeFilter); } catch {}
+  }, [practiceTypeFilter]);
+
+  // Simpan hasil ujian secara otomatis ke localStorage saat sesi selesai
+  useEffect(() => {
+    if ((examPhase === 'summary' || examPhase === 'rekap') && examQuestions.length > 0) {
+      try {
+        const payload = {
+          date: Date.now(),
+          questions: examQuestions,
+          ratings: selfRatings
+        };
+        localStorage.setItem('kore_last_exam_session', JSON.stringify(payload));
+      } catch {}
+    }
+  }, [examPhase, examQuestions, selfRatings]);
+
+  // Pemeriksaan ketersediaan sesi ujian tersimpan sebelumnya
+  const [hasSavedExam, setHasSavedExam] = useState(() => {
+    try {
+      return !!localStorage.getItem('kore_last_exam_session');
+    } catch {
+      return false;
+    }
+  });
+
+  const loadSavedExam = () => {
+    try {
+      const raw = localStorage.getItem('kore_last_exam_session');
+      if (raw) {
+        const data = JSON.parse(raw);
+        if (data.questions && Array.isArray(data.questions) && data.questions.length > 0) {
+          setExamQuestions(data.questions);
+          setSelfRatings(data.ratings || {});
+          setExamPhase('summary');
+        }
+      }
+    } catch {}
+  };
 
   // Filtered practice questions - Mendukung modul utama, sub-kategori, dan filter format
   const filteredQuestions = useMemo(() => {
@@ -112,6 +302,13 @@ export default function App() {
     }
     return list;
   }, [selectedCategory, practiceTypeFilter, practiceShuffleSeed]);
+
+  // Jaga agar currentIndex tidak keluar dari batas saat filter atau kategori berubah
+  useEffect(() => {
+    if (filteredQuestions.length > 0 && currentIndex >= filteredQuestions.length) {
+      setCurrentIndex(0);
+    }
+  }, [filteredQuestions.length, currentIndex]);
 
   const currentQ = filteredQuestions[currentIndex] || filteredQuestions[0] || {};
 
@@ -146,8 +343,11 @@ export default function App() {
       window.speechSynthesis.cancel();
       const u = new SpeechSynthesisUtterance(text);
       u.lang = 'ko-KR';
+      const voice = getBestKoreanVoice();
+      if (voice) u.voice = voice;
       const speedFactor = audioSpeed ?? 0.8;
       u.rate = Math.max(0.5, Math.min(1.4, 0.82 * speedFactor));
+      u.pitch = 1.02; // Sedikit dinaikkan agar resonansi lebih luwes & tidak monoton robotik
       setIsPlayingAudio(true);
       u.onend = () => setIsPlayingAudio(false);
       u.onerror = () => setIsPlayingAudio(false);
@@ -155,7 +355,7 @@ export default function App() {
     } catch {
       setIsPlayingAudio(false);
     }
-  }, [audioSpeed]);
+  }, [audioSpeed, getBestKoreanVoice]);
 
   useEffect(() => {
     stopAllAudio();
@@ -169,8 +369,13 @@ export default function App() {
   // Practice Audio Play (Mendukung MP3 Native & TTS Fallback dengan Kecepatan Sesuai Preferensi)
   const playPracticeQuestion = () => {
     stopAllAudio();
-    if (currentQ?.audio_q) {
-      practiceAudioRef.current.src = getAssetUrl(currentQ.audio_q);
+    let audioSrc = currentQ?.audio_q;
+    if (!audioSrc) {
+      if (currentQ?.category === 'piktogram') audioSrc = '/audio/examiner_sign_q.mp3';
+      else if (currentQ?.category === 'alat_manufaktur' || currentQ?.category === 'alat_klasik') audioSrc = '/audio/examiner_tool_q.mp3';
+    }
+    if (audioSrc) {
+      practiceAudioRef.current.src = getAssetUrl(audioSrc);
       try { practiceAudioRef.current.playbackRate = audioSpeed; } catch {}
       practiceAudioRef.current.onplay = () => setIsPlayingAudio(true);
       practiceAudioRef.current.onended = () => setIsPlayingAudio(false);
@@ -190,26 +395,41 @@ export default function App() {
   const playPracticeAnswer = (specificText) => {
     stopAllAudio();
     if (specificText && typeof specificText === 'string') {
+      if (specificText.includes('.mp3') || specificText.startsWith('/audio/') || specificText.startsWith('http')) {
+        playAudioUrl(specificText, currentQ?.answer_short_ko || currentQ?.answer_ko);
+        return;
+      }
       speakPracticeTTS(specificText);
       return;
     }
-    if (currentQ?.audio_a) {
-      practiceAnswerAudioRef.current.src = getAssetUrl(currentQ.audio_a);
+
+    let chosenAudio = currentQ?.audio_a;
+    let chosenText = currentQ?.answer_short_ko || currentQ?.answer_ko;
+    try {
+      const savedOptIdx = localStorage.getItem('kore_oral_opt_idx');
+      if (savedOptIdx !== null && currentQ?.answer_options && currentQ.answer_options.length > 0) {
+        const opt = currentQ.answer_options[parseInt(savedOptIdx, 10)] || currentQ.answer_options[0];
+        if (opt) {
+          if (opt.audio) chosenAudio = opt.audio;
+          if (opt.answer_ko || opt.ko) chosenText = opt.answer_ko || opt.ko;
+        }
+      }
+    } catch {}
+
+    if (chosenAudio) {
+      practiceAnswerAudioRef.current.src = getAssetUrl(chosenAudio);
       try { practiceAnswerAudioRef.current.playbackRate = audioSpeed; } catch {}
       practiceAnswerAudioRef.current.onplay = () => setIsPlayingAudio(true);
       practiceAnswerAudioRef.current.onended = () => setIsPlayingAudio(false);
       practiceAnswerAudioRef.current.onerror = () => {
-        const fb = currentQ?.answer_short_ko || currentQ?.answer_ko;
-        if (fb) speakPracticeTTS(fb);
+        if (chosenText) speakPracticeTTS(chosenText);
         else setIsPlayingAudio(false);
       };
       practiceAnswerAudioRef.current.play().catch(() => {
-        const fb = currentQ?.answer_short_ko || currentQ?.answer_ko;
-        if (fb) speakPracticeTTS(fb);
+        if (chosenText) speakPracticeTTS(chosenText);
       });
-    } else {
-      const fb = currentQ?.answer_short_ko || currentQ?.answer_ko;
-      if (fb) speakPracticeTTS(fb);
+    } else if (chosenText) {
+      speakPracticeTTS(chosenText);
     }
   };
 
@@ -304,7 +524,7 @@ export default function App() {
       level: 'Dasar',
       audio_q: '/audio/examiner_jagisoge.mp3',
       audio_a: null,
-      section: 'Tahap 1: Berdiri (1/6)',
+      section: 'Tahap 1: Berdiri (1/5)',
       part: 'intro',
       partTitle: 'Perkenalan Diri Mandiri (자기소개)',
       stance: 'standing',
@@ -312,14 +532,29 @@ export default function App() {
       duration: 25
     };
 
-    // 2. 5 Instruksi Gerak Fisik (15 Poin, @3 Poin, Berdiri) - Urutan Logis: Naikkan Dulu Baru Turunkan
-    const workInstructionsPool = questionsData.filter(q => q.category === 'gerak_fisik');
-    const selectedInstructions = getLogicalMovementSequence(workInstructionsPool, 5);
-    // 3. 5 Kartu Visual Meja Resmi HRD Korea (5 Poin, @1 Poin, Duduk)
-    // Terdiri dari 4 Pilar Rambu K3 (1 Wajib, 1 Peringatan, 1 Larangan, 1 Evakuasi) + 1 Perkakas Manufaktur
-    const toolsPool = questionsData.filter(q => q.category === 'alat_manufaktur' || q.category === 'alat_klasik');
-    const pictogramPool = questionsData.filter(q => q.category === 'piktogram');
+    // STANDAR RESMI REVISI HRD KOREA 2026 (TOTAL: 50 POIN / 27 SOAL)
+    // Sesuai Dokumen Resmi EPSTOPIK HRDK (Notice on Point-Based Selection System - 2nd Round)
+    // & Tabel 배점표:
+    // 1. 자기소개 및 태도 (Perkenalan Diri): 1 Soal = 2 Poin (Berdiri)
+    // 2. 기초대화 및 행동지시 (Total: 6 Poin):
+    //    - 행동지시 (Gerak Fisik Tubuh): 4 Soal (@1 Poin = 4 Poin, Berdiri)
+    //    - 기초대화 (Percakapan Dasar): 2 Soal (@1 Poin = 2 Poin, Duduk)
+    // 3. 작업도구 및 지시 수행능력 (Total: 20 Poin):
+    //    - 작업도구 (Tebak Nama Perkakas): 5 Soal (@1 Poin = 5 Poin, Duduk)
+    //    - 작업지시 (Perintah Pelaksanaan Kerja): 5 Soal (@3 Poin = 15 Poin, Duduk)
+    // 4. NCS 직업기초능력 (Total: 6 Poin):
+    //    - NCS 질문 (Pertanyaan Sikap Kerja NCS): 2 Soal (@3 Poin = 6 Poin, Duduk)
+    // 5. 안전의식 (Total: 16 Poin):
+    //    - 파트구분 (Tebak Rambu K3 Piktogram): 6 Soal (@1 Poin = 6 Poin, Duduk)
+    //    - 안전 심층질문 (Pertanyaan Mendalam K3 KOSHA): 2 Soal (@5 Poin = 10 Poin, Duduk)
 
+    // 2. 4 Instruksi Gerak Fisik (4 Poin, @1 Poin, Berdiri) - Urutan Logis Gerak Tubuh
+    const workInstructionsPool = questionsData.filter(q => q.category === 'gerak_fisik');
+    const selectedInstructions = getLogicalMovementSequence(workInstructionsPool, 4);
+
+    // 3. 6 Kartu Rambu K3 Piktogram Resmi (6 Poin, @1 Poin, Duduk)
+    // 4 Pilar Rambu K3 KOSHA (1 Wajib, 1 Peringatan, 1 Larangan, 1 Evakuasi) + 2 Piktogram Acak
+    const pictogramPool = questionsData.filter(q => q.category === 'piktogram');
     const classifyPictogram = (p) => {
       const text = ((p.title_ko || '') + ' ' + (p.title_id || '') + ' ' + (p.question_ko || '') + ' ' + (p.answer_short_ko || '')).toLowerCase();
       if (/금지|마시오|피우지|금연|접근금지|출입\s*금지|사용\s*금지|물체\s*이동\s*금지/.test(text) || /dilarang|jangan/i.test(text)) {
@@ -334,192 +569,74 @@ export default function App() {
       return 'wajib';
     };
 
-    const picWajib = pictogramPool.filter(p => classifyPictogram(p) === 'wajib');
-    const picPeringatan = pictogramPool.filter(p => classifyPictogram(p) === 'peringatan');
-    const picLarangan = pictogramPool.filter(p => classifyPictogram(p) === 'larangan');
-    const picEvakuasi = pictogramPool.filter(p => classifyPictogram(p) === 'evakuasi');
+    // Filter piktogram agar tidak mengulang rambu yang sama persis di sesi ujian berikutnya
+    const unpickedPics = pictogramPool.filter(p => !recentExamPicIdsRef.current.has(p.id));
+    const effectivePicPool = unpickedPics.length >= 12 ? unpickedPics : pictogramPool;
+    if (unpickedPics.length < 12) recentExamPicIdsRef.current.clear();
 
-    const selectedVisualCards = [
-      { ...getRandomSample(picWajib, 1)[0], visualType: 'Rambu Tindakan Wajib (지시표지)' },
-      { ...getRandomSample(picPeringatan, 1)[0], visualType: 'Rambu Peringatan Bahaya (경고표지)' },
-      { ...getRandomSample(picLarangan, 1)[0], visualType: 'Rambu Larangan (금지표지)' },
-      { ...getRandomSample(picEvakuasi, 1)[0], visualType: 'Rambu Evakuasi & Pertolongan (안내표지)' },
-      { ...getRandomSample(toolsPool, 1)[0], visualType: 'Perkakas Manufaktur (도구 명칭)' }
-    ].sort(() => Math.random() - 0.5);
+    const picWajib = effectivePicPool.filter(p => classifyPictogram(p) === 'wajib');
+    const picPeringatan = effectivePicPool.filter(p => classifyPictogram(p) === 'peringatan');
+    const picLarangan = effectivePicPool.filter(p => classifyPictogram(p) === 'larangan');
+    const picEvakuasi = effectivePicPool.filter(p => classifyPictogram(p) === 'evakuasi');
 
-    // 4. Praktik & Fungsi Perkakas Meja (2 Soal, @1 Poin = 2 Poin, Duduk)
-    // - 1 Soal Fungsi Alat ("드라이버는 무엇에 사용합니까?")
-    // - 1 Soal Perintah Aksi Praktik ("나사를 조이는 도구(드라이버)를 공구함에 넣으세요")
-    const toolFuncPool = questionsData.filter(q => q.category === 'fungsi_alat');
+    const selectedPic4 = [
+      { ...getRandomSample(picWajib.length ? picWajib : effectivePicPool, 1)[0], visualType: 'Rambu Tindakan Wajib (지시표지)' },
+      { ...getRandomSample(picPeringatan.length ? picPeringatan : effectivePicPool, 1)[0], visualType: 'Rambu Peringatan Bahaya (경고표지)' },
+      { ...getRandomSample(picLarangan.length ? picLarangan : effectivePicPool, 1)[0], visualType: 'Rambu Larangan (금지표지)' },
+      { ...getRandomSample(picEvakuasi.length ? picEvakuasi : effectivePicPool, 1)[0], visualType: 'Rambu Evakuasi & Pertolongan (안내표지)' }
+    ];
+    const usedPicIds = new Set(selectedPic4.map(p => p.id));
+    const extraPics = getRandomSample(effectivePicPool.filter(p => !usedPicIds.has(p.id)), 2).map(p => ({
+      ...p,
+      visualType: `Rambu Keselamatan K3 (${classifyPictogram(p) === 'larangan' ? '금지' : classifyPictogram(p) === 'peringatan' ? '경고' : classifyPictogram(p) === 'evakuasi' ? '안내' : '지시'}표지)`
+    }));
+    const selectedPictograms = [...selectedPic4, ...extraPics].sort(() => Math.random() - 0.5);
+    selectedPictograms.forEach(p => recentExamPicIdsRef.current.add(p.id));
+
+    // 4. 5 Kartu Perkakas Manufaktur (5 Poin, @1 Poin, Duduk)
+    // Diacak segar dari seluruh 90 foto fisik alat manufaktur & klasik resmi,
+    // serta menghindari pengulangan alat yang sama pada ujian berturut-turut
+    const toolsPool = questionsData.filter(q => (q.category === 'alat_manufaktur' || q.category === 'alat_klasik') && !!q.image_url);
+    const unpickedTools = toolsPool.filter(t => !recentExamToolIdsRef.current.has(t.id));
+    const poolToSampleTools = unpickedTools.length >= 5 ? unpickedTools : toolsPool;
+    if (unpickedTools.length < 5) recentExamToolIdsRef.current.clear();
+    
+    const selectedTools = getRandomSample(poolToSampleTools, 5);
+    selectedTools.forEach(t => recentExamToolIdsRef.current.add(t.id));
+
+    // 5. 5 Perintah Pelaksanaan Kerja Praktik Manufaktur (15 Poin, @3 Poin, Duduk)
+    // Sesuai standar resmi HRDK: ini adalah perintah instruksi tindakan lisan (작업지시),
+    // BUKAN kartu tebak gambar (image_url diset null agar tidak rancu dengan tebak alat)
     const toolActPool = questionsData.filter(q => q.category === 'praktik_alat' || q.category === 'perintah_alat');
-    const toolActFallback = toolActPool.length > 0 ? toolActPool : toolFuncPool;
-    // Peta nama alat -> foto (dari 90 kartu nama alat) agar soal fungsi/praktik
-    // tekstual tetap menampilkan foto alatnya seperti di meja ujian asli.
-    const toolPhotoByName = {};
-    questionsData
-      .filter(q => (q.category === 'alat_manufaktur' || q.category === 'alat_klasik') && q.image_url)
-      .forEach(q => {
-        const m = ((q.answer_short_ko || '').trim()).match(/^(.+?)입니다\.?$/);
-        const name = (m ? m[1] : (q.title_ko || '').trim());
-        if (name && !toolPhotoByName[name]) toolPhotoByName[name] = q.image_url;
-      });
-    const norm = (s) => (s || '').replace(/\s+/g, '');
-    const photoByFlat = {};
-    Object.entries(toolPhotoByName).forEach(([name, url]) => { photoByFlat[norm(name)] = url; });
-    const normNames = Object.keys(toolPhotoByName).map(n => ({ raw: n, flat: norm(n) })).sort((a, b) => b.flat.length - a.flat.length);
-    const attachToolPhoto = (item) => {
-      if (!item || item.image_url) return item;
-      const ko = item.question_ko || '';
-      const subjMatch = ko.match(/^(.+?)[은는] (무엇에 사용합니까|어디에 쓰는 도구입니까)/);
-      let hit = (subjMatch && (toolPhotoByName[subjMatch[1]] || photoByFlat[norm(subjMatch[1])])) || null;
-      if (!hit) {
-        const haystack = `${ko} ${item.answer_short_ko || ''} ${item.answer_full_ko || ''}`;
-        const flatHay = norm(haystack);
-        const found = normNames.find(n => n.flat && (haystack.includes(n.raw) || flatHay.includes(n.flat)));
-        if (found) hit = toolPhotoByName[found.raw];
-      }
-      return hit ? { ...item, image_url: hit } : item;
-    };
-    const practicalToolQuestions = [
-      {
-        section: 'Tahap 2: Praktik Alat (1/2)',
-        part: 'tools',
-        partTitle: 'Fungsi Perkakas Manufaktur (도구의 용도)',
-        stance: 'sitting',
-        points: 1,
-        duration: 8,
-        ...attachToolPhoto(getRandomSample(toolFuncPool, 1)[0] || toolFuncPool[0])
-      },
-      {
-        section: 'Tahap 2: Praktik Alat (2/2)',
-        part: 'tools',
-        partTitle: 'Perintah Aksi Perkakas Manufaktur (작업 지시 이행)',
-        stance: 'sitting',
-        points: 1,
-        duration: 8,
-        ...attachToolPhoto(getRandomSample(toolActFallback, 1)[0] || toolActFallback[0])
-      }
+    const toolFuncPool = questionsData.filter(q => q.category === 'fungsi_alat');
+    const mfgWorkPool = toolActPool.filter(q => 
+      q.id.startsWith('hmv_0') || q.id.startsWith('hmv_10') || q.id.startsWith('tool_act') || !q.id.startsWith('hmv_')
+    );
+    const pickedWorkInstructions = [
+      ...getRandomSample(mfgWorkPool.length ? mfgWorkPool : toolActPool, 3).map(item => ({
+        ...item,
+        image_url: null, // Peragaan murni tindakan kerja lisan
+        visualType: 'Instruksi Tindakan Kerja (작업동작 실기)'
+      })),
+      ...getRandomSample(toolFuncPool.length ? toolFuncPool : toolActPool, 2).map(item => ({
+        ...item,
+        // PERTAHANKAN FOTO ALAT ASLI! Pertanyaan fungsi (seperti "이건 언제 사용해요?") membutuhkan gambar alat agar peserta tahu alat yang ditanyakan.
+        visualType: item.image_url ? 'Fungsi Perkakas Manufaktur (공구 용도)' : 'Instruksi Kerja (작업지시)'
+      }))
     ];
 
-    // 5. 2 Pertanyaan K3 Industri Mendalam (10 Poin, @5 Poin, Duduk)
+    // 6. 2 Pertanyaan Keselamatan K3 Industri Mendalam KOSHA (10 Poin, @5 Poin, Duduk)
     const safetyPool = questionsData.filter(q => q.category === 'k3_safety');
     const selectedSafety = getRandomSample(safetyPool, 2);
 
-    // 6. Percakapan Dasar & Sikap Kerja NCS Pabrik (Total: 14 Soal = 16 Poin, Duduk)
-    // Pengacakan Cerdas: 12 pertanyaan dari rumpun topik unik + 2 hitungan stok pabrik (tanpa duplikat)
-    const isConv = q => q.category === 'wawancara' || q.category === 'simulasi_hrdk' || q.category === 'wawancara_profesional';
-    const allConv = questionsData.filter(isConv);
+    // 7. 2 Percakapan Dasar Sehari-hari (2 Poin, @1 Poin, Duduk)
+    // Mencakup data diri, keluarga, hobi, warna, dan hitungan lisan praktis
+    const basicConvPool = questionsData.filter(q => q.category === 'wawancara' || q.category === 'hitungan_lisan');
+    const selectedBasicConv = getRandomSample(basicConvPool, 2);
 
-    // Klasifikasi topik unik agar tidak ada duplikasi materi atau pertanyaan kembar
-    const getTopicTag = (q) => {
-      const ko = q.question_ko || '';
-      if (/시예요|몇 시/.test(ko)) return 'waktu_jam';
-      if (/요일/.test(ko)) return 'hari_kalender';
-      if (/며칠|몇 월/.test(ko)) return 'tanggal_bulan';
-      if (/날씨|계절/.test(ko)) return 'cuaca_musim';
-      if (/이름|성함/.test(ko)) return 'nama_identitas';
-      if (/나이|연세|몇 살/.test(ko)) return 'umur_usia';
-      if (/생일|태어났|출생/.test(ko)) return 'tanggal_lahir';
-      if (/고향|나라 사람/.test(ko)) return 'kampung_halaman';
-      if (/키가|몸무게/.test(ko)) return 'fisik_badan';
-      if (/결혼/.test(ko)) return 'status_nikah';
-      if (/부모님/.test(ko)) return 'orang_tua';
-      if (/가족|식구|누구 누구|누구랑/.test(ko)) return 'anggota_keluarga';
-      if (/형제|자매/.test(ko)) return 'saudara_kandung';
-      if (/아이/.test(ko)) return 'anak_keturunan';
-      if (/배웠|공부/.test(ko)) return 'belajar_bahasa';
-      if (/취미/.test(ko)) return 'hobi_kegemaran';
-      if (/운동/.test(ko)) return 'olahraga_kegemaran';
-      if (/색깔|음식|과일|동물/.test(ko)) return 'preferensi_warna_makanan';
-      if (/타고|얼마나 걸렸/.test(ko)) return 'transportasi_perjalanan';
-      if (/성격|어떤 사람/.test(ko)) return 'karakter_sikap';
-      if (/동료|충돌|갈등/.test(ko)) return 'rekan_kerja';
-      if (/일이 많|야근|잔업/.test(ko)) return 'tanggung_jawab_lembur';
-      if (/불량품/.test(ko)) return 'kasus_cacat_produk';
-      if (/실수|서툴|잘 못하/.test(ko)) return 'kasus_kesalahan_kerja';
-      if (/사고|불이 나|화재/.test(ko)) return 'kasus_kecelakaan_kerja';
-      if (/상사|의견|꾸중|화를 내/.test(ko)) return 'hubungan_atasan';
-      if (/아프|피곤|졸릴|스트레스|출근/.test(ko)) return 'kesehatan_darurat';
-      if (/적성|계획|몇 년|월급|체불|히잡|의사소통|시간|규칙/.test(ko)) return 'situasi_kerja_pabrik';
-      if (/한국에 왜|고용/.test(ko)) return 'motivasi_alasan_korea';
-      if (/기술|다른 사람보다/.test(ko)) return 'keterampilan_keunggulan';
-      if (/어떤 일|전에 무슨|요즘/.test(ko)) return 'pengalaman_bidang_kerja';
-      return 'lainnya';
-    };
-
-    // Kelompokkan pool berdasarkan tag topik unik
-    const topicMap = new Map();
-    allConv.forEach(q => {
-      const t = getTopicTag(q);
-      if (!topicMap.has(t)) topicMap.set(t, []);
-      topicMap.get(t).push(q);
-    });
-
-    // Pilih 12 topik berbeda dari klaster seimbang (menjamin variasi soal situasi kerja baru ikut teracak)
-    const selectedTopics = [
-      ...getRandomSample(['waktu_jam', 'hari_kalender', 'tanggal_bulan', 'cuaca_musim'], 2),
-      ...getRandomSample(['umur_usia', 'tanggal_lahir', 'kampung_halaman', 'fisik_badan'], 2),
-      ...getRandomSample(['status_nikah', 'orang_tua', 'anggota_keluarga', 'saudara_kandung', 'anak_keturunan'], 2),
-      ...getRandomSample(['belajar_bahasa', 'hobi_kegemaran', 'olahraga_kegemaran', 'preferensi_warna_makanan', 'transportasi_perjalanan', 'karakter_sikap'], 2),
-      ...getRandomSample(['rekan_kerja', 'tanggung_jawab_lembur', 'pengalaman_bidang_kerja', 'hubungan_atasan', 'situasi_kerja_pabrik', 'kesehatan_darurat', 'motivasi_alasan_korea', 'keterampilan_keunggulan'], 2),
-      ...getRandomSample(['kasus_cacat_produk', 'kasus_kesalahan_kerja', 'kasus_kecelakaan_kerja'], 2)
-    ];
-
-    const selectedConvQuestions = selectedTopics.map(t => {
-      const list = topicMap.get(t) || [];
-      const item = getRandomSample(list, 1)[0] || list[0];
-      const isIssue = t.startsWith('kasus_');
-      return {
-        part: 'ncs',
-        partTitle: 'Percakapan Dasar & Sikap Kerja (NCS)',
-        stance: 'sitting',
-        duration: isIssue ? 9 : 8,
-        points: isIssue ? 1.5 : 1,
-        ...item
-      };
-    });
-
-    // Jaminan: minimal 1 soal Sikap Kerja Profesional (wawancara_profesional) di tiap paket.
-    // Jika belum ada, ganti slot fleksibel (lainnya/motivasi/keunggulan, @1 Poin) dengan 1 soal profesional.
-    const profPool = questionsData.filter(q => q.category === 'wawancara_profesional');
-    const usedConvIds = new Set(selectedConvQuestions.map(q => q && q.id));
-    const hasProf = selectedConvQuestions.some(q => q && q.category === 'wawancara_profesional');
-    if (!hasProf && profPool.length) {
-      const profPick = getRandomSample(profPool.filter(q => !usedConvIds.has(q.id)), 1)[0] || getRandomSample(profPool, 1)[0];
-      const replaceIdx = selectedTopics.findIndex(t => t === 'lainnya' || t === 'motivasi_alasan_korea' || t === 'keterampilan_keunggulan');
-      if (profPick && replaceIdx >= 0) {
-        selectedConvQuestions[replaceIdx] = {
-          part: 'ncs',
-          partTitle: 'Sikap Kerja Profesional (NCS)',
-          stance: 'sitting',
-          duration: 8,
-          points: 1,
-          ...profPick
-        };
-      }
-    }
-
-    // 2 Soal Hitungan (@1.5 Poin = 3 Poin): 1 Berhitung Cepat Pabrik + 1 Konversi Satuan/Hitungan Lisan
-    // Slot kedua dijamin dari konversi_satuan/hitungan_lisan agar semua materi hitungan masuk tiap paket
-    const mathPool = questionsData.filter(q => q.category === 'matematika');
-    const convertPool = questionsData.filter(q => q.category === 'konversi_satuan' || q.category === 'hitungan_lisan');
-    const selectedMath = [
-      ...getRandomSample(mathPool, 1),
-      ...getRandomSample(convertPool.length ? convertPool : mathPool, 1)
-    ].map((item) => ({
-      part: 'ncs',
-      partTitle: 'Dasar Berhitung Cepat Pabrik (수리능력 - Stok Gudang)',
-      stance: 'sitting',
-      duration: 8,
-      points: 1.5,
-      ...item
-    }));
-
-    // Acak urutan ke-14 pertanyaan percakapan & NCS agar alami dan tidak template kaku!
-    const randomizedNcsSection = getRandomSample([...selectedConvQuestions, ...selectedMath], 14).map((item, idx) => ({
-      ...item,
-      section: `Tahap 2: Tanya-Jawab Meja (${idx + 1}/14)`
-    }));
+    // 8. 2 Pertanyaan Sikap & Situasi Kerja NCS (6 Poin, @3 Poin, Duduk)
+    const ncsPool = questionsData.filter(q => q.category === 'simulasi_hrdk' || q.category === 'wawancara_profesional');
+    const selectedNcs = getRandomSample(ncsPool, 2);
 
     // ==============================================================
     // TRANSISI: DUDUK / BERDIRI (0 Poin, tidak dinilai)
@@ -546,23 +663,20 @@ export default function App() {
       image_url: null
     });
 
-    // (Transisi berdiri tidak dipakai: blok berdiri dimainkan sekaligus di depan
-    // agar alur masuk akal: berdiri, gerak, lalu duduk sekali sampai selesai.)
-
     const examSet = [
       // ==============================================================
-      // TAHAP 1: BERDIRI DI DEPAN KAMERA (standing)
+      // TAHAP 1: BERDIRI DI DEPAN PENGUJI (standing)
       // ==============================================================
       // 1. Monolog Perkenalan Diri (2 Poin)
       introItem,
 
-      // 2 - 6. 5 Instruksi Kerja Gerak Fisik (15 Poin, @3 Poin)
+      // 2 - 5. 4 Instruksi Kerja Gerak Fisik (4 Poin, @1 Poin)
       ...selectedInstructions.map((item, idx) => ({
-        section: `Tahap 1: Gerak Fisik (${idx + 1}/5)`,
-        part: 'instructions',
-        partTitle: 'Instruksi Gerak Fisik (행동 지시)',
+        section: `Tahap 1: Gerak Fisik (${idx + 1}/4)`,
+        part: 'basic_action',
+        partTitle: 'Instruksi Tindakan Gerak Fisik (행동지시)',
         stance: 'standing',
-        points: 3,
+        points: 1,
         duration: 6,
         ...item
       })),
@@ -572,33 +686,71 @@ export default function App() {
       // ==============================================================
       // TAHAP 2: DUDUK DI MEJA PENGUJI (sitting)
       // ==============================================================
-      // 1. 5 Kartu Visual Meja Resmi HRDK: 4 Pilar Rambu K3 + 1 Perkakas (5 Poin, @1 Poin)
-      ...selectedVisualCards.map((item, idx) => ({
-        section: `Tahap 2: Kartu Visual (${idx + 1}/5)`,
-        part: 'tools',
-        partTitle: item.visualType || (item.category === 'piktogram' ? 'Tebak Rambu Piktogram K3 (안전표지)' : item.category === 'alat_klasik' ? 'Tebak Perkakas Klasik (도구 명칭)' : 'Tebak Perkakas Manufaktur (도구 명칭)'),
+      // 1. 6 Rambu Keselamatan K3 Piktogram (6 Poin, @1 Poin)
+      ...selectedPictograms.map((item, idx) => ({
+        section: `Tahap 2: Rambu K3 (${idx + 1}/6)`,
+        part: 'safety',
+        partTitle: item.visualType || 'Rambu Keselamatan K3 (안전표지)',
         stance: 'sitting',
         points: 1,
         duration: 6,
         ...item
       })),
 
-      // 2. 2 Soal Praktik Perkakas Meja: Fungsi & Perintah Aksi Alat (2 Poin, @1 Poin)
-      ...practicalToolQuestions,
+      // 2. 5 Perkakas Alat Kerja Manufaktur (5 Poin, @1 Poin)
+      ...selectedTools.map((item, idx) => ({
+        section: `Tahap 2: Perkakas Alat (${idx + 1}/5)`,
+        part: 'tools_action',
+        partTitle: 'Tebak Perkakas Manufaktur (작업도구)',
+        stance: 'sitting',
+        points: 1,
+        duration: 6,
+        ...item
+      })),
 
-      // 3. 2 Pertanyaan K3 Industri Mendalam (10 Poin, @5 Poin)
+      // 3. 5 Perintah Pelaksanaan Kerja Praktik Manufaktur (15 Poin, @3 Poin)
+      ...pickedWorkInstructions.map((item, idx) => ({
+        section: `Tahap 2: Perintah Kerja (${idx + 1}/5)`,
+        part: 'tools_action',
+        partTitle: 'Perintah Pelaksanaan Kerja (작업지시)',
+        stance: 'sitting',
+        points: 3,
+        duration: 8,
+        ...item
+      })),
+
+      // 4. 2 Pertanyaan K3 Industri Mendalam KOSHA (10 Poin, @5 Poin)
       ...selectedSafety.map((item, idx) => ({
         section: `Tahap 2: K3 Mendalam (${idx + 1}/2)`,
         part: 'safety',
-        partTitle: 'Pertanyaan K3 Industri Mendalam (안전 심층)',
+        partTitle: 'Pertanyaan K3 Mendalam (안전 심층질문)',
         stance: 'sitting',
         points: 5,
         duration: 9,
         ...item
       })),
 
-      // 4. 14 Soal Tanya-Jawab Acak Percakapan, Sikap Kerja, Masalah & Hitungan (16 Poin)
-      ...randomizedNcsSection
+      // 5. 2 Percakapan Dasar Sehari-hari (2 Poin, @1 Poin)
+      ...selectedBasicConv.map((item, idx) => ({
+        section: `Tahap 2: Percakapan Dasar (${idx + 1}/2)`,
+        part: 'basic_action',
+        partTitle: 'Percakapan Dasar Sehari-hari (기초대화)',
+        stance: 'sitting',
+        points: 1,
+        duration: 8,
+        ...item
+      })),
+
+      // 6. 2 Pertanyaan Sikap & Situasi Kerja NCS (6 Poin, @3 Poin)
+      ...selectedNcs.map((item, idx) => ({
+        section: `Tahap 2: Sikap Kerja NCS (${idx + 1}/2)`,
+        part: 'ncs',
+        partTitle: 'Keterampilan Dasar Pekerjaan NCS (직업기초능력)',
+        stance: 'sitting',
+        points: 3,
+        duration: 9,
+        ...item
+      }))
     ].filter(Boolean);
 
     setExamQuestions(examSet);
@@ -612,17 +764,17 @@ export default function App() {
     executeExamStep(0, examSet);
   };
 
-  // Kalkulasi Skor Wawancara Resmi (Total 50 Poin), unrated = 0
+  // Kalkulasi Skor Wawancara Resmi (Total 50 Poin Sesuai Kisi-Kisi HRDK 2026), unrated = 0
   const examScoreSummary = useMemo(() => {
     let totalScore = 0;
     let ratedCount = 0;
     const maxScore = 50;
     const categoryScores = {
-      intro: { earned: 0, max: 2, label: 'Perkenalan Diri Mandiri' },
-      instructions: { earned: 0, max: 15, label: '5 Instruksi Gerak Fisik' },
-      tools: { earned: 0, max: 7, label: '5 Kartu Visual & Praktik Alat' },
-      safety: { earned: 0, max: 10, label: '2 Pertanyaan K3 Mendalam' },
-      ncs: { earned: 0, max: 16, label: 'Percakapan Dasar & Sikap Kerja' },
+      intro: { earned: 0, max: 2, label: '1. Perkenalan Diri & Sikap (자기소개 및 태도)' },
+      basic_action: { earned: 0, max: 6, label: '2. Percakapan Dasar & Gerak Tubuh (기초대화 및 행동지시)' },
+      tools_action: { earned: 0, max: 20, label: '3. Alat Kerja & Perintah Kerja (작업도구 및 지시 수행능력)' },
+      ncs: { earned: 0, max: 6, label: '4. Keterampilan Dasar NCS (NCS 직업기초능력)' },
+      safety: { earned: 0, max: 16, label: '5. Kesadaran Keselamatan K3 (안전의식 - Rambu & Mendalam)' },
     };
 
     examQuestions.forEach((q, idx) => {
@@ -676,28 +828,110 @@ export default function App() {
       beginAnswerPhase(stepIdx, q.duration || 7, list, currentToken);
     };
 
-    // Play Question Audio ONLY from real MP3 file!
+    // Hentikan suara TTS sebelumnya jika ada
+    if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
+      try { window.speechSynthesis.cancel(); } catch {}
+    }
+
     // Transisi tanpa file MP3 (mis. 일어서세요) dilewati tanpa suara agar tidak memutar audio yang salah.
     if (q.part === 'transition' && !q.audio_q) {
       setTimeout(advanceToAnswerPhase, 1500);
       return;
     }
-    const audioSrc = q.audio_q || (q.category === 'piktogram' ? '/audio/examiner_sign_q.mp3' : '/audio/examiner_tool_q.mp3');
-    examAudioPlayerRef.current.src = getAssetUrl(audioSrc);
-    examAudioPlayerRef.current.onended = advanceToAnswerPhase;
-    examAudioPlayerRef.current.onerror = () => {
-      // In worst-case fallback, wait 2 seconds and advance (ZERO looping TTS!)
-      setTimeout(advanceToAnswerPhase, 2000);
-    };
 
-    examAudioPlayerRef.current.play().catch(() => {
-      // If browser blocked play, advance immediately after 2 seconds
+    // Tentukan file audio resmi atau gunakan TTS jika tidak ada MP3
+    let audioSrc = null;
+    if (q.audio_q) {
+      audioSrc = q.audio_q;
+    } else if (q.category === 'piktogram') {
+      audioSrc = '/audio/examiner_sign_q.mp3';
+    } else if (q.category === 'alat_manufaktur' || q.category === 'alat_klasik') {
+      audioSrc = '/audio/examiner_tool_q.mp3';
+    }
+
+    // Kalkulasi kecepatan pelafalan TTS berdasarkan preferensi audioSpeed
+    const examTtsRate = audioSpeed <= 0.65 ? 0.58 : audioSpeed <= 0.8 ? 0.72 : 0.88;
+
+    if (audioSrc) {
+      examAudioPlayerRef.current.src = getAssetUrl(audioSrc);
+      try { examAudioPlayerRef.current.playbackRate = audioSpeed; } catch {}
+      examAudioPlayerRef.current.onended = advanceToAnswerPhase;
+      examAudioPlayerRef.current.onerror = () => {
+        // Jika file audio benar-benar tidak ditemukan (404), beri jeda waktu lalu lanjut ke fase jawab
+        setTimeout(advanceToAnswerPhase, 2000);
+      };
+
+      examAudioPlayerRef.current.play().catch((err) => {
+        // AbortError wajar terjadi saat transisi cepat antar soal; abaikan agar tidak memicu bug audio ganda
+        if (err && err.name === 'AbortError') return;
+        // Jika autoplay diblokir kebijakan browser, tetap berikan kesempatan kandidat menjawab
+        setTimeout(advanceToAnswerPhase, 2000);
+      });
+    } else if (q.question_ko && q.part !== 'transition' && typeof window !== 'undefined' && 'speechSynthesis' in window) {
+      try {
+        const u = new SpeechSynthesisUtterance(q.question_ko);
+        u.lang = 'ko-KR';
+        u.rate = examTtsRate;
+        u.onend = advanceToAnswerPhase;
+        u.onerror = advanceToAnswerPhase;
+        window.speechSynthesis.speak(u);
+      } catch {
+        setTimeout(advanceToAnswerPhase, 2000);
+      }
+    } else {
+      // Pertanyaan transisi khusus tanpa file MP3
       setTimeout(advanceToAnswerPhase, 2000);
-    });
+    }
+  };
+
+  const replayExamQuestion = (q) => {
+    if (!q) return;
+    if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
+      try { window.speechSynthesis.cancel(); } catch {}
+    }
+    if (examAudioPlayerRef.current) {
+      examAudioPlayerRef.current.pause();
+      examAudioPlayerRef.current.currentTime = 0;
+    }
+
+    const examTtsRate = audioSpeed <= 0.65 ? 0.58 : audioSpeed <= 0.8 ? 0.72 : 0.88;
+
+    let audioSrc = null;
+    if (q.audio_q) {
+      audioSrc = q.audio_q;
+    } else if (q.category === 'piktogram') {
+      audioSrc = '/audio/examiner_sign_q.mp3';
+    } else if (q.category === 'alat_manufaktur' || q.category === 'alat_klasik') {
+      audioSrc = '/audio/examiner_tool_q.mp3';
+    }
+
+    if (audioSrc) {
+      examAudioPlayerRef.current.src = getAssetUrl(audioSrc);
+      try { examAudioPlayerRef.current.playbackRate = audioSpeed; } catch {}
+      examAudioPlayerRef.current.play().catch(() => {});
+    } else if (q.question_ko && typeof window !== 'undefined' && 'speechSynthesis' in window) {
+      try {
+        const u = new SpeechSynthesisUtterance(q.question_ko);
+        u.lang = 'ko-KR';
+        const voice = getBestKoreanVoice();
+        if (voice) u.voice = voice;
+        u.rate = examTtsRate;
+        u.pitch = 1.02;
+        window.speechSynthesis.speak(u);
+      } catch {}
+    }
   };
 
   const beginAnswerPhase = async (stepIdx, duration, list, stepToken) => {
     if (examStepTokenRef.current !== stepToken) return;
+
+    // Pastikan suara penguji / TTS benar-benar berhenti saat kandidat mulai berbicara
+    if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
+      try { window.speechSynthesis.cancel(); } catch {}
+    }
+    if (examAudioPlayerRef.current) {
+      examAudioPlayerRef.current.pause();
+    }
 
     setExamStepStatus('answering');
     setExamTimeLeft(duration);
@@ -807,24 +1041,33 @@ export default function App() {
         selectedCategory={selectedCategory}
         setCategoryModalOpen={setCategoryModalOpen}
         setRevisionModalOpen={setRevisionModalOpen}
+        setAudioModalOpen={setAudioModalOpen}
+        audioSpeed={audioSpeed}
         examPhase={examPhase}
       />
 
-      <main className={`flex-1 ${mode === 'study' ? 'max-w-4xl' : 'max-w-3xl'} w-full mx-auto px-4 md:px-8 py-2 md:py-6 flex flex-col justify-center`}>
+      <main className={`flex-1 ${mode === 'study' ? 'max-w-4xl' : 'max-w-3xl'} w-full mx-auto px-4 sm:px-6 md:px-8 pt-4 pb-24 sm:pb-10 md:pt-8 flex flex-col justify-start`}>
         
         {/* ================================================================= */}
         {/* 0. MATERI & MODUL HAFALAN POKOK (STUDY GUIDE) */}
         {/* ================================================================= */}
         {mode === 'study' && (
-          <StudyGuide 
-            onStartPracticeCategory={(catId) => {
-              setSelectedCategory(catId);
-              setCurrentIndex(0);
-              setMode('practice');
-              stopAllAudio();
-            }}
-            onOpenRevisionModal={() => setRevisionModalOpen(true)}
-          />
+          <Suspense fallback={
+            <div className="w-full py-16 flex flex-col items-center justify-center space-y-3 text-muted-foreground animate-pulse">
+              <div className="w-8 h-8 rounded-full border-2 border-primary border-t-transparent animate-spin" />
+              <p className="text-xs font-semibold">Memuat Materi & Hafalan Resmi...</p>
+            </div>
+          }>
+            <StudyGuide 
+              onStartPracticeCategory={(catId) => {
+                setSelectedCategory(catId);
+                setCurrentIndex(0);
+                setMode('practice');
+                stopAllAudio();
+              }}
+              onOpenRevisionModal={() => setRevisionModalOpen(true)}
+            />
+          </Suspense>
         )}
 
         {/* ================================================================= */}
@@ -861,7 +1104,7 @@ export default function App() {
                             type="button"
                             onClick={() => { setPracticeSubMode(tab.id); stopAllAudio(); }}
                             className={cn(
-                              'flex items-center justify-center gap-1.5 px-2.5 sm:px-3.5 py-1.5 rounded-md transition-colors min-h-[36px] text-xs font-semibold cursor-pointer',
+                              'flex items-center justify-center gap-1.5 px-2.5 sm:px-3.5 py-1.5 rounded-md transition-colors min-h-[44px] sm:min-h-[40px] text-xs font-semibold cursor-pointer',
                               active
                                 ? 'bg-card text-foreground shadow-xs'
                                 : 'text-muted-foreground hover:text-foreground'
@@ -874,21 +1117,6 @@ export default function App() {
                       })}
                     </div>
 
-                    {/* Tombol Pemilih Kategori Aktif */}
-                    <button
-                      type="button"
-                      onClick={() => setCategoryModalOpen(true)}
-                      className="flex items-center justify-between sm:justify-center gap-2 px-3 py-1.5 rounded-lg border border-border bg-card hover:bg-secondary/60 text-xs font-semibold text-foreground min-h-[38px] shrink-0 transition-colors cursor-pointer"
-                      title="Klik untuk memilih modul atau sub-kategori spesifik"
-                    >
-                      <span className="flex items-center gap-1.5 min-w-0">
-                        <SlidersHorizontal className="w-3.5 h-3.5 text-primary shrink-0" />
-                        <span className="truncate max-w-[180px]">{activeCatLabel}</span>
-                      </span>
-                      <span className="font-mono text-[11px] text-muted-foreground bg-secondary px-1.5 py-0.5 rounded shrink-0">
-                        {filteredQuestions.length} soal
-                      </span>
-                    </button>
                   </div>
 
                   {/* Baris Chip Filter Modul Cepat Horizontal (1 Baris) */}
@@ -909,14 +1137,14 @@ export default function App() {
                             stopAllAudio();
                           }}
                           className={cn(
-                            'shrink-0 px-2.5 py-1 rounded-md text-xs font-medium transition-colors border flex items-center gap-1.5 min-h-[32px] cursor-pointer',
+                            'shrink-0 px-2.5 py-1 rounded-md text-xs font-medium transition-colors border flex items-center gap-1.5 min-h-[40px] cursor-pointer',
                             isSelected
                               ? 'bg-primary text-primary-foreground border-primary shadow-xs'
                               : 'bg-card text-muted-foreground border-border hover:text-foreground hover:bg-secondary/60'
                           )}
                         >
                           <span>{mod.shortLabel}</span>
-                          <span className={cn('text-[10px] font-mono', isSelected ? 'text-primary-foreground/85' : 'text-muted-foreground')}>
+                          <span className={cn('text-xs font-mono', isSelected ? 'text-primary-foreground/85' : 'text-muted-foreground')}>
                             {count}
                           </span>
                         </button>
@@ -932,7 +1160,7 @@ export default function App() {
 
                     return (
                       <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-1 text-xs bg-secondary/30 px-2 rounded-xl border border-border/50">
-                        <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider shrink-0 mr-1">
+                        <span className="text-xs font-bold text-muted-foreground uppercase tracking-wider shrink-0 mr-1">
                           Pilihan Kategori:
                         </span>
                         {subCats.map(sub => {
@@ -951,7 +1179,7 @@ export default function App() {
                               )}
                             >
                               <span>{sub.shortLabel}</span>
-                              <span className={cn('text-[10px] font-mono', isSubSelected ? 'text-background/80' : 'text-muted-foreground')}>
+                              <span className={cn('text-xs font-mono', isSubSelected ? 'text-background/80' : 'text-muted-foreground')}>
                                 ({count})
                               </span>
                             </button>
@@ -963,12 +1191,12 @@ export default function App() {
 
                   {/* Baris 3: Filter Format Soal (Semua / Bergambar / Lisan Teks) + Tebak Acak */}
                   <div className="flex items-center justify-between gap-2 pt-0.5 text-xs">
-                    <div className="inline-flex items-center p-0.5 bg-secondary/80 border border-border rounded-lg">
+                    <div className="grid grid-cols-3 flex-1 sm:flex-none sm:inline-flex items-center p-0.5 bg-secondary/80 border border-border rounded-lg">
                       <button
                         type="button"
                         onClick={() => { setPracticeTypeFilter('all'); setCurrentIndex(0); stopAllAudio(); }}
                         className={cn(
-                          'px-2.5 py-1 rounded-md text-[11px] font-medium transition-colors',
+                          'px-2.5 py-2 sm:py-1.5 rounded-md text-xs font-medium transition-colors text-center',
                           practiceTypeFilter === 'all'
                             ? 'bg-card text-foreground shadow-xs font-semibold'
                             : 'text-muted-foreground hover:text-foreground'
@@ -980,27 +1208,27 @@ export default function App() {
                         type="button"
                         onClick={() => { setPracticeTypeFilter('image'); setCurrentIndex(0); stopAllAudio(); }}
                         className={cn(
-                          'px-2.5 py-1 rounded-md text-[11px] font-medium transition-colors flex items-center gap-1',
+                          'px-2.5 py-2 sm:py-1.5 rounded-md text-xs font-medium transition-colors text-center flex items-center gap-1',
                           practiceTypeFilter === 'image'
                             ? 'bg-card text-foreground shadow-xs font-semibold'
                             : 'text-muted-foreground hover:text-foreground'
                         )}
                         title="Hanya rambu piktogram dan perkakas manufaktur bergambar"
                       >
-                        <span>🖼️ Bergambar</span>
+                        <span>Bergambar</span>
                       </button>
                       <button
                         type="button"
                         onClick={() => { setPracticeTypeFilter('text'); setCurrentIndex(0); stopAllAudio(); }}
                         className={cn(
-                          'px-2.5 py-1 rounded-md text-[11px] font-medium transition-colors flex items-center gap-1',
+                          'px-2.5 py-2 sm:py-1.5 rounded-md text-xs font-medium transition-colors text-center flex items-center gap-1',
                           practiceTypeFilter === 'text'
                             ? 'bg-card text-foreground shadow-xs font-semibold'
                             : 'text-muted-foreground hover:text-foreground'
                         )}
                         title="Hanya pertanyaan lisan wawancara, K3, dan gerakan"
                       >
-                        <span>💬 Tanya Jawab</span>
+                        <span>Tanya Jawab</span>
                       </button>
                     </div>
 
@@ -1011,7 +1239,7 @@ export default function App() {
                         setCurrentIndex(0);
                         stopAllAudio();
                       }}
-                      className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg border border-border bg-card hover:bg-secondary/70 text-[11px] font-semibold text-foreground transition-colors shrink-0 shadow-xs"
+                      className="inline-flex items-center justify-center gap-1.5 px-3 min-h-[44px] sm:min-h-[40px] rounded-lg border border-border bg-card hover:bg-secondary/70 text-xs font-semibold text-foreground transition-colors shrink-0"
                       title="Acak urutan soal untuk melatih daya ingat spontan"
                     >
                       <Shuffle className="w-3.5 h-3.5 text-primary" />
@@ -1051,6 +1279,10 @@ export default function App() {
 
             {practiceSubMode === 'oral' && (
               <PracticeOral
+                questions={filteredQuestions}
+                onSelectIndex={setCurrentIndex}
+                onPrev={() => setCurrentIndex(p => Math.max(0, p - 1))}
+                onNext={() => setCurrentIndex(p => (p + 1 < filteredQuestions.length ? p + 1 : 0))}
                 currentQ={currentQ}
                 currentIndex={currentIndex}
                 total={filteredQuestions.length}
@@ -1079,115 +1311,133 @@ export default function App() {
         {mode === 'exam' && (
           <div className="w-full flex flex-col items-center text-center space-y-5 animate-fade-in">
             
-            {/* Phase 1: Intro Briefing (Zero Nested Cards) */}
+            {/* Phase 1: Intro Briefing (Clean, Modern, Immediate Action) */}
             {examPhase === 'intro' && (
-              <div className="w-full max-w-xl space-y-5 text-left">
-                {/* Clean Page Header */}
-                <div className="space-y-2">
-                  <div className="flex flex-wrap items-center gap-2">
-                    <Badge variant="outline" className="font-mono">STANDAR RESMI HRDK</Badge>
-                    <Badge variant="outline" className="font-mono">TOTAL 50 POIN</Badge>
-                  </div>
-                  <h2 className="text-xl md:text-2xl font-bold text-foreground tracking-tight">
-                    Simulasi Ujian Wawancara Resmi HRD Korea
-                  </h2>
-                  <p className="text-xs md:text-sm text-muted-foreground leading-relaxed">
-                    Sesuai perubahan regulasi terbaru HRD Korea (Revisions to the Skills Test), bobot wawancara dinaikkan menjadi 50 poin dengan 30 langkah simulasi:
-                  </p>
-                </div>
-
-                {/* 5 Komponen Ujian Wawancara dalam 1 container tunggal divide-y */}
-                <div className="rounded-xl border border-border bg-card divide-y divide-border overflow-hidden text-xs">
-                  <div className="p-3.5 sm:p-4 flex items-center justify-between gap-3">
-                    <div className="min-w-0">
-                      <div className="flex items-center gap-1.5 flex-wrap">
-                        <p className="font-bold text-sm text-foreground">1. Perkenalan Diri Mandiri (Self-Introduction)</p>
-                        <Badge variant="outline" className="font-mono text-[10px]">BERDIRI</Badge>
-                      </div>
-                      <p className="text-xs text-muted-foreground mt-0.5">Monolog 자기소개 (Nama, Usia, Asal, Tekad Bekerja) · 25 Detik</p>
+              <div className="w-full max-w-xl space-y-4 text-left">
+                {/* Hero Card dengan CTA Mulai Ujian di Atas */}
+                <div className="rounded-2xl border border-border bg-card p-4 sm:p-6 space-y-4 shadow-xs">
+                  <div className="flex items-center justify-between gap-2">
+                    <div className="flex items-center gap-2">
+                      <span className="px-2.5 py-0.5 rounded-md bg-primary/10 text-primary font-mono text-xs font-bold">
+                        STANDAR HRDK
+                      </span>
+                      <span className="px-2.5 py-0.5 rounded-md bg-secondary text-muted-foreground font-mono text-xs font-bold">
+                        50 POIN
+                      </span>
                     </div>
-                    <span className="font-mono font-bold text-sm text-primary shrink-0">2 Poin</span>
+                    <span className="text-xs text-muted-foreground font-medium">Lulus: ≥30 Poin (60%)</span>
                   </div>
 
-                  <div className="p-3.5 sm:p-4 flex items-center justify-between gap-3">
-                    <div className="min-w-0">
-                      <div className="flex items-center gap-1.5 flex-wrap">
-                        <p className="font-bold text-sm text-foreground">2. Instruksi Gerak Fisik (Work Instructions)</p>
-                        <Badge variant="outline" className="font-mono text-[10px]">BERDIRI</Badge>
-                      </div>
-                      <p className="text-xs text-muted-foreground mt-0.5">Arah & gerak refleks fisik perintah kerja (5 Soal @3 Poin)</p>
-                    </div>
-                    <span className="font-mono font-bold text-sm text-primary shrink-0">15 Poin</span>
+                  <div>
+                    <h2 className="text-xl sm:text-2xl font-bold text-foreground tracking-tight">
+                      Simulasi Ujian Wawancara Resmi
+                    </h2>
+                    <p className="text-xs sm:text-sm text-muted-foreground mt-1 leading-relaxed">
+                      27 butir soal terstruktur (28 langkah) dengan audio penguji asli Korea. Waktu menjawab 6–9 detik per butir.
+                    </p>
                   </div>
 
-                  <div className="p-3.5 sm:p-4 flex items-center justify-between gap-3">
-                    <div className="min-w-0">
-                      <div className="flex items-center gap-1.5 flex-wrap">
-                        <p className="font-bold text-sm text-foreground">3. Kartu Visual & Praktik Alat Meja</p>
-                        <Badge variant="outline" className="font-mono text-[10px]">DUDUK</Badge>
-                      </div>
-                      <p className="text-xs text-muted-foreground mt-0.5">5 kartu visual (4 rambu + 1 alat) + 2 praktik alat fungsi & aksi (@1 Poin)</p>
-                    </div>
-                    <span className="font-mono font-bold text-sm text-primary shrink-0">7 Poin</span>
-                  </div>
-
-                  <div className="p-3.5 sm:p-4 flex items-center justify-between gap-3">
-                    <div className="min-w-0">
-                      <div className="flex items-center gap-1.5 flex-wrap">
-                        <p className="font-bold text-sm text-foreground">4. Pertanyaan K3 Industri Mendalam</p>
-                        <Badge variant="outline" className="font-mono text-[10px]">BARU</Badge>
-                        <Badge variant="outline" className="font-mono text-[10px]">DUDUK</Badge>
-                      </div>
-                      <p className="text-xs text-muted-foreground mt-0.5">Safety guard, APD wajib, & tanggap bahaya darurat (2 Soal @5 Poin)</p>
-                    </div>
-                    <span className="font-mono font-bold text-sm text-primary shrink-0">10 Poin</span>
-                  </div>
-
-                  <div className="p-3.5 sm:p-4 flex items-center justify-between gap-3">
-                    <div className="min-w-0">
-                      <div className="flex items-center gap-1.5 flex-wrap">
-                        <p className="font-bold text-sm text-foreground">5. Percakapan Dasar & Sikap Kerja NCS</p>
-                        <Badge variant="outline" className="font-mono text-[10px]">DUDUK</Badge>
-                      </div>
-                      <p className="text-xs text-muted-foreground mt-0.5">Tanggal/hari/waktu, data diri, sikap kerja, hitungan gudang (14 Soal)</p>
-                    </div>
-                    <span className="font-mono font-bold text-sm text-primary shrink-0">16 Poin</span>
-                  </div>
-
-                  {/* Passing threshold info row inside same container */}
-                  <div className="p-3.5 sm:p-4 bg-secondary/40 flex flex-col sm:flex-row sm:items-center justify-between gap-1.5 text-xs">
-                    <div className="flex items-center gap-2 font-semibold text-foreground">
-                      <span>Ambang Batas Kelulusan:</span>
-                      <span className="text-emerald-700 font-bold">Minimal 30 / 50 Poin (60%)</span>
-                    </div>
-                    <span className="text-[11px] text-muted-foreground">
-                      Otomatis dengan audio penguji asli (6-9 detik/soal)
-                    </span>
+                  {/* Tombol Utama Mulai Ujian: Langsung Terlihat & Mudah Dijangkau */}
+                  <div className="pt-1 flex flex-col sm:flex-row items-stretch gap-2.5">
+                    <Button 
+                      onClick={startRealExam} 
+                      size="lg" 
+                      className="min-h-[48px] text-sm font-bold flex-1 justify-center shadow-xs cursor-pointer"
+                    >
+                      <Play className="h-4 w-4 mr-2" />
+                      <span>Mulai Ujian Sekarang (27 Soal)</span>
+                    </Button>
+                    {hasSavedExam && (
+                      <Button
+                        size="lg"
+                        variant="outline"
+                        onClick={loadSavedExam}
+                        className="min-h-[48px] text-sm font-semibold justify-center cursor-pointer"
+                      >
+                        <RotateCcw className="h-4 w-4 mr-1.5" />
+                        <span>Hasil Terakhir</span>
+                      </Button>
+                    )}
                   </div>
                 </div>
 
-                {/* Action controls */}
-                <div className="flex flex-col sm:flex-row items-center justify-between gap-3 pt-1">
-                  <Button variant="link" size="sm" onClick={() => setRevisionModalOpen(true)} className="px-0">
+                {/* 5 Komponen Ujian (Collapsible Details agar Rapi dan Tidak Menyita Layar) */}
+                <details className="group rounded-xl border border-border bg-card px-4 overflow-hidden">
+                  <summary className="flex items-center justify-between min-h-[48px] text-sm font-semibold text-foreground cursor-pointer list-none [&::-webkit-details-marker]:hidden">
+                    <span>Rincian 5 Komponen Penilaian (50 Poin)</span>
+                    <ChevronDown className="h-4 w-4 text-muted-foreground transition-transform group-open:rotate-180" />
+                  </summary>
+                  <div className="divide-y divide-border border-t border-border py-1 text-xs">
+                    <div className="py-2.5 flex items-center justify-between gap-3">
+                      <div>
+                        <p className="font-semibold text-foreground">1. Perkenalan Diri (자기소개) · Berdiri</p>
+                        <p className="text-muted-foreground text-[11px]">Monolog nama, umur, asal & tekad kerja (25 detik)</p>
+                      </div>
+                      <span className="font-mono font-bold text-primary shrink-0">2 Poin</span>
+                    </div>
+
+                    <div className="py-2.5 flex items-center justify-between gap-3">
+                      <div>
+                        <p className="font-semibold text-foreground">2. Percakapan Dasar & Gerak Tubuh</p>
+                        <p className="text-muted-foreground text-[11px]">4 gerak refleks berdiri (@1 pt) + 2 tanya jawab dasar (@1 pt)</p>
+                      </div>
+                      <span className="font-mono font-bold text-primary shrink-0">6 Poin</span>
+                    </div>
+
+                    <div className="py-2.5 flex items-center justify-between gap-3">
+                      <div>
+                        <p className="font-semibold text-foreground">3. Alat & Perintah Kerja (작업도구)</p>
+                        <p className="text-muted-foreground text-[11px]">5 tebak nama (@1 pt) + 5 perintah kerja (@3 pt)</p>
+                      </div>
+                      <span className="font-mono font-bold text-primary shrink-0">20 Poin</span>
+                    </div>
+
+                    <div className="py-2.5 flex items-center justify-between gap-3">
+                      <div>
+                        <p className="font-semibold text-foreground">4. Keterampilan Dasar NCS (Pabrik)</p>
+                        <p className="text-muted-foreground text-[11px]">Studi kasus barang cacat, lembur, konflik (2 soal @3 pt)</p>
+                      </div>
+                      <span className="font-mono font-bold text-primary shrink-0">6 Poin</span>
+                    </div>
+
+                    <div className="py-2.5 flex items-center justify-between gap-3">
+                      <div>
+                        <p className="font-semibold text-foreground">5. Keselamatan K3 (안전의식)</p>
+                        <p className="text-muted-foreground text-[11px]">6 rambu piktogram (@1 pt) + 2 soal lisan K3 (@5 pt)</p>
+                      </div>
+                      <span className="font-mono font-bold text-primary shrink-0">16 Poin</span>
+                    </div>
+                  </div>
+                </details>
+
+                {/* Bar Bawah: Pengaturan Audio & Info Regulasi */}
+                <div className="flex items-center justify-between gap-2 px-1 text-xs">
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    onClick={() => setRevisionModalOpen(true)}
+                    className="h-9 px-2 text-xs text-muted-foreground hover:text-foreground gap-1.5"
+                  >
                     <Info className="h-3.5 w-3.5" />
-                    <span>Detail Regulasi Resmi HRDK</span>
+                    <span>Regulasi Resmi HRDK</span>
                   </Button>
 
-                  <div className="flex items-center gap-2 w-full sm:w-auto justify-end">
-                    <Button variant="ghost" onClick={() => setMode('practice')}>
-                      <span>Kembali</span>
-                    </Button>
-                    <Button onClick={startRealExam} size="lg" className="flex-1 sm:flex-initial">
-                      <span>Mulai Simulasi (30 Soal)</span>
-                    </Button>
-                  </div>
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={() => setAudioModalOpen(true)}
+                    className="h-9 px-3 text-xs font-semibold gap-1.5"
+                  >
+                    <Headphones className="h-3.5 w-3.5 text-primary" />
+                    <span>Suara: {currentVoiceLabel} ({audioSpeed}x)</span>
+                  </Button>
                 </div>
               </div>
             )}
 
             {/* Phase 2: Live Exam Terminal */}
             {examPhase === 'running' && (
-              <Card className="w-full max-w-xl p-5 sm:p-6 md:p-8 space-y-5">
+              <Card className="w-full max-w-xl p-3.5 sm:p-6 md:p-8 space-y-4 sm:space-y-5">
                 
                 {/* Stage Header */}
                 <div className="flex items-start sm:items-center justify-between pb-3.5 border-b border-border text-left gap-2">
@@ -1196,8 +1446,8 @@ export default function App() {
                       <span className="text-[11px] font-bold text-primary uppercase tracking-wider">
                         {examQuestions[examIndex]?.section}
                       </span>
-                      <Badge variant="outline" className="text-[10px]">Bobot: {examQuestions[examIndex]?.points} Poin</Badge>
-                      <Badge variant="outline" className="font-mono text-[10px]">
+                      <Badge variant="outline" className="text-xs">Bobot: {examQuestions[examIndex]?.points} Poin</Badge>
+                      <Badge variant="outline" className="font-mono text-xs">
                         {examQuestions[examIndex]?.stance === 'standing' ? 'BERDIRI' : 'DUDUK'}
                       </Badge>
                     </div>
@@ -1206,11 +1456,22 @@ export default function App() {
                     </h3>
                   </div>
 
-                  <div className="shrink-0">
+                  <div className="shrink-0 flex items-center gap-1.5 flex-nowrap justify-end">
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      onClick={() => setAudioModalOpen(true)}
+                      className="h-7 px-2 text-[11px] font-semibold text-primary border-primary/30 hover:bg-primary/10 cursor-pointer transition-colors flex items-center gap-1 shrink-0"
+                      title="Pengaturan Suara Penguji & Audio"
+                    >
+                      <Headphones className="h-3 w-3 shrink-0" />
+                      <span>{audioSpeed}x</span>
+                    </Button>
+
                     {examStepStatus === 'asking' ? (
-                      <Badge variant="outline" className="font-mono">PENGUJI BERTANYA</Badge>
+                      <Badge variant="outline" className="font-mono text-xs sm:text-xs shrink-0 whitespace-nowrap">PENGUJI BERTANYA</Badge>
                     ) : (
-                      <Badge variant="success" className="font-mono animate-pulse-dot">WAKTU MENJAWAB</Badge>
+                      <Badge variant="success" className="font-mono text-xs sm:text-xs animate-pulse-dot shrink-0 whitespace-nowrap">WAKTU MENJAWAB</Badge>
                     )}
                   </div>
                 </div>
@@ -1252,7 +1513,7 @@ export default function App() {
                         </p>
                       </div>
                       <div className="pt-3 border-t border-border text-xs space-y-1 text-center">
-                        <span className="text-[10px] font-bold text-emerald-700 uppercase tracking-wider block">
+                        <span className="text-xs font-bold text-emerald-700 uppercase tracking-wider block">
                           Respon Sopan Kandidat
                         </span>
                         <strong className="text-lg font-kr font-bold text-foreground block">
@@ -1271,12 +1532,7 @@ export default function App() {
                         className="max-h-52 sm:max-h-60 w-auto mx-auto object-contain"
                       />
                       <Button variant="outline" size="sm"
-                        onClick={() => {
-                          if (examAudioPlayerRef.current) {
-                            examAudioPlayerRef.current.currentTime = 0;
-                            examAudioPlayerRef.current.play().catch(() => {});
-                          }
-                        }}>
+                        onClick={() => replayExamQuestion(examQuestions[examIndex])}>
                         <Volume2 className="h-3.5 w-3.5" />
                         <span>Dengar Ulang Suara Penguji</span>
                       </Button>
@@ -1284,12 +1540,7 @@ export default function App() {
                   ) : (
                     <div className="space-y-3 text-center">
                       <Button variant="outline" size="lg"
-                        onClick={() => {
-                          if (examAudioPlayerRef.current) {
-                            examAudioPlayerRef.current.currentTime = 0;
-                            examAudioPlayerRef.current.play().catch(() => {});
-                          }
-                        }}
+                        onClick={() => replayExamQuestion(examQuestions[examIndex])}
                         title="Putar Ulang Audio Pertanyaan">
                         <Volume2 className="h-5 w-5" />
                         <span>Putar Ulang Pertanyaan</span>
@@ -1399,8 +1650,7 @@ export default function App() {
                     </Button>
                     <div className="flex items-center gap-2">
                       <Button size="sm" onClick={() => setExamPhase('rekap')}
-                        disabled={!examScoreSummary.isComplete}
-                        title={examScoreSummary.isComplete ? 'Lanjut ke lembar skor resmi 2026' : 'Nilai semua butir dulu (Benar/Salah) agar rekap akurat'}
+                        title="Lanjut ke lembar rekap skor resmi 2026"
                         variant="default">
                         <span>Rekap Skor Resmi</span>
                         <ChevronRight className="h-3.5 w-3.5" />
@@ -1412,11 +1662,35 @@ export default function App() {
                   </div>
                 </div>
 
-                {/* 2. Daftar Evaluasi 30 Soal (1 level divide-y, natural page scroll) */}
+                {/* 2. Daftar Evaluasi 27 Butir Soal Resmi (1 level divide-y, natural page scroll) */}
                 <div className="space-y-2">
-                  <p className="text-xs text-muted-foreground px-1">
-                    Dengarkan kembali rekaman suara Anda per nomor, lalu tandai penilaian mandiri secara objektif:
-                  </p>
+                  <div className="flex items-center justify-between gap-2 px-1 flex-wrap">
+                    <p className="text-xs text-muted-foreground">
+                      Dengarkan kembali rekaman suara Anda per nomor, lalu tandai penilaian mandiri secara objektif:
+                    </p>
+                    <div className="flex items-center gap-1.5">
+                      <Button
+                        size="xs"
+                        variant="outline"
+                        className="h-7 text-[11px] px-2.5 text-primary border-primary/30 hover:bg-primary/10"
+                        onClick={() => {
+                          const allPass = {};
+                          examQuestions.forEach((_, i) => { allPass[i] = 'pass'; });
+                          setSelfRatings(allPass);
+                        }}
+                      >
+                        ✓ Tandai Semua Benar
+                      </Button>
+                      <Button
+                        size="xs"
+                        variant="ghost"
+                        className="h-7 text-[11px] px-2 text-muted-foreground hover:text-foreground"
+                        onClick={() => setSelfRatings({})}
+                      >
+                        Reset Penilaian
+                      </Button>
+                    </div>
+                  </div>
 
                   <div className="rounded-xl border border-border bg-card divide-y divide-border overflow-hidden text-xs">
                     {examQuestions.map((q, idx) => {
@@ -1450,37 +1724,125 @@ export default function App() {
                             )}
                           </div>
 
-                          {/* Official Answer (clean typography with subtle left accent or top divider) */}
-                          <div className="pt-2.5 border-t border-border/60 space-y-0.5">
-                            <span className="text-[10px] uppercase font-bold text-emerald-700 tracking-wider block">
-                              Kunci Jawaban Resmi
-                            </span>
-                            <p className="text-foreground font-bold font-kr text-base">
+                          {/* Official Answer & Action Guide */}
+                          <div className="pt-2.5 border-t border-border/60 space-y-1">
+                            <div className="flex items-center gap-1.5 flex-wrap">
+                              <span className="text-xs uppercase font-bold text-emerald-700 dark:text-emerald-400 tracking-wider">
+                                {q.category === 'gerak_fisik' || q.category === 'praktik_alat' || q.category === 'perintah_alat'
+                                  ? 'Kunci Respon & Tindakan Fisik'
+                                  : 'Kunci Jawaban Resmi'}
+                              </span>
+                              {(q.category === 'gerak_fisik' || q.category === 'praktik_alat' || q.category === 'perintah_alat') && (
+                                <Badge variant="outline" className="text-xs py-0 px-1 border-emerald-500/30 text-emerald-600 dark:text-emerald-400 font-mono">
+                                  Peragaan Gerak Fisik
+                                </Badge>
+                              )}
+                            </div>
+                            <p className="text-foreground font-bold font-kr text-base leading-snug">
                               {q.answer_short_ko || q.title_ko}
                             </p>
                             <p className="text-muted-foreground text-xs">
                               Artinya: {q.answer_short_id || q.title_id}
                             </p>
+
+                            {/* Variasi Jawaban Terstandar Sesuai Materi jika ada */}
+                            {q.answer_options && q.answer_options.length > 0 && (
+                              <div className="pt-2 mt-1 space-y-1 border-t border-dashed border-border/60">
+                                <span className="text-xs font-bold text-muted-foreground uppercase tracking-wider block">
+                                  Variasi Jawaban Terstandar (Sesuai Materi):
+                                </span>
+                                <div className="space-y-1">
+                                    {q.answer_options.map((opt, oIdx) => (
+                                      <div key={oIdx} className="text-[11px] p-1.5 rounded bg-secondary/50 border border-border/40 flex items-center justify-between gap-2">
+                                        <div className="min-w-0">
+                                          <span className="font-semibold text-primary">{opt.label}: </span>
+                                          <span className="font-kr font-bold text-foreground">{opt.ko || opt.answer_ko} </span>
+                                          <span className="text-muted-foreground">({opt.id || opt.answer_id})</span>
+                                        </div>
+                                        {(opt.audio || q.audio_a) && (
+                                          <button
+                                            type="button"
+                                            onClick={() => {
+                                              stopAllAudio();
+                                              const a = new Audio(getAssetUrl(opt.audio || q.audio_a));
+                                              try { a.playbackRate = audioSpeed; } catch {}
+                                              a.play().catch(() => {});
+                                            }}
+                                            className="p-1 rounded hover:bg-primary/20 text-primary cursor-pointer shrink-0 transition-colors"
+                                            title="Dengar Suara Opsi Ini"
+                                          >
+                                            <Volume2 className="h-3.5 w-3.5" />
+                                          </button>
+                                        )}
+                                      </div>
+                                    ))}
+                                  </div>
+                              </div>
+                            )}
                           </div>
 
-                          {/* Candidate Audio & Self Rating */}
-                          <div className="flex flex-wrap items-center justify-between gap-2 pt-2.5 border-t border-border/60">
-                            <div className="flex items-center gap-2">
-                              <span className="text-muted-foreground font-medium">Rekaman:</span>
+                          {/* Audio Penguji & Kunci Jawaban vs Rekaman Kandidat */}
+                          <div className="flex flex-wrap items-center justify-between gap-2.5 pt-2.5 border-t border-border/60">
+                            <div className="flex items-center gap-2 flex-wrap">
+                              {q.audio_q && (
+                                <Button
+                                  type="button"
+                                  variant="outline"
+                                  size="sm"
+                                  onClick={() => {
+                                    stopAllAudio();
+                                    const a = new Audio(getAssetUrl(q.audio_q));
+                                    a.playbackRate = audioSpeed;
+                                    a.play().catch(() => {});
+                                  }}
+                                  className="h-7 text-xs gap-1 border-primary/30 text-primary hover:bg-primary/10"
+                                >
+                                  <Volume2 className="h-3 w-3" />
+                                  <span>Dengar Soal</span>
+                                </Button>
+                              )}
+                              {q.audio_a && (
+                                <Button
+                                  type="button"
+                                  variant="secondary"
+                                  size="sm"
+                                  onClick={() => {
+                                    stopAllAudio();
+                                    const a = new Audio(getAssetUrl(q.audio_a));
+                                    a.playbackRate = audioSpeed;
+                                    a.play().catch(() => {});
+                                  }}
+                                  className="h-7 text-xs gap-1"
+                                >
+                                  <Volume2 className="h-3 w-3" />
+                                  <span>Dengar Kunci</span>
+                                </Button>
+                              )}
                               {recUrl ? (
-                                <audio src={recUrl} controls className="h-7 w-44" />
+                                <div className="flex items-center gap-1.5 ml-1">
+                                  <span className="text-[11px] text-muted-foreground font-medium">Rekaman Anda:</span>
+                                  <audio src={recUrl} controls className="h-7 w-36 sm:w-44" />
+                                </div>
                               ) : (
-                                <span className="text-muted-foreground italic">Tidak ada rekaman</span>
+                                <span className="text-muted-foreground italic text-[11px] ml-1">(Tidak ada rekaman suara)</span>
                               )}
                             </div>
 
-                            <div className="flex items-center gap-1.5">
-                              <Button size="sm" variant={rating === 'pass' ? 'default' : 'outline'}
-                                onClick={() => setSelfRatings(prev => ({ ...prev, [idx]: 'pass' }))}>
+                            <div className="flex items-center gap-1.5 shrink-0 ml-auto">
+                              <Button 
+                                size="sm" 
+                                variant={rating === 'pass' ? 'default' : 'outline'}
+                                className="h-8 px-2.5 sm:px-3 text-xs"
+                                onClick={() => setSelfRatings(prev => ({ ...prev, [idx]: 'pass' }))}
+                              >
                                 <span>Benar (+{q.points})</span>
                               </Button>
-                              <Button size="sm" variant={rating === 'fail' ? 'destructive' : 'outline'}
-                                onClick={() => setSelfRatings(prev => ({ ...prev, [idx]: 'fail' }))}>
+                              <Button 
+                                size="sm" 
+                                variant={rating === 'fail' ? 'destructive' : 'outline'}
+                                className="h-8 px-2.5 sm:px-3 text-xs"
+                                onClick={() => setSelfRatings(prev => ({ ...prev, [idx]: 'fail' }))}
+                              >
                                 <span>Salah (0)</span>
                               </Button>
                             </div>
@@ -1530,16 +1892,35 @@ export default function App() {
               <ChevronLeft className="h-4 w-4" />
             </Button>
 
-            <div className="flex items-center gap-2.5">
-              <Button onClick={playPracticeQuestion}>
+            <div className="flex items-center gap-2">
+              <Button 
+                onClick={playPracticeQuestion}
+                className="h-10 px-3 sm:px-4 text-xs font-semibold gap-1.5"
+                title="Dengarkan suara penguji Korea asli"
+              >
                 <Play className="h-4 w-4" />
                 <span>{isPlayingAudio ? 'Memutar...' : 'Putar Soal'}</span>
               </Button>
 
-              <Button variant="outline" size="icon"
+              {currentQ?.audio_a && (
+                <Button 
+                  variant="secondary" 
+                  onClick={() => playPracticeAnswer()}
+                  className="h-10 px-3 text-xs font-semibold gap-1.5"
+                  title="Dengarkan kunci jawaban penutur Korea asli"
+                >
+                  <Volume2 className="h-4 w-4 text-primary" />
+                  <span className="hidden sm:inline">Kunci</span>
+                </Button>
+              )}
+
+              <Button 
+                variant="outline" 
+                size="icon"
                 onClick={toggleRecording}
                 title={isRecording ? 'Selesai Merekam' : 'Rekam Suara Mandiri'}
-                className={isRecording ? 'bg-destructive text-destructive-foreground border-destructive animate-pulse-dot' : ''}>
+                className={cn('h-10 w-10', isRecording ? 'bg-destructive text-destructive-foreground border-destructive animate-pulse-dot' : '')}
+              >
                 <Mic className="h-4 w-4" />
               </Button>
             </div>
@@ -1564,6 +1945,25 @@ export default function App() {
         questionsData={questionsData}
       />
       <RevisionModal open={revisionModalOpen} onClose={() => setRevisionModalOpen(false)} />
+      <AudioSettingsModal
+        open={audioModalOpen}
+        onClose={() => setAudioModalOpen(false)}
+        audioSpeed={audioSpeed}
+        setAudioSpeed={(val) => {
+          setAudioSpeed(val);
+          try { localStorage.setItem('kore_audio_speed', String(val)); } catch {}
+          if (practiceAudioRef.current) practiceAudioRef.current.playbackRate = val;
+          if (practiceAnswerAudioRef.current) practiceAnswerAudioRef.current.playbackRate = val;
+          if (examAudioPlayerRef.current) examAudioPlayerRef.current.playbackRate = val;
+        }}
+        koreanVoices={koreanVoices}
+        selectedVoiceName={selectedVoiceName}
+        setSelectedVoiceName={(name) => {
+          setSelectedVoiceName(name);
+          try { localStorage.setItem('kore_tts_voice_name', name); } catch {}
+        }}
+        onTestVoice={testTtsVoice}
+      />
 
     </div>
   );

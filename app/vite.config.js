@@ -9,5 +9,15 @@ export default defineConfig({
     host: true,
     port: 8081,
     allowedHosts: true
+  },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          'study-guide': ['./src/components/StudyGuide.jsx'],
+          'catalogs': ['./src/components/PictogramCatalog.jsx', './src/components/ToolCatalog.jsx'],
+        }
+      }
+    }
   }
 })

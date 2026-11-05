@@ -25,62 +25,55 @@ export function getRandomSample(arr, count) {
  * - 양손 올리세요 -> 양손 내리세요
  * Mixed with natural directional commands (앞으로 가세요, 돌아서세요, etc.)
  */
-export function getLogicalMovementSequence(pool, count = 5) {
+export function getLogicalMovementSequence(pool, count = 4) {
   if (!pool || !pool.length) return [];
 
-  const rUp = pool.find(q => q.question_ko?.includes('오른손') && q.question_ko?.includes('올리'));
-  const rDown = pool.find(q => q.question_ko?.includes('오른손') && q.question_ko?.includes('내리'));
-  const lUp = pool.find(q => q.question_ko?.includes('왼손') && q.question_ko?.includes('올리'));
-  const lDown = pool.find(q => q.question_ko?.includes('왼손') && q.question_ko?.includes('내리'));
-  const bothUp = pool.find(q => q.question_ko?.includes('양손') && q.question_ko?.includes('올리'));
-  const bothDown = pool.find(q => q.question_ko?.includes('양손') && q.question_ko?.includes('내리'));
-
-  const generalCommands = pool.filter(q => 
-    !q.question_ko?.includes('손') && 
-    !q.question_ko?.includes('올리') && 
-    !q.question_ko?.includes('내리')
+  // 1. Kategori Pandangan / Arah Kepala (Langkah 1: Wajib Arah Pandangan Murni)
+  const lookCommands = pool.filter(q => 
+    (q.id?.startsWith('cmd_06') || q.id?.startsWith('cmd_07') || q.id?.startsWith('cmd_08') || q.id?.startsWith('cmd_09') || q.id?.startsWith('cmd_10')) ||
+    (q.question_ko?.includes('보세요') && /오른쪽으로|왼쪽으로|위로|아래로|앞으로/.test(q.question_ko) && !q.question_ko.includes('손') && !q.question_ko.includes('귀'))
   );
 
-  const shuffledGeneral = shuffle(generalCommands);
-
-  // Define realistic pairings of hand actions
-  const handPairs = [
-    // Skenario 1: Naik kanan -> Turun kanan
-    () => [rUp, rDown].filter(Boolean),
-    // Skenario 2: Naik kiri -> Turun kiri
-    () => [lUp, lDown].filter(Boolean),
-    // Skenario 3: Naik kanan -> Naik kiri -> Turun kedua tangan
-    () => [rUp, lUp, bothDown].filter(Boolean),
-    // Skenario 4: Naik kedua tangan -> Turun kedua tangan
-    () => [bothUp, bothDown].filter(Boolean)
-  ];
-
-  // Pick 1 hand action routine
-  const chosenHandRoutine = shuffle(handPairs)[0]();
+  // 2. Pasangan Gerak Tangan: WAJIB NAIK DULU BARU TURUN (Langkah 2 & 3)
+  const rUp = pool.find(q => q.id === 'cmd_11' || (q.question_ko?.includes('오른손') && q.question_ko?.includes('올리') && !q.question_ko?.includes('내리')));
+  const rDown = pool.find(q => q.id === 'cmd_12' || (q.question_ko?.includes('오른손') && q.question_ko?.includes('내리') && !q.question_ko?.includes('올리')));
   
-  const result = [];
-  let genIdx = 0;
+  const lUp = pool.find(q => q.id === 'cmd_13' || (q.question_ko?.includes('왼손') && q.question_ko?.includes('올리') && !q.question_ko?.includes('내리')));
+  const lDown = pool.find(q => q.id === 'cmd_14' || (q.question_ko?.includes('왼손') && q.question_ko?.includes('내리') && !q.question_ko?.includes('올리')));
+  
+  const bothUp = pool.find(q => q.id === 'cmd_15' || (q.question_ko?.includes('양손') && q.question_ko?.includes('올리') && !q.question_ko?.includes('내리')));
+  const bothDown = pool.find(q => q.id === 'cmd_16' || (q.question_ko?.includes('양손') && q.question_ko?.includes('내리') && !q.question_ko?.includes('올리')));
 
-  // Insert 1st general movement (e.g. jalan atau lihat arah) jika ada
-  if (shuffledGeneral[genIdx]) {
-    result.push(shuffledGeneral[genIdx++]);
+  const handPairOptions = [
+    { up: bothUp, down: bothDown }, // Kedua tangan naik -> turun
+    { up: rUp, down: rDown },       // Tangan kanan naik -> turun
+    { up: lUp, down: lDown }        // Tangan kiri naik -> turun
+  ].filter(p => p.up && p.down);
+
+  // 3. Gerak Refleks Tubuh Berdiri (Langkah 4 - tanpa duduk/jongkok karena belum transisi)
+  const bodyCommands = pool.filter(q => 
+    !q.question_ko?.includes('앉') &&
+    !q.question_ko?.includes('일어나') &&
+    !q.question_ko?.includes('손') &&
+    !q.question_ko?.includes('올리') &&
+    !q.question_ko?.includes('내리') &&
+    !q.question_ko?.includes('보세요')
+  );
+
+  const step1 = shuffle(lookCommands.length ? lookCommands : pool)[0];
+  const chosenHandPair = shuffle(handPairOptions)[0];
+  const step2 = chosenHandPair.up;
+  const step3 = chosenHandPair.down;
+  const step4 = shuffle(bodyCommands.length ? bodyCommands : pool.filter(q => q.id !== step1?.id && q.id !== step2?.id && q.id !== step3?.id))[0];
+
+  const sequence = [step1, step2, step3, step4].filter(Boolean);
+
+  // Fallback jika ada yang kosong
+  if (sequence.length < count) {
+    const usedIds = new Set(sequence.map(s => s.id));
+    const remain = pool.filter(q => !usedIds.has(q.id));
+    return [...sequence, ...shuffle(remain).slice(0, count - sequence.length)];
   }
 
-  // Insert hand movements in strict order
-  for (const h of chosenHandRoutine) {
-    result.push(h);
-    // After hands are down, insert another movement if space permits
-    if (h === rDown || h === lDown || h === bothDown) {
-      if (shuffledGeneral[genIdx] && result.length < count) {
-        result.push(shuffledGeneral[genIdx++]);
-      }
-    }
-  }
-
-  // Fill remaining slots up to count with general movements
-  while (result.length < count && genIdx < shuffledGeneral.length) {
-    result.push(shuffledGeneral[genIdx++]);
-  }
-
-  return result.slice(0, count);
+  return sequence.slice(0, count);
 }

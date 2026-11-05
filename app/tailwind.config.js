@@ -46,14 +46,6 @@ export default {
           DEFAULT: 'hsl(var(--destructive))',
           foreground: 'hsl(var(--destructive-foreground))',
         },
-        success: {
-          DEFAULT: '#047857',
-          foreground: '#ffffff',
-        },
-        warn: {
-          DEFAULT: '#b45309',
-          foreground: '#ffffff',
-        },
         card: {
           DEFAULT: 'hsl(var(--card))',
           foreground: 'hsl(var(--card-foreground))',
@@ -68,6 +60,7 @@ export default {
         kr: ['"Noto Sans KR"', 'Inter', 'system-ui', 'sans-serif'],
         mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Consolas', 'monospace'],
       },
+      boxShadow: { xs: '0 1px 2px 0 rgb(0 0 0 / 0.05)' },
       borderRadius: {
         sm: '0.25rem',
         DEFAULT: '0.5rem',

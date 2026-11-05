@@ -13,9 +13,20 @@ export function getAssetUrl(path) {
     return path;
   }
 
+  // Cek preferensi gender suara jawaban ('male' vs 'female')
+  let resolvedPath = path;
+  try {
+    const voiceGender = localStorage.getItem('kore_answer_voice_gender') || 'male';
+    if (voiceGender === 'male' && resolvedPath.includes('/audio/tts/options/')) {
+      resolvedPath = resolvedPath.replace('/audio/tts/options/', '/audio/tts/options_male/');
+    } else if (voiceGender === 'female' && resolvedPath.includes('/audio/tts/options_male/')) {
+      resolvedPath = resolvedPath.replace('/audio/tts/options_male/', '/audio/tts/options/');
+    }
+  } catch {}
+
   // import.meta.env.BASE_URL is provided by Vite (defaults to '/' or custom base)
   const base = import.meta.env.BASE_URL || './';
-  const cleanPath = path.startsWith('/') ? path.slice(1) : path;
+  const cleanPath = resolvedPath.startsWith('/') ? resolvedPath.slice(1) : resolvedPath;
 
   if (base.endsWith('/')) {
     return `${base}${cleanPath}`;

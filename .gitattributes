@@ -1,0 +1,3 @@
+app/src/data/*.json -diff
+* text=auto
+

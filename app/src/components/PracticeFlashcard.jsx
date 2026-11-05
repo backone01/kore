@@ -20,11 +20,38 @@ export function PracticeFlashcard({
 }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isFlipped, setIsFlipped] = useState(false);
-  const [memorizedIds, setMemorizedIds] = useState(new Set());
-  const [reviewLaterIds, setReviewLaterIds] = useState(new Set());
+  const [memorizedIds, setMemorizedIds] = useState(() => {
+    try {
+      const saved = localStorage.getItem('kore_flashcard_memorized');
+      return saved ? new Set(JSON.parse(saved)) : new Set();
+    } catch {
+      return new Set();
+    }
+  });
+  const [reviewLaterIds, setReviewLaterIds] = useState(() => {
+    try {
+      const saved = localStorage.getItem('kore_flashcard_review');
+      return saved ? new Set(JSON.parse(saved)) : new Set();
+    } catch {
+      return new Set();
+    }
+  });
   const [shuffledQuestions, setShuffledQuestions] = useState([]);
   const [cardDirection, setCardDirection] = useState('ko_to_id');
   const [selectedOptionIndex, setSelectedOptionIndex] = useState(0);
+
+  // Auto-Save kartu hafal & review
+  useEffect(() => {
+    try {
+      localStorage.setItem('kore_flashcard_memorized', JSON.stringify([...memorizedIds]));
+    } catch {}
+  }, [memorizedIds]);
+
+  useEffect(() => {
+    try {
+      localStorage.setItem('kore_flashcard_review', JSON.stringify([...reviewLaterIds]));
+    } catch {}
+  }, [reviewLaterIds]);
   // Mode tebak gambar: sembunyikan nama Korea di sisi depan jika soal memiliki gambar
   const [hideKoreanOnImage, setHideKoreanOnImage] = useState(true);
 
@@ -153,11 +180,11 @@ export function PracticeFlashcard({
           >
             <List className="h-3.5 w-3.5 text-primary" />
             <span className="font-mono">{currentIndex + 1} / {total}</span>
-            <span className="text-[10px] text-muted-foreground font-normal hidden sm:inline">(Cari Soal)</span>
+            <span className="text-xs text-muted-foreground font-normal hidden sm:inline">(Cari Soal)</span>
           </button>
 
           {hasImage && (
-            <Badge variant="outline" className="text-[10px] gap-1 py-0 h-6 text-primary border-primary/30 bg-primary/5">
+            <Badge variant="outline" className="text-xs gap-1 py-0 h-6 text-primary border-primary/30 bg-primary/5">
               <ImageIcon className="h-3 w-3" />
               <span>Bergambar</span>
             </Badge>
@@ -201,25 +228,6 @@ export function PracticeFlashcard({
             <span>{cardDirection === 'ko_to_id' ? 'Depan KR' : 'Depan ID'}</span>
           </Button>
 
-          <Button variant="outline" size="icon" onClick={handleShuffle} title="Acak urutan kartu (Tebak Acak)" className="h-8 w-8">
-            <Shuffle className="h-3.5 w-3.5" />
-          </Button>
-
-          {onToggleAudioSpeed && (
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={onToggleAudioSpeed}
-              title="Atur kecepatan suara audio & TTS (Normal / Lambat / Sangat Lambat)"
-              className={cn(
-                "h-8 px-2 text-xs font-semibold gap-1 transition-colors",
-                audioSpeed < 1.0 ? "text-amber-600 dark:text-amber-400 border-amber-500/40 bg-amber-500/10 font-bold" : "text-muted-foreground"
-              )}
-            >
-              {audioSpeed < 1.0 ? <Turtle className="h-3.5 w-3.5 text-amber-500" /> : <Zap className="h-3.5 w-3.5 text-primary" />}
-              <span>{audioSpeed}x</span>
-            </Button>
-          )}
         </div>
       </div>
 
@@ -465,7 +473,7 @@ export function PracticeFlashcard({
                         <div className="bg-secondary/60 border border-border/80 rounded-xl p-3.5 space-y-2.5 text-left">
                           <div className="flex items-center justify-between gap-1 text-[11px] font-bold text-muted-foreground uppercase tracking-wider">
                             <span>🛠️ Kalimat Jawaban Lisan (용도):</span>
-                            <span className="text-[10px] text-muted-foreground/80 font-normal">pilih variasi</span>
+                            <span className="text-xs text-muted-foreground/80 font-normal">pilih variasi</span>
                           </div>
 
                           {hasOptions && (
@@ -476,7 +484,7 @@ export function PracticeFlashcard({
                                   type="button"
                                   onClick={(e) => { e.stopPropagation(); setSelectedOptionIndex(oIdx); }}
                                   className={cn(
-                                    'px-2 py-0.5 rounded-md text-[10px] sm:text-[11px] font-medium border transition-colors',
+                                    'px-2 py-0.5 rounded-md text-xs sm:text-[11px] font-medium border transition-colors',
                                     selectedOptionIndex === oIdx
                                       ? 'bg-foreground text-background border-foreground shadow-xs font-semibold'
                                       : 'bg-card text-muted-foreground border-border hover:bg-secondary'
@@ -531,7 +539,7 @@ export function PracticeFlashcard({
                         <div className="w-full bg-secondary/50 border border-border/80 rounded-xl p-3 space-y-2 mt-2 text-left">
                           <div className="flex items-center justify-between gap-1 text-[11px] font-bold text-muted-foreground uppercase tracking-wider">
                             <span>🛠️ Fungsi & Kegunaan (용도):</span>
-                            <span className="text-[10px] lowercase text-muted-foreground/80 font-normal">pilihan jawaban lisan</span>
+                            <span className="text-xs lowercase text-muted-foreground/80 font-normal">pilihan jawaban lisan</span>
                           </div>
 
                           {hasOptions && (
@@ -542,7 +550,7 @@ export function PracticeFlashcard({
                                   type="button"
                                   onClick={(e) => { e.stopPropagation(); setSelectedOptionIndex(oIdx); }}
                                   className={cn(
-                                    'px-2 py-0.5 rounded-md text-[10px] sm:text-[11px] font-medium border transition-colors',
+                                    'px-2 py-0.5 rounded-md text-xs sm:text-[11px] font-medium border transition-colors',
                                     selectedOptionIndex === oIdx
                                       ? 'bg-foreground text-background border-foreground shadow-xs font-semibold'
                                       : 'bg-card text-muted-foreground border-border hover:bg-secondary'
@@ -567,13 +575,25 @@ export function PracticeFlashcard({
                     )}
 
                     {/* Audio button di belakang */}
-                    <div className="pt-2 flex items-center justify-center gap-2">
+                    <div className="pt-2 flex items-center justify-center gap-2 flex-wrap">
                       {(currentQ?.audio_a || toolNameKo) && (
                         <Button type="button" variant="secondary" size="sm"
                           onClick={(e) => { e.stopPropagation(); onPlayAudio(currentQ.audio_a, toolNameKo); }}
                           title="Dengar pelafalan nama alat">
                           <Volume2 className="h-3.5 w-3.5 text-emerald-600" />
-                          <span>Dengar Pelafalan Nama</span>
+                          <span>Dengar Nama Alat</span>
+                        </Button>
+                      )}
+                      {(activeOpt?.audio || activeOpt?.ko) && (
+                        <Button type="button" variant="outline" size="sm"
+                          onClick={(e) => { 
+                            e.stopPropagation(); 
+                            onPlayAudio(activeOpt?.audio, activeOpt?.ko || activeOpt?.answer_ko); 
+                          }}
+                          className="border-primary/40 text-primary hover:bg-primary/10"
+                          title="Dengar pelafalan fungsi/kegunaan alat yang dipilih">
+                          <Volume2 className="h-3.5 w-3.5 text-primary" />
+                          <span>Dengar Fungsi ({activeOpt?.label || 'Opsi'})</span>
                         </Button>
                       )}
                     </div>
@@ -680,10 +700,14 @@ export function PracticeFlashcard({
 
                   {/* Audio button di belakang */}
                   <div className="pt-2 flex items-center justify-center gap-2">
-                    {(currentQ?.audio_a || displayKo) && (
+                    {(activeOpt?.audio || currentQ?.audio_a || displayKo) && (
                       <Button type="button" variant="secondary" size="sm"
-                        onClick={(e) => { e.stopPropagation(); onPlayAudio(currentQ.audio_a, displayKo); }}
-                        title="Dengar pelafalan jawaban">
+                        onClick={(e) => { 
+                          e.stopPropagation(); 
+                          const targetAudio = activeOpt?.audio || (selectedOptionIndex === 0 ? currentQ?.audio_a : null);
+                          onPlayAudio(targetAudio, displayKo); 
+                        }}
+                        title="Dengar pelafalan jawaban pilihan ini">
                         <Volume2 className="h-3.5 w-3.5 text-emerald-600" />
                         <span>Dengar Pelafalan Korea</span>
                       </Button>
@@ -746,13 +770,13 @@ export function PracticeFlashcard({
       </Card>
 
       <p className="text-[11px] text-muted-foreground mt-3 text-center">
-        💡 <strong>Tip Belajar:</strong> Ketuk kartu atau tekan <kbd className="px-1.5 py-0.5 rounded bg-muted font-mono text-[10px] border border-border">Spasi</kbd> untuk membalik kartu. Gunakan <kbd className="px-1.5 py-0.5 rounded bg-muted font-mono text-[10px] border border-border">←</kbd> <kbd className="px-1.5 py-0.5 rounded bg-muted font-mono text-[10px] border border-border">→</kbd> untuk berpindah soal.
+        <strong>Tip Belajar:</strong> Ketuk kartu atau tekan <kbd className="px-1.5 py-0.5 rounded bg-muted font-mono text-xs border border-border">Spasi</kbd> untuk membalik kartu. Gunakan <kbd className="px-1.5 py-0.5 rounded bg-muted font-mono text-xs border border-border">←</kbd> <kbd className="px-1.5 py-0.5 rounded bg-muted font-mono text-xs border border-border">→</kbd> untuk berpindah soal.
       </p>
 
       {/* Modal / Dialog Pemilih & Pencari Soal Cepat */}
       {listModalOpen && (
         <div 
-          className="fixed inset-0 z-50 bg-foreground/40 backdrop-blur-xs flex items-center justify-center p-3 sm:p-4 animate-fade-in"
+          className="fixed inset-0 z-50 bg-foreground/40 flex items-center justify-center p-3 sm:p-4 animate-fade-in"
           onClick={(e) => { if (e.target === e.currentTarget) setListModalOpen(false); }}
         >
           <div className="bg-card border border-border rounded-xl w-full max-w-lg max-h-[85vh] flex flex-col overflow-hidden shadow-2xl">
@@ -859,8 +883,8 @@ export function PracticeFlashcard({
                       </div>
 
                       <div className="flex items-center gap-1.5 shrink-0">
-                        {isMem && <Badge variant="success" className="text-[10px] py-0 h-4">Hafal</Badge>}
-                        {isRev && <Badge variant="warn" className="text-[10px] py-0 h-4">Ulangi</Badge>}
+                        {isMem && <Badge variant="success" className="text-xs py-0 h-4">Hafal</Badge>}
+                        {isRev && <Badge variant="warn" className="text-xs py-0 h-4">Ulangi</Badge>}
                         <span className="font-mono text-[11px] text-muted-foreground">#{q.originalIndex + 1}</span>
                       </div>
                     </button>

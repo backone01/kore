@@ -18,44 +18,44 @@ export function RevisionModal({ open, onClose }) {
 
   const interviewStages = [
     {
-      stage: 'Tahap 1',
-      title: 'Perkenalan Diri Mandiri (자기소개)',
+      stage: 'Kategori 1',
+      title: 'Perkenalan Diri & Sikap (자기소개 및 태도)',
       stance: 'Berdiri',
-      desc: 'Monolog perkenalan diri 25-40 detik di depan penguji (Nama, Umur, Asal, Pengalaman, Tekad Kerja).',
+      desc: '1 Soal: Monolog perkenalan diri 25 detik di depan penguji (Nama, Usia, Asal Negara, dan Tekad Bekerja).',
       points: '2 Poin',
-      duration: '25-40 dtk'
+      duration: '1 Soal (25 dtk)'
     },
     {
-      stage: 'Tahap 2',
-      title: 'Instruksi Gerak Fisik (신체동작)',
-      stance: 'Berdiri',
-      desc: '5 perintah refleks gerakan tubuh (@3 poin): arah langkah, tangan/jari, kaki, postur tubuh, kepala/mata/hidung/telinga.',
-      points: '15 Poin',
-      duration: '5 Gerakan'
+      stage: 'Kategori 2',
+      title: 'Percakapan Dasar & Gerak Fisik (기초대화 및 행동지시)',
+      stance: 'Berdiri & Duduk',
+      desc: 'Total 6 Poin: 4 petunjuk gerak refleks fisik (@1 pt, posisi berdiri) + 2 percakapan dasar hari/jam/keluarga (@1 pt, posisi duduk).',
+      points: '6 Poin',
+      duration: '6 Soal'
     },
     {
-      stage: 'Tahap 3',
-      title: 'Perkakas & Rambu K3 Meja (도구 & 표지판)',
+      stage: 'Kategori 3',
+      title: 'Alat Kerja & Perintah Kerja (작업도구 및 지시 수행능력)',
       stance: 'Duduk',
-      desc: 'Menyebutkan nama 5 kartu visual meja (4 pilar rambu K3 + 1 perkakas manufaktur) serta praktik fungsi dan aksi perkakas.',
-      points: '7 Poin',
-      duration: '5 Kartu + 2 Aksi'
+      desc: 'Total 20 Poin (Bobot Tertinggi): 5 tebak nama alat perkakas manufaktur (@1 pt = 5 pt) + 5 perintah pelaksanaan aksi kerja praktik (@3 pt = 15 pt).',
+      points: '20 Poin',
+      duration: '10 Soal'
     },
     {
-      stage: 'Tahap 4',
-      title: 'K3 Industri Mendalam (산업안전)',
+      stage: 'Kategori 4',
+      title: 'Keterampilan Dasar Pekerjaan NCS (NCS 직업기초능력)',
       stance: 'Duduk',
-      desc: '2 pertanyaan studi kasus keselamatan kerja pabrik (@5 poin) dari 30 topik resmi HRDK (SOP, APD, APAR, MSDS, evakuasi).',
-      points: '10 Poin',
-      duration: '2 Kasus'
+      desc: 'Total 6 Poin: 2 pertanyaan studi kasus kritis pabrik (@3 pt = 6 pt) seputar barang cacat (불량품), lembur (야근), dan penanganan masalah kerja.',
+      points: '6 Poin',
+      duration: '2 Soal'
     },
     {
-      stage: 'Tahap 5',
-      title: 'Percakapan & Sikap Kerja NCS (대화 & 직업기초능력)',
+      stage: 'Kategori 5',
+      title: 'Kesadaran Keselamatan K3 (안전의식)',
       stance: 'Duduk',
-      desc: '14 pertanyaan seputar situasi kritis pabrik (lembur, barang cacat, atasan, rekan kerja) serta hitungan stok barang dan hari/jam.',
+      desc: 'Total 16 Poin: 6 tebak rambu piktogram K3 (@1 pt = 6 pt) + 2 pertanyaan mendalam K3 industri KOSHA (@5 pt = 10 pt).',
       points: '16 Poin',
-      duration: '14 Soal'
+      duration: '8 Soal'
     },
   ];
 
@@ -162,7 +162,7 @@ export function RevisionModal({ open, onClose }) {
             <div className="space-y-4">
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
                 <div className="rounded-xl border border-blue-500/30 bg-blue-500/5 p-3.5 space-y-1">
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-primary">BOBOT TERBESAR</span>
+                  <span className="text-xs font-bold uppercase tracking-wider text-primary">BOBOT TERBESAR</span>
                   <h3 className="font-bold text-sm text-foreground">Wawancara & Lisan</h3>
                   <p className="text-xl font-black text-primary font-mono">50 Poin</p>
                   <p className="text-[11px] text-muted-foreground leading-relaxed pt-1">
@@ -171,7 +171,7 @@ export function RevisionModal({ open, onClose }) {
                 </div>
 
                 <div className="rounded-xl border border-amber-500/30 bg-amber-500/5 p-3.5 space-y-1">
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-amber-600 dark:text-amber-400">TES PRAKTIK</span>
+                  <span className="text-xs font-bold uppercase tracking-wider text-amber-600 dark:text-amber-400">TES PRAKTIK</span>
                   <h3 className="font-bold text-sm text-foreground">Keterampilan Meja</h3>
                   <p className="text-xl font-black text-amber-600 dark:text-amber-400 font-mono">20 Poin</p>
                   <p className="text-[11px] text-muted-foreground leading-relaxed pt-1">
@@ -180,7 +180,7 @@ export function RevisionModal({ open, onClose }) {
                 </div>
 
                 <div className="rounded-xl border border-emerald-500/30 bg-emerald-500/5 p-3.5 space-y-1">
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">KONDISI TUBUH</span>
+                  <span className="text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">KONDISI TUBUH</span>
                   <h3 className="font-bold text-sm text-foreground">Uji Fisik & Badan</h3>
                   <p className="text-xl font-black text-emerald-600 dark:text-emerald-400 font-mono">30 Poin</p>
                   <p className="text-[11px] text-muted-foreground leading-relaxed pt-1">
@@ -217,7 +217,7 @@ export function RevisionModal({ open, onClose }) {
                 {practicalTasks.map((task, idx) => (
                   <div key={idx} className="rounded-xl border border-border bg-card p-4 space-y-2">
                     <div className="flex items-center justify-between gap-2">
-                      <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/20">
+                      <span className="text-xs font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/20">
                         {task.pos} · {task.time}
                       </span>
                     </div>
@@ -250,7 +250,7 @@ export function RevisionModal({ open, onClose }) {
                     <div className="flex items-center justify-between gap-2">
                       <div className="flex items-center gap-2">
                         <span className="font-mono text-xs font-bold text-primary">{st.stage}</span>
-                        <span className="text-[10px] font-semibold px-1.5 py-0.5 rounded bg-secondary text-muted-foreground">
+                        <span className="text-xs font-semibold px-1.5 py-0.5 rounded bg-secondary text-muted-foreground">
                           {st.stance}
                         </span>
                       </div>

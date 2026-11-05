@@ -16,29 +16,29 @@ const RUBRIC = { pass: 1, review: 0.5, fail: 0 };
 
 const GROUPS = [
   {
-    id: 'intro', label: 'Perkenalan Diri', ko: '자기소개',
+    id: 'intro', label: '1. Perkenalan Diri & Sikap', ko: '자기소개 및 태도',
     points: 2, items: 1, icon: UserCheck,
     pools: [['wawancara', 1]]
   },
   {
-    id: 'instr', label: 'Instruksi Gerak Fisik', ko: '작업지시',
-    points: 15, items: 5, icon: ClipboardCheck,
-    pools: [['gerak_fisik', 5]]
+    id: 'basic_action', label: '2. Percakapan Dasar & Gerak Tubuh', ko: '기초대화 및 행동지시',
+    points: 6, items: 6, icon: ClipboardCheck,
+    pools: [['wawancara', 2], ['gerak_fisik', 4]]
   },
   {
-    id: 'tools', label: 'Visual & Praktik Alat', ko: '작업도구',
-    points: 7, items: 7, icon: Wrench,
-    pools: [['alat_manufaktur', 4], ['alat_klasik', 1], ['fungsi_alat', 1], ['praktik_alat', 1]]
+    id: 'tools_action', label: '3. Alat Kerja & Perintah Kerja', ko: '작업도구 및 지시 수행능력',
+    points: 20, items: 10, icon: Wrench,
+    pools: [['alat_manufaktur', 4], ['alat_klasik', 1], ['praktik_alat', 3], ['fungsi_alat', 2]]
   },
   {
-    id: 'safety', label: 'K3 Mendalam', ko: '안전보건',
-    points: 10, items: 2, icon: AlertCircle,
-    pools: [['k3_safety', 2]]
+    id: 'ncs', label: '4. Keterampilan Dasar NCS', ko: 'NCS 직업기초능력',
+    points: 6, items: 2, icon: Briefcase,
+    pools: [['simulasi_hrdk', 1], ['wawancara_profesional', 1]]
   },
   {
-    id: 'ncs', label: 'Percakapan & NCS', ko: '기초대화·NCS',
-    points: 16, items: 14, icon: Briefcase,
-    pools: [['wawancara', 5], ['simulasi_hrdk', 5], ['wawancara_profesional', 1], ['matematika', 1], ['konversi_satuan', 1], ['hitungan_lisan', 1]]
+    id: 'safety', label: '5. Kesadaran Keselamatan K3', ko: '안전의식',
+    points: 16, items: 8, icon: AlertCircle,
+    pools: [['piktogram', 6], ['k3_safety', 2]]
   }
 ];
 

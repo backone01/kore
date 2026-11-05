@@ -13,6 +13,8 @@ import { HRDK_MODULES } from '../utils/categoryGroups.js';
 import { Badge } from './ui/badge.jsx';
 import { Button } from './ui/button.jsx';
 import { QADetail, QAList, QAPlayerDeck, QAViewBar } from './QAStudy.jsx';
+import { PictogramCatalog } from './PictogramCatalog.jsx';
+import { ToolCatalog } from './ToolCatalog.jsx';
 import { cn } from '../utils/cn.js';
 
 const JAGISOGE_SAMPLES = [
@@ -270,8 +272,29 @@ function classifyPhysicalGroup(ko = '', id = '') {
 }
 
 export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
-  const [activeModule, setActiveModule] = useState('interview');
-  const [activeTab, setActiveTab] = useState('interview');
+  const [activeModule, setActiveModule] = useState(() => {
+    try {
+      const saved = localStorage.getItem('kore_study_module');
+      if (saved) return saved;
+    } catch {}
+    return 'interview';
+  });
+  const [activeTab, setActiveTab] = useState(() => {
+    try {
+      const saved = localStorage.getItem('kore_study_tab');
+      if (saved) return saved;
+    } catch {}
+    return 'interview';
+  });
+
+  // Auto-Save modul & tab materi
+  useEffect(() => {
+    try { localStorage.setItem('kore_study_module', activeModule); } catch {}
+  }, [activeModule]);
+
+  useEffect(() => {
+    try { localStorage.setItem('kore_study_tab', activeTab); } catch {}
+  }, [activeTab]);
   const [activeSampleIdx, setActiveSampleIdx] = useState(0);
   const [jagiSubTab, setJagiSubTab] = useState('generator');
   const [inspectRambu, setInspectRambu] = useState(null);
@@ -281,6 +304,21 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
   const [searchQuery, setSearchQuery] = useState('');
   const [playingAudio, setPlayingAudio] = useState(null);
   const [selectedOptionByCard, setSelectedOptionByCard] = useState({});
+  const [preferredOptionStyle, setPreferredOptionStyle] = useState(() => {
+    try {
+      return localStorage.getItem('kore_preferred_option_style') || 'standar';
+    } catch {
+      return 'standar';
+    }
+  });
+  const [preferredOptIndex, setPreferredOptIndex] = useState(() => {
+    try {
+      const saved = localStorage.getItem('kore_preferred_opt_idx');
+      return saved !== null ? parseInt(saved, 10) : 0;
+    } catch {
+      return 0;
+    }
+  });
   const [k3Filter, setK3Filter] = useState('all');
   const [k3TopicSelect, setK3TopicSelect] = useState('all');
   const [k3LevelFilter, setK3LevelFilter] = useState('all');
@@ -292,6 +330,7 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
   const [cardUsageOptions, setCardUsageOptions] = useState({});
   const [selK3, setSelK3] = useState(0);
   const [selInt, setSelInt] = useState(0);
+  const [selCmd, setSelCmd] = useState(0);
   const [qaView, setQaView] = useState({});
   const [playerHidden, setPlayerHidden] = useState({});
   const [playerMode, setPlayerMode] = useState('sequential');
@@ -301,7 +340,11 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
   const [audioSpeed, setAudioSpeed] = useState(() => {
     try {
       const saved = localStorage.getItem('kore_audio_speed');
-      return saved ? parseFloat(saved) : 0.8;
+      const parsed = parseFloat(saved);
+      if (!isNaN(parsed) && [0.65, 0.75, 0.8, 1.0, 1.25, 1.5].includes(parsed)) {
+        return parsed;
+      }
+      return 0.8;
     } catch {
       return 0.8;
     }
@@ -310,7 +353,7 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
   const [playDelay, setPlayDelay] = useState(2);
   const [audioProg, setAudioProg] = useState({ t: 0, d: 0 });
 
-  const [jagiForm, setJagiForm] = useState({
+  const DEFAULT_JAGI_FORM = {
     nama: 'BAMBANG SUTEJO',
     tglTahun: '',
     tglBulan: '',
@@ -321,10 +364,10 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
     tinggi: '',
     berat: '',
     nikah: '아직 결혼하지 않았습니다',
-    keluargaMode: 'rincian', // 'rincian' | 'jumlah_saja' | 'none'
+    keluargaMode: 'rincian',
     keluarga: '4',
-    kelOrtu: 'ayah_ibu', // 'ayah_ibu' | '부모님' | 'ayah' | 'ibu' | 'none'
-    kelPasangan: 'none', // 'none' | 'istri' | 'suami'
+    kelOrtu: 'ayah_ibu',
+    kelPasangan: 'none',
     kelAnak: '0',
     kelKakakLk: '0',
     kelKakakPr: '0',
@@ -335,7 +378,21 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
     hobi: '운동',
     kelebihan: 'fisik',
     penutup: 'standar',
+  };
+
+  const [jagiForm, setJagiForm] = useState(() => {
+    try {
+      const saved = localStorage.getItem('kore_jagi_form');
+      if (saved) return { ...DEFAULT_JAGI_FORM, ...JSON.parse(saved) };
+    } catch {}
+    return DEFAULT_JAGI_FORM;
   });
+
+  useEffect(() => {
+    try {
+      localStorage.setItem('kore_jagi_form', JSON.stringify(jagiForm));
+    } catch {}
+  }, [jagiForm]);
   const [jagiActiveVariant, setJagiActiveVariant] = useState('ringkas');
   const [jagiCopiedKey, setJagiCopiedKey] = useState(null);
 
@@ -978,6 +1035,7 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
         command_id: c.command_id || '',
         action_desc: c.action_desc || c.command_id || '',
         audio_q: c.audio_q || null,
+        audio_a: c.audio_a || (c.id ? `/audio/tts/answers/${c.id}_a.mp3` : null),
         group: classifyPhysicalGroup(c.command_ko, c.command_id),
       });
     });
@@ -992,6 +1050,7 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
         if (existing) {
           if (!existing.command_ro && q.question_romaja) existing.command_ro = q.question_romaja;
           if (!existing.audio_q && q.audio_q) existing.audio_q = q.audio_q;
+          if (!existing.audio_a) existing.audio_a = q.audio_a || (q.id ? `/audio/tts/answers/${q.id}_a.mp3` : null) || (existing.id ? `/audio/tts/answers/${existing.id}_a.mp3` : null);
           if (!existing.action_desc && q.answer_short_id) existing.action_desc = q.answer_short_id;
         } else {
           const idText = q.question_id || q.title_id || '';
@@ -1002,6 +1061,7 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
             command_id: idText,
             action_desc: q.answer_short_id || `Langsung peragakan gerakan: ${idText}`,
             audio_q: q.audio_q || null,
+            audio_a: q.audio_a || (q.id ? `/audio/tts/answers/${q.id}_a.mp3` : null),
             group: classifyPhysicalGroup(ko, idText),
           });
         }
@@ -1034,6 +1094,25 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
 
   const audioRef = useRef(new Audio());
 
+  const getBestKoreanVoice = () => {
+    if (typeof window === 'undefined' || !('speechSynthesis' in window)) return null;
+    const voices = window.speechSynthesis.getVoices() || [];
+    const ko = voices.filter(v => v.lang === 'ko-KR' || v.lang === 'ko_KR' || (v.lang && v.lang.startsWith('ko')));
+    if (!ko.length) return null;
+    try {
+      const savedName = localStorage.getItem('kore_tts_voice_name');
+      if (savedName) {
+        const found = ko.find(v => v.name === savedName);
+        if (found) return found;
+      }
+    } catch {}
+    const natural = ko.find(v => v.name.includes('Natural') || v.name.includes('Online') || v.name.includes('SunHi') || v.name.includes('InJoon'));
+    if (natural) return natural;
+    const google = ko.find(v => v.name.includes('Google') || v.name.includes('한국'));
+    if (google) return google;
+    return ko[0];
+  };
+
   const speakKorean = (text, onEnd) => {
     if (!text || typeof window === 'undefined' || !('speechSynthesis' in window)) {
       if (onEnd) onEnd();
@@ -1043,6 +1122,9 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
       window.speechSynthesis.cancel();
       const u = new SpeechSynthesisUtterance(text);
       u.lang = 'ko-KR';
+      const voice = getBestKoreanVoice();
+      if (voice) u.voice = voice;
+      u.pitch = 1.02;
       const speedFactor = audioSpeed ?? 0.8;
       u.rate = Math.max(0.5, Math.min(1.4, 0.82 * speedFactor));
       setPlayingAudio(text);
@@ -1121,8 +1203,82 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
     gapInterval: null,
     isFile: false,
   });
+  const resolveOptionIndex = (options, cardId, selMap, prefStyle, prefIdx = 0) => {
+    if (!Array.isArray(options) || options.length <= 1) return 0;
+    if (cardId && selMap && selMap[cardId] !== undefined) {
+      const exp = selMap[cardId];
+      if (typeof exp === 'number' && exp >= 0 && exp < options.length) {
+        return exp;
+      }
+    }
+    if (prefStyle === 'super_ringkas' || (prefStyle === 'ringkas' && prefIdx === 1)) {
+      const srIdx = options.findIndex(o => /super ringkas|versi 1/i.test(o.label || ''));
+      if (srIdx >= 0) return srIdx;
+      const rIdx = options.findIndex(o => /ringkas|singkat/i.test(o.label || ''));
+      if (rIdx >= 0) return rIdx;
+      if (options.length === 2) return 1;
+    } else if (prefStyle === 'standar_ringkas' || (prefStyle === 'ringkas' && prefIdx === 2)) {
+      const sr2Idx = options.findIndex(o => /versi 2|standar ringkas/i.test(o.label || ''));
+      if (sr2Idx >= 0) return sr2Idx;
+      const rIdx = options.findIndex(o => /ringkas|singkat/i.test(o.label || ''));
+      if (rIdx >= 0) return rIdx;
+      if (options.length === 2) return 1;
+    } else if (prefStyle === 'ringkas') {
+      const rIdx = options.findIndex(o => /ringkas|singkat/i.test(o.label || ''));
+      if (rIdx >= 0) return rIdx;
+      if (options.length === 2) return 1;
+    } else if (prefStyle === 'lengkap' || prefStyle === 'resmi') {
+      const lIdx = options.findIndex(o => /lengkap|resmi/i.test(o.label || ''));
+      if (lIdx >= 0) return lIdx;
+      return 0;
+    } else if (prefStyle === 'standar') {
+      const sIdx = options.findIndex(o => /standar|formal/i.test(o.label || ''));
+      if (sIdx >= 0) return sIdx;
+      return 0;
+    }
+    if (typeof prefIdx === 'number' && prefIdx > 0 && prefIdx < options.length) {
+      return prefIdx;
+    }
+    return 0;
+  };
+
+  const handleSelectOption = (cardId, oi, options) => {
+    setSelectedOptionByCard(prev => ({ ...prev, [cardId]: oi }));
+    if (options && options[oi]) {
+      const opt = options[oi];
+      const lbl = (opt.label || '').toLowerCase();
+      let detected = 'standar';
+      if (lbl.includes('super ringkas') || lbl.includes('versi 1')) {
+        detected = 'super_ringkas';
+      } else if (lbl.includes('standar ringkas') || lbl.includes('versi 2')) {
+        detected = 'standar_ringkas';
+      } else if (lbl.includes('ringkas') || lbl.includes('singkat') || (options.length === 2 && oi === 1)) {
+        detected = 'ringkas';
+      } else if (lbl.includes('lengkap') || lbl.includes('resmi')) {
+        detected = 'lengkap';
+      } else if (lbl.includes('standar') || oi === 0) {
+        detected = 'standar';
+      }
+      setPreferredOptionStyle(detected);
+      setPreferredOptIndex(oi);
+      try {
+        localStorage.setItem('kore_preferred_option_style', detected);
+        localStorage.setItem('kore_preferred_opt_idx', String(oi));
+      } catch { /* ignore */ }
+    }
+  };
+
   const liveRef = useRef({});
-  liveRef.current = { selectedOptionByCard, playRate, playDelay, includeAnswers, playerMode, audioSpeed };
+  liveRef.current = {
+    selectedOptionByCard,
+    preferredOptionStyle,
+    preferredOptIndex,
+    playRate,
+    playDelay,
+    includeAnswers,
+    playerMode,
+    audioSpeed
+  };
   const [playerUI, setPlayerUI] = useState({
     on: false,
     tab: null,
@@ -1170,17 +1326,28 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
     });
     if (r.tab && r.order.length) {
       const idx = r.order[r.pos] ?? 0;
-      if (r.tab === 'k3') setSelK3(idx); else setSelInt(idx);
+      if (r.tab === 'k3') setSelK3(idx); else if (r.tab === 'commands') setSelCmd(idx); else setSelInt(idx);
     }
   };
 
   const resolveAnswerAudio = (tab, q, idx) => {
+    if (tab === 'commands') {
+      const url = q.audio_a || (q.id ? `/audio/tts/answers/${q.id}_a.mp3` : null);
+      return { url, text: q.answer_ko || q.command_id || '' };
+    }
     const cardId = `${tab === 'k3' ? 'k3' : 'int'}_${q.id ?? idx}`;
     const opts = q.answer_options;
-    const selIdx = (liveRef.current.selectedOptionByCard || {})[cardId] ?? 0;
+    const selIdx = resolveOptionIndex(
+      opts,
+      cardId,
+      liveRef.current.selectedOptionByCard,
+      liveRef.current.preferredOptionStyle,
+      liveRef.current.preferredOptIndex
+    );
     const opt = (opts && opts.length > 0 ? (opts[selIdx] || opts[0]) : null) || { ko: q.answer_ko, id: q.answer_id };
-    const url = opt.audio || (selIdx === 0 && q.audio_a ? q.audio_a : null);
-    return { url, text: opt.ko };
+    const fallbackOptUrl = q.id ? `/audio/tts/options/${q.id}_opt_${selIdx}.mp3` : null;
+    const url = opt.audio || fallbackOptUrl || (selIdx === 0 && q.audio_a ? q.audio_a : null) || (q.id ? `/audio/tts/answers/${q.id}_a.mp3` : null);
+    return { url, text: opt.ko || q.answer_ko };
   };
 
   const drivePlayer = () => {
@@ -1478,7 +1645,7 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
   }, [studyData.k3_safety]);
 
   const filteredK3 = useMemo(() => {
-    let list = studyData.k3_safety || [];
+    let list = allQuestions.filter(q => q.category === 'k3_safety');
 
     // Filter per Tahap Kerja (Phase)
     if (k3Filter && k3Filter !== 'all') {
@@ -1507,7 +1674,7 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
   }, [k3Filter, k3TopicSelect, k3LevelFilter, searchQuery]);
 
   const filteredInterview = useMemo(() => {
-    let list = studyData.interview || [];
+    let list = allQuestions.filter(q => q.category === 'wawancara' || q.category === 'simulasi_hrdk' || q.category === 'wawancara_profesional');
     if (interviewFilter === 'pribadi') {
       list = list.filter(q =>
         q.question_ko?.includes('이름') ||
@@ -1559,6 +1726,22 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
     return list;
   }, [mergedPhysicalCommands, cmdFilter, searchQuery]);
 
+  const physicalQAList = useMemo(() => {
+    return filteredCommands.map((c, i) => ({
+      id: c.id || `cmd_${i}`,
+      question_ko: c.command_ko,
+      question_romaja: c.command_ro,
+      question_id: c.command_id,
+      answer_ko: c.action_desc || c.command_id,
+      answer_id: c.action_desc || c.command_id,
+      audio_q: c.audio_q,
+      audio_a: c.audio_a || (c.id ? `/audio/tts/answers/${c.id}_a.mp3` : null),
+      group: c.group
+    }));
+  }, [filteredCommands]);
+
+  const selCmdEff = Math.min(selCmd, Math.max(0, physicalQAList.length - 1));
+
   const selK3Eff = Math.min(selK3, Math.max(0, filteredK3.length - 1));
   const selIntEff = Math.min(selInt, Math.max(0, filteredInterview.length - 1));
 
@@ -1582,7 +1765,7 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
 
   const getActiveOption = (cardId, options, fallbackKo, fallbackId) => {
     if (options && options.length > 0) {
-      const idx = selectedOptionByCard[cardId] ?? 0;
+      const idx = resolveOptionIndex(options, cardId, selectedOptionByCard, preferredOptionStyle, preferredOptIndex);
       return options[idx] || options[0];
     }
     return { ko: fallbackKo, id: fallbackId, label: 'Standar' };
@@ -1591,83 +1774,43 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
   return (
     <div className="w-full max-w-4xl mx-auto px-3 sm:px-4 pb-20 animate-fade-in text-foreground">
       {/* Page header */}
-      <div className="mb-3">
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-2.5">
-          <div>
-            <p className="text-[11px] font-mono font-bold text-muted-foreground uppercase tracking-widest">Skill Test · Tahap 2</p>
-            <h1 className="text-xl sm:text-2xl font-bold tracking-tight mt-0.5">Materi & Hafalan</h1>
-            <p className="text-xs text-muted-foreground mt-0.5">
-              Kisi-kisi resmi HRD Korea: wawancara, gerak fisik, K3, alat, dan hitungan.
-            </p>
-          </div>
-          <div className="shrink-0 flex items-center gap-2">
-            <Button
-              size="sm"
-              variant="outline"
-              onClick={cycleAudioSpeed}
-              className={cn(
-                "gap-1.5 h-8 sm:h-9 text-xs font-semibold cursor-pointer border-border transition-colors",
-                audioSpeed < 1.0 ? "border-amber-500/50 bg-amber-500/10 text-amber-600 dark:text-amber-400 font-bold" : "text-muted-foreground hover:text-foreground"
-              )}
-              title="Klik untuk mengubah kecepatan pelafalan audio & TTS (Normal / Lambat / Sangat Lambat)"
-            >
-              {audioSpeed < 1.0 ? <Turtle className="h-4 w-4 text-amber-500" /> : <Zap className="h-4 w-4 text-primary" />}
-              <span>{audioSpeed < 1.0 ? `🐢 Lambat (${audioSpeed}x)` : `⚡ Normal (1.0x)`}</span>
-            </Button>
-            <Button
-              size="sm"
-              variant={hideAllAnswers ? 'outline' : 'default'}
-              onClick={() => handleSetGlobalHideAll(!hideAllAnswers)}
-              className="gap-1.5 h-8 sm:h-9 text-xs font-semibold cursor-pointer"
-              title="Klik untuk membuka atau menyembunyikan seluruh kunci jawaban di semua kartu"
-            >
-              {hideAllAnswers ? <Eye className="h-4 w-4" /> : <EyeOff className="h-4 w-4" />}
-              <span>{hideAllAnswers ? '👁️ Buka Semua Jawaban' : '🙈 Sembunyikan Semua Jawaban'}</span>
-            </Button>
-          </div>
+      <div className="flex items-center justify-between gap-2 mb-1">
+        <h1 className="text-xl font-bold tracking-tight">Materi</h1>
+        <div className="flex items-center gap-2">
+          <Button
+            size="sm"
+            variant="outline"
+            onClick={() => handleSetGlobalHideAll(!hideAllAnswers)}
+            aria-pressed={hideAllAnswers}
+            className="h-11 sm:h-10 gap-1.5 px-3 text-xs font-semibold cursor-pointer"
+            title="Sembunyikan / tampilkan semua jawaban"
+          >
+            {hideAllAnswers ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
+            <span>{hideAllAnswers ? 'Jawaban tersembunyi' : 'Jawaban tampil'}</span>
+          </Button>
         </div>
       </div>
 
-      {/* Compact Module Grid (2x3 Mobile, 3x2 Desktop - Ringkas & Tidak Bertumpuk) */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 gap-1.5 sm:gap-2 mb-3">
-        {HRDK_MODULES.filter(m => m.id !== 'all').map((mod, i) => {
+      {/* Module tabs */}
+      <div className="flex gap-1 mb-4 overflow-x-auto no-scrollbar -mx-3 px-3 sm:mx-0 sm:px-0 border-b border-border" role="tablist">
+        {HRDK_MODULES.filter(m => m.id !== 'all').map((mod) => {
           const active = activeModule === mod.id;
           const cleanName = mod.shortLabel.replace(/^\d+\.\s*/, '');
           return (
             <button
               key={mod.id}
               type="button"
+              role="tab"
+              aria-selected={active}
               onClick={() => selectModule(mod.id)}
-              aria-current={active ? 'true' : undefined}
               className={cn(
-                'flex items-center gap-2 px-2.5 py-2 sm:px-3 sm:py-2.5 rounded-xl border text-left transition-all min-h-[46px]',
+                'shrink-0 px-3 min-h-[44px] text-sm font-semibold whitespace-nowrap border-b-2 -mb-px transition-colors cursor-pointer',
                 active
-                  ? 'bg-primary text-primary-foreground border-primary shadow-xs'
-                  : 'bg-card text-foreground border-border hover:bg-secondary/60'
+                  ? 'border-primary text-primary'
+                  : 'border-transparent text-muted-foreground hover:text-foreground'
               )}
             >
-              <span
-                className={cn(
-                  'font-mono text-[11px] font-bold w-6 h-6 rounded-md flex items-center justify-center shrink-0',
-                  active ? 'bg-white/20 text-white' : 'bg-secondary text-muted-foreground'
-                )}
-              >
-                {i + 1}
-              </span>
-              <span className="min-w-0 flex-1">
-                <span className="block text-xs font-bold truncate leading-tight">
-                  {cleanName}
-                </span>
-                <span
-                  className={cn(
-                    'block text-[10px] font-kr truncate mt-0.5 leading-none',
-                    active ? 'text-white/80' : 'text-muted-foreground'
-                  )}
-                >
-                  {MOD_KO[mod.id]}
-                  {mod.points > 0 ? ` · ${mod.points}P` : ''}
-                </span>
-              </span>
+              {cleanName}
             </button>
           );
         })}
@@ -1679,7 +1822,7 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
         if (currentSubTabs.length <= 1) return null;
 
         return (
-          <div className="sticky top-14 z-30 -mx-3 px-3 sm:-mx-4 sm:px-4 bg-background/95 backdrop-blur py-1.5 border-b border-border mb-4">
+          <div className="sticky top-16 z-30 -mx-3 px-3 sm:-mx-4 sm:px-4 bg-background py-1.5 border-b border-border mb-4">
             <div className="flex gap-2 overflow-x-auto no-scrollbar py-0.5">
               {currentSubTabs.map(st => {
                 const isTabActive = activeTab === st.id;
@@ -1702,7 +1845,7 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
                     <span>{st.label}</span>
                     <span
                       className={cn(
-                        'font-mono text-[10px] px-1.5 py-0.5 rounded',
+                        'font-mono text-xs px-1.5 py-0.5 rounded',
                         isTabActive ? 'bg-background/20 text-background' : 'bg-secondary text-muted-foreground'
                       )}
                     >
@@ -1738,7 +1881,7 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
             </div>
 
             <div className="space-y-2">
-              <div className="flex flex-wrap items-center gap-1.5 text-xs">
+              <div className="flex flex-nowrap sm:flex-wrap items-center gap-1.5 text-xs overflow-x-auto no-scrollbar -mx-3 px-3 sm:mx-0 sm:px-0 [&>*]:shrink-0">
                 {[
                   { id: 'all', label: `Semua Tahap (${k3PhaseCounts.all})` },
                   { id: 'before', label: `1. Sebelum Kerja (${k3PhaseCounts.before})` },
@@ -1849,6 +1992,7 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
               playerRef.current.mode = next;
             }}
             includeAnswers={includeAnswers}
+            onToggleIncludeAnswers={() => setIncludeAnswers(p => !p)}
             gapCountdown={gapCountdown}
             hideText={hideText}
             onPrev={() => {
@@ -1875,14 +2019,46 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
               filteredK3[selK3Eff]?.answer_ko,
               filteredK3[selK3Eff]?.answer_id
             )}
-            onPlayAnswer={() => {
+            selOptIdx={resolveOptionIndex(
+              filteredK3[selK3Eff]?.answer_options,
+              `k3_${filteredK3[selK3Eff]?.id ?? selK3Eff}`,
+              selectedOptionByCard,
+              preferredOptionStyle,
+              preferredOptIndex
+            )}
+            onSelectOpt={(oi) => {
               const q = filteredK3[selK3Eff];
               if (!q) return;
               const cardId = `k3_${q.id ?? selK3Eff}`;
-              const activeOpt = getActiveOption(cardId, q.answer_options, q.answer_ko, q.answer_id);
-              if (activeOpt?.audio) playAudio(activeOpt.audio, activeOpt.ko);
-              else if (q.audio_a) playAudio(q.audio_a, activeOpt?.ko || q.answer_ko);
-              else playAudio(null, activeOpt?.ko || q.answer_ko);
+              handleSelectOption(cardId, oi, q.answer_options);
+            }}
+            isPlayingAnswer={Boolean(
+              playingAudio && (
+                (() => {
+                  const q = filteredK3[selK3Eff];
+                  if (!q) return false;
+                  const cardId = `k3_${q.id ?? selK3Eff}`;
+                  const opts = q.answer_options;
+                  const idxToPlay = resolveOptionIndex(opts, cardId, selectedOptionByCard, preferredOptionStyle, preferredOptIndex);
+                  const opt = (opts && opts[idxToPlay]) ? opts[idxToPlay] : getActiveOption(cardId, q.answer_options, q.answer_ko, q.answer_id);
+                  const fallbackOptUrl = q.id ? `/audio/tts/options/${q.id}_opt_${idxToPlay}.mp3` : null;
+                  const aUrl = opt?.audio || fallbackOptUrl || (idxToPlay === 0 && q.audio_a ? q.audio_a : null) || (q.id ? `/audio/tts/answers/${q.id}_a.mp3` : null);
+                  return (aUrl && (playingAudio === aUrl || (audioRef.current && !audioRef.current.paused && audioRef.current.src && audioRef.current.src.includes(encodeURI(aUrl))))) || (!aUrl && playingAudio === opt?.ko);
+                })()
+              )
+            )}
+            onPlayAnswer={(chosenOptIdx) => {
+              const q = filteredK3[selK3Eff];
+              if (!q) return;
+              const cardId = `k3_${q.id ?? selK3Eff}`;
+              const opts = q.answer_options;
+              const idxToPlay = typeof chosenOptIdx === 'number'
+                ? chosenOptIdx
+                : resolveOptionIndex(opts, cardId, selectedOptionByCard, preferredOptionStyle, preferredOptIndex);
+              const activeOpt = (opts && opts[idxToPlay]) ? opts[idxToPlay] : getActiveOption(cardId, q.answer_options, q.answer_ko, q.answer_id);
+              const fallbackOptUrl = q.id ? `/audio/tts/options/${q.id}_opt_${idxToPlay}.mp3` : null;
+              const optAudio = activeOpt?.audio || fallbackOptUrl || (idxToPlay === 0 && q.audio_a ? q.audio_a : null) || (q.id ? `/audio/tts/answers/${q.id}_a.mp3` : null);
+              playAudio(optAudio, activeOpt?.ko || q.answer_ko);
             }}
           />
 
@@ -1924,7 +2100,9 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
                   (!q.audio_q && playingAudio === q.question_ko)
                 )
               );
-              const answerUrl = activeOpt.audio || (((selectedOptionByCard[cardId] ?? 0) === 0 && q.audio_a) ? q.audio_a : null);
+              const activeOptIdx = resolveOptionIndex(q.answer_options, cardId, selectedOptionByCard, preferredOptionStyle, preferredOptIndex);
+              const fallbackOptUrl = q.id ? `/audio/tts/options/${q.id}_opt_${activeOptIdx}.mp3` : null;
+              const answerUrl = activeOpt.audio || fallbackOptUrl || ((activeOptIdx === 0 && q.audio_a) ? q.audio_a : null) || (q.id ? `/audio/tts/answers/${q.id}_a.mp3` : null);
               const isPlayingAnswer = Boolean(
                 playingAudio && (
                   (answerUrl && (playingAudio === answerUrl || (audioRef.current && !audioRef.current.paused && audioRef.current.src && audioRef.current.src.includes(encodeURI(answerUrl))))) ||
@@ -1939,15 +2117,12 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
                   hidden={isAnswerHidden(cardId)}
                   showAllOptions={showAllQAOptions}
                   activeOpt={activeOpt}
-                  selOptIdx={selectedOptionByCard[cardId] ?? 0}
-                  onSelectOpt={(oi) => setSelectedOptionByCard(prev => ({ ...prev, [cardId]: oi }))}
+                  selOptIdx={activeOptIdx}
+                  onSelectOpt={(oi) => handleSelectOption(cardId, oi, q.answer_options)}
                   onToggle={() => toggleCardAnswer(cardId)}
                   onPlayQ={() => playAudio(q.audio_q, q.question_ko)}
                   onPlayAnswer={() => {
-                    const si = selectedOptionByCard[cardId] ?? 0;
-                    if (activeOpt.audio) playAudio(activeOpt.audio, activeOpt.ko);
-                    else if (si === 0 && q.audio_a) playAudio(q.audio_a, activeOpt.ko);
-                    else playAudio(null, activeOpt.ko);
+                    playAudio(answerUrl, activeOpt?.ko || q.answer_ko);
                   }}
                   isPlayingQ={isPlayingQ}
                   isPlayingAnswer={isPlayingAnswer}
@@ -1999,7 +2174,7 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
               </Button>
             </div>
 
-            <div className="flex flex-wrap items-center gap-1.5 text-xs">
+            <div className="flex flex-nowrap sm:flex-wrap items-center gap-1.5 text-xs overflow-x-auto no-scrollbar -mx-3 px-3 sm:mx-0 sm:px-0 [&>*]:shrink-0">
               {[
                 { id: 'all', label: `Semua Soal (${interviewCount})` },
                 { id: 'pribadi', label: 'Data Diri & Pribadi' },
@@ -2052,6 +2227,7 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
               playerRef.current.mode = next;
             }}
             includeAnswers={includeAnswers}
+            onToggleIncludeAnswers={() => setIncludeAnswers(p => !p)}
             gapCountdown={gapCountdown}
             hideText={hideText}
             onPrev={() => {
@@ -2078,14 +2254,46 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
               filteredInterview[selIntEff]?.answer_ko,
               filteredInterview[selIntEff]?.answer_id
             )}
-            onPlayAnswer={() => {
+            selOptIdx={resolveOptionIndex(
+              filteredInterview[selIntEff]?.answer_options,
+              `int_${filteredInterview[selIntEff]?.id ?? selIntEff}`,
+              selectedOptionByCard,
+              preferredOptionStyle,
+              preferredOptIndex
+            )}
+            onSelectOpt={(oi) => {
               const q = filteredInterview[selIntEff];
               if (!q) return;
               const cardId = `int_${q.id ?? selIntEff}`;
-              const activeOpt = getActiveOption(cardId, q.answer_options, q.answer_ko, q.answer_id);
-              if (activeOpt?.audio) playAudio(activeOpt.audio, activeOpt.ko);
-              else if (q.audio_a) playAudio(q.audio_a, activeOpt?.ko || q.answer_ko);
-              else playAudio(null, activeOpt?.ko || q.answer_ko);
+              handleSelectOption(cardId, oi, q.answer_options);
+            }}
+            isPlayingAnswer={Boolean(
+              playingAudio && (
+                (() => {
+                  const q = filteredInterview[selIntEff];
+                  if (!q) return false;
+                  const cardId = `int_${q.id ?? selIntEff}`;
+                  const opts = q.answer_options;
+                  const idxToPlay = resolveOptionIndex(opts, cardId, selectedOptionByCard, preferredOptionStyle, preferredOptIndex);
+                  const opt = (opts && opts[idxToPlay]) ? opts[idxToPlay] : getActiveOption(cardId, q.answer_options, q.answer_ko, q.answer_id);
+                  const fallbackOptUrl = q.id ? `/audio/tts/options/${q.id}_opt_${idxToPlay}.mp3` : null;
+                  const aUrl = opt?.audio || fallbackOptUrl || (idxToPlay === 0 && q.audio_a ? q.audio_a : null) || (q.id ? `/audio/tts/answers/${q.id}_a.mp3` : null);
+                  return (aUrl && (playingAudio === aUrl || (audioRef.current && !audioRef.current.paused && audioRef.current.src && audioRef.current.src.includes(encodeURI(aUrl))))) || (!aUrl && playingAudio === opt?.ko);
+                })()
+              )
+            )}
+            onPlayAnswer={(chosenOptIdx) => {
+              const q = filteredInterview[selIntEff];
+              if (!q) return;
+              const cardId = `int_${q.id ?? selIntEff}`;
+              const opts = q.answer_options;
+              const idxToPlay = typeof chosenOptIdx === 'number'
+                ? chosenOptIdx
+                : resolveOptionIndex(opts, cardId, selectedOptionByCard, preferredOptionStyle, preferredOptIndex);
+              const activeOpt = (opts && opts[idxToPlay]) ? opts[idxToPlay] : getActiveOption(cardId, q.answer_options, q.answer_ko, q.answer_id);
+              const fallbackOptUrl = q.id ? `/audio/tts/options/${q.id}_opt_${idxToPlay}.mp3` : null;
+              const optAudio = activeOpt?.audio || fallbackOptUrl || (idxToPlay === 0 && q.audio_a ? q.audio_a : null) || (q.id ? `/audio/tts/answers/${q.id}_a.mp3` : null);
+              playAudio(optAudio, activeOpt?.ko || q.answer_ko);
             }}
           />
 
@@ -2127,7 +2335,9 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
                   (!q.audio_q && playingAudio === q.question_ko)
                 )
               );
-              const answerUrl = activeOpt.audio || (((selectedOptionByCard[cardId] ?? 0) === 0 && q.audio_a) ? q.audio_a : null);
+              const activeOptIdx = resolveOptionIndex(q.answer_options, cardId, selectedOptionByCard, preferredOptionStyle, preferredOptIndex);
+              const fallbackOptUrl = q.id ? `/audio/tts/options/${q.id}_opt_${activeOptIdx}.mp3` : null;
+              const answerUrl = activeOpt.audio || fallbackOptUrl || ((activeOptIdx === 0 && q.audio_a) ? q.audio_a : null) || (q.id ? `/audio/tts/answers/${q.id}_a.mp3` : null);
               const isPlayingAnswer = Boolean(
                 playingAudio && (
                   (answerUrl && (playingAudio === answerUrl || (audioRef.current && !audioRef.current.paused && audioRef.current.src && audioRef.current.src.includes(encodeURI(answerUrl))))) ||
@@ -2142,15 +2352,12 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
                   hidden={isAnswerHidden(cardId)}
                   showAllOptions={showAllQAOptions}
                   activeOpt={activeOpt}
-                  selOptIdx={selectedOptionByCard[cardId] ?? 0}
-                  onSelectOpt={(oi) => setSelectedOptionByCard(prev => ({ ...prev, [cardId]: oi }))}
+                  selOptIdx={activeOptIdx}
+                  onSelectOpt={(oi) => handleSelectOption(cardId, oi, q.answer_options)}
                   onToggle={() => toggleCardAnswer(cardId)}
                   onPlayQ={() => playAudio(q.audio_q, q.question_ko)}
                   onPlayAnswer={() => {
-                    const si = selectedOptionByCard[cardId] ?? 0;
-                    if (activeOpt.audio) playAudio(activeOpt.audio, activeOpt.ko);
-                    else if (si === 0 && q.audio_a) playAudio(q.audio_a, activeOpt.ko);
-                    else playAudio(null, activeOpt.ko);
+                    playAudio(answerUrl, activeOpt?.ko || q.answer_ko);
                   }}
                   isPlayingQ={isPlayingQ}
                   isPlayingAnswer={isPlayingAnswer}
@@ -2215,7 +2422,7 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
               </div>
             </div>
 
-            <div className="flex flex-wrap items-center gap-1.5 text-xs">
+            <div className="flex flex-nowrap sm:flex-wrap items-center gap-1.5 text-xs overflow-x-auto no-scrollbar -mx-3 px-3 sm:mx-0 sm:px-0 [&>*]:shrink-0">
               {[
                 { id: 'all', label: `Semua (${mergedPhysicalCommands.length})` },
                 { id: 'Tangan & Jari', label: `Tangan & Jari (${mergedPhysicalCommands.filter(c => c.group === 'Tangan & Jari').length})` },
@@ -2245,11 +2452,73 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
                 type="text"
                 placeholder="Cari perintah fisik (misal: 오른손, 오른발, 눈, 귀, 코, 손가락, tangan, kaki, mata, telinga)..."
                 value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
+                onChange={(e) => { setSearchQuery(e.target.value); setSelCmd(0); stopPlayer(); }}
                 className="w-full pl-9 pr-4 py-2 bg-card border border-input rounded-lg text-sm font-medium text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring/30 focus:border-ring"
               />
             </div>
           </div>
+
+          <QAPlayerDeck
+            ui={playerUI.tab === 'commands' ? playerUI : { on: false, step: 'idle', shuffle: playerRef.current.shuffle, repeat: playerRef.current.repeat }}
+            currentQ={physicalQAList[selCmdEff]}
+            currentIndex={selCmdEff}
+            totalCount={physicalQAList.length}
+            prog={{ t: audioProg.t, d: audioProg.d, isFile: playerUI.tab === 'commands' && playerUI.isFile }}
+            onSeek={seekPlayer}
+            rate={playRate}
+            onCycleRate={cycleRate}
+            delaySecs={playDelay}
+            onSetDelay={setPlayDelay}
+            mode={playerMode}
+            onToggleMode={() => {
+              const next = playerMode === 'sequential' ? 'single' : 'sequential';
+              setPlayerMode(next);
+              playerRef.current.mode = next;
+            }}
+            includeAnswers={includeAnswers}
+            onToggleIncludeAnswers={() => setIncludeAnswers(p => !p)}
+            gapCountdown={gapCountdown}
+            hideText={hideText}
+            onPrev={() => {
+              if (playerUI.on && playerUI.tab === 'commands') stepPlayer(-1);
+              else setSelCmd(Math.max(0, selCmdEff - 1));
+            }}
+            onTogglePlay={() => {
+              if (playerUI.on && playerUI.tab === 'commands') pausePlayer();
+              else startPlayer('commands', physicalQAList, selCmdEff, playerMode);
+            }}
+            onNext={() => {
+              if (playerUI.on && playerUI.tab === 'commands') stepPlayer(1);
+              else setSelCmd(Math.min(physicalQAList.length - 1, selCmdEff + 1));
+            }}
+            onShuffle={toggleShuffle}
+            onRepeat={toggleRepeat}
+            onStop={stopPlayer}
+            collapsed={playerHidden.commands}
+            onToggleCollapse={() => setPlayerHidden((p) => ({ ...p, commands: !p.commands }))}
+            accent="emerald"
+            activeOpt={{
+              ko: physicalQAList[selCmdEff]?.answer_ko,
+              id: physicalQAList[selCmdEff]?.answer_id,
+              audio: physicalQAList[selCmdEff]?.audio_a || (physicalQAList[selCmdEff]?.id ? `/audio/tts/answers/${physicalQAList[selCmdEff].id}_a.mp3` : null)
+            }}
+            isPlayingAnswer={Boolean(
+              playingAudio && (
+                (() => {
+                  const q = physicalQAList[selCmdEff];
+                  if (!q) return false;
+                  const aUrl = q.audio_a || (q.id ? `/audio/tts/answers/${q.id}_a.mp3` : null);
+                  return (aUrl && (playingAudio === aUrl || (audioRef.current && !audioRef.current.paused && audioRef.current.src && audioRef.current.src.includes(encodeURI(aUrl))))) || (!aUrl && playingAudio === q.answer_ko);
+                })()
+              )
+            )}
+            onPlayAnswer={() => {
+              const q = physicalQAList[selCmdEff];
+              if (!q) return;
+              const aUrl = q.audio_a || (q.id ? `/audio/tts/answers/${q.id}_a.mp3` : null);
+              playAudio(aUrl, q.answer_ko || q.question_id);
+            }}
+          />
 
           {filteredCommands.length === 0 ? (
             <p className="text-xs text-muted-foreground py-6 text-center">
@@ -2275,13 +2544,16 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
                         <div className="flex items-center gap-1.5 shrink-0">
                           <Button
                             type="button"
-                            variant="secondary"
+                            variant={playerUI.tab === 'commands' && playerUI.on && selCmdEff === idx ? "default" : "secondary"}
                             size="sm"
-                            className="h-7 px-2.5 text-xs gap-1"
-                            onClick={() => playAudio(cmd.audio_q, cmd.command_ko)}
+                            className="h-8 px-2.5 text-xs gap-1 font-semibold cursor-pointer"
+                            onClick={() => {
+                              setSelCmd(idx);
+                              startPlayer('commands', physicalQAList, idx, playerMode);
+                            }}
                           >
                             <Volume2 className="h-3.5 w-3.5" />
-                            <span>Dengar</span>
+                            <span>{playerUI.tab === 'commands' && playerUI.on && selCmdEff === idx ? "Memutar" : "Putar"}</span>
                           </Button>
 
                           <Button
@@ -2316,13 +2588,31 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
                           <span>Arti & refleks disembunyikan (ketuk untuk membuka)</span>
                         </button>
                       ) : (
-                        <div className="space-y-0.5">
-                          <p className="text-xs sm:text-sm font-bold text-emerald-700 dark:text-emerald-400">
-                            {cmd.command_id}
-                          </p>
-                          <p className="text-[11px] text-muted-foreground leading-snug">
-                            <strong>Refleks:</strong> {cmd.action_desc}
-                          </p>
+                        <div className="space-y-1">
+                          <div className="flex items-start justify-between gap-2">
+                            <div>
+                              <p className="text-xs sm:text-sm font-bold text-emerald-700 dark:text-emerald-400">
+                                {cmd.command_id}
+                              </p>
+                              <p className="text-[11px] text-muted-foreground leading-snug">
+                                <strong>Refleks:</strong> {cmd.action_desc}
+                              </p>
+                            </div>
+                            <Button
+                              type="button"
+                              variant="outline"
+                              size="sm"
+                              className="h-7 px-2 text-[11px] font-semibold text-emerald-700 dark:text-emerald-400 border-emerald-500/30 hover:bg-emerald-500/10 cursor-pointer shrink-0"
+                              onClick={() => {
+                                const aUrl = cmd.audio_a || (cmd.id ? `/audio/tts/answers/${cmd.id}_a.mp3` : null);
+                                playAudio(aUrl, cmd.action_desc || cmd.command_id);
+                              }}
+                              title="Putar suara rekaman instruksi/jawaban gerak fisik"
+                            >
+                              <Volume2 className="h-3 w-3 mr-1" />
+                              <span>Putar Jawaban</span>
+                            </Button>
+                          </div>
                         </div>
                       )}
                     </div>
@@ -2340,7 +2630,7 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
         <div className="space-y-6 animate-fade-in">
           <div className="border-b border-border pb-3">
             <div className="flex items-center gap-2 mb-1">
-              <Badge variant="outline" className="border-indigo-500/30 text-indigo-600 dark:text-indigo-400 text-[10px]">
+              <Badge variant="outline" className="border-indigo-500/30 text-indigo-600 dark:text-indigo-400 text-xs">
                 WAJIB HAFAL MATI ({studyData.jagisoge.duration})
               </Badge>
               <span className="text-[11px] font-bold text-muted-foreground uppercase tracking-wider">
@@ -2497,7 +2787,7 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
                       <label className="text-[11px] font-bold text-muted-foreground uppercase">
                         1. Nama Lengkap
                       </label>
-                      <span className="text-[10px] font-semibold text-primary">Wajib</span>
+                      <span className="text-xs font-semibold text-primary">Wajib</span>
                     </div>
                     <input
                       type="text"
@@ -2518,12 +2808,12 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
                         <button
                           type="button"
                           onClick={() => setJagiForm({ ...jagiForm, tglTahun: '', tglBulan: '', tglHari: '' })}
-                          className="text-[10px] font-semibold text-rose-600 dark:text-rose-400 hover:underline cursor-pointer"
+                          className="text-xs font-semibold text-rose-600 dark:text-rose-400 hover:underline cursor-pointer"
                         >
                           Kosongkan
                         </button>
                       ) : (
-                        <span className="text-[10px] text-muted-foreground">Opsional</span>
+                        <span className="text-xs text-muted-foreground">Opsional</span>
                       )}
                     </div>
                     <div className="grid grid-cols-3 gap-1.5">
@@ -2570,12 +2860,12 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
                         <button
                           type="button"
                           onClick={() => setJagiForm({ ...jagiForm, umur: '' })}
-                          className="text-[10px] font-semibold text-rose-600 dark:text-rose-400 hover:underline cursor-pointer"
+                          className="text-xs font-semibold text-rose-600 dark:text-rose-400 hover:underline cursor-pointer"
                         >
                           Kosongkan ({nativeKo(jagiForm.umur)} 살)
                         </button>
                       ) : (
-                        <span className="text-[10px] text-muted-foreground">Dikosongkan</span>
+                        <span className="text-xs text-muted-foreground">Dikosongkan</span>
                       )}
                     </div>
                     <input
@@ -2595,7 +2885,7 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
                       <label className="text-[11px] font-bold text-muted-foreground uppercase">
                         4. Asal Negara / Daerah
                       </label>
-                      <span className="text-[10px] text-muted-foreground">Opsional</span>
+                      <span className="text-xs text-muted-foreground">Opsional</span>
                     </div>
                     <div className="space-y-1.5">
                       <select
@@ -2631,12 +2921,12 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
                         <button
                           type="button"
                           onClick={() => setJagiForm({ ...jagiForm, tinggi: '', berat: '' })}
-                          className="text-[10px] font-semibold text-rose-600 dark:text-rose-400 hover:underline cursor-pointer"
+                          className="text-xs font-semibold text-rose-600 dark:text-rose-400 hover:underline cursor-pointer"
                         >
                           Kosongkan
                         </button>
                       ) : (
-                        <span className="text-[10px] text-muted-foreground">Opsional</span>
+                        <span className="text-xs text-muted-foreground">Opsional</span>
                       )}
                     </div>
                     <div className="grid grid-cols-2 gap-1.5">
@@ -2667,7 +2957,7 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
                       <label className="text-[11px] font-bold text-muted-foreground uppercase">
                         6. Status Pernikahan
                       </label>
-                      <span className="text-[10px] text-muted-foreground">Opsional</span>
+                      <span className="text-xs text-muted-foreground">Opsional</span>
                     </div>
                     <select
                       value={jagiForm.nikah}
@@ -2686,7 +2976,7 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
                       <label className="text-[11px] font-bold text-muted-foreground uppercase">
                         7. Pengalaman / Belum Kerja
                       </label>
-                      <span className="text-[10px] text-muted-foreground">4 Opsi Belum + 6 Pernah</span>
+                      <span className="text-xs text-muted-foreground">4 Opsi Belum + 6 Pernah</span>
                     </div>
                     <div className="flex gap-1.5">
                       <select
@@ -2721,7 +3011,7 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
                       <label className="text-[11px] font-bold text-muted-foreground uppercase">
                         8. Hobi / Olahraga
                       </label>
-                      <span className="text-[10px] text-muted-foreground">Opsional</span>
+                      <span className="text-xs text-muted-foreground">Opsional</span>
                     </div>
                     <select
                       value={jagiForm.hobi}
@@ -2742,7 +3032,7 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
                       <label className="text-[11px] font-bold text-muted-foreground uppercase">
                         9. Kelebihan / Keunggulan
                       </label>
-                      <span className="text-[10px] text-muted-foreground">Opsional</span>
+                      <span className="text-xs text-muted-foreground">Opsional</span>
                     </div>
                     <select
                       value={jagiForm.kelebihan}
@@ -2763,7 +3053,7 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
                       <label className="text-[11px] font-bold text-muted-foreground uppercase">
                         10. Pilihan Kalimat Penutup & Janji Komitmen (마무리 인사)
                       </label>
-                      <span className="text-[10px] font-semibold text-primary">5 Variasi Penutup</span>
+                      <span className="text-xs font-semibold text-primary">5 Variasi Penutup</span>
                     </div>
                     <select
                       value={jagiForm.penutup}
@@ -2823,7 +3113,7 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
                       <div className="space-y-2.5 pt-1">
                         <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-2">
                           <div className="space-y-1 col-span-2 sm:col-span-2 lg:col-span-2">
-                            <label className="text-[10px] font-bold text-muted-foreground uppercase">
+                            <label className="text-xs font-bold text-muted-foreground uppercase">
                               Orang Tua
                             </label>
                             <select
@@ -2840,7 +3130,7 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
                           </div>
 
                           <div className="space-y-1">
-                            <label className="text-[10px] font-bold text-muted-foreground uppercase">
+                            <label className="text-xs font-bold text-muted-foreground uppercase">
                               Pasangan
                             </label>
                             <select
@@ -2855,7 +3145,7 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
                           </div>
 
                           <div className="space-y-1">
-                            <label className="text-[10px] font-bold text-muted-foreground uppercase">
+                            <label className="text-xs font-bold text-muted-foreground uppercase">
                               Kakak Lk (형)
                             </label>
                             <select
@@ -2872,7 +3162,7 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
                           </div>
 
                           <div className="space-y-1">
-                            <label className="text-[10px] font-bold text-muted-foreground uppercase">
+                            <label className="text-xs font-bold text-muted-foreground uppercase">
                               Kakak Pr (누나)
                             </label>
                             <select
@@ -2889,7 +3179,7 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
                           </div>
 
                           <div className="space-y-1">
-                            <label className="text-[10px] font-bold text-muted-foreground uppercase">
+                            <label className="text-xs font-bold text-muted-foreground uppercase">
                               Adik Lk (남동생)
                             </label>
                             <select
@@ -2906,7 +3196,7 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
                           </div>
 
                           <div className="space-y-1">
-                            <label className="text-[10px] font-bold text-muted-foreground uppercase">
+                            <label className="text-xs font-bold text-muted-foreground uppercase">
                               Adik Pr (여동생)
                             </label>
                             <select
@@ -2925,7 +3215,7 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
 
                         <div className="flex flex-wrap items-center justify-between gap-2 pt-1">
                           <div className="flex items-center gap-2">
-                            <label className="text-[10px] font-bold text-muted-foreground uppercase">
+                            <label className="text-xs font-bold text-muted-foreground uppercase">
                               Anak (아이):
                             </label>
                             <select
@@ -2984,7 +3274,7 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
                                 <span className="text-xs font-bold text-foreground">{v.label}</span>
                                 <span
                                   className={cn(
-                                    'text-[10px] font-bold px-2 py-0.5 rounded-full',
+                                    'text-xs font-bold px-2 py-0.5 rounded-full',
                                     isSelected
                                       ? 'bg-primary text-primary-foreground'
                                       : 'bg-secondary text-muted-foreground'
@@ -2995,7 +3285,7 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
                               </div>
                               <p className="text-[11px] text-muted-foreground leading-snug">{v.desc}</p>
                             </div>
-                            <div className="flex items-center justify-between pt-1 border-t border-border/60 text-[10px] font-semibold">
+                            <div className="flex items-center justify-between pt-1 border-t border-border/60 text-xs font-semibold">
                               <span className="text-primary">{v.badge}</span>
                               <span>{v.sentences.length} Kalimat</span>
                             </div>
@@ -3009,12 +3299,12 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
                       <div className="flex flex-wrap items-center justify-between gap-3 border-b border-border pb-3">
                         <div className="space-y-0.5">
                           <div className="flex flex-wrap items-center gap-2">
-                            <span className="text-[10px] font-bold uppercase tracking-wider text-primary">
+                            <span className="text-xs font-bold uppercase tracking-wider text-primary">
                               {activeVar.label}
                             </span>
                             <span
                               className={cn(
-                                'text-[10px] font-bold px-2 py-0.5 rounded-full',
+                                'text-xs font-bold px-2 py-0.5 rounded-full',
                                 isSafeDuration
                                   ? 'bg-emerald-500/15 text-emerald-700 dark:text-emerald-400'
                                   : 'bg-amber-500/15 text-amber-700 dark:text-amber-400'
@@ -3047,7 +3337,7 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
                           </button>
                           <button
                             type="button"
-                            onClick={() => playAudio(null, activeVar.fullKo)}
+                            onClick={() => playAudio(`/audio/tts/study/jagisoge_var_${activeVar.id}.mp3`, activeVar.fullKo)}
                             className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-primary text-primary-foreground text-xs font-bold hover:opacity-90 transition-opacity cursor-pointer"
                           >
                             <Volume2 className="w-3.5 h-3.5" />
@@ -3059,7 +3349,7 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
                       {/* Paragraf Utuh Siap Baca / Copy */}
                       <div className="p-3.5 rounded-lg bg-secondary/40 border border-border space-y-2">
                         <div className="flex items-center justify-between">
-                          <span className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground">
+                          <span className="text-xs font-bold uppercase tracking-wider text-muted-foreground">
                             Paragraf Gabungan Utuh (Klik Salin Hangeul untuk menyalin teks ini)
                           </span>
                         </div>
@@ -3091,7 +3381,7 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
                                   </button>
                                   <button
                                     type="button"
-                                    onClick={() => playAudio(null, item.ko)}
+                                    onClick={() => playAudio(item.audio || `/audio/tts/study/jagisoge_step_${item.no - 1}.mp3`, item.ko)}
                                     className="flex items-center gap-1 px-2 py-1 rounded-md bg-secondary hover:bg-primary hover:text-primary-foreground text-foreground text-[11px] font-semibold transition-colors cursor-pointer"
                                   >
                                     <Volume2 className="w-3 h-3" />
@@ -3143,7 +3433,7 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
                           <span className="text-[11px] font-bold text-primary">{s.step}</span>
                           <button
                             type="button"
-                            onClick={() => playAudio(null, s.ko)}
+                            onClick={() => playAudio(s.audio || `/audio/tts/study/jagisoge_step_${idx}.mp3`, s.ko)}
                             className="text-muted-foreground hover:text-foreground cursor-pointer"
                           >
                             <Volume2 className="w-3.5 h-3.5" />
@@ -3202,7 +3492,7 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
                   <div className="rounded-xl border border-border bg-card p-4 sm:p-5 space-y-4">
                     <div className="flex flex-wrap items-center justify-between gap-2 border-b border-border pb-3">
                       <div>
-                        <span className="text-[10px] font-bold uppercase tracking-wider text-primary">
+                        <span className="text-xs font-bold uppercase tracking-wider text-primary">
                           {chosen.koTitle}
                         </span>
                         <h3 className="text-base font-bold text-foreground">{chosen.title}</h3>
@@ -3210,7 +3500,7 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
                       </div>
                       <button
                         type="button"
-                        onClick={() => playAudio(null, fullKo)}
+                        onClick={() => playAudio(`/audio/tts/study/jagisoge_var_${chosen.id}.mp3`, fullKo)}
                         className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-primary text-primary-foreground text-xs font-bold hover:opacity-90 transition-opacity cursor-pointer"
                       >
                         <Volume2 className="w-3.5 h-3.5" />
@@ -3222,7 +3512,7 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
                       {chosen.sentences.map((s, idx) => (
                         <div key={idx} className="py-3 first:pt-0 last:pb-0 flex items-start justify-between gap-3">
                           <div className="space-y-1 min-w-0">
-                            <span className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground">
+                            <span className="text-xs font-bold uppercase tracking-wider text-muted-foreground">
                               Kalimat #{idx + 1}
                             </span>
                             <p className="text-sm sm:text-base font-bold text-foreground break-keep">
@@ -3234,7 +3524,7 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
                           </div>
                           <button
                             type="button"
-                            onClick={() => playAudio(null, s.ko)}
+                            onClick={() => playAudio(s.audio || `/audio/tts/study/jagisoge_step_${idx}.mp3`, s.ko)}
                             className="w-8 h-8 rounded-lg bg-secondary hover:bg-primary hover:text-primary-foreground text-foreground flex items-center justify-center shrink-0 transition-colors cursor-pointer"
                             title="Putar Audio"
                           >
@@ -3256,7 +3546,7 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
         <div className="space-y-6 animate-fade-in">
           <div className="border-b border-border pb-3">
             <div className="flex items-center gap-2 mb-1">
-              <Badge variant="outline" className="border-sky-500/30 text-sky-600 dark:text-sky-400 text-[10px]">
+              <Badge variant="outline" className="border-sky-500/30 text-sky-600 dark:text-sky-400 text-xs">
                 ATURAN KOMBINASI ANGKA
               </Badge>
               <span className="text-[11px] font-bold text-muted-foreground uppercase tracking-wider">
@@ -3341,7 +3631,7 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
                   <div key={idx} className="p-3.5 sm:p-4 space-y-2">
                     <div className="flex items-start justify-between gap-2">
                       <div>
-                        <span className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground">
+                        <span className="text-xs font-bold uppercase tracking-wider text-muted-foreground">
                           Pertanyaan Penguji #{idx + 1}
                         </span>
                         <p className="text-sm sm:text-base font-bold text-foreground">
@@ -3365,7 +3655,7 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
 
                     <div className="pt-2 border-t border-border/60 flex items-start justify-between gap-2">
                       <div>
-                        <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">
+                        <span className="text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">
                           Format Jawaban Sopan
                         </span>
                         <p className="text-sm sm:text-base font-bold text-emerald-700 dark:text-emerald-400">
@@ -3375,7 +3665,7 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
                       </div>
                       <button
                         type="button"
-                        onClick={() => playAudio(null, qa.a_ko)}
+                        onClick={() => playAudio(qa.audio_a, qa.a_ko)}
                         className="px-2.5 py-1 rounded-md bg-emerald-600 hover:bg-emerald-500 text-white text-[11px] font-semibold flex items-center gap-1 shrink-0 transition-colors cursor-pointer"
                       >
                         <Volume2 className="w-3 h-3" /> A
@@ -3404,7 +3694,7 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
         <div className="space-y-6 animate-fade-in">
           <div className="border-b border-border pb-3">
             <div className="flex items-center gap-2 mb-1">
-              <Badge variant="outline" className="border-indigo-500/30 text-indigo-600 dark:text-indigo-400 text-[10px]">
+              <Badge variant="outline" className="border-indigo-500/30 text-indigo-600 dark:text-indigo-400 text-xs">
                 KALENDER & TANGGAL LAHIR
               </Badge>
               <span className="text-[11px] font-bold text-muted-foreground uppercase tracking-wider">
@@ -3501,7 +3791,7 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
                       [{m.ro}]
                     </p>
                     {isSpecial && (
-                      <p className="text-[10px] font-bold text-rose-600 dark:text-rose-400 leading-tight">
+                      <p className="text-xs font-bold text-rose-600 dark:text-rose-400 leading-tight">
                         {m.note}
                       </p>
                     )}
@@ -3549,7 +3839,7 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
                       </div>
                       <button
                         type="button"
-                        onClick={() => playAudio(null, qa.a_ko)}
+                        onClick={() => playAudio(qa.audio_a, qa.a_ko)}
                         className="px-2.5 py-1 rounded-md bg-emerald-600 hover:bg-emerald-500 text-white text-[11px] font-semibold flex items-center gap-1 shrink-0 transition-colors cursor-pointer"
                       >
                         <Volume2 className="w-3 h-3" /> A
@@ -3578,7 +3868,7 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
         <div className="space-y-6 animate-fade-in">
           <div className="border-b border-border pb-3">
             <div className="flex items-center gap-2 mb-1">
-              <Badge variant="outline" className="border-pink-500/30 text-pink-600 dark:text-pink-400 text-[10px]">
+              <Badge variant="outline" className="border-pink-500/30 text-pink-600 dark:text-pink-400 text-xs">
                 TES BUTA WARNA & OBJEK
               </Badge>
               <span className="text-[11px] font-bold text-muted-foreground uppercase tracking-wider">
@@ -3664,7 +3954,7 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
                       </div>
                       <button
                         type="button"
-                        onClick={() => playAudio(null, qa.a_ko)}
+                        onClick={() => playAudio(qa.audio_a, qa.a_ko)}
                         className="px-2.5 py-1 rounded-md bg-emerald-600 hover:bg-emerald-500 text-white text-[11px] font-semibold flex items-center gap-1 shrink-0 transition-colors cursor-pointer"
                       >
                         <Volume2 className="w-3 h-3" /> A
@@ -3683,7 +3973,7 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
         <div className="space-y-6 animate-fade-in">
           <div className="border-b border-border pb-3">
             <div className="flex items-center gap-2 mb-1">
-              <Badge variant="outline" className="border-teal-500/30 text-teal-600 dark:text-teal-400 text-[10px]">
+              <Badge variant="outline" className="border-teal-500/30 text-teal-600 dark:text-teal-400 text-xs">
                 KOSAKATA KELUARGA INTI
               </Badge>
               <span className="text-[11px] font-bold text-muted-foreground uppercase tracking-wider">
@@ -3772,7 +4062,7 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
                       </div>
                       <button
                         type="button"
-                        onClick={() => playAudio(null, qa.a_ko)}
+                        onClick={() => playAudio(qa.audio_a, qa.a_ko)}
                         className="px-2.5 py-1 rounded-md bg-emerald-600 hover:bg-emerald-500 text-white text-[11px] font-semibold flex items-center gap-1 shrink-0 transition-colors cursor-pointer"
                       >
                         <Volume2 className="w-3 h-3" /> A
@@ -3787,626 +4077,38 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
       )}
 
       {/* 9. PIKTOGRAM (RAMBU K3 VISUAL) */}
-      {activeTab === 'piktogram' && (() => {
-        const allPik = allQuestions.filter((q) => q.category === 'piktogram');
-        const pikGroups = [
-          { id: 'all', label: 'Semua Rambu', count: allPik.length },
-          { id: 'wajib', label: '지시 (Wajib APD)', count: allPik.filter((x) => (x.category_title || '').includes('지시')).length },
-          { id: 'peringatan', label: '경고 (Bahaya)', count: allPik.filter((x) => (x.category_title || '').includes('경고')).length },
-          { id: 'larangan', label: '금지 (Larangan)', count: allPik.filter((x) => (x.category_title || '').includes('금지')).length },
-          { id: 'evakuasi', label: '안내·소방 (Evakuasi & Pemadam)', count: allPik.filter((x) => /안내|소방/.test(x.category_title || '')).length },
-        ];
-        const filteredPik = allPik.filter((item) => {
-          if (pikGroup === 'wajib' && !(item.category_title || '').includes('지시')) return false;
-          if (pikGroup === 'peringatan' && !(item.category_title || '').includes('경고')) return false;
-          if (pikGroup === 'larangan' && !(item.category_title || '').includes('금지')) return false;
-          if (pikGroup === 'evakuasi' && !/안내|소방/.test(item.category_title || '')) return false;
-          if (searchQuery.trim()) {
-            const q = searchQuery.toLowerCase();
-            return `${item.title_ko || ''} ${item.title_id || ''} ${item.answer_short_ko || ''} ${item.answer_short_id || ''}`.toLowerCase().includes(q);
-          }
-          return true;
-        });
-
-        return (
-          <div className="space-y-5 animate-fade-in">
-            <div className="border-b border-border pb-3 flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
-              <div>
-                <div className="flex items-center gap-2 mb-1">
-                  <Badge variant="outline" className="border-amber-500/30 text-amber-600 dark:text-amber-400 text-[10px]">
-                    TES VISUAL GAMBAR K3
-                  </Badge>
-                  <span className="text-[11px] font-bold text-muted-foreground uppercase tracking-wider">
-                    {allPik.length} Rambu Resmi
-                  </span>
-                </div>
-                <h2 className="text-lg sm:text-xl font-bold text-foreground">
-                  Katalog Rambu Keselamatan Kerja (안전 표지판)
-                </h2>
-                <p className="text-xs sm:text-sm text-muted-foreground mt-0.5 leading-relaxed">
-                  Ketuk gambar rambu untuk memperbesar dan dengarkan pelafalan resminya.
-                </p>
-              </div>
-
-              <Button
-                variant={hideAllAnswers ? 'default' : 'outline'}
-                size="sm"
-                onClick={() => handleSetGlobalHideAll(!hideAllAnswers)}
-                className="text-xs gap-1.5 h-8 shrink-0"
-                title="Klik untuk membuka atau menyembunyikan semua arti rambu"
-              >
-                {hideAllAnswers ? <Eye className="w-3.5 h-3.5" /> : <EyeOff className="w-3.5 h-3.5" />}
-                <span>{hideAllAnswers ? 'Buka Semua Arti Rambu' : 'Tutup Semua Arti Rambu'}</span>
-              </Button>
-            </div>
-
-            <div className="flex flex-col sm:flex-row gap-2.5 items-stretch sm:items-center justify-between">
-              <div className="flex flex-wrap gap-1.5">
-                {pikGroups.map((cat) => (
-                  <button
-                    key={cat.id}
-                    type="button"
-                    onClick={() => setPikGroup(cat.id)}
-                    className={cn(
-                      'px-2.5 py-1.5 rounded-lg text-xs font-semibold border transition-all cursor-pointer flex items-center gap-1.5',
-                      pikGroup === cat.id
-                        ? 'bg-primary text-primary-foreground border-primary shadow-sm'
-                        : 'bg-card text-muted-foreground border-border hover:text-foreground hover:bg-secondary/60'
-                    )}
-                  >
-                    <span>{cat.label}</span>
-                    <span className="text-[10px] opacity-80">({cat.count})</span>
-                  </button>
-                ))}
-              </div>
-
-              <div className="relative w-full sm:w-64 shrink-0">
-                <Search className="w-3.5 h-3.5 text-muted-foreground absolute left-3 top-1/2 -translate-y-1/2" />
-                <input
-                  type="text"
-                  placeholder="Cari rambu Korea / Indo..."
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-8 pr-7 py-1.5 text-xs bg-card border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/30 text-foreground"
-                />
-                {searchQuery && (
-                  <button
-                    type="button"
-                    onClick={() => setSearchQuery('')}
-                    className="absolute right-2 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground cursor-pointer"
-                  >
-                    <X className="w-3.5 h-3.5" />
-                  </button>
-                )}
-              </div>
-            </div>
-
-            {/* Toolbar Status Buka/Tutup Jawaban Rambu (Konsisten dengan Katalog Alat) */}
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-3.5 rounded-xl border border-border bg-secondary/40 text-xs">
-              <div className="space-y-1">
-                <div className="flex items-center gap-2">
-                  <ShieldAlert className="w-4 h-4 text-amber-500 shrink-0" />
-                  <span className="font-bold text-foreground text-sm">Mode Uji Hafalan Rambu K3:</span>
-                </div>
-                <p className="text-[11px] text-muted-foreground">
-                  Buka/tutup seluruh jawaban untuk latihan uji mandiri menebak arti simbol visual keselamatan kerja.
-                </p>
-              </div>
-
-              <div className="inline-flex rounded-lg border border-border bg-card p-0.5 gap-0.5 shrink-0">
-                <button
-                  type="button"
-                  onClick={() => handleSetGlobalHideAll(false)}
-                  className={cn(
-                    'px-2.5 py-1.5 rounded-md text-[11px] font-bold transition-all cursor-pointer',
-                    !hideAllAnswers
-                      ? 'bg-foreground text-background shadow-xs'
-                      : 'text-muted-foreground hover:text-foreground'
-                  )}
-                  title="Buka seluruh nama dan arti pada 98 kartu rambu"
-                >
-                  👁️ Buka Semua Rambu
-                </button>
-                <button
-                  type="button"
-                  onClick={() => handleSetGlobalHideAll(true)}
-                  className={cn(
-                    'px-2.5 py-1.5 rounded-md text-[11px] font-bold transition-all cursor-pointer',
-                    hideAllAnswers
-                      ? 'bg-foreground text-background shadow-xs'
-                      : 'text-muted-foreground hover:text-foreground'
-                  )}
-                  title="Tutup seluruh nama dan arti rambu untuk latihan tebak visual"
-                >
-                  🙈 Tutup Semua Rambu
-                </button>
-              </div>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-              {filteredPik.map((item) => {
-                const cardId = `pik_${item.id}`;
-                const hidden = isAnswerHidden(cardId);
-                return (
-                  <div
-                    key={item.id}
-                    className="rounded-xl border border-border bg-card p-3.5 flex flex-col justify-between gap-3 hover:border-primary/40 transition-colors"
-                  >
-                    <div className="flex items-start gap-3">
-                      {item.image_url && (
-                        <button
-                          type="button"
-                          onClick={() => setInspectRambu(item)}
-                          className="w-20 h-20 sm:w-24 sm:h-24 rounded-xl border border-border bg-white dark:bg-card p-1.5 shrink-0 flex items-center justify-center relative group cursor-pointer shadow-xs hover:border-primary/50 transition-all"
-                          title="Klik untuk memperbesar gambar rambu"
-                        >
-                          <img
-                            src={getAssetUrl(item.image_url)}
-                            alt={item.title_id || item.answer_short_id}
-                            className="max-w-full max-h-full object-contain"
-                            loading="lazy"
-                          />
-                          <span className="absolute bottom-1 right-1 w-5 h-5 rounded-md bg-black/70 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                            <Maximize2 className="w-3 h-3" />
-                          </span>
-                        </button>
-                      )}
-                      <div className="flex-1 min-w-0 space-y-1.5">
-                        <div className="flex items-start justify-between gap-1.5">
-                          <span className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground truncate bg-secondary/80 px-2 py-0.5 rounded-md">
-                            {item.category_title || 'Rambu K3'}
-                          </span>
-                          <div className="flex items-center gap-1 shrink-0">
-                            <button
-                              type="button"
-                              onClick={() => toggleCardAnswer(cardId)}
-                              className="w-7 h-7 rounded-md bg-secondary hover:bg-secondary/80 text-muted-foreground hover:text-foreground flex items-center justify-center transition-colors cursor-pointer"
-                              title={hidden ? "Tampilkan Arti & Nama Rambu" : "Sembunyikan Arti & Nama Rambu"}
-                            >
-                              {hidden ? <Eye className="w-3.5 h-3.5 text-primary" /> : <EyeOff className="w-3.5 h-3.5" />}
-                            </button>
-                            <button
-                              type="button"
-                              onClick={() => playAudio(item.audio_a, item.answer_short_ko || item.title_ko)}
-                              className="w-7 h-7 rounded-md bg-secondary hover:bg-primary hover:text-primary-foreground text-foreground flex items-center justify-center shrink-0 transition-colors cursor-pointer"
-                              title="Putar Audio Pelafalan Rambu"
-                            >
-                              <Volume2 className="w-3.5 h-3.5" />
-                            </button>
-                          </div>
-                        </div>
-                        {hidden ? (
-                          <div className="py-1 px-2 rounded-md bg-secondary/80 border border-dashed border-border flex items-center gap-1.5 text-xs text-muted-foreground my-1">
-                            <EyeOff className="w-3.5 h-3.5 text-amber-600 dark:text-amber-400 shrink-0" />
-                            <span className="font-bold text-foreground text-[11px]">Nama Rambu Disembunyikan</span>
-                          </div>
-                        ) : (
-                          <p className="text-sm sm:text-base font-black text-foreground leading-snug break-keep">
-                            {item.title_ko || item.answer_short_ko}
-                          </p>
-                        )}
-                      </div>
-                    </div>
-
-                    <div className="pt-2 border-t border-border/60">
-                      {hidden ? (
-                        <button
-                          type="button"
-                          onClick={() => toggleCardAnswer(cardId)}
-                          className="w-full py-1.5 px-2.5 rounded-lg bg-secondary/70 hover:bg-secondary text-xs font-medium text-muted-foreground flex items-center justify-center gap-1.5 transition-colors cursor-pointer"
-                        >
-                          <Eye className="w-3.5 h-3.5" />
-                          <span>Tampilkan Arti Rambu</span>
-                        </button>
-                      ) : (
-                        <div className="space-y-1">
-                          <div className="flex items-center justify-between gap-1">
-                            <p className="text-xs sm:text-sm font-bold text-emerald-700 dark:text-emerald-400">
-                              {item.title_id || item.answer_short_id}
-                            </p>
-                            <button
-                              type="button"
-                              onClick={() => toggleCardAnswer(cardId)}
-                              className="text-[10px] text-muted-foreground hover:text-foreground flex items-center gap-0.5 cursor-pointer py-0.5 px-1.5 rounded hover:bg-secondary shrink-0"
-                              title="Tutup jawaban kartu ini"
-                            >
-                              <EyeOff className="w-3 h-3" />
-                              <span>Tutup</span>
-                            </button>
-                          </div>
-                          {(item.answer_full_ko || item.answer_short_ko) && (
-                            <p className="text-[11px] text-muted-foreground leading-snug bg-secondary/30 p-1.5 rounded-md border border-border/40">
-                              <span className="text-[10px] uppercase font-bold text-muted-foreground block">Pola Jawaban Lisan:</span>
-                              <strong>{item.answer_full_ko || item.answer_short_ko}</strong>
-                            </p>
-                          )}
-                        </div>
-                      )}
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        );
-      })()}
+      {activeTab === 'piktogram' && (
+        <PictogramCatalog
+          questions={allQuestions}
+          isAnswerHidden={isAnswerHidden}
+          toggleCardAnswer={toggleCardAnswer}
+          playAudio={playAudio}
+          hideAllAnswers={hideAllAnswers}
+          onSetGlobalHideAll={handleSetGlobalHideAll}
+          onInspectRambu={setInspectRambu}
+        />
+      )}
 
       {/* 10. ALAT KERJA & APD */}
-      {activeTab === 'alat' && (() => {
-        const allAlat = allQuestions.filter(
-          (q) => q.category === 'alat_manufaktur' || q.category === 'alat_klasik'
-        );
-        const alatGroups = [
-          { id: 'all', label: 'Semua Alat', count: allAlat.length },
-          { id: 'atas', label: 'Tingkat Atas (상)', count: allAlat.filter((x) => x.level === 'Atas' || x.level === 'Tinggi').length },
-          { id: 'menengah', label: 'Tingkat Menengah (중)', count: allAlat.filter((x) => x.level === 'Menengah' || x.level === 'Sedang').length },
-          { id: 'dasar', label: 'Tingkat Dasar (하)', count: allAlat.filter((x) => x.level === 'Dasar' || x.level === 'Rendah').length },
-          { id: 'apd', label: 'APD & Klasik', count: allAlat.filter((x) => x.level === 'Wajib' || x.category === 'alat_klasik').length },
-        ];
-        const filteredAlatList = allAlat.filter((item) => {
-          if (alatGroup === 'atas' && !(item.level === 'Atas' || item.level === 'Tinggi')) return false;
-          if (alatGroup === 'menengah' && !(item.level === 'Menengah' || item.level === 'Sedang')) return false;
-          if (alatGroup === 'dasar' && !(item.level === 'Dasar' || item.level === 'Rendah')) return false;
-          if (alatGroup === 'apd' && !(item.level === 'Wajib' || item.category === 'alat_klasik')) return false;
-          if (searchQuery.trim()) {
-            const q = searchQuery.toLowerCase();
-            const optTexts = (item.usage_options || []).map((o) => `${o.ko} ${o.id}`).join(' ');
-            return `${item.title_ko || ''} ${item.title_id || ''} ${item.answer_short_ko || ''} ${item.answer_short_id || ''} ${item.usage_short_ko || ''} ${item.usage_short_id || ''} ${optTexts}`.toLowerCase().includes(q);
-          }
-          return true;
-        });
-
-        return (
-          <div className="space-y-5 animate-fade-in">
-            <div className="border-b border-border pb-3 flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
-              <div>
-                <div className="flex items-center gap-2 mb-1">
-                  <Badge variant="outline" className="border-orange-500/30 text-orange-600 dark:text-orange-400 text-[10px]">
-                    IDENTIFIKASI OBJEK & FUNGSI
-                  </Badge>
-                  <span className="text-[11px] font-bold text-muted-foreground uppercase tracking-wider">
-                    {allAlat.length} Alat & APD
-                  </span>
-                </div>
-                <h2 className="text-lg sm:text-xl font-bold text-foreground">
-                  Katalog 90 Alat Pabrik Manufaktur & Fungsi Kerja
-                </h2>
-                <p className="text-xs sm:text-sm text-muted-foreground mt-0.5 leading-relaxed">
-                  Foto fisik perkakas, nama Korea baku, dan pola kalimat fungsinya saat ditunjuk penguji di meja ujian.
-                </p>
-              </div>
-
-              <div className="flex items-center gap-2 flex-wrap">
-                <Button
-                  variant={hideAllAnswers ? 'default' : 'outline'}
-                  size="sm"
-                  onClick={() => handleSetGlobalHideAll(!hideAllAnswers)}
-                  className="text-xs gap-1.5 h-8 shrink-0"
-                  title="Klik untuk membuka atau menyembunyikan semua jawaban kartu perkakas"
-                >
-                  {hideAllAnswers ? <Eye className="w-3.5 h-3.5" /> : <EyeOff className="w-3.5 h-3.5" />}
-                  <span>{hideAllAnswers ? 'Buka Semua Jawaban Alat' : 'Tutup Semua Jawaban Alat'}</span>
-                </Button>
-
-                {onOpenRevisionModal && (
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    onClick={onOpenRevisionModal}
-                    className="text-xs gap-1.5 h-8 shrink-0 border-amber-500/30 text-amber-600 dark:text-amber-400 hover:bg-amber-500/10"
-                  >
-                    <Award className="h-3.5 w-3.5" />
-                    <span>Ketentuan 3 Pos Praktik Meja (20 Poin)</span>
-                  </Button>
-                )}
-              </div>
-            </div>
-
-            <div className="flex flex-col sm:flex-row gap-2.5 items-stretch sm:items-center justify-between">
-              <div className="flex flex-wrap gap-1.5">
-                {alatGroups.map((cat) => (
-                  <button
-                    key={cat.id}
-                    type="button"
-                    onClick={() => setAlatGroup(cat.id)}
-                    className={cn(
-                      'px-2.5 py-1.5 rounded-lg text-xs font-semibold border transition-all cursor-pointer flex items-center gap-1.5',
-                      alatGroup === cat.id
-                        ? 'bg-primary text-primary-foreground border-primary shadow-sm'
-                        : 'bg-card text-muted-foreground border-border hover:text-foreground hover:bg-secondary/60'
-                    )}
-                  >
-                    <span>{cat.label}</span>
-                    <span className="text-[10px] opacity-80">({cat.count})</span>
-                  </button>
-                ))}
-              </div>
-
-              <div className="relative w-full sm:w-64 shrink-0">
-                <Search className="w-3.5 h-3.5 text-muted-foreground absolute left-3 top-1/2 -translate-y-1/2" />
-                <input
-                  type="text"
-                  placeholder="Cari nama alat Korea / Indo..."
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-8 pr-7 py-1.5 text-xs bg-card border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/30 text-foreground"
-                />
-                {searchQuery && (
-                  <button
-                    type="button"
-                    onClick={() => setSearchQuery('')}
-                    className="absolute right-2 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground cursor-pointer"
-                  >
-                    <X className="w-3.5 h-3.5" />
-                  </button>
-                )}
-              </div>
-            </div>
-
-            {/* Toolbar Opsi Jawaban Fungsi Alat & Status Buka/Tutup Jawaban */}
-            <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 p-3.5 rounded-xl border border-border bg-secondary/40 text-xs">
-              <div className="space-y-1">
-                <div className="flex items-center gap-2">
-                  <Sparkles className="w-4 h-4 text-amber-500 shrink-0" />
-                  <span className="font-bold text-foreground text-sm">Pilihan & Tampilan Jawaban Alat:</span>
-                </div>
-                <p className="text-[11px] text-muted-foreground">
-                  Buka/tutup seluruh jawaban untuk latihan uji mandiri atau tampilkan variasi jawaban yang paling mudah
-                </p>
-              </div>
-
-              <div className="flex flex-wrap items-center gap-2 shrink-0">
-                {/* Tombol Global Buka / Sembunyikan Semua Jawaban */}
-                <div className="inline-flex rounded-lg border border-border bg-card p-0.5 gap-0.5">
-                  <button
-                    type="button"
-                    onClick={() => handleSetGlobalHideAll(false)}
-                    className={cn(
-                      'px-2.5 py-1.5 rounded-md text-[11px] font-bold transition-all cursor-pointer',
-                      !hideAllAnswers
-                        ? 'bg-foreground text-background shadow-xs'
-                        : 'text-muted-foreground hover:text-foreground'
-                    )}
-                    title="Buka seluruh nama dan kegunaan pada 90 kartu alat"
-                  >
-                    👁️ Buka Semua Jawaban
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => handleSetGlobalHideAll(true)}
-                    className={cn(
-                      'px-2.5 py-1.5 rounded-md text-[11px] font-bold transition-all cursor-pointer',
-                      hideAllAnswers
-                        ? 'bg-foreground text-background shadow-xs'
-                        : 'text-muted-foreground hover:text-foreground'
-                    )}
-                    title="Tutup seluruh jawaban untuk latihan tebak nama & fungsi alat"
-                  >
-                    🙈 Tutup Semua Jawaban
-                  </button>
-                </div>
-
-                {/* Tombol Pilihan Format Jawaban */}
-                <div className="flex flex-wrap gap-1">
-                  {[
-                    { id: 'mudah', label: '⚡ Super Mudah', title: 'Pola kalimat pendek yang paling mudah diucapkan' },
-                    { id: 'standar', label: '⭐ Standar HRDK', title: 'Kalimat standar buku panduan HRD Korea' },
-                    { id: 'noun', label: '🔹 Bentuk 도구', title: 'Pola langsung menyebut jenis alat' },
-                    { id: 'all', label: '👁️ Semua Opsi', title: 'Tampilkan semua opsi sekaligus pada setiap kartu' },
-                  ].map((opt) => (
-                    <button
-                      key={opt.id}
-                      type="button"
-                      onClick={() => {
-                        setGlobalAlatUsageOption(opt.id);
-                        // Saat user memilih format opsi, langsung buka jawaban agar terlihat
-                        setHideAllAnswers(false);
-                        setCardAnswerOverrides({});
-                      }}
-                      title={opt.title}
-                      className={cn(
-                        'px-2.5 py-1.5 rounded-lg text-[11px] font-bold border transition-all cursor-pointer',
-                        globalAlatUsageOption === opt.id && !hideAllAnswers
-                          ? 'bg-primary text-primary-foreground border-primary shadow-xs'
-                          : 'bg-card text-muted-foreground border-border hover:text-foreground hover:bg-secondary'
-                      )}
-                    >
-                      {opt.label}
-                    </button>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-              {filteredAlatList.map((item) => {
-                const cardId = `alat_${item.id}`;
-                const hidden = isAnswerHidden(cardId);
-                const usageObj = studyData.manufacturing?.tool_usages_catalog?.[item.id];
-                const usageOptions = item.usage_options || usageObj?.usage_options || [
-                  { key: 'mudah', badge: '⚡ Super Mudah', label: 'Paling Mudah', ko: item.usage_short_ko || usageObj?.usage_short_ko, id: item.usage_short_id || usageObj?.usage_short_id },
-                  { key: 'standar', badge: '⭐ Standar HRDK', label: 'Standar', ko: item.usage_short_ko || usageObj?.usage_short_ko, id: item.usage_short_id || usageObj?.usage_short_id },
-                  { key: 'noun', badge: '🔹 Bentuk 도구', label: 'Bentuk Alat', ko: `${item.title_ko || item.answer_short_ko}입니다.`, id: item.title_id || item.answer_short_id }
-                ];
-                const currentOptKey = cardUsageOptions[cardId] || (globalAlatUsageOption === 'all' ? 'all' : globalAlatUsageOption);
-                const activeUsageOpt = usageOptions.find((o) => o.key === currentOptKey) || usageOptions[0];
-
-                return (
-                  <div
-                    key={item.id}
-                    className="rounded-xl border border-border bg-card p-3.5 flex flex-col justify-between gap-3 hover:border-primary/40 transition-colors"
-                  >
-                    <div className="flex items-start gap-3">
-                      {item.image_url && (
-                        <button
-                          type="button"
-                          onClick={() => setInspectRambu(item)}
-                          className="w-16 h-16 rounded-lg border border-border bg-white p-1.5 shrink-0 flex items-center justify-center relative group cursor-pointer"
-                          title="Perbesar Gambar"
-                        >
-                          <img
-                            src={getAssetUrl(item.image_url)}
-                            alt={item.title_id || item.answer_short_id}
-                            className="max-w-full max-h-full object-contain"
-                            loading="lazy"
-                          />
-                          <span className="absolute bottom-1 right-1 w-4 h-4 rounded bg-black/60 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                            <Maximize2 className="w-2.5 h-2.5" />
-                          </span>
-                        </button>
-                      )}
-                      <div className="flex-1 min-w-0 space-y-1">
-                        <div className="flex items-start justify-between gap-1">
-                          <span className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground truncate">
-                            Level: {item.level || 'Standar'}
-                          </span>
-                          <button
-                            type="button"
-                            onClick={() => playAudio(item.audio_a, item.answer_short_ko || item.title_ko)}
-                            className="w-7 h-7 rounded-md bg-secondary hover:bg-primary hover:text-primary-foreground text-foreground flex items-center justify-center shrink-0 transition-colors cursor-pointer"
-                            title="Putar Audio Jawaban"
-                          >
-                            <Volume2 className="w-3.5 h-3.5" />
-                          </button>
-                        </div>
-                        {hidden ? (
-                          <div className="py-1.5 px-2 rounded-md bg-secondary/80 border border-dashed border-border flex items-center gap-1.5 text-xs text-muted-foreground my-1">
-                            <EyeOff className="w-3.5 h-3.5 text-amber-600 dark:text-amber-400 shrink-0" />
-                            <span className="font-bold text-foreground text-[11px]">Nama Korea Disembunyikan</span>
-                          </div>
-                        ) : (
-                          <>
-                            <p className="text-sm sm:text-base font-black text-foreground leading-snug break-keep">
-                              {item.title_ko || item.answer_short_ko}
-                            </p>
-                            <p className="text-xs text-muted-foreground">
-                              Jawaban: <strong className="text-foreground">{item.answer_short_ko}</strong>
-                            </p>
-                          </>
-                        )}
-                      </div>
-                    </div>
-
-                    <div className="pt-2 border-t border-border/60">
-                      {hidden ? (
-                        <button
-                          type="button"
-                          onClick={() => toggleCardAnswer(cardId)}
-                          className="w-full py-1.5 px-2.5 rounded-lg bg-secondary/70 hover:bg-secondary text-xs font-medium text-muted-foreground flex items-center justify-center gap-1.5 transition-colors cursor-pointer"
-                        >
-                          <Eye className="w-3.5 h-3.5" />
-                          <span>Tampilkan Nama & Kegunaan</span>
-                        </button>
-                      ) : (
-                        <div className="space-y-2">
-                          <div className="flex items-center justify-between gap-1">
-                            <p className="text-xs sm:text-sm font-bold text-emerald-700 dark:text-emerald-400">
-                              {item.title_id || item.answer_short_id}
-                            </p>
-                            <button
-                              type="button"
-                              onClick={() => toggleCardAnswer(cardId)}
-                              className="text-[10px] text-muted-foreground hover:text-foreground flex items-center gap-0.5 cursor-pointer py-0.5 px-1.5 rounded hover:bg-secondary"
-                              title="Tutup jawaban kartu ini"
-                            >
-                              <EyeOff className="w-3 h-3" />
-                              <span>Tutup</span>
-                            </button>
-                          </div>
-
-                          {currentOptKey === 'all' ? (
-                            <div className="pt-1.5 border-t border-border/40 space-y-1.5">
-                              <div className="flex items-center justify-between text-[10px] font-bold text-muted-foreground uppercase">
-                                <span>Opsi Jawaban Fungsi ({usageOptions.length}):</span>
-                                <button
-                                  type="button"
-                                  onClick={() => setCardUsageOptions((prev) => ({ ...prev, [cardId]: 'mudah' }))}
-                                  className="text-primary hover:underline cursor-pointer"
-                                >
-                                  Ringkas
-                                </button>
-                              </div>
-                              <div className="space-y-1.5">
-                                {usageOptions.map((opt) => (
-                                  <div
-                                    key={opt.key}
-                                    className="p-2 rounded-lg bg-secondary/40 border border-border/50 space-y-0.5"
-                                  >
-                                    <div className="flex items-center justify-between gap-1">
-                                      <span className="text-[10px] font-bold text-primary">{opt.badge}</span>
-                                      <button
-                                        type="button"
-                                        onClick={() => playAudio(null, opt.ko)}
-                                        className="text-[10px] font-semibold text-emerald-600 dark:text-emerald-400 hover:underline flex items-center gap-0.5 cursor-pointer"
-                                      >
-                                        <Volume2 className="w-3 h-3" /> Putar
-                                      </button>
-                                    </div>
-                                    <p className="text-xs font-bold text-foreground break-keep">{opt.ko}</p>
-                                    <p className="text-[11px] text-muted-foreground">{opt.id}</p>
-                                  </div>
-                                ))}
-                              </div>
-                            </div>
-                          ) : (
-                            <div className="pt-1.5 border-t border-border/40 space-y-1.5">
-                              <div className="flex items-center justify-between gap-1">
-                                <div className="flex flex-wrap gap-1">
-                                  {usageOptions.map((opt) => (
-                                    <button
-                                      key={opt.key}
-                                      type="button"
-                                      onClick={() => setCardUsageOptions((prev) => ({ ...prev, [cardId]: opt.key }))}
-                                      className={cn(
-                                        'px-1.5 py-0.5 rounded text-[10px] font-bold transition-all cursor-pointer border',
-                                        activeUsageOpt.key === opt.key
-                                          ? 'bg-primary text-primary-foreground border-primary shadow-xs'
-                                          : 'bg-secondary/70 text-muted-foreground border-border/60 hover:text-foreground'
-                                      )}
-                                      title={opt.desc}
-                                    >
-                                      {opt.badge.split(' ')[0]} {opt.label}
-                                    </button>
-                                  ))}
-                                </div>
-                                <button
-                                  type="button"
-                                  onClick={() => playAudio(null, activeUsageOpt.ko)}
-                                  className="p-1 rounded bg-secondary hover:bg-primary hover:text-primary-foreground text-foreground flex items-center justify-center shrink-0 transition-colors cursor-pointer"
-                                  title="Putar Suara Opsi Ini"
-                                >
-                                  <Volume2 className="w-3.5 h-3.5" />
-                                </button>
-                              </div>
-                              <div className="bg-secondary/30 rounded-lg p-2 border border-border/40 space-y-0.5">
-                                <div className="flex items-center justify-between">
-                                  <span className="text-[10px] font-bold text-primary">{activeUsageOpt.badge}</span>
-                                  <span className="text-[10px] text-muted-foreground">Opsi Jawaban Lisan</span>
-                                </div>
-                                <p className="text-xs sm:text-sm font-bold text-foreground break-keep">
-                                  {activeUsageOpt.ko}
-                                </p>
-                                <p className="text-[11px] text-muted-foreground">{activeUsageOpt.id}</p>
-                              </div>
-                            </div>
-                          )}
-                        </div>
-                      )}
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        );
-      })()}
+      {activeTab === 'alat' && (
+        <ToolCatalog
+          questions={allQuestions}
+          isAnswerHidden={isAnswerHidden}
+          toggleCardAnswer={toggleCardAnswer}
+          playAudio={playAudio}
+          hideAllAnswers={hideAllAnswers}
+          onSetGlobalHideAll={handleSetGlobalHideAll}
+          onInspectRambu={setInspectRambu}
+          onOpenRevisionModal={onOpenRevisionModal}
+        />
+      )}
 
       {/* 12. NUMBERS (ANGKA SINO, NATIVE & SATUAN HITUNG) */}
       {activeTab === 'numbers' && (
         <div className="space-y-7 animate-fade-in">
           <div className="border-b border-border pb-3">
             <div className="flex items-center gap-2 mb-1">
-              <Badge variant="outline" className="border-blue-500/30 text-blue-600 dark:text-blue-400 text-[10px]">
+              <Badge variant="outline" className="border-blue-500/30 text-blue-600 dark:text-blue-400 text-xs">
                 DUA SISTEM ANGKA KOREA
               </Badge>
               <span className="text-[11px] font-bold text-muted-foreground uppercase tracking-wider">
@@ -4523,7 +4225,7 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
                           [{u.ro}]
                         </span>
                       </div>
-                      <Badge variant="secondary" className="text-[10px]">
+                      <Badge variant="secondary" className="text-xs">
                         {u.type}
                       </Badge>
                     </div>
@@ -4556,7 +4258,7 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
       {/* Modal Inspector untuk Gambar Piktogram & Alat */}
       {inspectRambu && (
         <div
-          className="fixed inset-0 z-50 bg-black/70 backdrop-blur-xs flex items-center justify-center p-4"
+          className="fixed inset-0 z-50 bg-black/70 flex items-center justify-center p-4"
           onClick={() => setInspectRambu(null)}
         >
           <div
@@ -4641,11 +4343,11 @@ function BankSoalSection({
               <div className="flex items-start justify-between gap-3">
                 <div className="space-y-1 min-w-0">
                   <div className="flex items-center gap-2">
-                    <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-secondary text-muted-foreground">
+                    <span className="text-xs font-bold px-2 py-0.5 rounded bg-secondary text-muted-foreground">
                       #{idx + 1}
                     </span>
                     {q.category_title && (
-                      <span className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground">
+                      <span className="text-xs font-bold uppercase tracking-wider text-muted-foreground">
                         {q.category_title}
                       </span>
                     )}
@@ -4704,3 +4406,5 @@ function BankSoalSection({
     </div>
   );
 }
+
+export default StudyGuide;

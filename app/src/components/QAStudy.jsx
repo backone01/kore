@@ -85,6 +85,7 @@ export function QAPlayerDeck({
   mode = 'sequential',
   onToggleMode = null,
   includeAnswers = true,
+  onToggleIncludeAnswers = null,
   gapCountdown = 0,
   hideText = false,
   onToggleCollapse = null,
@@ -93,6 +94,9 @@ export function QAPlayerDeck({
   currentIndex = 0,
   activeOpt = null,
   onPlayAnswer = null,
+  selOptIdx = 0,
+  onSelectOpt = null,
+  isPlayingAnswer = false,
 }) {
   const pct = prog && prog.d > 0 ? Math.min(100, (prog.t / prog.d) * 100) : 0;
   const canSeek = prog && prog.isFile && prog.d > 0 && onSeek;
@@ -147,7 +151,7 @@ export function QAPlayerDeck({
             </span>
             <div className="flex items-center gap-1.5 mt-0.5">
               {statusBadge}
-              <span className="font-mono text-[10px] text-muted-foreground">
+              <span className="font-mono text-xs text-muted-foreground">
                 {currentIndex + 1}/{totalCount}
               </span>
             </div>
@@ -220,7 +224,7 @@ export function QAPlayerDeck({
         ) : (
           <>
             <div>
-              <p className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground">
+              <p className="text-xs font-bold uppercase tracking-wider text-muted-foreground">
                 Pertanyaan Penguji (질문)
               </p>
               <h4 className="text-base sm:text-xl font-bold font-kr text-foreground mt-0.5 leading-snug">
@@ -233,51 +237,107 @@ export function QAPlayerDeck({
               )}
             </div>
 
-            {includeAnswers ? (
-              (currentQ?.answer_ko || activeOpt?.ko) && (
-                <div className="pt-2 border-t border-border/50 mt-2">
-                  <div className="flex items-center justify-between gap-2">
-                    <p className="text-[10px] font-bold uppercase tracking-wider text-emerald-700 dark:text-emerald-400">
-                      Kunci Jawaban Peserta (답변)
-                    </p>
-                    {onPlayAnswer && (
+            {(currentQ?.answer_ko || activeOpt?.ko || (currentQ?.answer_options && currentQ.answer_options.length > 0)) && (
+              <div className="pt-2.5 border-t border-border/60 mt-2 space-y-2">
+                {/* Header Jawaban + Tombol Putar Audio Jawaban */}
+                <div className="flex items-center justify-between gap-2 flex-wrap">
+                  <div className="flex items-center gap-2">
+                    <span className="text-xs font-bold uppercase tracking-wider text-emerald-700 dark:text-emerald-400">
+                      Kunci Jawaban (답변)
+                    </span>
+                    {onToggleIncludeAnswers ? (
                       <button
                         type="button"
-                        onClick={onPlayAnswer}
-                        title="Dengar jawaban ini saja"
-                        className="inline-flex items-center gap-1 text-[11px] font-bold text-emerald-700 dark:text-emerald-400 hover:underline"
+                        onClick={onToggleIncludeAnswers}
+                        className={cn(
+                          "text-[11px] px-2 py-0.5 rounded border transition-colors cursor-pointer font-semibold",
+                          includeAnswers
+                            ? "bg-emerald-500/15 text-emerald-700 dark:text-emerald-300 border-emerald-500/30 hover:bg-emerald-500/25"
+                            : "bg-secondary text-muted-foreground border-border hover:text-foreground"
+                        )}
+                        title="Klik untuk menyalakan/mematikan pemutaran jawaban otomatis saat autoplay"
                       >
-                        <Volume2 className="h-3 w-3" />
-                        <span>Dengar Jawaban</span>
+                        {includeAnswers ? "🔊 Jawaban Diputar Otomatis" : "🔇 Senyap saat autoplay (ketuk untuk aktifkan)"}
                       </button>
+                    ) : (
+                      !includeAnswers && (
+                        <span className="text-[11px] px-2 py-0.5 rounded bg-secondary text-muted-foreground font-medium">
+                          Senyap saat autoplay
+                        </span>
+                      )
                     )}
                   </div>
-                  <p className="text-sm sm:text-base font-bold font-kr text-emerald-700 dark:text-emerald-400 mt-0.5">
+
+                  {onPlayAnswer && (
+                    <Button
+                      type="button"
+                      variant={isPlayingAnswer ? "default" : "outline"}
+                      size="sm"
+                      onClick={() => onPlayAnswer(selOptIdx)}
+                      className={cn(
+                        "h-8 px-2.5 text-xs font-semibold gap-1.5 cursor-pointer shrink-0 transition-colors",
+                        isPlayingAnswer 
+                          ? "bg-emerald-600 text-white hover:bg-emerald-700" 
+                          : "text-emerald-700 dark:text-emerald-300 border-emerald-500/30 hover:bg-emerald-500/10"
+                      )}
+                      title="Putar suara rekaman jawaban untuk opsi yang sedang dipilih"
+                    >
+                      <Volume2 className="h-3.5 w-3.5" />
+                      <span>{isPlayingAnswer ? "Memutar Jawaban" : "Putar Jawaban"}</span>
+                    </Button>
+                  )}
+                </div>
+
+                {/* Selektor Opsi Jawaban (Jika pertanyaan memiliki banyak pilihan variasi jawaban) */}
+                {currentQ?.answer_options && currentQ.answer_options.length > 1 && (
+                  <div className="space-y-1 py-1">
+                    <div className="flex items-center justify-between text-[11px] font-bold text-muted-foreground uppercase tracking-wider">
+                      <span>Pilihan Opsi Jawaban:</span>
+                      <span className="text-[10px] text-emerald-600 dark:text-emerald-400 font-semibold normal-case">
+                        ✓ Diingat untuk semua soal
+                      </span>
+                    </div>
+                    <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-0.5">
+                      {currentQ.answer_options.map((opt, oi) => {
+                        const isSelected = (selOptIdx ?? 0) === oi;
+                        return (
+                          <button
+                            key={oi}
+                            type="button"
+                            onClick={() => onSelectOpt && onSelectOpt(oi)}
+                            className={cn(
+                              "px-2.5 py-1 rounded-md text-xs font-semibold transition-colors shrink-0 flex items-center gap-1 cursor-pointer",
+                              isSelected
+                                ? "bg-emerald-600 text-white shadow-xs font-bold"
+                                : "bg-secondary text-muted-foreground hover:text-foreground border border-border"
+                            )}
+                            title={`Pilih ${opt.label || `Opsi ${oi + 1}`} (otomatis diterapkan ke soal berikutnya)`}
+                          >
+                            <span>{opt.label || `Opsi ${oi + 1}`}</span>
+                            {isSelected && <span className="text-[10px] opacity-80">✓</span>}
+                          </button>
+                        );
+                      })}
+                    </div>
+                  </div>
+                )}
+
+                {/* Teks Jawaban Terpilih */}
+                <div className="space-y-0.5">
+                  <p className="text-sm sm:text-base font-bold font-kr text-emerald-700 dark:text-emerald-400 leading-snug">
                     {activeOpt?.ko || currentQ?.answer_ko}
                   </p>
+                  {(activeOpt?.ro || currentQ?.answer_ro || currentQ?.answer_romaja) && (
+                    <p className="text-xs text-muted-foreground font-mono">
+                      {activeOpt?.ro || currentQ?.answer_ro || currentQ?.answer_romaja}
+                    </p>
+                  )}
                   {(activeOpt?.id || currentQ?.answer_id) && (
-                    <p className="text-xs text-muted-foreground mt-0.5">
+                    <p className="text-xs text-muted-foreground">
                       {activeOpt?.id || currentQ?.answer_id}
                     </p>
                   )}
                 </div>
-              )
-            ) : (
-              <div className="pt-2 border-t border-border/50 mt-2 flex items-center justify-between gap-2">
-                <span className="text-[11px] text-muted-foreground">
-                  Mode: Hanya soal penguji (jawaban senyap)
-                </span>
-                {onPlayAnswer && (
-                  <button
-                    type="button"
-                    onClick={onPlayAnswer}
-                    title="Dengar kunci jawaban secara mandiri"
-                    className="inline-flex items-center gap-1 text-[11px] font-bold text-emerald-700 dark:text-emerald-400 hover:underline shrink-0"
-                  >
-                    <Volume2 className="h-3 w-3" />
-                    <span>Dengar Jawaban</span>
-                  </button>
-                )}
               </div>
             )}
           </>
@@ -308,7 +368,7 @@ export function QAPlayerDeck({
             />
           )}
         </div>
-        <div className="flex items-center justify-between text-[10px] font-mono text-muted-foreground px-0.5">
+        <div className="flex items-center justify-between text-xs font-mono text-muted-foreground px-0.5">
           <span>{fmtTime(prog ? prog.t : 0)}</span>
           <span>{prog && prog.d > 0 ? fmtTime(prog.d) : '0:00'}</span>
         </div>
@@ -323,14 +383,14 @@ export function QAPlayerDeck({
             onClick={onShuffle}
             title={ui.shuffle ? 'Acak urutan: Aktif' : 'Acak urutan: Nonaktif'}
             className={cn(
-              'px-3 py-1.5 rounded-lg border text-xs font-semibold transition-all min-h-[38px] flex items-center gap-1.5',
+              'px-3 rounded-lg border text-xs font-semibold transition-colors min-h-[44px] min-w-[44px] justify-center flex items-center gap-1.5 cursor-pointer',
               ui.shuffle
                 ? 'bg-foreground text-background border-foreground'
                 : 'bg-secondary text-muted-foreground border-border hover:text-foreground'
             )}
           >
             <Shuffle className="h-3.5 w-3.5" />
-            <span className="text-[11px] font-bold">{ui.shuffle ? 'Acak' : 'Urut'}</span>
+            <span className="hidden sm:inline text-xs font-bold">{ui.shuffle ? 'Acak' : 'Urut'}</span>
           </button>
 
           <div className="flex items-center justify-center gap-2.5">
@@ -339,7 +399,7 @@ export function QAPlayerDeck({
               disabled={isPlaying ? (!ui.repeat && ui.pos <= 0) : currentIndex <= 0}
               onClick={onPrev}
               title="Soal sebelumnya"
-              className="grid size-10 place-items-center rounded-lg border border-border bg-secondary hover:bg-secondary/80 text-foreground disabled:opacity-35 transition-all"
+              className="grid size-11 place-items-center rounded-lg border border-border bg-secondary hover:bg-secondary/80 text-foreground disabled:opacity-35 transition-all"
             >
               <ChevronLeft className="h-5 w-5" />
             </button>
@@ -348,7 +408,7 @@ export function QAPlayerDeck({
               type="button"
               onClick={onTogglePlay}
               title={isPlaying ? 'Jeda pemutar' : 'Putar audio'}
-              className="grid size-11 place-items-center rounded-full bg-primary text-primary-foreground shadow-sm hover:bg-primary/90 transition-transform active:scale-95 shrink-0"
+              className="grid size-12 place-items-center rounded-full bg-primary text-primary-foreground hover:bg-primary/90 transition-transform active:scale-95 shrink-0"
             >
               {isPlaying ? (
                 <Pause className="h-5 w-5" />
@@ -362,7 +422,7 @@ export function QAPlayerDeck({
               disabled={isPlaying ? (!ui.repeat && ui.pos >= (ui.total ? ui.total - 1 : totalCount - 1)) : currentIndex >= totalCount - 1}
               onClick={onNext}
               title="Soal berikutnya"
-              className="grid size-10 place-items-center rounded-lg border border-border bg-secondary hover:bg-secondary/80 text-foreground disabled:opacity-35 transition-all"
+              className="grid size-11 place-items-center rounded-lg border border-border bg-secondary hover:bg-secondary/80 text-foreground disabled:opacity-35 transition-all"
             >
               <ChevronRight className="h-5 w-5" />
             </button>
@@ -373,26 +433,31 @@ export function QAPlayerDeck({
             onClick={onRepeat}
             title={ui.repeat ? 'Ulangi playlist: Aktif' : 'Ulangi playlist: Nonaktif'}
             className={cn(
-              'px-3 py-1.5 rounded-lg border text-xs font-semibold transition-all min-h-[38px] flex items-center gap-1.5',
+              'px-3 rounded-lg border text-xs font-semibold transition-colors min-h-[44px] min-w-[44px] justify-center flex items-center gap-1.5 cursor-pointer',
               ui.repeat
                 ? 'bg-foreground text-background border-foreground'
                 : 'bg-secondary text-muted-foreground border-border hover:text-foreground'
             )}
           >
             <Repeat className="h-3.5 w-3.5" />
-            <span className="text-[11px] font-bold">{ui.repeat ? 'Loop' : '1x'}</span>
+            <span className="hidden sm:inline text-xs font-bold">{ui.repeat ? 'Ulang' : '1x'}</span>
           </button>
         </div>
 
-        {/* Baris Pengaturan: Mode Berurutan/1 Soal, Jeda Hafalan, Kecepatan */}
-        <div className="flex flex-wrap items-center justify-between gap-1.5 pt-2 border-t border-border/50">
+        {/* Pengaturan putar (dilipat agar pemutar tetap ringkas) */}
+        <details className="group border-t border-border/50 pt-1">
+          <summary className="flex items-center justify-between min-h-[44px] text-xs font-semibold text-muted-foreground cursor-pointer list-none [&::-webkit-details-marker]:hidden">
+            <span>Pengaturan putar</span>
+            <ChevronDown className="h-4 w-4 transition-transform group-open:rotate-180" />
+          </summary>
+        <div className="flex flex-wrap items-center justify-between gap-1.5 pt-1 pb-1">
           {onToggleMode && (
             <button
               type="button"
               onClick={onToggleMode}
               title={mode === 'sequential' ? 'Mode putar: Berurutan semua soal' : 'Mode putar: Hanya 1 soal ini'}
               className={cn(
-                'inline-flex items-center justify-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-semibold border transition-all min-h-[36px] flex-1 sm:flex-initial',
+                'inline-flex items-center justify-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-semibold border transition-all min-h-[44px] flex-1 sm:flex-initial',
                 mode === 'sequential'
                   ? 'bg-primary/10 text-primary border-primary/30'
                   : 'bg-secondary text-foreground border-border hover:bg-secondary/80'
@@ -405,14 +470,14 @@ export function QAPlayerDeck({
 
           {onSetDelay && (
             <div
-              className="inline-flex items-center justify-center gap-1 px-2 py-1 rounded-lg border border-border bg-secondary text-xs font-medium min-h-[36px]"
+              className="inline-flex items-center justify-center gap-1 px-2 py-1 rounded-lg border border-border bg-secondary text-xs font-medium min-h-[44px]"
               title="Jeda hafalan antar soal dan jawaban"
             >
               <span className="text-[11px] text-muted-foreground">Jeda:</span>
               <button
                 type="button"
                 onClick={() => onSetDelay(Math.max(0, delaySecs - 1))}
-                className="w-6 h-6 rounded flex items-center justify-center font-bold hover:bg-background text-foreground"
+                className="w-9 h-9 rounded flex items-center justify-center font-bold hover:bg-background text-foreground"
               >
                 -
               </button>
@@ -422,7 +487,7 @@ export function QAPlayerDeck({
               <button
                 type="button"
                 onClick={() => onSetDelay(Math.min(15, delaySecs + 1))}
-                className="w-6 h-6 rounded flex items-center justify-center font-bold hover:bg-background text-foreground"
+                className="w-9 h-9 rounded flex items-center justify-center font-bold hover:bg-background text-foreground"
               >
                 +
               </button>
@@ -434,12 +499,13 @@ export function QAPlayerDeck({
               type="button"
               onClick={onCycleRate}
               title="Kecepatan putar suara"
-              className="px-2.5 py-1.5 rounded-lg border border-border bg-secondary hover:bg-secondary/80 font-mono text-xs font-bold text-foreground min-h-[36px]"
+              className="px-2.5 py-1.5 rounded-lg border border-border bg-secondary hover:bg-secondary/80 font-mono text-xs font-bold text-foreground min-h-[44px]"
             >
               {rate}x
             </button>
           )}
         </div>
+        </details>
       </div>
     </div>
   );
@@ -529,7 +595,7 @@ export function QAList({
                 </div>
                 <div className="flex items-center gap-1.5 text-[11px] text-muted-foreground truncate mt-0.5">
                   {q.level_mark && (
-                    <span className="font-mono text-[10px] font-bold text-amber-600 dark:text-amber-400 shrink-0">
+                    <span className="font-mono text-xs font-bold text-amber-600 dark:text-amber-400 shrink-0">
                       [{q.level_mark}]
                     </span>
                   )}
@@ -615,12 +681,12 @@ export function QADetail({
             #{num} · {subLabel}
           </span>
           {q.phase_ko && (
-            <span className="text-[10px] font-semibold px-2 py-0.5 rounded bg-muted text-muted-foreground border border-border">
+            <span className="text-xs font-semibold px-2 py-0.5 rounded bg-muted text-muted-foreground border border-border">
               {q.phase_ko} ({q.phase_id})
             </span>
           )}
           {q.level_mark && (
-            <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/20">
+            <span className="text-xs font-bold px-2 py-0.5 rounded bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/20">
               Tingkat {q.level_mark}
             </span>
           )}
@@ -739,9 +805,9 @@ export function QADetail({
                 )}
               >
                 <div className="flex items-center justify-between gap-1">
-                  <span className="text-[10px] font-bold text-primary">{opt.badge || opt.label}</span>
+                  <span className="text-xs font-bold text-primary">{opt.badge || opt.label}</span>
                   {(selOptIdx ?? 0) === oi && (
-                    <span className="text-[10px] font-bold text-emerald-600 dark:text-emerald-400">✓ Dipilih</span>
+                    <span className="text-xs font-bold text-emerald-600 dark:text-emerald-400">✓ Dipilih</span>
                   )}
                 </div>
                 <p className="text-sm sm:text-base font-bold font-kr text-foreground leading-snug break-keep">
@@ -780,7 +846,7 @@ export function QADetail({
   );
 }
 
-// --- Bar Tampilan: Daftar/Satu item + Sertakan/Hanya pertanyaan + Teks ---
+// --- Bar Tampilan: Daftar/Satu item + opsi tampilan (saklar) ---
 export function QAViewBar({
   view = 'list',
   onView,
@@ -796,63 +862,84 @@ export function QAViewBar({
 }) {
   const segBtn = (active) =>
     cn(
-      'px-3 py-1.5 rounded-md text-[11px] font-bold transition-all min-h-[30px] cursor-pointer',
+      'flex-1 px-3 rounded-md text-sm font-semibold transition-colors min-h-[40px] cursor-pointer',
       active
-        ? 'bg-foreground text-background shadow-xs'
+        ? 'bg-card text-foreground shadow-xs'
         : 'text-muted-foreground hover:text-foreground'
     );
 
+  const Row = ({ label, hint, on, onClick }) => (
+    <button
+      type="button"
+      role="switch"
+      aria-checked={on}
+      onClick={onClick}
+      className="w-full flex items-center justify-between gap-3 min-h-[52px] px-1 text-left cursor-pointer"
+    >
+      <span className="min-w-0">
+        <span className="block text-sm font-semibold text-foreground">{label}</span>
+        {hint && <span className="block text-xs text-muted-foreground">{hint}</span>}
+      </span>
+      <span
+        className={cn(
+          'relative h-6 w-11 shrink-0 rounded-full transition-colors',
+          on ? 'bg-primary' : 'bg-border'
+        )}
+      >
+        <span
+          className={cn(
+            'absolute top-0.5 h-5 w-5 rounded-full bg-white transition-all',
+            on ? 'left-[22px]' : 'left-0.5'
+          )}
+        />
+      </span>
+    </button>
+  );
+
   return (
-    <div className="space-y-1.5">
-      <div className="flex items-center gap-2 flex-wrap">
-        <div className="inline-flex rounded-lg border border-border bg-card p-0.5 gap-0.5">
-          <button type="button" onClick={() => onView('list')} className={segBtn(view === 'list')}>
-            Daftar
-          </button>
-          <button type="button" onClick={() => onView('single')} className={segBtn(view === 'single')}>
-            Satu item
-          </button>
-        </div>
-
-        <div className="inline-flex rounded-lg border border-border bg-card p-0.5 gap-0.5">
-          <button type="button" onClick={onOnlyQ} className={segBtn(hideAnswers)}>
-            🙈 Tutup Semua Jawaban
-          </button>
-          <button type="button" onClick={onWithA} className={segBtn(!hideAnswers)}>
-            👁️ Buka Semua Jawaban
-          </button>
-        </div>
-
-        {onToggleShowAllOptions && (
-          <div className="inline-flex rounded-lg border border-border bg-card p-0.5 gap-0.5">
-            <button
-              type="button"
-              onClick={onToggleShowAllOptions}
-              className={segBtn(showAllOptions)}
-              title="Tampilkan seluruh variasi jawaban sekaligus (Mudah, Standar, Lengkap)"
-            >
-              {showAllOptions ? '👁️ Semua Opsi Terbuka' : '⚡ 1 Opsi Ringkas'}
-            </button>
-          </div>
-        )}
-
-        {onToggleHideText && (
-          <div className="inline-flex rounded-lg border border-border bg-card p-0.5 gap-0.5">
-            <button
-              type="button"
-              onClick={onToggleHideText}
-              className={segBtn(hideText)}
-              title="Sembunyikan teks untuk latihan mendengar murni"
-            >
-              {hideText ? 'Dengar Murni' : 'Tampilkan Teks'}
-            </button>
-          </div>
-        )}
+    <div className="space-y-2">
+      <div className="flex p-1 rounded-lg bg-secondary gap-1" role="tablist">
+        <button type="button" role="tab" aria-selected={view === 'list'} onClick={() => onView('list')} className={segBtn(view === 'list')}>
+          Daftar
+        </button>
+        <button type="button" role="tab" aria-selected={view === 'single'} onClick={() => onView('single')} className={segBtn(view === 'single')}>
+          Satu item
+        </button>
       </div>
 
-      <p className="text-[11px] text-muted-foreground">
-        Menampilkan {visible}/{total} soal · Ketuk tombol putar di nomor mana saja untuk memutar berurutan dari nomor tersebut.
-      </p>
+      <details className="group rounded-lg border border-border bg-card px-3">
+        <summary className="flex items-center justify-between min-h-[44px] text-sm font-semibold text-foreground cursor-pointer list-none [&::-webkit-details-marker]:hidden">
+          <span>
+            Opsi tampilan
+            <span className="ml-2 text-xs font-normal text-muted-foreground">{visible}/{total} soal</span>
+          </span>
+          <ChevronDown className="h-4 w-4 text-muted-foreground transition-transform group-open:rotate-180" />
+        </summary>
+        <div className="divide-y divide-border border-t border-border">
+          <Row
+            label="Tampilkan jawaban"
+            hint="Buka kunci jawaban di semua soal"
+            on={!hideAnswers}
+            onClick={hideAnswers ? onWithA : onOnlyQ}
+          />
+          {onToggleShowAllOptions && (
+            <Row
+              label="Semua variasi jawaban"
+              hint="Mudah, Standar, dan Lengkap sekaligus"
+              on={showAllOptions}
+              onClick={onToggleShowAllOptions}
+            />
+          )}
+          {onToggleHideText && (
+            <Row
+              label="Tampilkan teks"
+              hint="Matikan untuk latihan mendengar murni"
+              on={!hideText}
+              onClick={onToggleHideText}
+            />
+          )}
+        </div>
+      </details>
     </div>
   );
 }

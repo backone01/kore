@@ -193,7 +193,10 @@ export const SUB_CATEGORIES = {
     { id: 'pik_evakuasi', label: '안내·소방 · Evakuasi & Fasilitas (31 Rambu)', shortLabel: '안내·소방 (Evakuasi)' },
   ],
   tools: [
-    { id: 'tools', label: 'Semua Alat Kerja (90 Alat)', shortLabel: 'Semua Alat' },
+    { id: 'tools', label: 'Campur Simulasi Ujian (Nama, Fungsi & Instruksi · 256 Soal)', shortLabel: 'Campur Ujian' },
+    { id: 'alat_nama', label: '1. Tebak Nama Alat (90 Soal · 이것은 무엇입니까?)', shortLabel: 'Tebak Nama' },
+    { id: 'alat_fungsi', label: '2. Fungsi Perkakas (112 Soal · 언제 사용해요?)', shortLabel: 'Fungsi Alat' },
+    { id: 'praktik_alat', label: '3. Instruksi Kerja Praktik (54 Soal · 작업지시)', shortLabel: 'Instruksi Kerja' },
     { id: 'alat_dasar', label: 'Tingkat Dasar (하)', shortLabel: 'Tingkat Dasar' },
     { id: 'alat_menengah', label: 'Tingkat Menengah (중)', shortLabel: 'Tingkat Menengah' },
     { id: 'alat_atas', label: 'Tingkat Atas (상)', shortLabel: 'Tingkat Atas' },
@@ -244,6 +247,20 @@ export function filterQuestionsByCategory(questions, selectedCatId) {
   // 1. Standar Modul Utama
   const mod = HRDK_MODULES.find(m => m.id === selectedCatId);
   if (mod && mod.categories.length > 0) {
+    if (selectedCatId === 'tools') {
+      // Selang-selingkan nama alat, fungsi alat, dan instruksi kerja agar variatif seperti ujian asli
+      const nama = questions.filter(q => q.category === 'alat_manufaktur' || q.category === 'alat_klasik');
+      const fungsi = questions.filter(q => q.category === 'fungsi_alat');
+      const instruksi = questions.filter(q => q.category === 'praktik_alat' || q.category === 'perintah_alat');
+      const maxLen = Math.max(nama.length, fungsi.length, instruksi.length);
+      const mixed = [];
+      for (let i = 0; i < maxLen; i++) {
+        if (i < nama.length) mixed.push(nama[i]);
+        if (i < fungsi.length) mixed.push(fungsi[i]);
+        if (i < instruksi.length) mixed.push(instruksi[i]);
+      }
+      return mixed;
+    }
     return questions.filter(q => mod.categories.includes(q.category));
   }
 
@@ -276,17 +293,26 @@ export function filterQuestionsByCategory(questions, selectedCatId) {
   }
 
   // 4. Sub-Kategori Perkakas & Alat Kerja
+  if (selectedCatId === 'alat_nama') {
+    return questions.filter(q => q.category === 'alat_manufaktur' || q.category === 'alat_klasik');
+  }
+  if (selectedCatId === 'alat_fungsi' || selectedCatId === 'fungsi_alat') {
+    return questions.filter(q => q.category === 'fungsi_alat');
+  }
+  if (selectedCatId === 'praktik_alat' || selectedCatId === 'perintah_alat') {
+    return questions.filter(q => q.category === 'praktik_alat' || q.category === 'perintah_alat');
+  }
   if (selectedCatId === 'alat_dasar') {
-    return questions.filter(q => (q.category === 'alat_manufaktur' || q.category === 'alat_klasik') && (q.level === 'Dasar' || q.level === 'Rendah'));
+    return questions.filter(q => (q.category === 'alat_manufaktur' || q.category === 'alat_klasik' || q.category === 'fungsi_alat') && (q.level === 'Dasar' || q.level === 'Rendah'));
   }
   if (selectedCatId === 'alat_menengah') {
-    return questions.filter(q => (q.category === 'alat_manufaktur' || q.category === 'alat_klasik') && (q.level === 'Menengah' || q.level === 'Sedang'));
+    return questions.filter(q => (q.category === 'alat_manufaktur' || q.category === 'alat_klasik' || q.category === 'fungsi_alat') && (q.level === 'Menengah' || q.level === 'Sedang'));
   }
   if (selectedCatId === 'alat_atas') {
-    return questions.filter(q => (q.category === 'alat_manufaktur' || q.category === 'alat_klasik') && (q.level === 'Atas' || q.level === 'Tinggi'));
+    return questions.filter(q => (q.category === 'alat_manufaktur' || q.category === 'alat_klasik' || q.category === 'fungsi_alat') && (q.level === 'Atas' || q.level === 'Tinggi'));
   }
   if (selectedCatId === 'alat_apd') {
-    return questions.filter(q => (q.category === 'alat_manufaktur' || q.category === 'alat_klasik') && (q.level === 'Wajib' || q.category === 'alat_klasik'));
+    return questions.filter(q => (q.category === 'alat_manufaktur' || q.category === 'alat_klasik' || q.category === 'fungsi_alat') && (q.level === 'Wajib' || q.category === 'alat_klasik'));
   }
 
   // 5. Sub-Kategori Gerak Fisik Tubuh (따라하세요)

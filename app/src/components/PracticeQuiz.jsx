@@ -172,39 +172,39 @@ export function PracticeQuiz({
   return (
     <div className="w-full max-w-xl mx-auto flex flex-col items-center">
 
-      {/* Compact single-row horizontal toolbar */}
-      <div className="w-full flex flex-wrap items-center justify-between gap-2 pb-2.5 mb-2.5 border-b border-border text-xs">
+      {/* Clean, Modern Toolbar */}
+      <div className="w-full flex items-center justify-between gap-2 pb-2.5 mb-2.5 border-b border-border text-xs">
         <div className="flex items-center gap-2">
-          <span className="font-mono font-bold text-foreground">
-            {currentIndex + 1} / {quizQuestions.length}
+          <span className="font-mono font-bold text-foreground text-sm">
+            #{currentIndex + 1} <span className="text-muted-foreground text-xs font-normal">/ {quizQuestions.length}</span>
           </span>
           <span className="text-muted-foreground">·</span>
-          <span className="font-mono text-[11px] font-bold text-emerald-700">✓ {score.correct}</span>
-          <span className="font-mono text-[11px] font-bold text-red-700">✗ {score.wrong}</span>
+          <span className="font-mono text-xs font-bold text-emerald-700 dark:text-emerald-400">✓ {score.correct}</span>
+          <span className="font-mono text-xs font-bold text-red-700 dark:text-red-400">✗ {score.wrong}</span>
         </div>
 
-        <div className="flex flex-wrap items-center gap-1.5">
+        <div className="flex items-center gap-1.5">
           {/* Option language toggle */}
-          <div className="inline-flex rounded-md border border-border bg-secondary p-0.5">
+          <div className="inline-flex rounded-lg border border-border bg-secondary p-0.5">
             <button
               type="button"
               onClick={() => setOptionLang('ko')}
               className={cn(
-                'px-2 py-0.5 rounded text-[11px] font-medium transition-colors',
+                'px-2.5 py-1 rounded-md text-xs font-semibold transition-colors cursor-pointer',
                 optionLang === 'ko' ? 'bg-card text-foreground shadow-xs' : 'text-muted-foreground hover:text-foreground'
               )}
             >
-              Opsi KR
+              KR
             </button>
             <button
               type="button"
               onClick={() => setOptionLang('id')}
               className={cn(
-                'px-2 py-0.5 rounded text-[11px] font-medium transition-colors',
+                'px-2.5 py-1 rounded-md text-xs font-semibold transition-colors cursor-pointer',
                 optionLang === 'id' ? 'bg-card text-foreground shadow-xs' : 'text-muted-foreground hover:text-foreground'
               )}
             >
-              Opsi ID
+              ID
             </button>
           </div>
 
@@ -213,34 +213,33 @@ export function PracticeQuiz({
             value={questionLang}
             onChange={(e) => setQuestionLang(e.target.value)}
             aria-label="Bahasa Soal"
-            className="bg-card border border-border text-foreground font-medium text-[11px] px-2 py-1 rounded-md focus:outline-none focus:ring-2 focus:ring-ring"
+            className="bg-card border border-border text-foreground font-semibold text-xs px-2.5 py-1.5 rounded-lg focus:outline-none focus:ring-2 focus:ring-ring cursor-pointer"
           >
-            <option value="bilingual">Soal: 2 Bahasa</option>
-            <option value="ko">Soal: Korea</option>
-            <option value="id">Soal: Indo</option>
+            <option value="bilingual">2 Bahasa</option>
+            <option value="ko">Soal: KR</option>
+            <option value="id">Soal: ID</option>
           </select>
-
-          <button
-            type="button"
-            onClick={() => setShowOptionHint(!showOptionHint)}
-            title="Tampilkan arti bantuan di bawah teks pilihan"
-            className={cn(
-              'inline-flex items-center gap-1 px-2 py-1 rounded-md border text-[11px] font-medium transition-colors',
-              showOptionHint
-                ? 'bg-primary/10 text-primary border-primary/30'
-                : 'bg-card text-muted-foreground border-border hover:text-foreground'
-            )}
-          >
-            {showOptionHint ? <Eye className="h-3 w-3" /> : <EyeOff className="h-3 w-3" />}
-            <span>Arti {showOptionHint ? 'ON' : 'OFF'}</span>
-          </button>
 
           <Button
             variant="outline"
-            size="icon"
+            size="sm"
+            onClick={() => setShowOptionHint(!showOptionHint)}
+            title="Tampilkan arti bantuan di bawah teks pilihan"
+            className={cn(
+              'h-8 px-2 text-xs font-medium gap-1',
+              showOptionHint ? 'border-primary/40 text-primary bg-primary/10' : 'text-muted-foreground'
+            )}
+          >
+            {showOptionHint ? <Eye className="h-3.5 w-3.5" /> : <EyeOff className="h-3.5 w-3.5" />}
+            <span className="hidden sm:inline">Arti</span>
+          </Button>
+
+          <Button
+            variant="outline"
+            size="sm"
             onClick={handleShuffle}
-            title="Acak ulang urutan kuis"
-            className="h-7 w-7"
+            title="Acak urutan soal kuis"
+            className="h-8 px-2 text-xs text-muted-foreground hover:text-foreground"
           >
             <Shuffle className="h-3.5 w-3.5" />
           </Button>

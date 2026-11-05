@@ -207,79 +207,55 @@ export function PracticeListening({
   return (
     <div className="w-full max-w-xl mx-auto flex flex-col items-center animate-fade-in text-foreground">
 
-      {/* Compact single-row horizontal toolbar */}
-      <div className="w-full flex flex-wrap items-center justify-between gap-2 pb-2.5 mb-2.5 border-b border-border text-xs">
+      {/* Clean Toolbar */}
+      <div className="w-full flex items-center justify-between gap-2 pb-2.5 mb-2.5 border-b border-border text-xs">
         <div className="flex items-center gap-2">
-          <span className="font-mono font-bold text-foreground">
-            {currentIndex + 1} / {shuffledQuestions.length}
+          <span className="font-mono font-bold text-foreground text-sm">
+            #{currentIndex + 1} <span className="text-muted-foreground text-xs font-normal">/ {shuffledQuestions.length}</span>
           </span>
           <span className="text-muted-foreground">·</span>
-          <span className="font-mono text-[11px] font-bold text-emerald-700">✓ {score.correct}</span>
-          <span className="font-mono text-[11px] font-bold text-red-700">✗ {score.wrong}</span>
+          <span className="font-mono text-xs font-bold text-emerald-700 dark:text-emerald-400">✓ {score.correct}</span>
+          <span className="font-mono text-xs font-bold text-red-700 dark:text-red-400">✗ {score.wrong}</span>
         </div>
 
-        <div className="flex flex-wrap items-center gap-1.5">
+        <div className="flex items-center gap-2">
           {/* Option language toggle */}
-          <div className="inline-flex rounded-md border border-border bg-secondary p-0.5">
+          <div className="inline-flex rounded-lg border border-border bg-secondary p-0.5">
             <button
               type="button"
               onClick={() => setOptionLang('ko')}
               className={cn(
-                'px-2 py-0.5 rounded text-[11px] font-medium transition-colors',
+                'px-2.5 py-1 rounded-md text-xs font-semibold transition-colors cursor-pointer',
                 optionLang === 'ko' ? 'bg-card text-foreground shadow-xs' : 'text-muted-foreground hover:text-foreground'
               )}
             >
-              Opsi KR
+              KR
             </button>
             <button
               type="button"
               onClick={() => setOptionLang('id')}
               className={cn(
-                'px-2 py-0.5 rounded text-[11px] font-medium transition-colors',
+                'px-2.5 py-1 rounded-md text-xs font-semibold transition-colors cursor-pointer',
                 optionLang === 'id' ? 'bg-card text-foreground shadow-xs' : 'text-muted-foreground hover:text-foreground'
               )}
             >
-              Opsi ID
+              ID
             </button>
           </div>
 
-          <button
-            type="button"
-            onClick={() => {
-              setPlaybackRate(prev => {
-                let next = 1.0;
-                if (prev >= 0.95) next = 0.8;
-                else if (prev >= 0.75) next = 0.65;
-                else next = 1.0;
-                try { localStorage.setItem('kore_audio_speed', String(next)); } catch {}
-                return next;
-              });
-            }}
-            className={cn(
-              'px-2 py-1 rounded-md border text-[11px] font-mono font-bold transition-colors',
-              playbackRate < 1.0
-                ? 'bg-warn/10 text-warn border-warn/30'
-                : 'bg-card text-muted-foreground border-border hover:text-foreground'
-            )}
-            title="Atur kecepatan audio (0.8x / 0.65x untuk pemula, 1.0x kecepatan asli penguji)"
-          >
-            {playbackRate}x
-          </button>
-
-          <button
-            type="button"
+          <Button
+            variant="outline"
+            size="sm"
             onClick={() => setShowScript(!showScript)}
             title="Buka naskah teks pertanyaan jika Anda tidak menangkap suara penguji"
             className={cn(
-              'inline-flex items-center gap-1 px-2 py-1 rounded-md border text-[11px] font-medium transition-colors',
-              showScript
-                ? 'bg-primary/10 text-primary border-primary/30'
-                : 'bg-card text-muted-foreground border-border hover:text-foreground'
+              'h-8 px-2.5 text-xs font-semibold gap-1.5',
+              showScript ? 'border-primary/40 text-primary bg-primary/10' : 'text-muted-foreground hover:text-foreground'
             )}
           >
-            {showScript ? <EyeOff className="h-3 w-3" /> : <Eye className="h-3 w-3" />}
+            {showScript ? <EyeOff className="h-3.5 w-3.5" /> : <Eye className="h-3.5 w-3.5" />}
             <span>{showScript ? 'Tutup Teks' : 'Buka Teks'}</span>
-          </button>
+          </Button>
         </div>
       </div>
 
@@ -307,7 +283,7 @@ export function PracticeListening({
 
         {showScript && (
           <div className="w-full mt-4 pt-3.5 border-t border-border/60 text-center animate-fade-in space-y-1">
-            <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider block">
+            <span className="text-xs font-bold text-muted-foreground uppercase tracking-wider block">
               Naskah Transkrip Soal Asli
             </span>
             <h3 className="text-lg md:text-xl font-bold text-foreground font-kr">
