@@ -1386,59 +1386,15 @@
     "title_id": "Dilarang menggunakan ponsel"
   },
   {
-    "id": "pic_130",
+    "id": "pic_143",
     "category": "안내표지 (Evakuasi & Pertolongan)",
     "group": "Piktogram K3",
     "level": "Wajib",
     "source": "Buku Panduan Sistem Poin HRD Korea",
-    "filename": "65_안내_구급가방_Kotak_P3K.png",
-    "image_url": "/assets_resmi/04_Piktogram_Keselamatan_Resmi/65_안내_구급가방_Kotak_P3K.png",
-    "title_ko": "구급가방",
-    "title_id": "Kotak P3K"
-  },
-  {
-    "id": "pic_131",
-    "category": "안내표지 (Evakuasi & Pertolongan)",
-    "group": "Piktogram K3",
-    "level": "Wajib",
-    "source": "Buku Panduan Sistem Poin HRD Korea",
-    "filename": "66_안내_구명부이_Pelampung_penolong.png",
-    "image_url": "/assets_resmi/04_Piktogram_Keselamatan_Resmi/66_안내_구명부이_Pelampung_penolong.png",
-    "title_ko": "구명부이",
-    "title_id": "Pelampung penolong"
-  },
-  {
-    "id": "pic_132",
-    "category": "안내표지 (Evakuasi & Pertolongan)",
-    "group": "Piktogram K3",
-    "level": "Wajib",
-    "source": "Buku Panduan Sistem Poin HRD Korea",
-    "filename": "67_안내_구명조끼_Rompi_pelampung.png",
-    "image_url": "/assets_resmi/04_Piktogram_Keselamatan_Resmi/67_안내_구명조끼_Rompi_pelampung.png",
-    "title_ko": "구명조끼",
-    "title_id": "Rompi pelampung"
-  },
-  {
-    "id": "pic_133",
-    "category": "안내표지 (Evakuasi & Pertolongan)",
-    "group": "Piktogram K3",
-    "level": "Wajib",
-    "source": "Buku Panduan Sistem Poin HRD Korea",
-    "filename": "68_안내_구조창문_Jendela_penyelamatan_darurat.png",
-    "image_url": "/assets_resmi/04_Piktogram_Keselamatan_Resmi/68_안내_구조창문_Jendela_penyelamatan_darurat.png",
-    "title_ko": "구조창문",
-    "title_id": "Jendela penyelamatan darurat"
-  },
-  {
-    "id": "pic_134",
-    "category": "안내표지 (Evakuasi & Pertolongan)",
-    "group": "Piktogram K3",
-    "level": "Wajib",
-    "source": "Buku Panduan Sistem Poin HRD Korea",
-    "filename": "69_안내_들것_Alat_tandu_darurat.png",
-    "image_url": "/assets_resmi/04_Piktogram_Keselamatan_Resmi/69_안내_들것_Alat_tandu_darurat.png",
-    "title_ko": "들것",
-    "title_id": "Alat tandu darurat"
+    "filename": "78_안내_시계방향으로_열림_Buka_searah_jarum_jam.png",
+    "image_url": "/assets_resmi/04_Piktogram_Keselamatan_Resmi/78_안내_시계방향으로_열림_Buka_searah_jarum_jam.png",
+    "title_ko": "시계방향으로 열림",
+    "title_id": "Buka searah jarum jam"
   },
   {
     "id": "pic_135",
@@ -1474,6 +1430,138 @@
     "title_id": "Pintu darurat (ke arah kiri)"
   },
   {
+    "id": "pic_146",
+    "category": "안내표지 (Evakuasi & Pertolongan)",
+    "group": "Piktogram K3",
+    "level": "Wajib",
+    "source": "Buku Panduan Sistem Poin HRD Korea",
+    "filename": "81_안내_오른쪽_슬라이딩_도어_Pintu_geser_ke_arah_kanan.png",
+    "image_url": "/assets_resmi/04_Piktogram_Keselamatan_Resmi/81_안내_오른쪽_슬라이딩_도어_Pintu_geser_ke_arah_kanan.png",
+    "title_ko": "오른쪽 슬라이딩 도어",
+    "title_id": "Pintu geser ke arah kanan"
+  },
+  {
+    "id": "pic_149",
+    "category": "안내표지 (Evakuasi & Pertolongan)",
+    "group": "Piktogram K3",
+    "level": "Wajib",
+    "source": "Buku Panduan Sistem Poin HRD Korea",
+    "filename": "84_안내_왼쪽_슬라이딩_도어_Pintu_geser_ke_arah_kiri.png",
+    "image_url": "/assets_resmi/04_Piktogram_Keselamatan_Resmi/84_안내_왼쪽_슬라이딩_도어_Pintu_geser_ke_arah_kiri.png",
+    "title_ko": "왼쪽 슬라이딩 도어",
+    "title_id": "Pintu geser ke arah kiri"
+  },
+  {
+    "id": "pic_147",
+    "category": "안내표지 (Evakuasi & Pertolongan)",
+    "group": "Piktogram K3",
+    "level": "Wajib",
+    "source": "Buku Panduan Sistem Poin HRD Korea",
+    "filename": "82_안내_오른쪽을_당기면_열리는_문_Pintu_tarik_ke_arah_kanan_untu.png",
+    "image_url": "/assets_resmi/04_Piktogram_Keselamatan_Resmi/82_안내_오른쪽을_당기면_열리는_문_Pintu_tarik_ke_arah_kanan_untu.png",
+    "title_ko": "오른쪽을 당기면 열리는 문",
+    "title_id": "Pintu tarik ke arah kanan untuk membuka"
+  },
+  {
+    "id": "pic_151",
+    "category": "안내표지 (Evakuasi & Pertolongan)",
+    "group": "Piktogram K3",
+    "level": "Wajib",
+    "source": "Buku Panduan Sistem Poin HRD Korea",
+    "filename": "86_안내_왼쪽을_당기면_열리는_문_Pintu_tarik_ke_arah_kiri_untuk.png",
+    "image_url": "/assets_resmi/04_Piktogram_Keselamatan_Resmi/86_안내_왼쪽을_당기면_열리는_문_Pintu_tarik_ke_arah_kiri_untuk.png",
+    "title_ko": "왼쪽을 당기면 열리는 문",
+    "title_id": "Pintu tarik ke arah kiri untuk membuka"
+  },
+  {
+    "id": "pic_148",
+    "category": "안내표지 (Evakuasi & Pertolongan)",
+    "group": "Piktogram K3",
+    "level": "Wajib",
+    "source": "Buku Panduan Sistem Poin HRD Korea",
+    "filename": "83_안내_오른쪽을_밀면_열리는_문_Pintu_dorong_ke_arah_kanan_unt.png",
+    "image_url": "/assets_resmi/04_Piktogram_Keselamatan_Resmi/83_안내_오른쪽을_밀면_열리는_문_Pintu_dorong_ke_arah_kanan_unt.png",
+    "title_ko": "오른쪽을 밀면 열리는 문",
+    "title_id": "Pintu dorong ke arah kanan untuk membuka"
+  },
+  {
+    "id": "pic_150",
+    "category": "안내표지 (Evakuasi & Pertolongan)",
+    "group": "Piktogram K3",
+    "level": "Wajib",
+    "source": "Buku Panduan Sistem Poin HRD Korea",
+    "filename": "85_안내_왼쪽으로_밀면_열리는_문_Pintu_dorong_ke_arah_kiri_untu.png",
+    "image_url": "/assets_resmi/04_Piktogram_Keselamatan_Resmi/85_안내_왼쪽으로_밀면_열리는_문_Pintu_dorong_ke_arah_kiri_untu.png",
+    "title_ko": "왼쪽으로 밀면 열리는 문",
+    "title_id": "Pintu dorong ke arah kiri untuk membuka"
+  },
+  {
+    "id": "pic_134",
+    "category": "안내표지 (Evakuasi & Pertolongan)",
+    "group": "Piktogram K3",
+    "level": "Wajib",
+    "source": "Buku Panduan Sistem Poin HRD Korea",
+    "filename": "69_안내_들것_Alat_tandu_darurat.png",
+    "image_url": "/assets_resmi/04_Piktogram_Keselamatan_Resmi/69_안내_들것_Alat_tandu_darurat.png",
+    "title_ko": "들것",
+    "title_id": "Alat tandu darurat"
+  },
+  {
+    "id": "pic_130",
+    "category": "안내표지 (Evakuasi & Pertolongan)",
+    "group": "Piktogram K3",
+    "level": "Wajib",
+    "source": "Buku Panduan Sistem Poin HRD Korea",
+    "filename": "65_안내_구급가방_Kotak_P3K.png",
+    "image_url": "/assets_resmi/04_Piktogram_Keselamatan_Resmi/65_안내_구급가방_Kotak_P3K.png",
+    "title_ko": "구급가방",
+    "title_id": "Kotak P3K"
+  },
+  {
+    "id": "pic_152",
+    "category": "안내표지 (Evakuasi & Pertolongan)",
+    "group": "Piktogram K3",
+    "level": "Wajib",
+    "source": "Buku Panduan Sistem Poin HRD Korea",
+    "filename": "87_안내_응급처치_Pos_pertolongan_pertama.png",
+    "image_url": "/assets_resmi/04_Piktogram_Keselamatan_Resmi/87_안내_응급처치_Pos_pertolongan_pertama.png",
+    "title_ko": "응급처치",
+    "title_id": "Pos pertolongan pertama"
+  },
+  {
+    "id": "pic_145",
+    "category": "안내표지 (Evakuasi & Pertolongan)",
+    "group": "Piktogram K3",
+    "level": "Wajib",
+    "source": "Buku Panduan Sistem Poin HRD Korea",
+    "filename": "80_안내_심장박동기_Alat_pacu_jantung_darurat.png",
+    "image_url": "/assets_resmi/04_Piktogram_Keselamatan_Resmi/80_안내_심장박동기_Alat_pacu_jantung_darurat.png",
+    "title_ko": "심장박동기",
+    "title_id": "Alat pacu jantung darurat"
+  },
+  {
+    "id": "pic_142",
+    "category": "안내표지 (Evakuasi & Pertolongan)",
+    "group": "Piktogram K3",
+    "level": "Wajib",
+    "source": "Buku Panduan Sistem Poin HRD Korea",
+    "filename": "77_안내_산소호흡기_Alat_pernapasan_oksigen.png",
+    "image_url": "/assets_resmi/04_Piktogram_Keselamatan_Resmi/77_안내_산소호흡기_Alat_pernapasan_oksigen.png",
+    "title_ko": "산소호흡기",
+    "title_id": "Alat pernapasan oksigen"
+  },
+  {
+    "id": "pic_140",
+    "category": "안내표지 (Evakuasi & Pertolongan)",
+    "group": "Piktogram K3",
+    "level": "Wajib",
+    "source": "Buku Panduan Sistem Poin HRD Korea",
+    "filename": "75_안내_비상탈출용_호흡기_Alat_pernapasan_pelarian_darur.png",
+    "image_url": "/assets_resmi/04_Piktogram_Keselamatan_Resmi/75_안내_비상탈출용_호흡기_Alat_pernapasan_pelarian_darur.png",
+    "title_ko": "비상탈출용 호흡기",
+    "title_id": "Alat pernapasan pelarian darurat"
+  },
+  {
     "id": "pic_138",
     "category": "안내표지 (Evakuasi & Pertolongan)",
     "group": "Piktogram K3",
@@ -1496,15 +1584,15 @@
     "title_id": "Telepon darurat"
   },
   {
-    "id": "pic_140",
+    "id": "pic_133",
     "category": "안내표지 (Evakuasi & Pertolongan)",
     "group": "Piktogram K3",
     "level": "Wajib",
     "source": "Buku Panduan Sistem Poin HRD Korea",
-    "filename": "75_안내_비상탈출용_호흡기_Alat_pernapasan_pelarian_darur.png",
-    "image_url": "/assets_resmi/04_Piktogram_Keselamatan_Resmi/75_안내_비상탈출용_호흡기_Alat_pernapasan_pelarian_darur.png",
-    "title_ko": "비상탈출용 호흡기",
-    "title_id": "Alat pernapasan pelarian darurat"
+    "filename": "68_안내_구조창문_Jendela_penyelamatan_darurat.png",
+    "image_url": "/assets_resmi/04_Piktogram_Keselamatan_Resmi/68_안내_구조창문_Jendela_penyelamatan_darurat.png",
+    "title_ko": "구조창문",
+    "title_id": "Jendela penyelamatan darurat"
   },
   {
     "id": "pic_141",
@@ -1518,26 +1606,37 @@
     "title_id": "Jendela darurat dengan tangga"
   },
   {
-    "id": "pic_142",
+    "id": "pic_153",
     "category": "안내표지 (Evakuasi & Pertolongan)",
     "group": "Piktogram K3",
     "level": "Wajib",
     "source": "Buku Panduan Sistem Poin HRD Korea",
-    "filename": "77_안내_산소호흡기_Alat_pernapasan_oksigen.png",
-    "image_url": "/assets_resmi/04_Piktogram_Keselamatan_Resmi/77_안내_산소호흡기_Alat_pernapasan_oksigen.png",
-    "title_ko": "산소호흡기",
-    "title_id": "Alat pernapasan oksigen"
+    "filename": "88_안내_탈출사다리_Tangga_evakuasi_darurat.png",
+    "image_url": "/assets_resmi/04_Piktogram_Keselamatan_Resmi/88_안내_탈출사다리_Tangga_evakuasi_darurat.png",
+    "title_ko": "탈출사다리",
+    "title_id": "Tangga evakuasi darurat"
   },
   {
-    "id": "pic_143",
+    "id": "pic_131",
     "category": "안내표지 (Evakuasi & Pertolongan)",
     "group": "Piktogram K3",
     "level": "Wajib",
     "source": "Buku Panduan Sistem Poin HRD Korea",
-    "filename": "78_안내_시계방향으로_열림_Buka_searah_jarum_jam.png",
-    "image_url": "/assets_resmi/04_Piktogram_Keselamatan_Resmi/78_안내_시계방향으로_열림_Buka_searah_jarum_jam.png",
-    "title_ko": "시계방향으로 열림",
-    "title_id": "Buka searah jarum jam"
+    "filename": "66_안내_구명부이_Pelampung_penolong.png",
+    "image_url": "/assets_resmi/04_Piktogram_Keselamatan_Resmi/66_안내_구명부이_Pelampung_penolong.png",
+    "title_ko": "구명부이",
+    "title_id": "Pelampung penolong"
+  },
+  {
+    "id": "pic_132",
+    "category": "안내표지 (Evakuasi & Pertolongan)",
+    "group": "Piktogram K3",
+    "level": "Wajib",
+    "source": "Buku Panduan Sistem Poin HRD Korea",
+    "filename": "67_안내_구명조끼_Rompi_pelampung.png",
+    "image_url": "/assets_resmi/04_Piktogram_Keselamatan_Resmi/67_안내_구명조끼_Rompi_pelampung.png",
+    "title_ko": "구명조끼",
+    "title_id": "Rompi pelampung"
   },
   {
     "id": "pic_144",
@@ -1549,105 +1648,6 @@
     "image_url": "/assets_resmi/04_Piktogram_Keselamatan_Resmi/79_안내_식수_Air_minum_bersih.png",
     "title_ko": "식수",
     "title_id": "Air minum bersih"
-  },
-  {
-    "id": "pic_145",
-    "category": "안내표지 (Evakuasi & Pertolongan)",
-    "group": "Piktogram K3",
-    "level": "Wajib",
-    "source": "Buku Panduan Sistem Poin HRD Korea",
-    "filename": "80_안내_심장박동기_Alat_pacu_jantung_darurat.png",
-    "image_url": "/assets_resmi/04_Piktogram_Keselamatan_Resmi/80_안내_심장박동기_Alat_pacu_jantung_darurat.png",
-    "title_ko": "심장박동기",
-    "title_id": "Alat pacu jantung darurat"
-  },
-  {
-    "id": "pic_146",
-    "category": "안내표지 (Evakuasi & Pertolongan)",
-    "group": "Piktogram K3",
-    "level": "Wajib",
-    "source": "Buku Panduan Sistem Poin HRD Korea",
-    "filename": "81_안내_오른쪽_슬라이딩_도어_Pintu_geser_ke_arah_kanan.png",
-    "image_url": "/assets_resmi/04_Piktogram_Keselamatan_Resmi/81_안내_오른쪽_슬라이딩_도어_Pintu_geser_ke_arah_kanan.png",
-    "title_ko": "오른쪽 슬라이딩 도어",
-    "title_id": "Pintu geser ke arah kanan"
-  },
-  {
-    "id": "pic_147",
-    "category": "안내표지 (Evakuasi & Pertolongan)",
-    "group": "Piktogram K3",
-    "level": "Wajib",
-    "source": "Buku Panduan Sistem Poin HRD Korea",
-    "filename": "82_안내_오른쪽을_당기면_열리는_문_Pintu_tarik_ke_arah_kanan_untu.png",
-    "image_url": "/assets_resmi/04_Piktogram_Keselamatan_Resmi/82_안내_오른쪽을_당기면_열리는_문_Pintu_tarik_ke_arah_kanan_untu.png",
-    "title_ko": "오른쪽을 당기면 열리는 문",
-    "title_id": "Pintu tarik ke arah kanan untuk membuka"
-  },
-  {
-    "id": "pic_148",
-    "category": "안내표지 (Evakuasi & Pertolongan)",
-    "group": "Piktogram K3",
-    "level": "Wajib",
-    "source": "Buku Panduan Sistem Poin HRD Korea",
-    "filename": "83_안내_오른쪽을_밀면_열리는_문_Pintu_dorong_ke_arah_kanan_unt.png",
-    "image_url": "/assets_resmi/04_Piktogram_Keselamatan_Resmi/83_안내_오른쪽을_밀면_열리는_문_Pintu_dorong_ke_arah_kanan_unt.png",
-    "title_ko": "오른쪽을 밀면 열리는 문",
-    "title_id": "Pintu dorong ke arah kanan untuk membuka"
-  },
-  {
-    "id": "pic_149",
-    "category": "안내표지 (Evakuasi & Pertolongan)",
-    "group": "Piktogram K3",
-    "level": "Wajib",
-    "source": "Buku Panduan Sistem Poin HRD Korea",
-    "filename": "84_안내_왼쪽_슬라이딩_도어_Pintu_geser_ke_arah_kiri.png",
-    "image_url": "/assets_resmi/04_Piktogram_Keselamatan_Resmi/84_안내_왼쪽_슬라이딩_도어_Pintu_geser_ke_arah_kiri.png",
-    "title_ko": "왼쪽 슬라이딩 도어",
-    "title_id": "Pintu geser ke arah kiri"
-  },
-  {
-    "id": "pic_150",
-    "category": "안내표지 (Evakuasi & Pertolongan)",
-    "group": "Piktogram K3",
-    "level": "Wajib",
-    "source": "Buku Panduan Sistem Poin HRD Korea",
-    "filename": "85_안내_왼쪽으로_밀면_열리는_문_Pintu_dorong_ke_arah_kiri_untu.png",
-    "image_url": "/assets_resmi/04_Piktogram_Keselamatan_Resmi/85_안내_왼쪽으로_밀면_열리는_문_Pintu_dorong_ke_arah_kiri_untu.png",
-    "title_ko": "왼쪽으로 밀면 열리는 문",
-    "title_id": "Pintu dorong ke arah kiri untuk membuka"
-  },
-  {
-    "id": "pic_151",
-    "category": "안내표지 (Evakuasi & Pertolongan)",
-    "group": "Piktogram K3",
-    "level": "Wajib",
-    "source": "Buku Panduan Sistem Poin HRD Korea",
-    "filename": "86_안내_왼쪽을_당기면_열리는_문_Pintu_tarik_ke_arah_kiri_untuk.png",
-    "image_url": "/assets_resmi/04_Piktogram_Keselamatan_Resmi/86_안내_왼쪽을_당기면_열리는_문_Pintu_tarik_ke_arah_kiri_untuk.png",
-    "title_ko": "왼쪽을 당기면 열리는 문",
-    "title_id": "Pintu tarik ke arah kiri untuk membuka"
-  },
-  {
-    "id": "pic_152",
-    "category": "안내표지 (Evakuasi & Pertolongan)",
-    "group": "Piktogram K3",
-    "level": "Wajib",
-    "source": "Buku Panduan Sistem Poin HRD Korea",
-    "filename": "87_안내_응급처치_Pos_pertolongan_pertama.png",
-    "image_url": "/assets_resmi/04_Piktogram_Keselamatan_Resmi/87_안내_응급처치_Pos_pertolongan_pertama.png",
-    "title_ko": "응급처치",
-    "title_id": "Pos pertolongan pertama"
-  },
-  {
-    "id": "pic_153",
-    "category": "안내표지 (Evakuasi & Pertolongan)",
-    "group": "Piktogram K3",
-    "level": "Wajib",
-    "source": "Buku Panduan Sistem Poin HRD Korea",
-    "filename": "88_안내_탈출사다리_Tangga_evakuasi_darurat.png",
-    "image_url": "/assets_resmi/04_Piktogram_Keselamatan_Resmi/88_안내_탈출사다리_Tangga_evakuasi_darurat.png",
-    "title_ko": "탈출사다리",
-    "title_id": "Tangga evakuasi darurat"
   },
   {
     "id": "pic_154",
