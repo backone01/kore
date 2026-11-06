@@ -17916,7 +17916,8 @@
     "source": "Buku Panduan Sistem Poin HRD Korea",
     "audio_q": "/audio/examiner_sign_q.mp3",
     "audio_a": "/audio/tts/kisi_kisi_160/pic_143.mp3",
-    "answer_options": []
+    "answer_options": [],
+    "synonym_bab54": "시계 방향으로 돌리면 열림 (Terbuka jika memutar searah jarum jam)"
   },
   {
     "id": "pic_135",
@@ -17936,7 +17937,8 @@
     "source": "Buku Panduan Sistem Poin HRD Korea",
     "audio_q": "/audio/examiner_sign_q.mp3",
     "audio_a": "/audio/tts/kisi_kisi_160/pic_135.mp3",
-    "answer_options": []
+    "answer_options": [],
+    "synonym_bab54": "시계 반대 방향으로 돌리면 열림 (Terbuka jika memutar berlawanan arah jarum jam)"
   },
   {
     "id": "pic_136",
@@ -17956,7 +17958,8 @@
     "source": "Buku Panduan Sistem Poin HRD Korea",
     "audio_q": "/audio/examiner_sign_q.mp3",
     "audio_a": "/audio/tts/kisi_kisi_160/pic_136.mp3",
-    "answer_options": []
+    "answer_options": [],
+    "synonym_bab54": "비상구(오른쪽) — 사고가 났을 때 밖으로 나갈 수 있는 문 (Pintu keluar saat musibah)"
   },
   {
     "id": "pic_137",
@@ -17976,7 +17979,8 @@
     "source": "Buku Panduan Sistem Poin HRD Korea",
     "audio_q": "/audio/examiner_sign_q.mp3",
     "audio_a": "/audio/tts/kisi_kisi_160/pic_137.mp3",
-    "answer_options": []
+    "answer_options": [],
+    "synonym_bab54": "비상구(왼쪽) — 사고가 났을 때 밖으로 나갈 수 있는 문 (Pintu keluar saat musibah)"
   },
   {
     "id": "pic_146",
@@ -17996,7 +18000,8 @@
     "source": "Buku Panduan Sistem Poin HRD Korea",
     "audio_q": "/audio/examiner_sign_q.mp3",
     "audio_a": "/audio/tts/kisi_kisi_160/pic_146.mp3",
-    "answer_options": []
+    "answer_options": [],
+    "synonym_bab54": "오른쪽으로 미끄러져 열리는 문 / 오른쪽 미닫이문 (Pintu geser kanan)"
   },
   {
     "id": "pic_149",
@@ -18016,7 +18021,8 @@
     "source": "Buku Panduan Sistem Poin HRD Korea",
     "audio_q": "/audio/examiner_sign_q.mp3",
     "audio_a": "/audio/tts/kisi_kisi_160/pic_149.mp3",
-    "answer_options": []
+    "answer_options": [],
+    "synonym_bab54": "왼쪽으로 미끄러져 열리는 문 / 왼쪽 미닫이문 (Pintu geser kiri)"
   },
   {
     "id": "pic_147",
@@ -18036,7 +18042,8 @@
     "source": "Buku Panduan Sistem Poin HRD Korea",
     "audio_q": "/audio/examiner_sign_q.mp3",
     "audio_a": "/audio/tts/kisi_kisi_160/pic_147.mp3",
-    "answer_options": []
+    "answer_options": [],
+    "synonym_bab54": "오른쪽으로 당기면 열리는 문 (Pintu jika menarik ke kanan)"
   },
   {
     "id": "pic_151",
@@ -18056,7 +18063,8 @@
     "source": "Buku Panduan Sistem Poin HRD Korea",
     "audio_q": "/audio/examiner_sign_q.mp3",
     "audio_a": "/audio/tts/kisi_kisi_160/pic_151.mp3",
-    "answer_options": []
+    "answer_options": [],
+    "synonym_bab54": "왼쪽을 당기면 열리는 문 (Pintu jika menarik ke kiri)"
   },
   {
     "id": "pic_148",
@@ -18076,7 +18084,8 @@
     "source": "Buku Panduan Sistem Poin HRD Korea",
     "audio_q": "/audio/examiner_sign_q.mp3",
     "audio_a": "/audio/tts/kisi_kisi_160/pic_148.mp3",
-    "answer_options": []
+    "answer_options": [],
+    "synonym_bab54": "오른쪽으로 밀면 열리는 문 (Pintu jika menekan ke kanan)"
   },
   {
     "id": "pic_150",
@@ -18096,7 +18105,8 @@
     "source": "Buku Panduan Sistem Poin HRD Korea",
     "audio_q": "/audio/examiner_sign_q.mp3",
     "audio_a": "/audio/tts/kisi_kisi_160/pic_150.mp3",
-    "answer_options": []
+    "answer_options": [],
+    "synonym_bab54": "왼쪽으로 밀면 열리는 문 (Pintu jika menekan ke kiri)"
   },
   {
     "id": "pic_134",
@@ -18236,7 +18246,8 @@
     "source": "Buku Panduan Sistem Poin HRD Korea",
     "audio_q": "/audio/examiner_sign_q.mp3",
     "audio_a": "/audio/tts/kisi_kisi_160/pic_138.mp3",
-    "answer_options": []
+    "answer_options": [],
+    "synonym_bab54": "비상 망치 — 유리창을 깨고 밖으로 나갈 때 사용하는 망치 (Palu pemecah kaca darurat)"
   },
   {
     "id": "pic_139",
@@ -18276,7 +18287,8 @@
     "source": "Buku Panduan Sistem Poin HRD Korea",
     "audio_q": "/audio/examiner_sign_q.mp3",
     "audio_a": "/audio/tts/kisi_kisi_160/pic_133.mp3",
-    "answer_options": []
+    "answer_options": [],
+    "synonym_bab54": "구조 창문 — 건물 안에 있는 사람을 구조하기 위해 구조대가 접근할 수 있도록 만든 창문"
   },
   {
     "id": "pic_141",
@@ -18296,7 +18308,8 @@
     "source": "Buku Panduan Sistem Poin HRD Korea",
     "audio_q": "/audio/examiner_sign_q.mp3",
     "audio_a": "/audio/tts/kisi_kisi_160/pic_141.mp3",
-    "answer_options": []
+    "answer_options": [],
+    "synonym_bab54": "탈출사다리가 있는 비상 창문 (Jendela darurat yang ada tangga evakuasi)"
   },
   {
     "id": "pic_153",
@@ -18316,7 +18329,8 @@
     "source": "Buku Panduan Sistem Poin HRD Korea",
     "audio_q": "/audio/examiner_sign_q.mp3",
     "audio_a": "/audio/tts/kisi_kisi_160/pic_153.mp3",
-    "answer_options": []
+    "answer_options": [],
+    "synonym_bab54": "탈출 사다리 — 위험할 때 밖으로 나갈 수 있는 사다리 (Tangga saat bahaya)"
   },
   {
     "id": "pic_131",

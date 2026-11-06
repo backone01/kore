@@ -250,6 +250,14 @@ export function PictogramCatalog({
                         <strong>{item.answer_full_ko || item.answer_short_ko}</strong>
                       </p>
                     )}
+                    {item.synonym_bab54 && (
+                      <div className="text-[11px] text-blue-700 dark:text-blue-300 bg-blue-50 dark:bg-blue-950/40 p-1.5 rounded-md border border-blue-200 dark:border-blue-900/40 leading-snug">
+                        <span className="text-[10px] uppercase font-bold tracking-wider text-blue-600 dark:text-blue-400 block">
+                          📖 Versi Buku Teks Bab 54:
+                        </span>
+                        {item.synonym_bab54}
+                      </div>
+                    )}
                   </div>
                 )}
               </div>
