@@ -394,6 +394,15 @@ export function ToolCatalog({
                       </button>
                     </div>
 
+                    {item.note && (
+                      <div className="text-[11px] text-amber-800 dark:text-amber-300 bg-amber-50 dark:bg-amber-950/40 p-2 rounded-md border border-amber-200 dark:border-amber-900/40 leading-snug">
+                        <span className="text-[10px] uppercase font-bold tracking-wider text-amber-600 dark:text-amber-400 block mb-0.5">
+                          💡 Catatan Kisi-Kisi HRD Korea:
+                        </span>
+                        {item.note}
+                      </div>
+                    )}
+
                     {currentOptKey === 'all' ? (
                       <div className="pt-1.5 border-t border-border/40 space-y-1.5">
                         <div className="flex items-center justify-between text-xs font-bold text-muted-foreground uppercase">
