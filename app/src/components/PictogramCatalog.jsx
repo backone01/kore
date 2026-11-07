@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Volume2, Eye, EyeOff, Search, ShieldAlert, Maximize2, X } from 'lucide-react';
 import { getAssetUrl } from '../utils/assetHelper.js';
 import { Badge } from './ui/badge.jsx';
@@ -14,7 +14,20 @@ export function PictogramCatalog({
   onSetGlobalHideAll,
   onInspectRambu
 }) {
-  const [pikGroup, setPikGroup] = useState('all');
+  const [pikGroup, setPikGroup] = useState(() => {
+    try {
+      const saved = localStorage.getItem('kore_pik_group');
+      if (saved && ['all', 'wajib', 'peringatan', 'larangan', 'evakuasi'].includes(saved)) return saved;
+    } catch {}
+    return 'all';
+  });
+
+  useEffect(() => {
+    try {
+      localStorage.setItem('kore_pik_group', pikGroup);
+    } catch {}
+  }, [pikGroup]);
+
   const [searchQuery, setSearchQuery] = useState('');
 
   const allPik = questions.filter((q) => q.category === 'piktogram');

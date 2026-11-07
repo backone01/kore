@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Volume2, Eye, EyeOff, Search, Sparkles, Maximize2, X } from 'lucide-react';
 import { getAssetUrl } from '../utils/assetHelper.js';
 import { Badge } from './ui/badge.jsx';
@@ -16,7 +16,19 @@ export function ToolCatalog({
   onInspectRambu,
   onOpenRevisionModal
 }) {
-  const [alatGroup, setAlatGroup] = useState('all');
+  const [alatGroup, setAlatGroup] = useState(() => {
+    try {
+      const saved = localStorage.getItem('kore_alat_group');
+      if (saved && typeof saved === 'string') return saved;
+    } catch {}
+    return 'all';
+  });
+
+  useEffect(() => {
+    try {
+      localStorage.setItem('kore_alat_group', alatGroup);
+    } catch {}
+  }, [alatGroup]);
   const [searchQuery, setSearchQuery] = useState('');
   const [cardUsageOptions, setCardUsageOptions] = useState({});
   const [globalAlatUsageOption, setGlobalAlatUsageOption] = useState('mudah');

@@ -252,6 +252,62 @@ export default function App() {
     try { localStorage.setItem('kore_practice_type_filter', practiceTypeFilter); } catch {}
   }, [practiceTypeFilter]);
 
+  // =========================================================================
+  // SCROLL POSITION PERSISTENCE (Memulihkan Posisi Halaman Terakhir Saat Reload)
+  // =========================================================================
+  const isRestoringScrollRef = useRef(false);
+
+  // Simpan posisi scroll secara debounced per mode
+  useEffect(() => {
+    let scrollTimer = null;
+    const handleScroll = () => {
+      if (isRestoringScrollRef.current) return;
+      if (scrollTimer) clearTimeout(scrollTimer);
+      scrollTimer = setTimeout(() => {
+        try {
+          if (window.scrollY >= 0) {
+            localStorage.setItem(`kore_scroll_${mode}`, String(Math.round(window.scrollY)));
+          }
+        } catch {}
+      }, 150);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => {
+      if (scrollTimer) clearTimeout(scrollTimer);
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [mode]);
+
+  // Pulihkan posisi scroll saat mode aktif dibuka / di-reload
+  useEffect(() => {
+    isRestoringScrollRef.current = true;
+    let savedY = 0;
+    try {
+      const raw = localStorage.getItem(`kore_scroll_${mode}`);
+      if (raw) savedY = parseInt(raw, 10) || 0;
+    } catch {}
+
+    // Beri sedikit jeda agar DOM dan layout lazy-loaded (seperti StudyGuide) selesai render
+    const t1 = setTimeout(() => {
+      if (savedY > 0) {
+        window.scrollTo({ top: savedY, behavior: 'instant' });
+      }
+      const t2 = setTimeout(() => {
+        // Cek sekali lagi jika ada pergeseran tinggi layout
+        if (savedY > 0 && Math.abs(window.scrollY - savedY) > 50) {
+          window.scrollTo({ top: savedY, behavior: 'instant' });
+        }
+        isRestoringScrollRef.current = false;
+      }, 150);
+      return () => clearTimeout(t2);
+    }, 100);
+
+    return () => {
+      clearTimeout(t1);
+    };
+  }, [mode]);
+
   // Simpan hasil ujian secara otomatis ke localStorage saat sesi selesai
   useEffect(() => {
     if ((examPhase === 'summary' || examPhase === 'rekap') && examQuestions.length > 0) {

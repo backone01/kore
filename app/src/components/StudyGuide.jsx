@@ -271,29 +271,53 @@ function classifyPhysicalGroup(ko = '', id = '') {
   return 'Arah & Pandangan';
 }
 
+const SUBTAB_TO_MODULE = {
+  interview: 'interview',
+  jagisoge: 'interview',
+  family: 'interview',
+  commands: 'physical',
+  k3: 'safety',
+  piktogram: 'pictogram',
+  alat: 'tools',
+  numbers: 'numbers',
+  time: 'numbers',
+  calendar: 'numbers',
+  colors: 'colors'
+};
+
 export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
+  const [activeTab, setActiveTab] = useState(() => {
+    try {
+      const saved = localStorage.getItem('kore_study_tab');
+      if (saved && SUBTAB_TO_MODULE[saved]) return saved;
+    } catch {}
+    return 'interview';
+  });
+
   const [activeModule, setActiveModule] = useState(() => {
     try {
+      const savedTab = localStorage.getItem('kore_study_tab');
+      if (savedTab && SUBTAB_TO_MODULE[savedTab]) {
+        return SUBTAB_TO_MODULE[savedTab];
+      }
       const saved = localStorage.getItem('kore_study_module');
       if (saved) return saved;
     } catch {}
     return 'interview';
   });
-  const [activeTab, setActiveTab] = useState(() => {
-    try {
-      const saved = localStorage.getItem('kore_study_tab');
-      if (saved) return saved;
-    } catch {}
-    return 'interview';
-  });
 
-  // Auto-Save modul & tab materi
+  // Auto-Save modul & tab materi + sinkronisasi dua arah
   useEffect(() => {
     try { localStorage.setItem('kore_study_module', activeModule); } catch {}
   }, [activeModule]);
 
   useEffect(() => {
-    try { localStorage.setItem('kore_study_tab', activeTab); } catch {}
+    try {
+      localStorage.setItem('kore_study_tab', activeTab);
+      if (SUBTAB_TO_MODULE[activeTab] && SUBTAB_TO_MODULE[activeTab] !== activeModule) {
+        setActiveModule(SUBTAB_TO_MODULE[activeTab]);
+      }
+    } catch {}
   }, [activeTab]);
   const [activeSampleIdx, setActiveSampleIdx] = useState(0);
   const [jagiSubTab, setJagiSubTab] = useState('generator');
@@ -319,11 +343,61 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
       return 0;
     }
   });
-  const [k3Filter, setK3Filter] = useState('all');
-  const [k3TopicSelect, setK3TopicSelect] = useState('all');
-  const [k3LevelFilter, setK3LevelFilter] = useState('all');
-  const [interviewFilter, setInterviewFilter] = useState('all');
-  const [cmdFilter, setCmdFilter] = useState('all');
+  const [k3Filter, setK3Filter] = useState(() => {
+    try {
+      return localStorage.getItem('kore_k3_filter') || 'all';
+    } catch {
+      return 'all';
+    }
+  });
+  useEffect(() => {
+    try { localStorage.setItem('kore_k3_filter', k3Filter); } catch {}
+  }, [k3Filter]);
+
+  const [k3TopicSelect, setK3TopicSelect] = useState(() => {
+    try {
+      return localStorage.getItem('kore_k3_topic') || 'all';
+    } catch {
+      return 'all';
+    }
+  });
+  useEffect(() => {
+    try { localStorage.setItem('kore_k3_topic', k3TopicSelect); } catch {}
+  }, [k3TopicSelect]);
+
+  const [k3LevelFilter, setK3LevelFilter] = useState(() => {
+    try {
+      return localStorage.getItem('kore_k3_level') || 'all';
+    } catch {
+      return 'all';
+    }
+  });
+  useEffect(() => {
+    try { localStorage.setItem('kore_k3_level', k3LevelFilter); } catch {}
+  }, [k3LevelFilter]);
+
+  const [interviewFilter, setInterviewFilter] = useState(() => {
+    try {
+      return localStorage.getItem('kore_int_filter') || 'all';
+    } catch {
+      return 'all';
+    }
+  });
+  useEffect(() => {
+    try { localStorage.setItem('kore_int_filter', interviewFilter); } catch {}
+  }, [interviewFilter]);
+
+  const [cmdFilter, setCmdFilter] = useState(() => {
+    try {
+      return localStorage.getItem('kore_cmd_filter') || 'all';
+    } catch {
+      return 'all';
+    }
+  });
+  useEffect(() => {
+    try { localStorage.setItem('kore_cmd_filter', cmdFilter); } catch {}
+  }, [cmdFilter]);
+
   const [pikGroup, setPikGroup] = useState('all');
   const [alatGroup, setAlatGroup] = useState('all');
   const [globalAlatUsageOption, setGlobalAlatUsageOption] = useState('mudah');
