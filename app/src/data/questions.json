@@ -12714,72 +12714,88 @@
     "question_id": "Apakah nama alat / perkakas manufaktur ini?",
     "image_url": "/assets_resmi/02_Peralatan_Manufaktur_Lengkap/05_공구_벤딩기_Mesin_pembengkok.png",
     "answer_short_ko": "벤딩기입니다.",
-    "answer_short_id": "Mesin pengikat strapping / di buku HRD Korea: Mesin pembengkok",
+    "answer_short_id": "Mesin pengikat (Banding machine)",
     "answer_full_ko": "이것은 벤딩기입니다.",
-    "answer_full_id": "벤딩기 (Mesin pembengkok)",
-    "title_ko": "벤딩기",
-    "title_id": "Mesin pengikat (Banding) / Buku HRDK: Mesin pembengkok (Bending)",
+    "answer_full_id": "벤딩기 (Mesin pengikat)",
+    "title_ko": "벤딩기 (밴딩기)",
+    "title_id": "Mesin pengikat (Banding machine)",
     "level": "Tinggi",
     "source": "Buku Panduan Sistem Poin HRD Korea",
     "audio_q": "/audio/examiner_tool_q.mp3",
     "audio_a": "/audio/tts/kisi_kisi_160/mfg_g_023.mp3",
-    "usage_short_ko": "철판이나 파이프를 구부릴 때 사용합니다.",
-    "usage_short_id": "Dipakai untuk membengkokkan plat besi atau pipa.",
-    "usage_full_ko": "금속 판재나 파이프를 원하는 각도로 구부릴 때 사용합니다.",
-    "usage_full_id": "Digunakan saat menekuk plat logam atau pipa ke sudut yang diinginkan.",
+    "usage_short_ko": "박스나 물건을 밴드로 묶을 때 사용합니다.",
+    "usage_short_id": "Dipakai untuk mengikat kardus atau barang dengan tali strapping.",
+    "usage_full_ko": "포장 박스나 물건을 밴드로 단단히 묶어 고정할 때 사용합니다.",
+    "usage_full_id": "Digunakan saat mengikat kardus kemasan atau barang secara kencang dengan tali band.",
     "answer_options": [
       {
-        "label": "Mesin Pengikat (Banding)",
+        "label": "⚡ Super Mudah",
+        "answer_ko": "박스를 묶을 때 사용합니다.",
+        "answer_id": "Dipakai saat mengikat kardus.",
+        "ko": "박스를 묶을 때 사용합니다.",
+        "id": "Dipakai saat mengikat kardus.",
+        "audio": "/audio/tts/options/mfg_g_023_opt_1.mp3"
+      },
+      {
+        "label": "⭐ Standar HRDK",
         "answer_ko": "박스나 물건을 밴드로 묶을 때 사용합니다.",
-        "answer_id": "Dipakai untuk mengikat kardus atau barang dengan tali strapping band.",
+        "answer_id": "Dipakai untuk mengikat kardus atau barang dengan tali strapping.",
         "ko": "박스나 물건을 밴드로 묶을 때 사용합니다.",
-        "id": "Dipakai untuk mengikat kardus atau barang dengan tali strapping band.",
+        "id": "Dipakai untuk mengikat kardus atau barang dengan tali strapping.",
         "audio": "/audio/tts/options/mfg_g_023_opt_1.mp3"
       },
       {
-        "label": "Teks Buku (Pembengkok)",
-        "answer_ko": "철판이나 파이프를 구부릴 때 사용합니다.",
-        "answer_id": "Dipakai untuk membengkokkan plat besi atau pipa.",
-        "ko": "철판이나 파이프를 구부릴 때 사용합니다.",
-        "id": "Dipakai untuk membengkokkan plat besi atau pipa.",
+        "label": "🔹 Bentuk 도구",
+        "answer_ko": "물건을 밴드로 묶는 도구입니다.",
+        "answer_id": "Adalah alat untuk mengikat barang dengan tali band.",
+        "ko": "물건을 밴드로 묶는 도구입니다.",
+        "id": "Adalah alat untuk mengikat barang dengan tali band.",
         "audio": "/audio/tts/options/mfg_g_023_opt_1.mp3"
       },
       {
-        "label": "Bentuk Alat",
-        "answer_ko": "물건을 밴드로 포장하고 묶는 기계입니다.",
-        "answer_id": "Adalah mesin untuk mengikat dan mengemas barang dengan tali band.",
-        "ko": "물건을 밴드로 포장하고 묶는 기계입니다.",
-        "id": "Adalah mesin untuk mengikat dan mengemas barang dengan tali band.",
+        "label": "📘 Lengkap / Formal",
+        "answer_ko": "포장 박스나 물건을 밴드로 단단히 묶어 고정할 때 사용합니다.",
+        "answer_id": "Digunakan saat mengikat kardus kemasan atau barang secara kencang dengan tali band.",
+        "ko": "포장 박스나 물건을 밴드로 단단히 묶어 고정할 때 사용합니다.",
+        "id": "Digunakan saat mengikat kardus kemasan atau barang secara kencang dengan tali band.",
         "audio": "/audio/tts/options/mfg_g_023_opt_1.mp3"
       }
     ],
     "usage_options": [
       {
-        "key": "ikat",
-        "badge": "📦 Sesuai Fisik Mesin",
-        "label": "Mesin Pengikat (Banding)",
-        "desc": "Fungsi asli fisik mesin di gambar (mengikat kardus/barang dengan tali strapping)",
-        "ko": "박스나 물건을 밴드로 묶을 때 사용합니다.",
-        "id": "Dipakai untuk mengikat kardus atau barang dengan tali strapping band."
+        "key": "mudah",
+        "badge": "⚡ Super Mudah",
+        "label": "Paling Mudah",
+        "desc": "Jawaban 2-3 kata paling simpel & mudah diucapkan saat ujian",
+        "ko": "박스를 묶을 때 사용합니다.",
+        "id": "Dipakai saat mengikat kardus."
       },
       {
-        "key": "bengkok",
-        "badge": "📖 Sesuai Teks Buku HRDK",
-        "label": "Teks Buku (Pembengkok)",
-        "desc": "Sesuai terjemahan teks cetak buku resmi HRD Korea (Mesin pembengkok)",
-        "ko": "철판이나 파이프를 구부릴 때 사용합니다.",
-        "id": "Dipakai untuk membengkokkan plat besi atau pipa."
+        "key": "standar",
+        "badge": "⭐ Standar HRDK",
+        "label": "Standar",
+        "desc": "Jawaban standar resmi kisi-kisi HRD Korea",
+        "ko": "박스나 물건을 밴드로 묶을 때 사용합니다.",
+        "id": "Dipakai untuk mengikat kardus atau barang dengan tali strapping."
       },
       {
         "key": "noun",
         "badge": "🔹 Bentuk 도구",
         "label": "Bentuk Alat",
-        "desc": "Menyebutkan jenis alat pengikat kemasan",
-        "ko": "물건을 밴드로 포장하고 묶는 기계입니다.",
-        "id": "Adalah mesin untuk mengikat dan mengemas barang dengan tali band."
+        "desc": "Jawaban langsung menyebut fungsi jenis alat",
+        "ko": "물건을 밴드로 묶는 도구입니다.",
+        "id": "Adalah alat untuk mengikat barang dengan tali band."
+      },
+      {
+        "key": "formal",
+        "badge": "📘 Lengkap / Formal",
+        "label": "Lengkap",
+        "desc": "Jawaban kalimat formal dan mendalam",
+        "ko": "포장 박스나 물건을 밴드로 단단히 묶어 고정할 때 사용합니다.",
+        "id": "Digunakan saat mengikat kardus kemasan atau barang secara kencang dengan tali band."
       }
     ],
-    "note": "Di buku resmi HRD Korea hal. 161, gambar ini adalah mesin pengikat kemasan (Banding machine / 밴딩기) dengan gulungan tali kuning. Namun di buku resmi HRDK tercetak 벤딩기 dan diterjemahkan Mesin pembengkok."
+    "note": "Di buku resmi HRD Korea hal. 161, alat ini tertulis 벤딩기. Gambar fisiknya adalah mesin pengikat kemasan (Banding machine) dengan rol tali strapping kuning."
   },
   {
     "id": "mfg_g_024",
@@ -34143,68 +34159,84 @@
     "category_title": "작업도구 용도 (Fungsi Perkakas Manufaktur)",
     "question_ko": "이 공구의 용도는 무엇입니까?",
     "question_romaja": "I gongguui yongdoneun mueosimnikka?",
-    "question_id": "Alat ini (Banding machine / Mesin pengikat) digunakan untuk apa?",
+    "question_id": "Alat ini (Mesin pengikat / Banding machine) digunakan untuk apa? / Kapan alat ini dipakai?",
     "image_url": "/assets_resmi/02_Peralatan_Manufaktur_Lengkap/05_공구_벤딩기_Mesin_pembengkok.png",
     "title_ko": "벤딩기의 용도",
-    "title_id": "Fungsi 벤딩기 (Mesin Pengikat Banding / Teks HRDK: Mesin Pembengkok)",
+    "title_id": "Fungsi Mesin pengikat (Banding machine)",
     "level": "Tinggi",
     "source": "Buku Panduan Sistem Poin HRD Korea",
     "audio_q": "/audio/hub/nu/107.m4a",
     "audio_a": "/audio/tts/options/mfg_g_023_opt_1.mp3",
     "answer_short_ko": "박스나 물건을 밴드로 묶을 때 사용합니다.",
-    "answer_short_id": "Dipakai untuk mengikat kardus atau barang dengan tali band (atau sesuai buku HRDK: membengkokkan plat).",
-    "answer_full_ko": "박스나 물건을 밴드로 묶을 때 사용합니다. (또는 교재 표기 기준: 철판을 구부릴 때 사용합니다.)",
-    "answer_full_id": "Dipakai untuk mengikat kardus/barang dengan tali band (atau sesuai teks buku HRDK: membengkokkan plat/pipa).",
+    "answer_short_id": "Dipakai untuk mengikat kardus atau barang dengan tali strapping.",
+    "answer_full_ko": "박스나 물건을 밴드로 묶을 때 사용합니다.",
+    "answer_full_id": "박스나 물건을 밴드로 묶을 때 사용합니다. (Dipakai untuk mengikat kardus atau barang dengan tali strapping.)",
     "answer_options": [
       {
-        "label": "Mesin Pengikat (Banding)",
+        "label": "⚡ Super Mudah",
+        "answer_ko": "박스를 묶을 때 사용합니다.",
+        "answer_id": "Dipakai saat mengikat kardus.",
+        "ko": "박스를 묶을 때 사용합니다.",
+        "id": "Dipakai saat mengikat kardus.",
+        "audio": "/audio/tts/options/mfg_g_023_opt_1.mp3"
+      },
+      {
+        "label": "⭐ Standar HRDK",
         "answer_ko": "박스나 물건을 밴드로 묶을 때 사용합니다.",
-        "answer_id": "Dipakai untuk mengikat kardus atau barang dengan tali strapping band.",
+        "answer_id": "Dipakai untuk mengikat kardus atau barang dengan tali strapping.",
         "ko": "박스나 물건을 밴드로 묶을 때 사용합니다.",
-        "id": "Dipakai untuk mengikat kardus atau barang dengan tali strapping band.",
+        "id": "Dipakai untuk mengikat kardus atau barang dengan tali strapping.",
         "audio": "/audio/tts/options/mfg_g_023_opt_1.mp3"
       },
       {
-        "label": "Teks Buku (Pembengkok)",
-        "answer_ko": "철판이나 파이프를 구부릴 때 사용합니다.",
-        "answer_id": "Dipakai untuk membengkokkan plat besi atau pipa.",
-        "ko": "철판이나 파이프를 구부릴 때 사용합니다.",
-        "id": "Dipakai untuk membengkokkan plat besi atau pipa.",
+        "label": "🔹 Bentuk 도구",
+        "answer_ko": "물건을 밴드로 묶는 도구입니다.",
+        "answer_id": "Adalah alat untuk mengikat barang dengan tali band.",
+        "ko": "물건을 밴드로 묶는 도구입니다.",
+        "id": "Adalah alat untuk mengikat barang dengan tali band.",
         "audio": "/audio/tts/options/mfg_g_023_opt_1.mp3"
       },
       {
-        "label": "Bentuk Alat",
-        "answer_ko": "물건을 밴드로 포장하고 묶는 기계입니다.",
-        "answer_id": "Adalah mesin untuk mengikat dan mengemas barang dengan tali band.",
-        "ko": "물건을 밴드로 포장하고 묶는 기계입니다.",
-        "id": "Adalah mesin untuk mengikat dan mengemas barang dengan tali band.",
+        "label": "📘 Lengkap / Formal",
+        "answer_ko": "포장 박스나 물건을 밴드로 단단히 묶어 고정할 때 사용합니다.",
+        "answer_id": "Digunakan saat mengikat kardus kemasan atau barang secara kencang dengan tali band.",
+        "ko": "포장 박스나 물건을 밴드로 단단히 묶어 고정할 때 사용합니다.",
+        "id": "Digunakan saat mengikat kardus kemasan atau barang secara kencang dengan tali band.",
         "audio": "/audio/tts/options/mfg_g_023_opt_1.mp3"
       }
     ],
     "usage_options": [
       {
-        "key": "ikat",
-        "badge": "📦 Sesuai Fisik Mesin",
-        "label": "Mesin Pengikat (Banding)",
-        "desc": "Fungsi asli fisik mesin di gambar (mengikat kardus/barang dengan tali strapping)",
-        "ko": "박스나 물건을 밴드로 묶을 때 사용합니다.",
-        "id": "Dipakai untuk mengikat kardus atau barang dengan tali strapping band."
+        "key": "mudah",
+        "badge": "⚡ Super Mudah",
+        "label": "Paling Mudah",
+        "desc": "Jawaban 2-3 kata paling simpel & mudah diucapkan saat ujian",
+        "ko": "박스를 묶을 때 사용합니다.",
+        "id": "Dipakai saat mengikat kardus."
       },
       {
-        "key": "bengkok",
-        "badge": "📖 Sesuai Teks Buku HRDK",
-        "label": "Teks Buku (Pembengkok)",
-        "desc": "Sesuai terjemahan teks cetak buku resmi HRD Korea (Mesin pembengkok)",
-        "ko": "철판이나 파이프를 구부릴 때 사용합니다.",
-        "id": "Dipakai untuk membengkokkan plat besi atau pipa."
+        "key": "standar",
+        "badge": "⭐ Standar HRDK",
+        "label": "Standar",
+        "desc": "Jawaban standar resmi kisi-kisi HRD Korea",
+        "ko": "박스나 물건을 밴드로 묶을 때 사용합니다.",
+        "id": "Dipakai untuk mengikat kardus atau barang dengan tali strapping."
       },
       {
         "key": "noun",
         "badge": "🔹 Bentuk 도구",
         "label": "Bentuk Alat",
-        "desc": "Menyebutkan jenis alat pengikat kemasan",
-        "ko": "물건을 밴드로 포장하고 묶는 기계입니다.",
-        "id": "Adalah mesin untuk mengikat dan mengemas barang dengan tali band."
+        "desc": "Jawaban langsung menyebut fungsi jenis alat",
+        "ko": "물건을 밴드로 묶는 도구입니다.",
+        "id": "Adalah alat untuk mengikat barang dengan tali band."
+      },
+      {
+        "key": "formal",
+        "badge": "📘 Lengkap / Formal",
+        "label": "Lengkap",
+        "desc": "Jawaban kalimat formal dan mendalam",
+        "ko": "포장 박스나 물건을 밴드로 단단히 묶어 고정할 때 사용합니다.",
+        "id": "Digunakan saat mengikat kardus kemasan atau barang secara kencang dengan tali band."
       }
     ]
   },
