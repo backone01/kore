@@ -1414,7 +1414,7 @@
     "level": "Wajib",
     "source": "Buku Panduan Sistem Poin HRD Korea",
     "filename": "71_안내_비상구오_Pintu_darurat_ke_arah_kanan.png",
-    "image_url": "/assets_resmi/04_Piktogram_Keselamatan_Resmi/72_안내_비상구왼_Pintu_darurat_ke_arah_kiri.png",
+    "image_url": "/assets_resmi/04_Piktogram_Keselamatan_Resmi/71_안내_비상구오_Pintu_darurat_ke_arah_kanan.png",
     "title_ko": "비상구(오)",
     "title_id": "Pintu darurat (kanan)"
   },
@@ -1425,7 +1425,7 @@
     "level": "Wajib",
     "source": "Buku Panduan Sistem Poin HRD Korea",
     "filename": "72_안내_비상구왼_Pintu_darurat_ke_arah_kiri.png",
-    "image_url": "/assets_resmi/04_Piktogram_Keselamatan_Resmi/71_안내_비상구오_Pintu_darurat_ke_arah_kanan.png",
+    "image_url": "/assets_resmi/04_Piktogram_Keselamatan_Resmi/72_안내_비상구왼_Pintu_darurat_ke_arah_kiri.png",
     "title_ko": "비상구(왼)",
     "title_id": "Pintu darurat (kiri)"
   },
