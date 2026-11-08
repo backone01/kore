@@ -22,7 +22,7 @@ import { PracticeOral } from './components/PracticeOral.jsx';
 // Lazy loading modul materi besar untuk performa inisial cepat
 const StudyGuide = lazy(() => import('./components/StudyGuide.jsx'));
 import { getAssetUrl } from './utils/assetHelper.js';
-import { speakIndonesianTTS } from './utils/audioHelper.js';
+import { speakIndonesianTTS, stopTTS } from './utils/audioHelper.js';
 import { MAIN_MODULES, CATEGORY_GROUPS, SUB_CATEGORIES, filterQuestionsByCategory, getParentModuleId, getCategoryMeta, MODULE_COLORS } from './utils/categoryGroups.js';
 import { cn } from './utils/cn.js';
 import { Badge } from './components/ui/badge.jsx';
@@ -372,6 +372,7 @@ export default function App() {
   // Stop all audio on state change
   const stopAllAudio = useCallback(() => {
     if (timerRef.current) clearInterval(timerRef.current);
+    stopTTS();
     if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
       try { window.speechSynthesis.cancel(); } catch {}
     }

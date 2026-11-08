@@ -1423,6 +1423,7 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
 
   const stopAudioOnly = () => {
     try { audioRef.current.pause(); } catch { /* abaikan */ }
+    stopTTS();
     if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
       try { window.speechSynthesis.cancel(); } catch { /* abaikan */ }
     }

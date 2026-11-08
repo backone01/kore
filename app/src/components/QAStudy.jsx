@@ -792,37 +792,40 @@ export function QADetail({
             {A.ansLabel}{showAllOptions && q.answer_options?.length > 1 ? `Semua Pilihan Jawaban (${q.answer_options.length})` : (activeOpt.label || ansFallback)}
           </span>
 
-          {!hidden && (
-            <div className="flex items-center gap-1.5 flex-wrap">
-              <Button
-                type="button"
-                variant={isPlayingAnswer ? 'default' : 'outline'}
-                size="sm"
-                className={cn('h-7 text-xs gap-1', isPlayingAnswer && 'bg-primary text-primary-foreground')}
-                onClick={onPlayAnswer}
-                title={isPlayingAnswer ? 'Jeda Audio Jawaban' : 'Dengar pelafalan jawaban Korea'}
-              >
-                {isPlayingAnswer ? <Pause className="h-3 w-3" /> : <Volume2 className="h-3 w-3" />}
-                <span>{isPlayingAnswer ? 'Jeda Jawaban' : 'Dengar Jawaban (KR)'}</span>
-              </Button>
-              {onPlayMeaning && (activeOpt?.id || q.answer_id) && (
+          {!hidden && (() => {
+            const meaningToPlay = activeOpt?.id || activeOpt?.answer_id || q.answer_short_id || q.answer_full_id || q.answer_id;
+            return (
+              <div className="flex items-center gap-1.5 flex-wrap">
                 <Button
                   type="button"
-                  variant={isPlayingMeaning ? 'default' : 'outline'}
+                  variant={isPlayingAnswer ? 'default' : 'outline'}
                   size="sm"
-                  className={cn(
-                    'h-7 text-xs gap-1 border-blue-500/30 text-blue-700 dark:text-blue-300 hover:bg-blue-500/10',
-                    isPlayingMeaning && 'bg-blue-600 text-white hover:bg-blue-700 dark:bg-blue-600 dark:hover:bg-blue-700'
-                  )}
-                  onClick={() => onPlayMeaning(activeOpt?.id || q.answer_id)}
-                  title={isPlayingMeaning ? 'Jeda Audio Arti' : 'Dengar arti jawaban dalam bahasa Indonesia'}
+                  className={cn('h-7 text-xs gap-1', isPlayingAnswer && 'bg-primary text-primary-foreground')}
+                  onClick={onPlayAnswer}
+                  title={isPlayingAnswer ? 'Jeda Audio Jawaban' : 'Dengar pelafalan jawaban Korea'}
                 >
-                  {isPlayingMeaning ? <Pause className="h-3 w-3" /> : <Volume2 className="h-3 w-3 text-blue-600 dark:text-blue-400" />}
-                  <span>{isPlayingMeaning ? 'Jeda Arti' : 'Dengar Arti (ID)'}</span>
+                  {isPlayingAnswer ? <Pause className="h-3 w-3" /> : <Volume2 className="h-3 w-3" />}
+                  <span>{isPlayingAnswer ? 'Jeda Jawaban' : 'Dengar Jawaban (KR)'}</span>
                 </Button>
-              )}
-            </div>
-          )}
+                {onPlayMeaning && meaningToPlay && (
+                  <Button
+                    type="button"
+                    variant={isPlayingMeaning ? 'default' : 'outline'}
+                    size="sm"
+                    className={cn(
+                      'h-7 text-xs gap-1 border-blue-500/30 text-blue-700 dark:text-blue-300 hover:bg-blue-500/10',
+                      isPlayingMeaning && 'bg-blue-600 text-white hover:bg-blue-700 dark:bg-blue-600 dark:hover:bg-blue-700'
+                    )}
+                    onClick={() => onPlayMeaning(meaningToPlay)}
+                    title={isPlayingMeaning ? 'Jeda Audio Arti' : 'Dengar arti jawaban dalam bahasa Indonesia'}
+                  >
+                    {isPlayingMeaning ? <Pause className="h-3 w-3" /> : <Volume2 className="h-3 w-3 text-blue-600 dark:text-blue-400" />}
+                    <span>{isPlayingMeaning ? 'Jeda Arti' : 'Dengar Arti (ID)'}</span>
+                  </Button>
+                )}
+              </div>
+            );
+          })()}
         </div>
 
         {q.answer_options && q.answer_options.length > 1 && !hidden && !showAllOptions && (
@@ -909,27 +912,32 @@ export function QADetail({
             {activeOpt.ro && (
               <p className="text-xs text-muted-foreground font-mono">{activeOpt.ro}</p>
             )}
-            <div className="flex items-center justify-between gap-2 pt-0.5">
-              <p className="text-xs sm:text-sm text-foreground/90">
-                <strong>Artinya:</strong> {activeOpt.id}
-              </p>
-              {activeOpt.id && onPlayMeaning && (
-                <button
-                  type="button"
-                  onClick={() => onPlayMeaning(activeOpt.id)}
-                  title={isPlayingMeaning ? 'Jeda Arti' : 'Dengar arti bahasa Indonesia'}
-                  className={cn(
-                    'text-xs flex items-center gap-1 px-2 py-0.5 rounded border transition-colors shrink-0 cursor-pointer font-medium',
-                    isPlayingMeaning
-                      ? 'bg-blue-600 text-white border-blue-600'
-                      : 'bg-card border-border text-muted-foreground hover:text-blue-600 hover:border-blue-400'
+            {(() => {
+              const meaningToPlay = activeOpt?.id || activeOpt?.answer_id || q.answer_short_id || q.answer_full_id || q.answer_id;
+              return (
+                <div className="flex items-center justify-between gap-2 pt-0.5">
+                  <p className="text-xs sm:text-sm text-foreground/90">
+                    <strong>Artinya:</strong> {meaningToPlay}
+                  </p>
+                  {meaningToPlay && onPlayMeaning && (
+                    <button
+                      type="button"
+                      onClick={() => onPlayMeaning(meaningToPlay)}
+                      title={isPlayingMeaning ? 'Jeda Arti' : 'Dengar arti bahasa Indonesia'}
+                      className={cn(
+                        'text-xs flex items-center gap-1 px-2 py-0.5 rounded border transition-colors shrink-0 cursor-pointer font-medium',
+                        isPlayingMeaning
+                          ? 'bg-blue-600 text-white border-blue-600'
+                          : 'bg-card border-border text-muted-foreground hover:text-blue-600 hover:border-blue-400'
+                      )}
+                    >
+                      <Volume2 className="h-3 w-3" />
+                      <span>{isPlayingMeaning ? 'Jeda' : 'Dengar Arti'}</span>
+                    </button>
                   )}
-                >
-                  <Volume2 className="h-3 w-3" />
-                  <span>{isPlayingMeaning ? 'Jeda' : 'Dengar Arti'}</span>
-                </button>
-              )}
-            </div>
+                </div>
+              );
+            })()}
           </div>
         )}
       </div>
