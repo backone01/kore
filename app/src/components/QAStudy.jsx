@@ -7,6 +7,7 @@ import {
 } from 'lucide-react';
 import { Button } from './ui/button.jsx';
 import { cn } from '../utils/cn.js';
+import { getAssetUrl } from '../utils/assetHelper.js';
 
 // --- Sound Wave Equalizer (CSS-Animated, Zero-lag) ---
 export function SoundWave({ playing = false, className = '' }) {

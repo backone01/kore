@@ -431,6 +431,7 @@ export function PracticeFlashcard({
 
               if (isTool) {
                 const toolNameOnly = currentQ?.title_ko || (currentQ?.answer_short_ko ? currentQ.answer_short_ko.replace(/입니다\.?$/, '').trim() : '') || itemNameKo;
+                const toolNameKo = toolNameOnly;
                 const toolAnswerSentence = currentQ?.answer_short_ko || (toolNameOnly ? `${toolNameOnly}입니다.` : '');
                 const toolNameId = currentQ?.title_id || currentQ?.answer_short_id || itemNameId;
                 const usageDefaultKo = currentQ?.usage_short_ko || (currentQ?.answer_options?.[0]?.ko) || '쇠를 갈거나 자를 때 씁니다.';
