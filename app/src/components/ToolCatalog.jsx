@@ -11,6 +11,7 @@ export function ToolCatalog({
   isAnswerHidden,
   toggleCardAnswer,
   playAudio,
+  onPlayMeaning,
   hideAllAnswers,
   onSetGlobalHideAll,
   onInspectRambu,
@@ -295,9 +296,22 @@ export function ToolCatalog({
                       <p className="text-sm font-bold font-kr text-foreground">
                         {item.answer_short_ko}
                       </p>
-                      <p className="text-xs text-muted-foreground">
-                        {item.answer_short_id}
-                      </p>
+                      <div className="flex items-center justify-between gap-1 pt-0.5">
+                        <p className="text-xs text-muted-foreground">
+                          {item.answer_short_id}
+                        </p>
+                        {onPlayMeaning && item.answer_short_id && (
+                          <button
+                            type="button"
+                            onClick={() => onPlayMeaning(item.answer_short_id)}
+                            className="text-xs text-muted-foreground hover:text-blue-600 flex items-center gap-0.5 px-1.5 py-0.5 rounded hover:bg-secondary cursor-pointer shrink-0"
+                            title="Dengar arti respon gerak"
+                          >
+                            <Volume2 className="w-3 h-3 text-blue-600 dark:text-blue-400" />
+                            <span className="text-[10px] font-semibold">Arti</span>
+                          </button>
+                        )}
+                      </div>
                     </div>
                   )}
                 </div>
@@ -392,13 +406,25 @@ export function ToolCatalog({
                 ) : (
                   <div className="space-y-2">
                     <div className="flex items-center justify-between gap-1">
-                      <p className="text-xs sm:text-sm font-bold text-emerald-700 dark:text-emerald-400">
-                        {item.title_id || item.answer_short_id}
-                      </p>
+                      <div className="flex items-center gap-1.5 min-w-0">
+                        <p className="text-xs sm:text-sm font-bold text-emerald-700 dark:text-emerald-400">
+                          {item.title_id || item.answer_short_id}
+                        </p>
+                        {onPlayMeaning && (item.title_id || item.answer_short_id) && (
+                          <button
+                            type="button"
+                            onClick={() => onPlayMeaning(item.title_id || item.answer_short_id)}
+                            className="p-1 rounded hover:bg-secondary text-muted-foreground hover:text-blue-600 flex items-center justify-center shrink-0 transition-colors cursor-pointer"
+                            title="Dengar arti nama alat (Bahasa Indonesia)"
+                          >
+                            <Volume2 className="w-3 h-3 text-blue-600 dark:text-blue-400" />
+                          </button>
+                        )}
+                      </div>
                       <button
                         type="button"
                         onClick={() => toggleCardAnswer && toggleCardAnswer(cardId)}
-                        className="text-xs text-muted-foreground hover:text-foreground flex items-center gap-0.5 cursor-pointer py-0.5 px-1.5 rounded hover:bg-secondary"
+                        className="text-xs text-muted-foreground hover:text-foreground flex items-center gap-0.5 cursor-pointer py-0.5 px-1.5 rounded hover:bg-secondary shrink-0"
                         title="Tutup jawaban kartu ini"
                       >
                         <EyeOff className="w-3 h-3" />
@@ -435,13 +461,26 @@ export function ToolCatalog({
                             >
                               <div className="flex items-center justify-between gap-1">
                                 <span className="text-xs font-bold text-primary">{opt.badge}</span>
-                                <button
-                                  type="button"
-                                  onClick={() => playAudio && playAudio(opt.audio || item.audio_a, opt.ko)}
-                                  className="text-xs font-semibold text-emerald-600 dark:text-emerald-400 hover:underline flex items-center gap-0.5 cursor-pointer"
-                                >
-                                  <Volume2 className="w-3 h-3" /> Putar
-                                </button>
+                                <div className="flex items-center gap-1.5">
+                                  <button
+                                    type="button"
+                                    onClick={() => playAudio && playAudio(opt.audio || item.audio_a, opt.ko)}
+                                    className="text-xs font-semibold text-emerald-600 dark:text-emerald-400 hover:underline flex items-center gap-0.5 cursor-pointer"
+                                    title="Putar suara Korea"
+                                  >
+                                    <Volume2 className="w-3 h-3" /> Putar (KR)
+                                  </button>
+                                  {onPlayMeaning && opt.id && (
+                                    <button
+                                      type="button"
+                                      onClick={() => onPlayMeaning(opt.id)}
+                                      className="text-xs font-semibold text-blue-600 dark:text-blue-400 hover:underline flex items-center gap-0.5 cursor-pointer"
+                                      title="Dengar arti bahasa Indonesia"
+                                    >
+                                      <Volume2 className="w-3 h-3" /> Arti (ID)
+                                    </button>
+                                  )}
+                                </div>
                               </div>
                               <p className="text-xs font-bold text-foreground break-keep">{opt.ko}</p>
                               <p className="text-[11px] text-muted-foreground">{opt.id}</p>
@@ -470,14 +509,26 @@ export function ToolCatalog({
                               </button>
                             ))}
                           </div>
-                          <button
-                            type="button"
-                            onClick={() => playAudio && playAudio(activeUsageOpt.audio || item.audio_a, activeUsageOpt.ko)}
-                            className="p-1 rounded bg-secondary hover:bg-primary hover:text-primary-foreground text-foreground flex items-center justify-center shrink-0 transition-colors cursor-pointer"
-                            title="Putar Suara Opsi Ini"
-                          >
-                            <Volume2 className="w-3.5 h-3.5" />
-                          </button>
+                          <div className="flex items-center gap-1 shrink-0">
+                            <button
+                              type="button"
+                              onClick={() => playAudio && playAudio(activeUsageOpt.audio || item.audio_a, activeUsageOpt.ko)}
+                              className="p-1 rounded bg-secondary hover:bg-primary hover:text-primary-foreground text-foreground flex items-center justify-center shrink-0 transition-colors cursor-pointer"
+                              title="Putar Suara Jawaban (Korea)"
+                            >
+                              <Volume2 className="w-3.5 h-3.5" />
+                            </button>
+                            {onPlayMeaning && activeUsageOpt?.id && (
+                              <button
+                                type="button"
+                                onClick={() => onPlayMeaning(activeUsageOpt.id)}
+                                className="p-1 rounded bg-secondary hover:bg-blue-600 hover:text-white text-blue-600 dark:text-blue-400 flex items-center justify-center shrink-0 transition-colors cursor-pointer"
+                                title="Putar Arti Jawaban (Bahasa Indonesia)"
+                              >
+                                <Volume2 className="w-3.5 h-3.5" />
+                              </button>
+                            )}
+                          </div>
                         </div>
                         <p className="text-xs font-bold text-foreground break-keep">{activeUsageOpt.ko}</p>
                         <p className="text-[11px] text-muted-foreground leading-snug">{activeUsageOpt.id}</p>

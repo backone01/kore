@@ -42,6 +42,7 @@ export function PracticeOral({
   setShowAnswer,
   onPlayQuestion,
   onPlayAnswer,
+  onPlayMeaning,
   isPlayingAudio,
   isRecording,
   onToggleRecording,
@@ -751,9 +752,22 @@ export function PracticeOral({
               </p>
             )}
             {showTranslate && currentQ?.question_id && (
-              <p className="text-sm text-muted-foreground mt-1 leading-relaxed">
-                &ldquo;{currentQ?.question_id}&rdquo;
-              </p>
+              <div className="flex items-center gap-2 mt-1">
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  &ldquo;{currentQ?.question_id}&rdquo;
+                </p>
+                {onPlayMeaning && (
+                  <button
+                    type="button"
+                    onClick={() => onPlayMeaning(currentQ.question_id)}
+                    className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[11px] font-semibold bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-700 dark:text-emerald-400 border border-emerald-500/30 transition-colors cursor-pointer shrink-0"
+                    title="Dengar maksud pertanyaan dalam bahasa Indonesia"
+                  >
+                    <Volume2 className="w-3 h-3 text-emerald-600 dark:text-emerald-400" />
+                    <span>Dengar Maksud</span>
+                  </button>
+                )}
+              </div>
             )}
           </div>
         ) : (
@@ -776,24 +790,45 @@ export function PracticeOral({
                 Jawaban Model HRD Korea
               </span>
 
-              <Button 
-                type="button" 
-                variant="secondary" 
-                size="sm" 
-                onClick={() => {
-                  const ansUrl = resolveOralAnswerAudio(currentQ);
-                  const activeOpt = (currentQ?.answer_options && currentQ.answer_options[selectedOptionIndex]) || (currentQ?.answer_options && currentQ.answer_options[0]);
-                  const activeTxt = activeOpt?.answer_ko || activeOpt?.ko || currentQ?.answer_short_ko || currentQ?.answer_ko;
-                  if (ansUrl) onPlayAnswer(ansUrl);
-                  else if (activeTxt) onPlayAnswer(activeTxt);
-                  else onPlayAnswer();
-                }} 
-                className="h-8 px-2.5 text-xs gap-1.5 cursor-pointer"
-                title="Putar suara jawaban model yang dipilih"
-              >
-                <Volume2 className="h-3.5 w-3.5 text-primary" />
-                <span>Putar Jawaban</span>
-              </Button>
+              <div className="flex items-center gap-1.5 flex-wrap">
+                <Button 
+                  type="button" 
+                  variant="secondary" 
+                  size="sm" 
+                  onClick={() => {
+                    const ansUrl = resolveOralAnswerAudio(currentQ);
+                    const activeOpt = (currentQ?.answer_options && currentQ.answer_options[selectedOptionIndex]) || (currentQ?.answer_options && currentQ.answer_options[0]);
+                    const activeTxt = activeOpt?.answer_ko || activeOpt?.ko || currentQ?.answer_short_ko || currentQ?.answer_ko;
+                    if (ansUrl) onPlayAnswer(ansUrl);
+                    else if (activeTxt) onPlayAnswer(activeTxt);
+                    else onPlayAnswer();
+                  }} 
+                  className="h-8 px-2.5 text-xs gap-1.5 cursor-pointer"
+                  title="Putar suara jawaban model yang dipilih (Korea)"
+                >
+                  <Volume2 className="h-3.5 w-3.5 text-primary" />
+                  <span>Putar Jawaban (KR)</span>
+                </Button>
+
+                {onPlayMeaning && (() => {
+                  const activeOpt = (currentQ?.answer_options && currentQ.answer_options[selectedOptionIndex]) || (currentQ?.answer_options && currentQ.answer_options[0]) || null;
+                  const ansId = activeOpt?.answer_id || activeOpt?.id || currentQ?.answer_short_id || currentQ?.title_id || currentQ?.answer_id;
+                  if (!ansId) return null;
+                  return (
+                    <Button
+                      type="button"
+                      variant="outline"
+                      size="sm"
+                      onClick={() => onPlayMeaning(ansId)}
+                      className="h-8 px-2.5 text-xs gap-1.5 cursor-pointer border-emerald-500/30 text-emerald-700 dark:text-emerald-400 hover:bg-emerald-500/10"
+                      title="Dengar arti terjemahan jawaban dalam bahasa Indonesia"
+                    >
+                      <Volume2 className="h-3.5 w-3.5 text-emerald-600 dark:text-emerald-400" />
+                      <span>Dengar Arti (ID)</span>
+                    </Button>
+                  );
+                })()}
+              </div>
             </div>
 
             {/* Answer Options Selector (⚡ Super Mudah, ⭐ Standar HRDK, 🔹 Bentuk 도구, 📘 Lengkap) */}
@@ -845,9 +880,22 @@ export function PracticeOral({
                     {ansKo}
                   </p>
                   {showTranslate && ansId && (
-                    <p className="text-xs text-muted-foreground leading-relaxed">
-                      Artinya: {ansId}
-                    </p>
+                    <div className="flex items-center gap-2 pt-0.5">
+                      <p className="text-xs text-muted-foreground leading-relaxed">
+                        Artinya: {ansId}
+                      </p>
+                      {onPlayMeaning && (
+                        <button
+                          type="button"
+                          onClick={() => onPlayMeaning(ansId)}
+                          className="inline-flex items-center gap-1 text-[11px] font-semibold text-emerald-600 dark:text-emerald-400 hover:underline cursor-pointer shrink-0"
+                          title="Dengar terjemahan bahasa Indonesia"
+                        >
+                          <Volume2 className="w-3 h-3" />
+                          <span>Dengar</span>
+                        </button>
+                      )}
+                    </div>
                   )}
                 </div>
               );

@@ -10,6 +10,7 @@ export function PictogramCatalog({
   isAnswerHidden,
   toggleCardAnswer,
   playAudio,
+  onPlayMeaning,
   hideAllAnswers,
   onSetGlobalHideAll,
   onInspectRambu
@@ -212,10 +213,20 @@ export function PictogramCatalog({
                         type="button"
                         onClick={() => playAudio && playAudio(item.audio_a, item.answer_short_ko || item.title_ko)}
                         className="w-7 h-7 rounded-md bg-secondary hover:bg-primary hover:text-primary-foreground text-foreground flex items-center justify-center shrink-0 transition-colors cursor-pointer"
-                        title="Putar Audio Pelafalan Rambu"
+                        title="Putar Audio Jawaban Korea"
                       >
                         <Volume2 className="w-3.5 h-3.5" />
                       </button>
+                      {onPlayMeaning && (item.title_id || item.answer_short_id) && (
+                        <button
+                          type="button"
+                          onClick={() => onPlayMeaning(item.title_id || item.answer_short_id)}
+                          className="w-7 h-7 rounded-md bg-secondary hover:bg-blue-600 hover:text-white text-blue-600 dark:text-blue-400 flex items-center justify-center shrink-0 transition-colors cursor-pointer"
+                          title="Putar Arti Rambu Bahasa Indonesia"
+                        >
+                          <Volume2 className="w-3.5 h-3.5" />
+                        </button>
+                      )}
                     </div>
                   </div>
                   {hidden ? (
@@ -244,9 +255,21 @@ export function PictogramCatalog({
                 ) : (
                   <div className="space-y-1">
                     <div className="flex items-center justify-between gap-1">
-                      <p className="text-xs sm:text-sm font-bold text-emerald-700 dark:text-emerald-400">
-                        {item.title_id || item.answer_short_id}
-                      </p>
+                      <div className="flex items-center gap-1.5 min-w-0">
+                        <p className="text-xs sm:text-sm font-bold text-emerald-700 dark:text-emerald-400">
+                          {item.title_id || item.answer_short_id}
+                        </p>
+                        {onPlayMeaning && (item.title_id || item.answer_short_id) && (
+                          <button
+                            type="button"
+                            onClick={() => onPlayMeaning(item.title_id || item.answer_short_id)}
+                            className="p-1 rounded hover:bg-secondary text-muted-foreground hover:text-blue-600 flex items-center justify-center shrink-0 transition-colors cursor-pointer"
+                            title="Dengar arti rambu (Bahasa Indonesia)"
+                          >
+                            <Volume2 className="w-3 h-3 text-blue-600 dark:text-blue-400" />
+                          </button>
+                        )}
+                      </div>
                       <button
                         type="button"
                         onClick={() => toggleCardAnswer && toggleCardAnswer(cardId)}

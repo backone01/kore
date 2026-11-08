@@ -86,6 +86,8 @@ export function QAPlayerDeck({
   onToggleMode = null,
   includeAnswers = true,
   onToggleIncludeAnswers = null,
+  includeMeaning = false,
+  onToggleIncludeMeaning = null,
   gapCountdown = 0,
   hideText = false,
   onToggleCollapse = null,
@@ -94,9 +96,11 @@ export function QAPlayerDeck({
   currentIndex = 0,
   activeOpt = null,
   onPlayAnswer = null,
+  onPlayMeaning = null,
   selOptIdx = 0,
   onSelectOpt = null,
   isPlayingAnswer = false,
+  isPlayingMeaning = false,
 }) {
   const pct = prog && prog.d > 0 ? Math.min(100, (prog.t / prog.d) * 100) : 0;
   const canSeek = prog && prog.isFile && prog.d > 0 && onSeek;
@@ -128,6 +132,13 @@ export function QAPlayerDeck({
         <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-emerald-500/15 text-emerald-800 dark:text-emerald-300 border border-emerald-500/30">
           <SoundWave playing className="text-emerald-700 dark:text-emerald-300" />
           <span>Kunci Jawaban Resmi (답변)</span>
+        </span>
+      );
+    } else if (ui.step === 'meaning') {
+      statusBadge = (
+        <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-blue-500/15 text-blue-800 dark:text-blue-300 border border-blue-500/30">
+          <SoundWave playing className="text-blue-600 dark:text-blue-400" />
+          <span>Mendengarkan Arti (한국어 뜻)</span>
         </span>
       );
     }
@@ -504,6 +515,23 @@ export function QAPlayerDeck({
               {rate}x
             </button>
           )}
+
+          {onToggleIncludeMeaning && (
+            <button
+              type="button"
+              onClick={onToggleIncludeMeaning}
+              title={includeMeaning ? 'Putar arti bahasa Indonesia otomatis: Aktif' : 'Putar arti bahasa Indonesia otomatis: Nonaktif'}
+              className={cn(
+                'inline-flex items-center justify-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-semibold border transition-all min-h-[44px] flex-1 sm:flex-initial cursor-pointer',
+                includeMeaning
+                  ? 'bg-blue-500/15 text-blue-700 dark:text-blue-300 border-blue-500/30'
+                  : 'bg-secondary text-muted-foreground border-border hover:bg-secondary/80'
+              )}
+            >
+              <Volume2 className="h-3.5 w-3.5 shrink-0" />
+              <span>{includeMeaning ? 'Arti ID: Aktif' : 'Arti ID: Nonaktif'}</span>
+            </button>
+          )}
         </div>
         </details>
       </div>
@@ -659,8 +687,11 @@ export function QADetail({
   onToggle,
   onPlayQ,
   onPlayAnswer,
+  onPlayMeaning,
   isPlayingQ = false,
   isPlayingAnswer = false,
+  isPlayingMeaning = false,
+  isPlayingQMeaning = false,
   accent = 'blue',
   subLabel,
   onPrev,
@@ -732,9 +763,27 @@ export function QADetail({
         {(q.question_ro || q.question_romaja) && (
           <p className="text-xs text-muted-foreground font-mono">{q.question_ro || q.question_romaja}</p>
         )}
-        <p className="text-xs sm:text-sm text-muted-foreground">
-          <strong>{A.meanLabel}</strong>"{q.question_id}"
-        </p>
+        <div className="flex items-center justify-between gap-2">
+          <p className="text-xs sm:text-sm text-muted-foreground">
+            <strong>{A.meanLabel}</strong>"{q.question_id}"
+          </p>
+          {q.question_id && onPlayMeaning && (
+            <Button
+              type="button"
+              variant="ghost"
+              size="xs"
+              onClick={() => onPlayMeaning(q.question_id)}
+              title={isPlayingQMeaning ? 'Jeda Arti Pertanyaan' : 'Dengar arti pertanyaan dalam bahasa Indonesia'}
+              className={cn(
+                'h-6 px-2 text-[11px] gap-1 text-muted-foreground hover:text-foreground shrink-0 cursor-pointer',
+                isPlayingQMeaning && 'text-blue-600 dark:text-blue-400 font-bold bg-blue-500/10'
+              )}
+            >
+              <Volume2 className="h-3 w-3" />
+              <span>{isPlayingQMeaning ? 'Jeda Maksud' : 'Dengar Maksud'}</span>
+            </Button>
+          )}
+        </div>
       </div>
 
       <div className="border-t border-border/70 pt-3 space-y-2">
@@ -744,17 +793,35 @@ export function QADetail({
           </span>
 
           {!hidden && (
-            <Button
-              type="button"
-              variant={isPlayingAnswer ? 'default' : 'outline'}
-              size="sm"
-              className={cn('h-7 text-xs gap-1', isPlayingAnswer && 'bg-primary text-primary-foreground')}
-              onClick={onPlayAnswer}
-              title={isPlayingAnswer ? 'Jeda Audio Jawaban' : 'Dengar jawaban ini saja'}
-            >
-              {isPlayingAnswer ? <Pause className="h-3 w-3" /> : <Volume2 className="h-3 w-3" />}
-              <span>{isPlayingAnswer ? 'Jeda Jawaban' : 'Dengar Jawaban'}</span>
-            </Button>
+            <div className="flex items-center gap-1.5 flex-wrap">
+              <Button
+                type="button"
+                variant={isPlayingAnswer ? 'default' : 'outline'}
+                size="sm"
+                className={cn('h-7 text-xs gap-1', isPlayingAnswer && 'bg-primary text-primary-foreground')}
+                onClick={onPlayAnswer}
+                title={isPlayingAnswer ? 'Jeda Audio Jawaban' : 'Dengar pelafalan jawaban Korea'}
+              >
+                {isPlayingAnswer ? <Pause className="h-3 w-3" /> : <Volume2 className="h-3 w-3" />}
+                <span>{isPlayingAnswer ? 'Jeda Jawaban' : 'Dengar Jawaban (KR)'}</span>
+              </Button>
+              {onPlayMeaning && (activeOpt?.id || q.answer_id) && (
+                <Button
+                  type="button"
+                  variant={isPlayingMeaning ? 'default' : 'outline'}
+                  size="sm"
+                  className={cn(
+                    'h-7 text-xs gap-1 border-blue-500/30 text-blue-700 dark:text-blue-300 hover:bg-blue-500/10',
+                    isPlayingMeaning && 'bg-blue-600 text-white hover:bg-blue-700 dark:bg-blue-600 dark:hover:bg-blue-700'
+                  )}
+                  onClick={() => onPlayMeaning(activeOpt?.id || q.answer_id)}
+                  title={isPlayingMeaning ? 'Jeda Audio Arti' : 'Dengar arti jawaban dalam bahasa Indonesia'}
+                >
+                  {isPlayingMeaning ? <Pause className="h-3 w-3" /> : <Volume2 className="h-3 w-3 text-blue-600 dark:text-blue-400" />}
+                  <span>{isPlayingMeaning ? 'Jeda Arti' : 'Dengar Arti (ID)'}</span>
+                </Button>
+              )}
+            </div>
           )}
         </div>
 
@@ -814,7 +881,23 @@ export function QADetail({
                   {opt.ko}
                 </p>
                 {opt.ro && <p className="text-xs text-muted-foreground font-mono">{opt.ro}</p>}
-                <p className="text-xs text-muted-foreground">{opt.id}</p>
+                <div className="flex items-center justify-between gap-1.5 pt-0.5">
+                  <p className="text-xs text-muted-foreground">{opt.id}</p>
+                  {opt.id && onPlayMeaning && (
+                    <button
+                      type="button"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        onPlayMeaning(opt.id);
+                      }}
+                      title="Dengar arti bahasa Indonesia opsi ini"
+                      className="text-xs text-muted-foreground hover:text-blue-600 dark:hover:text-blue-400 flex items-center gap-0.5 px-1.5 py-0.5 rounded hover:bg-secondary/80 shrink-0 cursor-pointer"
+                    >
+                      <Volume2 className="h-3 w-3" />
+                      <span className="text-[10px] font-semibold">Arti</span>
+                    </button>
+                  )}
+                </div>
               </div>
             ))}
           </div>
@@ -826,9 +909,27 @@ export function QADetail({
             {activeOpt.ro && (
               <p className="text-xs text-muted-foreground font-mono">{activeOpt.ro}</p>
             )}
-            <p className="text-xs sm:text-sm text-foreground/90">
-              <strong>Artinya:</strong> {activeOpt.id}
-            </p>
+            <div className="flex items-center justify-between gap-2 pt-0.5">
+              <p className="text-xs sm:text-sm text-foreground/90">
+                <strong>Artinya:</strong> {activeOpt.id}
+              </p>
+              {activeOpt.id && onPlayMeaning && (
+                <button
+                  type="button"
+                  onClick={() => onPlayMeaning(activeOpt.id)}
+                  title={isPlayingMeaning ? 'Jeda Arti' : 'Dengar arti bahasa Indonesia'}
+                  className={cn(
+                    'text-xs flex items-center gap-1 px-2 py-0.5 rounded border transition-colors shrink-0 cursor-pointer font-medium',
+                    isPlayingMeaning
+                      ? 'bg-blue-600 text-white border-blue-600'
+                      : 'bg-card border-border text-muted-foreground hover:text-blue-600 hover:border-blue-400'
+                  )}
+                >
+                  <Volume2 className="h-3 w-3" />
+                  <span>{isPlayingMeaning ? 'Jeda' : 'Dengar Arti'}</span>
+                </button>
+              )}
+            </div>
           </div>
         )}
       </div>

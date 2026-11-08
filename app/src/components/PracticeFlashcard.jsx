@@ -14,6 +14,7 @@ import { getAssetUrl } from '../utils/assetHelper.js';
 export function PracticeFlashcard({
   questions,
   onPlayAudio,
+  onPlayMeaning,
   isPlayingAudio,
   audioSpeed = 0.8,
   onToggleAudioSpeed
@@ -401,6 +402,15 @@ export function PracticeFlashcard({
                     <span>Dengar Soal Penguji</span>
                   </Button>
                 )}
+                {onPlayMeaning && currentQ?.question_id && (
+                  <Button type="button" variant="outline" size="sm"
+                    onClick={(e) => { e.stopPropagation(); onPlayMeaning(currentQ.question_id); }}
+                    title="Dengar arti maksud pertanyaan bahasa Indonesia"
+                    className="border-blue-500/30 text-blue-700 dark:text-blue-300 hover:bg-blue-500/10">
+                    <Volume2 className="h-3.5 w-3.5 text-blue-600 dark:text-blue-400" />
+                    <span>Dengar Maksud (ID)</span>
+                  </Button>
+                )}
                 {!hasImage && cardDirection === 'ko_to_id' && (currentQ?.audio_a || currentQ?.answer_short_ko || currentQ?.answer_ko) && (
                   <Button type="button" variant="secondary" size="sm"
                     onClick={(e) => { e.stopPropagation(); onPlayAudio(currentQ.audio_a, currentQ.answer_short_ko || currentQ.answer_ko); }}
@@ -584,6 +594,15 @@ export function PracticeFlashcard({
                           <span>Dengar Nama Alat</span>
                         </Button>
                       )}
+                      {onPlayMeaning && toolNameId && (
+                        <Button type="button" variant="outline" size="sm"
+                          onClick={(e) => { e.stopPropagation(); onPlayMeaning(toolNameId); }}
+                          className="border-blue-500/30 text-blue-700 dark:text-blue-300 hover:bg-blue-500/10"
+                          title="Dengar arti nama alat dalam bahasa Indonesia">
+                          <Volume2 className="h-3.5 w-3.5 text-blue-600 dark:text-blue-400" />
+                          <span>Arti Nama (ID)</span>
+                        </Button>
+                      )}
                       {(activeOpt?.audio || activeOpt?.ko) && (
                         <Button type="button" variant="outline" size="sm"
                           onClick={(e) => { 
@@ -594,6 +613,18 @@ export function PracticeFlashcard({
                           title="Dengar pelafalan fungsi/kegunaan alat yang dipilih">
                           <Volume2 className="h-3.5 w-3.5 text-primary" />
                           <span>Dengar Fungsi ({activeOpt?.label || 'Opsi'})</span>
+                        </Button>
+                      )}
+                      {onPlayMeaning && (activeOpt?.id || activeOpt?.answer_id || usageDefaultId) && (
+                        <Button type="button" variant="outline" size="sm"
+                          onClick={(e) => { 
+                            e.stopPropagation(); 
+                            onPlayMeaning(activeOpt?.id || activeOpt?.answer_id || usageDefaultId); 
+                          }}
+                          className="border-blue-500/30 text-blue-700 dark:text-blue-300 hover:bg-blue-500/10"
+                          title="Dengar arti fungsi bahasa Indonesia">
+                          <Volume2 className="h-3.5 w-3.5 text-blue-600 dark:text-blue-400" />
+                          <span>Arti Fungsi (ID)</span>
                         </Button>
                       )}
                     </div>
@@ -629,13 +660,22 @@ export function PracticeFlashcard({
                     </div>
 
                     {/* Audio button di belakang */}
-                    <div className="pt-2 flex items-center justify-center gap-2">
+                    <div className="pt-2 flex items-center justify-center gap-2 flex-wrap">
                       {(currentQ?.audio_a || picSentence || picName) && (
                         <Button type="button" variant="secondary" size="sm"
                           onClick={(e) => { e.stopPropagation(); onPlayAudio(currentQ.audio_a, picSentence || picName); }}
                           title="Dengar pelafalan arti rambu">
                           <Volume2 className="h-3.5 w-3.5 text-emerald-600" />
                           <span>Dengar Pelafalan Rambu</span>
+                        </Button>
+                      )}
+                      {onPlayMeaning && picId && (
+                        <Button type="button" variant="outline" size="sm"
+                          onClick={(e) => { e.stopPropagation(); onPlayMeaning(picId); }}
+                          className="border-blue-500/30 text-blue-700 dark:text-blue-300 hover:bg-blue-500/10"
+                          title="Dengar arti rambu dalam bahasa Indonesia">
+                          <Volume2 className="h-3.5 w-3.5 text-blue-600 dark:text-blue-400" />
+                          <span>Dengar Arti Rambu (ID)</span>
                         </Button>
                       )}
                     </div>
@@ -699,7 +739,7 @@ export function PracticeFlashcard({
                   </div>
 
                   {/* Audio button di belakang */}
-                  <div className="pt-2 flex items-center justify-center gap-2">
+                  <div className="pt-2 flex items-center justify-center gap-2 flex-wrap">
                     {(activeOpt?.audio || currentQ?.audio_a || displayKo) && (
                       <Button type="button" variant="secondary" size="sm"
                         onClick={(e) => { 
@@ -710,6 +750,18 @@ export function PracticeFlashcard({
                         title="Dengar pelafalan jawaban pilihan ini">
                         <Volume2 className="h-3.5 w-3.5 text-emerald-600" />
                         <span>Dengar Pelafalan Korea</span>
+                      </Button>
+                    )}
+                    {onPlayMeaning && displayId && (
+                      <Button type="button" variant="outline" size="sm"
+                        onClick={(e) => { 
+                          e.stopPropagation(); 
+                          onPlayMeaning(displayId); 
+                        }}
+                        className="border-blue-500/30 text-blue-700 dark:text-blue-300 hover:bg-blue-500/10"
+                        title="Dengar arti jawaban dalam bahasa Indonesia">
+                        <Volume2 className="h-3.5 w-3.5 text-blue-600 dark:text-blue-400" />
+                        <span>Dengar Arti (ID)</span>
                       </Button>
                     )}
                   </div>

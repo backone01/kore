@@ -9,6 +9,7 @@ import {
   X, Maximize2, Award, Turtle, Zap
 } from 'lucide-react';
 import { getAssetUrl } from '../utils/assetHelper.js';
+import { speakIndonesianTTS, stopTTS } from '../utils/audioHelper.js';
 import { HRDK_MODULES } from '../utils/categoryGroups.js';
 import { Badge } from './ui/badge.jsx';
 import { Button } from './ui/button.jsx';
@@ -411,6 +412,17 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
   const [gapCountdown, setGapCountdown] = useState(0);
   const [hideText, setHideText] = useState(false);
   const [includeAnswers, setIncludeAnswers] = useState(false);
+  const [includeMeaning, setIncludeMeaning] = useState(() => {
+    try {
+      return localStorage.getItem('kore_player_include_meaning') === 'true';
+    } catch {
+      return false;
+    }
+  });
+
+  useEffect(() => {
+    try { localStorage.setItem('kore_player_include_meaning', String(includeMeaning)); } catch {}
+  }, [includeMeaning]);
   const [audioSpeed, setAudioSpeed] = useState(() => {
     try {
       const saved = localStorage.getItem('kore_audio_speed');
@@ -1263,6 +1275,37 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
     }
   };
 
+  const playMeaning = (text, onEnd) => {
+    if (!text) {
+      if (onEnd) onEnd();
+      return;
+    }
+    const key = `id:${text}`;
+    const isCurrentlyPlaying = (playingAudio === key);
+    if (isCurrentlyPlaying) {
+      stopAudioOnly();
+      if (playerRef.current.on) {
+        pausePlayer();
+      }
+      return;
+    }
+
+    stopAudioOnly();
+    setPlayingAudio(key);
+    speakIndonesianTTS(text, {
+      speed: 1.0,
+      onStart: () => setPlayingAudio(key),
+      onEnd: () => {
+        setPlayingAudio(null);
+        if (onEnd) onEnd();
+      },
+      onError: () => {
+        setPlayingAudio(null);
+        if (onEnd) onEnd();
+      }
+    });
+  };
+
   const playerRef = useRef({
     tab: null,
     items: [],
@@ -1350,6 +1393,7 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
     playRate,
     playDelay,
     includeAnswers,
+    includeMeaning,
     playerMode,
     audioSpeed
   };
@@ -1424,6 +1468,23 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
     return { url, text: opt.ko || q.answer_ko };
   };
 
+  const resolveAnswerMeaning = (tab, q, idx) => {
+    if (tab === 'commands') {
+      return q.action_desc || q.command_id || '';
+    }
+    const cardId = `${tab === 'k3' ? 'k3' : 'int'}_${q.id ?? idx}`;
+    const opts = q.answer_options;
+    const selIdx = resolveOptionIndex(
+      opts,
+      cardId,
+      liveRef.current.selectedOptionByCard,
+      liveRef.current.preferredOptionStyle,
+      liveRef.current.preferredOptIndex
+    );
+    const opt = (opts && opts.length > 0 ? (opts[selIdx] || opts[0]) : null) || { ko: q.answer_ko, id: q.answer_id };
+    return opt.id || q.answer_id || '';
+  };
+
   const drivePlayer = () => {
     const r = playerRef.current;
     if (!r.on) return;
@@ -1435,11 +1496,20 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
       r.isFile = !!q.audio_q;
       syncPlayer();
       playAudio(q.audio_q, q.question_ko, onPlayerStepEnd);
-    } else {
+    } else if (r.step === 'a') {
       const { url, text } = resolveAnswerAudio(r.tab, q, idx);
       r.isFile = !!url;
       syncPlayer();
       playAudio(url, text, onPlayerStepEnd);
+    } else if (r.step === 'meaning') {
+      const meaningText = resolveAnswerMeaning(r.tab, q, idx);
+      r.isFile = false;
+      syncPlayer();
+      if (meaningText) {
+        playMeaning(meaningText, onPlayerStepEnd);
+      } else {
+        advanceOrStopNext();
+      }
     }
   };
 
@@ -1508,6 +1578,13 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
         }
       }, 1000);
     } else if (r.step === 'a') {
+      if (liveRef.current.includeMeaning) {
+        playerRef.current.step = 'meaning';
+        drivePlayer();
+      } else {
+        advanceOrStopNext();
+      }
+    } else if (r.step === 'meaning') {
       advanceOrStopNext();
     }
   };
@@ -2067,6 +2144,8 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
             }}
             includeAnswers={includeAnswers}
             onToggleIncludeAnswers={() => setIncludeAnswers(p => !p)}
+            includeMeaning={includeMeaning}
+            onToggleIncludeMeaning={() => setIncludeMeaning(p => !p)}
             gapCountdown={gapCountdown}
             hideText={hideText}
             onPrev={() => {
@@ -2198,8 +2277,11 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
                   onPlayAnswer={() => {
                     playAudio(answerUrl, activeOpt?.ko || q.answer_ko);
                   }}
+                  onPlayMeaning={playMeaning}
                   isPlayingQ={isPlayingQ}
                   isPlayingAnswer={isPlayingAnswer}
+                  isPlayingMeaning={playingAudio === `id:${activeOpt.id || q.answer_id}`}
+                  isPlayingQMeaning={playingAudio === `id:${q.question_id}`}
                   accent="amber"
                   ansFallback="Kunci Resmi"
                   subLabel={q.topic || 'K3 Industri Pabrik'}
@@ -2302,6 +2384,8 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
             }}
             includeAnswers={includeAnswers}
             onToggleIncludeAnswers={() => setIncludeAnswers(p => !p)}
+            includeMeaning={includeMeaning}
+            onToggleIncludeMeaning={() => setIncludeMeaning(p => !p)}
             gapCountdown={gapCountdown}
             hideText={hideText}
             onPrev={() => {
@@ -2433,8 +2517,11 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
                   onPlayAnswer={() => {
                     playAudio(answerUrl, activeOpt?.ko || q.answer_ko);
                   }}
+                  onPlayMeaning={playMeaning}
                   isPlayingQ={isPlayingQ}
                   isPlayingAnswer={isPlayingAnswer}
+                  isPlayingMeaning={playingAudio === `id:${activeOpt.id || q.answer_id}`}
+                  isPlayingQMeaning={playingAudio === `id:${q.question_id}`}
                   accent="blue"
                   ansFallback="Standar"
                   subLabel={q.category_title || q.category}
@@ -2551,6 +2638,8 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
             }}
             includeAnswers={includeAnswers}
             onToggleIncludeAnswers={() => setIncludeAnswers(p => !p)}
+            includeMeaning={includeMeaning}
+            onToggleIncludeMeaning={() => setIncludeMeaning(p => !p)}
             gapCountdown={gapCountdown}
             hideText={hideText}
             onPrev={() => {
@@ -2672,20 +2761,33 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
                                 <strong>Refleks:</strong> {cmd.action_desc}
                               </p>
                             </div>
-                            <Button
-                              type="button"
-                              variant="outline"
-                              size="sm"
-                              className="h-7 px-2 text-[11px] font-semibold text-emerald-700 dark:text-emerald-400 border-emerald-500/30 hover:bg-emerald-500/10 cursor-pointer shrink-0"
-                              onClick={() => {
-                                const aUrl = cmd.audio_a || (cmd.id ? `/audio/tts/answers/${cmd.id}_a.mp3` : null);
-                                playAudio(aUrl, cmd.action_desc || cmd.command_id);
-                              }}
-                              title="Putar suara rekaman instruksi/jawaban gerak fisik"
-                            >
-                              <Volume2 className="h-3 w-3 mr-1" />
-                              <span>Putar Jawaban</span>
-                            </Button>
+                            <div className="flex items-center gap-1 shrink-0">
+                              <Button
+                                type="button"
+                                variant="outline"
+                                size="sm"
+                                className="h-7 px-2 text-[11px] font-semibold text-emerald-700 dark:text-emerald-400 border-emerald-500/30 hover:bg-emerald-500/10 cursor-pointer"
+                                onClick={() => {
+                                  const aUrl = cmd.audio_a || (cmd.id ? `/audio/tts/answers/${cmd.id}_a.mp3` : null);
+                                  playAudio(aUrl, cmd.action_desc || cmd.command_id);
+                                }}
+                                title="Putar suara rekaman instruksi gerak fisik Korea"
+                              >
+                                <Volume2 className="h-3 w-3 mr-1" />
+                                <span>Jawaban (KR)</span>
+                              </Button>
+                              <Button
+                                type="button"
+                                variant={playingAudio === `id:${cmd.command_id || cmd.action_desc}` ? 'default' : 'outline'}
+                                size="sm"
+                                className="h-7 px-2 text-[11px] font-semibold border-blue-500/30 text-blue-700 dark:text-blue-300 hover:bg-blue-500/10 cursor-pointer"
+                                onClick={() => playMeaning(cmd.command_id || cmd.action_desc)}
+                                title="Dengar arti gerakan dalam bahasa Indonesia"
+                              >
+                                <Volume2 className="h-3 w-3 mr-1 text-blue-600 dark:text-blue-400" />
+                                <span>Arti (ID)</span>
+                              </Button>
+                            </div>
                           </div>
                         </div>
                       )}
@@ -4157,6 +4259,7 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
           isAnswerHidden={isAnswerHidden}
           toggleCardAnswer={toggleCardAnswer}
           playAudio={playAudio}
+          onPlayMeaning={playMeaning}
           hideAllAnswers={hideAllAnswers}
           onSetGlobalHideAll={handleSetGlobalHideAll}
           onInspectRambu={setInspectRambu}
@@ -4170,6 +4273,7 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
           isAnswerHidden={isAnswerHidden}
           toggleCardAnswer={toggleCardAnswer}
           playAudio={playAudio}
+          onPlayMeaning={playMeaning}
           hideAllAnswers={hideAllAnswers}
           onSetGlobalHideAll={handleSetGlobalHideAll}
           onInspectRambu={setInspectRambu}

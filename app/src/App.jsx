@@ -22,6 +22,7 @@ import { PracticeOral } from './components/PracticeOral.jsx';
 // Lazy loading modul materi besar untuk performa inisial cepat
 const StudyGuide = lazy(() => import('./components/StudyGuide.jsx'));
 import { getAssetUrl } from './utils/assetHelper.js';
+import { speakIndonesianTTS } from './utils/audioHelper.js';
 import { MAIN_MODULES, CATEGORY_GROUPS, SUB_CATEGORIES, filterQuestionsByCategory, getParentModuleId, getCategoryMeta, MODULE_COLORS } from './utils/categoryGroups.js';
 import { cn } from './utils/cn.js';
 import { Badge } from './components/ui/badge.jsx';
@@ -508,6 +509,17 @@ export default function App() {
       speakPracticeTTS(fallbackText);
     }
   };
+
+  const playPracticeMeaning = useCallback((text) => {
+    stopAllAudio();
+    if (!text) return;
+    speakIndonesianTTS(text, {
+      speed: 1.0,
+      onStart: () => setIsPlayingAudio(true),
+      onEnd: () => setIsPlayingAudio(false),
+      onError: () => setIsPlayingAudio(false)
+    });
+  }, [stopAllAudio]);
 
   // Practice Mic Recording: revoke previous blob to prevent leak
   const toggleRecording = async () => {
@@ -1311,6 +1323,7 @@ export default function App() {
               <PracticeFlashcard
                 questions={filteredQuestions}
                 onPlayAudio={playAudioUrl}
+                onPlayMeaning={playPracticeMeaning}
                 isPlayingAudio={isPlayingAudio}
                 audioSpeed={audioSpeed}
                 onToggleAudioSpeed={toggleAudioSpeed}
@@ -1321,6 +1334,7 @@ export default function App() {
               <PracticeQuiz
                 questions={filteredQuestions}
                 onPlayAudio={playAudioUrl}
+                onPlayMeaning={playPracticeMeaning}
                 isPlayingAudio={isPlayingAudio}
               />
             )}
@@ -1329,6 +1343,7 @@ export default function App() {
               <PracticeListening
                 questions={filteredQuestions}
                 onPlayAudio={playAudioUrl}
+                onPlayMeaning={playPracticeMeaning}
                 isPlayingAudio={isPlayingAudio}
               />
             )}
@@ -1350,6 +1365,7 @@ export default function App() {
                 setShowAnswer={setShowAnswer}
                 onPlayQuestion={playPracticeQuestion}
                 onPlayAnswer={playPracticeAnswer}
+                onPlayMeaning={playPracticeMeaning}
                 isPlayingAudio={isPlayingAudio}
                 isRecording={isRecording}
                 onToggleRecording={toggleRecording}

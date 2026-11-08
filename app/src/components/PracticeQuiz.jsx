@@ -9,6 +9,7 @@ import { getAssetUrl } from '../utils/assetHelper.js';
 export function PracticeQuiz({
   questions,
   onPlayAudio,
+  onPlayMeaning,
   isPlayingAudio
 }) {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -395,10 +396,21 @@ export function PracticeQuiz({
             <span className={cn('font-bold block text-sm', selectedOption?.isCorrect ? 'text-emerald-700' : 'text-red-700')}>
               {selectedOption?.isCorrect ? 'Jawaban Anda Benar' : 'Jawaban Belum Tepat'}
             </span>
-            <div className="text-foreground text-xs">
+            <div className="text-foreground text-xs flex items-center gap-1.5 flex-wrap">
               <span className="text-muted-foreground">Kunci Resmi: </span>
               <strong className="font-kr font-bold text-emerald-800 text-sm">{currentAnswerTexts.ko}</strong>
               <span className="text-muted-foreground ml-1">({currentAnswerTexts.id})</span>
+              {onPlayMeaning && currentAnswerTexts.id && (
+                <button
+                  type="button"
+                  onClick={() => onPlayMeaning(currentAnswerTexts.id)}
+                  className="inline-flex items-center gap-1 text-[11px] font-semibold text-emerald-600 dark:text-emerald-400 hover:underline cursor-pointer ml-1"
+                  title="Dengar arti bahasa Indonesia"
+                >
+                  <Volume2 className="w-3 h-3" />
+                  <span>Dengar Arti</span>
+                </button>
+              )}
             </div>
           </div>
 
