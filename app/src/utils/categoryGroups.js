@@ -165,10 +165,10 @@ export const CATEGORY_GROUPS = [
  */
 export const SUB_CATEGORIES = {
   interview: [
-    { id: 'interview', label: 'Semua Wawancara (103 Soal)', shortLabel: 'Semua Wawancara' },
+    { id: 'interview', label: 'Semua Wawancara (104 Soal)', shortLabel: 'Semua Wawancara' },
     { id: 'wwc_pribadi', label: 'Data Diri, Keluarga & Hobi (자기소개)', shortLabel: 'Data Diri & Keluarga' },
-    { id: 'wwc_situasi', label: 'Situasi Kerja & Lembur (작업상황)', shortLabel: 'Situasi Kerja Pabrik' },
-    { id: 'wwc_lapangan', label: 'Pertanyaan Lapangan Baru (현장면접 · 35 Soal)', shortLabel: 'Wawancara Lapangan' },
+    { id: 'wwc_situasi', label: 'Situasi Kerja & Hak Pekerja (작업상황 · Gaji & Lembur)', shortLabel: 'Situasi Kerja' },
+    { id: 'wwc_lapangan', label: 'Pertanyaan Lapangan Baru (현장면접 · 36 Soal)', shortLabel: 'Wawancara Lapangan' },
     { id: 'simulasi_hrdk', label: 'Simulasi Resmi HRDK (모의면접)', shortLabel: 'Simulasi HRDK' },
   ],
   physical: [
@@ -334,7 +334,7 @@ export function filterQuestionsByCategory(questions, selectedCatId) {
     return questions.filter(q => (q.category === 'wawancara' || q.category === 'simulasi_hrdk' || q.category === 'wawancara_profesional') && /이름|나이|생일|고향|가족|결혼|취미|운동|색깔|asal|umur|nama|keluarga|hobi/i.test(`${q.question_ko || ''} ${q.question_id || ''}`));
   }
   if (selectedCatId === 'wwc_situasi') {
-    return questions.filter(q => (q.category === 'wawancara' || q.category === 'simulasi_hrdk' || q.category === 'wawancara_profesional') && /불량품|실수|사고|동료|상사|반대|어려우면|야근|잔업|월급|rusak|cacat|kesalahan|lembur|gaji|atasan|rekan/i.test(`${q.question_ko || ''} ${q.question_id || ''}`));
+    return questions.filter(q => (q.category === 'wawancara' || q.category === 'simulasi_hrdk' || q.category === 'wawancara_profesional') && /불량품|실수|사고|동료|상사|반대|어려우면|야근|잔업|월급|폭행|폭언|대우|rusak|cacat|kesalahan|lembur|gaji|kekerasan|kasar|adil|atasan|rekan/i.test(`${q.question_ko || ''} ${q.question_id || ''}`));
   }
   if (selectedCatId === 'wwc_lapangan') {
     return questions.filter(q => (q.category === 'wawancara' || q.category === 'wawancara_profesional') && String(q.id || '').startsWith('wwc_kisi'));

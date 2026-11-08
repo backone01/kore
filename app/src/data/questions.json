@@ -32481,6 +32481,48 @@
     ]
   },
   {
+    "id": "wwc_kisi_36",
+    "category": "wawancara",
+    "category_title": "면접 - 인적사항 및 직장생활 (Wawancara & Situasi Kerja)",
+    "question_ko": "작업장에서 폭행을 당하거나 부당한 대우를 받으면 어떻게 할 거예요?",
+    "question_romaja": "Jageopjang-eseo pokhaeng-eul danghageona budanghan dae-ureul bad-eumyeon eotteoke hal geoyeyo?",
+    "question_id": "Apa yang akan Anda lakukan jika mengalami kekerasan fisik atau perlakuan tidak adil di tempat kerja?",
+    "image_url": null,
+    "answer_short_ko": "외국인력지원센터에 도움을 요청하겠습니다.",
+    "answer_short_id": "Meminta bantuan ke Pusat Dukungan Tenaga Kerja Asing.",
+    "answer_full_ko": "먼저 상사에게 보고하고, 해결되지 않으면 외국인력지원센터나 노동청에 도움을 요청하겠습니다.",
+    "answer_full_id": "Melapor kepada atasan/manajemen terlebih dahulu, jika belum selesai akan meminta bantuan ke Pusat Dukungan Pekerja Asing atau Dinas Ketenagakerjaan.",
+    "title_ko": "작업장에서 폭행을 당하거나 부당한 대우를 받으면 어떻게 할 거예요?",
+    "title_id": "Apa yang akan Anda lakukan jika mengalami kekerasan fisik atau perlakuan tidak adil di tempat kerja?",
+    "level": "Menengah",
+    "source": "Kisi-kisi Resmi Wawancara HRD Korea (Revisi 2025)",
+    "audio_q": null,
+    "audio_a": null,
+    "answer_options": [
+      {
+        "label": "⚡ Super Ringkas (Spoken Interview)",
+        "ko": "센터에 도움을 요청하겠습니다.",
+        "id": "Meminta bantuan ke Pusat Bantuan (Center).",
+        "answer_ko": "센터에 도움을 요청하겠습니다.",
+        "answer_id": "Meminta bantuan ke Pusat Bantuan (Center)."
+      },
+      {
+        "label": "⭐ Standar HRDK",
+        "ko": "외국인력지원센터나 노동청에 도움을 요청하겠습니다.",
+        "id": "Meminta bantuan ke Pusat Dukungan Pekerja Asing atau Dinas Ketenagakerjaan.",
+        "answer_ko": "외국인력지원센터나 노동청에 도움을 요청하겠습니다.",
+        "answer_id": "Meminta bantuan ke Pusat Dukungan Pekerja Asing atau Dinas Ketenagakerjaan."
+      },
+      {
+        "label": "🔹 Lapor Atasan Dulu",
+        "ko": "상사에게 먼저 알리고 노동청에 상담하겠습니다.",
+        "id": "Memberi tahu atasan terlebih dahulu dan berkonsultasi ke dinas ketenagakerjaan.",
+        "answer_ko": "상사에게 먼저 알리고 노동청에 상담하겠습니다.",
+        "answer_id": "Memberi tahu atasan terlebih dahulu dan berkonsultasi ke dinas ketenagakerjaan."
+      }
+    ]
+  },
+  {
     "id": "mfg2026_001_func",
     "base_tool_id": "mfg2026_001",
     "category": "fungsi_alat",
