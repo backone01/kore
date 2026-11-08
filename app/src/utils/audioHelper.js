@@ -3,7 +3,7 @@
  * Menyediakan pemutaran Text-To-Speech alami untuk bahasa Korea dan bahasa Indonesia.
  * 
  * - Bahasa Indonesia: Menggunakan audio streaming Google Translate TTS (suara wanita Indonesia alami)
- *   yang bekerja 100% di semua browser/OS (Windows, Mac, Android, iOS) tanpa perlu instal voice pack Windows.
+ *   dengan referrerPolicy='no-referrer' yang bekerja 100% di semua browser/OS (Windows, Mac, Android, iOS).
  *   Disertai fallback otomatis ke Web SpeechSynthesis.
  * - Bahasa Korea: Menggunakan Web SpeechSynthesis (suara SunHi/InJoon/Google Neural),
  *   dengan fallback ke Google Translate TTS (ko).
@@ -94,8 +94,10 @@ function splitTextIntoChunks(text, maxLen = 140) {
 
 function fallbackSpeechSynthesis(text, { speed = 1.0, onStart, onEnd, onError } = {}) {
   if (typeof window === 'undefined' || !('speechSynthesis' in window) || isIndonesianAudioCanceled) {
-    if (onError) onError();
-    else if (onEnd) onEnd();
+    setTimeout(() => {
+      if (onError) onError();
+      else if (onEnd) onEnd();
+    }, 400);
     return;
   }
   try {
@@ -111,13 +113,17 @@ function fallbackSpeechSynthesis(text, { speed = 1.0, onStart, onEnd, onError } 
       if (onEnd && !isIndonesianAudioCanceled) onEnd();
     };
     u.onerror = (e) => {
-      if (onError) onError(e);
-      else if (onEnd) onEnd();
+      setTimeout(() => {
+        if (onError) onError(e);
+        else if (onEnd && !isIndonesianAudioCanceled) onEnd();
+      }, 500);
     };
     window.speechSynthesis.speak(u);
   } catch (err) {
-    if (onError) onError(err);
-    else if (onEnd) onEnd();
+    setTimeout(() => {
+      if (onError) onError(err);
+      else if (onEnd && !isIndonesianAudioCanceled) onEnd();
+    }, 500);
   }
 }
 
@@ -167,7 +173,16 @@ export function speakIndonesianTTS(text, { speed = 1.0, onStart, onEnd, onError 
 
     try {
       const url = `https://translate.google.com/translate_tts?ie=UTF-8&tl=id&client=tw-ob&q=${encodeURIComponent(currentText)}`;
-      const audio = new Audio(url);
+      
+      let audio;
+      if (typeof document !== 'undefined') {
+        audio = document.createElement('audio');
+        audio.referrerPolicy = 'no-referrer';
+        audio.src = url;
+      } else {
+        audio = new Audio(url);
+      }
+      
       currentIndonesianAudio = audio;
       try { audio.playbackRate = speed; } catch {}
 
@@ -244,7 +259,14 @@ export function speakKoreanTTS(text, { speed = 0.8, onStart, onEnd, onError } = 
 function playGoogleAudio(text, lang, { speed = 1.0, onStart, onEnd, onError } = {}) {
   try {
     const url = `https://translate.google.com/translate_tts?ie=UTF-8&tl=${lang}&client=tw-ob&q=${encodeURIComponent(text)}`;
-    const audio = new Audio(url);
+    let audio;
+    if (typeof document !== 'undefined') {
+      audio = document.createElement('audio');
+      audio.referrerPolicy = 'no-referrer';
+      audio.src = url;
+    } else {
+      audio = new Audio(url);
+    }
     currentIndonesianAudio = audio;
     try { audio.playbackRate = speed; } catch {}
     if (onStart) audio.onplay = onStart;

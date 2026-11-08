@@ -234,12 +234,34 @@ export function QAPlayerDeck({
           </div>
         ) : (
           <>
+            {currentQ?.image_url && (
+              <div className="flex items-center gap-3.5 p-2 bg-secondary/50 rounded-xl border border-border/80 mb-2.5">
+                <img
+                  src={getAssetUrl(currentQ.image_url)}
+                  alt="Rambu / Alat"
+                  className="h-16 w-16 sm:h-20 sm:w-20 object-contain rounded-lg border border-border bg-white p-1 shrink-0"
+                />
+                <div className="min-w-0 flex-1 text-left">
+                  <span className="text-[11px] font-bold text-amber-700 dark:text-amber-400 uppercase tracking-wider block">
+                    {currentQ.category_title || (currentQ.category === 'piktogram' ? 'Rambu Keselamatan K3' : 'Perkakas Manufaktur')}
+                  </span>
+                  <h4 className="text-base sm:text-lg font-bold font-kr text-foreground truncate">
+                    {currentQ.title_ko || currentQ.answer_short_ko || currentQ.question_ko}
+                  </h4>
+                  {(currentQ.title_id || currentQ.answer_short_id) && (
+                    <p className="text-xs text-muted-foreground truncate">
+                      {currentQ.title_id || currentQ.answer_short_id}
+                    </p>
+                  )}
+                </div>
+              </div>
+            )}
             <div>
               <p className="text-xs font-bold uppercase tracking-wider text-muted-foreground">
                 Pertanyaan Penguji (질문)
               </p>
               <h4 className="text-base sm:text-xl font-bold font-kr text-foreground mt-0.5 leading-snug">
-                {currentQ?.question_ko || 'Silakan pilih pertanyaan dari daftar di bawah'}
+                {currentQ?.question_ko || (currentQ?.category === 'piktogram' ? '이 안전 표지는 무슨 뜻입니까?' : 'Silakan pilih pertanyaan dari daftar di bawah')}
               </h4>
               {currentQ?.question_id && (
                 <p className="text-xs sm:text-sm text-muted-foreground mt-0.5">

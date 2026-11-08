@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Volume2, Eye, EyeOff, Search, ShieldAlert, Maximize2, X } from 'lucide-react';
+import { Volume2, Eye, EyeOff, Search, ShieldAlert, Maximize2, X, Play, Pause } from 'lucide-react';
 import { getAssetUrl } from '../utils/assetHelper.js';
 import { Badge } from './ui/badge.jsx';
 import { Button } from './ui/button.jsx';
+import { QAPlayerDeck } from './QAStudy.jsx';
 import { cn } from '../utils/cn.js';
 
 export function PictogramCatalog({
@@ -13,7 +14,34 @@ export function PictogramCatalog({
   onPlayMeaning,
   hideAllAnswers,
   onSetGlobalHideAll,
-  onInspectRambu
+  onInspectRambu,
+  // Auto-player deck props
+  playerUI,
+  currentQ,
+  currentIndex = 0,
+  totalCount,
+  prog,
+  onSeek,
+  rate = 1,
+  onCycleRate,
+  delaySecs = 2,
+  onSetDelay,
+  mode = 'sequential',
+  onToggleMode,
+  includeAnswers = true,
+  onToggleIncludeAnswers,
+  includeMeaning = false,
+  onToggleIncludeMeaning,
+  gapCountdown = 0,
+  hideText = false,
+  onPrev,
+  onTogglePlay,
+  onNext,
+  onShuffle,
+  onRepeat,
+  onStop,
+  activeSignIdx = 0,
+  onSelectSign,
 }) {
   const [pikGroup, setPikGroup] = useState(() => {
     try {
@@ -83,6 +111,43 @@ export function PictogramCatalog({
           <span>{hideAllAnswers ? 'Buka Semua Arti Rambu' : 'Tutup Semua Arti Rambu'}</span>
         </Button>
       </div>
+
+      {/* Auto-Player Deck Rambu Piktogram */}
+      {playerUI && (
+        <QAPlayerDeck
+          ui={playerUI}
+          currentQ={currentQ || filteredPik[activeSignIdx] || filteredPik[0]}
+          currentIndex={activeSignIdx}
+          totalCount={totalCount ?? filteredPik.length}
+          prog={prog}
+          onSeek={onSeek}
+          rate={rate}
+          onCycleRate={onCycleRate}
+          delaySecs={delaySecs}
+          onSetDelay={onSetDelay}
+          mode={mode}
+          onToggleMode={onToggleMode}
+          includeAnswers={includeAnswers}
+          onToggleIncludeAnswers={onToggleIncludeAnswers}
+          includeMeaning={includeMeaning}
+          onToggleIncludeMeaning={onToggleIncludeMeaning}
+          gapCountdown={gapCountdown}
+          hideText={hideText}
+          onPrev={onPrev}
+          onTogglePlay={() => onTogglePlay && onTogglePlay(filteredPik, activeSignIdx)}
+          onNext={onNext}
+          onShuffle={onShuffle}
+          onRepeat={onRepeat}
+          onStop={onStop}
+          accent="orange"
+          activeOpt={{
+            ko: (currentQ || filteredPik[activeSignIdx] || filteredPik[0])?.title_ko || (currentQ || filteredPik[activeSignIdx] || filteredPik[0])?.answer_short_ko,
+            id: (currentQ || filteredPik[activeSignIdx] || filteredPik[0])?.title_id || (currentQ || filteredPik[activeSignIdx] || filteredPik[0])?.answer_short_id,
+            label: 'Arti Rambu'
+          }}
+          onPlayMeaning={onPlayMeaning}
+        />
+      )}
 
       <div className="flex flex-col sm:flex-row gap-2.5 items-stretch sm:items-center justify-between">
         <div className="flex flex-wrap gap-1.5">
@@ -168,13 +233,19 @@ export function PictogramCatalog({
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-        {filteredPik.map((item) => {
+        {filteredPik.map((item, itemIdx) => {
           const cardId = `pik_${item.id}`;
           const hidden = isAnswerHidden ? isAnswerHidden(cardId) : false;
+          const isThisPlaying = playerUI?.on && playerUI?.tab === 'piktogram' && (currentQ?.id === item.id || activeSignIdx === itemIdx);
           return (
             <div
               key={item.id}
-              className="rounded-xl border border-border bg-card p-3.5 flex flex-col justify-between gap-3 hover:border-primary/40 transition-colors"
+              className={cn(
+                "rounded-xl border p-3.5 flex flex-col justify-between gap-3 transition-all",
+                isThisPlaying 
+                  ? "bg-orange-500/10 border-orange-500 ring-2 ring-orange-500/30 shadow-md" 
+                  : "bg-card border-border hover:border-primary/40"
+              )}
             >
               <div className="flex items-start gap-3">
                 {item.image_url && (

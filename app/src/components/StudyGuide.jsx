@@ -406,6 +406,8 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
   const [selK3, setSelK3] = useState(0);
   const [selInt, setSelInt] = useState(0);
   const [selCmd, setSelCmd] = useState(0);
+  const [selPik, setSelPik] = useState(0);
+  const allPik = useMemo(() => allQuestions.filter(q => q.category === 'piktogram'), []);
   const [qaView, setQaView] = useState({});
   const [playerHidden, setPlayerHidden] = useState({});
   const [playerMode, setPlayerMode] = useState('sequential');
@@ -1454,6 +1456,10 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
       const url = q.audio_a || (q.id ? `/audio/tts/answers/${q.id}_a.mp3` : null);
       return { url, text: q.answer_ko || q.command_id || '' };
     }
+    if (tab === 'piktogram') {
+      const url = q.audio_a || (q.id ? `/audio/tts/answers/${q.id}_a.mp3` : null);
+      return { url, text: q.answer_short_ko || q.title_ko || q.answer_ko || '' };
+    }
     const cardId = `${tab === 'k3' ? 'k3' : 'int'}_${q.id ?? idx}`;
     const opts = q.answer_options;
     const selIdx = resolveOptionIndex(
@@ -1473,6 +1479,9 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
     if (tab === 'commands') {
       return q.action_desc || q.command_id || '';
     }
+    if (tab === 'piktogram') {
+      return q.title_id || q.answer_short_id || q.answer_full_id || q.answer_id || '';
+    }
     const cardId = `${tab === 'k3' ? 'k3' : 'int'}_${q.id ?? idx}`;
     const opts = q.answer_options;
     const selIdx = resolveOptionIndex(
@@ -1483,7 +1492,7 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
       liveRef.current.preferredOptIndex
     );
     const opt = (opts && opts.length > 0 ? (opts[selIdx] || opts[0]) : null) || { ko: q.answer_ko, id: q.answer_id };
-    return opt.id || q.answer_id || '';
+    return opt.id || opt.answer_id || q.answer_short_id || q.answer_full_id || q.answer_id || '';
   };
 
   const drivePlayer = () => {
@@ -1494,9 +1503,15 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
     if (!q) { stopPlayer(); return; }
     syncPlayer();
     if (r.step === 'q') {
-      r.isFile = !!q.audio_q;
+      let qAudio = q.audio_q;
+      let qText = q.question_ko;
+      if (r.tab === 'piktogram' && !qAudio) {
+        qAudio = '/audio/examiner_sign_q.mp3';
+        qText = q.question_ko || '이 안전 표지는 무슨 뜻입니까?';
+      }
+      r.isFile = !!qAudio;
       syncPlayer();
-      playAudio(q.audio_q, q.question_ko, onPlayerStepEnd);
+      playAudio(qAudio, qText, onPlayerStepEnd);
     } else if (r.step === 'a') {
       const { url, text } = resolveAnswerAudio(r.tab, q, idx);
       r.isFile = !!url;
@@ -1536,6 +1551,10 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
     r.pos = last ? 0 : r.pos + 1;
     r.step = 'q';
     syncPlayer();
+    if (r.tab === 'k3') setSelK3(r.order[r.pos] ?? 0);
+    else if (r.tab === 'interview') setSelInt(r.order[r.pos] ?? 0);
+    else if (r.tab === 'commands') setSelCmd(r.order[r.pos] ?? 0);
+    else if (r.tab === 'piktogram') setSelPik(r.order[r.pos] ?? 0);
     r.timer = setTimeout(() => {
       if (playerRef.current.on) drivePlayer();
     }, 700);
@@ -1581,12 +1600,21 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
     } else if (r.step === 'a') {
       if (liveRef.current.includeMeaning) {
         playerRef.current.step = 'meaning';
-        drivePlayer();
+        syncPlayer();
+        playerRef.current.timer = setTimeout(() => {
+          if (playerRef.current.on && playerRef.current.step === 'meaning') {
+            drivePlayer();
+          }
+        }, 400);
       } else {
         advanceOrStopNext();
       }
     } else if (r.step === 'meaning') {
-      advanceOrStopNext();
+      playerRef.current.timer = setTimeout(() => {
+        if (playerRef.current.on) {
+          advanceOrStopNext();
+        }
+      }, 700);
     }
   };
 
@@ -4264,6 +4292,50 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
           hideAllAnswers={hideAllAnswers}
           onSetGlobalHideAll={handleSetGlobalHideAll}
           onInspectRambu={setInspectRambu}
+          playerUI={playerUI.tab === 'piktogram' ? playerUI : { on: false, step: 'idle', shuffle: playerRef.current.shuffle, repeat: playerRef.current.repeat }}
+          currentQ={allPik[selPik] || allPik[0]}
+          currentIndex={selPik}
+          totalCount={allPik.length}
+          prog={{ t: audioProg.t, d: audioProg.d, isFile: playerUI.tab === 'piktogram' && playerUI.isFile }}
+          onSeek={seekPlayer}
+          rate={playRate}
+          onCycleRate={cycleRate}
+          delaySecs={playDelay}
+          onSetDelay={setPlayDelay}
+          mode={playerMode}
+          onToggleMode={() => {
+            const next = playerMode === 'sequential' ? 'single' : 'sequential';
+            setPlayerMode(next);
+            playerRef.current.mode = next;
+          }}
+          includeAnswers={includeAnswers}
+          onToggleIncludeAnswers={() => setIncludeAnswers(p => !p)}
+          includeMeaning={includeMeaning}
+          onToggleIncludeMeaning={() => setIncludeMeaning(p => !p)}
+          gapCountdown={gapCountdown}
+          hideText={hideText}
+          activeSignIdx={selPik}
+          onPrev={() => {
+            if (playerUI.on && playerUI.tab === 'piktogram') stepPlayer(-1);
+            else setSelPik(p => Math.max(0, p - 1));
+          }}
+          onTogglePlay={(itemsList, idx) => {
+            if (playerUI.on && playerUI.tab === 'piktogram') pausePlayer();
+            else startPlayer('piktogram', itemsList || allPik, idx ?? selPik, playerMode);
+          }}
+          onNext={() => {
+            if (playerUI.on && playerUI.tab === 'piktogram') stepPlayer(1);
+            else setSelPik(p => Math.min(allPik.length - 1, p + 1));
+          }}
+          onShuffle={toggleShuffle}
+          onRepeat={toggleRepeat}
+          onStop={stopPlayer}
+          onSelectSign={(idx) => {
+            setSelPik(idx);
+            if (playerUI.on && playerUI.tab === 'piktogram') {
+              jumpPlayer(idx);
+            }
+          }}
         />
       )}
 
