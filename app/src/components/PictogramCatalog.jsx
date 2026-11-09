@@ -8,6 +8,11 @@ import { cn } from '../utils/cn.js';
 
 export function PictogramCatalog({
   questions = [],
+  filteredPik: propFilteredPik = null,
+  pikGroup: propPikGroup = null,
+  onGroupChange = null,
+  searchQuery: propSearchQuery = null,
+  onSearchChange = null,
   isAnswerHidden,
   toggleCardAnswer,
   playAudio,
@@ -43,7 +48,7 @@ export function PictogramCatalog({
   activeSignIdx = 0,
   onSelectSign,
 }) {
-  const [pikGroup, setPikGroup] = useState(() => {
+  const [localPikGroup, setLocalPikGroup] = useState(() => {
     try {
       const saved = localStorage.getItem('kore_pik_group');
       if (saved && ['all', 'wajib', 'peringatan', 'larangan', 'evakuasi'].includes(saved)) return saved;
@@ -51,13 +56,21 @@ export function PictogramCatalog({
     return 'all';
   });
 
-  useEffect(() => {
-    try {
-      localStorage.setItem('kore_pik_group', pikGroup);
-    } catch {}
-  }, [pikGroup]);
+  const activePikGroup = propPikGroup !== null ? propPikGroup : localPikGroup;
 
-  const [searchQuery, setSearchQuery] = useState('');
+  const handleGroupSelect = (grpId) => {
+    if (onGroupChange) onGroupChange(grpId);
+    setLocalPikGroup(grpId);
+    try { localStorage.setItem('kore_pik_group', grpId); } catch {}
+  };
+
+  const [localSearchQuery, setLocalSearchQuery] = useState('');
+  const activeSearchQuery = propSearchQuery !== null ? propSearchQuery : localSearchQuery;
+
+  const handleSearchInput = (val) => {
+    if (onSearchChange) onSearchChange(val);
+    setLocalSearchQuery(val);
+  };
 
   const allPik = questions.filter((q) => q.category === 'piktogram');
   const pikGroups = [
@@ -68,17 +81,19 @@ export function PictogramCatalog({
     { id: 'evakuasi', label: '안내·소방 (Evakuasi & Pemadam)', count: allPik.filter((x) => /안내|소방/.test(x.category_title || '')).length },
   ];
 
-  const filteredPik = allPik.filter((item) => {
-    if (pikGroup === 'wajib' && !(item.category_title || '').includes('지시')) return false;
-    if (pikGroup === 'peringatan' && !(item.category_title || '').includes('경고')) return false;
-    if (pikGroup === 'larangan' && !(item.category_title || '').includes('금지')) return false;
-    if (pikGroup === 'evakuasi' && !/안내|소방/.test(item.category_title || '')) return false;
-    if (searchQuery.trim()) {
-      const q = searchQuery.toLowerCase();
+  const computedFilteredPik = allPik.filter((item) => {
+    if (activePikGroup === 'wajib' && !(item.category_title || '').includes('지시')) return false;
+    if (activePikGroup === 'peringatan' && !(item.category_title || '').includes('경고')) return false;
+    if (activePikGroup === 'larangan' && !(item.category_title || '').includes('금지')) return false;
+    if (activePikGroup === 'evakuasi' && !/안내|소방/.test(item.category_title || '')) return false;
+    if (activeSearchQuery.trim()) {
+      const q = activeSearchQuery.toLowerCase();
       return `${item.title_ko || ''} ${item.title_id || ''} ${item.answer_short_ko || ''} ${item.answer_short_id || ''}`.toLowerCase().includes(q);
     }
     return true;
   });
+
+  const displayPik = propFilteredPik || computedFilteredPik;
 
   return (
     <div className="space-y-5 animate-fade-in">
@@ -116,9 +131,9 @@ export function PictogramCatalog({
       {playerUI && (
         <QAPlayerDeck
           ui={playerUI}
-          currentQ={currentQ || filteredPik[activeSignIdx] || filteredPik[0]}
+          currentQ={currentQ || displayPik[activeSignIdx] || displayPik[0]}
           currentIndex={activeSignIdx}
-          totalCount={totalCount ?? filteredPik.length}
+          totalCount={totalCount ?? displayPik.length}
           prog={prog}
           onSeek={onSeek}
           rate={rate}
@@ -134,16 +149,22 @@ export function PictogramCatalog({
           gapCountdown={gapCountdown}
           hideText={hideText}
           onPrev={onPrev}
-          onTogglePlay={() => onTogglePlay && onTogglePlay(filteredPik, activeSignIdx)}
+          onTogglePlay={() => onTogglePlay && onTogglePlay(displayPik, activeSignIdx)}
           onNext={onNext}
           onShuffle={onShuffle}
           onRepeat={onRepeat}
           onStop={onStop}
           accent="orange"
           activeOpt={{
-            ko: (currentQ || filteredPik[activeSignIdx] || filteredPik[0])?.title_ko || (currentQ || filteredPik[activeSignIdx] || filteredPik[0])?.answer_short_ko,
-            id: (currentQ || filteredPik[activeSignIdx] || filteredPik[0])?.title_id || (currentQ || filteredPik[activeSignIdx] || filteredPik[0])?.answer_short_id,
+            ko: (currentQ || displayPik[activeSignIdx] || displayPik[0])?.title_ko || (currentQ || displayPik[activeSignIdx] || displayPik[0])?.answer_short_ko,
+            id: (currentQ || displayPik[activeSignIdx] || displayPik[0])?.title_id || (currentQ || displayPik[activeSignIdx] || displayPik[0])?.answer_short_id,
             label: 'Arti Rambu'
+          }}
+          onPlayAnswer={() => {
+            const q = currentQ || displayPik[activeSignIdx] || displayPik[0];
+            if (q && playAudio) {
+              playAudio(q.audio_a, q.answer_short_ko || q.title_ko);
+            }
           }}
           onPlayMeaning={onPlayMeaning}
         />
@@ -155,10 +176,10 @@ export function PictogramCatalog({
             <button
               key={cat.id}
               type="button"
-              onClick={() => setPikGroup(cat.id)}
+              onClick={() => handleGroupSelect(cat.id)}
               className={cn(
                 'px-2.5 py-1.5 rounded-lg text-xs font-semibold border transition-all cursor-pointer flex items-center gap-1.5',
-                pikGroup === cat.id
+                activePikGroup === cat.id
                   ? 'bg-primary text-primary-foreground border-primary shadow-sm'
                   : 'bg-card text-muted-foreground border-border hover:text-foreground hover:bg-secondary/60'
               )}
@@ -174,14 +195,14 @@ export function PictogramCatalog({
           <input
             type="text"
             placeholder="Cari rambu Korea / Indo..."
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
+            value={activeSearchQuery}
+            onChange={(e) => handleSearchInput(e.target.value)}
             className="w-full pl-8 pr-7 py-1.5 text-xs bg-card border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/30 text-foreground"
           />
-          {searchQuery && (
+          {activeSearchQuery && (
             <button
               type="button"
-              onClick={() => setSearchQuery('')}
+              onClick={() => handleSearchInput('')}
               className="absolute right-2 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground cursor-pointer"
             >
               <X className="w-3.5 h-3.5" />
@@ -233,10 +254,10 @@ export function PictogramCatalog({
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-        {filteredPik.map((item, itemIdx) => {
+        {displayPik.map((item, itemIdx) => {
           const cardId = `pik_${item.id}`;
           const hidden = isAnswerHidden ? isAnswerHidden(cardId) : false;
-          const isThisPlaying = playerUI?.on && playerUI?.tab === 'piktogram' && (currentQ?.id === item.id || activeSignIdx === itemIdx);
+          const isThisPlaying = playerUI?.on && playerUI?.tab === 'piktogram' && (currentQ?.id === item.id);
           return (
             <div
               key={item.id}
@@ -306,9 +327,16 @@ export function PictogramCatalog({
                       <span className="font-bold text-foreground text-[11px]">Nama Rambu Disembunyikan</span>
                     </div>
                   ) : (
-                    <p className="text-sm sm:text-base font-black text-foreground leading-snug break-keep">
-                      {item.title_ko || item.answer_short_ko}
-                    </p>
+                    <button
+                      type="button"
+                      onClick={() => onSelectSign && onSelectSign(itemIdx)}
+                      className="text-left w-full cursor-pointer hover:opacity-85 transition-opacity"
+                      title="Klik untuk memilih rambu ini di pemutar atas"
+                    >
+                      <p className="text-sm sm:text-base font-black text-foreground leading-snug break-keep">
+                        {item.title_ko || item.answer_short_ko}
+                      </p>
+                    </button>
                   )}
                 </div>
               </div>

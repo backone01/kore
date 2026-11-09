@@ -399,7 +399,18 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
     try { localStorage.setItem('kore_cmd_filter', cmdFilter); } catch {}
   }, [cmdFilter]);
 
-  const [pikGroup, setPikGroup] = useState('all');
+  const [pikGroup, setPikGroup] = useState(() => {
+    try {
+      const saved = localStorage.getItem('kore_pik_group');
+      if (saved && ['all', 'wajib', 'peringatan', 'larangan', 'evakuasi'].includes(saved)) return saved;
+    } catch {}
+    return 'all';
+  });
+  useEffect(() => {
+    try { localStorage.setItem('kore_pik_group', pikGroup); } catch {}
+  }, [pikGroup]);
+
+  const [pikSearch, setPikSearch] = useState('');
   const [alatGroup, setAlatGroup] = useState('all');
   const [globalAlatUsageOption, setGlobalAlatUsageOption] = useState('mudah');
   const [cardUsageOptions, setCardUsageOptions] = useState({});
@@ -408,12 +419,35 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
   const [selCmd, setSelCmd] = useState(0);
   const [selPik, setSelPik] = useState(0);
   const allPik = useMemo(() => allQuestions.filter(q => q.category === 'piktogram'), []);
+  const filteredPik = useMemo(() => {
+    return allPik.filter((item) => {
+      if (pikGroup === 'wajib' && !(item.category_title || '').includes('지시')) return false;
+      if (pikGroup === 'peringatan' && !(item.category_title || '').includes('경고')) return false;
+      if (pikGroup === 'larangan' && !(item.category_title || '').includes('금지')) return false;
+      if (pikGroup === 'evakuasi' && !/안내|소방/.test(item.category_title || '')) return false;
+      if (pikSearch.trim()) {
+        const q = pikSearch.toLowerCase();
+        return `${item.title_ko || ''} ${item.title_id || ''} ${item.answer_short_ko || ''} ${item.answer_short_id || ''}`.toLowerCase().includes(q);
+      }
+      return true;
+    });
+  }, [allPik, pikGroup, pikSearch]);
+  const selPikEff = Math.min(selPik, Math.max(0, filteredPik.length - 1));
   const [qaView, setQaView] = useState({});
   const [playerHidden, setPlayerHidden] = useState({});
   const [playerMode, setPlayerMode] = useState('sequential');
   const [gapCountdown, setGapCountdown] = useState(0);
   const [hideText, setHideText] = useState(false);
-  const [includeAnswers, setIncludeAnswers] = useState(false);
+  const [includeAnswers, setIncludeAnswers] = useState(() => {
+    try {
+      const saved = localStorage.getItem('kore_player_include_answers');
+      if (saved !== null) return saved === 'true';
+    } catch {}
+    return true;
+  });
+  useEffect(() => {
+    try { localStorage.setItem('kore_player_include_answers', String(includeAnswers)); } catch {}
+  }, [includeAnswers]);
   const [includeMeaning, setIncludeMeaning] = useState(() => {
     try {
       return localStorage.getItem('kore_player_include_meaning') === 'true';
@@ -1294,7 +1328,64 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
 
     stopAudioOnly();
     setPlayingAudio(key);
-    speakIndonesianTTS(text, {
+
+    const clean = text
+      .replace(/[\[\]\(\)\{\}"“”«»]/g, ' ')
+      .replace(/\s+/g, ' ')
+      .trim();
+
+    if (!clean) {
+      setPlayingAudio(null);
+      if (onEnd) onEnd();
+      return;
+    }
+
+    if (audioRef.current) {
+      try {
+        if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
+          try { window.speechSynthesis.cancel(); } catch {}
+        }
+        audioRef.current.pause();
+        audioRef.current.currentTime = 0;
+        audioRef.current.referrerPolicy = 'no-referrer';
+        audioRef.current.src = `https://translate.google.com/translate_tts?ie=UTF-8&tl=id&client=tw-ob&q=${encodeURIComponent(clean)}`;
+        try { audioRef.current.playbackRate = 1.0; } catch {}
+        setPlayingAudio(key);
+
+        const tryFallback = () => {
+          audioRef.current.onerror = null;
+          audioRef.current.onended = null;
+          speakIndonesianTTS(clean, {
+            speed: 1.0,
+            onStart: () => setPlayingAudio(key),
+            onEnd: () => {
+              setPlayingAudio(null);
+              if (onEnd) onEnd();
+            },
+            onError: () => {
+              setPlayingAudio(null);
+              if (onEnd) onEnd();
+            }
+          });
+        };
+
+        audioRef.current.onended = () => {
+          setPlayingAudio(null);
+          if (onEnd) onEnd();
+        };
+
+        audioRef.current.onerror = tryFallback;
+        const p = audioRef.current.play();
+        if (p !== undefined) {
+          p.catch(tryFallback);
+        }
+        return;
+      } catch {
+        // Fallback ke speakIndonesianTTS di bawah
+      }
+    }
+
+    speakIndonesianTTS(clean, {
       speed: 1.0,
       onStart: () => setPlayingAudio(key),
       onEnd: () => {
@@ -1447,7 +1538,10 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
     });
     if (r.tab && r.order.length) {
       const idx = r.order[r.pos] ?? 0;
-      if (r.tab === 'k3') setSelK3(idx); else if (r.tab === 'commands') setSelCmd(idx); else setSelInt(idx);
+      if (r.tab === 'k3') setSelK3(idx);
+      else if (r.tab === 'commands') setSelCmd(idx);
+      else if (r.tab === 'piktogram') setSelPik(idx);
+      else setSelInt(idx);
     }
   };
 
@@ -1573,6 +1667,9 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
         if (liveRef.current.includeAnswers) {
           playerRef.current.step = 'a';
           drivePlayer();
+        } else if (liveRef.current.includeMeaning) {
+          playerRef.current.step = 'meaning';
+          drivePlayer();
         } else {
           advanceOrStopNext();
         }
@@ -1591,6 +1688,9 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
           if (!playerRef.current.on) return;
           if (liveRef.current.includeAnswers) {
             playerRef.current.step = 'a';
+            drivePlayer();
+          } else if (liveRef.current.includeMeaning) {
+            playerRef.current.step = 'meaning';
             drivePlayer();
           } else {
             advanceOrStopNext();
@@ -4285,6 +4385,20 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
       {activeTab === 'piktogram' && (
         <PictogramCatalog
           questions={allQuestions}
+          filteredPik={filteredPik}
+          pikGroup={pikGroup}
+          onGroupChange={(grp) => {
+            setPikGroup(grp);
+            setSelPik(0);
+            if (playerUI.on && playerUI.tab === 'piktogram') {
+              pausePlayer();
+            }
+          }}
+          searchQuery={pikSearch}
+          onSearchChange={(q) => {
+            setPikSearch(q);
+            setSelPik(0);
+          }}
           isAnswerHidden={isAnswerHidden}
           toggleCardAnswer={toggleCardAnswer}
           playAudio={playAudio}
@@ -4293,9 +4407,9 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
           onSetGlobalHideAll={handleSetGlobalHideAll}
           onInspectRambu={setInspectRambu}
           playerUI={playerUI.tab === 'piktogram' ? playerUI : { on: false, step: 'idle', shuffle: playerRef.current.shuffle, repeat: playerRef.current.repeat }}
-          currentQ={allPik[selPik] || allPik[0]}
-          currentIndex={selPik}
-          totalCount={allPik.length}
+          currentQ={filteredPik[selPikEff] || filteredPik[0]}
+          currentIndex={selPikEff}
+          totalCount={filteredPik.length}
           prog={{ t: audioProg.t, d: audioProg.d, isFile: playerUI.tab === 'piktogram' && playerUI.isFile }}
           onSeek={seekPlayer}
           rate={playRate}
@@ -4314,18 +4428,18 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
           onToggleIncludeMeaning={() => setIncludeMeaning(p => !p)}
           gapCountdown={gapCountdown}
           hideText={hideText}
-          activeSignIdx={selPik}
+          activeSignIdx={selPikEff}
           onPrev={() => {
             if (playerUI.on && playerUI.tab === 'piktogram') stepPlayer(-1);
             else setSelPik(p => Math.max(0, p - 1));
           }}
           onTogglePlay={(itemsList, idx) => {
             if (playerUI.on && playerUI.tab === 'piktogram') pausePlayer();
-            else startPlayer('piktogram', itemsList || allPik, idx ?? selPik, playerMode);
+            else startPlayer('piktogram', itemsList || filteredPik, idx ?? selPikEff, playerMode);
           }}
           onNext={() => {
             if (playerUI.on && playerUI.tab === 'piktogram') stepPlayer(1);
-            else setSelPik(p => Math.min(allPik.length - 1, p + 1));
+            else setSelPik(p => Math.min(filteredPik.length - 1, p + 1));
           }}
           onShuffle={toggleShuffle}
           onRepeat={toggleRepeat}

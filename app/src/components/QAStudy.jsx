@@ -250,9 +250,22 @@ export function QAPlayerDeck({
                     {currentQ.title_ko || currentQ.answer_short_ko || currentQ.question_ko}
                   </h4>
                   {(currentQ.title_id || currentQ.answer_short_id) && (
-                    <p className="text-xs text-muted-foreground truncate">
-                      {currentQ.title_id || currentQ.answer_short_id}
-                    </p>
+                    <div className="flex items-center gap-1.5 mt-0.5">
+                      <p className="text-xs text-muted-foreground truncate flex-1">
+                        {currentQ.title_id || currentQ.answer_short_id}
+                      </p>
+                      {onPlayMeaning && (
+                        <button
+                          type="button"
+                          onClick={(e) => { e.stopPropagation(); onPlayMeaning(currentQ.title_id || currentQ.answer_short_id); }}
+                          className="px-2 py-0.5 rounded text-[11px] font-semibold text-blue-600 dark:text-blue-400 bg-blue-500/10 hover:bg-blue-500/20 border border-blue-500/20 flex items-center gap-1 shrink-0 cursor-pointer transition-colors"
+                          title="Dengar arti rambu / perkakas (ID)"
+                        >
+                          <Volume2 className="h-3 w-3" />
+                          <span>Arti ID</span>
+                        </button>
+                      )}
+                    </div>
                   )}
                 </div>
               </div>
@@ -265,9 +278,22 @@ export function QAPlayerDeck({
                 {currentQ?.question_ko || (currentQ?.category === 'piktogram' ? '이 안전 표지는 무슨 뜻입니까?' : 'Silakan pilih pertanyaan dari daftar di bawah')}
               </h4>
               {currentQ?.question_id && (
-                <p className="text-xs sm:text-sm text-muted-foreground mt-0.5">
-                  Artinya: "{currentQ.question_id}"
-                </p>
+                <div className="flex items-center gap-1.5 mt-0.5">
+                  <p className="text-xs sm:text-sm text-muted-foreground flex-1">
+                    Artinya: "{currentQ.question_id}"
+                  </p>
+                  {onPlayMeaning && (
+                    <button
+                      type="button"
+                      onClick={(e) => { e.stopPropagation(); onPlayMeaning(currentQ.question_id); }}
+                      className="px-2 py-0.5 rounded text-[11px] font-semibold text-blue-600 dark:text-blue-400 bg-blue-500/10 hover:bg-blue-500/20 border border-blue-500/20 flex items-center gap-1 shrink-0 cursor-pointer transition-colors"
+                      title="Dengar arti pertanyaan (ID)"
+                    >
+                      <Volume2 className="h-3 w-3" />
+                      <span>Arti Soal</span>
+                    </button>
+                  )}
+                </div>
               )}
             </div>
 
@@ -367,9 +393,22 @@ export function QAPlayerDeck({
                     </p>
                   )}
                   {(activeOpt?.id || currentQ?.answer_id) && (
-                    <p className="text-xs text-muted-foreground">
-                      {activeOpt?.id || currentQ?.answer_id}
-                    </p>
+                    <div className="flex items-center gap-1.5 pt-0.5">
+                      <p className="text-xs text-muted-foreground flex-1">
+                        {activeOpt?.id || currentQ?.answer_id}
+                      </p>
+                      {onPlayMeaning && (
+                        <button
+                          type="button"
+                          onClick={(e) => { e.stopPropagation(); onPlayMeaning(activeOpt?.id || currentQ?.answer_id); }}
+                          className="px-2 py-0.5 rounded text-[11px] font-semibold text-blue-700 dark:text-blue-300 bg-blue-500/10 hover:bg-blue-500/20 border border-blue-500/20 flex items-center gap-1 shrink-0 cursor-pointer transition-colors"
+                          title="Dengar arti jawaban (ID)"
+                        >
+                          <Volume2 className="h-3 w-3" />
+                          <span>Arti Jawaban</span>
+                        </button>
+                      )}
+                    </div>
                   )}
                 </div>
               </div>

@@ -10,7 +10,17 @@
  */
 
 let currentIndonesianAudio = null;
+let persistentIndonesianAudio = null;
 let isIndonesianAudioCanceled = false;
+
+function getSharedIndonesianAudio() {
+  if (typeof window === 'undefined') return null;
+  if (!persistentIndonesianAudio) {
+    persistentIndonesianAudio = new Audio();
+    persistentIndonesianAudio.referrerPolicy = 'no-referrer';
+  }
+  return persistentIndonesianAudio;
+}
 
 export function getBestKoreanVoice() {
   if (typeof window === 'undefined' || !('speechSynthesis' in window)) return null;
@@ -62,6 +72,15 @@ export function stopTTS() {
       currentIndonesianAudio.onplay = null;
     } catch {}
     currentIndonesianAudio = null;
+  }
+  if (persistentIndonesianAudio) {
+    try {
+      persistentIndonesianAudio.pause();
+      persistentIndonesianAudio.currentTime = 0;
+      persistentIndonesianAudio.onended = null;
+      persistentIndonesianAudio.onerror = null;
+      persistentIndonesianAudio.onplay = null;
+    } catch {}
   }
   if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
     try {
@@ -171,19 +190,27 @@ export function speakIndonesianTTS(text, { speed = 1.0, onStart, onEnd, onError 
     const currentText = chunks[chunkIndex];
     chunkIndex++;
 
+    const audio = getSharedIndonesianAudio() || (typeof Audio !== 'undefined' ? new Audio() : null);
+    if (!audio) {
+      fallbackSpeechSynthesis(clean, { speed, onStart: !hasTriggeredStart ? onStart : null, onEnd, onError });
+      return;
+    }
+
+    currentIndonesianAudio = audio;
+    let fallbackAttempted = false;
+
+    const doFallback = () => {
+      if (fallbackAttempted || isIndonesianAudioCanceled) return;
+      fallbackAttempted = true;
+      currentIndonesianAudio = null;
+      fallbackSpeechSynthesis(clean, { speed, onStart: !hasTriggeredStart ? onStart : null, onEnd, onError });
+    };
+
     try {
-      const url = `https://translate.google.com/translate_tts?ie=UTF-8&tl=id&client=tw-ob&q=${encodeURIComponent(currentText)}`;
-      
-      let audio;
-      if (typeof document !== 'undefined') {
-        audio = document.createElement('audio');
-        audio.referrerPolicy = 'no-referrer';
-        audio.src = url;
-      } else {
-        audio = new Audio(url);
-      }
-      
-      currentIndonesianAudio = audio;
+      audio.pause();
+      audio.currentTime = 0;
+      audio.referrerPolicy = 'no-referrer';
+      audio.src = `https://translate.google.com/translate_tts?ie=UTF-8&tl=id&client=tw-ob&q=${encodeURIComponent(currentText)}`;
       try { audio.playbackRate = speed; } catch {}
 
       audio.onplay = () => {
@@ -200,21 +227,37 @@ export function speakIndonesianTTS(text, { speed = 1.0, onStart, onEnd, onError 
       };
 
       audio.onerror = () => {
-        // Fallback ke Web SpeechSynthesis jika offline / koneksi internet terputus
-        currentIndonesianAudio = null;
-        fallbackSpeechSynthesis(clean, { speed, onStart: !hasTriggeredStart ? onStart : null, onEnd, onError });
+        // Coba endpoint alternatif gtx sebelum fallback ke SpeechSynthesis
+        try {
+          audio.onerror = () => doFallback();
+          audio.src = `https://translate.google.com/translate_tts?ie=UTF-8&tl=id&client=gtx&q=${encodeURIComponent(currentText)}`;
+          const p = audio.play();
+          if (p !== undefined) {
+            p.catch(() => doFallback());
+          }
+        } catch {
+          doFallback();
+        }
       };
 
       const p = audio.play();
       if (p !== undefined) {
         p.catch(() => {
-          currentIndonesianAudio = null;
-          fallbackSpeechSynthesis(clean, { speed, onStart: !hasTriggeredStart ? onStart : null, onEnd, onError });
+          // Jika play promise ditolak, coba endpoint gtx
+          try {
+            audio.onerror = () => doFallback();
+            audio.src = `https://translate.google.com/translate_tts?ie=UTF-8&tl=id&client=gtx&q=${encodeURIComponent(currentText)}`;
+            const p2 = audio.play();
+            if (p2 !== undefined) {
+              p2.catch(() => doFallback());
+            }
+          } catch {
+            doFallback();
+          }
         });
       }
     } catch {
-      currentIndonesianAudio = null;
-      fallbackSpeechSynthesis(clean, { speed, onStart: !hasTriggeredStart ? onStart : null, onEnd, onError });
+      doFallback();
     }
   };
 
