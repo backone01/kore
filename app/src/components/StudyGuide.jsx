@@ -459,6 +459,18 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
   useEffect(() => {
     try { localStorage.setItem('kore_player_include_meaning', String(includeMeaning)); } catch {}
   }, [includeMeaning]);
+
+  const [includeQuestionMeaning, setIncludeQuestionMeaning] = useState(() => {
+    try {
+      return localStorage.getItem('kore_player_include_q_meaning') === 'true';
+    } catch {
+      return false;
+    }
+  });
+
+  useEffect(() => {
+    try { localStorage.setItem('kore_player_include_q_meaning', String(includeQuestionMeaning)); } catch {}
+  }, [includeQuestionMeaning]);
   const [audioSpeed, setAudioSpeed] = useState(() => {
     try {
       const saved = localStorage.getItem('kore_audio_speed');
@@ -1487,6 +1499,7 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
     playDelay,
     includeAnswers,
     includeMeaning,
+    includeQuestionMeaning,
     playerMode,
     audioSpeed
   };
@@ -1569,6 +1582,20 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
     return { url, text: opt.ko || q.answer_ko };
   };
 
+  const resolveQuestionMeaning = (tab, q, idx) => {
+    if (!q) return '';
+    if (tab === 'piktogram') {
+      return q.question_id || 'Apakah arti rambu keselamatan kerja ini?';
+    }
+    if (tab === 'commands') {
+      return q.command_id || q.question_id || '';
+    }
+    if (tab === 'alat') {
+      return q.question_id || 'Apa nama dan fungsi perkakas ini?';
+    }
+    return q.question_id || '';
+  };
+
   const resolveAnswerMeaning = (tab, q, idx) => {
     if (tab === 'commands') {
       return q.action_desc || q.command_id || '';
@@ -1589,6 +1616,50 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
     return opt.id || opt.answer_id || q.answer_short_id || q.answer_full_id || q.answer_id || '';
   };
 
+  const startPlayerGap = () => {
+    const r = playerRef.current;
+    if (!r.on) return;
+    r.step = 'gap';
+    const delay = liveRef.current.playDelay ?? 2;
+    setGapCountdown(delay);
+    syncPlayer();
+
+    if (delay <= 0) {
+      if (liveRef.current.includeAnswers) {
+        playerRef.current.step = 'a';
+        drivePlayer();
+      } else if (liveRef.current.includeMeaning) {
+        playerRef.current.step = 'meaning';
+        drivePlayer();
+      } else {
+        advanceOrStopNext();
+      }
+      return;
+    }
+
+    let rem = delay;
+    r.gapInterval = setInterval(() => {
+      rem -= 1;
+      setGapCountdown(Math.max(0, rem));
+      if (rem <= 0) {
+        if (r.gapInterval) {
+          clearInterval(r.gapInterval);
+          r.gapInterval = null;
+        }
+        if (!playerRef.current.on) return;
+        if (liveRef.current.includeAnswers) {
+          playerRef.current.step = 'a';
+          drivePlayer();
+        } else if (liveRef.current.includeMeaning) {
+          playerRef.current.step = 'meaning';
+          drivePlayer();
+        } else {
+          advanceOrStopNext();
+        }
+      }
+    }, 1000);
+  };
+
   const drivePlayer = () => {
     const r = playerRef.current;
     if (!r.on) return;
@@ -1606,6 +1677,15 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
       r.isFile = !!qAudio;
       syncPlayer();
       playAudio(qAudio, qText, onPlayerStepEnd);
+    } else if (r.step === 'q_meaning') {
+      const qMeaning = resolveQuestionMeaning(r.tab, q, idx);
+      r.isFile = false;
+      syncPlayer();
+      if (qMeaning) {
+        playMeaning(qMeaning, onPlayerStepEnd);
+      } else {
+        startPlayerGap();
+      }
     } else if (r.step === 'a') {
       const { url, text } = resolveAnswerAudio(r.tab, q, idx);
       r.isFile = !!url;
@@ -1657,46 +1737,26 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
   const onPlayerStepEnd = () => {
     const r = playerRef.current;
     if (!r.on) return;
+    const idx = r.order[r.pos];
+    const q = r.items[idx];
+
     if (r.step === 'q') {
-      r.step = 'gap';
-      const delay = liveRef.current.playDelay ?? 2;
-      setGapCountdown(delay);
-      syncPlayer();
-
-      if (delay <= 0) {
-        if (liveRef.current.includeAnswers) {
-          playerRef.current.step = 'a';
-          drivePlayer();
-        } else if (liveRef.current.includeMeaning) {
-          playerRef.current.step = 'meaning';
-          drivePlayer();
-        } else {
-          advanceOrStopNext();
+      if (liveRef.current.includeQuestionMeaning) {
+        const qMeaning = resolveQuestionMeaning(r.tab, q, idx);
+        if (qMeaning) {
+          r.step = 'q_meaning';
+          syncPlayer();
+          r.timer = setTimeout(() => {
+            if (playerRef.current.on && playerRef.current.step === 'q_meaning') {
+              drivePlayer();
+            }
+          }, 350);
+          return;
         }
-        return;
       }
-
-      let rem = delay;
-      r.gapInterval = setInterval(() => {
-        rem -= 1;
-        setGapCountdown(Math.max(0, rem));
-        if (rem <= 0) {
-          if (r.gapInterval) {
-            clearInterval(r.gapInterval);
-            r.gapInterval = null;
-          }
-          if (!playerRef.current.on) return;
-          if (liveRef.current.includeAnswers) {
-            playerRef.current.step = 'a';
-            drivePlayer();
-          } else if (liveRef.current.includeMeaning) {
-            playerRef.current.step = 'meaning';
-            drivePlayer();
-          } else {
-            advanceOrStopNext();
-          }
-        }
-      }, 1000);
+      startPlayerGap();
+    } else if (r.step === 'q_meaning') {
+      startPlayerGap();
     } else if (r.step === 'a') {
       if (liveRef.current.includeMeaning) {
         playerRef.current.step = 'meaning';
@@ -2275,6 +2335,8 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
             onToggleIncludeAnswers={() => setIncludeAnswers(p => !p)}
             includeMeaning={includeMeaning}
             onToggleIncludeMeaning={() => setIncludeMeaning(p => !p)}
+            includeQuestionMeaning={includeQuestionMeaning}
+            onToggleIncludeQuestionMeaning={() => setIncludeQuestionMeaning(p => !p)}
             gapCountdown={gapCountdown}
             hideText={hideText}
             onPrev={() => {
@@ -2515,6 +2577,8 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
             onToggleIncludeAnswers={() => setIncludeAnswers(p => !p)}
             includeMeaning={includeMeaning}
             onToggleIncludeMeaning={() => setIncludeMeaning(p => !p)}
+            includeQuestionMeaning={includeQuestionMeaning}
+            onToggleIncludeQuestionMeaning={() => setIncludeQuestionMeaning(p => !p)}
             gapCountdown={gapCountdown}
             hideText={hideText}
             onPrev={() => {
@@ -2769,6 +2833,8 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
             onToggleIncludeAnswers={() => setIncludeAnswers(p => !p)}
             includeMeaning={includeMeaning}
             onToggleIncludeMeaning={() => setIncludeMeaning(p => !p)}
+            includeQuestionMeaning={includeQuestionMeaning}
+            onToggleIncludeQuestionMeaning={() => setIncludeQuestionMeaning(p => !p)}
             gapCountdown={gapCountdown}
             hideText={hideText}
             onPrev={() => {
@@ -4426,6 +4492,8 @@ export function StudyGuide({ onStartPracticeCategory, onOpenRevisionModal }) {
           onToggleIncludeAnswers={() => setIncludeAnswers(p => !p)}
           includeMeaning={includeMeaning}
           onToggleIncludeMeaning={() => setIncludeMeaning(p => !p)}
+          includeQuestionMeaning={includeQuestionMeaning}
+          onToggleIncludeQuestionMeaning={() => setIncludeQuestionMeaning(p => !p)}
           gapCountdown={gapCountdown}
           hideText={hideText}
           activeSignIdx={selPikEff}

@@ -37,6 +37,8 @@ export function PictogramCatalog({
   onToggleIncludeAnswers,
   includeMeaning = false,
   onToggleIncludeMeaning,
+  includeQuestionMeaning = false,
+  onToggleIncludeQuestionMeaning,
   gapCountdown = 0,
   hideText = false,
   onPrev,
@@ -146,6 +148,8 @@ export function PictogramCatalog({
           onToggleIncludeAnswers={onToggleIncludeAnswers}
           includeMeaning={includeMeaning}
           onToggleIncludeMeaning={onToggleIncludeMeaning}
+          includeQuestionMeaning={includeQuestionMeaning}
+          onToggleIncludeQuestionMeaning={onToggleIncludeQuestionMeaning}
           gapCountdown={gapCountdown}
           hideText={hideText}
           onPrev={onPrev}

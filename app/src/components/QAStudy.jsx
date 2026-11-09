@@ -89,6 +89,8 @@ export function QAPlayerDeck({
   onToggleIncludeAnswers = null,
   includeMeaning = false,
   onToggleIncludeMeaning = null,
+  includeQuestionMeaning = false,
+  onToggleIncludeQuestionMeaning = null,
   gapCountdown = 0,
   hideText = false,
   onToggleCollapse = null,
@@ -122,6 +124,13 @@ export function QAPlayerDeck({
           <span>Mendengarkan Soal (질문)</span>
         </span>
       );
+    } else if (ui.step === 'q_meaning') {
+      statusBadge = (
+        <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-blue-500/15 text-blue-800 dark:text-blue-300 border border-blue-500/30">
+          <SoundWave playing className="text-blue-600 dark:text-blue-400" />
+          <span>Mendengarkan Arti Soal (질문 뜻)</span>
+        </span>
+      );
     } else if (ui.step === 'gap') {
       statusBadge = (
         <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-amber-500/15 text-amber-800 dark:text-amber-300 border border-amber-500/30 animate-pulse">
@@ -137,9 +146,9 @@ export function QAPlayerDeck({
       );
     } else if (ui.step === 'meaning') {
       statusBadge = (
-        <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-blue-500/15 text-blue-800 dark:text-blue-300 border border-blue-500/30">
-          <SoundWave playing className="text-blue-600 dark:text-blue-400" />
-          <span>Mendengarkan Arti (한국어 뜻)</span>
+        <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-emerald-500/15 text-emerald-800 dark:text-emerald-300 border border-emerald-500/30">
+          <SoundWave playing className="text-emerald-600 dark:text-emerald-400" />
+          <span>Mendengarkan Arti Jawaban (답변 뜻)</span>
         </span>
       );
     }
@@ -578,20 +587,37 @@ export function QAPlayerDeck({
             </button>
           )}
 
-          {onToggleIncludeMeaning && (
+          {onToggleIncludeQuestionMeaning && (
             <button
               type="button"
-              onClick={onToggleIncludeMeaning}
-              title={includeMeaning ? 'Putar arti bahasa Indonesia otomatis: Aktif' : 'Putar arti bahasa Indonesia otomatis: Nonaktif'}
+              onClick={onToggleIncludeQuestionMeaning}
+              title={includeQuestionMeaning ? 'Putar arti soal otomatis: Aktif' : 'Putar arti soal otomatis: Nonaktif'}
               className={cn(
                 'inline-flex items-center justify-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-semibold border transition-all min-h-[44px] flex-1 sm:flex-initial cursor-pointer',
-                includeMeaning
+                includeQuestionMeaning
                   ? 'bg-blue-500/15 text-blue-700 dark:text-blue-300 border-blue-500/30'
                   : 'bg-secondary text-muted-foreground border-border hover:bg-secondary/80'
               )}
             >
               <Volume2 className="h-3.5 w-3.5 shrink-0" />
-              <span>{includeMeaning ? 'Arti ID: Aktif' : 'Arti ID: Nonaktif'}</span>
+              <span>{includeQuestionMeaning ? 'Arti Soal: Aktif' : 'Arti Soal: Nonaktif'}</span>
+            </button>
+          )}
+
+          {onToggleIncludeMeaning && (
+            <button
+              type="button"
+              onClick={onToggleIncludeMeaning}
+              title={includeMeaning ? 'Putar arti jawaban otomatis: Aktif' : 'Putar arti jawaban otomatis: Nonaktif'}
+              className={cn(
+                'inline-flex items-center justify-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-semibold border transition-all min-h-[44px] flex-1 sm:flex-initial cursor-pointer',
+                includeMeaning
+                  ? 'bg-emerald-500/15 text-emerald-700 dark:text-emerald-300 border-emerald-500/30'
+                  : 'bg-secondary text-muted-foreground border-border hover:bg-secondary/80'
+              )}
+            >
+              <Volume2 className="h-3.5 w-3.5 shrink-0" />
+              <span>{includeMeaning ? 'Arti Jawaban: Aktif' : 'Arti Jawaban: Nonaktif'}</span>
             </button>
           )}
         </div>
