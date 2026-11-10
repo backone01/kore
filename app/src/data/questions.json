@@ -27705,8 +27705,8 @@
     "question_romaja": "Anjeonbelteuga mueosingayo?",
     "question_id": "Apa itu sabuk pengaman?",
     "image_url": null,
-    "answer_short_ko": "몸이 튕겨 나가지 않게 멥니다.",
-    "answer_short_id": "Dipasang agar badan tidak terlempar keluar.",
+    "answer_short_ko": "몸을 보호하는 안전띠입니다.",
+    "answer_short_id": "Sabuk keselamatan untuk melindungi tubuh.",
     "answer_full_ko": "지게차 운전자가 충돌, 급정지, 넘어짐 등에 의하여 몸이 튕겨 나가는 것을 방지하기 위하여 착용하는 보호장비입니다.",
     "answer_full_id": "Perlengkapan pelindung yang dipakai agar pengemudi forklift tidak terlempar keluar akibat tabrakan, rem mendadak, atau terguling.",
     "title_ko": "안전벨트가 무엇인가요?",
@@ -27724,8 +27724,8 @@
       },
       {
         "label": "Versi 1 (Super Ringkas)",
-        "ko": "몸이 튕겨 나가지 않게 멥니다.",
-        "id": "Dipasang agar badan tidak terlempar keluar.",
+        "ko": "몸을 보호하는 안전띠입니다.",
+        "id": "Sabuk keselamatan untuk melindungi tubuh.",
         "audio": "/audio/tts/options/safety_t11_q02_opt_1.mp3"
       },
       {
@@ -28281,8 +28281,8 @@
     "question_romaja": "Hwajaega mueosinji algo innayo?",
     "question_id": "Tahukah kamu apa itu kebakaran?",
     "image_url": null,
-    "answer_short_ko": "불이 나서 번지는 사고입니다.",
-    "answer_short_id": "Kecelakaan akibat kobaran api yang meluas.",
+    "answer_short_ko": "불이 나는 것입니다.",
+    "answer_short_id": "Terjadinya kebakaran (muncul api).",
     "answer_full_ko": "탈 수 있는 물질이 공기 중의 산소와 불꽃 등을 만나 열과 빛을 내며 타는 것입니다.",
     "answer_full_id": "Peristiwa ketika bahan yang bisa terbakar bertemu oksigen di udara dan percikan api, lalu terbakar menghasilkan panas dan cahaya.",
     "title_ko": "화재가 무엇인지 알고 있나요?",
@@ -28300,8 +28300,8 @@
       },
       {
         "label": "Versi 1 (Super Ringkas)",
-        "ko": "불이 나서 번지는 사고입니다.",
-        "id": "Kecelakaan akibat kobaran api yang meluas.",
+        "ko": "불이 나는 것입니다.",
+        "id": "Terjadinya kebakaran (muncul api).",
         "audio": "/audio/tts/options/safety_t14_q01_opt_1.mp3"
       },
       {
@@ -30105,8 +30105,8 @@
     "question_romaja": "Hwagi chwigeubi mueosingayo?",
     "question_id": "Apa itu menangani alat api?",
     "image_url": null,
-    "answer_short_ko": "불꽃이나 열을 다루는 작업입니다.",
-    "answer_short_id": "Pekerjaan menangani api atau temperatur panas.",
+    "answer_short_ko": "불을 사용하는 것입니다.",
+    "answer_short_id": "Menggunakan api atau sumber panas.",
     "answer_full_ko": "작업 현장에서 불꽃, 불티, 열을 발생시킬 수 있는 모든 기구와 장치입니다.",
     "answer_full_id": "Semua alat dan perangkat yang dapat menghasilkan api, percikan api, atau panas di lokasi kerja.",
     "title_ko": "화기 취급이 무엇인가요?",
@@ -30124,8 +30124,8 @@
       },
       {
         "label": "Versi 1 (Super Ringkas)",
-        "ko": "불꽃이나 열을 다루는 작업입니다.",
-        "id": "Pekerjaan menangani api atau temperatur panas.",
+        "ko": "불을 사용하는 것입니다.",
+        "id": "Menggunakan api atau sumber panas.",
         "audio": "/audio/tts/options/safety_t25_q01_opt_1.mp3"
       },
       {
@@ -30297,8 +30297,8 @@
     "question_romaja": "Hwajaega mueosingayo?",
     "question_id": "Apa itu kebakaran?",
     "image_url": null,
-    "answer_short_ko": "불이 나서 번지는 사고입니다.",
-    "answer_short_id": "Kecelakaan akibat kobaran api yang membesar.",
+    "answer_short_ko": "불이 나는 것입니다.",
+    "answer_short_id": "Terjadinya kebakaran (muncul api).",
     "answer_full_ko": "탈 수 있는 물질이 공기 중의 산소와 불꽃 등을 만나 열과 빛을 내며 타는 것입니다.",
     "answer_full_id": "Peristiwa bahan yang mudah terbakar bertemu oksigen di udara dan api, lalu terbakar sambil mengeluarkan panas dan cahaya.",
     "title_ko": "화재가 무엇인가요?",
@@ -30316,8 +30316,8 @@
       },
       {
         "label": "Versi 1 (Super Ringkas)",
-        "ko": "불이 나서 번지는 사고입니다.",
-        "id": "Kecelakaan akibat kobaran api yang membesar.",
+        "ko": "불이 나는 것입니다.",
+        "id": "Terjadinya kebakaran (muncul api).",
         "audio": "/audio/tts/options/safety_t26_q01_opt_1.mp3"
       },
       {
